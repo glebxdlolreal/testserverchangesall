@@ -2721,7 +2721,7 @@ function checkFrameSize() {
     },
     auth: function() {
       var width = 550;
-      var height = 650;
+      var height = 470;
       var left = Math.max(0, (screen.width - width) / 2) + (screen.availLeft | 0),
           top = Math.max(0, (screen.height - height) / 2) + (screen.availTop | 0);
       function checkClose() {
