@@ -2382,7 +2382,7 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 }
 
 .copy-btn {
-  width: 24px;
+  width: 32px;
   height: 32px;
   background: no-repeat;
   background-image: var(--image-url-copy-new);
@@ -2390,6 +2390,8 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   background-position: center;
   flex-shrink: 0;
   margin: -6px 0;
+  position: relative;
+  bottom: 10px;
 }
 
 .js-revoke-client-secret {
