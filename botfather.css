@@ -1048,6 +1048,10 @@ i.emoji {
   content: none;
 }
 
+.tm-api-token-client-secret .js-spoiler {
+  flex-shrink: 1;
+}
+
 .tm-api-token-actions {
   display: flex;
   justify-content: stretch;
@@ -2384,6 +2388,7 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   background-size: 24px;
   background-position: center;
   flex-shrink: 0;
+  margin: -6px 0;
 }
 
 .js-revoke-client-secret {
