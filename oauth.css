@@ -916,6 +916,44 @@ a:hover .emoji > b {
 }
 
 
+.list-item-radio input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #bfc6ce;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.list-item-radio  input[type="radio"]:focus {
+  outline: none;
+}
+
+
+.list-item-radio input[type="radio"]::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #139af4; /* Telegram Blue */
+  transform: scale(0);
+  transition: transform 0.15s ease-in-out;
+}
+
+.list-item-radio input[type="radio"]:checked {
+  border-color: #139af4;
+}
+
+.list-item-radio input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+
 @view-transition {
   navigation: auto;
 }
