@@ -866,6 +866,29 @@ a:hover .emoji > b {
   animation-timing-function: ease;
 }
 
+
+.list {
+    background: #e8e8e8;
+    width: fit-content;
+    border-radius: 22px;
+    margin: 24px auto;
+}
+
+.list-item {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 4px 12px;
+    min-width: 240px;
+}
+
+.list-item-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 14px;
+}
+
 @view-transition {
   navigation: auto;
 }
