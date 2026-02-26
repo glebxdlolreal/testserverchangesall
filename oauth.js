@@ -571,3 +571,48 @@ function initRipple() {
     })(rippleHandlers[i]);
   }
 }
+
+function getQRSrc(url, callback, nested) {
+  var color = '#000000';
+  var makeImage = function (color, bg_color) {
+    return 'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2253%22%20height%3D%2253%22%20viewBox%3D%220%200%2053%2053%22%20fill%3D%22none%22%3E%3Crect%20width%3D%2252.08%22%20height%3D%2252.08%22%20rx%3D%2226.04%22%20fill%3D%22'+ color + '%22%2F%3E%3Cpath%20d%3D%22M12.6286%2025.7137C19.8384%2022.5732%2024.6449%2020.5025%2027.0482%2019.5022C33.918%2016.6457%2035.3437%2016.1496%2036.2749%2016.133C36.4797%2016.1295%2036.9356%2016.1801%2037.2331%2016.4208C37.4804%2016.6237%2037.55%2016.898%2037.5848%2017.0904C37.6157%2017.2828%2037.6582%2017.7214%2037.6235%2018.0637C37.2525%2021.9739%2035.6413%2031.4626%2034.8222%2035.8422C34.4783%2037.6954%2033.7944%2038.3167%2033.1337%2038.3773C31.6964%2038.5095%2030.6067%2037.4284%2029.2157%2036.5168C27.0404%2035.0899%2025.8118%2034.202%2023.6983%2032.8099C21.2564%2031.201%2022.8405%2030.3166%2024.2315%2028.8715C24.5947%2028.4933%2030.9235%2022.7381%2031.0433%2022.2161C31.0588%2022.1508%2031.0743%2021.9074%2030.9275%2021.7791C30.7845%2021.6505%2030.5719%2021.6945%2030.4173%2021.7293C30.1971%2021.7788%2026.7235%2024.0769%2019.9851%2028.6235C18.9998%2029.3012%2018.1073%2029.6316%2017.3036%2029.6142C16.4227%2029.5952%2014.7227%2029.115%2013.4593%2028.7046C11.9138%2028.2012%2010.6811%2027.935%2010.7893%2027.0799C10.8434%2026.6348%2011.4579%2026.1792%2012.6286%2025.7137Z%22%20fill%3D%22' + bg_color +'%22%2F%3E%3C%2Fsvg%3E';
+  }
+  var image = makeImage('black', 'white');
+  if (window.matchMedia) {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      color = '#ffffff';
+      var image = makeImage('white', '%231a2026');
+    }
+    if (!nested) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+        getQRSrc(url, callback, true);
+      });
+    }
+  }
+
+  var qrCode = new QRCodeStyling({
+    width: 656,
+    height: 656,
+    type: 'canvas',
+    data: url,
+    image: image,
+    backgroundOptions: {
+      color: 'transparent'
+    },
+    dotsOptions: {
+      color: color,
+      type: 'rounded'
+    },
+    cornersSquareOptions: {
+      type: 'extra-rounded'
+    },
+    imageOptions: {
+      imageSize: 0.4,
+      margin: 12,
+    }
+  });
+  qrCode.getRawData('png').then(function(blob) {
+    var qr_url = URL.createObjectURL(blob);
+    callback(qr_url);
+  });
+}
