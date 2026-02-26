@@ -883,6 +883,10 @@ a:hover .emoji > b {
   max-width: 320px;
 }
 
+.list-item:hover {
+  background: #d0d0d026;
+}
+
 .list-item-title {
   font-weight: 500;
   flex-grow: 1;
@@ -940,7 +944,7 @@ a:hover .emoji > b {
   flex-shrink: 0;
 }
 
-.list-item-radio  input[type="radio"]:focus {
+.list-item-radio input[type="radio"]:focus {
   outline: none;
 }
 
