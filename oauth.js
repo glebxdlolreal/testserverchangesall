@@ -17,9 +17,6 @@ function ajax(url, data, callback, fallback) {
         }
       }
     };
-    xhr.onerror = function () {
-      debugger;
-    }
     if (data) {
       xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
       var postdata = [];
