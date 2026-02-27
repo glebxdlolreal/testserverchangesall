@@ -889,8 +889,13 @@ i.icon {
   min-width: 0;
 }
 
-.tm-row:not(.tm-row-no-highlight):hover {
+.tm-row:not(.tm-row-no-highlight,.tm-field):hover {
   background: var(--table-bg-hover-color);
+}
+
+.tm-row.tm-field {
+  padding: 0;
+  border-radius: 0;
 }
 
 .tm-row-link:after {
