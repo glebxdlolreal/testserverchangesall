@@ -258,7 +258,7 @@ var CreateBot = {
 
 var BotProfile = {
   init() {
-    Aj.state.files = {};
+    Aj.state.files ||= {};
     WebApp.MainButton.setText('Update');
     WebApp.MainButton.show();
     WebApp.MainButton.onClick(BotProfile.eMainClick);
@@ -473,7 +473,7 @@ var BotCommandsList = {
     Aj.apiRequest('reorderCommands', { 
       bid: Aj.state.botId,
       lang_code: Aj.state.lang,
-      commands: [], 
+      commands: commands,
     }, (res) => {
       if (res.error) {
         Main.showErrorToast(res.error);
@@ -645,6 +645,15 @@ var BotGeneral = {
 
 var BotSettings = {
   init() {
+    $('.js-add-allowed-url').on('click', function () {
+      var field_type = this.dataset.type;
+      var placeholder = field_type == 'redirect_uri' ? 'Enter redirect URI' : 'Enter origin';
+      debuggger
+      $(this).parents('.tm-row').before(`<div class="tm-row tm-field">
+        <input type="url" class="form-control tm-input" name="allowed_url[]" data-type="${field_type}" placeholder="${placeholder}" autocomplete="off" spellcheck="false" />
+      </div>`);
+    });
+
     $('.tm-row-toggle').on('click', function () {
       var toggleEl = this.querySelector('.tm-toggle');
       var value = toggleEl.classList.toggle('tm-toggle-on');
@@ -724,7 +733,7 @@ var BotSettings = {
         if (res.error) {
           $('.hint-text[data-for=web_login]').text('Domain is invalid').toggleClass('hint-text-error', true);
         } else {
-          $('.hint-text[data-for=web_login]').text('');
+          $('.hint-text[data-for=web_login]').text('').toggleClass('hint-text-error', false);
         }
       })
     }
@@ -810,7 +819,96 @@ var BotSettings = {
       if (Aj.state.blockChecks) return;
       updateBroadcastAdminRights();
     });
+
+    $('.js-spoiler').each(function () {
+      SimpleSpoiler.init(this);
+    });
+    $('body').on('click', '.js-spoiler', BotSettings.eClickSpoiler);
+
+    $('.copy-btn').on('click', function () {
+      navigator.clipboard.writeText(this.dataset.value);
+      Main.showSuccessToast(l('WEB_GENERIC_COPY_SUCCESS'));
+    })
+
+    $('.js-revoke-client-secret').on('click', function () {
+      BotSettings.askRevokeClientSecret();
+    })
+
+    $('.js-migrate-oauth').on('click', function () {
+      BotSettings.askMigrateOauth();
+    });
   },
+
+  eClickSpoiler() {
+    SimpleSpoiler.destroy(this);
+    this.classList.add('js-spoiler-revealed');
+  },
+
+  askMigrateOauth() {
+    WebApp.showPopup({
+      title: l('WEB_LOGIN_MIGRATE_TITLE'),
+      message: l('WEB_LOGIN_MIGRATE_TEXT'),
+      buttons: [
+        {
+          id: 'confirm',
+          text: l('WEB_LOGIN_MIGRATE_CONFIRM_BTN'),
+          type: 'default',
+        },
+        {
+          type: 'cancel',
+        },
+      ]
+    }, (result) => {
+      if (result === 'confirm') {
+        Aj.apiRequest('revokeOIDCClientSecret', {
+          bid: Aj.state.botId,
+        }, (response) => {
+          if (response.error) {
+            Main.showErrorToast(response.error);
+          } 
+          if (response.ok) {
+            window.location.search += '?migrate=1';
+          }
+        });
+      }
+    });
+  },
+
+  askRevokeClientSecret() {
+    WebApp.showPopup({
+      title: l('WEB_CLIENT_SECRET_REVOKE_TITLE'),
+      message: l('WEB_CLIENT_SECRET_REVOKE_TEXT'),
+      buttons: [
+        {
+          type: 'cancel',
+        },
+        {
+          id: 'revoke',
+          text: l('WEB_API_TOKEN_REVOKE_BTN'),
+          type: 'destructive',
+        }
+      ]
+    }, (result) => {
+      if (result === 'revoke') {
+        Aj.apiRequest('revokeOIDCClientSecret', {
+          bid: Aj.state.botId,
+        }, (response) => {
+          if (response.error) {
+            Main.showErrorToast(response.error);
+          } 
+          if (response.ok) {
+            $('.js-spoiler.js-secret-val').html(response.token);
+            $('.copy-btn.js-secret-val').data('value', response.token);
+
+            $('.js-spoiler.js-secret-val').each(function () {
+              SimpleSpoiler.init(this);
+            });
+            Main.showSuccessToast(l('WEB_CLIENT_SECRET_REVOKE_SUCCESS'));
+          }
+        });
+      }
+    });
+  }
 }
 
 var BotSettingsInline = {
