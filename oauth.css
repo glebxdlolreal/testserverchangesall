@@ -1,16 +1,33 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  --header-color: #000000;
+  --link-color: #0088cc;
+  -webkit-font-smoothing: antialiased;
+  font-family: ProductSans, -apple-system, system-ui, sans-serif;
   font-size: 16px;
   margin: 0;
   padding: 0;
   color: #212121;
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --body-bg: #1a2026;
+    --header-color: #ffffff;
+    --text-color: #8794a1;
+    --link-color: #4db2ff;
+    color: #8794a1;
+    font-family: ProductSans, -apple-system, system-ui, sans-serif;
+  }
+}
+
 body.rtl {
   direction: rtl;
 }
 
 a, a:hover {
   color: #1385d8;
+  cursor: pointer;
+  color: var(--link-color);
 }
 a:hover {
   text-decoration: underline;
@@ -52,7 +69,6 @@ textarea.login-form-control,
   border: none;
   height: auto;
   resize: none;
-  border-bottom: 1px solid rgba(0,0,0,.12);
   transition: box-shadow .2s ease, color .2s ease;
 }
 .textfield-item input.form-control::-webkit-input-placeholder {
@@ -92,6 +108,10 @@ main.login {
   position: absolute;
   right: 0;
   top: 0;
+  view-transition-name: login-about;
+}
+::view-transition-group(login-about) {
+  animation: none;
 }
 body.rtl .login_about {
   right: auto;
@@ -197,21 +217,19 @@ body.rtl .logout_wrap {
 .login_telegram_photo_wrap,
 .login_user_photo_wrap {
   display: inline-block;
-  margin: 15px 0;
+  /* margin: 15px 0; */
 }
 .login_telegram_photo_wrap.arrowed,
 .login_user_photo_wrap.arrowed {
-  background: url('data:image/svg+xml,%3Csvg height="50" viewBox="0 0 98 50" width="98" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%234ca3e2" fill-rule="evenodd"%3E%3Cpath d="m91.8 19.5666667 8.5 11.3333333c.331371.4418278.241828 1.0686292-.2 1.4-.1730962.1298221-.3836298.2-.6.2h-17c-.5522847 0-1-.4477153-1-1 0-.2163702.0701779-.4269038.2-.6l8.5-11.3333333c.3313708-.4418278.9581722-.5313709 1.4-.2.0758057.0568542.1431458.1241943.2.2z" transform="matrix(0 1 -1 0 116.5 -65.5)"/%3E%3Cpath d="m40 21h46v8h-46z"/%3E%3C/g%3E%3C/svg%3E') no-repeat 0 -15px;
-  padding-right: 58px;
-}
-.login_user_photo_wrap.arrowed {
-  background-image: url('data:image/svg+xml,%3Csvg height="50" viewBox="0 0 98 50" width="98" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23d6d6d6" fill-rule="evenodd"%3E%3Cpath d="m91.8 19.5666667 8.5 11.3333333c.331371.4418278.241828 1.0686292-.2 1.4-.1730962.1298221-.3836298.2-.6.2h-17c-.5522847 0-1-.4477153-1-1 0-.2163702.0701779-.4269038.2-.6l8.5-11.3333333c.3313708-.4418278.9581722-.5313709 1.4-.2.0758057.0568542.1431458.1241943.2.2z" transform="matrix(0 1 -1 0 116.5 -65.5)"/%3E%3Cpath d="m40 21h46v8h-46z"/%3E%3C/g%3E%3C/svg%3E');
+  margin-right: -8px !important;
+  border: none;
 }
 .login_telegram_photo,
 .login_bot_photo,
 .login_user_photo,
 .login_bot_photo img,
 .login_user_photo img {
+  outline: 3px solid var(--body-bg);
   display: inline-block;
   vertical-align: top;
   width: 50px;
@@ -219,8 +237,9 @@ body.rtl .logout_wrap {
   border-radius: 25px;
 }
 .login_telegram_photo {
-  background: url('data:image/svg+xml,%3Csvg height="50" viewBox="0 0 50 50" width="50" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Ccircle cx="25" cy="25" fill="%234ca3e2" r="25"/%3E%3Cpath d="m11.1838302 25.1315363c7.1532767-2.9934727 11.9232482-4.9669531 14.3099145-5.9204412 6.8144173-2.7224024 8.2303949-3.1953128 9.1533092-3.2109286.2029865-.0034345.6568489.0448847.950842.2740174.2482419.1934752.3165432.4548327.3492276.6382684.0326843.1834358.0733842.601307.0410309.9278195-.3692757 3.7267611-1.9671255 12.7706276-2.7800209 16.944664-.3439665 1.7661912-1.026197 2.1442046-1.6818831 2.2021587-1.4249578.1259476-2.5020563-.6903349-3.8821976-1.5593016-2.1596487-1.3597614-3.7791851-2.1170303-5.8754981-3.4439062-2.4226524-1.5334347-.2908188-2.3906915 1.0898437-3.7680664.361326-.3604656 6.7509766-6.1621094 6.8215001-6.027668.0306372.0584048-.192813-.6844486-.3362893-.8069372-.1434762-.1224887-.3552347-.0806023-.5080456-.0472897-.2166048.0472195-3.6666715 2.2375171-10.3502001 6.5708928-.97929.6458958-1.8663004.9605979-2.6610313.9441063-.876127-.0181806-2.561444-.4758095-3.814304-.8669794-1.5366837-.4797857-2.10392683-.7057418-1.9975768-1.5205665.0553937-.4244111.4458533-.8676919 1.1713788-1.3298423z" fill="%23fff"/%3E%3C/g%3E%3C/svg%3E') no-repeat 0 0;
-  margin: -15px 0;
+  background: url('data:image/svg+xml,%3Csvg height="50" viewBox="0 0 50 50" width="50" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Ccircle cx="25" cy="25" fill="%23119AF5" r="25"/%3E%3Cpath d="m11.1838302 25.1315363c7.1532767-2.9934727 11.9232482-4.9669531 14.3099145-5.9204412 6.8144173-2.7224024 8.2303949-3.1953128 9.1533092-3.2109286.2029865-.0034345.6568489.0448847.950842.2740174.2482419.1934752.3165432.4548327.3492276.6382684.0326843.1834358.0733842.601307.0410309.9278195-.3692757 3.7267611-1.9671255 12.7706276-2.7800209 16.944664-.3439665 1.7661912-1.026197 2.1442046-1.6818831 2.2021587-1.4249578.1259476-2.5020563-.6903349-3.8821976-1.5593016-2.1596487-1.3597614-3.7791851-2.1170303-5.8754981-3.4439062-2.4226524-1.5334347-.2908188-2.3906915 1.0898437-3.7680664.361326-.3604656 6.7509766-6.1621094 6.8215001-6.027668.0306372.0584048-.192813-.6844486-.3362893-.8069372-.1434762-.1224887-.3552347-.0806023-.5080456-.0472897-.2166048.0472195-3.6666715 2.2375171-10.3502001 6.5708928-.97929.6458958-1.8663004.9605979-2.6610313.9441063-.876127-.0181806-2.561444-.4758095-3.814304-.8669794-1.5366837-.4797857-2.10392683-.7057418-1.9975768-1.5205665.0553937-.4244111.4458533-.8676919 1.1713788-1.3298423z" fill="%23fff"/%3E%3C/g%3E%3C/svg%3E') no-repeat 0 0;
+  /* margin: -15px 0; */
+  background-size: 100%;
 }
 body.rtl .login_telegram_photo_wrap.arrowed,
 body.rtl .login_telegram_photo_wrap.arrowed .login_telegram_photo,
@@ -238,7 +257,7 @@ body.rtl .login_user_photo_wrap.arrowed .login_user_photo {
   font-size: 24px;
   line-height: 52px;
   color: #fff;
-  background: #e57979;
+  background: #f05858;
   overflow: hidden;
 }
 .login_bot_photo:before,
@@ -258,37 +277,59 @@ body.rtl .login_user_photo_wrap.arrowed .login_user_photo {
 .login_photos_large .login_bot_photo,
 .login_photos_large .login_user_photo,
 .login_photos_large .login_bot_photo img,
-.login_photos_large .login_user_photo img {
-  width: 60px;
-  height: 60px;
+.login_photos_large .login_user_photo img,
+.login_photos_large .login_telegram_photo{
+  width: 64px;
+  height: 64px;
   border-radius: 30px;
 }
 .login_photos_large .login_bot_photo,
 .login_photos_large .login_user_photo {
   font-size: 29px;
-  line-height: 62px;
+  line-height: 64px;
 }
 .login_photos_large .login_user_photo_wrap {
   background-position: 10px -15px;
-  margin: 20px 0;
+  /* margin: 20px 0; */
 }
 .login_photos_large .login_user_photo {
   margin: -20px 0;
 }
 .login_header_text {
   font-weight: 500;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   line-height: 21px;
+  font-size: 22px;
+  color: var(--header-color);
 }
 .login_confirm_text {
   font-size: 15px;
   line-height: 21px;
+  max-width: 320px;
+  margin: 0 auto;
+  text-wrap: pretty;
 }
 .login_confirm_text b {
   font-weight: 500;
 }
 .login_confirm_text + .login_confirm_text {
   margin-top: 4px;
+}
+.sub-button-text {
+  view-transition-name: qwr;
+  margin-bottom: 27px;
+    font-size: 14px;
+  margin-top: -8px;
+}
+.sub-button-text a::after {
+  content: " ";
+  --image-url-link-more: url('data:image/svg+xml,%3Csvg%20height%3D%2223%22%20viewBox%3D%220%200%2012%2023%22%20width%3D%2212%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m%206%208%20l%204.15%204.12%20c%200.19%200.19%200.19%200.51%200%200.7%20l%20-4.15%204.18%22%20fill%3D%22none%22%20stroke%3D%22%231385d8%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%222%22%2F%3E%3C%2Fsvg%3E');
+  background: var(--image-url-link-more) no-repeat;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  background-size: 18px 18px;
+  background-position: -2px 3px;
 }
 .login_confirm_form_group {
   margin: 25px 0;
@@ -305,12 +346,20 @@ body.rtl .login_user_photo_wrap.arrowed .login_user_photo {
   max-width: 530px;
   margin: 0 auto;
 }
-.login_content_request {
+.login_content {
   padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
-.login_content_request .login_button_wrap {
-  padding-top: 25px;
+
+@media(max-width: 720px) {
+  .login_content {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
 }
+
 .login_form_group {
   width: 270px;
   margin: 25px auto 35px;
@@ -333,7 +382,6 @@ body.rtl .login_user_photo_wrap.arrowed .login_user_photo {
   line-height: 19px;
   min-height: 19px;
   margin: 7px 0 -19px;
-  color: #777;
   text-align: center;
   left: -68px;
   right: 0;
@@ -350,7 +398,7 @@ body.rtl .login_user_photo_wrap.arrowed .login_user_photo {
   display: block;
 }
 .login_code_field_wrap {
-  width: 56px;
+  width: 60px;
   margin-right: 12px;
   display: inline-block;
   vertical-align: top;
@@ -377,7 +425,7 @@ body.rtl .login_user_photo_wrap.arrowed .login_user_photo {
   content: '';
   float: right;
   display: inline-block;
-  margin: 16px 10px 0;
+  margin: 21px 16px 0;
   width: 14px;
   height: 9px;
   background: url(/img/oauth/icons.png) no-repeat -3px -29px;
@@ -413,16 +461,25 @@ body.rtl .login_country_field_wrap:before {
   opacity: 0;
 }
 .login_country_select {
-  border-bottom: 1px solid #e6e6e6;
+  /*border-bottom: 1px solid #e6e6e6;*/
+  outline: 1px solid rgba(168, 179, 191, .2);
+  border-radius: 50px;
   display: block;
   font-family: "Helvetica","Arial",sans-serif;
   margin: 0;
   padding: 4px 0;
   width: 100%;
   text-align: left;
-  color: #ccc;
   cursor: pointer;
   position: relative;
+  height: 48px;
+}
+div#login-country-selected {
+  padding: 13px 20px;
+  color: var(--header-color);
+}
+.login_country_field_wrap {
+  margin-bottom: 14px;
 }
 body.rtl .login_country_select {
   text-align: right;
@@ -433,8 +490,9 @@ body.rtl .login_country_select {
 .login_country_search_results {
   position: absolute;
   width: 290px;
-  margin: -2px -10px;
-  background: #fff;
+  margin: 4px -10px;
+  background: var(--body-bg);
+  border-radius: 12px;
   text-align: left;
   padding: 7px 0;
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, .15);
@@ -444,23 +502,26 @@ body.rtl .login_country_select {
   -webkit-overflow-scrolling: touch;
   z-index: 7;
 }
+#login-country-search {
+  padding: 13px 20px;
+}
 body.rtl .login_country_search_results {
   text-align: right;
 }
 .login_country_search_result,
 .login_country_search_noresult {
+  color: var(--header-color);
   font-size: 14px;
   line-height: 18px;
   padding: 4px 12px;
   cursor: pointer;
 }
 .login_country_search_result.selected {
-  background: #f2f2f2;
+  background: #f2f2f222;
 }
 .login_country_search_result .prefix {
   font-size: 13px;
   line-height: 16px;
-  color: #a8a8a8;
   padding: 0 8px;
 }
 .login_country_search_noresult {
@@ -478,6 +539,10 @@ body.rtl .login_country_search_results {
 .login_country_select,
 .login_form_group input.form-control {
   padding: 10px 0;
+  color: var(--header-color);
+}
+#login-phone-code {
+  padding: 10px 0 10px 20px;
 }
 .login_form_group input.form-control:focus {
   outline: none;
@@ -497,20 +562,42 @@ body.rtl .login_country_search_results {
   text-align: left;
   z-index: -1;
 }
+.textfield-item-underline {
+  display: none;
+}
+.textfield-item input.form-control, .form-control-dropdown-select {
+  border-bottom: none;
+}
+.textfield-item-error, .form-control {
+  background: var(--body-bg);
+}
 .login_phone_field_wrap {
-  padding-top: 10px;
+  border-radius: 100px;
+  outline: 1px solid rgba(168, 179, 191, .2);
   direction: ltr;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  height: 48px;
+}
+.login_phone_field_wrap:has(.is-invalid) {
+  outline: 1.5px solid #d33737;
+}
+.login_phone_field_wrap:focus-within {
+  outline: 1.5px solid #0a93d8;
+}
+.login_country_search_wrap {
+  outline: 1.5px solid #0a93d8;
+  border-radius: 24px;
 }
 .login_phone_field {
   font-weight: 500;
-  color: #222;
+  color: var(--header-color);
   direction: ltr;
 }
 .login_phone_invalid {
   margin-left: 10px;
   font-size: 13px;
-  position: absolute;
-  right: 0;
 }
 body.rtl .login_phone_invalid {
   margin-right: 10px;
@@ -519,31 +606,35 @@ body.rtl .login_phone_invalid {
   left: 0;
 }
 
-
-.login_button_wrap button + button {
-  margin-left: 10px;
-}
 body.rtl .login_button_wrap button + button {
   margin-right: 10px;
   margin-left: 0;
 }
+
+.textfield-item.is-invalid input.form-control {
+  border: none;
+}
 .login_button_wrap {
-  margin-top: 25px;
+  margin-top: auto;
+  padding-top: 75px;
   padding-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
 }
 .login_button_wrap + .login_button_wrap {
   margin-top: 15px;
 }
-#login-form .login_button_wrap {
+/*#login-form .login_button_wrap {
   padding-top: 24px;
-}
+}*/
 .logout_button {
+  display: block;
   font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
 }
-<<<<<<< Updated upstream
-=======
 .button-item-label.to-telegram-button {
   text-transform: none;
   font-weight: 500;
@@ -906,4 +997,3 @@ a:hover .emoji > b {
 @view-transition {
   navigation: auto;
 }
->>>>>>> Stashed changes
