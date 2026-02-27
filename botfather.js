@@ -648,7 +648,8 @@ var BotSettings = {
     $('.js-add-allowed-url').on('click', function () {
       var field_type = this.dataset.type;
       var placeholder = field_type == 'redirect_uri' ? 'Enter redirect URI' : 'Enter origin';
-      $(this).parents('.tm-table-wrap').prepend(`<div class="tm-row tm-field">
+      debuggger
+      $(this).parents('.tm-row').before(`<div class="tm-row tm-field">
         <input type="url" class="form-control tm-input" name="allowed_url[]" data-type="${field_type}" placeholder="${placeholder}" autocomplete="off" spellcheck="false" />
       </div>`);
     });
