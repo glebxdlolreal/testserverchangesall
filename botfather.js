@@ -724,7 +724,8 @@ var BotSettings = {
     $('body').on('change', 'input[name="allowed_url[]"]', function () {
       var inputAllowedUrls = [];
       $('input[name="allowed_url[]"]').each(function () {
-        inputAllowedUrls.push({type: this.dataset.type, url: this.value})
+        var url = URL.parse(this.value)?.href || this.value;
+        inputAllowedUrls.push({type: this.dataset.type, url: url})
       });
       Aj.apiRequest('setAllowedUrls', {
         allowed_urls: inputAllowedUrls,
