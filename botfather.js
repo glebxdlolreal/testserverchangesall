@@ -721,6 +721,10 @@ var BotSettings = {
       Aj.state.privacyUrlDebounce(submitPrivacy, 0);
     });
 
+    $('body').on('change', 'input[name="allowed_url[]"]', function () {
+      console.log(this);
+    });
+
     Aj.state.webLoginDebounce = debounce();
     function submitWebLogic() {
       var val = $('input[name=web_login]').val();
