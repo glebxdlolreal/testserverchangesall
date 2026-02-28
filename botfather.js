@@ -647,10 +647,9 @@ var BotSettings = {
   init() {
     $('.js-add-allowed-url').on('click', function () {
       var field_type = this.dataset.type;
-      var placeholder = field_type == 'redirect_uri' ? 'Enter redirect URI' : 'Enter origin';
-      debugger;
-      $(this).parents('.tm-dropdown').before(`<div class="tm-row tm-field">
-        <input type="url" class="form-control tm-input" name="allowed_url[]" data-type="${field_type}" placeholder="${placeholder}" autocomplete="off" spellcheck="false" />
+      var container = field_type == 'redirect_uri' ? '.js-redirect-uris' : '.js-trusted-origins';
+      $(container).append(`<div class="tm-row tm-field">
+        <input type="url" class="form-control tm-input" name="allowed_url[]" data-type="${field_type}" placeholder="Enter URL" autocomplete="off" spellcheck="false" />
         <span class="icon-before icon-delete-item js-delete-allowed-url"></span>
       </div>`);
     });

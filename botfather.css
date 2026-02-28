@@ -735,9 +735,13 @@ i.icon {
   transition: visibility var(--def-transition), opacity var(--def-transition);
 }
 
+.tm-row-group-hide-empty:not(:has(.tm-row)) {
+  display: none;
+}
+
 .tm-row-group-header {
   padding: 8px 14px 0px;
-  background: color(srgb 0.1263 0.1618 0.1954);
+  background: var(--header-bg-color);
 }
 
 .tm-search-loading {
