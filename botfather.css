@@ -254,7 +254,7 @@ i.icon {
 .form-control-wrap {
   display: flex;
   border-radius: var(--def-border-radius);
-  background: var(--field-bg-color);
+  background: var(--header-bg-color);
   position: relative;
 }
 .form-control {
@@ -735,8 +735,11 @@ i.icon {
   transition: visibility var(--def-transition), opacity var(--def-transition);
 }
 
-.tm-row-group-hide-empty:not(:has(.tm-row)) {
+.tm-row-group-hide-empty {
   display: none;
+}
+.tm-row-group-hide-empty:has(.tm-row) {
+  display: block;
 }
 
 .tm-row-group-header {
