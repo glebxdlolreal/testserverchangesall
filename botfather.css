@@ -734,6 +734,12 @@ i.icon {
   cursor: pointer;
   transition: visibility var(--def-transition), opacity var(--def-transition);
 }
+
+.tm-row-group-header {
+  padding: 8px 14px 0px;
+  background: color(srgb 0.1263 0.1618 0.1954);
+}
+
 .tm-search-loading {
   visibility: hidden;
   opacity: 0;
@@ -763,6 +769,13 @@ i.icon {
   width: 18px;
   height: 18px;
   background-image: var(--image-url-main-search-clear);
+}
+.icon-delete-item {
+  width: 22px;
+  height: 22px;
+  background-image: var(--image-url-main-search-clear);
+  margin: 12px;
+  background-size: 100%;
 }
 .tm-main-search-form .icon-search-error:before {
   width: 20px;
