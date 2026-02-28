@@ -722,7 +722,16 @@ var BotSettings = {
     });
 
     $('body').on('change', 'input[name="allowed_url[]"]', function () {
-      console.log(this);
+      var inputAllowedUrls = [];
+      $('input[name="allowed_url[]"]').each(function () {
+        inputAllowedUrls.push({type: this.dataset.type, url: this.value})
+      });
+      Aj.apiRequest('setAllowedUrls', {
+        allowed_urls: inputAllowedUrls,
+        bid: Aj.state.botId,
+      }, res => {
+
+      })
     });
 
     Aj.state.webLoginDebounce = debounce();
