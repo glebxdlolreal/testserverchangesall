@@ -516,7 +516,7 @@ body.rtl .login_country_search_results {
   cursor: pointer;
 }
 .login_country_search_result.selected {
-  background: #f2f2f222;
+  background: #b1b6bd21;
 }
 .login_country_search_result .prefix {
   font-size: 13px;
@@ -644,6 +644,9 @@ body.rtl .login_button_wrap button + button {
   padding: 15px 30px;
   border-radius: 100px;
   background-color: #119AF5;
+  text-transform: none;
+  font-weight: 600;
+  font-size: 17px;
 }
 .sub-button-text a:hover {
   text-decoration: none;
@@ -781,11 +784,11 @@ body.rtl .login_button_wrap button + button {
   width: 60px;
   height: 60px;
   margin: 28px auto;
-  background: #58c7ff33;
   line-height: 44px;
   font-size: 28px;
   font-weight: 500;
   color: #0688c9;
+  border: #80a7bb3d 3px solid;
   border-radius: 50px;
   padding: 10px;
   display: flex;
@@ -794,7 +797,7 @@ body.rtl .login_button_wrap button + button {
 }
 
 .match-code.match-code-timed {
-  background: none;
+  border: none;
   position: relative;
   padding: 14px;
 }
