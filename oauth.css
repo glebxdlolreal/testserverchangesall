@@ -342,13 +342,10 @@ body.rtl .login_user_photo_wrap.arrowed .login_user_photo {
   color: #999;
 }
 .login_content {
-  padding: 40px 20px 30px;
+  padding: 20px;
   text-align: center;
   max-width: 530px;
   margin: 0 auto;
-}
-.login_content {
-  padding-top: 60px;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -615,9 +612,10 @@ body.rtl .login_button_wrap button + button {
 .textfield-item.is-invalid input.form-control {
   border: none;
 }
+.login_flow {
+  margin: auto;
+}
 .login_button_wrap {
-  margin-top: auto;
-  padding-top: 75px;
   padding-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
