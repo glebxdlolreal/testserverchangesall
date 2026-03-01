@@ -1,7 +1,7 @@
 var Main = {
   init(api_hash = null) {
     if (api_hash) {
-      Aj.apiUrl = '/botfather/api?hash=xieworld_vf' + api_hash;
+      Aj.apiUrl = '/botfather/api?hash=' + api_hash;
     }
     Main.initOnce();
     Aj.viewTransition = true;

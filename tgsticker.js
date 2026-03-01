@@ -116,7 +116,7 @@ var RLottie = (function () {
       if (!apiInitStarted) {
         console.log(dT(), 'tgsticker init');
         apiInitStarted = true;
-        QueryableWorkerProxy.init('/js/tgsticker-worker.js?xieworld_vf', rlottie.WORKERS_LIMIT, function() {
+        QueryableWorkerProxy.init('/js/tgsticker-worker.js?14', rlottie.WORKERS_LIMIT, function() {
           apiInited = true;
           for (var i = 0; i < initCallbacks.length; i++) {
             initCallbacks[i]();
