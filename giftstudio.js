@@ -155,7 +155,7 @@ var Main = {
     let upgradeListHtml = Object.entries(Aj.state.actions).map(([k,v], i) => {
       if (v !== 'to_upgrade') return '';
       return `<div class="gs-rollout-upgrade-row">
-        <img src="/emoji/${cols[k].giftData.sticker}.webp?xieworld_vf">
+        <img src="/emoji/${cols[k].giftData.sticker}.webp">
         <div class="rollout-upgrade-row-title">
           <div><b>${cols[k]?.title}</b></div>
           <div>${cols[k]?.slug}</div>
@@ -176,7 +176,7 @@ var Main = {
     let craftListHtml = Object.entries(Aj.state.actions).map(([k,v], i) => {
       if (v !== 'to_craft') return '';
       return `<div class="gs-rollout-upgrade-row">
-        <img src="/emoji/${cols[k].giftData.sticker}.webp?xieworld_vf">
+        <img src="/emoji/${cols[k].giftData.sticker}.webp">
         <div class="rollout-upgrade-row-title">
           <div><b>${cols[k]?.title}</b></div>
           <div>${cols[k]?.slug}</div>
@@ -601,7 +601,7 @@ var Gift = {
     let html = new_docs.map((doc_id, i) => {
       var prob = new_skins[doc_id].chance || (i < count_low ? low_price : high_price);
       return `<div class="skins-row" id="skin-${doc_id}">
-        <img src="/emoji/${doc_id}.webp?xieworld_vf">
+        <img src="/emoji/${doc_id}.webp">
       <input placeholder="Name ${i}" class="skin-row-name" name="${data_key}[${doc_id}][name]" value="${new_skins[doc_id].name}">
       <span class="skin-row-badge"></span>
       <label class="skin-row-prob">

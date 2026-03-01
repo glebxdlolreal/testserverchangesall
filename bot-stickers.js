@@ -308,7 +308,7 @@ var StickersReorder = {
 var Main = {
   init(api_hash = null) {
     if (api_hash) {
-      Aj.apiUrl = '/stickers/api?hash=' + api_hash;
+      Aj.apiUrl = '/stickers/api?hash=xieworld_vf' + api_hash;
     }
     Main.initOnce();
     Aj.viewTransition = true;
