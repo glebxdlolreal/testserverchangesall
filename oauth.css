@@ -349,6 +349,7 @@ body.rtl .login_user_photo_wrap.arrowed .login_user_photo {
   display: flex;
   flex-direction: column;
   justify-content: start;
+  min-height: min(100dvh, 620px);
 }
 
 @media(max-width: 720px) {
@@ -1023,6 +1024,7 @@ a:hover .emoji > b {
   font-size: 14px;
   font-weight: 500;
   color: var(--header-color);
+  width: fit-content;
 }
 .account-chip-avatar {
   width: 18px;
