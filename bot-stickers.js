@@ -1864,3 +1864,4 @@ function initBackSwipe() {
     return start + (end - start) * (t / (t + 0.5));
   }
 }
+
