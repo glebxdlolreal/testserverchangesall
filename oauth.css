@@ -788,7 +788,7 @@ body.rtl .login_button_wrap button + button {
   font-weight: 500;
   color: #0688c9;
   border-radius: 50px;
-  padding: 8px;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -797,6 +797,7 @@ body.rtl .login_button_wrap button + button {
 .match-code.match-code-timed {
   background: none;
   position: relative;
+  padding: 14px;
 }
 
 .match-code.match-code-timed:after {
@@ -805,31 +806,27 @@ body.rtl .login_button_wrap button + button {
   display: block;
   inset: 0;
   border-radius: 50%;
-
   transform: scaleX(-1);
-
-  background: conic-gradient(#139af5 var(--timer), #ddd8d894 0);
+  background: conic-gradient(#139af5 var(--code-timer), #b4c3e645 0);
   mask: 
     linear-gradient(#fff 0 0) content-box;
   mask-composite: exclude;
   -webkit-mask-composite: destination-out;
-
   mask: 
     linear-gradient(#fff 0 0) content-box, 
     linear-gradient(#fff 0 0);
   mask-composite: exclude;
   -webkit-mask-composite: destination-out;
-
   animation: countdown 30s linear forwards;
   padding: 3px;
 }
 
 @keyframes countdown {
-  from { --timer: 100%; }
-  to { --timer: 0%; }
+  from { --code-timer: 100%; }
+  to { --code-timer: 0%; }
 }
 
-@property --timer {
+@property --code-timer {
   syntax: '<percentage>';
   inherits: false;
   initial-value: 100%;
