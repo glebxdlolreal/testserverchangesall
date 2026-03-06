@@ -743,6 +743,7 @@ var BotSettings = {
         if (res.error) {
           $('.hint-text[data-for=web_login]').text('Domain is invalid').toggleClass('hint-text-error', true);
         } else {
+          $('.js-migrate-oauth-section').toggleClass('hidden', !!val);
           $('.hint-text[data-for=web_login]').text('').toggleClass('hint-text-error', false);
         }
       })
