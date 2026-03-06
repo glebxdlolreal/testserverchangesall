@@ -727,6 +727,9 @@ var BotSettings = {
     });
 
     $('body').on('change', 'input[name="allowed_url[]"]', BotSettings.updateAllowedUrls);
+    $('body').on('input', 'input[name="allowed_url[]"]', function () {
+      $(this).removeClass('error');
+    });
 
     Aj.state.webLoginDebounce = debounce();
     function submitWebLogic() {
