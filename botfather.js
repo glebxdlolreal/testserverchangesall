@@ -854,7 +854,7 @@ var BotSettings = {
     });
 
     var reqNumber = (Aj.state.allowedUrlsReq || 0) + 1;
-    Aj.state.allowedUrlsReq = req_number;
+    Aj.state.allowedUrlsReq = reqNumber;
 
     Aj.apiRequest('setAllowedUrls', {
       allowed_urls: inputAllowedUrls,
@@ -864,7 +864,12 @@ var BotSettings = {
         return;
       }
       if (res.allowed_urls) {
-        
+        $('input[name="allowed_url[]"]').each(function (i) {
+          this.value = res.allowed_urls[i].url;
+          if (res.allowed_urls[i].error) {
+            $(this).addClass('error');
+          }
+        })
       }
     })
   },
