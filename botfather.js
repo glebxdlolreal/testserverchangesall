@@ -869,7 +869,7 @@ var BotSettings = {
       }
       if (res.allowed_urls) {
         $('input[name="allowed_url[]"]').each(function (i) {
-          this.value = res.allowed_urls[i].url;
+          $(this).val(res.allowed_urls[i].url);
           if (res.allowed_urls[i].error) {
             $(this).addClass('error');
           }
