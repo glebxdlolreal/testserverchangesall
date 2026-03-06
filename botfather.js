@@ -852,11 +852,20 @@ var BotSettings = {
       var url = URL.parse(this.value)?.href || this.value;
       inputAllowedUrls.push({type: this.dataset.type, url: url})
     });
+
+    var reqNumber = (Aj.state.allowedUrlsReq || 0) + 1;
+    Aj.state.allowedUrlsReq = req_number;
+
     Aj.apiRequest('setAllowedUrls', {
       allowed_urls: inputAllowedUrls,
       bid: Aj.state.botId,
     }, res => {
-
+      if (reqNumber != Aj.state.allowedUrlsReq) {
+        return;
+      }
+      if (res.allowed_urls) {
+        
+      }
     })
   },
 
