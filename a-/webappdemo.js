@@ -856,11 +856,11 @@ var DemoApp = {
       $('#prev_activity').html(', <br>previously was active for <b>' + Math.round(prevDuration / 1000) + '</b> sec');
     }
   },
-  requesteBotCreate: function() {
+  requesteBotCreate: function(btn, type) {
     $('button').prop('disabled', true);
     $('#btn_status').text('Sending...').removeClass('ok err').show();
     DemoApp.apiRequest('requestBotCreate', {
-      type: 'bot',
+      type: type,
     }, function(result) {
       $('button').prop('disabled', false);
       if (result.response) {
