@@ -8,7 +8,7 @@
     <meta name="MobileOptimized" content="176" />
     <meta name="HandheldFriendly" content="True" />
     <meta name="robots" content="noindex,nofollow" />
-    <script src="https://a-tgme.stel.com/js/telegram-web-app-beta.js?0"></script>
+    <script src="https://i-tgme.stel.com/js/telegram-web-app-beta.js?0"></script>
     <script>
       function setThemeClass() {
         document.documentElement.className = Telegram.WebApp.colorScheme;
@@ -17,8 +17,8 @@
       setThemeClass();
       
     </script>
-    <link href="https://a-tgme.stel.com/css/bootstrap.min.css?0" rel="stylesheet">
-    <link href="https://a-tgme.stel.com/css/bootstrap-extra.css?0" rel="stylesheet">
+    <link href="https://i-tgme.stel.com/css/bootstrap.min.css?0" rel="stylesheet">
+    <link href="https://i-tgme.stel.com/css/bootstrap-extra.css?0" rel="stylesheet">
     <link href="/css/webappdemo.css?0" rel="stylesheet">
   </head>
   <body class="" style="visibility: hidden;">
@@ -38,6 +38,9 @@
   <button onclick="DemoApp.toggleSwipeBehavior(this);">Disable Vertical Swypes</button>
   <button id="fullscreen_btn" onclick="DemoApp.toggleFullscreen(this);">Request Fullscreen</button>
   <button id="orient_btn" onclick="DemoApp.toggleOrientationLock(this);">Lock Orientation</button>
+  <button id="create_bot" onclick="DemoApp.requesteBotCreate(this, 'bot');">Request Managed Bot</button>
+  <button id="create_bot" onclick="DemoApp.requesteBotCreate(this, 'channel');">Request Admined Channel</button>
+  <button id="create_bot" onclick="DemoApp.requesteBotCreate(this, 'user');">Request User</button>
   <input type="text" placeholder="Input text in regular input..." />
   <div class="input" contenteditable="true" data-placeholder="Input text in contenteditable field..."></div>
   <button onclick="Telegram.WebApp.hideKeyboard();">Hide Keyboard</button>
@@ -284,7 +287,7 @@
   <div class="viewport-border"></div>
   <div class="viewport-stable-border"></div>
     <script src="/js/jquery.min.js"></script>
-    <script src="https://a-tgme.stel.com/js/bootstrap.min.js"></script>
+    <script src="https://i-tgme.stel.com/js/bootstrap.min.js"></script>
     <script src="/js/webappdemo.js?0"></script>
     <script>DemoApp.apiUrl = "/demo2/api";
 
