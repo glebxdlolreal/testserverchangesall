@@ -3381,7 +3381,7 @@
   WebView.onEvent('prepared_message_sent', onPreparedMessageSent);
   WebView.onEvent('prepared_message_failed', onPreparedMessageFailed);
   WebView.onEvent('requested_chat_sent', onRequestedChatSent);
-  WebView.onEvent('requestes_chat_failed', onRequestedChatFailed);
+  WebView.onEvent('requested_chat_failed', onRequestedChatFailed);
   WebView.onEvent('emoji_status_set', onEmojiStatusSet);
   WebView.onEvent('emoji_status_failed', onEmojiStatusFailed);
   WebView.onEvent('emoji_status_access_requested', onEmojiStatusAccessRequested);
