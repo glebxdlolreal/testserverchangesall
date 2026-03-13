@@ -53,7 +53,7 @@
   // Telegram apps will implement this logic to add service params (e.g. tgShareScoreUrl) to game URL
   function urlAppendHashParams(url, addHash) {
     // url looks like 'https://game.com/path?query=1#hash'
-    // addHash looks like 'tgShareScoreUrl=' + encodeURIComponent('tgb://share_game_score?hash=very_long_hash123')
+    // addHash looks like 'tgShareScoreUrl=' + encodeURIComponent('tgb://share_game_score?hash=xieworld_vf_long_hash123')
 
     var ind = url.indexOf('#');
     if (ind < 0) {
