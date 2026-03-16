@@ -3275,7 +3275,7 @@
     };
     WebView.postEvent('web_app_send_prepared_message', false, {id: msg_id});
   };
-  WebApp.requestChat = function (requestId, callback) {
+  WebApp.requestChat = function (req_id, callback) {
     if (!versionAtLeast('9.5')) {
     // if (!versionAtLeast('9.6')) {
       console.error('[Telegram.WebApp] Method requestChat is not supported in version ' + webAppVersion);
@@ -3288,7 +3288,7 @@
     WebAppRequestChatOpened = {
       callback: callback
     };
-    WebView.postEvent('web_app_request_chat', false, {requestId: requestId});
+    WebView.postEvent('web_app_request_chat', false, {req_id: req_id});
   };
   WebApp.setEmojiStatus = function (custom_emoji_id, params, callback) {
     params = params || {};
