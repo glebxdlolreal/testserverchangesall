@@ -3276,8 +3276,7 @@
     WebView.postEvent('web_app_send_prepared_message', false, {id: msg_id});
   };
   WebApp.requestChat = function (req_id, callback) {
-    if (!versionAtLeast('9.5')) {
-    // if (!versionAtLeast('9.6')) {
+    if (!versionAtLeast('9.6')) {
       console.error('[Telegram.WebApp] Method requestChat is not supported in version ' + webAppVersion);
       throw Error('WebAppMethodUnsupported');
     }
