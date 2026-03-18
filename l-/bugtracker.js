@@ -2718,15 +2718,18 @@ var MergeIssue = {
       Aj.layerState.mergeTargetsById[target.id] = target;
       var titleClass = target.title_class ? ' ' + target.title_class : '';
       var previewHtml = '';
-      if (target.description) {
-        previewHtml = '<div class="bt-merge-target-preview">' + cleanHTML(target.description) + '</div>';
+      if (target.preview_html) {
+        previewHtml = '<div class="bt-merge-card-preview-text">' + target.preview_html + '</div>';
       }
       html += '<button type="button" class="bt-merge-search-result" data-target-id="' + target.id + '">' +
+          (target.thumb_html || '') +
+          '<div class="bt-card-row-body bt-merge-card-body">' +
           '<div class="bt-merge-target-head">' +
-          '<div class="bt-merge-target-title' + titleClass + '">#' + target.id + ' ' + wrapHighlight(target.title, query) + '</div>' +
+          '<div class="bt-merge-card-title' + titleClass + '">#' + target.id + ' ' + (target.title_html || wrapHighlight(target.title, query)) + '</div>' +
           '<div class="bt-merge-target-status">' + (target.status_html || '') + '</div>' +
           '</div>' +
           previewHtml +
+          '</div>' +
           '</button>';
     }
     if (!html) {
@@ -2744,17 +2747,21 @@ var MergeIssue = {
     var $form = $('.bt-merge-form', Aj.layer);
     $form.field('target_issue_id').value(target.id);
     $form.field('target_query').value('#' + target.id + ' ' + target.title);
+    var titleClass = target.title_class ? ' ' + target.title_class : '';
     var previewHtml = '';
-    if (target.description) {
-      previewHtml = '<div class="bt-merge-card-preview-text">' + cleanHTML(target.description) + '</div>';
+    if (target.selected_preview_html) {
+      previewHtml = '<div class="bt-merge-card-preview-text">' + target.selected_preview_html + '</div>';
     }
     $('.bt-merge-selected', Aj.layer).html(
         '<div class="bt-merge-card-preview">' +
+        (target.thumb_html || '') +
+        '<div class="bt-card-row-body bt-merge-card-body">' +
         '<div class="bt-merge-card-head">' +
-        '<div class="bt-merge-card-title">#' + target.id + ' ' + cleanHTML(target.title) + '</div>' +
+        '<div class="bt-merge-card-title' + titleClass + '">#' + target.id + ' ' + (target.selected_title_html || cleanHTML(target.title)) + '</div>' +
         '<button type="button" class="bt-merge-selected-clear">Change</button>' +
         '</div>' +
         previewHtml +
+        '</div>' +
         '</div>'
     ).removeClass('shide');
     $('.bt-merge-search-results', Aj.layer).empty();
