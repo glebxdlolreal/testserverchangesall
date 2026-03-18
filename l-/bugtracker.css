@@ -2226,18 +2226,10 @@ button.cd-edit-btn {
 .bt-issue-additional-block .bt-header {
   color: #c2513e;
 }
-.bt-issue-merged-block {
-  position: relative;
-  background: #f4edff;
-  border-radius: 12px;
-  padding: 12px 14px;
-}
 .bt-issue-merged-block .bt-header {
   color: #7b55c7;
 }
 .bt-merge-badge {
-  margin-left: 8px;
-  vertical-align: middle;
   cursor: default;
 }
 .bt-merged-card-list {
@@ -2245,25 +2237,20 @@ button.cd-edit-btn {
 }
 .bt-merged-card-row {
   display: block;
-  padding: 10px 12px;
-  border-radius: 10px;
-  background: rgba(123, 85, 199, 0.08);
-  color: inherit;
-  text-decoration: none;
 }
 .bt-merged-card-row + .bt-merged-card-row {
   margin-top: 8px;
-}
-.bt-merged-card-row:hover,
-.bt-merged-card-row:focus {
-  background: rgba(123, 85, 199, 0.14);
-  text-decoration: none;
 }
 .bt-merged-card-title {
   font-size: 14px;
   line-height: 20px;
   font-weight: 500;
   color: #222;
+  text-decoration: none;
+}
+.bt-merged-card-title:hover,
+.bt-merged-card-title:focus {
+  text-decoration: underline;
 }
 .bt-merged-card-meta {
   margin-top: 3px;
@@ -2277,6 +2264,7 @@ button.cd-edit-btn {
   word-break: break-word;
 }
 .bt-issue-additional-block:after,
+.bt-issue-merged-block:after,
 .bt-comments-wrap.admin:after,
 .bt-issue.internal:after {
   display: block;
@@ -2287,6 +2275,9 @@ button.cd-edit-btn {
   bottom: 0;
   width: 6px;
   background-color: #cf5e5e;
+}
+.bt-issue-merged-block:after {
+  background-color: #7b55c7;
 }
 .bt-comments-wrap.admin:after {
   background-color: #4aa3e6;

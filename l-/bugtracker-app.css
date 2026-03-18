@@ -2632,17 +2632,21 @@ button.cd-reply-btn, button.cd-edit-btn {
   color: #c2513e;
 }
 .bt-issue-merged-block {
-  position: relative;
   background: rgba(136, 92, 214, 0.18);
-  padding: 10px 12px;
-  border-radius: 12px;
+  padding-inline-end: 12px;
+  max-height: none;
+  overflow: visible;
 }
 .bt-issue-merged-block .bt-header {
   color: #cfb5ff;
 }
+.bt-issue-merged-block:before {
+  content: none;
+}
+.bt-issue-merged-block:not(.expanded) {
+  cursor: default;
+}
 .bt-merge-badge {
-  margin-left: 8px;
-  vertical-align: middle;
   cursor: default;
 }
 .bt-merged-card-list {
@@ -2650,25 +2654,20 @@ button.cd-reply-btn, button.cd-edit-btn {
 }
 .bt-merged-card-row {
   display: block;
-  padding: 10px 12px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  color: inherit;
-  text-decoration: none;
 }
 .bt-merged-card-row + .bt-merged-card-row {
   margin-top: 8px;
-}
-.bt-merged-card-row:hover,
-.bt-merged-card-row:focus {
-  background: rgba(255, 255, 255, 0.08);
-  text-decoration: none;
 }
 .bt-merged-card-title {
   font-size: 14px;
   line-height: 20px;
   font-weight: 600;
   color: var(--text-primary);
+  text-decoration: none;
+}
+.bt-merged-card-title:hover,
+.bt-merged-card-title:focus {
+  text-decoration: underline;
 }
 .bt-merged-card-meta {
   margin-top: 3px;
@@ -2692,6 +2691,16 @@ button.cd-reply-btn, button.cd-edit-btn {
   bottom: 0;
   height: 54px;
   background: linear-gradient(to top, #2f242a 0%, #2f242a00 100%);
+}
+.bt-issue-merged-block:after {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background-color: #9b7cf6;
 }
 .bt-issue-additional-block:before {
   content: "";
