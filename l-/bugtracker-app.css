@@ -4076,6 +4076,16 @@ header .btn {
 .field-focused .cd-form-label, .field-focused.field-has-value.noinput .cd-form-label {
   color: #2481cc;
 }
+.bt-static-label .cd-form-label {
+  pointer-events: auto;
+  font-size: 13px;
+  font-weight: 500;
+  color: #8a8a8a;
+  top: 0;
+}
+.bt-static-label.field-focused .cd-form-label {
+  color: #2481cc;
+}
 
 .noinput .cd-form-label {
   pointer-events: auto;

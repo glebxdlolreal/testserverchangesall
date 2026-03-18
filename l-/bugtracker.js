@@ -2862,7 +2862,7 @@ var Issue = {
         Filters.updateIssue(layerState.issueId, layerState.foundIssueHtml);
       }
       if (Aj.state.isWebApp) {
-        $('.bt-issue-additional-block').each(Issue.initAdditional);
+        $('.bt-issue-additional-block:not(.bt-issue-merged-block)').each(Issue.initAdditional);
       }
     });
     Aj.onLayerUnload(function(layerState) {
