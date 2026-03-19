@@ -2633,18 +2633,10 @@ button.cd-reply-btn, button.cd-edit-btn {
 }
 .bt-issue-merged-block {
   background: rgba(136, 92, 214, 0.18);
-  padding-inline-end: 12px;
-  max-height: none;
-  overflow: visible;
+  padding-inline-end: 32px;
 }
 .bt-issue-merged-block .bt-header {
   color: #cfb5ff;
-}
-.bt-issue-merged-block:before {
-  content: none;
-}
-.bt-issue-merged-block:not(.expanded) {
-  cursor: default;
 }
 .bt-merge-badge {
   cursor: default;
@@ -2697,10 +2689,12 @@ button.cd-reply-btn, button.cd-edit-btn {
   content: "";
   position: absolute;
   left: 0;
-  top: 0;
+  right: 0;
   bottom: 0;
-  width: 6px;
-  background-color: #9b7cf6;
+  top: auto;
+  width: auto;
+  height: 54px;
+  background: linear-gradient(to top, #342b45 0%, #342b4500 100%);
 }
 .bt-issue-additional-block:before {
   content: "";
@@ -2713,6 +2707,9 @@ button.cd-reply-btn, button.cd-edit-btn {
   mask-image: var(--image-url-dropdown-caret);
   mask-size: 18px 18px;
   z-index: 2;
+}
+.bt-issue-merged-block:before {
+  background-color: #cfb5ff;
 }
 .bt-issue-additional-block.expanded:before,
 .bt-issue-additional-block.expanded:after {
