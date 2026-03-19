@@ -2869,7 +2869,7 @@ var Issue = {
         Filters.updateIssue(layerState.issueId, layerState.foundIssueHtml);
       }
       if (Aj.state.isWebApp) {
-        $('.bt-issue-additional-block:not(.bt-issue-merged-block)').each(Issue.initAdditional);
+        $('.bt-issue-additional-block').each(Issue.initAdditional);
       }
     });
     Aj.onLayerUnload(function(layerState) {
@@ -2902,17 +2902,20 @@ var Issue = {
   },
   initAdditional: async function($b) {
     await Promise.resolve();
+    var $block = $(this);
     if (this.clientHeight + 60 > this.scrollHeight) {
-      $(this).toggleClass('expanded');
-    } else {
-      var expandBlock = function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        WebApp.HapticFeedback.impactOccurred('soft');
-        $(this).addClass('expanded');
-      }
-      this.addEventListener('click', expandBlock, {capture: true, once: true});
+      $block.addClass('expanded');
+      return;
     }
+    this.addEventListener('click', function(e) {
+      if ($(e.target).closest('a, button, input, textarea, select, label').length) {
+        return;
+      }
+      e.preventDefault();
+      e.stopPropagation();
+      WebApp.HapticFeedback.impactOccurred('soft');
+      $block.toggleClass('expanded');
+    }, {capture: true});
   },
   eCommentHighlight: function(e) {
     var comment_id = $(this).attr('data-comment-link');
