@@ -2697,7 +2697,7 @@ var MergeIssue = {
     if (Aj.layerState.mergeSearchXhr) {
       Aj.layerState.mergeSearchXhr.abort();
     }
-    $results.html('<div class="bt-merge-search-state">Searching...</div>');
+    $results.html('<div class="bt-merge-search-state">' + l('WEB_MERGE_SEARCHING') + '</div>');
     Aj.layerState.mergeSearchXhr = Aj.apiRequest('searchMergeTargets', {
       source_issue_id: source_issue_id,
       query: query
@@ -2733,7 +2733,7 @@ var MergeIssue = {
           '</button>';
     }
     if (!html) {
-      html = '<div class="bt-merge-search-state">No cards found</div>';
+      html = '<div class="bt-merge-search-state">' + l('WEB_MERGE_NO_CARDS_FOUND') + '</div>';
     }
     $('.bt-merge-search-results', Aj.layer).html(html);
   },
@@ -2758,7 +2758,7 @@ var MergeIssue = {
         '<div class="bt-card-row-body bt-merge-card-body">' +
         '<div class="bt-merge-card-head">' +
         '<div class="bt-merge-card-title' + titleClass + '">#' + target.id + ' ' + (target.selected_title_html || cleanHTML(target.title)) + '</div>' +
-        '<button type="button" class="bt-merge-selected-clear">Change</button>' +
+        '<button type="button" class="bt-merge-selected-clear">' + l('WEB_MERGE_CHANGE_BUTTON') + '</button>' +
         '</div>' +
         previewHtml +
         '</div>' +
@@ -2800,12 +2800,12 @@ var MergeIssue = {
     var merge_flags = $form.field('keep_ghost').prop('checked') ? 1 : 0;
     if (!target_issue_id) {
       $form.field('target_query').focus();
-      return showAlert('Choose a target card');
+      return showAlert(l('WEB_MERGE_CHOOSE_TARGET_ERROR'));
     }
     if ($button.data('submiting')) {
       return false;
     }
-    showConfirm('Merge this card into the selected target?', function() {
+    showConfirm(l('WEB_MERGE_CONFIRM_TEXT'), function() {
       $button.data('submiting', true);
       $button.prop('disabled', true);
       Aj.apiRequest('mergeIssue', {
@@ -2829,7 +2829,7 @@ var MergeIssue = {
           Aj.layerLocation(result.to_layer);
         }
       });
-    }, 'Merge card');
+    }, l('WEB_MERGE_CARD_BUTTON'));
     return false;
   }
 };
