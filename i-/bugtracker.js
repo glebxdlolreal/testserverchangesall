@@ -260,10 +260,10 @@
           //     valueChange();
           //   }, 50);
           // } else {
-            options.onInputBeforeChange && options.onInputBeforeChange(value);
-            valueChange();
-            options.onInput && options.onInput(value);
-            open();
+          options.onInputBeforeChange && options.onInputBeforeChange(value);
+          valueChange();
+          options.onInput && options.onInput(value);
+          open();
           // }
         }
       }
@@ -1139,7 +1139,7 @@
         }
       }
       else if ((e.metaKey || e.ctrlKey) && !e.shiftKey && !e.altKey &&
-               e.which == 89) { // Y
+          e.which == 89) { // Y
         e.preventDefault();
         redo(this);
       }
@@ -1156,7 +1156,7 @@
         $(this).data('$tokens').filter(':not(.used)').eq(0).trigger('click');
       }
       else if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey &&
-               (e.which == Keys.LEFT || e.which == Keys.RIGHT || e.which == Keys.BACKSPACE)) {
+          (e.which == Keys.LEFT || e.which == Keys.RIGHT || e.which == Keys.BACKSPACE)) {
         var isLeft = e.which == Keys.LEFT || e.which == Keys.BACKSPACE;
         var isBackspace = e.which == Keys.BACKSPACE;
         var sel = window.getSelection();
@@ -1198,8 +1198,8 @@
             if (isLeft) {
               var prevNode = curNode ? curNode.previousSibling : sel.focusNode.lastChild;
               while (prevNode &&
-                     prevNode.nodeType == prevNode.TEXT_NODE &&
-                     !prevNode.nodeValue.length) {
+              prevNode.nodeType == prevNode.TEXT_NODE &&
+              !prevNode.nodeValue.length) {
                 prevNode = prevNode.previousSibling;
               }
               if (prevNode && prevNode.nodeType == prevNode.ELEMENT_NODE) {
@@ -1459,8 +1459,8 @@
         }
         var ua = navigator.userAgent || '',
             is_mac = ua.indexOf('Mac') >= 0 ||
-                     ua.indexOf('AppleWebKit') >= 0 &&
-                     /Mobile\/\w+/.test(ua);
+                ua.indexOf('AppleWebKit') >= 0 &&
+                /Mobile\/\w+/.test(ua);
         var shortcut = is_mac ? '⌘I' : 'Ctrl+I';
         $tokensBtns.attr('data-shortcut', shortcut).wrap('<div class="key-add-tokens"></div>').parent().wrap('<div class="key-add-tokens-wrap"></div>').parent().toggleClass('empty', !tokens.length).insertAfter($field);
         var $tokens = $('.field-ins-btn', $tokensBtns);
@@ -1500,7 +1500,7 @@
     function onResultsMouseWheel(e) {
       var d = e.originalEvent.wheelDelta;
       if((this.scrollTop === (this.scrollHeight - this.clientHeight) && d < 0) ||
-         (this.scrollTop === 0 && d > 0)) {
+          (this.scrollTop === 0 && d > 0)) {
         e.preventDefault();
       }
     }
@@ -1864,10 +1864,10 @@ var Upload = {
   },
   isTypeAccepted(type) {
     return (type == 'image/gif' ||
-            type == 'image/jpeg' ||
-            type == 'image/jpg' ||
-            type == 'image/png' ||
-            type == 'video/mp4');
+        type == 'image/jpeg' ||
+        type == 'image/jpg' ||
+        type == 'image/png' ||
+        type == 'video/mp4');
   },
   addFiles: function($form, files) {
     var form = $form.get(0),
@@ -1944,12 +1944,12 @@ var Upload = {
   },
   getThumb: function(file, width, onResult) {
     var thumb = false, got = false
-        ready = function() {
-          clearTimeout(thumbTo);
-          if (!got) {
-            got = true; onResult(thumb);
-          }
-        },
+    ready = function() {
+      clearTimeout(thumbTo);
+      if (!got) {
+        got = true; onResult(thumb);
+      }
+    },
         thumbTo = setTimeout(ready, 2000);
     try {
       var url = URL.createObjectURL(file);
@@ -2400,7 +2400,7 @@ var EditIssue = {
         };
         Aj.layer.on('click.curLayer', function(e) {
           if ($(e.target).closest('body').length &&
-             !$(e.target).closest('.bt-layer-content').length) {
+              !$(e.target).closest('.bt-layer-content').length) {
             Aj.layerState.onClose();
           }
         });
@@ -2448,7 +2448,7 @@ var EditIssue = {
     });
     Aj.onLayerUnload(function(layerState) {
       if (Aj.state.isWebApp) {
-        WebApp.MainButton.hide();        
+        WebApp.MainButton.hide();
       }
       Bugtracker.formDeinit($form);
       var $title = $form.field('title');
@@ -2653,6 +2653,187 @@ var EditIssue = {
   }
 };
 
+var MergeIssue = {
+  init: function() {
+    var $form = $('.bt-merge-form', Aj.layer);
+    Aj.onLayerLoad(function(layerState) {
+      Bugtracker.formInit($form);
+      layerState.mergeTargetsById = {};
+      Aj.layer.on('submit.curPage', '.bt-merge-form', MergeIssue.eSubmitForm);
+      Aj.layer.on('input.curPage', 'input[name="target_query"]', MergeIssue.eTargetInput);
+      Aj.layer.on('click.curPage', '.bt-merge-search-result', MergeIssue.ePickTarget);
+      Aj.layer.on('click.curPage', '.bt-merge-selected-clear', MergeIssue.eClearTarget);
+      Aj.layer.one('popup:open', function() {
+        $form.field('target_query').focusAndSelect();
+      });
+    });
+    Aj.onLayerUnload(function(layerState) {
+      if (layerState.mergeSearchTo) {
+        clearTimeout(layerState.mergeSearchTo);
+      }
+      if (layerState.mergeSearchXhr) {
+        layerState.mergeSearchXhr.abort();
+      }
+      Bugtracker.formDeinit($form);
+    });
+  },
+  eTargetInput: function() {
+    var $form = $('.bt-merge-form', Aj.layer);
+    var query = $.trim($form.field('target_query').value());
+    MergeIssue.clearSelectedTarget(false);
+    clearTimeout(Aj.layerState.mergeSearchTo);
+    if (!query.length) {
+      $('.bt-merge-search-results', Aj.layer).empty();
+      return;
+    }
+    Aj.layerState.mergeSearchTo = setTimeout(function() {
+      MergeIssue.searchTargets(query);
+    }, 150);
+  },
+  searchTargets: function(query) {
+    var $form = $('.bt-merge-form', Aj.layer);
+    var source_issue_id = $form.field('source_issue_id').value();
+    var $results = $('.bt-merge-search-results', Aj.layer);
+    if (Aj.layerState.mergeSearchXhr) {
+      Aj.layerState.mergeSearchXhr.abort();
+    }
+    $results.html('<div class="bt-merge-search-state">' + l('WEB_MERGE_SEARCHING') + '</div>');
+    Aj.layerState.mergeSearchXhr = Aj.apiRequest('searchMergeTargets', {
+      source_issue_id: source_issue_id,
+      query: query
+    }, function(result) {
+      Aj.layerState.mergeSearchXhr = null;
+      if (result.error) {
+        $results.html('<div class="bt-merge-search-state">' + cleanHTML(result.error) + '</div>');
+        return;
+      }
+      MergeIssue.renderTargets(result.targets || [], query);
+    });
+  },
+  renderTargets: function(targets, query) {
+    var html = '';
+    Aj.layerState.mergeTargetsById = {};
+    for (var i = 0; i < targets.length; i++) {
+      var target = targets[i];
+      Aj.layerState.mergeTargetsById[target.id] = target;
+      var titleClass = target.title_class ? ' ' + target.title_class : '';
+      var previewHtml = '';
+      if (target.preview_html) {
+        previewHtml = '<div class="bt-merge-card-preview-text">' + target.preview_html + '</div>';
+      }
+      html += '<button type="button" class="bt-merge-search-result" data-target-id="' + target.id + '">' +
+          (target.thumb_html || '') +
+          '<div class="bt-card-row-body bt-merge-card-body">' +
+          '<div class="bt-merge-target-head">' +
+          '<div class="bt-merge-card-title' + titleClass + '">#' + target.id + ' ' + (target.title_html || wrapHighlight(target.title, query)) + '</div>' +
+          '<div class="bt-merge-target-status">' + (target.status_html || '') + '</div>' +
+          '</div>' +
+          previewHtml +
+          '</div>' +
+          '</button>';
+    }
+    if (!html) {
+      html = '<div class="bt-merge-search-state">' + l('WEB_MERGE_NO_CARDS_FOUND') + '</div>';
+    }
+    $('.bt-merge-search-results', Aj.layer).html(html);
+  },
+  ePickTarget: function(e) {
+    e.preventDefault();
+    var targetId = $(this).attr('data-target-id');
+    var target = Aj.layerState.mergeTargetsById[targetId];
+    if (!target) {
+      return false;
+    }
+    var $form = $('.bt-merge-form', Aj.layer);
+    $form.field('target_issue_id').value(target.id);
+    $form.field('target_query').value('#' + target.id + ' ' + target.title);
+    var titleClass = target.title_class ? ' ' + target.title_class : '';
+    var previewHtml = '';
+    if (target.selected_preview_html) {
+      previewHtml = '<div class="bt-merge-card-preview-text">' + target.selected_preview_html + '</div>';
+    }
+    $('.bt-merge-selected', Aj.layer).html(
+        '<div class="bt-merge-card-preview">' +
+        (target.thumb_html || '') +
+        '<div class="bt-card-row-body bt-merge-card-body">' +
+        '<div class="bt-merge-card-head">' +
+        '<div class="bt-merge-card-title' + titleClass + '">#' + target.id + ' ' + (target.selected_title_html || cleanHTML(target.title)) + '</div>' +
+        '<button type="button" class="bt-merge-selected-clear">' + l('WEB_MERGE_CHANGE_BUTTON') + '</button>' +
+        '</div>' +
+        previewHtml +
+        '</div>' +
+        '</div>'
+    ).removeClass('shide');
+    $('.bt-merge-search-results', Aj.layer).empty();
+    return false;
+  },
+  clearSelectedTarget: function(clearQuery) {
+    var $form = $('.bt-merge-form', Aj.layer);
+    $form.field('target_issue_id').value('');
+    if (clearQuery !== false) {
+      $form.field('target_query').value('');
+    }
+    $('.bt-merge-selected', Aj.layer).addClass('shide').empty();
+  },
+  eClearTarget: function(e) {
+    e.preventDefault();
+    MergeIssue.clearSelectedTarget(true);
+    var $form = $('.bt-merge-form', Aj.layer);
+    $form.field('target_query').focusAndSelect();
+    $('.bt-merge-search-results', Aj.layer).empty();
+    return false;
+  },
+  getSearchParams: function() {
+    var $searchForm = $('.bt-main-search-form');
+    if (!$searchForm.size() ||
+        !$searchForm.hasField('filters')) {
+      return '';
+    }
+    return JSON.stringify(Filters.getFormParams());
+  },
+  eSubmitForm: function(e) {
+    e.preventDefault();
+    var $form = $(this);
+    var $button = $('.cd-submit-merge-btn', this);
+    var source_issue_id = $form.field('source_issue_id').value();
+    var target_issue_id = $form.field('target_issue_id').value();
+    var merge_flags = $form.field('keep_ghost').prop('checked') ? 1 : 0;
+    if (!target_issue_id) {
+      $form.field('target_query').focus();
+      return showAlert(l('WEB_MERGE_CHOOSE_TARGET_ERROR'));
+    }
+    if ($button.data('submiting')) {
+      return false;
+    }
+    showConfirm(l('WEB_MERGE_CONFIRM_TEXT'), function() {
+      $button.data('submiting', true);
+      $button.prop('disabled', true);
+      Aj.apiRequest('mergeIssue', {
+        source_issue_id: source_issue_id,
+        target_issue_id: target_issue_id,
+        merge_flags: merge_flags,
+        search_params: MergeIssue.getSearchParams()
+      }, function(result) {
+        $button.data('submiting', false);
+        $button.prop('disabled', false);
+        if (result.error) {
+          return showAlert(result.error);
+        }
+        if (result.source_issue_id) {
+          Filters.updateIssue(result.source_issue_id, false);
+        }
+        if (result.target_issue_id && result.target_issue_html) {
+          Filters.updateIssue(result.target_issue_id, result.target_issue_html);
+        }
+        if (result.to_layer) {
+          Aj.layerLocation(result.to_layer);
+        }
+      });
+    }, l('WEB_MERGE_CARD_BUTTON'));
+    return false;
+  }
+};
+
 var Issue = {
   UPDATE_PERIOD: 3000,
   ONBLUR_UPDATE_PERIOD: 30000,
@@ -2721,17 +2902,20 @@ var Issue = {
   },
   initAdditional: async function($b) {
     await Promise.resolve();
+    var $block = $(this);
     if (this.clientHeight + 60 > this.scrollHeight) {
-      $(this).toggleClass('expanded');
-    } else {
-      var expandBlock = function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        WebApp.HapticFeedback.impactOccurred('soft');
-        $(this).addClass('expanded');
-      }
-      this.addEventListener('click', expandBlock, {capture: true, once: true});
+      $block.addClass('expanded');
+      return;
     }
+    this.addEventListener('click', function(e) {
+      if ($(e.target).closest('a, button, input, textarea, select, label').length) {
+        return;
+      }
+      e.preventDefault();
+      e.stopPropagation();
+      WebApp.HapticFeedback.impactOccurred('soft');
+      $block.toggleClass('expanded');
+    }, {capture: true});
   },
   eCommentHighlight: function(e) {
     var comment_id = $(this).attr('data-comment-link');
@@ -2778,28 +2962,31 @@ var Issue = {
     var $form = $('.cd-comment-form', Aj.layer);
     var issue_id = $form.field('issue_id').value();
     var team     = $form.field('team').value();
+    var ghost    = $form.field('ghost').value();
     if (!issue_id) {
       return false;
     }
 
-    var _load = function(issue_id, team, before, after) {
+    var _load = function(issue_id, team, ghost, before, after) {
       if (after) {
         Issue.requestCommentsUpdate();
       }
       Aj.apiRequest('loadComments', {
         issue_id: issue_id,
         team: team,
+        ghost: ghost,
         before_id: before,
         after_id:  after
       }, function(result) {
         if (result.error) {
           var timeout = $moreEl.data('timeout') || 1000;
           $moreEl.data('timeout', timeout > 60000 ? timeout : timeout * 2);
-          setTimeout(function(){ _load(issue_id, team, before, after); }, timeout);
+          setTimeout(function(){ _load(issue_id, team, ghost, before, after); }, timeout);
         } else {
           var $form = $('.cd-comment-form', Aj.layer);
           if (issue_id != $form.field('issue_id').value() ||
-              team     != $form.field('team').value()) {
+              team     != $form.field('team').value() ||
+              ghost    != $form.field('ghost').value()) {
             Issue.requestCommentsUpdate();
             return false;
           }
@@ -2829,7 +3016,7 @@ var Issue = {
         }
       });
     };
-    _load(issue_id, team, before, after);
+    _load(issue_id, team, ghost, before, after);
   },
   onFocusChange: function() {
     if (document.hasFocus()) {
@@ -2866,26 +3053,29 @@ var Issue = {
     var $form = $('.cd-comment-form', Aj.layer);
     var issue_id = Aj.layerState.issueId;
     var team     = $form.field('team').value();
+    var ghost    = $form.field('ghost').value();
     if (!issue_id || Aj.layerState.issueDeleted) {
       return false;
     }
 
-    var _load = function(issue_id, team, after) {
+    var _load = function(issue_id, team, ghost, after) {
       Aj.apiRequest('loadComments', {
         issue_id: issue_id,
         team: team,
-        after_id:  after,
+        ghost: ghost,
+        after_id: after,
         auto: 1
       }, function(result) {
         Aj.layerState.lastUpdate = +(new Date);
         if (result.error) {
           var timeout = $moreEl.data('timeout') || 1000;
           $moreEl.data('timeout', timeout > 60000 ? timeout : timeout * 2);
-          setTimeout(function(){ _load(issue_id, team, after); }, timeout);
+          setTimeout(function(){ _load(issue_id, team, ghost, after); }, timeout);
         } else {
           var $form = $('.cd-comment-form', Aj.layer);
           if (issue_id != $form.field('issue_id').value() ||
-              team     != $form.field('team').value()) {
+              team     != $form.field('team').value() ||
+              ghost    != $form.field('ghost').value()) {
             return false;
           }
           var $curMoreEl = $('.bt-comments-more.cd-autoload[data-after]', Aj.layer);
@@ -2914,7 +3104,7 @@ var Issue = {
         }
       });
     };
-    _load(issue_id, team, after);
+    _load(issue_id, team, ghost, after);
   },
   loadComment: function(comment_id) {
     var $comments = $('.bt-comments');
@@ -2927,6 +3117,7 @@ var Issue = {
     var $form = $('.cd-comment-form', Aj.layer);
     var issue_id = $form.field('issue_id').value();
     var team     = $form.field('team').value();
+    var ghost    = $form.field('ghost').value();
     if (!issue_id) {
       return false;
     }
@@ -2934,12 +3125,14 @@ var Issue = {
     Aj.apiRequest('loadComments', {
       issue_id: issue_id,
       team: team,
+      ghost: ghost,
       comment_id: comment_id
     }, function(result) {
       if (!result.error) {
         var $form = $('.cd-comment-form', Aj.layer);
         if (issue_id != $form.field('issue_id').value() ||
-            team     != $form.field('team').value()) {
+            team     != $form.field('team').value() ||
+            ghost    != $form.field('ghost').value()) {
           return false;
         }
         if (result.comments_html) {
@@ -2981,6 +3174,7 @@ var Issue = {
     var $tab  = $(this);
     var tab_href = $tab.attr('href');
     var mode = $tab.parents('.bt-header-tab').attr('data-mode');
+    var ghost = $('.cd-comment-form', Aj.layer).field('ghost').value();
     if ($tab.data('submiting')) {
       return false;
     }
@@ -2988,7 +3182,8 @@ var Issue = {
     Aj.showProgress();
     Aj.apiRequest('getLayerComments', {
       issue_id: Aj.layerState.issue_id,
-      mode: mode
+      mode: mode,
+      ghost: ghost
     }, function(result) {
       Aj.hideProgress();
       $tab.data('submiting', false);
