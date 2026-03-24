@@ -284,9 +284,11 @@ function inputFormatPhoneInit(init_country, init_phone_number, lang) {
       country_search_el.value = searchLastValue = '';
     }
     if (!new_placeholder.length && !new_value.length) {
-      new_placeholder = placeholder_el.getAttribute('data-placeholder') || '';
+      new_placeholder = placeholder_el && placeholder_el.getAttribute('data-placeholder') || '';
     }
-    placeholder_el.innerHTML = new_placeholder;
+    if (placeholder_el) {
+      placeholder_el.innerHTML = new_placeholder;
+    }
     code_el.value = new_code;
     phone_el.value = new_value;
     if (newSelectionStart > new_code.length ||
