@@ -2896,6 +2896,8 @@ var Issue = {
     $commentsWrap.on('drop.curPage', '.cd-comment-form', Upload.eFileDrop);
     $commentsWrap.on('click.curPage', '.bt-reply-close', Issue.eCancelReplyComment);
     $commentsWrap.on('click.curPage', '.bt-reply-btn', Issue.eReplyComment);
+    $commentsWrap.on('click.curPage', '.bt-edit-comment-btn', Issue.eEditComment);
+    $commentsWrap.on('click.curPage', '.bt-comment-edit-cancel', Issue.eCancelEditComment);
     $commentsWrap.on('click.curPage', 'a[data-comment-link]', Issue.eCommentHighlight);
     $commentsWrap.on('click.curPage', '.bt-toggle-comment-form', Issue.eOpenComments);
     $commentsWrap.on('click.curPage', '.bt-comments-more', Issue.eLoadMore);
@@ -3161,6 +3163,60 @@ var Issue = {
       scroll_fn();
     }
   },
+  updateCommentSubmitLabel: function(mode) {
+    var $button = $('.cd-submit-issue-btn', Aj.layer);
+    if (!$button.size()) {
+      return;
+    }
+    if (!$button.data('defaultLabel')) {
+      $button.data('defaultLabel', $button.text());
+    }
+    if (mode == 'edit') {
+      $button.text('Save');
+    } else {
+      $button.text($button.data('defaultLabel'));
+    }
+  },
+  replaceCommentHtml: function(comment_id, comment_html) {
+    var $comment = $(comment_html);
+    Issue.initComments($comment);
+    $('.bt-comment[data-comment-id]', Aj.layer).each(function() {
+      if ($(this).attr('data-comment-id') == comment_id) {
+        $(this).replaceWith($comment);
+        return false;
+      }
+    });
+    Issue.refreshReplyPreviews(comment_id, $comment);
+  },
+  refreshReplyPreviews: function(comment_id, $commentEl) {
+    if (!$commentEl || !$commentEl.size()) {
+      return;
+    }
+    var authorHtml = $('.bt-comment-author-name', $commentEl).html() || '';
+    var $textEl = $('.bt-comment-body > .bt-comment-text', $commentEl).first().clone();
+    var $filesEl = $('.bt-comment-body > .bt-issue-files', $commentEl).first();
+    var thumbUrl = $filesEl.attr('data-thumb-src') || '';
+    var attachLabel = $filesEl.attr('data-attach') || '';
+    $('br', $textEl).replaceWith(' ');
+    $('a', $textEl).wrapInner('<span>').find('>span').unwrap();
+    $('.bt-comment-reply-content[data-comment-link]', Aj.layer).each(function() {
+      var $replyEl = $(this);
+      if ($replyEl.attr('data-comment-link') != comment_id) {
+        return;
+      }
+      $('.bt-comment-head', $replyEl).html(authorHtml);
+      $('.bt-comment-text', $replyEl).html($textEl.html() || '');
+      $('.bt-comment-thumb', $replyEl).remove();
+      if (thumbUrl) {
+        $('<div class="bt-comment-thumb">').css('background-image', "url('" + thumbUrl + "')").prependTo($replyEl);
+        if (!$('.bt-comment-text', $replyEl).html()) {
+          $('.bt-comment-text', $replyEl)
+              .empty()
+              .append($('<span class="bt-comment-reply-file"></span>').text(attachLabel));
+        }
+      }
+    });
+  },
   eOpenComments: function(e) {
     e && e.preventDefault();
     e && e.stopImmediatePropagation();
@@ -3253,6 +3309,7 @@ var Issue = {
     var $button     = $('.cd-submit-issue-btn', this);
     var attach_btn  = $('.bt-attach-btn', this).get(0);
     var issue_id    = $form.field('issue_id').value();
+    var edit_comment_id = $form.field('edit_comment_id').value();
     var reply_to_id = $form.field('reply_to_id').value();
     var team        = $form.field('team').value();
     var text        = $form.field('text').value();
@@ -3277,18 +3334,34 @@ var Issue = {
     var after   = $moreEl.attr('data-after') || 0;
     $form.data('submiting', true);
     $button.prop('disabled', true);
-    Aj.apiRequest('addComment', {
+    var method = edit_comment_id ? 'editComment' : 'addComment';
+    var params = {
       issue_id: issue_id,
-      reply_to_id: reply_to_id,
-      team: team,
-      after_id: after,
       text: text,
       files: files.join(';')
-    }, function(result) {
+    };
+    if (edit_comment_id) {
+      params.comment_id = edit_comment_id;
+    } else {
+      params.reply_to_id = reply_to_id;
+      params.team = team;
+      params.after_id = after;
+    }
+    Aj.apiRequest(method, params, function(result) {
       $form.data('submiting', false);
       $button.prop('disabled', false);
       if (result.error) {
         return showAlert(result.error);
+      }
+      if (edit_comment_id) {
+        if (result.comment_html) {
+          Issue.replaceCommentHtml(edit_comment_id, result.comment_html);
+        }
+        if (typeof result.counters_html !== 'undefined') {
+          Filters.updateIssueCounters(issue_id, result.counters_html);
+        }
+        Issue.eCancelEditComment();
+        return;
       }
       $form.reset();
       Upload.cleanFiles($form);
@@ -3326,6 +3399,7 @@ var Issue = {
     if ($commentEl.hasClass('bt-noreply')) {
       return false;
     }
+    Issue.eCancelEditComment();
     var $replyEl = $('<a class="bt-comment-reply-content"><div class="bt-reply-close close"></div><div class="bt-comment-head"></div></a>').attr('data-comment-link', reply_to_id);
     var $replyWrapEl = $('<div class="bt-comment-reply-wrap"><div class="bt-comment-reply"></div></div>');
     var $formEl = $('.cd-comment-form', Aj.layer);
@@ -3361,11 +3435,76 @@ var Issue = {
       Issue.scrollDown(Aj.state.isWebApp ? 500 : 0);
     }, 100);
   },
+  eEditComment: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var $btn = $(this);
+    var $commentEl = $btn.parents('.bt-comment');
+    var comment_id = $commentEl.attr('data-comment-id');
+    var $formEl = $('.cd-comment-form', Aj.layer);
+    var $messageEl = $('.bt-comment-edit-message', $commentEl);
+    if (!comment_id ||
+        !$formEl.size() ||
+        !$messageEl.size()) {
+      return false;
+    }
+    $btn.parents('.open').find('.dropdown-toggle').dropdown('toggle');
+    Issue.eCancelReplyComment();
+    Issue.eCancelEditComment();
+
+    var previewText = $.trim($messageEl.val());
+    if (!previewText.length) {
+      previewText = 'Update text or attachments before saving.';
+    }
+    var $editWrapEl = $('<div class="bt-comment-reply-wrap bt-comment-edit-wrap"><div class="bt-comment-reply"><div class="bt-comment-reply-content"><div class="close bt-comment-edit-cancel"></div><div class="bt-comment-head">Editing your comment</div><div class="bt-comment-text"></div></div></div></div>');
+    $('.bt-comment-text', $editWrapEl).text(previewText);
+    $formEl.prepend($editWrapEl);
+    $formEl.field('edit_comment_id').value(comment_id);
+    $formEl.field('text').value($messageEl.val()).trigger('input');
+
+    var $filesWrap = $('.bt-issue-files', $formEl);
+    var filesHtml = '';
+    var $editFiles = $('.bt-comment-edit-files .bt-issue-files', $commentEl);
+    if ($editFiles.size()) {
+      filesHtml = $editFiles.eq(0).html();
+    }
+    $filesWrap.html(filesHtml).trigger('update');
+
+    $('.bt-comment.editing', Aj.layer).removeClass('editing');
+    $commentEl.addClass('editing');
+    Issue.updateCommentSubmitLabel('edit');
+    Issue.eOpenComments();
+    setTimeout(function() {
+      $formEl.field('text').focusAndSelectAll();
+      Issue.scrollDown(Aj.state.isWebApp ? 500 : 0);
+    }, 100);
+    return false;
+  },
   eCancelReplyComment: function(e) {
     e && e.preventDefault();
     e && e.stopImmediatePropagation();
     $replyWrapEl = $('.cd-comment-form .bt-comment-reply-wrap', Aj.layer);
     $replyWrapEl.remove();
+  },
+  eCancelEditComment: function(e) {
+    e && e.preventDefault();
+    e && e.stopImmediatePropagation();
+    var $formEl = $('.cd-comment-form', Aj.layer);
+    if (!$formEl.size()) {
+      return false;
+    }
+    var edit_comment_id = $formEl.field('edit_comment_id').value();
+    if (!edit_comment_id &&
+        !$('.bt-comment-edit-wrap', $formEl).size()) {
+      return false;
+    }
+    $formEl.field('edit_comment_id').value('');
+    $('.bt-comment.editing', Aj.layer).removeClass('editing');
+    $('.bt-comment-edit-wrap', $formEl).remove();
+    $formEl.reset();
+    Upload.cleanFiles($formEl);
+    Issue.updateCommentSubmitLabel('send');
+    return false;
   },
   eDeleteIssueComment: function(e) {
     var $btn       = $(this);
