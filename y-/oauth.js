@@ -620,7 +620,7 @@ async function receiveEvent(eventType, eventData) {
     var token = url.searchParams.get('token');
     if (!token) return;
 
-    var user_data = await fetch(INAPP_URL + '?code=' + token);
+    var user_data = await fetch('/inapp?code=' + token);
     user_data = await user_data.json();
 
     if (TelegramLogin._fireCallbacks) {
