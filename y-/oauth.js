@@ -608,10 +608,11 @@ function getQRSrc(url, callback, nested) {
   });
 }
 
+_inapp = false;
 async function receiveEvent(eventType, eventData) {
   console.log('[Telegram.WebView] < receiveEvent', eventType);
   if (eventType == 'oauth_supported') {
-    TelegramLogin._inapp = true;
+    _inapp = true;
   }
   if (eventType == 'oauth_result_confirmed') {
     if (!eventData?.result_url) return;
@@ -637,9 +638,10 @@ function sendEvent(eventType, eventData) {
 
 function initProxy() {
   if (!window.TelegramWebviewProxy) {
-    TelegramLogin._inapp = false;
+    _inapp = false;
     return false;
   }
+  window.Telegram = {};
   window.Telegram.WebView = {receiveEvent};
   window.Telegram.TelegramGameProxy = {receiveEvent};
 
