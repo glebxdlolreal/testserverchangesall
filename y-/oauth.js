@@ -607,3 +607,42 @@ function getQRSrc(url, callback, nested) {
     callback(qr_url);
   });
 }
+
+async function receiveEvent(eventType, eventData) {
+  console.log('[Telegram.WebView] < receiveEvent', eventType);
+  if (eventType == 'oauth_supported') {
+    TelegramLogin._inapp = true;
+  }
+  if (eventType == 'oauth_result_confirmed') {
+    if (!eventData?.result_url) return;
+    var url = new URL(eventData.result_url);
+    var token = url.searchParams.get('token');
+    if (!token) return;
+
+    var user_data = await fetch(INAPP_URL + '?code=' + token);
+    user_data = await user_data.json();
+
+    if (TelegramLogin._fireCallbacks) {
+
+      TelegramLogin._fireCallbacks(buildResult(user_data));
+    }
+  }
+}
+
+function sendEvent(eventType, eventData) {
+  if (window.TelegramWebviewProxy !== undefined) {
+    TelegramWebviewProxy.postEvent(eventType, JSON.stringify(eventData));
+  }
+}
+
+function initProxy() {
+  if (!window.TelegramWebviewProxy) {
+    TelegramLogin._inapp = false;
+    return false;
+  }
+  window.Telegram.WebView = {receiveEvent};
+  window.Telegram.TelegramGameProxy = {receiveEvent};
+
+  sendEvent('oauth_request', {});
+}
+initProxy();
