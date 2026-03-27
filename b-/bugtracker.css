@@ -1037,6 +1037,14 @@ a.bt-issue:focus {
   margin-bottom: 3px;
   color: #000;
 }
+.bt-comment-edited {
+  display: inline-block;
+  margin-left: 4px;
+  color: #8f9499;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
 .bt-issue-info-item {
   font-weight: 500;
   margin: 0 28px 12px 0;
@@ -1695,6 +1703,9 @@ a.bt-comment-reply-content:focus {
 .bt-comment .bt-comment-date {
   font-size: 13px;
   margin-right: 10px;
+}
+.bt-comment .bt-comment-date.has-edited {
+  margin-right: 0;
 }
 .bt-comment-date {
   font-weight: normal;
