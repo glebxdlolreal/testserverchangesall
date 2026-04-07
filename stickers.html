@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html class="dark ">
+<html>
   <head>
     <meta charset="utf-8">
-    <title>[DT] Login With Telegram</title>
+    <title>[DT] Stickers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="format-detection" content="telephone=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="MobileOptimized" content="176" />
-<meta name="HandheldFriendly" content="True" /><meta name="twitter:card" content="summary"></meta>
-<meta property="og:title" content="Login With Telegram">
-
+<meta name="HandheldFriendly" content="True" />
 <meta name="robots" content="noindex, nofollow" />
     <link rel="icon" type="image/svg+xml" href="/img/website_icon.svg?4">
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
@@ -18,33 +16,38 @@
 <link rel="alternate icon" href="/img/favicon.ico" type="image/x-icon" />
     <script>document.cookie="stel_dt="+encodeURIComponent((new Date).getTimezoneOffset())+";path=/;max-age=31536000;samesite=None;secure"</script>
     
-    <link href="/css/font-roboto.css?1" rel="stylesheet" type="text/css">
-    <link href="/css/bootstrap.min.css?3" rel="stylesheet">
-    <link href="/css/bootstrap-extra.css?2" rel="stylesheet">
+    <link href="//i-telegram.stel.com/css/font-roboto.css?1" rel="stylesheet" type="text/css">
+    <link href="//i-telegram.stel.com/css/bootstrap.min.css?3" rel="stylesheet">
+    <link href="//i-telegram.stel.com/css/bootstrap-extra.css?2" rel="stylesheet">
     <link href="/css/bootstrap.min.css?3" rel="stylesheet">
 <link href="/css/bootstrap-extra.css?2" rel="stylesheet">
 <link href="/css/jquery-ui.min.css?1" rel="stylesheet">
-<link href="/css/bot-oauth.css?1" rel="stylesheet">
+<link href="/css/bot-stickers.css?12" rel="stylesheet">
+<link href="/css/tchart.css?12" rel="stylesheet">
 
   </head>
   <body class="emoji_image no-transition">
     
     <div id="aj_progress" class="progress-bar"></div>
     
-    <div id="aj_content"><div class="tm-auth-expired" style="display: block;">Please update your Telegram app to confirm the login request from the website.</div></div>
-    <script src="/js/jquery.min.js?1"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/main-aj.js?72"></script>
+    <div id="aj_content">    <div class="tm-auth-expired">Session expired.<br/>Restart the app to continue.</div></div>
+    <script src="//i-telegram.stel.com/js/jquery.min.js?1"></script>
+    <script src="//i-telegram.stel.com/js/bootstrap.min.js"></script>
+    <script src="//i-telegram.stel.com/js/main-aj.js?72"></script>
     <script src="/js/telegram-web-app.js?62"></script>
 <script src="/js/jquery-ui.min.js?1"></script>
 <script src="/js/jquery.ui.touch-punch.js?1"></script>
 <script src="/js/jquery-ex.js?22"></script>
-<script src="/js/bot-oauth.js?1"></script>
+<script src="/js/bot-stickers.js?15"></script>
 <script src="/js/tgsticker.js?31"></script>
 <script src="/js/widget-frame.js?66"></script>
+<script src="/js/tchart.js?30"></script>
+<script src="/js/health.js?35"></script>
 
-    <script>ajInit({"version":518,"apiUrl":"\/api?hash=xieworld_vf","unauth":true});</script>
-    <script id="aj_script"></script>
+    <script>ajInit({"version":620,"apiUrl":"\/api?hash=xieworld_vf","unauth":true,"state":{"authPage":true}});</script>
+    <script id="aj_script">Main.init("-")
+AuthPage.init()
+</script>
     <script>Aj.pageLoaded();</script>
     
   </body>

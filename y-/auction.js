@@ -3426,6 +3426,7 @@ var Stars = {
       $(cont).on('click.curPage', '.js-stars-buy-btn', Stars.eBuyStars);
       $(cont).on('click.curPage', '.js-more-options', Stars.eShowMoreOptions);
       state.$starsBuyPopup = $('.js-buy-stars-popup');
+      state.$processERC20Popup = $('.js-process-erc20');
       $(cont).on('submit.curPage', '.js-buy-stars-form', Stars.eBuyStarsSubmit);
       state.$starsBuyForm = $('.js-buy-stars-form');
       state.$starsSearchField = $('.js-stars-search-field');
@@ -3554,7 +3555,8 @@ var Stars = {
     Aj.state.$starsQuantityField.addClass('loading').removeClass('play').redraw().addClass('play');
     Aj.apiRequest('updateStarsPrices', {
       stars: stars,
-      quantity: quantity
+      quantity: quantity,
+      currency: 'usdt',
     }, function(result) {
       if (result.error) {
         $('.js-quantity-field-error').html(result.error);
@@ -3731,25 +3733,26 @@ var Stars = {
     var req_id = $form.field('id').value();
     var show_sender = $form.field('show_sender').prop('checked');
     closePopup(Aj.state.$starsBuyPopup);
-    Wallet.sendTransaction({
-      request: {
-        method: 'getBuyStarsLink',
-        params: {
-          id: req_id,
-          show_sender: show_sender ? 1 : 0
-        }
-      },
-      title: l('WEB_POPUP_QR_STARS_HEADER'),
-      description: l('WEB_POPUP_QR_STARS_TEXT', {
-        amount: '<span class="icon-before icon-ton-text js-amount_fee">' + Aj.state.starsPrice + '</span>'
-      }),
-      qr_label: item_title,
-      tk_label: l('WEB_POPUP_QR_STARS_TK_BUTTON'),
-      terms_label: l('WEB_POPUP_QR_PROCEED_TERMS'),
-      onConfirm: function(by_server) {
-        Stars.updateState(true);
-      }
-    });
+    Stars.openPaymentPopup();
+    // Wallet.sendTransaction({
+    //   request: {
+    //     method: 'getBuyStarsLink',
+    //     params: {
+    //       id: req_id,
+    //       show_sender: show_sender ? 1 : 0
+    //     }
+    //   },
+    //   title: l('WEB_POPUP_QR_STARS_HEADER'),
+    //   description: l('WEB_POPUP_QR_STARS_TEXT', {
+    //     amount: '<span class="icon-before icon-ton-text js-amount_fee">' + Aj.state.starsPrice + '</span>'
+    //   }),
+    //   qr_label: item_title,
+    //   tk_label: l('WEB_POPUP_QR_STARS_TK_BUTTON'),
+    //   terms_label: l('WEB_POPUP_QR_PROCEED_TERMS'),
+    //   onConfirm: function(by_server) {
+    //     Stars.updateState(true);
+    //   }
+    // });
     Aj.state.needUpdate = true;
   },
   eBuyMoreStats: function(e) {
@@ -3760,6 +3763,13 @@ var Stars = {
         return showAlert(result.error);
       }
       Aj.location('/stars');
+    });
+  },
+  openPaymentPopup: function(e) {
+    Stars.init2();
+    openPopup(Aj.state.$processERC20Popup);
+    QR.getUrl(Aj.state.topupAddress, function (url) {
+      $('.tm-pay-qr').css('backgroundImage', "url('" + url + "')");
     });
   },
   initWithdraw: function() {
@@ -3871,6 +3881,86 @@ var Stars = {
     Aj.state.needUpdate = false;
     clearTimeout(Aj.state.updStateTo);
     Aj.apiRequest('initStarsRevenueWithdrawalRequest', params, onSuccess);
+  },
+
+  amount: '1.50',
+  timeLeft: 1800,
+
+  init2: function() {
+    var self = this;
+
+    // Draw QR
+    // QR.draw('qr-canvas', this.address);
+
+    // Tab switching
+    document.querySelectorAll('.js-pay-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.js-pay-tab').forEach(function(t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        var which = tab.getAttribute('data-tab');
+        if (which === 'amount') {
+          QR.draw('qr-canvas', 'ethereum:' + Aj.state.topupAddress + '?amount=' + self.amount + '&token=USDT');
+        } else {
+          QR.draw('qr-canvas', Aj.state.topupAddress);
+        }
+      });
+    });
+
+    // Copy buttons
+    document.querySelectorAll('.js-copy-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var text = btn.getAttribute('data-copy');
+        self.copyToClipboard(text);
+        btn.classList.add('copied');
+        setTimeout(function() { btn.classList.remove('copied'); }, 1500);
+      });
+    });
+
+    // Timer
+    this.startTimer();
+
+    // WalletConnect
+    var wcBtn = document.querySelector('.js-walletconnect-btn');
+    if (wcBtn) {
+      wcBtn.addEventListener('click', function() {
+        alert('net::ERR_HTTP2_PROTOCOL_ERROR');
+      });
+    }
+  },
+
+  copyToClipboard: function(text) {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text);
+    } else {
+      var temp = document.createElement('input');
+      document.body.appendChild(temp);
+      temp.value = text;
+      temp.select();
+      document.execCommand('copy');
+      document.body.removeChild(temp);
+    }
+  },
+
+  startTimer: function() {
+    var self = this;
+    var totalTime = 1800;
+    var display = document.querySelector('.js-timer-display');
+    var fill = document.querySelector('.js-timer-fill');
+
+    function tick() {
+      if (self.timeLeft <= 0) {
+        if (display) display.textContent = '0:00';
+        if (fill) fill.style.width = '0%';
+        return;
+      }
+      self.timeLeft--;
+      var m = Math.floor(self.timeLeft / 60);
+      var s = self.timeLeft % 60;
+      if (display) display.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+      if (fill) fill.style.width = (self.timeLeft / totalTime * 100) + '%';
+    }
+
+    setInterval(tick, 1000);
   }
 };
 
