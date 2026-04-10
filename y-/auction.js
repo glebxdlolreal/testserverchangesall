@@ -3421,12 +3421,6 @@ var Stars = {
   init: function() {
     Aj.onLoad(function(state) {
       var cont = Aj.ajContainer;
-      $(cont).on('click', '.tm-pay-wallet-label', function () {
-        console.log('3333');
-        Aj.apiRequest('checkProcessed', {}, function () {
-          window.location.reload();
-        })
-      })
       $(cont).on('click.curPage', '.js-myself-link', Stars.eBuyForMyself);
       $(cont).on('click.curPage', '.js-more-stars-btn', Stars.eBuyMoreStats);
       $(cont).on('click.curPage', '.js-stars-buy-btn', Stars.eBuyStars);
