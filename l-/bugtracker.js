@@ -3011,16 +3011,41 @@ var Issue = {
     if (typeof result.counters_html !== 'undefined') {
       Filters.updateIssueCounters(issue_id, result.counters_html);
     }
-    if (is_public &&
-        result.comments_html) {
-      var commentsEl = $('.bt-comments', Aj.layer);
-      commentsEl.html(result.comments_html);
-      Issue.initComments(commentsEl);
-      Issue.syncTransientComments(issue_id);
-      Issue.requestCommentsUpdate();
-    } else {
+    if (!is_public) {
       Issue.syncBulkDeleteUi(issue_id);
+      return;
     }
+    var $form = $('.cd-comment-form', Aj.layer);
+    var ghost = $form.size() ? $form.field('ghost').value() : 0;
+    Aj.apiRequest('loadComments', {
+      issue_id: issue_id,
+      team: 0,
+      ghost: ghost
+    }, function(load_result) {
+      if (load_result.error) {
+        return Issue.failBulkDelete(issue_id, load_result.error);
+      }
+      if (!Aj.layer ||
+          (parseInt(Issue.getCurrentIssueId(), 10) || 0) != (parseInt(issue_id, 10) || 0) ||
+          Issue.getCurrentCommentsMode() != 'public') {
+        return Issue.syncBulkDeleteUi(issue_id);
+      }
+      if (load_result.header_cnts) {
+        Issue.updateHeaderCounters(load_result.header_cnts);
+      }
+      if (typeof load_result.counters_html !== 'undefined') {
+        Filters.updateIssueCounters(issue_id, load_result.counters_html);
+      }
+      if (load_result.comments_html) {
+        var commentsEl = $('.bt-comments', Aj.layer);
+        commentsEl.html(load_result.comments_html);
+        Issue.initComments(commentsEl);
+        Issue.syncTransientComments(issue_id);
+        Issue.requestCommentsUpdate();
+      } else {
+        Issue.syncBulkDeleteUi(issue_id);
+      }
+    });
   },
   failBulkDelete: function(issue_id, error) {
     delete Issue.bulkDeleteJobs[issue_id];
