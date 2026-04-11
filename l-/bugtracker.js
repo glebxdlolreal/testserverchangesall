@@ -2841,6 +2841,7 @@ var MergeIssue = {
 var Issue = {
   UPDATE_PERIOD: 3000,
   ONBLUR_UPDATE_PERIOD: 30000,
+  BULK_DELETE_AUTHOR_LIMIT: 16,
   bulkDeleteJobs: {},
   init: function(options) {
     options = options || {};
@@ -2950,6 +2951,18 @@ var Issue = {
     Bugtracker.updateTime(context);
     $('div.input[contenteditable]', context).initTextarea();
     Issue.syncBulkDeleteUi();
+  },
+  truncateText: function(text, limit) {
+    text = $.trim(text || '');
+    limit = parseInt(limit, 10) || 0;
+    if (!text || !limit) {
+      return text;
+    }
+    var chars = Array.from(text);
+    if (chars.length <= limit) {
+      return text;
+    }
+    return chars.slice(0, limit).join('') + '...';
   },
   getCurrentIssueId: function() {
     if (!Aj.layerState) {
