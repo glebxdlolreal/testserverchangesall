@@ -625,6 +625,18 @@ h4.bt-header {
   -webkit-user-select: none;
   user-select: none;
 }
+.bt-comments-bulk-state {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: #70767b;
+}
+.bt-dropdown-item.bt-bulk-disabled {
+  opacity: .5;
+  pointer-events: none;
+}
 .bt-toggle-comment-form-wrap {
   font-size: 14px;
   line-height: 20px;
