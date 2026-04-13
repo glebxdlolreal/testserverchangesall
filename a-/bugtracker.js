@@ -2376,9 +2376,13 @@ var Filters = {
   updateIssueCounters: function(issue_id, counters_html) {
     $('.bt-card-row[data-card-id]').each(function() {
       if ($(this).attr('data-card-id') == issue_id) {
-        $('.bt-issue-counters', this).html(counters_html);
+        $('.bt-issue-counters', this).attr('data-transient-replies', 0).html(counters_html);
       }
     });
+    if (window.Issue &&
+        Issue.applyTransientIssueCounters) {
+      Issue.applyTransientIssueCounters(issue_id);
+    }
   }
 };
 
@@ -2837,6 +2841,8 @@ var MergeIssue = {
 var Issue = {
   UPDATE_PERIOD: 3000,
   ONBLUR_UPDATE_PERIOD: 30000,
+  BULK_DELETE_AUTHOR_LIMIT: 16,
+  bulkDeleteJobs: {},
   init: function(options) {
     options = options || {};
     var $form = $('.cd-comment-form', Aj.layer);
@@ -2944,6 +2950,296 @@ var Issue = {
   initComments: function(context) {
     Bugtracker.updateTime(context);
     $('div.input[contenteditable]', context).initTextarea();
+    Issue.syncBulkDeleteUi();
+  },
+  truncateText: function(text, limit) {
+    text = $.trim(text || '');
+    limit = parseInt(limit, 10) || 0;
+    if (!text || !limit) {
+      return text;
+    }
+    var chars = Array.from(text);
+    if (chars.length <= limit) {
+      return text;
+    }
+    return chars.slice(0, limit).join('') + '...';
+  },
+  getCurrentIssueId: function() {
+    if (!Aj.layerState) {
+      return 0;
+    }
+    return parseInt(Aj.layerState.issueId || Aj.layerState.issue_id, 10) || 0;
+  },
+  getCurrentCommentsMode: function() {
+    var $form = $('.cd-comment-form', Aj.layer);
+    if (!$form.size()) {
+      return 'public';
+    }
+    return $form.field('team').value() ? 'team' : 'public';
+  },
+  getBulkDeleteJob: function(issue_id) {
+    issue_id = parseInt(issue_id || Issue.getCurrentIssueId(), 10) || 0;
+    if (!issue_id) {
+      return false;
+    }
+    return Issue.bulkDeleteJobs[issue_id] || false;
+  },
+  isBulkDeleteRunning: function(issue_id) {
+    return !!Issue.getBulkDeleteJob(issue_id);
+  },
+  setBulkDeleteRunning: function($items, state) {
+    $items.toggleClass('bt-bulk-disabled', !!state)
+        .attr('aria-disabled', state ? 'true' : null)
+        .attr('tabindex', state ? '-1' : null);
+  },
+  syncBulkDeleteUi: function(issue_id) {
+    issue_id = parseInt(issue_id || Issue.getCurrentIssueId(), 10) || 0;
+    if (!issue_id ||
+        !Aj.layer ||
+        (parseInt(Issue.getCurrentIssueId(), 10) || 0) != issue_id) {
+      return;
+    }
+    var $wrap = $('.bt-comments-wrap', Aj.layer);
+    if (!$wrap.size()) {
+      return;
+    }
+    var job = Issue.getBulkDeleteJob(issue_id);
+    var $header = $('.bt-comments-header', $wrap);
+    $('.bt-comments-bulk-state', $header).remove();
+    if (job) {
+      $('<div class="bt-comments-bulk-state dots-animated"></div>').text(job.progress_text).appendTo($header);
+    }
+    Issue.setBulkDeleteRunning($('.bt-delete-identical-comments-btn, .bt-delete-author-comments-btn', $wrap), !!job);
+  },
+  finishBulkDelete: function(issue_id, result) {
+    delete Issue.bulkDeleteJobs[issue_id];
+    var is_active_issue = Aj.layer &&
+        (parseInt(Issue.getCurrentIssueId(), 10) || 0) == (parseInt(issue_id, 10) || 0);
+    var is_public = is_active_issue &&
+        Issue.getCurrentCommentsMode() == 'public';
+    if (result.header_cnts &&
+        is_active_issue) {
+      Issue.updateHeaderCounters(result.header_cnts);
+    }
+    if (typeof result.counters_html !== 'undefined') {
+      Filters.updateIssueCounters(issue_id, result.counters_html);
+    }
+    if (!is_public) {
+      Issue.syncBulkDeleteUi(issue_id);
+      return;
+    }
+    var $form = $('.cd-comment-form', Aj.layer);
+    var ghost = $form.size() ? $form.field('ghost').value() : 0;
+    Aj.apiRequest('loadComments', {
+      issue_id: issue_id,
+      team: 0,
+      ghost: ghost
+    }, function(load_result) {
+      if (load_result.error) {
+        return Issue.failBulkDelete(issue_id, load_result.error);
+      }
+      if (!Aj.layer ||
+          (parseInt(Issue.getCurrentIssueId(), 10) || 0) != (parseInt(issue_id, 10) || 0) ||
+          Issue.getCurrentCommentsMode() != 'public') {
+        return Issue.syncBulkDeleteUi(issue_id);
+      }
+      if (load_result.header_cnts) {
+        Issue.updateHeaderCounters(load_result.header_cnts);
+      }
+      if (typeof load_result.counters_html !== 'undefined') {
+        Filters.updateIssueCounters(issue_id, load_result.counters_html);
+      }
+      if (load_result.comments_html) {
+        var commentsEl = $('.bt-comments', Aj.layer);
+        commentsEl.html(load_result.comments_html);
+        Issue.initComments(commentsEl);
+        Issue.syncTransientComments(issue_id);
+        Issue.requestCommentsUpdate();
+      } else {
+        Issue.syncBulkDeleteUi(issue_id);
+      }
+    });
+  },
+  failBulkDelete: function(issue_id, error) {
+    delete Issue.bulkDeleteJobs[issue_id];
+    Issue.syncBulkDeleteUi(issue_id);
+    if (Aj.layer &&
+        (parseInt(Issue.getCurrentIssueId(), 10) || 0) == (parseInt(issue_id, 10) || 0) &&
+        error) {
+      showAlert(error);
+    }
+  },
+  runBulkDelete: function(issue_id) {
+    var job = Issue.getBulkDeleteJob(issue_id);
+    if (!job) {
+      return;
+    }
+    var params = $.extend({}, job.params);
+    if (job.before_id) {
+      params.before_id = job.before_id;
+    }
+    if (job.user_id) {
+      params.user_id = job.user_id;
+    }
+    if (job.message) {
+      params.message = job.message;
+    }
+    Aj.apiRequest(job.method, params, function(result) {
+      var job = Issue.getBulkDeleteJob(issue_id);
+      if (!job) {
+        return;
+      }
+      if (result.error) {
+        return Issue.failBulkDelete(issue_id, result.error);
+      }
+      if (result.repeat) {
+        job.before_id = result.before_id || 0;
+        if (result.user_id) {
+          job.user_id = result.user_id;
+        }
+        if (result.message) {
+          job.message = result.message;
+        }
+        return setTimeout(function() {
+          Issue.runBulkDelete(issue_id);
+        }, 0);
+      }
+      Issue.finishBulkDelete(issue_id, result);
+    });
+  },
+  startBulkDelete: function(options) {
+    options = options || {};
+    var issue_id = parseInt(options.issue_id, 10) || 0;
+    if (!issue_id ||
+        Issue.isBulkDeleteRunning(issue_id)) {
+      return false;
+    }
+    Issue.bulkDeleteJobs[issue_id] = {
+      issue_id: issue_id,
+      method: options.method,
+      params: $.extend({}, options.params),
+      progress_text: options.progress_text || l('WEB_DELETING_COMMENTS'),
+      before_id: 0,
+      user_id: 0,
+      message: ''
+    };
+    Issue.syncBulkDeleteUi(issue_id);
+    setTimeout(function() {
+      Issue.runBulkDelete(issue_id);
+    }, 0);
+    return true;
+  },
+  getTransientComments: function(issue_id) {
+    issue_id = issue_id || Aj.layerState.issueId;
+    if (!Aj.layerState.transientComments) {
+      Aj.layerState.transientComments = {};
+    }
+    if (!Aj.layerState.transientComments[issue_id]) {
+      Aj.layerState.transientComments[issue_id] = {
+        public: []
+      };
+    }
+    return Aj.layerState.transientComments[issue_id];
+  },
+  getTransientCommentsCount: function(issue_id) {
+    return Issue.getTransientComments(issue_id).public.length;
+  },
+  applyTransientHeaderCounters: function(issue_id) {
+    issue_id = issue_id || Aj.layerState.issueId;
+    var delta = Issue.getTransientCommentsCount(issue_id);
+    $('.bt-header-tab', Aj.layer).each(function() {
+      if ($(this).attr('data-mode') != 'public') {
+        return;
+      }
+      var prev = parseInt($(this).attr('data-transient-comments'), 10) || 0;
+      var current = parseInt($('.bt-header-cnt', this).text(), 10) || 0;
+      var next = current - prev + delta;
+      $('.bt-header-cnt', this).text(next || '');
+      $(this).attr('data-transient-comments', delta);
+    });
+  },
+  syncTransientComments: function(issue_id) {
+    var $form = $('.cd-comment-form', Aj.layer);
+    if (!$form.size()) {
+      return;
+    }
+    issue_id = issue_id || $form.field('issue_id').value() || Aj.layerState.issueId;
+    if (!issue_id) {
+      return;
+    }
+    var mode = $form.field('team').value() ? 'team' : 'public';
+    var comments = Issue.getTransientComments(issue_id);
+    $('.bt-comment-transient[data-transient-id]', Aj.layer).each(function() {
+      var $comment = $(this);
+      var transient_id = $comment.attr('data-transient-id');
+      if (!transient_id) {
+        return;
+      }
+      var exists = false;
+      $.each(comments.public, function(i, item) {
+        if (item.id == transient_id) {
+          exists = true;
+          return false;
+        }
+      });
+      if (!exists) {
+        comments.public.push({
+          id: transient_id,
+          html: $('<div>').append($comment.clone()).html()
+        });
+      }
+    });
+    if (mode != 'public' ||
+        !comments.public.length) {
+      Issue.applyTransientHeaderCounters(issue_id);
+      Issue.applyTransientIssueCounters(issue_id);
+      return;
+    }
+    var $comments = $('.bt-comments', Aj.layer);
+    if (!$comments.size()) {
+      return;
+    }
+    $('.cd-list-empty-wrap', $comments).remove();
+    var $moreEl = $('.bt-comments-more[data-after]', $comments).first();
+    $.each(comments.public, function(i, item) {
+      if ($('.bt-comment-transient[data-transient-id="' + item.id + '"]', $comments).size()) {
+        return;
+      }
+      var $comment = $(item.html);
+      Issue.initComments($comment);
+      if ($moreEl.size()) {
+        $comment.insertBefore($moreEl);
+      } else {
+        $comment.appendTo($comments);
+      }
+    });
+    Issue.applyTransientHeaderCounters(issue_id);
+    Issue.applyTransientIssueCounters(issue_id);
+  },
+  applyTransientIssueCounters: function(issue_id) {
+    issue_id = issue_id || Aj.layerState.issueId;
+    var delta = Issue.getTransientCommentsCount(issue_id);
+    $('.bt-card-row[data-card-id]', Aj.layer).each(function() {
+      if ($(this).attr('data-card-id') != issue_id) {
+        return;
+      }
+      var $counters = $('.bt-issue-counters', this);
+      if (!$counters.size()) {
+        return;
+      }
+      var $reply = $('.cd-issue-replies', $counters);
+      if (!$reply.size()) {
+        if (!delta) {
+          return;
+        }
+        $reply = $('<span class="cd-issue-replies"><span class="value"></span><svg class="icon"><use xlink:href="#icon-replies"/></svg></span>').prependTo($counters);
+      }
+      var prev = parseInt($counters.attr('data-transient-replies'), 10) || 0;
+      var current = parseInt($('.value', $reply).text(), 10) || 0;
+      var next = current - prev + delta;
+      $('.value', $reply).text(next || '');
+      $counters.attr('data-transient-replies', delta);
+    });
   },
   eLoadMore: function(e) {
     e.preventDefault();
@@ -3005,6 +3301,7 @@ var Issue = {
             $comments.insertBefore($moreEl);
             $moreEl.remove();
           }
+          Issue.syncTransientComments(issue_id);
           if (result.comments_cnt > 0) {
             $('.cd-list-empty-wrap', Aj.layer).remove();
           }
@@ -3034,9 +3331,10 @@ var Issue = {
       var mode = $(this).attr('data-mode');
       if (typeof counters[mode] !== 'undefined') {
         $('.bt-header-cnt', this).text(counters[mode] || '');
+        $(this).attr('data-transient-comments', 0);
       }
     });
-
+    Issue.applyTransientHeaderCounters();
   },
   requestCommentsUpdate: function() {
     clearTimeout(Aj.layerState.updateTo);
@@ -3093,6 +3391,7 @@ var Issue = {
           Issue.initComments($comments);
           $comments.insertBefore($curMoreEl);
           $curMoreEl.remove();
+          Issue.syncTransientComments(issue_id);
           if (result.comments_cnt > 0) {
             $('.cd-list-empty-wrap', Aj.layer).remove();
           }
@@ -3140,6 +3439,7 @@ var Issue = {
         if (result.comments_html) {
           $comments.html(result.comments_html);
           Issue.initComments($comments);
+          Issue.syncTransientComments(issue_id);
           Issue.requestCommentsUpdate();
         }
         if (result.header_cnts) {
@@ -3261,6 +3561,7 @@ var Issue = {
         Bugtracker.formInit($form);
         Issue.initCommentsForm($commentsWrap);
         Issue.initComments($commentsWrap);
+        Issue.syncTransientComments(Aj.layerState.issue_id);
         Issue.requestCommentsUpdate();
         Aj.setLayerLocation(tab_href);
       }
@@ -3375,6 +3676,7 @@ var Issue = {
           $comments.insertBefore($moreEl);
           $moreEl.remove();
         }
+        Issue.syncTransientComments(issue_id);
         if (result.comments_cnt > 0) {
           $('.cd-list-empty-wrap', Aj.layer).remove();
         }
