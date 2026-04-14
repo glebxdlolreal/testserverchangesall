@@ -295,6 +295,7 @@ tg-spoiler {
 }
 .tgme_post_discussion_sendas_popup {
   width: 100%;
+  border-radius: 16px;
 }
 @media (min-width: 360px) {
   .tgme_post_discussion_sendas_popup {
@@ -306,6 +307,9 @@ tg-spoiler {
   .tgme_post_discussion_sendas_popup {
     min-width: 360px;
   }
+}
+.tgme_popup_body {
+  padding: 20px 24px;
 }
 .tgme_post_discussion_sendas_items .radio-item-block,
 .tgme_post_discussion_sendas_items .radio-item-block + .radio-item-block {
