@@ -314,9 +314,14 @@ tg-spoiler {
 .tgme_post_discussion_sendas_items .radio-item-block,
 .tgme_post_discussion_sendas_items .radio-item-block + .radio-item-block {
   position: relative;
-  padding: 7px 35px 7px 0;
-  margin: 0;
+  margin: 0 -24px;
+  padding: 7px 59px 7px 24px;
+  /*padding: 7px 35px 7px 0;
+  margin: 0;*/
   cursor: pointer;
+}
+.tgme_post_discussion_sendas_items .radio-item-block:hover {
+  background: #5f616517;
 }
 .tgme_post_discussion_sendas_item_photo {
   margin: 2px 0;
@@ -325,7 +330,7 @@ tg-spoiler {
 .tgme_post_discussion_sendas_items .radio-item-block .radio-input {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 24px;
   margin: 17px 0;
 }
 .tgme_post_discussion_sendas_items .radio-item .radio-input + .radio-label {
@@ -893,12 +898,12 @@ body.dark .tgme_post_discussion_input:focus {
   display: inline-block;
   content: '';
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   background: var(--radio-item-color);
   border-radius: 5px;
-  top: 3px;
-  left: 3px;
+  top: 2.5px;
+  left: 2.5px;
   transition: transform 0.12s linear;
   transform: scale3d(0, 0, 1);
 }
