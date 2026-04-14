@@ -910,6 +910,7 @@ body.dark .tgme_post_discussion_input:focus {
 .tgme_post_discussion_sendas_item_content.tgme_post_discussion_sendas_item_login {
   font-size: 15px;
   padding: 6px 0;
+  font-weight: 500;
 }
 .radio-item input.radio:checked + .radio-input .radio-input-icon,
 .checkbox-item input.checkbox:checked + .checkbox-input .checkbox-input-icon {
@@ -999,6 +1000,17 @@ body.dark .tgme_post_discussion_input:focus {
 @keyframes upload-circle {
   from { transform: rotateZ(-90deg); }
   to   { transform: rotateZ(270deg); }
+}
+
+.tgme_post_discussion_sendas_item_content.tgme_post_discussion_sendas_item_login:before {
+    content: "+";
+    position: absolute;
+    color: inherit;
+    left: 37px;
+    margin-bottom: 2px;
+    font-size: 20px;
+    color: #2681cb;
+    font-weight: 400;
 }
 
 
