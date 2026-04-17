@@ -923,7 +923,7 @@ var BotSettings = {
       var $entry = $(this).closest('.js-native-app-entry');
       var hash = $entry.data('hash');
       if (hash) {
-        Aj.apiRequest('removeNativeApp', { bid: Aj.state.botId, hash: hash }, res => {
+        Aj.apiRequest('removeNativeApp', { bid: Aj.state.botId, app_hash: hash }, res => {
           if (res.error) {
             Main.showErrorToast(res.error);
             return;
@@ -978,7 +978,7 @@ var BotSettings = {
     if (!field1 || !field2) return;
 
     var oldHash = $entry.data('hash') || '';
-    var params = { bid: Aj.state.botId, platform: platform, old_hash: oldHash };
+    var params = { bid: Aj.state.botId, platform: platform, app_hash: oldHash };
     if (platform == 'android') {
       params.package_name = field1;
       params.sha256_fingerprint = field2;
@@ -1064,7 +1064,7 @@ var BotSettings = {
             Main.showErrorToast(response.error);
           } 
           if (response.ok) {
-            window.location.search += '?migrate=1';
+            Aj.location(`/botfather/bot/${Aj.state.botId}/login`);
           }
         });
       }
