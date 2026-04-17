@@ -920,7 +920,19 @@ var BotSettings = {
     });
 
     $(cont).on('click', '.js-delete-native-app', function () {
-      $(this).closest('.js-native-app-entry').remove();
+      var $entry = $(this).closest('.js-native-app-entry');
+      var hash = $entry.data('hash');
+      if (hash) {
+        Aj.apiRequest('removeNativeApp', { bid: Aj.state.botId, hash: hash }, res => {
+          if (res.error) {
+            Main.showErrorToast(res.error);
+            return;
+          }
+          $entry.remove();
+        });
+      } else {
+        $entry.remove();
+      }
     });
 
     $(cont).on('change', '.js-native-app-field1, .js-native-app-field2', function () {
@@ -937,7 +949,7 @@ var BotSettings = {
 
     var html = `<div class="tm-native-app-entry js-native-app-entry" data-platform="${platform}">
       <div class="tm-row tm-row-no-highlight" style="gap: 8px; padding: 8px 16px;">
-        <span class="tm-native-app-chip ${platformClass}">${platformLabel}<span class="js-delete-native-app" style="cursor:pointer; margin-left: 4px;">×</span></span>
+        <span class="tm-native-app-chip ${platformClass}">${platformLabel}<span class="js-delete-native-app"></span></span>
       </div>
       <div class="tm-field" style="margin-bottom: 1px;">
         <input type="text" class="form-control tm-input js-native-app-field1" value="" placeholder="${field1Placeholder}" autocomplete="off" spellcheck="false" />
@@ -965,7 +977,8 @@ var BotSettings = {
 
     if (!field1 || !field2) return;
 
-    var params = { bid: Aj.state.botId, platform: platform };
+    var oldHash = $entry.data('hash') || '';
+    var params = { bid: Aj.state.botId, platform: platform, old_hash: oldHash };
     if (platform == 'android') {
       params.package_name = field1;
       params.sha256_fingerprint = field2;
@@ -984,6 +997,8 @@ var BotSettings = {
         return;
       }
       if (res.ok && res.native_app_url) {
+        $entry.data('hash', res.hash);
+        $entry.attr('data-hash', res.hash);
         var $urlRow = $entry.find('.js-native-app-url-row');
         $urlRow.show();
         $urlRow.find('.js-native-app-url-value').text(res.native_app_url);
