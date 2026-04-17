@@ -2750,7 +2750,7 @@ var MergeIssue = {
     }
     var $form = $('.bt-merge-form', Aj.layer);
     $form.field('target_issue_id').value(target.id);
-    $form.field('target_query').value('#' + target.id + ' ' + target.title);
+    $form.field('target_query').value($('.bt-merge-card-title', this).text());
     var titleClass = target.title_class ? ' ' + target.title_class : '';
     var previewHtml = '';
     if (target.selected_preview_html) {
