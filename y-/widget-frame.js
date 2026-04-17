@@ -832,11 +832,12 @@ window.TWidgetAuth = {
       return;
     }
     if (TWidgetAuth.isLoggedIn()) {
-      return;
+      // return;
     }
     Telegram.Login.auth({bot_id: options.bot_id, lang: 'en'}, function(user) {
       if (user) {
         xhrRequest('/auth', user, function(err, result) {
+          debugger;
           if (result.ok) {
             TWidgetAuth.reload(result.host);
           } else {

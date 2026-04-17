@@ -995,6 +995,13 @@ i.icon {
   flex-shrink: 0;
 }
 
+.tm-icon.tm-icon-trash {
+  -webkit-mask: var(--icon-s, var(--image-url-trash)) no-repeat center / contain;
+  mask: var(--icon-s, var(--image-url-trash)) no-repeat center / contain;
+  background-color: #fff;
+  background-image: none;
+}
+
 .tm-table-wrap p, p.help-text {
   margin: 8px 14px;
   font-size: 13px;
@@ -2014,6 +2021,21 @@ textarea {
 
 .tm-row-status {
   color: var(--text-color);
+}
+
+.tm-access-pill {
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 2px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.tm-access-pill .tm-icon {
+  width: 16px;
+  height: 16px;
+  background-size: 16px;
+  margin: 0;
 }
 
 .tm-menu-button-container {

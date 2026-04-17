@@ -923,10 +923,6 @@ i.icon {
   transition: color ease-in 50ms;
 }
 
-.tm-row-add-group {
-  border-bottom: 12px color(srgb 0.1208 0.1479 0.175) solid;
-}
-
 .tm-row-link:after {
   content: '';
   display: inline-block;
@@ -997,6 +993,10 @@ i.icon {
   background-repeat: no-repeat;
   margin: 0 5px;
   flex-shrink: 0;
+}
+
+.tm-icon.tm-icon-trash {
+  background: var(--icon-s, var(--image-url-trash));
 }
 
 .tm-table-wrap p, p.help-text {
@@ -2020,6 +2020,21 @@ textarea {
   color: var(--text-color);
 }
 
+.tm-access-pill {
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 2px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.tm-access-pill .tm-icon {
+  width: 16px;
+  height: 16px;
+  background-size: 16px;
+  margin: 0;
+}
+
 .tm-menu-button-container {
   padding: 8px 16px 8px 8px;
   background: #2D3A47;
@@ -2449,6 +2464,19 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
     display: none;
 }
 
+.tm-native-app-chip {
+  background: #2D3A47;
+  padding: 2px 6px;
+  border-radius: 32px;
+  font-size: 13px;
+  margin-inline-start: -6px;
+}
+
+.js-native-app-entry {
+  margin-bottom: 12px;
+  border-radius: 6px;
+  overflow: clip;
+}
 
 .js-revoke-client-secret:hover {
   color: #E3695D;

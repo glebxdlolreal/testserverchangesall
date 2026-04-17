@@ -259,7 +259,7 @@ var CreateBot = {
 var BotProfile = {
   init() {
     Aj.state.files ||= {};
-    WebApp.MainButton.setText('Update');
+    WebApp.MainButton.setText(l('WEB_PROFILE_UPDATE'));
     WebApp.MainButton.show();
     WebApp.MainButton.onClick(BotProfile.eMainClick);
 
@@ -687,6 +687,63 @@ var BotSettings = {
       if (field == 'loop') {
         botChangeSettings(field, value);
       }
+      if (field == 'gst') {
+        botChangeSettings(field, value);
+      }
+      if (field == 'access') {
+        botChangeSettings(field, value);
+        $('.js-access-users').toggleClass('hidden', !value);
+      }
+    });
+
+    function updateAccessUsersUI(label, plusLabel, clearVisible) {
+      var $status = $('.js-access-users-status');
+      var $pill = $('.js-access-users-pill');
+      var $plus = $('.js-access-users-plus');
+      $status.text(label);
+      $plus.text(plusLabel);
+      $pill.toggleClass('hidden', !clearVisible);
+    }
+
+    $('.js-access-users').on('click', function(e) {
+      if ($(e.target).closest('.js-access-users-clear').length) {
+        return;
+      }
+      if ($(e.target).closest('.js-access-users-pill').length) {
+        e.stopPropagation();
+        botChangeSettings('access_clear', true, function (res) {
+          if (res.ok) {
+            updateAccessUsersUI(res.label, res.plus_label, res.clear_visible);
+          }
+        });
+        return;
+      }
+      Aj.apiRequest('requestBotAccessUsers', { bid: Aj.state.botId }, function(res) {
+        if (res.error) {
+          Main.showErrorToast(res.error);
+          return;
+        }
+        WebApp.requestChat(res.webapp_req_id, function(sent) {
+          if (sent) {
+            setTimeout(function () {
+              Aj.apiRequest('getBotAccessInfo', { bid: Aj.state.botId }, function(res) {
+                if (res.ok) {
+                  updateAccessUsersUI(res.label, res.plus_label, res.clear_visible);
+                }
+              });
+            }, 2000);
+          }
+        });
+      });
+    });
+
+    $('.js-access-users-clear').on('click', function(e) {
+      e.stopPropagation();
+      botChangeSettings('access_clear', true, function (res) {
+        if (res.ok) {
+          updateAccessUsersUI(res.label, res.plus_label, res.clear_visible);
+        }
+      });
     });
 
     $('.js-group-admin-rights-toggle').on('click', () => {

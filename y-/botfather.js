@@ -259,7 +259,7 @@ var CreateBot = {
 var BotProfile = {
   init() {
     Aj.state.files ||= {};
-    WebApp.MainButton.setText('Update');
+    WebApp.MainButton.setText(l('WEB_PROFILE_UPDATE'));
     WebApp.MainButton.show();
     WebApp.MainButton.onClick(BotProfile.eMainClick);
 
@@ -687,6 +687,63 @@ var BotSettings = {
       if (field == 'loop') {
         botChangeSettings(field, value);
       }
+      if (field == 'gst') {
+        botChangeSettings(field, value);
+      }
+      if (field == 'access') {
+        botChangeSettings(field, value);
+        $('.js-access-users').toggleClass('hidden', !value);
+      }
+    });
+
+    function updateAccessUsersUI(label, plusLabel, clearVisible) {
+      var $status = $('.js-access-users-status');
+      var $pill = $('.js-access-users-pill');
+      var $plus = $('.js-access-users-plus');
+      $status.text(label);
+      $plus.text(plusLabel);
+      $pill.toggleClass('hidden', !clearVisible);
+    }
+
+    $('.js-access-users').on('click', function(e) {
+      if ($(e.target).closest('.js-access-users-clear').length) {
+        return;
+      }
+      if ($(e.target).closest('.js-access-users-pill').length) {
+        e.stopPropagation();
+        botChangeSettings('access_clear', true, function (res) {
+          if (res.ok) {
+            updateAccessUsersUI(res.label, res.plus_label, res.clear_visible);
+          }
+        });
+        return;
+      }
+      Aj.apiRequest('requestBotAccessUsers', { bid: Aj.state.botId }, function(res) {
+        if (res.error) {
+          Main.showErrorToast(res.error);
+          return;
+        }
+        WebApp.requestChat(res.webapp_req_id, function(sent) {
+          if (sent) {
+            setTimeout(function () {
+              Aj.apiRequest('getBotAccessInfo', { bid: Aj.state.botId }, function(res) {
+                if (res.ok) {
+                  updateAccessUsersUI(res.label, res.plus_label, res.clear_visible);
+                }
+              });
+            }, 2000);
+          }
+        });
+      });
+    });
+
+    $('.js-access-users-clear').on('click', function(e) {
+      e.stopPropagation();
+      botChangeSettings('access_clear', true, function (res) {
+        if (res.ok) {
+          updateAccessUsersUI(res.label, res.plus_label, res.clear_visible);
+        }
+      });
     });
 
     $('.js-group-admin-rights-toggle').on('click', () => {
@@ -853,6 +910,84 @@ var BotSettings = {
 
     $('.js-migrate-oauth').on('click', function () {
       BotSettings.askMigrateOauth();
+    });
+
+    $('body').on('click', '.js-add-native-app-platform', function () {
+      var platform = this.dataset.platform;
+      BotSettings.addNativeAppEntry(platform);
+    });
+
+    $('body').on('click', '.js-delete-native-app', function () {
+      $(this).closest('.js-native-app-entry').remove();
+    });
+
+    $('body').on('change', '.js-native-app-field1, .js-native-app-field2', function () {
+      var $entry = $(this).closest('.js-native-app-entry');
+      BotSettings.submitNativeApp($entry);
+    });
+  },
+
+  addNativeAppEntry(platform) {
+    var platformLabel = platform == 'android' ? l('WEB_NATIVE_APP_PLATFORM_ANDROID') : l('WEB_NATIVE_APP_PLATFORM_IOS');
+    var platformIcon = platform == 'android' ? '🤖' : '🍎';
+    var field1Placeholder = platform == 'android' ? l('WEB_NATIVE_APP_PACKAGE_NAME') : l('WEB_NATIVE_APP_TEAM_ID');
+    var field2Placeholder = platform == 'android' ? l('WEB_NATIVE_APP_SHA256_FINGERPRINT') : l('WEB_NATIVE_APP_BUNDLE_ID');
+
+    var html = `<div class="js-native-app-entry" data-platform="${platform}">
+      <div class="tm-row tm-row-no-highlight" style="gap: 8px; padding: 8px 16px;">
+        <span class="tm-native-app-chip">${platformIcon} ${platformLabel} <span class="js-delete-native-app" style="cursor:pointer; margin-left: 4px;">×</span></span>
+      </div>
+      <div class="tm-field" style="border-radius: 6px 6px 0 0; margin-bottom: 1px;">
+        <input type="text" class="form-control tm-input js-native-app-field1" value="" placeholder="${field1Placeholder}" autocomplete="off" spellcheck="false" />
+      </div>
+      <div class="tm-field" style="border-radius: 0 0 6px 6px; margin-bottom: 1px;">
+        <input type="text" class="form-control tm-input js-native-app-field2" value="" placeholder="${field2Placeholder}" autocomplete="off" spellcheck="false" />
+      </div>
+      <div class="tm-row tm-row-no-highlight js-native-app-url-row" style="align-items: stretch; flex-direction: column; display:none;">
+        <span class="tm-table-header">${l('WEB_NATIVE_APP_URL')}</span>
+        <div class="tm-api-token tm-api-token-client-secret">
+          <span class="js-native-app-url-value" style="flex-grow: 1; word-break: break-all;"></span>
+          <div class="copy-btn" data-value=""></div>
+        </div>
+      </div>
+    </div>`;
+
+    $('.js-native-apps-list').append(html);
+    WebApp.HapticFeedback.impactOccurred('soft');
+  },
+
+  submitNativeApp($entry) {
+    var platform = $entry.data('platform');
+    var field1 = $entry.find('.js-native-app-field1').val()?.trim();
+    var field2 = $entry.find('.js-native-app-field2').val()?.trim();
+
+    if (!field1 || !field2) return;
+
+    var params = { bid: Aj.state.botId, platform: platform };
+    if (platform == 'android') {
+      params.package_name = field1;
+      params.sha256_fingerprint = field2;
+    } else {
+      params.team_id = field1;
+      params.bundle_id = field2;
+    }
+
+    $entry.find('.js-native-app-field1, .js-native-app-field2').removeClass('error');
+
+    Aj.apiRequest('addNativeApp', params, res => {
+      if (res.error) {
+        Main.showErrorToast(res.error);
+        if (res.field == 'field1') $entry.find('.js-native-app-field1').addClass('error');
+        if (res.field == 'field2') $entry.find('.js-native-app-field2').addClass('error');
+        return;
+      }
+      if (res.ok && res.native_app_url) {
+        var $urlRow = $entry.find('.js-native-app-url-row');
+        $urlRow.show();
+        $urlRow.find('.js-native-app-url-value').text(res.native_app_url);
+        $urlRow.find('.copy-btn').attr('data-value', res.native_app_url);
+        Main.showSuccessToast(l('WEB_NATIVE_APP_REGISTERED'));
+      }
     });
   },
 

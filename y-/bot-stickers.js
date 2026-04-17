@@ -393,12 +393,12 @@ var Main = {
     WebApp.setBottomBarColor('#212a33');
     WebApp.MainButton.setParams({ color: '#248BDA' });
     WebApp.MainButton.onClick(Main.eMainButton);
-    //WebApp.disableVerticalSwipes();
+    WebApp.disableVerticalSwipes();
 
     if (['android', 'ios'].includes(WebApp.platform)) {
       $('body').addClass('mobile');
       $('body').addClass('platform-'+WebApp.platform);
-      // WebApp.requestFullscreen();
+      WebApp.requestFullscreen();
       initBackSwipe();
       window._mobileApp = true;
     }
@@ -694,10 +694,10 @@ var NewPack = {
     var url = URL.createObjectURL(file);
     var $item;
     if (file.type == 'application/x-tgsticker') {
-      $item = $(`<picture class="tm-grid-item tm-grid-item-sticker tm-sticker-loading" data-blob="${url}" data-type="tgs"><source type="application/x-tgsticker" srcset="${url}"></picture>`);
+      $item = $(`<picture class="tm-grid-item tm-grid-item-sticker tm-grid-item-sticker-animated tm-sticker-loading" data-blob="${url}" data-type="tgs"><source type="application/x-tgsticker" srcset="${url}"></picture>`);
       RLottie.init($item[0], {noAutoPlay: true});
     } else if (file.type == 'video/webm') {
-      $item = $(`<div class="tm-grid-item tm-grid-item-sticker tm-sticker-loading" data-blob="${url}" data-type="webm"><video muted src="${url}"></div>`);      
+      $item = $(`<div class="tm-grid-item tm-grid-item-sticker tm-grid-item-sticker-animated tm-sticker-loading" data-blob="${url}" data-type="webm"><video muted src="${url}"></div>`);      
     } else {
       $item = $(`<div class="tm-grid-item tm-grid-item-sticker tm-sticker-loading" data-blob="${url}" data-type="webp"><img src="${url}"></div>`);
     }
@@ -1023,7 +1023,7 @@ var EditPack = {
   eStickerPickerInput(e) {
     var $grid = $('.js-sortable-table');
 
-    e.originalEvent.detail.forEach(el => {
+    e.originalEvent.detail.reverse().forEach(el => {
       if ($(`.tm-sticker-row[data-doc-id=${el.docId}]`).length) {
         return;
       }
@@ -1035,7 +1035,7 @@ var EditPack = {
         <span class="tm-icon tm-icon-end tm-icon-close js-delete-sticker"></span>
       </div>`);
       $item.attr('id', 'i' + el.docId);
-      $item.appendTo($grid);
+      $item.prependTo($grid);
     });
   },
   addFile(file) {
@@ -1044,13 +1044,13 @@ var EditPack = {
     var $thumb;
     if (file.type == 'application/x-tgsticker') {
       $thumb = $(`<picture class="tm-row-pic"><source type="application/x-tgsticker" srcset="${url}"></picture>`);
-      RLottie.init($item[0], {noAutoPlay: true});
+      RLottie.init($thumb[0], {noAutoPlay: true});
     } else if (file.type == 'video/webm') {
       $thumb = $(`<video class="tm-row-pic" muted src="${url}">`);
     } else {
       $thumb = $(`<img class="tm-row-pic" src="${url}">`);
     }
-    $item = $(`<div class="tm-row tm-sticker-row tm-sticker-row-edit tm-sticker-loading">
+    var $item = $(`<div class="tm-row tm-sticker-row tm-sticker-row-edit tm-sticker-loading">
         <span class="tm-icon js-sortable-handle ui-sortable-handle" style="--icon-s: var(--image-url-rearrange)"></span>
         <div class="tm-row-pic"></div>
         <input type="text" class="form-control tm-input" name="emoji" placeholder="${l('WEB_EDITPACK_EMOJI_PLACEHOLDER')}" autocomplete="off" value="" spellcheck="false">
@@ -1069,7 +1069,7 @@ var EditPack = {
         Main.showErrorToast(res.error);
       }
     });
-    $item.appendTo($grid);
+    $item.prependTo($grid);
   },
   uploadThumb() {
     var src = false;
@@ -1548,49 +1548,95 @@ var StickerPicker = {
 
 var MainPage = {
   init() {
-    Aj.state.allowMsg = true;
-    $('.tm-row-toggle').on('click', function () {
-      var toggleEl = this.querySelector('.tm-toggle');
-      var value = toggleEl.classList.toggle('tm-toggle-on');
-      Aj.state.allowMsg = value;
-      WebApp.HapticFeedback.impactOccurred('soft');
-    });
-
-    var sent = false;
-
-    var accept = (allow_phone = false) => Aj.apiRequest('confirm', {tsession: Aj.state.temp_session, accept_allow_phone: allow_phone, accept_allow_write: Aj.state.allowMsg}, res => {
-      if (res) {
-        WebApp.HapticFeedback.notificationOccurred('success');
-        WebApp.close();
-      }
-    });
-
-    Aj.state.onMainButton = () => {
-      sent = true;
-
-      if (Aj.state.request_phone) {
-        WebApp.showPopup({
-          title: 'Allow access?',
-          message: `${Aj.state.request_domain} wants to access your phone number +${Aj.state.request_phone}.`,
-          buttons: [
-            {type: 'default', id: 'ok', text: 'Allow'},
-            {type: 'destructive', id: 'deny', text: 'Deny'},
-          ]
-        }, button_id => {
-          accept(button_id == 'ok')
-        });
-      } else {
-        accept();
-      }
-    };
-    WebApp.MainButton.setText('Log In');
-    WebApp.MainButton.show();
-
-    WebApp.SecondaryButton.onClick(() => WebApp.close());
-    WebApp.SecondaryButton.setText('Cancel');
-    WebApp.SecondaryButton.setParams({ color: '#CC5D52', text_color: '#FFFFFF' })
-    WebApp.SecondaryButton.show();
+    $('input[name=query]').on('input', MainPage.eSearchInput);
+    $('.js-tab-button[data-scope=display]').on('click', MainPage.eDisplayTabClick);
+    $('.js-tab-button[data-scope=type]').on('click', MainPage.eTypeTabClick);
+    $('.js-pack-delete').on('click', MainPage.eClickDelete);
+    $('.js-link-copy').on('click', MainPage.eClickCopy);
   },
+  eTypeTabClick() {
+    var $tab = $(this);
+    if ($tab.hasClass('active')) return;
+    $('input[name=query]').val('').trigger('input');
+    var $oldTab = $('.js-tab-button[data-scope=type].active');
+    var oldTarget = $oldTab.data('tab');
+    var newTarget = $tab.data('tab');
+    $(`.js-tab-content[data-tab=${oldTarget}]`).addClass('hidden');
+    $(`.js-tab-content[data-tab=${newTarget}]`).removeClass('hidden');
+    $oldTab.removeClass('active');
+    $tab.addClass('active');
+    Aj.state.type = newTarget;
+    WebApp.HapticFeedback.impactOccurred('soft');
+    MainPage.saveSettings();
+  },
+  eDisplayTabClick() {
+    var tab = this.dataset.tab;
+    if (Aj.state.display == tab) {
+      return;
+    }
+    $('main').toggleClass('tm-mode-grid', tab === 'grid');
+    $('.js-tab-button[data-scope=display].active').toggleClass('active');
+    $(this).addClass('active');
+    Aj.state.display = tab;
+    WebApp.HapticFeedback.impactOccurred('soft');
+    MainPage.saveSettings();
+  },
+  saveSettings() {
+    var json = JSON.stringify({d: Aj.state.display, t: Aj.state.type});
+    var str = encodeURIComponent(json);
+    document.cookie = `stel_bot_stickers_settings=${str}; path=/stickers; max-age=31536000; Secure`;
+  },
+  eSearchInput() {
+    var value = this.value || '';
+    var empty = true;
+    $('.tm-pack-list:not(.hidden) .tm-row').each((i, el) => {
+      let doc = $('.tm-row-value', el).text() + ' ' + $(el).data('shortName');
+      let hide = el.classList.contains('tm-row-add') || !fuzzyMatch(value, doc);
+      hide = hide && !!value;
+      empty = empty && hide;
+      $(el).toggleClass('hidden', hide);
+    });
+    $('.js-results-empty').toggleClass('hidden', !empty);
+    $('.js-results-empty-help').text(l('WEB_MAIN_NO_RESULTS_INFO', {query: value}));
+  },
+  eClickCopy() {
+    var value = $(this).data('value');
+    navigator.clipboard.writeText(value);
+    Main.showSuccessToast(l('WEB_LINK_COPIED'));
+  },
+  eClickDelete() {
+    var pack_id = $(this).data('id');
+    var $item = $(this).closest('.tm-dropdown');
+
+    WebApp.showPopup({
+      title: l('WEB_POPUP_DELETE_TITLE'),
+      message: l('WEB_POPUP_DELETE'),
+      buttons: [
+        {
+          id: 'delete',
+          text: l('WEB_POPUP_DELETE_BTN'),
+          type: 'destructive',
+        },
+        {
+          type: 'cancel',
+        },
+      ]
+    }, (result) => {
+      if (result !== 'delete') return;
+      Aj.apiRequest('deleteStickerSet', {
+        pack_id: pack_id,
+      }, res => {
+        if (res.error) {
+          Main.showErrorToast(res.error);
+        } else {
+          Aj.onUnload(() => {
+            Main.showSuccessToast(res.msg);            
+          });
+          $item.remove();
+        }
+      });
+    });
+  }
 }
 
 function requestUpload(target, callback = null, options = {}) {
