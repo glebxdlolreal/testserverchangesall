@@ -2468,15 +2468,38 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
     display: none;
 }
 
+.tm-native-app-entry .tm-field {
+    border-radius: 0;
+}
+
 .tm-native-app-chip {
   background: #2D3A47;
   padding: 2px 6px;
   border-radius: 32px;
   font-size: 13px;
   margin-inline-start: -6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
-.js-native-app-entry {
+.tm-native-app-chip:before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background-size: 100%;
+}
+
+.tm-native-app-chip-android:before {
+  background-image: var(--image-url-android-app);
+}
+
+.tm-native-app-chip-ios:before {
+  background-image: var(--image-url-ios-app);
+}
+
+.tm-native-app-entry  {
   margin-bottom: 12px;
   border-radius: 6px;
   overflow: clip;

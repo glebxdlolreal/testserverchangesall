@@ -929,18 +929,18 @@ var BotSettings = {
 
   addNativeAppEntry(platform) {
     var platformLabel = platform == 'android' ? l('WEB_NATIVE_APP_PLATFORM_ANDROID') : l('WEB_NATIVE_APP_PLATFORM_IOS');
-    var platformIcon = platform == 'android' ? '🤖' : '🍎';
+    var platformClass = platform == 'android' ? 'tm-native-app-chip-android' : 'tm-native-app-chip-ios';
     var field1Placeholder = platform == 'android' ? l('WEB_NATIVE_APP_PACKAGE_NAME') : l('WEB_NATIVE_APP_TEAM_ID');
     var field2Placeholder = platform == 'android' ? l('WEB_NATIVE_APP_SHA256_FINGERPRINT') : l('WEB_NATIVE_APP_BUNDLE_ID');
 
-    var html = `<div class="js-native-app-entry" data-platform="${platform}">
+    var html = `<div class="tm-native-app-entry js-native-app-entry" data-platform="${platform}">
       <div class="tm-row tm-row-no-highlight" style="gap: 8px; padding: 8px 16px;">
-        <span class="tm-native-app-chip">${platformIcon} ${platformLabel} <span class="js-delete-native-app" style="cursor:pointer; margin-left: 4px;">×</span></span>
+        <span class="tm-native-app-chip ${platformClass}">${platformLabel}<span class="js-delete-native-app" style="cursor:pointer; margin-left: 4px;">×</span></span>
       </div>
-      <div class="tm-field" style="border-radius: 6px 6px 0 0; margin-bottom: 1px;">
+      <div class="tm-field" style="margin-bottom: 1px;">
         <input type="text" class="form-control tm-input js-native-app-field1" value="" placeholder="${field1Placeholder}" autocomplete="off" spellcheck="false" />
       </div>
-      <div class="tm-field" style="border-radius: 0 0 6px 6px; margin-bottom: 1px;">
+      <div class="tm-field" style="margin-bottom: 1px;">
         <input type="text" class="form-control tm-input js-native-app-field2" value="" placeholder="${field2Placeholder}" autocomplete="off" spellcheck="false" />
       </div>
       <div class="tm-row tm-row-no-highlight js-native-app-url-row" style="align-items: stretch; flex-direction: column; display:none;">
