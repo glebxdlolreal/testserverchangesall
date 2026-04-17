@@ -786,13 +786,13 @@ var BotSettings = {
       Aj.state.privacyUrlDebounce(submitPrivacy, 0);
     });
 
-    $(cont).on('click', '.js-delete-allowed-url', function () {
+    $(cont).on('click.curPage', '.js-delete-allowed-url', function () {
       $(this).parent('.tm-row').remove();
       BotSettings.updateAllowedUrls();
     });
 
-    $(cont).on('change', 'input[name="allowed_url[]"]', BotSettings.updateAllowedUrls);
-    $(cont).on('input', 'input[name="allowed_url[]"]', function () {
+    $(cont).on('change.curPage', 'input[name="allowed_url[]"]', BotSettings.updateAllowedUrls);
+    $(cont).on('input.curPage', 'input[name="allowed_url[]"]', function () {
       $(this).removeClass('error');
     });
 
@@ -914,12 +914,12 @@ var BotSettings = {
       BotSettings.askMigrateOauth();
     });
 
-    $(cont).on('click', '.js-add-native-app-platform', function () {
+    $(cont).on('click.curPage', '.js-add-native-app-platform', function () {
       var platform = this.dataset.platform;
       BotSettings.addNativeAppEntry(platform);
     });
 
-    $(cont).on('click', '.js-delete-native-app', function () {
+    $(cont).on('click.curPage', '.js-delete-native-app', function () {
       var $entry = $(this).closest('.js-native-app-entry');
       var hash = $entry.data('hash');
       if (hash) {
@@ -935,7 +935,7 @@ var BotSettings = {
       }
     });
 
-    $(cont).on('change', '.js-native-app-field1, .js-native-app-field2', function () {
+    $(cont).on('change.curPage', '.js-native-app-field1, .js-native-app-field2', function () {
       var $entry = $(this).closest('.js-native-app-entry');
       BotSettings.submitNativeApp($entry);
     });
