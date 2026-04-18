@@ -832,11 +832,12 @@ window.TWidgetAuth = {
       return;
     }
     if (TWidgetAuth.isLoggedIn()) {
-      return;
+      // return;
     }
     Telegram.Login.auth({bot_id: options.bot_id, lang: 'en'}, function(user) {
       if (user) {
         xhrRequest('/auth', user, function(err, result) {
+          debugger;
           if (result.ok) {
             TWidgetAuth.reload(result.host);
           } else {
@@ -2721,7 +2722,7 @@ function checkFrameSize() {
     },
     auth: function() {
       var width = 550;
-      var height = 470;
+      var height = 650;
       var left = Math.max(0, (screen.width - width) / 2) + (screen.availLeft | 0),
           top = Math.max(0, (screen.height - height) / 2) + (screen.availTop | 0);
       function checkClose() {
