@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cloud Bot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="MobileOptimized" content="176" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.17/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.17/theme/dracula.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.17/addon/fold/foldgutter.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.17/addon/hint/show-hint.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.17/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.17/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.17/addon/comment/comment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.17/addon/fold/foldcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.17/addon/fold/foldgutter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.17/addon/fold/brace-fold.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.17/addon/fold/comment-fold.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.17/addon/edit/matchbrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.17/addon/edit/closebrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.17/addon/hint/show-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.17/addon/hint/javascript-hint.min.js"></script>
+    <script src="https://a-tgme.stel.com/js/codemirror-cloudjs.js"></script>
+    <script src="https://a-tgme.stel.com/js/telegram-web-app-beta.js?0"></script>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        background: #f4f4f2;
+        min-height: 100vh;
+        padding: 2rem 1.5rem;
+        color: #1a1a1a;
+      }
+
+      #app {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .panels {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        align-items: start;
+      }
+
+      .panel {
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(0,0,0,0.1);
+        background: #fff;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+      }
+
+      .panel-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 9px 14px;
+        background: #f7f7f5;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+      }
+
+      .panel-name {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #999;
+      }
+
+      .panel-head-right {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        gap: 8px;
+      }
+
+      .lang-tag {
+        font-size: 11px;
+        font-family: 'Menlo', monospace;
+        color: #666;
+        background: rgba(0,0,0,0.05);
+        border: 1px solid rgba(0,0,0,0.08);
+        border-radius: 5px;
+        padding: 2px 8px;
+      }
+
+      #exec-time {
+        font-size: 11px;
+        font-family: 'Menlo', monospace;
+        color: #999;
+        display: none;
+      }
+
+      .panel-js .CodeMirror {
+        height: 320px;
+        font-size: 13px;
+        font-family: 'Menlo', monospace;
+        line-height: 1.65;
+        background: #282a36;
+      }
+      .panel-js .CodeMirror-gutters {
+        background: #282a36;
+        border-right: 1px solid rgba(255,255,255,0.06);
+      }
+      .panel-js .CodeMirror-linenumber { color: rgba(255,255,255,0.2); }
+      .panel-js .CodeMirror-foldgutter-open,
+      .panel-js .CodeMirror-foldgutter-folded { color: rgba(255,255,255,0.3); cursor: pointer; }
+
+      /* hint dropdown styled for dracula */
+      .CodeMirror-hints {
+        background: #282a36;
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 6px;
+        font-family: 'Menlo', monospace;
+        font-size: 12px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+        z-index: 999;
+      }
+      .CodeMirror-hint {
+        color: #f8f8f2;
+        padding: 3px 10px;
+      }
+      li.CodeMirror-hint-active {
+        background: #44475a;
+        color: #fff;
+        border-radius: 4px;
+      }
+
+      .panel-json .CodeMirror {
+        height: 370px;
+        font-size: 13px;
+        font-family: 'Menlo', monospace;
+        line-height: 1.65;
+        background: #f7f7f5;
+        color: #1a1a1a;
+      }
+      .panel-json .CodeMirror-gutters {
+        background: #f7f7f5;
+        border-right: 1px solid rgba(0,0,0,0.08);
+      }
+      .panel-json .CodeMirror-linenumber { color: #bbb; }
+
+      .panel-footer {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-top: 1px solid rgba(0,0,0,0.08);
+        background: #f7f7f5;
+      }
+
+      #run-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 7px 16px;
+        font-size: 13px;
+        font-weight: 500;
+        font-family: inherit;
+        cursor: pointer;
+        border-radius: 8px;
+        border: 1px solid #4f46e5;
+        background: #4f46e5;
+        color: #fff;
+        transition: background 0.15s, transform 0.1s;
+        white-space: nowrap;
+      }
+      #run-btn:hover:not(:disabled) { background: #4338ca; border-color: #4338ca; }
+      #run-btn:active:not(:disabled) { transform: scale(0.97); }
+      #run-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+      .play-icon {
+        width: 0; height: 0;
+        border-top: 4.5px solid transparent;
+        border-bottom: 4.5px solid transparent;
+        border-left: 7px solid #fff;
+        display: inline-block;
+      }
+
+      .spinner {
+        width: 11px; height: 11px;
+        border: 2px solid rgba(255,255,255,0.35);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: spin 0.6s linear infinite;
+        display: none;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+
+      #run-btn.loading .play-icon { display: none; }
+      #run-btn.loading .spinner { display: inline-block; }
+
+      #hint {
+        font-size: 12px;
+        color: #bbb;
+      }
+      #hint.ok  { color: #16a34a; }
+      #hint.err { color: #dc2626; }
+
+      @media (max-width: 640px) {
+        body { padding: 1rem; }
+        .panels { grid-template-columns: 1fr; }
+      }
+    </style>
+    <script>
+      function setThemeClass() {
+        document.documentElement.className = Telegram.WebApp.colorScheme;
+      }
+      Telegram.WebApp.onEvent('themeChanged', setThemeClass);
+      setThemeClass();
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="panels">
+
+        <div class="panel panel-js">
+          <div class="panel-head">
+            <span class="panel-name">Code</span>
+            <span class="lang-tag">javascript</span>
+          </div>
+          <div id="editor-js"></div>
+          <div class="panel-footer">
+            <button id="run-btn">
+              <span class="play-icon"></span>
+              <span class="spinner"></span>
+              Run code
+            </button>
+            <span id="hint"></span>
+            <div class="panel-head-right">
+              <span id="exec-time"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-json">
+          <div class="panel-head">
+            <span class="panel-name">Output</span>
+            <div class="panel-head-right">
+              <span class="lang-tag">json</span>
+            </div>
+          </div>
+          <div id="editor-json"></div>
+        </div>
+
+      </div>
+    </div>
+    <script>
+      const isMac = /Mac|iPhone|iPad/.test(navigator.platform);
+      const shortcut = (isMac ? '⌘' : 'Ctrl') + '+↵';
+      const hintEl = document.getElementById('hint');
+      const runBtn = document.getElementById('run-btn');
+      const execTimeEl = document.getElementById('exec-time');
+      hintEl.textContent = shortcut;
+
+      const apiUrl = '/cloud/api/runCode';
+
+      const defaultCode = `import { db, api, fn } from 'sdk';
+
+export default async function (args, ctx) {
+  return {
+    hi: "Hello!",
+    db: await db.raw.read('SELECT * FROM test_table'),
+    sum: fn._call('sum', {a:1, b:2}),
+    webhook: api._call('getWebhookInfo'),
+    args: args,
+    ctx: ctx
+  };
+}`;
+
+      const hintConfig = {
+    "global": {
+        "JSON": {
+            "$type": "object",
+            "props": {
+                "parse": {
+                    "$type": "function"
+                },
+                "stringify": {
+                    "$type": "function"
+                },
+                "rawJSON": {
+                    "$type": "function"
+                },
+                "isRawJSON": {
+                    "$type": "function"
+                }
+            }
+        },
+        "Math": {
+            "$type": "object",
+            "props": {
+                "abs": {
+                    "$type": "function"
+                },
+                "acos": {
+                    "$type": "function"
+                },
+                "acosh": {
+                    "$type": "function"
+                },
+                "asin": {
+                    "$type": "function"
+                },
+                "asinh": {
+                    "$type": "function"
+                },
+                "atan": {
+                    "$type": "function"
+                },
+                "atanh": {
+                    "$type": "function"
+                },
+                "atan2": {
+                    "$type": "function"
+                },
+                "ceil": {
+                    "$type": "function"
+                },
+                "cbrt": {
+                    "$type": "function"
+                },
+                "expm1": {
+                    "$type": "function"
+                },
+                "clz32": {
+                    "$type": "function"
+                },
+                "cos": {
+                    "$type": "function"
+                },
+                "cosh": {
+                    "$type": "function"
+                },
+                "exp": {
+                    "$type": "function"
+                },
+                "floor": {
+                    "$type": "function"
+                },
+                "fround": {
+                    "$type": "function"
+                },
+                "hypot": {
+                    "$type": "function"
+                },
+                "imul": {
+                    "$type": "function"
+                },
+                "log": {
+                    "$type": "function"
+                },
+                "log1p": {
+                    "$type": "function"
+                },
+                "log2": {
+                    "$type": "function"
+                },
+                "log10": {
+                    "$type": "function"
+                },
+                "max": {
+                    "$type": "function"
+                },
+                "min": {
+                    "$type": "function"
+                },
+                "pow": {
+                    "$type": "function"
+                },
+                "random": {
+                    "$type": "function"
+                },
+                "round": {
+                    "$type": "function"
+                },
+                "sign": {
+                    "$type": "function"
+                },
+                "sin": {
+                    "$type": "function"
+                },
+                "sinh": {
+                    "$type": "function"
+                },
+                "sqrt": {
+                    "$type": "function"
+                },
+                "tan": {
+                    "$type": "function"
+                },
+                "tanh": {
+                    "$type": "function"
+                },
+                "trunc": {
+                    "$type": "function"
+                },
+                "E": {
+                    "$type": "primitive"
+                },
+                "LN10": {
+                    "$type": "primitive"
+                },
+                "LN2": {
+                    "$type": "primitive"
+                },
+                "LOG10E": {
+                    "$type": "primitive"
+                },
+                "LOG2E": {
+                    "$type": "primitive"
+                },
+                "PI": {
+                    "$type": "primitive"
+                },
+                "SQRT1_2": {
+                    "$type": "primitive"
+                },
+                "SQRT2": {
+                    "$type": "primitive"
+                },
+                "f16round": {
+                    "$type": "function"
+                }
+            }
+        },
+        "parseInt": {
+            "$type": "function"
+        },
+        "parseFloat": {
+            "$type": "function"
+        },
+        "String": {
+            "$type": "function"
+        },
+        "Number": {
+            "$type": "function"
+        },
+        "Array": {
+            "$type": "function"
+        },
+        "Object": {
+            "$type": "function"
+        },
+        "Date": {
+            "$type": "function"
+        },
+        "RegExp": {
+            "$type": "function"
+        },
+        "Map": {
+            "$type": "function"
+        },
+        "Set": {
+            "$type": "function"
+        },
+        "Promise": {
+            "$type": "function"
+        },
+        "console": {
+            "$type": "object",
+            "props": {
+                "debug": {
+                    "$type": "function"
+                },
+                "error": {
+                    "$type": "function"
+                },
+                "info": {
+                    "$type": "function"
+                },
+                "log": {
+                    "$type": "function"
+                },
+                "warn": {
+                    "$type": "function"
+                },
+                "dir": {
+                    "$type": "function"
+                },
+                "dirxml": {
+                    "$type": "function"
+                },
+                "table": {
+                    "$type": "function"
+                },
+                "trace": {
+                    "$type": "function"
+                },
+                "group": {
+                    "$type": "function"
+                },
+                "groupCollapsed": {
+                    "$type": "function"
+                },
+                "groupEnd": {
+                    "$type": "function"
+                },
+                "clear": {
+                    "$type": "function"
+                },
+                "count": {
+                    "$type": "function"
+                },
+                "countReset": {
+                    "$type": "function"
+                },
+                "assert": {
+                    "$type": "function"
+                },
+                "profile": {
+                    "$type": "function"
+                },
+                "profileEnd": {
+                    "$type": "function"
+                },
+                "time": {
+                    "$type": "function"
+                },
+                "timeLog": {
+                    "$type": "function"
+                },
+                "timeEnd": {
+                    "$type": "function"
+                },
+                "timeStamp": {
+                    "$type": "function"
+                },
+                "context": {
+                    "$type": "function"
+                }
+            }
+        },
+        "encodeURIComponent": {
+            "$type": "function"
+        },
+        "decodeURIComponent": {
+            "$type": "function"
+        },
+        "encodeURI": {
+            "$type": "function"
+        },
+        "decodeURI": {
+            "$type": "function"
+        },
+        "isNaN": {
+            "$type": "function"
+        },
+        "isFinite": {
+            "$type": "function"
+        }
+    },
+    "custom": {
+        "db": {
+            "$type": "object",
+            "props": {
+                "text": {
+                    "$type": "function"
+                },
+                "integer": {
+                    "$type": "function"
+                },
+                "float": {
+                    "$type": "function"
+                },
+                "boolean": {
+                    "$type": "function"
+                },
+                "blob": {
+                    "$type": "function"
+                },
+                "json": {
+                    "$type": "function"
+                },
+                "table": {
+                    "$type": "function"
+                },
+                "index": {
+                    "$type": "function"
+                },
+                "deprecated": {
+                    "$type": "function"
+                },
+                "eq": {
+                    "$type": "function"
+                },
+                "neq": {
+                    "$type": "function"
+                },
+                "gt": {
+                    "$type": "function"
+                },
+                "gte": {
+                    "$type": "function"
+                },
+                "lt": {
+                    "$type": "function"
+                },
+                "lte": {
+                    "$type": "function"
+                },
+                "like": {
+                    "$type": "function"
+                },
+                "isNull": {
+                    "$type": "function"
+                },
+                "isNotNull": {
+                    "$type": "function"
+                },
+                "and": {
+                    "$type": "function"
+                },
+                "or": {
+                    "$type": "function"
+                },
+                "not": {
+                    "$type": "function"
+                },
+                "between": {
+                    "$type": "function"
+                },
+                "inList": {
+                    "$type": "function"
+                },
+                "notInList": {
+                    "$type": "function"
+                },
+                "select": {
+                    "$type": "function",
+                    "$returns": "SelectEntry"
+                },
+                "insert": {
+                    "$type": "function",
+                    "$returns": "InsertBuilder"
+                },
+                "update": {
+                    "$type": "function",
+                    "$returns": "UpdateBuilder"
+                },
+                "delete": {
+                    "$type": "function",
+                    "$returns": "DeleteBuilder"
+                },
+                "raw": {
+                    "$type": "object",
+                    "props": {
+                        "read": {
+                            "$type": "function"
+                        },
+                        "write": {
+                            "$type": "function"
+                        }
+                    }
+                }
+            }
+        },
+        "api": {
+            "$type": "object",
+            "$dynamic": {
+                "$type": "function"
+            },
+            "props": {
+                "_call": {
+                    "$type": "function"
+                }
+            }
+        },
+        "fn": {
+            "$type": "object",
+            "$dynamic": {
+                "$type": "function"
+            },
+            "props": {
+                "_call": {
+                    "$type": "function"
+                }
+            }
+        }
+    },
+    "builders": {
+        "SelectEntry": {
+            "from": {
+                "$type": "function",
+                "$returns": "SelectBuilder"
+            }
+        },
+        "SelectBuilder": {
+            "where": {
+                "$type": "function",
+                "$returns": "SelectBuilder"
+            },
+            "orderBy": {
+                "$type": "function",
+                "$returns": "SelectBuilder"
+            },
+            "limit": {
+                "$type": "function",
+                "$returns": "SelectBuilder"
+            },
+            "offset": {
+                "$type": "function",
+                "$returns": "SelectBuilder"
+            },
+            "all": {
+                "$type": "function"
+            },
+            "one": {
+                "$type": "function"
+            },
+            "count": {
+                "$type": "function"
+            }
+        },
+        "InsertBuilder": {
+            "values": {
+                "$type": "function",
+                "$returns": "InsertBuilder"
+            },
+            "returning": {
+                "$type": "function",
+                "$returns": "InsertBuilder"
+            },
+            "onConflict": {
+                "$type": "function",
+                "$returns": "ConflictBuilder"
+            },
+            "run": {
+                "$type": "function"
+            }
+        },
+        "ConflictBuilder": {
+            "doNothing": {
+                "$type": "function",
+                "$returns": "InsertBuilder"
+            },
+            "doUpdate": {
+                "$type": "function",
+                "$returns": "InsertBuilder"
+            }
+        },
+        "UpdateBuilder": {
+            "set": {
+                "$type": "function",
+                "$returns": "UpdateBuilder"
+            },
+            "where": {
+                "$type": "function",
+                "$returns": "UpdateBuilder"
+            },
+            "returning": {
+                "$type": "function",
+                "$returns": "UpdateBuilder"
+            },
+            "run": {
+                "$type": "function"
+            }
+        },
+        "DeleteBuilder": {
+            "where": {
+                "$type": "function",
+                "$returns": "DeleteBuilder"
+            },
+            "returning": {
+                "$type": "function",
+                "$returns": "DeleteBuilder"
+            },
+            "run": {
+                "$type": "function"
+            }
+        }
+    }
+};
+
+      const jsEditor = CodeMirror(document.getElementById('editor-js'), {
+        value: defaultCode,
+        mode: 'javascript',
+        theme: 'dracula',
+        lineNumbers: true,
+        matchBrackets: true,
+        autoCloseBrackets: true,
+        foldGutter: true,
+        gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
+        indentUnit: 2,
+        tabSize: 2,
+        extraKeys: {
+          [`${isMac ? 'Cmd' : 'Ctrl'}-/`]: 'toggleComment',
+          'Ctrl-Q': (cm) => cm.foldCode(cm.getCursor()),
+          [`${isMac ? 'Cmd' : 'Ctrl'}-Space`]: (cm) => cm.showHint({
+              hint: CodeMirror.hint.cloudjs,
+              hintConfig: hintConfig
+            }),
+        },
+      });
+      jsEditor.on('inputRead', (cm, event) => {
+        if (event.text[0] && /[\w.]/.test(event.text[0])) {
+          cm.showHint({
+            hint: CodeMirror.hint.cloudjs,
+            completeSingle: false,
+            hintConfig: hintConfig
+          });
+        }
+      });
+
+      const jsonEditor = CodeMirror(document.getElementById('editor-json'), {
+        value: '',
+        mode: { name: 'javascript', json: true },
+        theme: 'default',
+        foldGutter: true,
+        gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
+        lineNumbers: true,
+        readOnly: true,
+      });
+
+      let hintTimer;
+
+      function setHint(text, cls) {
+        clearTimeout(hintTimer);
+        hintEl.textContent = text;
+        hintEl.className = cls;
+        hintTimer = setTimeout(() => {
+          hintEl.textContent = shortcut;
+          hintEl.className = '';
+        }, 2000);
+      }
+
+      async function runCode() {
+        const code = jsEditor.getValue();
+
+        runBtn.disabled = true;
+        runBtn.classList.add('loading');
+        execTimeEl.style.display = 'none';
+
+        try {
+          const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+              'Authorization': 'TMA ' + btoa(Telegram.WebApp.initData),
+              'Content-Type': 'application/javascript',
+            },
+            body: code,
+          });
+
+          const data = await response.json();
+
+          if (data.time) {
+            execTimeEl.textContent = data.time;
+            execTimeEl.style.display = 'inline';
+          }
+          if (data.ok) {
+            const output = typeof data.output === 'string'
+              ? data.output
+              : JSON.stringify(data.output, null, 2);
+            jsonEditor.setValue(output);
+            setHint('✓ Done', 'ok');
+          } else {
+            jsonEditor.setValue('[cloud] ' + data.error);
+            setHint('✗ Error', 'err');
+          }
+        } catch (e) {
+          jsonEditor.setValue('[js] ' + e.message);
+          setHint('✗ Error', 'err');
+        } finally {
+          runBtn.disabled = false;
+          runBtn.classList.remove('loading');
+        }
+      }
+
+      runBtn.addEventListener('click', runCode);
+      document.addEventListener('keydown', e => {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); runCode(); }
+      });
+    </script>
+  </body>
+</html>
