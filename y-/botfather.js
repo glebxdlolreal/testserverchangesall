@@ -901,7 +901,7 @@ var BotSettings = {
     });
     $('body').on('click', '.js-spoiler', BotSettings.eClickSpoiler);
 
-    $('.copy-btn').on('click', function () {
+    $(cont).on('click.curPage', '.copy-btn', function () {
       navigator.clipboard.writeText(this.dataset.value);
       Main.showSuccessToast(l('WEB_GENERIC_COPY_SUCCESS'));
     })
