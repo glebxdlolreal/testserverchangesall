@@ -2224,9 +2224,9 @@ var SimpleSpoiler = {
   }
 };
 
-var BotCloud = {
+var BotServerless = {
   init() {
-    $('.js-cloud-toggle').on('click', function () {
+    $('.js-serverless-toggle').on('click', function () {
       var toggleEl = this.querySelector('.tm-toggle');
       var isOn = toggleEl.classList.contains('tm-toggle-on');
       if (isOn) {
@@ -2259,57 +2259,6 @@ var BotCloud = {
           } else {
             Aj.onUnload(() => Main.showSuccessToast(l('WEB_CLOUD_ENABLED')));
             Aj.location('/botfather/bot/' + Aj.state.botId + '/cloud');
-          }
-        });
-      }
-    });
-
-    $('.js-spoiler').each(function () {
-      SimpleSpoiler.init(this);
-    });
-    $('body').on('click', '.js-spoiler', BotCloud.eClickSpoiler);
-
-    $('.tm-api-token-actions .tm-active-button').on('click', BotCloud.copyToken);
-    $('.tm-api-token-actions .tm-revoke-button').on('click', BotCloud.askRevoke);
-
-    Aj.onUnload(() => {
-      $('body').off('click', '.js-spoiler', BotCloud.eClickSpoiler);
-    });
-  },
-  eClickSpoiler() {
-    if (this.classList.contains('js-spoiler-revealed')) {
-      return BotCloud.copyToken();
-    }
-    SimpleSpoiler.destroy(this);
-    this.classList.add('js-spoiler-revealed');
-  },
-  copyToken() {
-    var token = $('.tm-api-token').text().trim();
-    navigator.clipboard.writeText(token);
-    Main.showSuccessToast(l('WEB_CLOUD_TOKEN_COPY_SUCCESS'));
-  },
-  askRevoke() {
-    WebApp.showPopup({
-      title: l('WEB_CLOUD_TOKEN_REVOKE_TITLE'),
-      message: l('WEB_CLOUD_TOKEN_REVOKE_TEXT'),
-      buttons: [
-        { type: 'cancel' },
-        { id: 'revoke', text: l('WEB_CLOUD_TOKEN_REVOKE_BTN'), type: 'destructive' },
-      ]
-    }, (result) => {
-      if (result === 'revoke') {
-        Aj.apiRequest('revokeCloudToken', {
-          bid: Aj.state.botId,
-        }, (response) => {
-          if (response.error) {
-            Main.showErrorToast(response.error);
-          }
-          if (response.ok) {
-            $('.tm-api-token').html('<span class="js-spoiler">' + response.token + '</span>');
-            $('.tm-api-token .js-spoiler').each(function () {
-              SimpleSpoiler.init(this);
-            });
-            Main.showSuccessToast(l('WEB_CLOUD_TOKEN_REVOKE_SUCCESS'));
           }
         });
       }
