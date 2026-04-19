@@ -2265,3 +2265,53 @@ var BotServerless = {
     });
   },
 };
+
+var BotMcpAccess = {
+  init() {
+    $('.js-spoiler').each(function () {
+      SimpleSpoiler.init(this);
+    });
+    $('body').on('click', '.js-spoiler', BotMcpAccess.eClickSpoiler);
+
+    $(document).on('click.mcp', '.copy-btn', function () {
+      navigator.clipboard.writeText(this.dataset.value);
+      Main.showSuccessToast(l('WEB_GENERIC_COPY_SUCCESS'));
+    });
+
+    $('.js-revoke-mcp-token').on('click', BotMcpAccess.askRevoke);
+
+    Aj.onUnload(() => {
+      $('body').off('click', '.js-spoiler', BotMcpAccess.eClickSpoiler);
+      $(document).off('click.mcp', '.copy-btn');
+    });
+  },
+  eClickSpoiler() {
+    SimpleSpoiler.destroy(this);
+    this.classList.add('js-spoiler-revealed');
+  },
+  askRevoke() {
+    WebApp.showPopup({
+      title: l('WEB_MCP_TOKEN_REVOKE_TITLE'),
+      message: l('WEB_MCP_TOKEN_REVOKE_TEXT'),
+      buttons: [
+        { type: 'cancel' },
+        { id: 'revoke', text: l('WEB_MCP_TOKEN_REVOKE_BTN'), type: 'destructive' },
+      ]
+    }, (result) => {
+      if (result !== 'revoke') return;
+      Aj.apiRequest('revokeCloudToken', { bid: Aj.state.botId }, (response) => {
+        if (response.error) {
+          Main.showErrorToast(response.error);
+        }
+        if (response.ok) {
+          $('.js-spoiler.js-mcp-token').html(response.token);
+          $('.copy-btn.js-mcp-token').data('value', response.token);
+          $('.js-spoiler.js-mcp-token').each(function () {
+            SimpleSpoiler.init(this);
+          });
+          Main.showSuccessToast(l('WEB_MCP_TOKEN_REVOKE_SUCCESS'));
+        }
+      });
+    });
+  },
+};
