@@ -1168,7 +1168,7 @@ i.emoji {
     vertical-align: baseline;
     cursor: pointer;
 }
-.js-edit-command-list.list-prevent-edit .tm-icon, .list-prevent-edit .tm-row-close {
+.js-edit-command-list.list-prevent-edit .tm-icon, .js-edit-function-list.list-prevent-edit .tm-row-close {
   visibility: hidden;
   margin-left: -37px;
 }
@@ -1187,7 +1187,7 @@ i.emoji {
   visibility: hidden;
   margin-top: -42px;
 }
-.js-edit-function-list:not(.list-prevent-edit) .tm-row:after {
+.js-edit-function-list:not(.list-prevent-edit) .tm-row-link:after {
   display: none;
 }
 .js-edit-function-list:not(.list-prevent-edit) .tm-row-add {
@@ -2829,4 +2829,14 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 
 .tm-input-mono {
   font-family: 'Roboto Mono', monospace;
+}
+
+.tm-functions-page .tm-row-add {
+  transition: all 0.12s ease-in;
+  transition-behavior: allow-discrete;
+}
+
+.tm-functions-page .tm-row-link:after {
+  transition: all 0.12s ease-in;
+  transition-behavior: allow-discrete;
 }
