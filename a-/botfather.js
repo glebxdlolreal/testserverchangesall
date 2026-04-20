@@ -19,6 +19,73 @@ var Main = {
 
     WebApp.MainButton.enable();
   },
+  initOnce() {
+    if (window._initOnce) {
+      return;
+    }
+    window._initOnce = true;
+
+    Main.checkAuth();
+
+    window.showConfirm = (message, onConfirm, confirm_btn, onCancel) => {
+      WebApp.showPopup({
+        message: message,
+        buttons: [
+          {type: 'destructive', id: 'ok', text: confirm_btn || 'Leave'},
+          {type: 'cancel'}
+        ]
+      }, button_id => button_id == 'ok' ? onConfirm?.() : onCancel?.());
+    };
+
+    WebApp.ready();
+    WebApp.setHeaderColor('#212a33');
+    WebApp.setBackgroundColor('#1a2026');
+    WebApp.setBottomBarColor('#212a33');
+    WebApp.MainButton.setParams({ color: '#248BDA' });
+    WebApp.disableVerticalSwipes();
+
+    if (['android', 'ios'].includes(WebApp.platform)) {
+      $('body').addClass('mobile');
+      $('body').addClass('platform-'+WebApp.platform);
+      WebApp.requestFullscreen();
+      initBackSwipe();
+    }
+
+    $(document).on('click', '.tm-bot-anchor', () => {
+      WebApp.HapticFeedback.impactOccurred('soft');
+    });
+
+    $(document).on('shown.bs.dropdown', (event) => {
+      WebApp.HapticFeedback.impactOccurred('soft');
+      var $menu = $('.dropdown-menu', event.target);
+      var rect = $menu[0].getBoundingClientRect();
+      var needsInvert = document.body.clientHeight - rect.bottom < -4;
+      $menu.toggleClass('dropdown-menu-top', needsInvert);
+    });
+
+    $(document).on('hidden.bs.dropdown', (event) => {
+      var $menu = $('.dropdown-menu', event.target);
+      $menu.toggleClass('dropdown-menu-top', false);
+    });
+
+    $(document).on('change', 'input[type=checkbox]', () => {
+      WebApp.HapticFeedback.selectionChanged();
+    })
+  },
+  checkAuth() {
+    var authPage = Aj.state.authPage === true;
+    Aj.apiRequest('auth', {_auth: WebApp.initData}, res => {
+      if (!res.ok) {
+        if (!authPage) {
+          window.location = '/botfather/auth';          
+        } else {
+          AuthPage.showExpired();          
+        }
+      } else if (authPage) {
+        window.location = '/botfather';
+      }
+    });
+  },
 };
 
 var BotLibrary = {
@@ -82,365 +149,6 @@ var BotLibrary = {
     });
   },
 };
-
-    WebApp.ready();
-    WebApp.setHeaderColor('#212a33');
-    WebApp.setBackgroundColor('#1a2026');
-    WebApp.setBottomBarColor('#212a33');
-    WebApp.MainButton.setParams({ color: '#248BDA' });
-    WebApp.disableVerticalSwipes();
-
-    if (['android', 'ios'].includes(WebApp.platform)) {
-      $('body').addClass('mobile');
-      $('body').addClass('platform-'+WebApp.platform);
-      WebApp.requestFullscreen();
-      initBackSwipe();
-    }
-
-    $(document).on('click', '.tm-bot-anchor', () => {
-      WebApp.HapticFeedback.impactOccurred('soft');
-    });
-
-    $(document).on('shown.bs.dropdown', (event) => {
-      WebApp.HapticFeedback.impactOccurred('soft');
-      var $menu = $('.dropdown-menu', event.target);
-      var rect = $menu[0].getBoundingClientRect();
-      var needsInvert = document.body.clientHeight - rect.bottom < -4;
-      $menu.toggleClass('dropdown-menu-top', needsInvert);
-    });
-
-    $(document).on('hidden.bs.dropdown', (event) => {
-      var $menu = $('.dropdown-menu', event.target);
-      $menu.toggleClass('dropdown-menu-top', false);
-    });
-
-    $(document).on('change', 'input[type=checkbox]', () => {
-      WebApp.HapticFeedback.selectionChanged();
-    })
-  },
-  checkAuth() {
-    var authPage = Aj.state.authPage === true;
-    Aj.apiRequest('auth', {_auth: WebApp.initData}, res => {
-      if (!res.ok) {
-        if (!authPage) {
-          window.location = '/botfather/auth';          
-        } else {
-          AuthPage.showExpired();          
-        }
-      } else if (authPage) {
-        window.location = '/botfather';
-      }
-    });
-  },
-  showToast(text, options = {}) {
-    if (!window.$_toastContainer) {
-      window.$_toastContainer = $('<div class="tm-toast-container">').appendTo('body');
-    }
-    if (!window.$toast) {
-      window.$toast = $(`<div class="tm-toast ${options.class}">${text}</div>`);
-      $_toastContainer.html($toast);
-
-      setTimeout(() => $toast.addClass('tm-toast-show'), 10);
-      setTimeout(() => {
-        $toast.removeClass('tm-toast-show');
-        setTimeout(() => {
-            $toast.remove();
-            window.$toast = null;
-        }, 300);
-      }, options.duration || 2000);
-    }
-  },
-  showErrorToast(text) {
-    Main.showToast(text || 'Error.', { class: 'tm-toast-error' });
-    WebApp.HapticFeedback.notificationOccurred('error');
-  },
-  showSuccessToast(text) {
-    Main.showToast(text || 'Success.', { class: 'tm-toast-success' });
-    WebApp.HapticFeedback.notificationOccurred('success');
-  },
-  iosChatFix() {
-    if (WebApp.platform != 'ios') return;
-    if (WebApp.isVersionAtLeast('8.0')) {
-      setTimeout(() => {
-        if (WebApp.isActive) {
-          WebApp.close();
-        }
-      }, 500);
-    } else {
-      WebApp.close();
-    }
-  }
-}
-
-var AuthPage = {
-  init () {},
-  showExpired() {
-    $('.tm-auth-expired').toggle(true);
-    WebApp.MainButton.setText('Close');
-    WebApp.MainButton.onClick(() => {
-      WebApp.close();
-    });
-    WebApp.MainButton.show();
-  }
-}
-
-var BotList = {
-  init() {
-    $('input[name=query]').on('input', BotList.eSearchInput);
-    $('.js-form-clear').on('click', function () {
-      $('input', this.closest('.tm-field')).val('').trigger('input');
-    });
-  },
-  eSearchInput() {
-    var value = this.value || '';
-    var empty = true;
-    $('.tm-row').each((i, el) => {
-      let hide = el.classList.contains('tm-row-add') || !fuzzyMatch(value, el.textContent);
-      hide = hide && !!value;
-      empty = empty && hide;
-      $(el).toggleClass('hidden', hide);
-    });
-    $('.js-results-empty').toggleClass('hidden', !empty);
-    $('.js-results-empty-help').text(l('WEB_BOTFATHER_NO_RESULTS_INFO', {query: value}))
-  }
-}
-
-var CreateBot = {
-  init() {
-    WebApp.MainButton.onClick(CreateBot.submit);
-    WebApp.MainButton.setText('Create Bot');
-    WebApp.MainButton.show();
-
-    Aj.onUnload(() => {
-      WebApp.MainButton.offClick(CreateBot.submit);
-      WebApp.MainButton.hide();
-    });
-
-    Aj.state.files = {};
-
-    Aj.onLoad(() => {
-      Aj.state.username_valid = false;
-    });
-
-    $('#bot_form').on('input', CreateBot.validateForm);
-
-    var usernameDebounce = Aj.state.usernameDebounce = debounce();
-
-    $('input[name=username]').on('change', (ev) => {
-      usernameDebounce(CreateBot.checkUsername, 0);
-    });
-    $('.js-upload-button').click(CreateBot.uploadUserpic);
-    
-    $('input[name=username]').on('input', (ev) => {
-      var $hint = $('.hint-text[data-for=username]');
-      $hint.attr('class', 'hint-text hint-text-loading');
-      $hint.text('Checking username');
-      usernameDebounce(CreateBot.checkUsername, 400);
-    })
-
-  },
-  checkUsername() {
-    var $hint = $('.hint-text[data-for=username]');
-    var $input = $('input[name=username]');
-    var value = $input.val();
-    $hint.attr('class', 'hint-text hint-text-loading');
-    $hint.text('Checking username');
-    Aj.apiRequest('checkBotUsername', { username: value }, res => {
-      if ($input.val() !== value) return;
-      if (res.ok) {
-        Aj.state.username_valid = true;
-        $hint.attr('class', 'hint-text hint-text-success');
-        $hint.text(value + ' is available.');
-      } else {
-        Aj.state.username_valid = false;
-        $hint.attr('class', 'hint-text hint-text-error');
-        $hint.html(res.error);
-      }
-    });
-  },
-  uploadUserpic() {
-    let replace = this.dataset.replace ? $(this.dataset.replace) : $(this);
-    let target = this.dataset.target;
-
-    requestUpload('bot_userpic', res => { 
-      if (res.ok) {
-        $(this).attr('src', res.media.src);
-      }
-    });
-  },
-  submit() {
-    var title = $('input[name="title"]').val()?.trim();
-
-    if (!title) {
-      Main.showErrorToast('Name is required.');
-      var title = $('input[name="title"]').focus();
-      return;
-    }
-
-    if (!Aj.state.username_valid) {
-      Main.showErrorToast('Username is required.');
-      var title = $('input[name="username"]').focus();
-      return;
-    }
-
-    WebApp.MainButton.showProgress();
-    Aj.apiRequest('createBot', {
-        title: title,
-        about: $('textarea[name="about"]').val(),
-        username: $('input[name="username"]').val(),
-        userpic: Aj.state.files?.['bot_userpic']?.photo_id || '',
-    }, res => {
-        WebApp.MainButton.hideProgress();
-        if (res.ok) {
-          Aj.location(`/botfather/bot/${res.bot_id}`);
-          Aj.onUnload(() => Main.showSuccessToast(res.msg));
-        }
-        if (res.error) {
-          Main.showErrorToast(res.error);
-        }
-    });
-  }
-}
-
-var BotProfile = {
-  init() {
-    Aj.state.files ||= {};
-    WebApp.MainButton.setText(l('WEB_PROFILE_UPDATE'));
-    WebApp.MainButton.show();
-    WebApp.MainButton.onClick(BotProfile.eMainClick);
-
-    Aj.state.savedModel = BotProfile.model();
-
-    $(document).on('click.curPage', '.js-set-lang', BotProfile.eClickLang);
-
-    Aj.onUnload(() => {
-      WebApp.MainButton.hide();
-      WebApp.MainButton.offClick(BotProfile.eMainClick);
-    });
-
-    Aj.onBeforeUnload(() => {
-      if (BotProfile.hasChanges()) {
-        return 'Changes that you made may not be saved.';
-      }
-    });
-
-    $('textarea[name=welcome_msg]').on('input', function () {
-      var value = this.value.trim();
-      $('.tm-welcome-message-content').text(value);
-    });
-
-    $('.js-delete-welcome-pic').on('click', BotProfile.eClickRemoveWelcomePic);
-    $('.js-upload-button').on('click', BotProfile.eUploadClick);
-    $('.js-welcome-pic').on('click', function (e) {
-      if ($(this).hasClass('empty')) {
-        e.stopPropagation();
-        var $upload_btn = $('.js-upload-button[data-target=welcome_msg_pic]');
-        BotProfile.eUploadClick.call($upload_btn[0]);
-      }
-    });
-  },
-  setWelcomePic(src, loading = false) {
-    $pic = $('.js-welcome-pic');
-    if (!src) {
-      $pic.attr('style', '').addClass('empty');
-      Aj.state.files['welcome_msg_pic'] = 0;
-      return;
-    }
-
-    $pic.removeClass('empty');
-
-    var blur = loading ? 'blur(15px)' : 'blur(0px)';
-    $pic.css({ 
-      'background-image': `url(${src})`,
-      'background-size': 'cover',
-      'filter': blur,
-      'border': 'none',
-    });  
-  },
-  eClickRemoveWelcomePic() {
-    BotProfile.setWelcomePic(false);
-  },
-  eUploadClick() {
-    var target = this.dataset.target;
-    if (!target) return;
-
-    if (Aj.state.lang) {
-      WebApp.showAlert('Media localization is not available. Please switch to default localization.');
-      return;
-    }
-
-    if (target == 'bot_userpic') {
-      requestUpload(target, res => {
-        if (res.ok) {
-          $('.tm-main-intro-picture').attr('src', res.media.src);
-        }
-      }); 
-    }
-
-    var bg = null;
-    if (target == 'welcome_msg_pic') {
-      requestUpload(target, res => {
-        if (res.cancel) {
-          return;
-        }
-        if (!res.ok) {
-          BotProfile.setWelcomePic(false);
-          return;
-        }
-        BotProfile.setWelcomePic(bg || res.media.src);
-      }, 
-      {
-        onSelected(file) {
-          debugger;
-          if (!file) return;
-          var src = URL.createObjectURL(file);
-          bg = src;
-          BotProfile.setWelcomePic(src, true);
-        }
-      });
-    }
-  },
-  eClickLang() {
-    var lang = $(this).data('value');
-    if (lang == Aj.state.lang) return;
-    var href = '?lang=' + lang;
-
-    if (BotProfile.hasChanges()) {
-      WebApp.showPopup({
-        message: 'Do you want to apply current changes?',
-        buttons: [
-          { type: 'default', text: 'Save', id: 'save' },
-          { type: 'cancel' },
-          { type: 'destructive', text: 'Don\'t save', id: 'ignore' },
-        ]
-      }, button_id => {
-        if (button_id == 'ignore') {
-          Aj.state.savedModel = BotProfile.model();
-          Aj.location(href);
-        } else if (button_id == 'save') {
-          BotProfile.submit(href);
-        }
-      });
-      return;
-    }
-
-    Aj.location(href);
-  },
-  hasChanges() {
-    var old = Aj.state.savedModel;
-    var model = BotProfile.model();
-    return JSON.stringify(old) != JSON.stringify(model);
-  },
-  model() {
-    return {
-      bid: Aj.state.botId,
-      title: $('input[name=title]').val(),
-      about: $('textarea[name=about]').val(),
-      userpic: Aj.state.files['bot_userpic']?.photo_id || '',
-      welcome_msg: $('textarea[name=welcome_msg]').val(),
-      welcome_msg_pic: Aj.state.files['welcome_msg_pic']?.photo_id || '',
-      lang_code: Aj.state.lang,
-    };
   },
   eMainClick() {
     BotProfile.submit(`/botfather/bot/${Aj.state.botId}`);
