@@ -2441,12 +2441,7 @@ var BotHandler = {
 
 var BotFunctions = {
   init() {
-    $('.js-edit-function-list').sortable({items: '.js-sortable'}).on('sortchange', function( event, ui ) {
-      WebApp.HapticFeedback.selectionChanged();
-    });
-
     Aj.state.edit = false;
-    $('.js-edit-function-list').sortable('disable');
 
     $('.js-edit-function-list').on('click', '.tm-row-close', function(e) {
       e.stopPropagation();
@@ -2474,7 +2469,6 @@ var BotFunctions = {
       BotFunctions.submit();
     }
     $('.js-edit-function-list').toggleClass('list-prevent-edit', !edit);
-    $('.js-edit-function-list').sortable(edit ? 'enable' : 'disable');
     Aj.state.$editBtn.text(edit ? l('WEB_FUNCTIONS_DONE_BTN') : l('WEB_FUNCTIONS_EDIT_BTN'));
   },
   submit() {
