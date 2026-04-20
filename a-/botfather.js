@@ -2456,7 +2456,7 @@ var BotFunctions = {
     $('.js-edit-function-list').on('click', '.tm-row-link', function() {
       var fnName = this.dataset.function;
       if (!Aj.state.edit && fnName) {
-        Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/functions/' + fnName);
+        Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/function/' + fnName);
       }
     });
 
@@ -2493,27 +2493,42 @@ var BotFunctions = {
   },
 };
 
-var BotFunctionCreate = {
+var BotFunction = {
   init() {
-    WebApp.MainButton.setText(l('WEB_FUNCTION_CREATE'));
-    WebApp.MainButton.show();
-    WebApp.MainButton.onClick(BotFunctionCreate.submit);
-
+    var isNew = Aj.state.isFunctionNew;
     var $input = $('#function-name');
-    $input.on('input', function() {
-      var filtered = $input.val().replace(/[^a-zA-Z0-9_]/g, '');
-      if (filtered && !/^[a-zA-Z]/.test(filtered)) {
-        filtered = filtered.substring(1);
-      }
-      $input.val(filtered);
+
+    if (isNew) {
+      $input.on('input', function() {
+        var filtered = $input.val().replace(/[^a-zA-Z0-9_]/g, '');
+        if (filtered && !/^[a-zA-Z]/.test(filtered)) {
+          filtered = filtered.substring(1);
+        }
+        $input.val(filtered);
+        BotFunction.updateButtons();
+      });
+    }
+
+    BotCodeEditor.init('function-editor', {
+      apiMethod: 'saveCloudFunction',
+      apiParams: isNew ? {} : { name: Aj.state.functionName },
+      savedLangKey: 'WEB_FUNCTION_SAVED',
+      saveErrorLangKey: 'WEB_FUNCTION_SAVE_ERROR',
     });
 
-    Aj.onUnload(function() {
-      WebApp.MainButton.hide();
-      WebApp.MainButton.offClick(BotFunctionCreate.submit);
-    });
+    if (isNew) {
+      $('.tm-editor-btn-save').off('click').on('click', BotFunction.onSave);
+      BotFunction.updateButtons();
+    }
   },
-  submit() {
+  updateButtons() {
+    var name = $('#function-name').val().trim();
+    var hasName = /^[a-z][a-z0-9_]{0,62}[a-z0-9]$/i.test(name);
+    var hasChanges = BotCodeEditor.cm.getValue() !== BotCodeEditor.savedCode;
+    $('.tm-editor-btn-discard').prop('disabled', !hasChanges);
+    $('.tm-editor-btn-save').prop('disabled', !hasName);
+  },
+  onSave() {
     var name = $('#function-name').val().trim();
     if (!name || !/^[a-z][a-z0-9_]{0,62}[a-z0-9]$/i.test(name)) {
       Main.showErrorToast(l('WEB_FUNCTION_NAME_INVALID'));
@@ -2527,30 +2542,24 @@ var BotFunctionCreate = {
       return;
     }
 
-    WebApp.MainButton.showProgress();
-    var defaultCode = "import { db, api, fn } from 'sdk';\n\nexport default async function (args, ctx) {\n  \n}";
+    var code = BotCodeEditor.cm.getValue();
+    var $btn = $('.tm-editor-btn-save');
+    $btn.prop('disabled', true).addClass('tm-editor-btn-loading');
     Aj.apiRequest('saveCloudFunction', {
       bid: Aj.state.botId,
       name: name,
-      code: defaultCode,
+      code: code,
     }, function(res) {
-      WebApp.MainButton.hideProgress();
-      if (res.error) {
-        Main.showErrorToast(res.error);
+      $btn.removeClass('tm-editor-btn-loading');
+      if (res.ok) {
+        BotCodeEditor.savedCode = code;
+        BotCodeEditor.updateButtons();
+        Main.showSuccessToast(l('WEB_FUNCTION_SAVED'));
+        Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/function/' + name);
       } else {
-        Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/functions/' + name);
+        Main.showErrorToast(res.error || l('WEB_FUNCTION_SAVE_ERROR'));
+        BotFunction.updateButtons();
       }
-    });
-  },
-};
-
-var BotFunction = {
-  init() {
-    BotCodeEditor.init('function-editor', {
-      apiMethod: 'saveCloudFunction',
-      apiParams: { name: Aj.state.functionName },
-      savedLangKey: 'WEB_FUNCTION_SAVED',
-      saveErrorLangKey: 'WEB_FUNCTION_SAVE_ERROR',
     });
   },
 };
