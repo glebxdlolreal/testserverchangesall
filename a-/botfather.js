@@ -2328,6 +2328,7 @@ var BotLibrary = {
     const shortcut = (isMac ? '⌘' : 'Ctrl') + '+↵';
 
     BotLibrary.savedCode = Aj.state.editorCode;
+    const hintConfig = Aj.state.hintConfig;
 
     BotLibrary.cm = CodeMirror(textarea, {
       value: BotLibrary.savedCode,
