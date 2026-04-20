@@ -2316,22 +2316,26 @@ var BotMcpAccess = {
   },
 };
 
-var BotLibrary = {
+var BotCodeEditor = {
   savedCode: '',
   cm: null,
+  apiMethod: '',
+  apiParams: {},
+  savedLangKey: '',
+  saveErrorLangKey: '',
 
-  init() {
-    var textarea = document.getElementById('library-editor');
-    if (!textarea) return;
+  init(elementId, opts) {
+    var editorEl = document.getElementById(elementId);
+    if (!editorEl) return;
 
-    const isMac = /Mac|iPhone|iPad/.test(navigator.platform);
-    const shortcut = (isMac ? '⌘' : 'Ctrl') + '+↵';
+    BotCodeEditor.savedCode = Aj.state.editorCode;
+    BotCodeEditor.apiMethod = opts.apiMethod;
+    BotCodeEditor.apiParams = opts.apiParams || {};
+    BotCodeEditor.savedLangKey = opts.savedLangKey;
+    BotCodeEditor.saveErrorLangKey = opts.saveErrorLangKey;
 
-    BotLibrary.savedCode = Aj.state.editorCode;
-    const hintConfig = Aj.state.hintConfig;
-
-    BotLibrary.cm = CodeMirror(textarea, {
-      value: BotLibrary.savedCode,
+    var cmOpts = {
+      value: BotCodeEditor.savedCode,
       mode: 'javascript',
       theme: 'custom',
       lineNumbers: true,
@@ -2339,6 +2343,70 @@ var BotLibrary = {
       autoCloseBrackets: true,
       indentUnit: 2,
       tabSize: 2,
+      lineWrapping: false,
+      json: false,
+    };
+
+    if (opts.extraKeys) {
+      cmOpts.extraKeys = opts.extraKeys;
+    }
+
+    BotCodeEditor.cm = CodeMirror(editorEl, cmOpts);
+
+    if (opts.inputRead) {
+      BotCodeEditor.cm.on('inputRead', opts.inputRead);
+    }
+
+    BotCodeEditor.cm.on('change', BotCodeEditor.onEditorChange);
+
+    $('.tm-editor-btn-discard').on('click', BotCodeEditor.onDiscard);
+    $('.tm-editor-btn-save').on('click', BotCodeEditor.onSave);
+  },
+
+  onEditorChange() {
+    BotCodeEditor.updateButtons();
+  },
+
+  updateButtons() {
+    var hasChanges = BotCodeEditor.cm.getValue() !== BotCodeEditor.savedCode;
+    $('.tm-editor-btn-discard').prop('disabled', !hasChanges);
+    $('.tm-editor-btn-save').prop('disabled', !hasChanges);
+  },
+
+  onDiscard() {
+    BotCodeEditor.cm.setValue(BotCodeEditor.savedCode);
+    BotCodeEditor.cm.clearHistory();
+    BotCodeEditor.updateButtons();
+  },
+
+  onSave() {
+    var code = BotCodeEditor.cm.getValue();
+    var $btn = $('.tm-editor-btn-save');
+    $btn.prop('disabled', true).addClass('tm-editor-btn-loading');
+    var params = $.extend({ bid: Aj.state.botId, code: code }, BotCodeEditor.apiParams);
+    Aj.apiRequest(BotCodeEditor.apiMethod, params, function(res) {
+      $btn.removeClass('tm-editor-btn-loading');
+      if (res.ok) {
+        BotCodeEditor.savedCode = code;
+        BotCodeEditor.updateButtons();
+        Main.showSuccessToast(l(BotCodeEditor.savedLangKey));
+      } else {
+        Main.showErrorToast(res.error || l(BotCodeEditor.saveErrorLangKey));
+        BotCodeEditor.updateButtons();
+      }
+    });
+  },
+};
+
+var BotLibrary = {
+  init() {
+    var isMac = /Mac|iPhone|iPad/.test(navigator.platform);
+    var hintConfig = Aj.state.hintConfig;
+
+    BotCodeEditor.init('library-editor', {
+      apiMethod: 'saveCloudLibrary',
+      savedLangKey: 'WEB_LIBRARY_SAVED',
+      saveErrorLangKey: 'WEB_LIBRARY_SAVE_ERROR',
       extraKeys: {
         [`${isMac ? 'Cmd' : 'Ctrl'}-/`]: 'toggleComment',
         'Ctrl-Q': (cm) => cm.foldCode(cm.getCursor()),
@@ -2347,52 +2415,26 @@ var BotLibrary = {
             hintConfig: hintConfig
           }),
       },
+      inputRead: (cm, event) => {
+        if (event.text[0] && /[\w.]/.test(event.text[0])) {
+          cm.showHint({
+            hint: CodeMirror.hint.cloudjs,
+            completeSingle: false,
+            hintConfig: hintConfig
+          });
+        }
+      },
     });
-    BotLibrary.cm.on('inputRead', (cm, event) => {
-      if (event.text[0] && /[\w.]/.test(event.text[0])) {
-        cm.showHint({
-          hint: CodeMirror.hint.cloudjs,
-          completeSingle: false,
-          hintConfig: hintConfig
-        });
-      }
-    });
-    BotLibrary.cm.on('change', BotLibrary.onEditorChange);
-
-    $('.tm-editor-btn-discard').on('click', BotLibrary.onDiscard);
-    $('.tm-editor-btn-save').on('click', BotLibrary.onSave);
   },
+};
 
-  onEditorChange() {
-    BotLibrary.updateButtons();
-  },
-
-  updateButtons() {
-    var hasChanges = BotLibrary.cm.getValue() !== BotLibrary.savedCode;
-    $('.tm-editor-btn-discard').prop('disabled', !hasChanges);
-    $('.tm-editor-btn-save').prop('disabled', !hasChanges);
-  },
-
-  onDiscard() {
-    BotLibrary.cm.setValue(BotLibrary.savedCode);
-    BotLibrary.cm.clearHistory();
-    BotLibrary.updateButtons();
-  },
-
-  onSave() {
-    var code = BotLibrary.cm.getValue();
-    var $btn = $('.tm-editor-btn-save');
-    $btn.prop('disabled', true).addClass('tm-editor-btn-loading');
-    Aj.apiRequest('saveCloudLibrary', { bid: Aj.state.botId, code: code }, function(res) {
-      $btn.removeClass('tm-editor-btn-loading');
-      if (res.ok) {
-        BotLibrary.savedCode = code;
-        BotLibrary.updateButtons();
-        Main.showSuccessToast(l('WEB_LIBRARY_SAVED'));
-      } else {
-        Main.showErrorToast(res.error || l('WEB_LIBRARY_SAVE_ERROR'));
-        BotLibrary.updateButtons();
-      }
+var BotHandler = {
+  init() {
+    BotCodeEditor.init('handler-editor', {
+      apiMethod: 'saveCloudHandler',
+      apiParams: { type: Aj.state.handlerType },
+      savedLangKey: 'WEB_HANDLER_SAVED',
+      saveErrorLangKey: 'WEB_HANDLER_SAVE_ERROR',
     });
   },
 };
