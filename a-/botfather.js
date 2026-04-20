@@ -2347,8 +2347,6 @@ var BotLibrary = {
             hintConfig: hintConfig
           }),
       },
-      lineWrapping: false,
-      json: false,
     });
     BotLibrary.cm.on('inputRead', (cm, event) => {
       if (event.text[0] && /[\w.]/.test(event.text[0])) {
