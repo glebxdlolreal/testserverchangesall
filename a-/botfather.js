@@ -19,23 +19,69 @@ var Main = {
 
     WebApp.MainButton.enable();
   },
-  initOnce() {
-    if (window._initOnce) {
-      return;
-    }
-    window._initOnce = true;
+};
 
-    Main.checkAuth();
+var BotLibrary = {
+  savedCode: '',
+  cm: null,
 
-    window.showConfirm = (message, onConfirm, confirm_btn, onCancel) => {
-      WebApp.showPopup({
-        message: message,
-        buttons: [
-          {type: 'destructive', id: 'ok', text: confirm_btn || 'Leave'},
-          {type: 'cancel'}
-        ]
-      }, button_id => button_id == 'ok' ? onConfirm?.() : onCancel?.());
-    };
+  init() {
+    var textarea = document.getElementById('library-editor');
+    if (!textarea) return;
+
+    BotLibrary.savedCode = textarea.value;
+
+    BotLibrary.cm = CodeMirror.fromTextArea(textarea, {
+      mode: 'javascript',
+      theme: 'monokai',
+      lineNumbers: true,
+      matchBrackets: true,
+      autoCloseBrackets: true,
+      indentUnit: 2,
+      tabSize: 2,
+      lineWrapping: false,
+      json: false,
+    });
+
+    BotLibrary.cm.on('change', BotLibrary.onEditorChange);
+
+    $('.tm-editor-btn-discard').on('click', BotLibrary.onDiscard);
+    $('.tm-editor-btn-save').on('click', BotLibrary.onSave);
+  },
+
+  onEditorChange() {
+    BotLibrary.updateButtons();
+  },
+
+  updateButtons() {
+    var hasChanges = BotLibrary.cm.getValue() !== BotLibrary.savedCode;
+    $('.tm-editor-btn-discard').prop('disabled', !hasChanges);
+    $('.tm-editor-btn-save').prop('disabled', !hasChanges);
+  },
+
+  onDiscard() {
+    BotLibrary.cm.setValue(BotLibrary.savedCode);
+    BotLibrary.cm.clearHistory();
+    BotLibrary.updateButtons();
+  },
+
+  onSave() {
+    var code = BotLibrary.cm.getValue();
+    var $btn = $('.tm-editor-btn-save');
+    $btn.prop('disabled', true).addClass('tm-editor-btn-loading');
+    Aj.apiRequest('saveCloudLibrary', { bid: Aj.state.botId, code: code }, function(res) {
+      $btn.removeClass('tm-editor-btn-loading');
+      if (res.ok) {
+        BotLibrary.savedCode = code;
+        BotLibrary.updateButtons();
+        Main.showSuccessToast(l('WEB_LIBRARY_SAVED'));
+      } else {
+        Main.showErrorToast(res.error || l('WEB_LIBRARY_SAVE_ERROR'));
+        BotLibrary.updateButtons();
+      }
+    });
+  },
+};
 
     WebApp.ready();
     WebApp.setHeaderColor('#212a33');

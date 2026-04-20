@@ -2575,3 +2575,82 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   border-radius: 4px;
   vertical-align: middle;
 }
+
+.tm-editor-card {
+  background: var(--table-bg-color);
+  border-radius: var(--def-border-radius);
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.tm-editor-code .CodeMirror {
+  height: auto;
+  background: var(--table-bg-color);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+  line-height: 16px;
+  min-height: 80px;
+}
+
+.tm-editor-code .CodeMirror-gutters {
+  background: var(--table-bg-color);
+  border-right: 1px solid var(--bg-color) !important;
+}
+
+.tm-editor-code .CodeMirror-linenumber {
+  color: #5b6875;
+  padding: 0 8px;
+}
+
+.tm-editor-code .CodeMirror-cursor {
+  border-left-color: #fff;
+}
+
+.tm-editor-code .CodeMirror-selected {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tm-editor-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-top: 1px solid var(--bg-color);
+}
+
+.tm-editor-btn {
+  border-radius: 14px;
+  padding: 5.5px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.tm-editor-btn-discard {
+  background: transparent;
+  border: 1px solid #2d3a47;
+}
+
+.tm-editor-btn-discard:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tm-editor-btn-save {
+  background: var(--btn-primary-bg-color);
+}
+
+.tm-editor-btn-save:hover:not(:disabled) {
+  background: var(--btn-primary-bg-hover-color);
+}
+
+.tm-editor-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.tm-editor-btn-loading {
+  opacity: 0.6;
+  cursor: default;
+}
