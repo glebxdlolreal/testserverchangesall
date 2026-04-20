@@ -2439,3 +2439,130 @@ var BotHandler = {
   },
 };
 
+var BotFunctions = {
+  init() {
+    $('.js-edit-function-list').sortable({items: '.js-sortable'}).on('sortchange', function( event, ui ) {
+      WebApp.HapticFeedback.selectionChanged();
+    });
+
+    Aj.state.edit = false;
+    $('.js-edit-function-list').sortable('disable');
+
+    $('.js-edit-function-list').on('click', '.tm-row-close', function(e) {
+      e.stopPropagation();
+      this.closest('.tm-row')?.remove();
+      WebApp.HapticFeedback.impactOccurred('light');
+      if ($('.js-sortable').length == 0) {
+        BotFunctions.toggleEdit(false);
+        $('.tm-section-header').addClass('hidden');
+      }
+    });
+
+    $('.js-edit-function-list').on('click', '.tm-row-link', function() {
+      var fnName = this.dataset.function;
+      if (!Aj.state.edit && fnName) {
+        Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/functions/' + fnName);
+      }
+    });
+
+    Aj.state.$editBtn = $('.edit-button').on('click', BotFunctions.toggleEdit);
+  },
+  toggleEdit(value) {
+    var edit = value !== undefined ? value : !Aj.state.edit;
+    Aj.state.edit = edit;
+    if (!edit) {
+      BotFunctions.submit();
+    }
+    $('.js-edit-function-list').toggleClass('list-prevent-edit', !edit);
+    $('.js-edit-function-list').sortable(edit ? 'enable' : 'disable');
+    Aj.state.$editBtn.text(edit ? l('WEB_FUNCTIONS_DONE_BTN') : l('WEB_FUNCTIONS_EDIT_BTN'));
+  },
+  submit() {
+    var remainingNames = $('.js-edit-function-list .js-sortable').toArray().map(function(el) {
+      return el.dataset.function;
+    });
+    var originalNames = Aj.state.functionNames || [];
+    var deletedNames = originalNames.filter(function(name) {
+      return remainingNames.indexOf(name) === -1;
+    });
+    if (deletedNames.length === 0) return;
+    Aj.apiRequest('deleteCloudFunctions', {
+      bid: Aj.state.botId,
+      names: deletedNames,
+    }, function(res) {
+      if (res.error) {
+        Main.showErrorToast(res.error);
+      } else {
+        Aj.onUnload(function() { Main.showSuccessToast(l('WEB_FUNCTION_DELETED')); });
+      }
+    });
+  },
+};
+
+var BotFunctionCreate = {
+  init() {
+    WebApp.MainButton.setText(l('WEB_FUNCTION_CREATE'));
+    WebApp.MainButton.show();
+    WebApp.MainButton.onClick(BotFunctionCreate.submit);
+
+    var $input = $('#function-name');
+    $input.on('input', function() {
+      var filtered = $input.val().replace(/[^a-zA-Z0-9_]/g, '');
+      if (filtered && !/^[a-zA-Z]/.test(filtered)) {
+        filtered = filtered.substring(1);
+      }
+      $input.val(filtered);
+    });
+
+    Aj.onUnload(function() {
+      WebApp.MainButton.hide();
+      WebApp.MainButton.offClick(BotFunctionCreate.submit);
+    });
+  },
+  submit() {
+    var name = $('#function-name').val().trim();
+    if (!name || !/^[a-z][a-z0-9_]{0,62}[a-z0-9]$/i.test(name)) {
+      Main.showErrorToast(l('WEB_FUNCTION_NAME_INVALID'));
+      $('#function-name').focus();
+      return;
+    }
+    if (name.indexOf('upd.') === 0 || name.indexOf('mod.') === 0) {
+      Main.showErrorToast(l('WEB_FUNCTION_NAME_RESERVED'));
+      $('#function-name').focus();
+      return;
+    }
+    var existing = Aj.state.existingFunctions || [];
+    if (existing.indexOf(name) !== -1) {
+      Main.showErrorToast(l('WEB_FUNCTION_NAME_EXISTS'));
+      $('#function-name').focus();
+      return;
+    }
+
+    WebApp.MainButton.showProgress();
+    var defaultCode = "import { db, api, fn } from 'sdk';\n\nexport default async function (args, ctx) {\n  \n}";
+    Aj.apiRequest('saveCloudFunction', {
+      bid: Aj.state.botId,
+      name: name,
+      code: defaultCode,
+    }, function(res) {
+      WebApp.MainButton.hideProgress();
+      if (res.error) {
+        Main.showErrorToast(res.error);
+      } else {
+        Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/functions/' + name);
+      }
+    });
+  },
+};
+
+var BotFunction = {
+  init() {
+    BotCodeEditor.init('function-editor', {
+      apiMethod: 'saveCloudFunction',
+      apiParams: { name: Aj.state.functionName },
+      savedLangKey: 'WEB_FUNCTION_SAVED',
+      saveErrorLangKey: 'WEB_FUNCTION_SAVE_ERROR',
+    });
+  },
+};
+

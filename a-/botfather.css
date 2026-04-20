@@ -1188,6 +1188,17 @@ i.emoji {
   visibility: hidden;
   margin-top: -42px;
 }
+.js-edit-function-list:not(.list-prevent-edit) .tm-row:after {
+  display: none;
+}
+.js-edit-function-list:not(.list-prevent-edit) .tm-row {
+  min-height: 42px;
+  cursor: grab;
+}
+.js-edit-function-list:not(.list-prevent-edit) .tm-row-add {
+  visibility: hidden;
+  margin-top: -42px;
+}
 .tm-row-close {
   background: var(--image-url-minus-circle);
   width: 24px;
@@ -2811,4 +2822,26 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 
 .tm-section-breadcrumb-type {
   color: #8794a1;
+}
+
+.tm-function-name-row {
+  padding: 12px 14px;
+  font-size: 14px;
+  color: #8794a1;
+  border-bottom: 1px solid var(--bg-color);
+  margin-bottom: 8px;
+}
+
+.tm-functions-page .tm-icon {
+  transition: all 0.12s ease-in;
+  transition-behavior: allow-discrete;
+}
+
+.tm-functions-page .tm-row-add {
+  transition: all 0.12s ease-in;
+  transition-behavior: allow-discrete;
+}
+
+.tm-input-mono {
+  font-family: 'Roboto Mono', monospace;
 }
