@@ -2526,11 +2526,6 @@ var BotFunctionCreate = {
       $('#function-name').focus();
       return;
     }
-    if (name.indexOf('upd.') === 0 || name.indexOf('mod.') === 0) {
-      Main.showErrorToast(l('WEB_FUNCTION_NAME_RESERVED'));
-      $('#function-name').focus();
-      return;
-    }
     var existing = Aj.state.existingFunctions || [];
     if (existing.indexOf(name) !== -1) {
       Main.showErrorToast(l('WEB_FUNCTION_NAME_EXISTS'));
