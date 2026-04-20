@@ -2328,7 +2328,7 @@ var BotLibrary = {
 
     BotLibrary.cm = CodeMirror.fromTextArea(textarea, {
       mode: 'javascript',
-      theme: 'monokai',
+      theme: 'custom',
       lineNumbers: true,
       matchBrackets: true,
       autoCloseBrackets: true,
