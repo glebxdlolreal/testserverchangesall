@@ -2359,7 +2359,7 @@ var BotCodeEditor = {
 
     BotCodeEditor.cm.on('change', BotCodeEditor.onEditorChange);
 
-    $('.tm-editor-btn-discard').on('click', BotCodeEditor.onDiscard);
+    $('.tm-editor-btn-cancel').on('click', BotCodeEditor.onCancel);
     $('.tm-editor-btn-save').on('click', BotCodeEditor.onSave);
   },
 
@@ -2369,14 +2369,27 @@ var BotCodeEditor = {
 
   updateButtons() {
     var hasChanges = BotCodeEditor.cm.getValue() !== BotCodeEditor.savedCode;
-    $('.tm-editor-btn-discard').prop('disabled', !hasChanges);
     $('.tm-editor-btn-save').prop('disabled', !hasChanges);
   },
 
-  onDiscard() {
-    BotCodeEditor.cm.setValue(BotCodeEditor.savedCode);
-    BotCodeEditor.cm.clearHistory();
-    BotCodeEditor.updateButtons();
+  onCancel() {
+    var hasChanges = BotCodeEditor.cm.getValue() !== BotCodeEditor.savedCode;
+    if (hasChanges) {
+      WebApp.showPopup({
+        title: l('WEB_EDITOR_CANCEL_CONFIRM_TITLE'),
+        message: l('WEB_EDITOR_CANCEL_CONFIRM_BODY'),
+        buttons: [
+          { type: 'cancel' },
+          { id: 'discard', text: l('WEB_EDITOR_CANCEL_CONFIRM'), type: 'destructive' },
+        ]
+      }, function(result) {
+        if (result === 'discard') {
+          _backButton();
+        }
+      });
+    } else {
+      _backButton();
+    }
   },
 
   onSave() {
@@ -2389,7 +2402,8 @@ var BotCodeEditor = {
       if (res.ok) {
         BotCodeEditor.savedCode = code;
         BotCodeEditor.updateButtons();
-        Main.showSuccessToast(l(BotCodeEditor.savedLangKey));
+        Aj.onUnload(function() { Main.showSuccessToast(l(BotCodeEditor.savedLangKey)); });
+        _backButton();
       } else {
         Main.showErrorToast(res.error || l(BotCodeEditor.saveErrorLangKey));
         BotCodeEditor.updateButtons();
@@ -2525,7 +2539,6 @@ var BotFunction = {
     var name = $('#function-name').val().trim();
     var hasName = /^[a-z][a-z0-9_]{0,62}[a-z0-9]$/i.test(name);
     var hasChanges = BotCodeEditor.cm.getValue() !== BotCodeEditor.savedCode;
-    $('.tm-editor-btn-discard').prop('disabled', !hasChanges);
     $('.tm-editor-btn-save').prop('disabled', !hasName);
   },
   onSave() {
