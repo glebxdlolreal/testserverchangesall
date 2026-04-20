@@ -2447,7 +2447,7 @@ var BotFunctions = {
       e.stopPropagation();
       this.closest('.tm-row')?.remove();
       WebApp.HapticFeedback.impactOccurred('light');
-      if ($('.js-sortable').length == 0) {
+      if ($('.js-edit-function-list .tm-row-link').length == 0) {
         BotFunctions.toggleEdit(false);
         $('.tm-section-header').addClass('hidden');
       }
@@ -2460,10 +2460,10 @@ var BotFunctions = {
       }
     });
 
-    Aj.state.$editBtn = $('.edit-button').on('click', BotFunctions.toggleEdit);
+    Aj.state.$editBtn = $('.edit-button').on('click', function() { BotFunctions.toggleEdit(); });
   },
-  toggleEdit(value) {
-    var edit = value !== undefined ? value : !Aj.state.edit;
+  toggleEdit(forceValue) {
+    var edit = forceValue !== undefined ? forceValue : !Aj.state.edit;
     Aj.state.edit = edit;
     if (!edit) {
       BotFunctions.submit();
@@ -2472,7 +2472,7 @@ var BotFunctions = {
     Aj.state.$editBtn.text(edit ? l('WEB_FUNCTIONS_DONE_BTN') : l('WEB_FUNCTIONS_EDIT_BTN'));
   },
   submit() {
-    var remainingNames = $('.js-edit-function-list .js-sortable').toArray().map(function(el) {
+    var remainingNames = $('.js-edit-function-list .tm-row-link').toArray().map(function(el) {
       return el.dataset.function;
     });
     var originalNames = Aj.state.functionNames || [];
