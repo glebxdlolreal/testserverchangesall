@@ -2316,8 +2316,3 @@ var BotMcpAccess = {
   },
 };
 
-var BotHandlers = {
-  init(activeHandlers) {
-    BotHandlers.activeHandlers = activeHandlers || [];
-  },
-};
