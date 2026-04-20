@@ -2324,9 +2324,13 @@ var BotLibrary = {
     var textarea = document.getElementById('library-editor');
     if (!textarea) return;
 
-    BotLibrary.savedCode = textarea.value;
+    const isMac = /Mac|iPhone|iPad/.test(navigator.platform);
+    const shortcut = (isMac ? '⌘' : 'Ctrl') + '+↵';
 
-    BotLibrary.cm = CodeMirror.fromTextArea(textarea, {
+    BotLibrary.savedCode = Aj.state.editorCode;
+
+    BotLibrary.cm = CodeMirror(textarea, {
+      value: BotLibrary.savedCode,
       mode: 'javascript',
       theme: 'custom',
       lineNumbers: true,
@@ -2334,10 +2338,26 @@ var BotLibrary = {
       autoCloseBrackets: true,
       indentUnit: 2,
       tabSize: 2,
+      extraKeys: {
+        [`${isMac ? 'Cmd' : 'Ctrl'}-/`]: 'toggleComment',
+        'Ctrl-Q': (cm) => cm.foldCode(cm.getCursor()),
+        [`${isMac ? 'Cmd' : 'Ctrl'}-Space`]: (cm) => cm.showHint({
+            hint: CodeMirror.hint.cloudjs,
+            hintConfig: hintConfig
+          }),
+      },
       lineWrapping: false,
       json: false,
     });
-
+    BotLibrary.cm.on('inputRead', (cm, event) => {
+      if (event.text[0] && /[\w.]/.test(event.text[0])) {
+        cm.showHint({
+          hint: CodeMirror.hint.cloudjs,
+          completeSingle: false,
+          hintConfig: hintConfig
+        });
+      }
+    });
     BotLibrary.cm.on('change', BotLibrary.onEditorChange);
 
     $('.tm-editor-btn-discard').on('click', BotLibrary.onDiscard);
