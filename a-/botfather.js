@@ -2368,8 +2368,6 @@ var BotCodeEditor = {
   },
 
   updateButtons() {
-    var hasChanges = BotCodeEditor.cm.getValue() !== BotCodeEditor.savedCode;
-    $('.tm-editor-btn-save').prop('disabled', !hasChanges);
   },
 
   onCancel() {
@@ -2395,18 +2393,16 @@ var BotCodeEditor = {
   onSave() {
     var code = BotCodeEditor.cm.getValue();
     var $btn = $('.tm-editor-btn-save');
-    $btn.prop('disabled', true).addClass('tm-editor-btn-loading');
+    $btn.addClass('tm-editor-btn-loading');
     var params = $.extend({ bid: Aj.state.botId, code: code }, BotCodeEditor.apiParams);
     Aj.apiRequest(BotCodeEditor.apiMethod, params, function(res) {
       $btn.removeClass('tm-editor-btn-loading');
       if (res.ok) {
         BotCodeEditor.savedCode = code;
-        BotCodeEditor.updateButtons();
         Aj.onUnload(function() { Main.showSuccessToast(l(BotCodeEditor.savedLangKey)); });
         _backButton();
       } else {
         Main.showErrorToast(res.error || l(BotCodeEditor.saveErrorLangKey));
-        BotCodeEditor.updateButtons();
       }
     });
   },
@@ -2536,10 +2532,6 @@ var BotFunction = {
     }
   },
   updateButtons() {
-    var name = $('#function-name').val().trim();
-    var hasName = /^[a-z][a-z0-9_]{0,62}[a-z0-9]$/i.test(name);
-    var hasChanges = BotCodeEditor.cm.getValue() !== BotCodeEditor.savedCode;
-    $('.tm-editor-btn-save').prop('disabled', !hasName);
   },
   onSave() {
     var name = $('#function-name').val().trim();
@@ -2557,7 +2549,7 @@ var BotFunction = {
 
     var code = BotCodeEditor.cm.getValue();
     var $btn = $('.tm-editor-btn-save');
-    $btn.prop('disabled', true).addClass('tm-editor-btn-loading');
+    $btn.addClass('tm-editor-btn-loading');
     Aj.apiRequest('saveCloudFunction', {
       bid: Aj.state.botId,
       name: name,
@@ -2566,12 +2558,10 @@ var BotFunction = {
       $btn.removeClass('tm-editor-btn-loading');
       if (res.ok) {
         BotCodeEditor.savedCode = code;
-        BotCodeEditor.updateButtons();
-        Main.showSuccessToast(l('WEB_FUNCTION_SAVED'));
-        Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/function/' + name);
+        Aj.onUnload(function() { Main.showSuccessToast(l('WEB_FUNCTION_SAVED')); });
+        _backButton();
       } else {
         Main.showErrorToast(res.error || l('WEB_FUNCTION_SAVE_ERROR'));
-        BotFunction.updateButtons();
       }
     });
   },
