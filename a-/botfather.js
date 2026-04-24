@@ -2526,7 +2526,6 @@ var BotConsole = {
         prefix: BotConsole.getPrefix(functionName),
         suffix: '\n});',
         placeholder: l('WEB_CONSOLE_PLACEHOLDER'),
-        prefixPlaceholder: BotConsole.getPrefix(l('WEB_FUNCTION_NAME_PLACEHOLDER')),
       },
       extraKeys: {
         'Enter': BotConsole.onSubmit,
@@ -2539,22 +2538,21 @@ var BotConsole = {
   },
 
   getPrefix(name) {
-    return (name ? name + '({\n  ' : '');
+    return (name || l('WEB_FUNCTION_NAME_PLACEHOLDER')) + '({\n  ';
   },
 
   updatePrefix(name) {
     if (!BotConsole.cm || !BotConsole.guarded) return;
-    var content = BotConsole.guarded.getEditable();
     var prefix = BotConsole.getPrefix(name);
-    // BotConsole.guarded.setPrefix(prefix);
-    BotConsole.cm.setOption('guardedRegion', {
-      prefix: prefix,
-      suffix: '\n});',
-      initialValue: content,
-      placeholder: l('WEB_CONSOLE_PLACEHOLDER'),
-      prefixPlaceholder: BotConsole.getPrefix(l('WEB_FUNCTION_NAME_PLACEHOLDER')),
-    });
-    BotConsole.guarded = BotConsole.cm.getGuardedRegion();
+    BotConsole.guarded.setPrefix(prefix);
+    // var content = BotConsole.guarded.getEditable();
+    // BotConsole.cm.setOption('guardedRegion', {
+    //   prefix: BotConsole.getPrefix(name),
+    //   suffix: '\n})',
+    //   initialValue: content,
+    //   placeholder: l('WEB_CONSOLE_PLACEHOLDER'),
+    // });
+    // BotConsole.guarded = BotConsole.cm.getGuardedRegion();
   },
 
   onSubmit() {
