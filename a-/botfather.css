@@ -2829,3 +2829,115 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   transition: all 0.12s ease-in;
   transition-behavior: allow-discrete;
 }
+
+.tm-console {
+  background: var(--table-bg-color);
+  border-radius: var(--def-border-radius);
+  overflow: hidden;
+}
+
+.tm-console-output {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+
+.tm-console-output:empty {
+  display: none;
+}
+
+.tm-console-line {
+  display: flex;
+  align-items: flex-start;
+  padding: 2px 12px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.tm-console-gutter {
+  width: 20px;
+  flex-shrink: 0;
+  text-align: center;
+  color: var(--text-color);
+  user-select: none;
+}
+
+.tm-console-content {
+  flex: 1;
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: var(--header-color);
+}
+
+.tm-console-duration {
+  flex-shrink: 0;
+  color: var(--text-color);
+  margin-left: 8px;
+}
+
+.tm-console-line-error .tm-console-gutter {
+  color: var(--danger-text-color);
+}
+
+.tm-console-line-error .tm-console-content {
+  color: var(--danger-text-color);
+}
+
+.tm-console-input {
+  display: flex;
+  align-items: flex-start;
+  border-top: 1px solid var(--bg-color);
+  padding: 4px 12px;
+}
+
+.tm-console-input-gutter {
+  width: 20px;
+  flex-shrink: 0;
+  text-align: center;
+  color: var(--accent-color);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+  line-height: 16px;
+  padding-top: 4px;
+  user-select: none;
+}
+
+.tm-console-input-editor {
+  flex: 1;
+  min-width: 0;
+}
+
+.tm-console-input .CodeMirror {
+  height: auto;
+  background: transparent;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+  line-height: 16px;
+  min-height: 16px;
+  padding: 0;
+}
+
+.tm-console-input .CodeMirror-scroll {
+  min-height: 16px;
+}
+
+.tm-console-input .CodeMirror-gutters {
+  background: transparent;
+  border: none;
+  width: 0;
+  padding: 0;
+}
+
+.tm-console-input .CodeMirror-linenumber {
+  display: none;
+}
+
+.tm-console-input .CodeMirror-cursor {
+  border-left-color: var(--accent-color);
+}
+
+.tm-console-input .cm-guarded {
+  color: var(--text-color);
+  font-style: italic;
+}

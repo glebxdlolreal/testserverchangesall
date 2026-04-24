@@ -2503,6 +2503,139 @@ var BotFunctions = {
   },
 };
 
+var BotConsole = {
+  cm: null,
+  guarded: null,
+  lines: [],
+  isRunning: false,
+
+  init(functionName) {
+    var el = document.getElementById('console-editor');
+    if (!el) return;
+
+    BotConsole.cm = CodeMirror(el, {
+      mode: 'javascript',
+      theme: 'custom',
+      lineNumbers: false,
+      matchBrackets: true,
+      autoCloseBrackets: true,
+      indentUnit: 2,
+      tabSize: 2,
+      lineWrapping: true,
+      guardedRegion: {
+        prefix: BotConsole.getPrefix(functionName),
+        suffix: '\n})',
+        placeholder: l('WEB_CONSOLE_PLACEHOLDER'),
+      },
+      extraKeys: {
+        'Enter': BotConsole.onSubmit,
+        'Cmd-Enter': 'newlineAndIndent',
+        'Ctrl-Enter': 'newlineAndIndent',
+      },
+    });
+
+    BotConsole.guarded = BotConsole.cm.getGuardedRegion();
+  },
+
+  getPrefix(name) {
+    return (name || 'fn') + '({\n  ';
+  },
+
+  updatePrefix(name) {
+    if (!BotConsole.cm || !BotConsole.guarded) return;
+    var content = BotConsole.guarded.getEditable();
+    BotConsole.cm.setOption('guardedRegion', {
+      prefix: BotConsole.getPrefix(name),
+      suffix: '\n})',
+      initialValue: content,
+      placeholder: l('WEB_CONSOLE_PLACEHOLDER'),
+    });
+    BotConsole.guarded = BotConsole.cm.getGuardedRegion();
+  },
+
+  onSubmit() {
+    if (BotConsole.isRunning) return CodeMirror.Pass;
+
+    var editable = BotConsole.guarded.getEditable().trim();
+    var functionName = Aj.state.isFunctionNew
+      ? ($('#function-name').val() || '').trim()
+      : Aj.state.functionName;
+
+    if (!functionName || !/^[a-z][a-z0-9_]{0,62}[a-z0-9]$/i.test(functionName)) {
+      BotConsole.addLine('error', 'Enter a valid function name first');
+      return;
+    }
+
+    var argsObj = null;
+    if (editable) {
+      try {
+        argsObj = JSON5.parse('{' + editable + '}');
+      } catch (e) {
+        BotConsole.addLine('error', 'Invalid arguments: ' + e.message);
+        return;
+      }
+    }
+
+    BotConsole.addLine('input', editable || '{ }');
+
+    var code = BotCodeEditor.cm.getValue();
+    BotConsole.isRunning = true;
+    BotConsole.cm.setOption('readOnly', true);
+
+    Aj.apiRequest('runCloudFunction', {
+      bid: Aj.state.botId,
+      name: functionName,
+      code: code,
+      args: argsObj ? JSON.stringify(argsObj) : '{}',
+    }, function(res) {
+      BotConsole.isRunning = false;
+      BotConsole.cm.setOption('readOnly', false);
+      if (res.error) {
+        BotConsole.addLine('error', res.error);
+      } else {
+        BotConsole.addLine('output', res.result, res.time);
+      }
+    });
+
+    BotConsole.guarded.setEditable('');
+  },
+
+  addLine(type, content, duration) {
+    var line = { type: type, content: content };
+    if (duration !== undefined) line.duration = duration;
+    BotConsole.lines.push(line);
+    BotConsole.renderLines();
+  },
+
+  renderLines() {
+    var $output = $('#console-output');
+    $output.empty();
+    for (var i = 0; i < BotConsole.lines.length; i++) {
+      var line = BotConsole.lines[i];
+      var $line = $('<div class="tm-console-line tm-console-line-' + line.type + '">');
+      $line.append($('<span class="tm-console-gutter">').text(BotConsole.gutterChar(line.type)));
+      var content = line.content;
+      if (typeof content === 'object' && content !== null) {
+        try { content = JSON.stringify(content, null, 2); } catch(e) { content = String(content); }
+      }
+      $line.append($('<span class="tm-console-content">').text(String(content)));
+      if (line.duration !== undefined) {
+        $line.append($('<span class="tm-console-duration">').text(Math.round(line.duration) + 'ms'));
+      }
+      $output.append($line);
+    }
+    var el = $output[0];
+    if (el) el.scrollTop = el.scrollHeight;
+  },
+
+  gutterChar(type) {
+    if (type === 'input') return '\u203A';
+    if (type === 'output') return '\u2039';
+    if (type === 'error') return '\u2715';
+    return '\u203A';
+  },
+};
+
 var BotFunction = {
   init() {
     var isNew = Aj.state.isFunctionNew;
@@ -2516,6 +2649,7 @@ var BotFunction = {
         }
         $input.val(filtered);
         BotFunction.updateButtons();
+        BotConsole.updatePrefix(filtered);
       });
     }
 
@@ -2525,6 +2659,8 @@ var BotFunction = {
       savedLangKey: 'WEB_FUNCTION_SAVED',
       saveErrorLangKey: 'WEB_FUNCTION_SAVE_ERROR',
     });
+
+    BotConsole.init(isNew ? '' : Aj.state.functionName);
 
     if (isNew) {
       $('.tm-editor-btn-save').off('click').on('click', BotFunction.onSave);
