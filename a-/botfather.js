@@ -2524,7 +2524,7 @@ var BotConsole = {
       lineWrapping: true,
       guardedRegion: {
         prefix: BotConsole.getPrefix(functionName),
-        suffix: '\n})',
+        suffix: '\n});',
         placeholder: l('WEB_CONSOLE_PLACEHOLDER'),
       },
       extraKeys: {
