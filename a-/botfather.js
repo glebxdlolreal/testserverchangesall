@@ -2576,7 +2576,7 @@ var BotConsole = {
       }
     }
 
-    BotConsole.addLine('input', editable || '{ }');
+    BotConsole.addLine('input', functionName + '({\n  ' + editable + '\n})');
 
     var code = BotCodeEditor.cm.getValue();
     BotConsole.isRunning = true;
@@ -2604,35 +2604,38 @@ var BotConsole = {
     var line = { type: type, content: content };
     if (duration !== undefined) line.duration = duration;
     BotConsole.lines.push(line);
-    BotConsole.renderLines();
+    BotConsole.renderLine(line);
   },
 
-  renderLines() {
-    var $output = $('#console-output');
-    $output.empty();
-    for (var i = 0; i < BotConsole.lines.length; i++) {
-      var line = BotConsole.lines[i];
-      var $line = $('<div class="tm-console-line tm-console-line-' + line.type + '">');
-      $line.append($('<span class="tm-console-gutter">').text(BotConsole.gutterChar(line.type)));
-      var content = line.content;
-      if (typeof content === 'object' && content !== null) {
-        try { content = JSON.stringify(content, null, 2); } catch(e) { content = String(content); }
-      }
-      $line.append($('<span class="tm-console-content">').text(String(content)));
-      if (line.duration !== undefined) {
-        $line.append($('<span class="tm-console-duration">').text(Math.round(line.duration) + 'ms'));
-      }
-      $output.append($line);
+  renderLine(line) {
+    var $inputLine = $('#console-input-line');
+    var $line = $('<div class="tm-console-line">');
+    $line.append($('<div class="tm-console-gutter tm-console-gutter--' + BotConsole.gutterClass(line.type) + '">').text(BotConsole.gutterChar(line.type)));
+    var $body = $('<div class="tm-console-body' + (line.type === 'error' ? ' tm-console-body--error' : '') + '">');
+    var content = line.content;
+    if (typeof content === 'object' && content !== null) {
+      try { content = JSON.stringify(content, null, 2); } catch(e) { content = String(content); }
     }
-    var el = $output[0];
-    if (el) el.scrollTop = el.scrollHeight;
+    $body.append($('<pre>').text(String(content)));
+    if (line.duration !== undefined) {
+      $body.append($('<span class="tm-console-time">').text(Math.round(line.duration) + 'ms'));
+    }
+    $line.append($body);
+    $line.insertBefore($inputLine);
+  },
+
+  gutterClass(type) {
+    if (type === 'input') return 'in';
+    if (type === 'output') return 'out';
+    if (type === 'error') return 'err';
+    return 'in';
   },
 
   gutterChar(type) {
-    if (type === 'input') return '\u203A';
-    if (type === 'output') return '\u2039';
-    if (type === 'error') return '\u2715';
-    return '\u203A';
+    if (type === 'input') return '>';
+    if (type === 'output') return '<';
+    if (type === 'error') return 'x';
+    return '>';
   },
 };
 
