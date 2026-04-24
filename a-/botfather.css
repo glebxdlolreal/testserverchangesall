@@ -2592,13 +2592,19 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   overflow: hidden;
 }
 
-.tm-editor-code .CodeMirror {
+.tm-editor-code .CodeMirror,
+.tm-console-input-editor .CodeMirror {
   height: auto;
   background: var(--table-bg-color);
   font-family: 'Roboto Mono', monospace;
   font-size: 12px;
   line-height: 16px;
   min-height: 80px;
+}
+.tm-editor-code .CodeMirror pre,
+.tm-console-input-editor .CodeMirror pre {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .tm-editor-code .CodeMirror-gutters {
@@ -2921,7 +2927,7 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   font-size: 12px;
   line-height: 16px;
   text-align: right;
-  min-width: 28px;
+  min-width: 24px;
   user-select: none;
   color: var(--accent-color);
 }
@@ -2929,17 +2935,13 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 .tm-console-input-editor {
   flex: 1 0 0;
   min-width: 0;
-  padding: 7px 10px 7px 0;
+  padding: 4px 10px 4px 0;
 }
 
 .tm-console-input-editor .CodeMirror {
-  height: auto;
   background: transparent;
   font-family: 'Roboto Mono', monospace;
-  font-size: 12px;
-  line-height: 16px;
   min-height: 16px;
-  padding: 0;
 }
 
 .tm-console-input-editor .CodeMirror-scroll {
