@@ -2526,7 +2526,7 @@ var BotConsole = {
         prefix: BotConsole.getPrefix(functionName),
         suffix: '\n});',
         placeholder: l('WEB_CONSOLE_PLACEHOLDER'),
-        prefixPlaceholder: BotConsole.getPrefix(l('WEB_FUNCTION_PLACEHOLDER')),
+        prefixPlaceholder: BotConsole.getPrefix(l('WEB_FUNCTION_NAME_PLACEHOLDER')),
       },
       extraKeys: {
         'Enter': BotConsole.onSubmit,
@@ -2552,7 +2552,7 @@ var BotConsole = {
       suffix: '\n});',
       initialValue: content,
       placeholder: l('WEB_CONSOLE_PLACEHOLDER'),
-      prefixPlaceholder: BotConsole.getPrefix(l('WEB_FUNCTION_PLACEHOLDER')),
+      prefixPlaceholder: BotConsole.getPrefix(l('WEB_FUNCTION_NAME_PLACEHOLDER')),
     });
     BotConsole.guarded = BotConsole.cm.getGuardedRegion();
   },
