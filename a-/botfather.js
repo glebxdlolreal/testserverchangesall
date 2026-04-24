@@ -2538,7 +2538,7 @@ var BotConsole = {
   },
 
   getPrefix(name) {
-    return (name || 'fn') + '({\n  ';
+    return (name || '') + '({\n  ';
   },
 
   updatePrefix(name) {
