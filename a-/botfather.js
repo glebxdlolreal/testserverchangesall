@@ -2424,26 +2424,28 @@ var BotHandler = {
       saveErrorLangKey: 'WEB_HANDLER_SAVE_ERROR',
     });
 
-    $(document).on('click.curPage', '.js-editor-delete', function() {
-      WebApp.showPopup({
-        title: uncleanHTML(l('WEB_HANDLER_DELETE_CONFIRM_TITLE')),
-        message: uncleanHTML(l('WEB_HANDLER_DELETE_CONFIRM_BODY')),
-        buttons: [
-          { id: 'delete', text: uncleanHTML(l('WEB_EDITOR_DELETE')), type: 'destructive' },
-          { type: 'cancel' },
-        ]
-      }, function(result) {
-        if (result !== 'delete') return;
-        Aj.apiRequest('deleteCloudHandler', { bid: Aj.state.botId, type: Aj.state.handlerType }, function(res) {
-          if (res.ok) {
-            Aj.onUnload(function() { Main.showSuccessToast(l('WEB_HANDLER_SAVED')); });
-            _backButton();
-          } else {
-            Main.showErrorToast(res.error);
-          }
+    if (!Aj.state.isHandlerNew) {
+      $(document).on('click.curPage', '.js-editor-delete', function() {
+        WebApp.showPopup({
+          title: uncleanHTML(l('WEB_HANDLER_DELETE_CONFIRM_TITLE')),
+          message: uncleanHTML(l('WEB_HANDLER_DELETE_CONFIRM_BODY')),
+          buttons: [
+            { id: 'delete', text: uncleanHTML(l('WEB_EDITOR_DELETE')), type: 'destructive' },
+            { type: 'cancel' },
+          ]
+        }, function(result) {
+          if (result !== 'delete') return;
+          Aj.apiRequest('deleteCloudHandler', { bid: Aj.state.botId, type: Aj.state.handlerType }, function(res) {
+            if (res.ok) {
+              Aj.onUnload(function() { Main.showSuccessToast(l('WEB_HANDLER_SAVED')); });
+              _backButton();
+            } else {
+              Main.showErrorToast(res.error);
+            }
+          });
         });
       });
-    });
+    }
   },
 };
 
