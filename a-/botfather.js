@@ -2604,12 +2604,10 @@ var BotConsole = {
     var $inputLine = $('#console-input-line');
     var $line = $('<div class="tm-console-line">');
     $line.append($('<div class="tm-console-gutter tm-console-gutter--in">').text('>'));
-    var $body = $('<div class="tm-console-body tm-console-history">');
-    var cmClone = BotConsole.cm.getWrapperElement().cloneNode(true);
-    cmClone.removeAttribute('id');
-    var idEls = cmClone.querySelectorAll('[id]');
-    for (var j = 0; j < idEls.length; j++) idEls[j].removeAttribute('id');
-    $body[0].appendChild(cmClone);
+    var $body = $('<div class="tm-console-body">');
+    var $pre = $('<pre class="cm-s-custom">');
+    CodeMirror.runMode(BotConsole.cm.getValue(), 'javascript', $pre[0]);
+    $body.append($pre);
     $line.append($body);
     $line.insertBefore($inputLine);
   },
