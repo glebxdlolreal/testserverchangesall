@@ -2512,7 +2512,6 @@ var BotHandlers = {
 
     $('.js-edit-handler-list').on('click', '.tm-row-close', function(e) {
       e.stopPropagation();
-      e.preventDefault();
       var row = this.closest('.tm-row');
       var handlerType = row ? (row.dataset.handler || '') : '';
       WebApp.showPopup({
@@ -2534,12 +2533,20 @@ var BotHandlers = {
           BotHandlers.toggleEdit(false);
           $('.js-edit-handler-list').addClass('hidden');
           $('.js-handlers-island').removeClass('hidden');
+          Aj.state.$editBtn.addClass('hidden');
         }
       });
     });
 
-    $('.js-edit-handler-list').on('click', '.js-active-handler', function(e) {
+    $('.js-edit-handler-list').on('click', '.js-active-handler', function() {
       if (Aj.state.edit) return;
+      var handlerType = this.dataset.handler;
+      if (handlerType) {
+        Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/handler/' + handlerType);
+      }
+    });
+
+    $('.js-handler-group').on('click', '.js-inactive-handler', function() {
       var handlerType = this.dataset.handler;
       if (handlerType) {
         Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/handler/' + handlerType);
