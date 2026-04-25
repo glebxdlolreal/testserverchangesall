@@ -2518,12 +2518,13 @@ var BotConsole = {
         prefixClassName: functionName ? '' : 'cm-guarded-default',
       },
       extraKeys: {
-        'Enter': BotConsole.onSubmit,
-        'Cmd-Enter': 'newlineAndIndent',
-        'Ctrl-Enter': 'newlineAndIndent',
         'Up': BotConsole.onUp,
         'Down': BotConsole.onDown,
       },
+    });
+    BotConsole.cm.addKeyMap({
+      'Enter': BotConsole.onSubmit,
+      'Shift-Enter': BotConsole.onShiftEnter,
     });
 
     BotConsole.guarded = BotConsole.cm.getGuardedRegion();
@@ -2537,6 +2538,40 @@ var BotConsole = {
     if (!BotConsole.cm || !BotConsole.guarded) return;
     BotConsole.guarded.setPrefix(BotConsole.getPrefix(name));
     BotConsole.guarded.setPrefixClassName(name ? '' : 'cm-guarded-default');
+  },
+
+  onShiftEnter(cm) {
+    const explodeIfBetweenPair = function(cm) {
+      var conf = cm.state.closeBrackets;
+      var explode = (typeof conf === 'object' && conf && conf.explode) || '[]{}';
+      if (!explode || cm.getOption('disableInput')) return CodeMirror.Pass;
+
+      var ranges = cm.listSelections();
+      for (var i = 0; i < ranges.length; i++) {
+        if (!ranges[i].empty()) return CodeMirror.Pass;
+        var h = ranges[i].head;
+        var around = cm.getRange(
+          { line: h.line, ch: h.ch - 1 },
+          { line: h.line, ch: h.ch + 1 }
+        );
+        if (around.length !== 2 || explode.indexOf(around) % 2 !== 0) {
+          return CodeMirror.Pass;
+        }
+      }
+      cm.operation(function () {
+        var sep = cm.lineSeparator() || '\n';
+        cm.replaceSelection(sep + sep, null);
+        cm.execCommand('goCharLeft');
+        var rs = cm.listSelections();
+        for (var i = 0; i < rs.length; i++) {
+          cm.indentLine(rs[i].head.line, null, true);
+          cm.indentLine(rs[i].head.line + 1, null, true);
+        }
+      });
+      return true;
+    };
+    if (explodeIfBetweenPair(cm) !== CodeMirror.Pass) return;
+    cm.execCommand('newlineAndIndent');
   },
 
   onSubmit() {
