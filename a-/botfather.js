@@ -2579,6 +2579,7 @@ var BotConsole = {
       code: code,
       args: argsObj ? JSON.stringify(argsObj) : '{}',
     }, function(res) {
+      debugger;
       BotConsole.isRunning = false;
       BotConsole.cm.setOption('readOnly', false);
       if (res.error) {
