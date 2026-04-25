@@ -2623,7 +2623,7 @@ var BotConsole = {
     }
     $body.append($('<pre>').text(String(content)));
     if (duration !== undefined) {
-      $body.append($('<span class="tm-console-time">').text(Math.round(duration) + 'ms'));
+      $body.append($('<span class="tm-console-time">').text(Math.round(duration * 1000) + 'ms'));
     }
     $line.append($body);
     $line.insertBefore($inputLine);
