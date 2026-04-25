@@ -504,6 +504,7 @@ i.icon {
   font-size: 14px;
   line-height: 19px;
   color: var(--text-color);
+  margin: 20px 0 50px;
 }
 .tm-empty__icon {
   width: 56px;
@@ -1061,6 +1062,9 @@ i.icon {
 }
 .tm-menu-items .tm-row {
   color: #fff;
+}
+.tm-menu-items .tm-row:focus {
+  text-decoration: none;
 }
 
 .tm-row .help-text {

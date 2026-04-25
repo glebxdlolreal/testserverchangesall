@@ -2460,7 +2460,8 @@ var BotFunctions = {
         WebApp.HapticFeedback.impactOccurred('light');
         if ($('.js-edit-function-list .tm-row-link').length == 0) {
           BotFunctions.toggleEdit(false);
-          $('.tm-section-header').addClass('hidden');
+          $('main.tm-main').addClass('hidden');
+          $('.tm-empty-wrap').removeClass('hidden');
         }
       });
     });
