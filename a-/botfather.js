@@ -2369,44 +2369,25 @@ var BotCodeEditor = {
 
     BotCodeEditor.cm.on('change', BotCodeEditor.onEditorChange);
 
-    $('.tm-editor-btn-cancel').on('click', BotCodeEditor.onCancel);
-    $('.tm-editor-btn-save').on('click', BotCodeEditor.onSave);
+    WebApp.MainButton.setText(l('WEB_EDITOR_SAVE'));
+    WebApp.MainButton.show();
+    WebApp.MainButton.onClick(BotCodeEditor.onSave);
+
+    Aj.onUnload(function() {
+      WebApp.MainButton.hide();
+      WebApp.MainButton.offClick(BotCodeEditor.onSave);
+    });
   },
 
   onEditorChange() {
-    BotCodeEditor.updateButtons();
-  },
-
-  updateButtons() {
-  },
-
-  onCancel() {
-    var hasChanges = BotCodeEditor.cm.getValue() !== BotCodeEditor.savedCode;
-    if (hasChanges) {
-      WebApp.showPopup({
-        title: uncleanHTML(l('WEB_EDITOR_CANCEL_CONFIRM_TITLE')),
-        message: uncleanHTML(l('WEB_EDITOR_CANCEL_CONFIRM_BODY')),
-        buttons: [
-          { type: 'cancel' },
-          { id: 'discard', text: uncleanHTML(l('WEB_EDITOR_CANCEL_CONFIRM')), type: 'destructive' },
-        ]
-      }, function(result) {
-        if (result === 'discard') {
-          _backButton();
-        }
-      });
-    } else {
-      _backButton();
-    }
   },
 
   onSave() {
     var code = BotCodeEditor.cm.getValue();
-    var $btn = $('.tm-editor-btn-save');
-    $btn.addClass('tm-editor-btn-loading');
+    WebApp.MainButton.showProgress();
     var params = $.extend({ bid: Aj.state.botId, code: code }, BotCodeEditor.apiParams);
     Aj.apiRequest(BotCodeEditor.apiMethod, params, function(res) {
-      $btn.removeClass('tm-editor-btn-loading');
+      WebApp.MainButton.hideProgress();
       if (res.ok) {
         BotCodeEditor.savedCode = code;
         Aj.onUnload(function() { Main.showSuccessToast(l(BotCodeEditor.savedLangKey)); });
@@ -2666,7 +2647,6 @@ var BotFunction = {
           filtered = filtered.substring(1);
         }
         $input.val(filtered);
-        BotFunction.updateButtons();
         BotConsole.updatePrefix(filtered);
       });
     }
@@ -2681,11 +2661,9 @@ var BotFunction = {
     BotConsole.init(isNew ? '' : Aj.state.functionName);
 
     if (isNew) {
-      $('.tm-editor-btn-save').off('click').on('click', BotFunction.onSave);
-      BotFunction.updateButtons();
+      WebApp.MainButton.offClick(BotCodeEditor.onSave);
+      WebApp.MainButton.onClick(BotFunction.onSave);
     }
-  },
-  updateButtons() {
   },
   onSave() {
     var name = $('#function-name').val().trim();
@@ -2702,14 +2680,13 @@ var BotFunction = {
     }
 
     var code = BotCodeEditor.cm.getValue();
-    var $btn = $('.tm-editor-btn-save');
-    $btn.addClass('tm-editor-btn-loading');
+    WebApp.MainButton.showProgress();
     Aj.apiRequest('saveCloudFunction', {
       bid: Aj.state.botId,
       name: name,
       code: code,
     }, function(res) {
-      $btn.removeClass('tm-editor-btn-loading');
+      WebApp.MainButton.hideProgress();
       if (res.ok) {
         BotCodeEditor.savedCode = code;
         Aj.onUnload(function() { Main.showSuccessToast(l('WEB_FUNCTION_SAVED')); });

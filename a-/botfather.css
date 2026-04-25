@@ -2854,52 +2854,6 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 }
 
 
-.tm-editor-buttons {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 12px;
-  border-top: 1px solid var(--bg-color);
-}
-
-.tm-editor-btn {
-  border-radius: 14px;
-  padding: 5px 12px;
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 18px;
-  border: none;
-  cursor: pointer;
-  color: #fff;
-}
-
-.tm-editor-btn-cancel {
-  background: transparent;
-  border: 1px solid #2d3a47;
-}
-
-.tm-editor-btn-cancel:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.tm-editor-btn-save {
-  background: var(--btn-primary-bg-color);
-}
-
-.tm-editor-btn-save:hover:not(:disabled) {
-  background: var(--btn-primary-bg-hover-color);
-}
-
-.tm-editor-btn:disabled {
-  opacity: 0.4;
-  cursor: default;
-}
-
-.tm-editor-btn-loading {
-  opacity: 0.6;
-  cursor: default;
-}
-
 .tm-section-breadcrumb-chevron {
   display: inline-block;
   width: 7px;
