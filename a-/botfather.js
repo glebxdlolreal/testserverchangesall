@@ -2524,7 +2524,7 @@ var BotConsole = {
       lineWrapping: true,
       guardedRegion: {
         prefix: BotConsole.getPrefix(functionName),
-        suffix: ' });',
+        suffix: '\n});',
         placeholder: l('WEB_CONSOLE_PLACEHOLDER'),
         prefixClassName: functionName ? '' : 'cm-guarded-default',
       },
@@ -2539,8 +2539,7 @@ var BotConsole = {
   },
 
   getPrefix(name) {
-    let name = name || l('WEB_FUNCTION_NAME_PLACEHOLDER');
-    return 'import ' + name + ' from \'functions/' + name + '\';\n' + name + '({ ';
+    return (name || l('WEB_FUNCTION_NAME_PLACEHOLDER') + ' ') + '({\n  ';
   },
 
   updatePrefix(name) {
@@ -2557,11 +2556,6 @@ var BotConsole = {
     var functionName = Aj.state.isFunctionNew
       ? ($('#function-name').val() || '').trim()
       : Aj.state.functionName;
-
-    if (!functionName || !/^[a-z][a-z0-9_]{0,62}[a-z0-9]$/i.test(functionName)) {
-      BotConsole.addLine('error', 'Enter a valid function name first');
-      return;
-    }
 
     var argsObj = null;
     if (editable) {
