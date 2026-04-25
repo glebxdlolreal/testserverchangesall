@@ -610,15 +610,15 @@ var BotGeneral = {
   },
   askRevoke() {
     WebApp.showPopup({
-      title: l('WEB_API_TOKEN_REVOKE_TITLE'),
-      message: l('WEB_API_TOKEN_REVOKE_TEXT'),
+      title: uncleanHTML(l('WEB_API_TOKEN_REVOKE_TITLE')),
+      message: uncleanHTML(l('WEB_API_TOKEN_REVOKE_TEXT')),
       buttons: [
         {
           type: 'cancel',
         },
         {
           id: 'revoke',
-          text: l('WEB_API_TOKEN_REVOKE_BTN'),
+          text: uncleanHTML(l('WEB_API_TOKEN_REVOKE_BTN')),
           type: 'destructive',
         }
       ]
@@ -1043,12 +1043,12 @@ var BotSettings = {
 
   askMigrateOauth() {
     WebApp.showPopup({
-      title: l('WEB_LOGIN_MIGRATE_TITLE'),
-      message: l('WEB_LOGIN_MIGRATE_TEXT'),
+      title: uncleanHTML(l('WEB_LOGIN_MIGRATE_TITLE')),
+      message: uncleanHTML(l('WEB_LOGIN_MIGRATE_TEXT')),
       buttons: [
         {
           id: 'confirm',
-          text: l('WEB_LOGIN_MIGRATE_CONFIRM_BTN'),
+          text: uncleanHTML(l('WEB_LOGIN_MIGRATE_CONFIRM_BTN')),
           type: 'default',
         },
         {
@@ -1073,15 +1073,15 @@ var BotSettings = {
 
   askRevokeClientSecret() {
     WebApp.showPopup({
-      title: l('WEB_CLIENT_SECRET_REVOKE_TITLE'),
-      message: l('WEB_CLIENT_SECRET_REVOKE_TEXT'),
+      title: uncleanHTML(l('WEB_CLIENT_SECRET_REVOKE_TITLE')),
+      message: uncleanHTML(l('WEB_CLIENT_SECRET_REVOKE_TEXT')),
       buttons: [
         {
           type: 'cancel',
         },
         {
           id: 'revoke',
-          text: l('WEB_API_TOKEN_REVOKE_BTN'),
+          text: uncleanHTML(l('WEB_API_TOKEN_REVOKE_BTN')),
           type: 'destructive',
         }
       ]
@@ -1168,12 +1168,12 @@ var BotGames = {
       // e.stopPropagation();
       var gameId = this.dataset.id;
       WebApp.showPopup({
-        title: l('WEB_GAMES_DELETE_CONFIRM_TITLE'),
-        message: l('WEB_GAMES_DELETE_CONFIRM_BODY'),
+        title: uncleanHTML(l('WEB_GAMES_DELETE_CONFIRM_TITLE')),
+        message: uncleanHTML(l('WEB_GAMES_DELETE_CONFIRM_BODY')),
         buttons: [
           {
             id: 'delete',
-            text: l('WEB_GAMES_DELETE'),
+            text: uncleanHTML(l('WEB_GAMES_DELETE')),
             type: 'destructive',
           },
           {
@@ -1441,12 +1441,12 @@ var BotApps = {
     $('.js-game-delete').on('click', function (e) {
       var gameId = this.dataset.id;
       WebApp.showPopup({
-        title: l('WEB_GAMES_DELETE_CONFIRM_TITLE'),
-        message: l('WEB_GAMES_DELETE_APP_CONFIRM_BODY'),
+        title: uncleanHTML(l('WEB_GAMES_DELETE_CONFIRM_TITLE')),
+        message: uncleanHTML(l('WEB_GAMES_DELETE_APP_CONFIRM_BODY')),
         buttons: [
           {
             id: 'delete',
-            text: l('WEB_GAMES_DELETE'),
+            text: uncleanHTML(l('WEB_GAMES_DELETE')),
             type: 'destructive',
           },
           {
@@ -1497,12 +1497,12 @@ var BotMainApp = {
 
     $('.js-delete-mainapp-button').on('click', function () {
       WebApp.showPopup({
-        title: l('WEB_MENUBTN_DISABLE_TITLE'),
-        message: l('WEB_MAINAPP_DISABLE_CONFIRM'),
+        title: uncleanHTML(l('WEB_MENUBTN_DISABLE_TITLE')),
+        message: uncleanHTML(l('WEB_MAINAPP_DISABLE_CONFIRM')),
         buttons: [
           {
             id: 'delete',
-            text: l('WEB_MENUBTN_POPUP_DISABLE'),
+            text: uncleanHTML(l('WEB_MENUBTN_POPUP_DISABLE')),
             type: 'destructive',
           },
           {
@@ -1567,12 +1567,12 @@ var BotMenuApp = {
 
     $('.js-delete-menu-button').on('click', function () {
       WebApp.showPopup({
-        title: l('WEB_MENUBTN_DISABLE_TITLE'),
-        message: l('WEB_MENUBTN_DISABLE_CONFIRM'),
+        title: uncleanHTML(l('WEB_MENUBTN_DISABLE_TITLE')),
+        message: uncleanHTML(l('WEB_MENUBTN_DISABLE_CONFIRM')),
         buttons: [
           {
             id: 'delete',
-            text: l('WEB_MENUBTN_POPUP_DISABLE'),
+            text: uncleanHTML(l('WEB_MENUBTN_POPUP_DISABLE')),
             type: 'destructive',
           },
           {
@@ -2291,11 +2291,11 @@ var BotMcpAccess = {
   },
   askRevoke() {
     WebApp.showPopup({
-      title: l('WEB_MCP_TOKEN_REVOKE_TITLE'),
-      message: l('WEB_MCP_TOKEN_REVOKE_TEXT'),
+      title: uncleanHTML(l('WEB_MCP_TOKEN_REVOKE_TITLE')),
+      message: uncleanHTML(l('WEB_MCP_TOKEN_REVOKE_TEXT')),
       buttons: [
         { type: 'cancel' },
-        { id: 'revoke', text: l('WEB_MCP_TOKEN_REVOKE_BTN'), type: 'destructive' },
+        { id: 'revoke', text: uncleanHTML(l('WEB_MCP_TOKEN_REVOKE_BTN')), type: 'destructive' },
       ]
     }, (result) => {
       if (result !== 'revoke') return;
@@ -2384,11 +2384,11 @@ var BotCodeEditor = {
     var hasChanges = BotCodeEditor.cm.getValue() !== BotCodeEditor.savedCode;
     if (hasChanges) {
       WebApp.showPopup({
-        title: l('WEB_EDITOR_CANCEL_CONFIRM_TITLE'),
-        message: l('WEB_EDITOR_CANCEL_CONFIRM_BODY'),
+        title: uncleanHTML(l('WEB_EDITOR_CANCEL_CONFIRM_TITLE')),
+        message: uncleanHTML(l('WEB_EDITOR_CANCEL_CONFIRM_BODY')),
         buttons: [
           { type: 'cancel' },
-          { id: 'discard', text: l('WEB_EDITOR_CANCEL_CONFIRM'), type: 'destructive' },
+          { id: 'discard', text: uncleanHTML(l('WEB_EDITOR_CANCEL_CONFIRM')), type: 'destructive' },
         ]
       }, function(result) {
         if (result === 'discard') {
@@ -2448,11 +2448,11 @@ var BotFunctions = {
       var row = this.closest('.tm-row');
       var fnName = row ? (row.dataset.function || '') : '';
       WebApp.showPopup({
-        title: l('WEB_FUNCTION_DELETE_TITLE'),
-        message: l('WEB_FUNCTION_DELETE_CONFIRM', {name: fnName}),
+        title: uncleanHTML(l('WEB_FUNCTION_DELETE_TITLE')),
+        message: uncleanHTML(l('WEB_FUNCTION_DELETE_CONFIRM', {name: fnName})),
         buttons: [
           { type: 'cancel' },
-          { id: 'delete', text: l('WEB_FUNCTION_DELETE_BTN'), type: 'destructive' },
+          { id: 'delete', text: uncleanHTML(l('WEB_FUNCTION_DELETE_BTN')), type: 'destructive' },
         ]
       }, function(result) {
         if (result !== 'delete') return;
