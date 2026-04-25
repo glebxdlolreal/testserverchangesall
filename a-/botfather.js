@@ -2353,6 +2353,9 @@ var BotCodeEditor = {
         [(isMac ? 'Cmd' : 'Ctrl') + '-Space']: function(cm) {
           cm.showHint({ hint: CodeMirror.hint.cloudjs, hintConfig: hintConfig });
         },
+        'Ctrl-`': function() {
+          if (BotConsole.cm) BotConsole.cm.focus();
+        },
       }, opts.extraKeys || {}),
     };
 
@@ -2499,6 +2502,7 @@ var BotConsole = {
   isRunning: false,
 
   init(functionName) {
+    var isMac = /Mac|iPhone|iPad/.test(navigator.platform);
     var el = document.getElementById('console-editor');
     if (!el) return;
 
@@ -2520,6 +2524,9 @@ var BotConsole = {
       extraKeys: {
         'Up': BotConsole.onUp,
         'Down': BotConsole.onDown,
+        'Ctrl-`': function() {
+          if (BotCodeEditor.cm) BotCodeEditor.cm.focus();
+        },
       },
     });
     BotConsole.cm.addKeyMap({
@@ -2584,7 +2591,9 @@ var BotConsole = {
 
     $('#console .tm-console-line').remove();
 
-    BotConsole.history.push(editable);
+    if (BotConsole.history.length === 0 || BotConsole.history[BotConsole.history.length - 1] !== editable) {
+      BotConsole.history.push(editable);
+    }
     BotConsole.historyIndex = BotConsole.history.length;
     BotConsole.draft = '';
 
@@ -2656,7 +2665,7 @@ var BotConsole = {
   onUp() {
     var cursor = BotConsole.cm.getCursor();
     var startPos = BotConsole.cm.posFromIndex(BotConsole.guarded.prefix.length);
-    if (cursor.line > startPos.line || (cursor.line === startPos.line && cursor.ch > startPos.ch)) {
+    if (cursor.line > startPos.line) {
       return CodeMirror.Pass;
     }
     if (BotConsole.historyIndex <= 0) return CodeMirror.Pass;
@@ -2671,7 +2680,7 @@ var BotConsole = {
   onDown() {
     var cursor = BotConsole.cm.getCursor();
     var endPos = BotConsole.cm.posFromIndex(BotConsole.cm.getValue().length - BotConsole.guarded.suffix.length);
-    if (cursor.line < endPos.line || (cursor.line === endPos.line && cursor.ch < endPos.ch)) {
+    if (cursor.line < endPos.line) {
       return CodeMirror.Pass;
     }
     if (BotConsole.historyIndex >= BotConsole.history.length) return CodeMirror.Pass;
