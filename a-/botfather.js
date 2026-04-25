@@ -2445,12 +2445,24 @@ var BotFunctions = {
 
     $('.js-edit-function-list').on('click', '.tm-row-close', function(e) {
       e.stopPropagation();
-      this.closest('.tm-row')?.remove();
-      WebApp.HapticFeedback.impactOccurred('light');
-      if ($('.js-edit-function-list .tm-row-link').length == 0) {
-        BotFunctions.toggleEdit(false);
-        $('.tm-section-header').addClass('hidden');
-      }
+      var row = this.closest('.tm-row');
+      var fnName = row ? (row.dataset.function || '') : '';
+      WebApp.showPopup({
+        title: l('WEB_FUNCTION_DELETE_TITLE'),
+        message: l('WEB_FUNCTION_DELETE_CONFIRM', {name: fnName}),
+        buttons: [
+          { type: 'cancel' },
+          { id: 'delete', text: l('WEB_FUNCTION_DELETE_BTN'), type: 'destructive' },
+        ]
+      }, function(result) {
+        if (result !== 'delete') return;
+        if (row) row.remove();
+        WebApp.HapticFeedback.impactOccurred('light');
+        if ($('.js-edit-function-list .tm-row-link').length == 0) {
+          BotFunctions.toggleEdit(false);
+          $('.tm-section-header').addClass('hidden');
+        }
+      });
     });
 
     $('.js-edit-function-list').on('click', '.tm-row-link', function() {
