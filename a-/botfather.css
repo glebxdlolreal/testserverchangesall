@@ -1258,9 +1258,12 @@ i.emoji {
     vertical-align: baseline;
     cursor: pointer;
 }
-.js-edit-command-list.list-prevent-edit .tm-icon, .js-edit-command-list.list-prevent-edit .tm-row-close, .js-edit-function-list.list-prevent-edit .tm-row-close {
+.js-edit-command-list.list-prevent-edit .tm-icon, .js-edit-command-list.list-prevent-edit .tm-row-close, .js-edit-function-list.list-prevent-edit .tm-row-close, .js-edit-handler-list.list-prevent-edit .tm-row-close {
   visibility: hidden;
   margin-left: -37px;
+}
+.js-edit-handler-list:not(.list-prevent-edit) .tm-row-link:after {
+  display: none;
 }
 .js-edit-command-list.list-prevent-edit .js-sortable {
   padding: 9px 14px;

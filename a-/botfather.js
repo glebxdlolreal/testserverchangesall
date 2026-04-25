@@ -2506,6 +2506,80 @@ var BotFunctions = {
   },
 };
 
+var BotHandlers = {
+  init() {
+    Aj.state.edit = false;
+
+    $('.js-edit-handler-list').on('click', '.tm-row-close', function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      var row = this.closest('.tm-row');
+      var handlerType = row ? (row.dataset.handler || '') : '';
+      WebApp.showPopup({
+        title: uncleanHTML(l('WEB_HANDLER_DELETE_TITLE')),
+        message: uncleanHTML(l('WEB_HANDLER_DELETE_CONFIRM', {name: handlerType})),
+        buttons: [
+          { type: 'cancel' },
+          { id: 'delete', text: uncleanHTML(l('WEB_FUNCTION_DELETE_BTN')), type: 'destructive' },
+        ]
+      }, function(result) {
+        if (result !== 'delete') return;
+        if (row) row.remove();
+        WebApp.HapticFeedback.impactOccurred('light');
+        var $inactive = $('.js-inactive-handler[data-handler="' + handlerType + '"]');
+        $inactive.removeClass('hidden');
+        var $group = $inactive.closest('.js-handler-group');
+        $group.removeClass('hidden');
+        if ($('.js-edit-handler-list .js-active-handler').length == 0) {
+          BotHandlers.toggleEdit(false);
+          $('.js-edit-handler-list').addClass('hidden');
+          $('.js-handlers-island').removeClass('hidden');
+        }
+      });
+    });
+
+    $('.js-edit-handler-list').on('click', '.js-active-handler', function(e) {
+      if (Aj.state.edit) return;
+      var handlerType = this.dataset.handler;
+      if (handlerType) {
+        Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/handler/' + handlerType);
+      }
+    });
+
+    Aj.state.$editBtn = $('.js-handlers-edit').on('click', function() { BotHandlers.toggleEdit(); });
+  },
+  toggleEdit(forceValue) {
+    var edit = forceValue !== undefined ? forceValue : !Aj.state.edit;
+    Aj.state.edit = edit;
+    if (!edit) {
+      BotHandlers.submit();
+    }
+    $('.js-edit-handler-list').toggleClass('list-prevent-edit', !edit);
+    Aj.state.$editBtn.text(edit ? l('WEB_HANDLERS_DONE_BTN') : l('WEB_HANDLERS_EDIT'));
+  },
+  submit() {
+    var remainingTypes = $('.js-edit-handler-list .js-active-handler').toArray().map(function(el) {
+      return el.dataset.handler;
+    });
+    var originalTypes = Aj.state.handlerTypes || [];
+    var deletedTypes = originalTypes.filter(function(type) {
+      return remainingTypes.indexOf(type) === -1;
+    });
+    if (deletedTypes.length === 0) return;
+    deletedTypes.forEach(function(type) {
+      Aj.apiRequest('deleteCloudHandler', {
+        bid: Aj.state.botId,
+        type: type,
+      }, function(res) {
+        if (res.error) {
+          Main.showErrorToast(res.error);
+        }
+      });
+    });
+    Aj.onUnload(function() { Main.showSuccessToast(l('WEB_HANDLER_DELETED')); });
+  },
+};
+
 var BotConsole = {
   cm: null,
   guarded: null,
