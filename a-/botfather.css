@@ -506,7 +506,8 @@ i.icon {
   color: var(--text-color);
   margin: 20px 0 50px;
 }
-.tm-empty__icon {
+.tm-empty__icon,
+.tm-island__icon {
   width: 56px;
   height: 56px;
   -webkit-mask-image: var(--icon);
@@ -563,23 +564,13 @@ i.icon {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 12px;
-}
-.tm-island__icon {
-  width: 56px;
-  height: 56px;
-  -webkit-mask-image: var(--icon);
-  -webkit-mask-size: 100%;
-  mask-image: var(--icon);
-  mask-size: 100%;
-  background: var(--text-color);
-}
-.tm-island__title {
-  margin: 0;
   font-size: 14px;
   line-height: 19px;
-  font-weight: 600;
   color: var(--text-color);
+}
+.tm-island__title {
+  font-weight: 600;
+  margin: 8px 0 0;
 }
 .tm-section-footer {
   padding: 8px 14px;
