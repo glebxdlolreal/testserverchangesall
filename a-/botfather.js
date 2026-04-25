@@ -274,7 +274,7 @@ var BotProfile = {
 
     Aj.onBeforeUnload(() => {
       if (BotProfile.hasChanges()) {
-        return 'Changes that you made may not be saved.';
+        return uncleanHTML(l('WEB_UNSAVED_CHANGES'));
       }
     });
 
@@ -2369,13 +2369,19 @@ var BotCodeEditor = {
 
     BotCodeEditor.cm.on('change', BotCodeEditor.onEditorChange);
 
-    WebApp.MainButton.setText(l('WEB_EDITOR_SAVE'));
+    WebApp.MainButton.setText(uncleanHTML(l('WEB_EDITOR_SAVE')));
     WebApp.MainButton.show();
     WebApp.MainButton.onClick(BotCodeEditor.onSave);
 
     Aj.onUnload(function() {
       WebApp.MainButton.hide();
       WebApp.MainButton.offClick(BotCodeEditor.onSave);
+    });
+
+    Aj.onBeforeUnload(function() {
+      if (BotCodeEditor.cm && BotCodeEditor.cm.getValue() !== BotCodeEditor.savedCode) {
+        return uncleanHTML(l('WEB_UNSAVED_CHANGES'));
+      }
     });
   },
 
