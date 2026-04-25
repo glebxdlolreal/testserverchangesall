@@ -2415,6 +2415,16 @@ var BotLibrary = {
   },
 };
 
+var BotDatabase = {
+  init() {
+    BotCodeEditor.init('database-editor', {
+      apiMethod: 'saveCloudDatabase',
+      savedLangKey: 'WEB_DATABASE_SAVED',
+      saveErrorLangKey: 'WEB_DATABASE_SAVE_ERROR',
+    });
+  },
+};
+
 var BotHandler = {
   init() {
     BotCodeEditor.init('handler-editor', {
