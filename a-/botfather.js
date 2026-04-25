@@ -2334,6 +2334,9 @@ var BotCodeEditor = {
     BotCodeEditor.savedLangKey = opts.savedLangKey;
     BotCodeEditor.saveErrorLangKey = opts.saveErrorLangKey;
 
+    var isMac = /Mac|iPhone|iPad/.test(navigator.platform);
+    var hintConfig = Aj.state.hintConfig;
+
     var cmOpts = {
       value: BotCodeEditor.savedCode,
       mode: 'javascript',
@@ -2345,17 +2348,21 @@ var BotCodeEditor = {
       tabSize: 2,
       lineWrapping: false,
       json: false,
+      extraKeys: $.extend({
+        [(isMac ? 'Cmd' : 'Ctrl') + '-/']: 'toggleComment',
+        [(isMac ? 'Cmd' : 'Ctrl') + '-Space']: function(cm) {
+          cm.showHint({ hint: CodeMirror.hint.cloudjs, hintConfig: hintConfig });
+        },
+      }, opts.extraKeys || {}),
     };
-
-    if (opts.extraKeys) {
-      cmOpts.extraKeys = opts.extraKeys;
-    }
 
     BotCodeEditor.cm = CodeMirror(editorEl, cmOpts);
 
-    if (opts.inputRead) {
-      BotCodeEditor.cm.on('inputRead', opts.inputRead);
-    }
+    BotCodeEditor.cm.on('inputRead', opts.inputRead || function(cm, event) {
+      if (event.text[0] && /[\w.]/.test(event.text[0])) {
+        cm.showHint({ hint: CodeMirror.hint.cloudjs, completeSingle: false, hintConfig: hintConfig });
+      }
+    });
 
     BotCodeEditor.cm.on('change', BotCodeEditor.onEditorChange);
 
@@ -2410,30 +2417,10 @@ var BotCodeEditor = {
 
 var BotLibrary = {
   init() {
-    var isMac = /Mac|iPhone|iPad/.test(navigator.platform);
-    var hintConfig = Aj.state.hintConfig;
-
     BotCodeEditor.init('library-editor', {
       apiMethod: 'saveCloudLibrary',
       savedLangKey: 'WEB_LIBRARY_SAVED',
       saveErrorLangKey: 'WEB_LIBRARY_SAVE_ERROR',
-      extraKeys: {
-        [`${isMac ? 'Cmd' : 'Ctrl'}-/`]: 'toggleComment',
-        'Ctrl-Q': (cm) => cm.foldCode(cm.getCursor()),
-        [`${isMac ? 'Cmd' : 'Ctrl'}-Space`]: (cm) => cm.showHint({
-            hint: CodeMirror.hint.cloudjs,
-            hintConfig: hintConfig
-          }),
-      },
-      inputRead: (cm, event) => {
-        if (event.text[0] && /[\w.]/.test(event.text[0])) {
-          cm.showHint({
-            hint: CodeMirror.hint.cloudjs,
-            completeSingle: false,
-            hintConfig: hintConfig
-          });
-        }
-      },
     });
   },
 };
