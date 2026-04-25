@@ -1054,6 +1054,8 @@ i.icon {
 .tm-row-value-mono {
   font-family: 'Roboto Mono', monospace;
   font-weight: 400;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .tm-row-description {
@@ -1343,6 +1345,7 @@ i.emoji {
   margin: 0;
   padding: 0 0px;
   display: flex;
+  width: 100%;
 }
 .tm-section-desc {
   margin: -8px 12px 12px;
@@ -2685,7 +2688,7 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 }
 
 .tm-editor-menu {
-  margin-left: auto;
+  margin: 2px -12px 2px 0;
 }
 .tm-editor-menu-btn {
   width: 24px;
@@ -2882,6 +2885,9 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 
 .tm-section-breadcrumb-type {
   color: #8794a1;
+  flex-grow: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .tm-functions-page .tm-row-add {
