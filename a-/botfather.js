@@ -2507,7 +2507,7 @@ var BotConsole = {
       theme: 'custom',
       lineNumbers: false,
       matchBrackets: true,
-      autoCloseBrackets: true,
+      autoCloseBrackets: { pairs: '()[]{}', explode: '' },
       indentUnit: 2,
       tabSize: 2,
       lineWrapping: true,
@@ -2530,7 +2530,7 @@ var BotConsole = {
   },
 
   getPrefix(name) {
-    return (name || l('WEB_FUNCTION_NAME_PLACEHOLDER') + ' ') + '({';
+    return (name || l('WEB_FUNCTION_NAME_PLACEHOLDER')) + '({';
   },
 
   updatePrefix(name) {
@@ -2552,7 +2552,7 @@ var BotConsole = {
       try {
         argsObj = JSON5.parse('{' + editable + '}');
       } catch (e) {
-        BotConsole.addLine('error', 'Invalid arguments: ' + e.message);
+        BotConsole.addLine('error', 'Cannot parse arguments');
         return;
       }
     }
