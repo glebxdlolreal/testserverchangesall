@@ -2513,29 +2513,19 @@ var BotHandlers = {
     $('.js-edit-handler-list').on('click', '.tm-row-close', function(e) {
       e.stopPropagation();
       var row = this.closest('.tm-row');
-      var handlerType = row ? (row.dataset.handler || '') : '';
-      WebApp.showPopup({
-        title: uncleanHTML(l('WEB_HANDLER_DELETE_TITLE')),
-        message: uncleanHTML(l('WEB_HANDLER_DELETE_CONFIRM', {name: handlerType})),
-        buttons: [
-          { type: 'cancel' },
-          { id: 'delete', text: uncleanHTML(l('WEB_FUNCTION_DELETE_BTN')), type: 'destructive' },
-        ]
-      }, function(result) {
-        if (result !== 'delete') return;
-        if (row) row.remove();
-        WebApp.HapticFeedback.impactOccurred('light');
-        var $inactive = $('.js-inactive-handler[data-handler="' + handlerType + '"]');
-        $inactive.removeClass('hidden');
-        var $group = $inactive.closest('.js-handler-group');
-        $group.removeClass('hidden');
-        if ($('.js-edit-handler-list .js-active-handler').length == 0) {
-          BotHandlers.toggleEdit(false);
-          $('.js-edit-handler-list').addClass('hidden');
-          $('.js-handlers-island').removeClass('hidden');
-          Aj.state.$editBtn.addClass('hidden');
-        }
-      });
+      if (!row) return;
+      var handlerType = row.dataset.handler || '';
+      $(row).addClass('js-handler-deleted hidden');
+      WebApp.HapticFeedback.impactOccurred('light');
+      var $inactive = $('.js-inactive-handler[data-handler="' + handlerType + '"]');
+      $inactive.removeClass('hidden').addClass('js-was-revealed');
+      var $group = $inactive.closest('.js-handler-group');
+      $group.removeClass('hidden');
+      if ($('.js-edit-handler-list .js-active-handler:not(.js-handler-deleted)').length == 0) {
+        $('.js-edit-handler-list').addClass('hidden');
+        $('.js-handlers-island').removeClass('hidden');
+        Aj.state.$editBtn.addClass('hidden');
+      }
     });
 
     $('.js-edit-handler-list').on('click', '.js-active-handler', function() {
@@ -2565,25 +2555,50 @@ var BotHandlers = {
     Aj.state.$editBtn.text(edit ? l('WEB_HANDLERS_DONE_BTN') : l('WEB_HANDLERS_EDIT'));
   },
   submit() {
-    var remainingTypes = $('.js-edit-handler-list .js-active-handler').toArray().map(function(el) {
+    var $deleted = $('.js-edit-handler-list .js-handler-deleted');
+    if ($deleted.length === 0) return;
+    var deletedTypes = $deleted.toArray().map(function(el) {
       return el.dataset.handler;
     });
-    var originalTypes = Aj.state.handlerTypes || [];
-    var deletedTypes = originalTypes.filter(function(type) {
-      return remainingTypes.indexOf(type) === -1;
-    });
-    if (deletedTypes.length === 0) return;
-    deletedTypes.forEach(function(type) {
-      Aj.apiRequest('deleteCloudHandler', {
+    WebApp.showPopup({
+      title: uncleanHTML(l('WEB_HANDLER_DELETE_TITLE')),
+      message: uncleanHTML(l('WEB_HANDLER_DELETE_CONFIRM', {count: deletedTypes.length})),
+      buttons: [
+        { type: 'cancel' },
+        { id: 'delete', text: uncleanHTML(l('WEB_FUNCTION_DELETE_BTN')), type: 'destructive' },
+      ]
+    }, function(result) {
+      if (result !== 'delete') {
+        BotHandlers.restoreDeleted();
+        return;
+      }
+      Aj.apiRequest('deleteCloudHandlers', {
         bid: Aj.state.botId,
-        type: type,
+        types: deletedTypes,
       }, function(res) {
         if (res.error) {
           Main.showErrorToast(res.error);
+          BotHandlers.restoreDeleted();
+          return;
         }
+        $deleted.remove();
+        Aj.onUnload(function() { Main.showSuccessToast(l('WEB_HANDLER_DELETED')); });
       });
     });
-    Aj.onUnload(function() { Main.showSuccessToast(l('WEB_HANDLER_DELETED')); });
+  },
+  restoreDeleted() {
+    $('.js-handler-deleted').removeClass('js-handler-deleted hidden');
+    $('.js-was-revealed').addClass('hidden').removeClass('js-was-revealed');
+    $('.js-handler-group').each(function() {
+      if (!$(this).find('.js-inactive-handler:not(.hidden)').length) {
+        $(this).addClass('hidden');
+      }
+    });
+    if ($('.js-edit-handler-list .js-active-handler').length > 0) {
+      $('.js-edit-handler-list').removeClass('hidden');
+      $('.js-handlers-island').addClass('hidden');
+      Aj.state.$editBtn.removeClass('hidden');
+    }
   },
 };
 
