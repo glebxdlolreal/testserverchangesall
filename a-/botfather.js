@@ -2524,8 +2524,9 @@ var BotConsole = {
       lineWrapping: true,
       guardedRegion: {
         prefix: BotConsole.getPrefix(functionName),
-        suffix: '\n});',
-        placeholder: l('WEB_CONSOLE_PLACEHOLDER'),
+        // suffix: '\n});',
+        suffix: '});',
+        placeholder: 'param: value, ...',
         prefixClassName: functionName ? '' : 'cm-guarded-default',
       },
       extraKeys: {
@@ -2539,7 +2540,8 @@ var BotConsole = {
   },
 
   getPrefix(name) {
-    return (name || l('WEB_FUNCTION_NAME_PLACEHOLDER') + ' ') + '({\n  ';
+    // return (name || l('WEB_FUNCTION_NAME_PLACEHOLDER') + ' ') + '({\n  ';
+    return (name || l('WEB_FUNCTION_NAME_PLACEHOLDER') + ' ') + '({';
   },
 
   updatePrefix(name) {
