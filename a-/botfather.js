@@ -2618,9 +2618,7 @@ var BotConsole = {
     $line.append($('<div class="tm-console-gutter tm-console-gutter--' + BotConsole.gutterClass(type) + '">').text(BotConsole.gutterChar(type)));
     var bodyClass = 'tm-console-body' + (type === 'error' ? ' tm-console-body--error' : '');
     var $body = $('<div class="' + bodyClass + '">');
-    // if (typeof content === 'object' && content !== null) {
-      try { content = JSON5.stringify(content); } catch(e) { content = String(content); }
-    // }
+    try { content = JSON5.stringify(content); } catch(e) { content = String(content); }
     $body.append($('<pre>').text(String(content)));
     if (duration !== undefined) {
       $body.append($('<span class="tm-console-time">').text(Math.round(duration * 1000) + 'ms'));
