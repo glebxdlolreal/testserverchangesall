@@ -2985,3 +2985,43 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   text-decoration: none;
 }
 
+.tm-console-history .CodeMirror {
+  height: auto !important;
+  background: transparent !important;
+  padding: 0 !important;
+  pointer-events: none;
+  width: 100%;
+}
+
+.tm-console-history .CodeMirror-scroll {
+  overflow: visible !important;
+  height: auto !important;
+}
+
+.tm-console-history .CodeMirror-sizer {
+  min-height: 0 !important;
+}
+
+.tm-console-history .CodeMirror-vscrollbar,
+.tm-console-history .CodeMirror-hscrollbar,
+.tm-console-history .CodeMirror-scrollbar-filler,
+.tm-console-history .CodeMirror-gutter-filler {
+  display: none !important;
+}
+
+.tm-console-history .CodeMirror-cursor {
+  display: none !important;
+}
+
+.tm-console-history .CodeMirror-gutters {
+  display: none !important;
+}
+
+.tm-console-history .CodeMirror-lines {
+  padding: 0 !important;
+}
+
+.tm-console-history .CodeMirror-line {
+  padding: 0 !important;
+}
+

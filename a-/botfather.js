@@ -2506,7 +2506,9 @@ var BotFunctions = {
 var BotConsole = {
   cm: null,
   guarded: null,
-  lines: [],
+  history: [],
+  historyIndex: 0,
+  draft: '',
   isRunning: false,
 
   init(functionName) {
@@ -2532,6 +2534,8 @@ var BotConsole = {
         'Enter': BotConsole.onSubmit,
         'Cmd-Enter': 'newlineAndIndent',
         'Ctrl-Enter': 'newlineAndIndent',
+        'Up': BotConsole.onUp,
+        'Down': BotConsole.onDown,
       },
     });
 
@@ -2544,8 +2548,7 @@ var BotConsole = {
 
   updatePrefix(name) {
     if (!BotConsole.cm || !BotConsole.guarded) return;
-    var prefix = BotConsole.getPrefix(name);
-    BotConsole.guarded.setPrefix(prefix);
+    BotConsole.guarded.setPrefix(BotConsole.getPrefix(name));
     BotConsole.guarded.setPrefixClassName(name ? '' : 'cm-guarded-default');
   },
 
@@ -2567,11 +2570,17 @@ var BotConsole = {
       }
     }
 
-    BotConsole.addLine('input', functionName + '({' + editable + '})');
+    BotConsole.history.push(editable);
+    BotConsole.historyIndex = BotConsole.history.length;
+    BotConsole.draft = '';
+
+    BotConsole.addHistoryLine();
+
+    BotConsole.guarded.setEditable('');
+    $('#console-input-line').hide();
 
     var code = BotCodeEditor.cm.getValue();
     BotConsole.isRunning = true;
-    BotConsole.cm.setOption('readOnly', true);
 
     Aj.apiRequest('runCloudFunction', {
       bid: Aj.state.botId,
@@ -2579,41 +2588,78 @@ var BotConsole = {
       code: code,
       args: argsObj ? JSON.stringify(argsObj) : '{}',
     }, function(res) {
-      debugger;
       BotConsole.isRunning = false;
-      BotConsole.cm.setOption('readOnly', false);
       if (res.error) {
         BotConsole.addLine('error', res.error);
       } else {
         BotConsole.addLine('output', res.result, res.time);
       }
+      $('#console-input-line').show();
+      BotConsole.cm.refresh();
+      BotConsole.cm.focus();
     });
+  },
 
-    BotConsole.guarded.setEditable('');
+  addHistoryLine() {
+    var $inputLine = $('#console-input-line');
+    var $line = $('<div class="tm-console-line">');
+    $line.append($('<div class="tm-console-gutter tm-console-gutter--in">').text('>'));
+    var $body = $('<div class="tm-console-body tm-console-history">');
+    var cmClone = BotConsole.cm.getWrapperElement().cloneNode(true);
+    cmClone.removeAttribute('id');
+    var idEls = cmClone.querySelectorAll('[id]');
+    for (var j = 0; j < idEls.length; j++) idEls[j].removeAttribute('id');
+    $body[0].appendChild(cmClone);
+    $line.append($body);
+    $line.insertBefore($inputLine);
   },
 
   addLine(type, content, duration) {
-    var line = { type: type, content: content };
-    if (duration !== undefined) line.duration = duration;
-    BotConsole.lines.push(line);
-    BotConsole.renderLine(line);
-  },
-
-  renderLine(line) {
     var $inputLine = $('#console-input-line');
     var $line = $('<div class="tm-console-line">');
-    $line.append($('<div class="tm-console-gutter tm-console-gutter--' + BotConsole.gutterClass(line.type) + '">').text(BotConsole.gutterChar(line.type)));
-    var $body = $('<div class="tm-console-body' + (line.type === 'error' ? ' tm-console-body--error' : '') + '">');
-    var content = line.content;
+    $line.append($('<div class="tm-console-gutter tm-console-gutter--' + BotConsole.gutterClass(type) + '">').text(BotConsole.gutterChar(type)));
+    var bodyClass = 'tm-console-body' + (type === 'error' ? ' tm-console-body--error' : '');
+    var $body = $('<div class="' + bodyClass + '">');
     if (typeof content === 'object' && content !== null) {
       try { content = JSON.stringify(content, null, 2); } catch(e) { content = String(content); }
     }
     $body.append($('<pre>').text(String(content)));
-    if (line.duration !== undefined) {
-      $body.append($('<span class="tm-console-time">').text(Math.round(line.duration) + 'ms'));
+    if (duration !== undefined) {
+      $body.append($('<span class="tm-console-time">').text(Math.round(duration) + 'ms'));
     }
     $line.append($body);
     $line.insertBefore($inputLine);
+  },
+
+  onUp() {
+    var cursor = BotConsole.cm.getCursor();
+    var startPos = BotConsole.cm.posFromIndex(BotConsole.guarded.prefix.length);
+    if (cursor.line > startPos.line || (cursor.line === startPos.line && cursor.ch > startPos.ch)) {
+      return CodeMirror.Pass;
+    }
+    if (BotConsole.historyIndex <= 0) return CodeMirror.Pass;
+    if (BotConsole.historyIndex === BotConsole.history.length) {
+      BotConsole.draft = BotConsole.guarded.getEditable();
+    }
+    BotConsole.historyIndex--;
+    BotConsole.guarded.setEditable(BotConsole.history[BotConsole.historyIndex]);
+    return false;
+  },
+
+  onDown() {
+    var cursor = BotConsole.cm.getCursor();
+    var endPos = BotConsole.cm.posFromIndex(BotConsole.cm.getValue().length - BotConsole.guarded.suffix.length);
+    if (cursor.line < endPos.line || (cursor.line === endPos.line && cursor.ch < endPos.ch)) {
+      return CodeMirror.Pass;
+    }
+    if (BotConsole.historyIndex >= BotConsole.history.length) return CodeMirror.Pass;
+    BotConsole.historyIndex++;
+    if (BotConsole.historyIndex === BotConsole.history.length) {
+      BotConsole.guarded.setEditable(BotConsole.draft);
+    } else {
+      BotConsole.guarded.setEditable(BotConsole.history[BotConsole.historyIndex]);
+    }
+    return false;
   },
 
   gutterClass(type) {
