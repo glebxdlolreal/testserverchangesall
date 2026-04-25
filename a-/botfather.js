@@ -2507,7 +2507,7 @@ var BotConsole = {
       theme: 'custom',
       lineNumbers: false,
       matchBrackets: true,
-      autoCloseBrackets: { pairs: '()[]{}', explode: '' },
+      autoCloseBrackets: true,
       indentUnit: 2,
       tabSize: 2,
       lineWrapping: true,
