@@ -2423,6 +2423,27 @@ var BotHandler = {
       savedLangKey: 'WEB_HANDLER_SAVED',
       saveErrorLangKey: 'WEB_HANDLER_SAVE_ERROR',
     });
+
+    $(document).on('click.curPage', '.js-editor-delete', function() {
+      WebApp.showPopup({
+        title: uncleanHTML(l('WEB_HANDLER_DELETE_CONFIRM_TITLE')),
+        message: uncleanHTML(l('WEB_HANDLER_DELETE_CONFIRM_BODY')),
+        buttons: [
+          { id: 'delete', text: uncleanHTML(l('WEB_EDITOR_DELETE')), type: 'destructive' },
+          { type: 'cancel' },
+        ]
+      }, function(result) {
+        if (result !== 'delete') return;
+        Aj.apiRequest('deleteCloudHandler', { bid: Aj.state.botId, type: Aj.state.handlerType }, function(res) {
+          if (res.ok) {
+            Aj.onUnload(function() { Main.showSuccessToast(l('WEB_HANDLER_SAVED')); });
+            _backButton();
+          } else {
+            Main.showErrorToast(res.error);
+          }
+        });
+      });
+    });
   },
 };
 
@@ -2669,6 +2690,29 @@ var BotFunction = {
     if (isNew) {
       WebApp.MainButton.offClick(BotCodeEditor.onSave);
       WebApp.MainButton.onClick(BotFunction.onSave);
+    }
+
+    if (!isNew) {
+      $(document).on('click.curPage', '.js-editor-delete', function() {
+        WebApp.showPopup({
+          title: uncleanHTML(l('WEB_FUNCTION_DELETE_CONFIRM_TITLE')),
+          message: uncleanHTML(l('WEB_FUNCTION_DELETE_CONFIRM_BODY')),
+          buttons: [
+            { id: 'delete', text: uncleanHTML(l('WEB_EDITOR_DELETE')), type: 'destructive' },
+            { type: 'cancel' },
+          ]
+        }, function(result) {
+          if (result !== 'delete') return;
+          Aj.apiRequest('deleteCloudFunction', { bid: Aj.state.botId, name: Aj.state.functionName }, function(res) {
+            if (res.ok) {
+              Aj.onUnload(function() { Main.showSuccessToast(l('WEB_FUNCTION_SAVED')); });
+              _backButton();
+            } else {
+              Main.showErrorToast(res.error);
+            }
+          });
+        });
+      });
     }
   },
   onSave() {
