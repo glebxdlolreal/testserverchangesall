@@ -2424,6 +2424,8 @@ var BotHandler = {
       saveErrorLangKey: 'WEB_HANDLER_SAVE_ERROR',
     });
 
+    BotConsole.init(Aj.state.handlerType);
+
     if (!Aj.state.isHandlerNew) {
       $(document).on('click.curPage', '.js-editor-delete', function() {
         WebApp.showPopup({
@@ -2541,9 +2543,15 @@ var BotConsole = {
     if (BotConsole.isRunning) return CodeMirror.Pass;
 
     var editable = BotConsole.guarded.getEditable();
-    var functionName = Aj.state.isFunctionNew
-      ? ($('#function-name').val() || '').trim()
-      : Aj.state.functionName;
+    var isHandler = Aj.state.consoleMethod === 'runCloudHandler';
+    var moduleName = '';
+    if (isHandler) {
+      moduleName = Aj.state.handlerType;
+    } else if (Aj.state.isFunctionNew) {
+      moduleName = ($('#function-name').val() || '').trim();
+    } else {
+      moduleName = Aj.state.functionName;
+    }
 
     $('#console .tm-console-line').remove();
 
@@ -2572,12 +2580,18 @@ var BotConsole = {
     BotConsole.isRunning = true;
     $('#console-input-line').hide();
 
-    Aj.apiRequest('runCloudFunction', {
+    var params = {
       bid: Aj.state.botId,
-      name: functionName,
       code: code,
       args: argsObj ? JSON.stringify(argsObj) : '{}',
-    }, function(res) {
+    };
+    if (isHandler) {
+      params.type = moduleName;
+    } else {
+      params.name = moduleName;
+    }
+
+    Aj.apiRequest(Aj.state.consoleMethod, params, function(res) {
       BotConsole.isRunning = false;
       if (res.error) {
         BotConsole.addLine('error', res.error);
