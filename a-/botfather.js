@@ -2524,9 +2524,8 @@ var BotConsole = {
       lineWrapping: true,
       guardedRegion: {
         prefix: BotConsole.getPrefix(functionName),
-        // suffix: '\n});',
         suffix: '});',
-        placeholder: 'param: value, ...',
+        placeholder: l('WEB_CONSOLE_PLACEHOLDER'),
         prefixClassName: functionName ? '' : 'cm-guarded-default',
       },
       extraKeys: {
@@ -2540,7 +2539,6 @@ var BotConsole = {
   },
 
   getPrefix(name) {
-    // return (name || l('WEB_FUNCTION_NAME_PLACEHOLDER') + ' ') + '({\n  ';
     return (name || l('WEB_FUNCTION_NAME_PLACEHOLDER') + ' ') + '({';
   },
 
@@ -2554,7 +2552,7 @@ var BotConsole = {
   onSubmit() {
     if (BotConsole.isRunning) return CodeMirror.Pass;
 
-    var editable = BotConsole.guarded.getEditable().trim();
+    var editable = BotConsole.guarded.getEditable();
     var functionName = Aj.state.isFunctionNew
       ? ($('#function-name').val() || '').trim()
       : Aj.state.functionName;
@@ -2569,7 +2567,7 @@ var BotConsole = {
       }
     }
 
-    BotConsole.addLine('input', functionName + '({\n  ' + editable + '\n})');
+    BotConsole.addLine('input', functionName + '({' + editable + '})');
 
     var code = BotCodeEditor.cm.getValue();
     BotConsole.isRunning = true;
