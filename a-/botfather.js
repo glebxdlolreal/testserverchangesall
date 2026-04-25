@@ -2582,27 +2582,30 @@ var BotConsole = {
       ? ($('#function-name').val() || '').trim()
       : Aj.state.functionName;
 
-    var argsObj = null;
-    if (editable) {
-      try {
-        argsObj = JSON5.parse('{' + editable + '}');
-      } catch (e) {
-        BotConsole.addLine('error', 'Cannot parse arguments');
-        return;
-      }
-    }
+    $('#console .tm-console-line').remove();
 
     BotConsole.history.push(editable);
     BotConsole.historyIndex = BotConsole.history.length;
     BotConsole.draft = '';
 
     BotConsole.addHistoryLine();
-
     BotConsole.guarded.setEditable('');
-    $('#console-input-line').hide();
+
+    var argsObj = null;
+    if (editable) {
+      try {
+        argsObj = JSON5.parse('{' + editable + '}');
+      } catch (e) {
+        BotConsole.addLine('error', 'Cannot parse arguments');
+        BotConsole.cm.refresh();
+        BotConsole.cm.focus();
+        return;
+      }
+    }
 
     var code = BotCodeEditor.cm.getValue();
     BotConsole.isRunning = true;
+    $('#console-input-line').hide();
 
     Aj.apiRequest('runCloudFunction', {
       bid: Aj.state.botId,
