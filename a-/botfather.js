@@ -2407,10 +2407,97 @@ var BotCodeEditor = {
 
 var BotLibrary = {
   init() {
+    var isNew = Aj.state.isLibraryNew;
+    var $input = $('#library-name');
+
+    if (isNew) {
+      $input.on('input', function() {
+        var filtered = $input.val().replace(/[^a-zA-Z0-9_\/]/g, '');
+        if (filtered && !/^[a-zA-Z]/.test(filtered)) {
+          filtered = filtered.substring(1);
+        }
+        if (filtered.indexOf('//') !== -1) {
+          filtered = filtered.replace(/\/+/g, '/');
+        }
+        if (filtered.length > 0 && filtered[filtered.length - 1] === '/') {
+          filtered = filtered.substring(0, filtered.length - 1);
+        }
+        $input.val(filtered);
+      });
+    }
+
     BotCodeEditor.init('library-editor', {
-      apiMethod: 'saveCloudLibrary',
-      savedLangKey: 'WEB_LIBRARY_SAVED',
-      saveErrorLangKey: 'WEB_LIBRARY_SAVE_ERROR',
+      apiMethod: 'saveCloudLibraryFile',
+      apiParams: isNew ? {} : { name: Aj.state.libraryPath },
+      savedLangKey: 'WEB_LIBRARY_FILE_SAVED',
+      saveErrorLangKey: 'WEB_LIBRARY_FILE_SAVE_ERROR',
+    });
+
+    if (isNew) {
+      WebApp.MainButton.offClick(BotCodeEditor.onSave);
+      WebApp.MainButton.onClick(BotLibrary.onSave);
+    }
+
+    if (!isNew) {
+      $(document).on('click.curPage', '.js-editor-delete', function() {
+        WebApp.showPopup({
+          title: uncleanHTML(l('WEB_LIBRARY_DELETE_CONFIRM_TITLE')),
+          message: uncleanHTML(l('WEB_LIBRARY_DELETE_CONFIRM_BODY')),
+          buttons: [
+            { id: 'delete', text: uncleanHTML(l('WEB_EDITOR_DELETE')), type: 'destructive' },
+            { type: 'cancel' },
+          ]
+        }, function(result) {
+          if (result !== 'delete') return;
+          Aj.apiRequest('deleteCloudLibraryFile', { bid: Aj.state.botId, name: Aj.state.libraryPath }, function(res) {
+            if (res.ok) {
+              Aj.onUnload(function() { Main.showSuccessToast(l('WEB_LIBRARY_FILE_SAVED')); });
+              _backButton();
+            } else {
+              Main.showErrorToast(res.error);
+            }
+          });
+        });
+      });
+    }
+  },
+  onSave() {
+    var name = $('#library-name').val().trim();
+    if (!name) {
+      Main.showErrorToast(l('WEB_LIBRARY_FILE_PLACEHOLDER'));
+      $('#library-name').focus();
+      return;
+    }
+    var segments = name.split('/');
+    for (var i = 0; i < segments.length; i++) {
+      if (!/^[a-z][a-z0-9_]{0,62}[a-z0-9]$/i.test(segments[i])) {
+        Main.showErrorToast(l('WEB_LIBRARY_FILE_PLACEHOLDER'));
+        $('#library-name').focus();
+        return;
+      }
+    }
+    var existing = Aj.state.existingLibraries || [];
+    if (existing.indexOf(name) !== -1) {
+      Main.showErrorToast(l('WEB_FUNCTION_NAME_EXISTS'));
+      $('#library-name').focus();
+      return;
+    }
+
+    var code = BotCodeEditor.cm.getValue();
+    WebApp.MainButton.showProgress();
+    Aj.apiRequest('saveCloudLibraryFile', {
+      bid: Aj.state.botId,
+      name: name,
+      code: code,
+    }, function(res) {
+      WebApp.MainButton.hideProgress();
+      if (res.ok) {
+        BotCodeEditor.savedCode = code;
+        Aj.onUnload(function() { Main.showSuccessToast(l('WEB_LIBRARY_FILE_SAVED')); });
+        _backButton();
+      } else {
+        Main.showErrorToast(res.error || l('WEB_LIBRARY_FILE_SAVE_ERROR'));
+      }
     });
   },
 };
