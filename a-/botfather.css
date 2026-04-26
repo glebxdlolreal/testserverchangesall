@@ -2941,6 +2941,14 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   width: 24px;
   user-select: none;
 }
+.tm-console-time {
+  flex-shrink: 0;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 11px;
+  line-height: 16px;
+  align-self: flex-start;
+  opacity: 0.7;
+}
 .tm-console-body {
   flex: 1 0 0;
   padding: 6px 10px;
@@ -2966,11 +2974,17 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   border: none;
   background: transparent;
 }
+
 .tm-console-line--in .tm-console-gutter {
   color: var(--text-color);
 }
 .tm-console-line--out .tm-console-gutter {
   color: var(--text-color);
+}
+.tm-console-line--out .tm-console-body,
+.tm-console-line--out .tm-console-time {
+  color: var(--value-color);
+  opacity: 1;
 }
 .tm-console-line--err .tm-console-gutter,
 .tm-console-line--err .tm-console-body {
@@ -2983,16 +2997,6 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 .tm-console-line--info .tm-console-gutter,
 .tm-console-line--info .tm-console-body {
   color: var(--accent-color);
-}
-
-
-.tm-console-time {
-  color: var(--text-color);
-  flex-shrink: 0;
-  font-family: 'Roboto Mono', monospace;
-  font-size: 11px;
-  line-height: 16px;
-  align-self: flex-start;
 }
 
 .tm-console-input-line {
