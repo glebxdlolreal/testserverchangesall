@@ -2412,15 +2412,9 @@ var BotLibrary = {
 
     if (isNew) {
       $input.on('input', function() {
-        var filtered = $input.val().replace(/[^a-zA-Z0-9_\/]/g, '');
-        if (filtered && !/^[a-zA-Z]/.test(filtered)) {
-          filtered = filtered.substring(1);
-        }
+        var filtered = $input.val().replace(/[^a-zA-Z0-9_\/-]/g, '');
         if (filtered.indexOf('//') !== -1) {
           filtered = filtered.replace(/\/+/g, '/');
-        }
-        if (filtered.length > 0 && filtered[filtered.length - 1] === '/') {
-          filtered = filtered.substring(0, filtered.length - 1);
         }
         $input.val(filtered);
       });
@@ -2463,18 +2457,10 @@ var BotLibrary = {
   },
   onSave() {
     var name = $('#library-name').val().trim();
-    if (!name) {
+    if (!name || !/^(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_-]+$/.test(name)) {
       Main.showErrorToast(l('WEB_LIBRARY_FILE_PLACEHOLDER'));
       $('#library-name').focus();
       return;
-    }
-    var segments = name.split('/');
-    for (var i = 0; i < segments.length; i++) {
-      if (!/^[a-z][a-z0-9_]{0,62}[a-z0-9]$/i.test(segments[i])) {
-        Main.showErrorToast(l('WEB_LIBRARY_FILE_PLACEHOLDER'));
-        $('#library-name').focus();
-        return;
-      }
     }
     var existing = Aj.state.existingLibraries || [];
     if (existing.indexOf(name) !== -1) {
