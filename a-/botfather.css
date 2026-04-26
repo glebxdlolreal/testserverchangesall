@@ -2909,10 +2909,26 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   display: flex;
   align-items: stretch;
   background: var(--table-bg-color);
+  position: relative;
 }
-.tm-console-line--err {
-  color: var(--danger-text-color);
-  background: var(--table-bg-color), #F8827714;
+.tm-console-line--err:before,
+.tm-console-line--warn:before,
+.tm-console-line--info:before {
+  position: absolute;
+  content: '';
+  inset: 0;
+  pointer-events: none;
+  opacity: 8%;
+}
+.tm-console-line--err:before {
+  background: #F88277;
+}
+.tm-console-line--warn:before {
+  background: #E29829;
+  opacity: 10%;
+}
+.tm-console-line--info:before {
+  background: #4CB2FF;
 }
 
 .tm-console-gutter {
@@ -2925,19 +2941,6 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   width: 24px;
   user-select: none;
 }
-.tm-console-line--in .tm-console-gutter {
-  color: var(--text-color);
-}
-.tm-console-line--out .tm-console-gutter {
-  color: var(--text-color);
-}
-.tm-console-line--warn .tm-console-gutter {
-  color: var(--warning-text-color);
-}
-.tm-console-line--info .tm-console-gutter {
-  color: var(--accent-color);
-}
-
 .tm-console-body {
   flex: 1 0 0;
   padding: 6px 10px;
@@ -2952,7 +2955,6 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   min-width: 0;
   word-break: break-word;
 }
-
 .tm-console-body pre {
   margin: 0;
   white-space: pre-wrap;
@@ -2964,13 +2966,25 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   border: none;
   background: transparent;
 }
-
-.tm-console-body--error {
+.tm-console-line--in .tm-console-gutter {
+  color: var(--text-color);
+}
+.tm-console-line--out .tm-console-gutter {
+  color: var(--text-color);
+}
+.tm-console-line--err .tm-console-gutter,
+.tm-console-line--err .tm-console-body {
   color: var(--danger-text-color);
 }
-.tm-console-body--warn {
+.tm-console-line--warn .tm-console-gutter,
+.tm-console-line--warn .tm-console-body {
   color: var(--warning-text-color);
 }
+.tm-console-line--info .tm-console-gutter,
+.tm-console-line--info .tm-console-body {
+  color: var(--accent-color);
+}
+
 
 .tm-console-time {
   color: var(--text-color);

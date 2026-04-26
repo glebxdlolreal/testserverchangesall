@@ -2725,8 +2725,7 @@ var BotConsole = {
     var $inputLine = $('#console-input-line');
     var $line = $('<div class="tm-console-line tm-console-line--' + BotConsole.lineClass(type) + '">');
     $line.append($('<div class="tm-console-gutter">').text(BotConsole.gutterChar(type)));
-    var bodyClass = 'tm-console-body' + (type === 'error' || type === 'err' ? ' tm-console-body--error' : '') + (type === 'warn' ? ' tm-console-body--warn' : '');
-    var $body = $('<div class="' + bodyClass + '">');
+    var $body = $('<div class="tm-console-body">');
     $body.append($('<pre>').text(String(content)));
     if (time) {
       $body.append($('<span class="tm-console-time">').text(time));
