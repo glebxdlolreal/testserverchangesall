@@ -2921,21 +2921,20 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   width: 24px;
   user-select: none;
 }
-
 .tm-console-gutter--in {
   color: var(--text-color);
 }
-
 .tm-console-gutter--out {
   color: var(--text-color);
 }
-
 .tm-console-gutter--next {
   color: var(--accent-color);
 }
-
 .tm-console-gutter--err {
   color: var(--danger-text-color);
+}
+.tm-console-gutter--warn {
+  color: var(--warning-text-color);
 }
 
 .tm-console-body {
@@ -2967,6 +2966,9 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 
 .tm-console-body--error {
   color: var(--danger-text-color);
+}
+.tm-console-body--warn {
+  color: var(--warning-text-color);
 }
 
 .tm-console-time {

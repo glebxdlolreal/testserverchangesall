@@ -2718,7 +2718,7 @@ var BotConsole = {
     var $inputLine = $('#console-input-line');
     var $line = $('<div class="tm-console-line">');
     $line.append($('<div class="tm-console-gutter tm-console-gutter--' + BotConsole.gutterClass(type) + '">').text(BotConsole.gutterChar(type)));
-    var bodyClass = 'tm-console-body' + (type === 'error' || type === 'err' || type === 'warn' ? ' tm-console-body--error' : '');
+    var bodyClass = 'tm-console-body' + (type === 'error' || type === 'err' ? ' tm-console-body--error' : '') + (type === 'warn' ? ' tm-console-body--warn' : '');
     var $body = $('<div class="' + bodyClass + '">');
     $body.append($('<pre>').text(String(content)));
     if (duration !== undefined) {
@@ -2762,8 +2762,9 @@ var BotConsole = {
   gutterClass(type) {
     if (type === 'input') return 'in';
     if (type === 'output') return 'out';
-    if (type === 'error' || type === 'err' || type === 'warn') return 'err';
-    if (type === 'log' || type === 'info') return 'next';
+    if (type === 'error' || type === 'err') return 'err';
+    if (type === 'warn') return 'warn';
+    if (type === 'log' || type === 'info') return 'info';
     if (type === 'debug') return 'in';
     return 'in';
   },
@@ -2773,7 +2774,7 @@ var BotConsole = {
     if (type === 'output') return '<';
     if (type === 'error' || type === 'err') return 'x';
     if (type === 'warn') return '!';
-    if (type === 'log' || type === 'info') return 'i';
+    if (type === 'log' || type === 'info') return '';
     if (type === 'debug') return 'd';
     return '>';
   },
