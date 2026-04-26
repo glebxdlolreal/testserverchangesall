@@ -2927,9 +2927,6 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 .tm-console-gutter--out {
   color: var(--text-color);
 }
-.tm-console-gutter--next {
-  color: var(--accent-color);
-}
 .tm-console-gutter--err {
   color: var(--danger-text-color);
 }
@@ -2975,8 +2972,9 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   color: var(--text-color);
   flex-shrink: 0;
   font-family: 'Roboto Mono', monospace;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 16px;
+  align-self: flex-start;
 }
 
 .tm-console-input-line {

@@ -2683,11 +2683,11 @@ var BotConsole = {
           var entry = res.log[i];
           var vals  = entry.v || [];
           var str   = vals.map(x => JSON5.stringify(x)).join(' ');
-          BotConsole.addLine(entry._, str, res.t);
+          BotConsole.addLine(entry._, str, entry.t);
         }
       }
       if (res.error) {
-        BotConsole.addLine('error', res.error);
+        BotConsole.addLine('error', res.error, res.time);
       } else {
         let content = res.result;
         try { content = JSON5.stringify(content); } catch(e) {}
