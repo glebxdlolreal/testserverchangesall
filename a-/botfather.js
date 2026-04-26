@@ -2681,6 +2681,17 @@ var BotConsole = {
       if (res.error) {
         BotConsole.addLine('error', res.error);
       } else {
+        if (res.log && res.log.length) {
+          for (var i = 0; i < res.log.length; i++) {
+            var entry = res.log[i];
+            var colonPos = entry.indexOf(': ');
+            if (colonPos !== -1) {
+              BotConsole.addLine(entry.substring(0, colonPos), entry.substring(colonPos + 2));
+            } else {
+              BotConsole.addLine('log', entry);
+            }
+          }
+        }
         let content = res.result;
         try { content = JSON5.stringify(content); } catch(e) {}
         BotConsole.addLine('output', content, res.time);
@@ -2707,7 +2718,7 @@ var BotConsole = {
     var $inputLine = $('#console-input-line');
     var $line = $('<div class="tm-console-line">');
     $line.append($('<div class="tm-console-gutter tm-console-gutter--' + BotConsole.gutterClass(type) + '">').text(BotConsole.gutterChar(type)));
-    var bodyClass = 'tm-console-body' + (type === 'error' ? ' tm-console-body--error' : '');
+    var bodyClass = 'tm-console-body' + (type === 'error' || type === 'err' || type === 'warn' ? ' tm-console-body--error' : '');
     var $body = $('<div class="' + bodyClass + '">');
     $body.append($('<pre>').text(String(content)));
     if (duration !== undefined) {
@@ -2751,14 +2762,19 @@ var BotConsole = {
   gutterClass(type) {
     if (type === 'input') return 'in';
     if (type === 'output') return 'out';
-    if (type === 'error') return 'err';
+    if (type === 'error' || type === 'err' || type === 'warn') return 'err';
+    if (type === 'log' || type === 'info') return 'next';
+    if (type === 'debug') return 'in';
     return 'in';
   },
 
   gutterChar(type) {
     if (type === 'input') return '>';
     if (type === 'output') return '<';
-    if (type === 'error') return 'x';
+    if (type === 'error' || type === 'err') return 'x';
+    if (type === 'warn') return '!';
+    if (type === 'log' || type === 'info') return 'i';
+    if (type === 'debug') return 'd';
     return '>';
   },
 };
