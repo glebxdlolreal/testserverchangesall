@@ -2679,19 +2679,22 @@ var BotConsole = {
     Aj.apiRequest(Aj.state.consoleMethod, params, function(res) {
       BotConsole.isRunning = false;
       if (res.log && res.log.length) {
+        let prev_t = 0;
         for (var i = 0; i < res.log.length; i++) {
           var entry = res.log[i];
           var vals  = entry.v || [];
           var str   = vals.map(x => JSON5.stringify(x)).join(' ');
-          BotConsole.addLine(entry._, str, entry.t);
+          var delta = entry.t - prev_t;
+          prev_t = entry.t;
+          BotConsole.addLine(entry._, str, '+' + BotConsole.formatDuration(delta));
         }
       }
       if (res.error) {
-        BotConsole.addLine('error', res.error, res.time);
+        BotConsole.addLine('error', res.error, BotConsole.formatDuration(res.time));
       } else {
         let content = res.result;
         try { content = JSON5.stringify(content); } catch(e) {}
-        BotConsole.addLine('output', content, res.time);
+        BotConsole.addLine('output', content, BotConsole.formatDuration(res.time));
       }
       $('#console-input-line').show();
       BotConsole.cm.refresh();
@@ -2711,15 +2714,22 @@ var BotConsole = {
     $line.insertBefore($inputLine);
   },
 
-  addLine(type, content, duration) {
+  formatDuration(dur) {
+    let ms = Math.round(dur * 1000);
+    if (ms < 1000) return `${ms}ms`;
+    if (ms < 60000) return `${(ms / 1000).toFixed(1)}s`;
+    return `${(ms / 60000).toFixed(1)}m`;
+  },
+
+  addLine(type, content, time) {
     var $inputLine = $('#console-input-line');
     var $line = $('<div class="tm-console-line">');
     $line.append($('<div class="tm-console-gutter tm-console-gutter--' + BotConsole.gutterClass(type) + '">').text(BotConsole.gutterChar(type)));
     var bodyClass = 'tm-console-body' + (type === 'error' || type === 'err' ? ' tm-console-body--error' : '') + (type === 'warn' ? ' tm-console-body--warn' : '');
     var $body = $('<div class="' + bodyClass + '">');
     $body.append($('<pre>').text(String(content)));
-    if (duration !== undefined) {
-      $body.append($('<span class="tm-console-time">').text(Math.round(duration * 1000) + 'ms'));
+    if (time) {
+      $body.append($('<span class="tm-console-time">').text(time));
     }
     $line.append($body);
     $line.insertBefore($inputLine);
