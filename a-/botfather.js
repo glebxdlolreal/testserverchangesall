@@ -2678,17 +2678,17 @@ var BotConsole = {
 
     Aj.apiRequest(Aj.state.consoleMethod, params, function(res) {
       BotConsole.isRunning = false;
+      if (res.log && res.log.length) {
+        for (var i = 0; i < res.log.length; i++) {
+          var entry = res.log[i];
+          var vals  = entry.v || [];
+          var str   = vals.map(x => JSON5.stringify(x)).join(' ');
+          BotConsole.addLine(entry._, str, res.t);
+        }
+      }
       if (res.error) {
         BotConsole.addLine('error', res.error);
       } else {
-        if (res.log && res.log.length) {
-          for (var i = 0; i < res.log.length; i++) {
-            var entry = res.log[i];
-            var vals  = entry.v || [];
-            var str   = vals.map(x => JSON5.stringify(x)).join(' ');
-            BotConsole.addLine(entry._, str);
-          }
-        }
         let content = res.result;
         try { content = JSON5.stringify(content); } catch(e) {}
         BotConsole.addLine('output', content, res.time);
