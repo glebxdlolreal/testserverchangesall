@@ -2684,9 +2684,11 @@ var BotConsole = {
         if (res.log && res.log.length) {
           for (var i = 0; i < res.log.length; i++) {
             var entry = res.log[i];
+            var vals  = entry.v || [];
+            var str   = vals.map(x => JSON5.stringify(x)).join(' ');
             var colonPos = entry.indexOf(': ');
             if (colonPos !== -1) {
-              BotConsole.addLine(entry.substring(0, colonPos), entry.substring(colonPos + 2));
+              BotConsole.addLine(entry._, str);
             } else {
               BotConsole.addLine('log', entry);
             }
@@ -2764,8 +2766,7 @@ var BotConsole = {
     if (type === 'output') return 'out';
     if (type === 'error' || type === 'err') return 'err';
     if (type === 'warn') return 'warn';
-    if (type === 'log' || type === 'info') return 'info';
-    if (type === 'debug') return 'in';
+    if (type === 'log' || type === 'info' || type === 'debug') return 'info';
     return 'in';
   },
 
@@ -2774,8 +2775,7 @@ var BotConsole = {
     if (type === 'output') return '<';
     if (type === 'error' || type === 'err') return 'x';
     if (type === 'warn') return '!';
-    if (type === 'log' || type === 'info') return '';
-    if (type === 'debug') return 'd';
+    if (type === 'log' || type === 'info' || type === 'debug') return '';
     return '>';
   },
 };
