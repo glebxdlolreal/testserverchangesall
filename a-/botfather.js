@@ -2348,6 +2348,7 @@ var BotCodeEditor = {
       tabSize: 2,
       lineWrapping: false,
       json: false,
+      placeholder: opts.placeholder || '',
       extraKeys: $.extend({
         [(isMac ? 'Cmd' : 'Ctrl') + '-/']: 'toggleComment',
         [(isMac ? 'Cmd' : 'Ctrl') + '-Space']: function(cm) {
@@ -2425,6 +2426,7 @@ var BotLibrary = {
       apiParams: isNew ? {} : { name: Aj.state.libraryPath },
       savedLangKey: 'WEB_LIBRARY_FILE_SAVED',
       saveErrorLangKey: 'WEB_LIBRARY_FILE_SAVE_ERROR',
+      placeholder: l('WEB_LIBRARY_CODE_PLACEHOLDER'),
     });
 
     if (isNew) {
