@@ -2686,12 +2686,7 @@ var BotConsole = {
             var entry = res.log[i];
             var vals  = entry.v || [];
             var str   = vals.map(x => JSON5.stringify(x)).join(' ');
-            var colonPos = entry.indexOf(': ');
-            if (colonPos !== -1) {
-              BotConsole.addLine(entry._, str);
-            } else {
-              BotConsole.addLine('log', entry);
-            }
+            BotConsole.addLine(entry._, str);
           }
         }
         let content = res.result;
