@@ -2771,7 +2771,8 @@ var BotConsole = {
     if (type === 'output') return 'out';
     if (type === 'error' || type === 'err') return 'err';
     if (type === 'warn') return 'warn';
-    if (type === 'log' || type === 'info' || type === 'debug') return 'info';
+    if (type === 'info') return 'info';
+    if (type === 'log' || type === 'debug') return 'log';
     return 'in';
   },
 
@@ -2780,7 +2781,9 @@ var BotConsole = {
     if (type === 'output') return '<';
     if (type === 'error' || type === 'err') return 'x';
     if (type === 'warn') return '!';
-    if (type === 'log' || type === 'info' || type === 'debug') return '';
+    if (type === 'debug') return '·';
+    if (type === 'info') return 'i';
+    if (type === 'log' || type === 'debug') return '';
     return '>';
   },
 };
