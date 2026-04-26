@@ -2910,6 +2910,10 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   align-items: stretch;
   background: var(--table-bg-color);
 }
+.tm-console-line--err {
+  color: var(--danger-text-color);
+  background: var(--table-bg-color), #F8827714;
+}
 
 .tm-console-gutter {
   border-right: 1px solid var(--bg-color);
@@ -2921,19 +2925,16 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   width: 24px;
   user-select: none;
 }
-.tm-console-gutter--in {
+.tm-console-line--in .tm-console-gutter {
   color: var(--text-color);
 }
-.tm-console-gutter--out {
+.tm-console-line--out .tm-console-gutter {
   color: var(--text-color);
 }
-.tm-console-gutter--err {
-  color: var(--danger-text-color);
-}
-.tm-console-gutter--warn {
+.tm-console-line--warn .tm-console-gutter {
   color: var(--warning-text-color);
 }
-.tm-console-gutter--info {
+.tm-console-line--info .tm-console-gutter {
   color: var(--accent-color);
 }
 

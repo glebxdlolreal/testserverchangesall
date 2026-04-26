@@ -2723,8 +2723,8 @@ var BotConsole = {
 
   addLine(type, content, time) {
     var $inputLine = $('#console-input-line');
-    var $line = $('<div class="tm-console-line">');
-    $line.append($('<div class="tm-console-gutter tm-console-gutter--' + BotConsole.gutterClass(type) + '">').text(BotConsole.gutterChar(type)));
+    var $line = $('<div class="tm-console-line tm-console-line--' + BotConsole.lineClass(type) + '">');
+    $line.append($('<div class="tm-console-gutter">').text(BotConsole.gutterChar(type)));
     var bodyClass = 'tm-console-body' + (type === 'error' || type === 'err' ? ' tm-console-body--error' : '') + (type === 'warn' ? ' tm-console-body--warn' : '');
     var $body = $('<div class="' + bodyClass + '">');
     $body.append($('<pre>').text(String(content)));
@@ -2766,7 +2766,7 @@ var BotConsole = {
     return false;
   },
 
-  gutterClass(type) {
+  lineClass(type) {
     if (type === 'input') return 'in';
     if (type === 'output') return 'out';
     if (type === 'error' || type === 'err') return 'err';
