@@ -2505,7 +2505,6 @@ var BotDatabase = {
       onSaveSuccess: function(res) {
         Aj.onUnload(() => Main.showSuccessToast(l('WEB_DATABASE_SAVED')));
         Aj.reload();
-        ;
       },
     });
   },
