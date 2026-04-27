@@ -3078,16 +3078,11 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 .tm-db-status {
   display: flex;
   align-items: center;
-  padding: 12px;
-  margin: 0 16px 12px;
   background: var(--table-bg-color);
   border-radius: var(--def-border-radius);
   gap: 12px;
 }
-.tm-db-status--clickable:active {
-  background: var(--table-bg-hover-color);
-}
-.tm-db-status-badge {
+.tm-db-status .tm-icon {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -3097,13 +3092,14 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   font-size: 14px;
   font-weight: bold;
   flex-shrink: 0;
+  margin: 0;
 }
-.tm-db-status-badge--sync {
-  background: var(--good-bg-color);
+.tm-db-status-sync .tm-icon {
+  background-color: var(--good-bg-color);
   color: var(--good-text-color);
 }
-.tm-db-status-badge--out-of-sync {
-  background: var(--warning-bg-color);
+.tm-db-status-no-sync .tm-icon {
+  background-color: var(--warning-bg-color);
   color: var(--warning-text-color);
 }
 .tm-db-status-text {
