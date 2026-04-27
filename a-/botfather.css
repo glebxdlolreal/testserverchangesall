@@ -3075,7 +3075,7 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   word-break: break-word;
 }
 
-.tm-status-plaque {
+.tm-db-status {
   display: flex;
   align-items: center;
   padding: 12px;
@@ -3084,13 +3084,10 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   border-radius: var(--def-border-radius);
   gap: 12px;
 }
-.tm-status-plaque--clickable {
-  cursor: pointer;
-}
-.tm-status-plaque--clickable:active {
+.tm-db-status--clickable:active {
   background: var(--table-bg-hover-color);
 }
-.tm-status-plaque-badge {
+.tm-db-status-badge {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -3101,31 +3098,31 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   font-weight: bold;
   flex-shrink: 0;
 }
-.tm-status-plaque-badge--sync {
+.tm-db-status-badge--sync {
   background: var(--good-bg-color);
   color: var(--good-text-color);
 }
-.tm-status-plaque-badge--out-of-sync {
+.tm-db-status-badge--out-of-sync {
   background: var(--warning-bg-color);
   color: var(--warning-text-color);
 }
-.tm-status-plaque-text {
+.tm-db-status-text {
   flex: 1;
   min-width: 0;
 }
-.tm-status-plaque-title {
+.tm-db-status-title {
   font-size: 15px;
   line-height: 20px;
   font-weight: 600;
   color: var(--value-color);
 }
-.tm-status-plaque-subtitle {
+.tm-db-status-subtitle {
   font-size: 13px;
   line-height: 18px;
   color: var(--text-color);
   margin-top: 1px;
 }
-.tm-status-plaque-chevron {
+.tm-db-status-chevron {
   width: 20px;
   height: 20px;
   background-image: var(--image-url-link-more);
