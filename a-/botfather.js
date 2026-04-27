@@ -2333,6 +2333,7 @@ var BotCodeEditor = {
     BotCodeEditor.apiParams = opts.apiParams || {};
     BotCodeEditor.savedLangKey = opts.savedLangKey;
     BotCodeEditor.saveErrorLangKey = opts.saveErrorLangKey;
+    BotCodeEditor.onSaveSuccess = opts.onSaveSuccess || null;
 
     var isMac = /Mac|iPhone|iPad/.test(navigator.platform);
     var hintConfig = Aj.state.hintConfig;
@@ -2396,9 +2397,14 @@ var BotCodeEditor = {
     Aj.apiRequest(BotCodeEditor.apiMethod, params, function(res) {
       WebApp.MainButton.hideProgress();
       if (res.ok) {
-        BotCodeEditor.savedCode = code;
-        Aj.onUnload(function() { Main.showSuccessToast(l(BotCodeEditor.savedLangKey)); });
-        _backButton();
+        if (BotCodeEditor.onSaveSuccess) {
+          BotCodeEditor.savedCode = code;
+          BotCodeEditor.onSaveSuccess(res);
+        } else {
+          BotCodeEditor.savedCode = code;
+          Aj.onUnload(function() { Main.showSuccessToast(l(BotCodeEditor.savedLangKey)); });
+          _backButton();
+        }
       } else {
         Main.showErrorToast(res.error || l(BotCodeEditor.saveErrorLangKey));
       }
@@ -2496,7 +2502,351 @@ var BotDatabase = {
       apiMethod: 'saveCloudDatabase',
       savedLangKey: 'WEB_DATABASE_SAVED',
       saveErrorLangKey: 'WEB_DATABASE_SAVE_ERROR',
+      onSaveSuccess: function(res) {
+        Main.showSuccessToast(l('WEB_DATABASE_SAVED'));
+        BotDatabase.updateStatusPlaque(res.db_changes);
+      },
     });
+
+    var $plaque = $('#status-plaque-out-of-sync');
+    if ($plaque.length) {
+      $plaque.on('click', function() {
+        location.href = '/botfather/bot/' + Aj.state.botId + '/serverless/database/migration';
+      });
+    }
+  },
+
+  updateStatusPlaque(db_changes) {
+    var $container = $('#aj_content main.tm-main');
+    var $oldPlaque = $container.children('.tm-status-plaque');
+    var count = db_changes ? db_changes.length : 0;
+    var html = '';
+    if (count == 0) {
+      html = '<div class="tm-status-plaque"><div class="tm-status-plaque-badge tm-status-plaque-badge--sync">&#10003;</div><div class="tm-status-plaque-text"><div class="tm-status-plaque-title">' + uncleanHTML(l('WEB_DATABASE_STATUS_IN_SYNC')) + '</div><div class="tm-status-plaque-subtitle">' + uncleanHTML(l('WEB_DATABASE_STATUS_IN_SYNC_DESC')) + '</div></div></div>';
+    } else {
+      html = '<div class="tm-status-plaque tm-status-plaque--clickable" id="status-plaque-out-of-sync"><div class="tm-status-plaque-badge tm-status-plaque-badge--out-of-sync">!</div><div class="tm-status-plaque-text"><div class="tm-status-plaque-title">' + uncleanHTML(l('WEB_DATABASE_STATUS_OUT_OF_SYNC')) + '</div><div class="tm-status-plaque-subtitle">' + count + ' changes pending</div></div><div class="tm-status-plaque-chevron"></div></div>';
+    }
+    if ($oldPlaque.length) {
+      $oldPlaque.replaceWith(html);
+    } else {
+      $container.prepend(html);
+    }
+    $('#status-plaque-out-of-sync').off('click').on('click', function() {
+      location.href = '/botfather/bot/' + Aj.state.botId + '/serverless/database/migration';
+    });
+  },
+};
+
+var BotMigration = {
+  dbChanges: [],
+  steps: [],
+  currentStep: -1,
+  appliedIds: {},
+  skippedIds: {},
+  errorText: '',
+
+  init() {
+    Aj.apiRequest('diffCloudDatabase', { bid: Aj.state.botId }, function(res) {
+      if (res.ok) {
+        BotMigration.dbChanges = res.db_changes || [];
+        BotMigration.steps = BotMigration.buildSteps(BotMigration.dbChanges);
+        BotMigration.currentStep = 0;
+        BotMigration.render();
+      } else {
+        Main.showErrorToast(res.error || 'Failed to load migration data');
+      }
+    });
+  },
+
+  buildSteps(changes) {
+    var steps = [];
+    var safe = [];
+    var warnings = [];
+    var manual = [];
+    var undocumented = [];
+    for (var i = 0; i < changes.length; i++) {
+      var c = changes[i];
+      if (c.category == 'safe') safe.push(c);
+      else if (c.category == 'warning') warnings.push(c);
+      else if (c.category == 'manual') manual.push(c);
+      else if (c.category == 'undocumented') undocumented.push(c);
+    }
+    if (safe.length) steps.push({ type: 'safe', changes: safe });
+    for (var w = 0; w < warnings.length; w++) {
+      steps.push({ type: 'warning', changes: [warnings[w]] });
+    }
+    if (manual.length) steps.push({ type: 'manual', changes: manual });
+    if (undocumented.length) steps.push({ type: 'undocumented', changes: undocumented });
+    return steps;
+  },
+
+  markerChar(category) {
+    if (category == 'safe') return '+';
+    if (category == 'warning') return '!';
+    if (category == 'manual') return '\u2717';
+    if (category == 'undocumented') return '?';
+    return '';
+  },
+
+  progressColor(category) {
+    if (category == 'safe') return 'safe';
+    if (category == 'warning') return 'warning';
+    if (category == 'manual') return 'manual';
+    if (category == 'undocumented') return 'undocumented';
+    return 'safe';
+  },
+
+  render() {
+    var $content = $('#migration-content');
+    if (!$content.length) return;
+    var html = '';
+    if (BotMigration.currentStep == 0) {
+      html = BotMigration.renderIntro();
+    } else if (BotMigration.currentStep <= BotMigration.steps.length) {
+      html = BotMigration.renderStep(BotMigration.steps[BotMigration.currentStep - 1]);
+    } else {
+      html = BotMigration.renderFinal();
+    }
+    $content.html(html);
+    BotMigration.bindEvents();
+    WebApp.MainButton.hide();
+  },
+
+  renderIntro() {
+    var total = BotMigration.dbChanges.length;
+    var title = l('WEB_MIGRATION_INTRO_TITLE').replace('{count}', total);
+    var desc = uncleanHTML(l('WEB_MIGRATION_INTRO_DESC'));
+    var html = '<div class="tm-section">';
+    html += '<div class="tm-section-header"><h2 class="tm-section-header-text">' + title + '</h2></div>';
+    html += '<p class="tm-section-desc">' + desc + '</p>';
+    html += '<div class="tm-migration-brief">';
+    for (var i = 0; i < BotMigration.dbChanges.length; i++) {
+      var c = BotMigration.dbChanges[i];
+      var marker = BotMigration.markerChar(c.category);
+      html += '<div class="tm-migration-brief-item">';
+      html += '<span class="tm-migration-brief-marker tm-migration-brief-marker--' + c.category + '">' + marker + '</span>';
+      html += '<span class="tm-migration-brief-target">' + BotMigration.escapeHtml(c.target) + '</span>';
+      html += '<span class="tm-migration-brief-action">' + BotMigration.escapeHtml(c.actionLabel) + '</span>';
+      html += '</div>';
+    }
+    html += '</div></div>';
+    html += '<div class="tm-migration-cta">';
+    html += '<button class="btn btn-primary btn-primary-full" id="migration-start">' + uncleanHTML(l('WEB_MIGRATION_START')) + '</button>';
+    html += '</div>';
+    return html;
+  },
+
+  renderStep(step) {
+    var stepIndex = BotMigration.currentStep;
+    var totalSteps = BotMigration.steps.length;
+    var progressPct = (stepIndex / totalSteps * 100);
+    var progressColor = BotMigration.progressColor(step.type);
+    var stepLabel = l('WEB_MIGRATION_STEP').replace('{current}', stepIndex).replace('{total}', totalSteps);
+    var html = '<div class="tm-migration-step-counter">' + stepLabel + '</div>';
+    html += '<div class="tm-migration-progress"><div class="tm-migration-progress-bar tm-migration-progress-bar--' + progressColor + '" style="width:' + progressPct + '%"></div></div>';
+    html += '<div class="tm-section">';
+    if (step.type == 'safe') {
+      for (var i = 0; i < step.changes.length; i++) {
+        html += BotMigration.renderChangeCard(step.changes[i], 'add');
+      }
+    } else if (step.type == 'warning') {
+      for (var i = 0; i < step.changes.length; i++) {
+        html += BotMigration.renderChangeCard(step.changes[i], 'remove');
+      }
+    } else if (step.type == 'manual') {
+      for (var i = 0; i < step.changes.length; i++) {
+        html += BotMigration.renderChangeCard(step.changes[i], 'diff');
+      }
+      var count = step.changes.length;
+      var warningText = l('WEB_MIGRATION_MANUAL_WARNING').replace('{count}', count);
+      html += '<div class="tm-migration-comment tm-migration-comment--manual">\u26A0 ' + warningText + '</div>';
+    } else if (step.type == 'undocumented') {
+      for (var i = 0; i < step.changes.length; i++) {
+        html += BotMigration.renderChangeCard(step.changes[i], 'context');
+      }
+      var count = step.changes.length;
+      var warningText = l('WEB_MIGRATION_UNDOCUMENTED_WARNING').replace('{count}', count);
+      html += '<div class="tm-migration-comment tm-migration-comment--undocumented">\u26A0 ' + warningText + '</div>';
+    }
+    html += '</div>';
+    if (BotMigration.errorText) {
+      html += '<div class="tm-section"><div class="tm-migration-comment tm-migration-comment--manual">\u2717 ' + BotMigration.errorText + '</div></div>';
+    }
+    html += '<div class="tm-migration-cta">';
+    if (step.type == 'safe') {
+      if (BotMigration.errorText) {
+        html += '<button class="btn btn-primary btn-primary-full" id="migration-apply">' + uncleanHTML(l('WEB_MIGRATION_RETRY')) + '</button>';
+      } else {
+        html += '<button class="btn btn-primary btn-primary-full" id="migration-apply">' + l('WEB_MIGRATION_APPLY_CHANGES').replace('{count}', step.changes.length) + '</button>';
+      }
+      html += '<span class="tm-migration-cta-skip" id="migration-skip">' + uncleanHTML(l('WEB_MIGRATION_SKIP')) + '</span>';
+    } else if (step.type == 'warning') {
+      if (BotMigration.errorText) {
+        html += '<button class="btn btn-primary btn-primary-full" style="background:var(--warning-text-color)" id="migration-apply">' + uncleanHTML(l('WEB_MIGRATION_RETRY')) + '</button>';
+      } else {
+        html += '<button class="btn btn-primary btn-primary-full" style="background:var(--warning-text-color)" id="migration-apply">' + uncleanHTML(l('WEB_MIGRATION_APPLY')) + '</button>';
+      }
+      html += '<span class="tm-migration-cta-skip" id="migration-skip">' + uncleanHTML(l('WEB_MIGRATION_SKIP')) + '</span>';
+    } else if (step.type == 'manual' || step.type == 'undocumented') {
+      html += '<button class="btn btn-primary btn-primary-full" id="migration-continue">' + uncleanHTML(l('WEB_MIGRATION_CONTINUE')) + '</button>';
+    }
+    html += '</div>';
+    return html;
+  },
+
+  renderChangeCard(change, sqlStyle) {
+    var html = '<div class="tm-change-card">';
+    html += '<div class="tm-change-card-header">';
+    html += '<span class="tm-change-card-target">' + BotMigration.escapeHtml(change.target) + '</span>';
+    html += '<span class="tm-change-card-action">' + BotMigration.escapeHtml(change.actionLabel) + '</span>';
+    html += '</div>';
+    if (sqlStyle == 'add') {
+      html += '<div class="tm-change-card-sql tm-change-card-sql--add">' + BotMigration.escapeHtml(change.sql || '') + '</div>';
+    } else if (sqlStyle == 'remove') {
+      html += '<div class="tm-change-card-sql tm-change-card-sql--remove">' + BotMigration.escapeHtml(change.sql || '') + '</div>';
+    } else if (sqlStyle == 'diff') {
+      if (change.diff) {
+        if (change.diff.current) {
+          html += '<div class="tm-change-card-sql tm-change-card-sql--current">- ' + BotMigration.escapeHtml(change.diff.current) + '</div>';
+        }
+        if (change.diff.expected) {
+          html += '<div class="tm-change-card-sql tm-change-card-sql--expected">+ ' + BotMigration.escapeHtml(change.diff.expected) + '</div>';
+        }
+      }
+    } else if (sqlStyle == 'context') {
+      var existingText = change.existing_schema || (change.diff && change.diff.current) || '';
+      if (existingText) {
+        html += '<div class="tm-change-card-sql tm-change-card-sql--context">  ' + BotMigration.escapeHtml(existingText) + '</div>';
+      }
+    }
+    if (change.warning) {
+      html += '<div class="tm-change-card-warning">\u26A0 ' + BotMigration.escapeHtml(change.warning) + '</div>';
+    }
+    if (change.row_count !== undefined && change.row_count !== null) {
+      html += '<div class="tm-change-card-stats">' + change.row_count + ' rows</div>';
+    }
+    html += '</div>';
+    return html;
+  },
+
+  renderFinal() {
+    var appliedCount = 0;
+    var skippedCount = 0;
+    var manualCount = 0;
+    var undocumentedCount = 0;
+    for (var i = 0; i < BotMigration.dbChanges.length; i++) {
+      var c = BotMigration.dbChanges[i];
+      var id = c.changeId;
+      if (BotMigration.appliedIds[id]) { appliedCount++; }
+      else if (BotMigration.skippedIds[id]) { skippedCount++; }
+      else if (c.category == 'manual') { manualCount++; }
+      else if (c.category == 'undocumented') { undocumentedCount++; }
+      else { skippedCount++; }
+    }
+    var isIncomplete = skippedCount > 0;
+    var html = '<div class="tm-migration-hero">';
+    if (isIncomplete) {
+      html += '<div class="tm-migration-hero-badge tm-migration-hero-badge--incomplete">\u23F8</div>';
+      html += '<div class="tm-migration-hero-title">' + uncleanHTML(l('WEB_MIGRATION_INCOMPLETE')) + '</div>';
+      html += '<div class="tm-migration-hero-desc">' + uncleanHTML(l('WEB_MIGRATION_INCOMPLETE_DESC')) + '</div>';
+    } else {
+      html += '<div class="tm-migration-hero-badge tm-migration-hero-badge--complete">\u2713</div>';
+      html += '<div class="tm-migration-hero-title">' + uncleanHTML(l('WEB_MIGRATION_COMPLETE')) + '</div>';
+      html += '<div class="tm-migration-hero-desc">' + uncleanHTML(l('WEB_MIGRATION_COMPLETE_DESC')) + '</div>';
+    }
+    html += '</div>';
+    html += '<div class="tm-migration-summary">';
+    html += '<div class="tm-migration-summary-row"><span class="tm-migration-summary-label">' + uncleanHTML(l('WEB_MIGRATION_SUMMARY_APPLIED')) + '</span><span class="tm-migration-summary-value tm-migration-summary-value--' + (appliedCount > 0 ? 'good' : 'neutral') + '">' + appliedCount + '</span></div>';
+    html += '<div class="tm-migration-summary-row"><span class="tm-migration-summary-label">' + uncleanHTML(l('WEB_MIGRATION_SUMMARY_SKIPPED')) + '</span><span class="tm-migration-summary-value tm-migration-summary-value--neutral">' + skippedCount + '</span></div>';
+    html += '<div class="tm-migration-summary-row"><span class="tm-migration-summary-label">' + uncleanHTML(l('WEB_MIGRATION_SUMMARY_MANUAL')) + '</span><span class="tm-migration-summary-value tm-migration-summary-value--' + (manualCount > 0 ? 'danger' : 'neutral') + '">' + manualCount + '</span></div>';
+    html += '<div class="tm-migration-summary-row"><span class="tm-migration-summary-label">' + uncleanHTML(l('WEB_MIGRATION_SUMMARY_UNDOCUMENTED')) + '</span><span class="tm-migration-summary-value tm-migration-summary-value--neutral">' + undocumentedCount + '</span></div>';
+    html += '</div>';
+    html += '<div class="tm-migration-cta">';
+    if (isIncomplete) {
+      html += '<button class="btn btn-primary btn-primary-full" id="migration-resume">' + uncleanHTML(l('WEB_MIGRATION_RESUME')) + '</button>';
+    } else {
+      html += '<button class="btn btn-primary btn-primary-full" id="migration-done">' + uncleanHTML(l('WEB_MIGRATION_DONE')) + '</button>';
+    }
+    html += '</div>';
+    return html;
+  },
+
+  bindEvents() {
+    $(document).off('click.migration');
+    $(document).on('click.migration', '#migration-start', function() {
+      if (BotMigration.steps.length == 0) {
+        BotMigration.currentStep = BotMigration.steps.length + 1;
+      } else {
+        BotMigration.currentStep = 1;
+      }
+      BotMigration.errorText = '';
+      BotMigration.render();
+    });
+    $(document).on('click.migration', '#migration-apply', function() {
+      BotMigration.onApply();
+    });
+    $(document).on('click.migration', '#migration-skip', function() {
+      BotMigration.onSkip();
+    });
+    $(document).on('click.migration', '#migration-continue', function() {
+      BotMigration.currentStep++;
+      BotMigration.errorText = '';
+      BotMigration.render();
+    });
+    $(document).on('click.migration', '#migration-done', function() {
+      location.href = '/botfather/bot/' + Aj.state.botId + '/serverless/database';
+    });
+    $(document).on('click.migration', '#migration-resume', function() {
+      location.href = '/botfather/bot/' + Aj.state.botId + '/serverless/database/migration';
+    });
+  },
+
+  onApply() {
+    var step = BotMigration.steps[BotMigration.currentStep - 1];
+    if (!step) return;
+    var changeIds = [];
+    for (var i = 0; i < step.changes.length; i++) {
+      changeIds.push(step.changes[i].changeId);
+    }
+    var $btn = $('#migration-apply');
+    $btn.addClass('btn-primary-loading');
+    Aj.apiRequest('migrateCloudDatabase', {
+      bid: Aj.state.botId,
+      apply: changeIds,
+    }, function(res) {
+      $btn.removeClass('btn-primary-loading');
+      BotMigration.errorText = '';
+      if (res.ok) {
+        for (var i = 0; i < step.changes.length; i++) {
+          BotMigration.appliedIds[step.changes[i].changeId] = true;
+        }
+        if (res.db_changes) {
+          BotMigration.dbChanges = res.db_changes;
+        }
+        BotMigration.currentStep++;
+        BotMigration.render();
+      } else {
+        BotMigration.errorText = l('WEB_MIGRATION_APPLY_ERROR').replace('{error}', res.error || 'Unknown error');
+        BotMigration.render();
+      }
+    });
+  },
+
+  onSkip() {
+    var step = BotMigration.steps[BotMigration.currentStep - 1];
+    if (!step) return;
+    for (var i = 0; i < step.changes.length; i++) {
+      BotMigration.skippedIds[step.changes[i].changeId] = true;
+    }
+    BotMigration.errorText = '';
+    BotMigration.currentStep++;
+    BotMigration.render();
+  },
+
+  escapeHtml(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
   },
 };
 
