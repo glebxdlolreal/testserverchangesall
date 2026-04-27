@@ -2503,36 +2503,10 @@ var BotDatabase = {
       savedLangKey: 'WEB_DATABASE_SAVED',
       saveErrorLangKey: 'WEB_DATABASE_SAVE_ERROR',
       onSaveSuccess: function(res) {
-        Main.showSuccessToast(l('WEB_DATABASE_SAVED'));
-        BotDatabase.updateStatusPlaque(res.db_changes);
+        Aj.onUnload(() => Main.showSuccessToast(l('WEB_DATABASE_SAVED')));
+        Aj.reload();
+        ;
       },
-    });
-
-    var $plaque = $('#status-plaque-out-of-sync');
-    if ($plaque.length) {
-      $plaque.on('click', function() {
-        location.href = '/botfather/bot/' + Aj.state.botId + '/serverless/database/migration';
-      });
-    }
-  },
-
-  updateStatusPlaque(db_changes) {
-    var $container = $('#aj_content main.tm-main');
-    var $oldPlaque = $container.children('.tm-status-plaque');
-    var count = db_changes ? db_changes.length : 0;
-    var html = '';
-    if (count == 0) {
-      html = '<div class="tm-status-plaque"><div class="tm-status-plaque-badge tm-status-plaque-badge--sync">&#10003;</div><div class="tm-status-plaque-text"><div class="tm-status-plaque-title">' + uncleanHTML(l('WEB_DATABASE_STATUS_IN_SYNC')) + '</div><div class="tm-status-plaque-subtitle">' + uncleanHTML(l('WEB_DATABASE_STATUS_IN_SYNC_DESC')) + '</div></div></div>';
-    } else {
-      html = '<div class="tm-status-plaque tm-status-plaque--clickable" id="status-plaque-out-of-sync"><div class="tm-status-plaque-badge tm-status-plaque-badge--out-of-sync">!</div><div class="tm-status-plaque-text"><div class="tm-status-plaque-title">' + uncleanHTML(l('WEB_DATABASE_STATUS_OUT_OF_SYNC')) + '</div><div class="tm-status-plaque-subtitle">' + count + ' changes pending</div></div><div class="tm-status-plaque-chevron"></div></div>';
-    }
-    if ($oldPlaque.length) {
-      $oldPlaque.replaceWith(html);
-    } else {
-      $container.prepend(html);
-    }
-    $('#status-plaque-out-of-sync').off('click').on('click', function() {
-      location.href = '/botfather/bot/' + Aj.state.botId + '/serverless/database/migration';
     });
   },
 };
