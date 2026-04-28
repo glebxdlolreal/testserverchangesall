@@ -3126,7 +3126,7 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   height: 3px;
   background: var(--table-bg-color);
   border-radius: 2px;
-  margin: 0 16px 16px;
+  margin: 0 0 8px;
   overflow: hidden;
 }
 .tm-migration-progress-bar {
@@ -3139,37 +3139,6 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 .tm-migration-progress-bar--manual { background-color: var(--danger-text-color); }
 .tm-migration-progress-bar--undocumented { background-color: var(--text-color); }
 
-.tm-migration-step-counter {
-  padding: 0 16px 8px;
-  font-size: 13px;
-  line-height: 18px;
-  color: var(--text-color);
-  font-weight: 600;
-}
-
-.tm-change-card {
-  background: var(--table-bg-color);
-  border-radius: var(--def-border-radius);
-  margin: 0 16px 8px;
-  overflow: hidden;
-}
-.tm-change-card-header {
-  display: flex;
-  align-items: center;
-  padding: 10px 12px;
-  gap: 8px;
-}
-.tm-change-card-target {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 13px;
-  line-height: 18px;
-  color: var(--value-color);
-}
-.tm-change-card-action {
-  font-size: 13px;
-  line-height: 18px;
-  color: var(--text-color);
-}
 .tm-change-card-sql {
   padding: 0 12px 10px;
   font-family: 'Roboto Mono', monospace;
@@ -3188,12 +3157,6 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   font-size: 13px;
   line-height: 18px;
   color: var(--warning-text-color);
-}
-.tm-change-card-stats {
-  padding: 2px 12px 10px;
-  font-size: 12px;
-  line-height: 16px;
-  color: var(--text-color);
 }
 
 .tm-migration-brief-marker {
