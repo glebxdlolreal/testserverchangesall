@@ -2633,17 +2633,13 @@ var BotMigration = {
         WebApp.MainButton.show();
         WebApp.SecondaryButton.hide();
       }
-      return;
     }
-
-    WebApp.MainButton.show();
-    WebApp.SecondaryButton.hide();
   },
 
   onMainButton() {
     if (BotMigration.currentStep == 0) {
       if (BotMigration.totalSteps == 0) {
-        BotMigration.showFinal();
+        BotMigration.finishMigration();
       } else {
         BotMigration.currentStep = 1;
         $('#migration-header').show();
@@ -2658,19 +2654,6 @@ var BotMigration = {
         BotMigration.advanceStep();
       } else {
         BotMigration.onApply();
-      }
-    } else {
-      var allApplied = true;
-      for (var i = 0; i < Aj.state.migrationSteps.length; i++) {
-        var si = Aj.state.migrationSteps[i];
-        for (var j = 0; j < si.changeIds.length; j++) {
-          if (!BotMigration.appliedIds[si.changeIds[j]]) { allApplied = false; }
-        }
-      }
-      if (allApplied) {
-        Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/database');
-      } else {
-        Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/database/migration');
       }
     }
   },
@@ -2717,52 +2700,29 @@ var BotMigration = {
       BotMigration.updateProgress();
       BotMigration.updateButtons();
     } else {
-      BotMigration.showFinal();
+      BotMigration.finishMigration();
     }
   },
 
-  showFinal() {
-    $('.migration-screen').hide();
-    $('#migration-header').hide();
-    $('#migration-final').show();
-
-    var appliedCount = 0;
+  finishMigration() {
     var skippedCount = 0;
-    var manualCount = 0;
-    var undocumentedCount = 0;
     for (var i = 0; i < Aj.state.migrationSteps.length; i++) {
       var stepInfo = Aj.state.migrationSteps[i];
       for (var j = 0; j < stepInfo.changeIds.length; j++) {
-        var id = stepInfo.changeIds[j];
-        if (BotMigration.appliedIds[id]) { appliedCount++; }
-        else if (BotMigration.skippedIds[id]) { skippedCount++; }
-        else if (stepInfo.type == 'manual') { manualCount++; }
-        else if (stepInfo.type == 'undocumented') { undocumentedCount++; }
-        else { skippedCount++; }
+        if (!BotMigration.appliedIds[stepInfo.changeIds[j]] && !BotMigration.skippedIds[stepInfo.changeIds[j]]) {
+          skippedCount++;
+        }
       }
     }
-
-    if (skippedCount > 0) {
-      $('#migration-final-incomplete').show();
-      $('#migration-final-complete').hide();
-      WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_RESUME')));
-    } else {
-      $('#migration-final-complete').show();
-      $('#migration-final-incomplete').hide();
-      WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_DONE')));
-    }
-
-    $('#migration-summary-applied').text(appliedCount)
-      .removeClass('tm-migration-summary-value--neutral tm-migration-summary-value--good')
-      .addClass(appliedCount > 0 ? 'tm-migration-summary-value--good' : 'tm-migration-summary-value--neutral');
-    $('#migration-summary-skipped').text(skippedCount);
-    $('#migration-summary-manual').text(manualCount)
-      .removeClass('tm-migration-summary-value--neutral tm-migration-summary-value--danger')
-      .addClass(manualCount > 0 ? 'tm-migration-summary-value--danger' : 'tm-migration-summary-value--neutral');
-    $('#migration-summary-undocumented').text(undocumentedCount);
-
-    WebApp.MainButton.show();
-    WebApp.SecondaryButton.hide();
+    var dbUrl = '/botfather/bot/' + Aj.state.botId + '/serverless/database';
+    Aj.onUnload(function() {
+      if (skippedCount > 0) {
+        Main.showErrorToast(l('WEB_MIGRATION_INCOMPLETED'));
+      } else {
+        Main.showSuccessToast(l('WEB_MIGRATION_COMPLETED'));
+      }
+    });
+    Aj.location(dbUrl);
   },
 
   showStepError(error) {
