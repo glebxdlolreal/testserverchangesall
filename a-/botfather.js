@@ -108,6 +108,10 @@ var Main = {
     Main.showToast(text || 'Error.', { class: 'tm-toast-error' });
     WebApp.HapticFeedback.notificationOccurred('error');
   },
+  showWarningToast(text) {
+    Main.showToast(text || 'Warning.', { class: 'tm-toast-warning' });
+    WebApp.HapticFeedback.notificationOccurred('warning');
+  },
   showSuccessToast(text) {
     Main.showToast(text || 'Success.', { class: 'tm-toast-success' });
     WebApp.HapticFeedback.notificationOccurred('success');
@@ -2709,7 +2713,7 @@ var BotMigration = {
     for (var i = 0; i < Aj.state.migrationSteps.length; i++) {
       var stepInfo = Aj.state.migrationSteps[i];
       for (var j = 0; j < stepInfo.changeIds.length; j++) {
-        if (!BotMigration.appliedIds[stepInfo.changeIds[j]] && !BotMigration.skippedIds[stepInfo.changeIds[j]]) {
+        if (!BotMigration.appliedIds[stepInfo.changeIds[j]]) {
           skippedCount++;
         }
       }
@@ -2717,7 +2721,7 @@ var BotMigration = {
     var dbUrl = '/botfather/bot/' + Aj.state.botId + '/serverless/database';
     Aj.onUnload(function() {
       if (skippedCount > 0) {
-        Main.showErrorToast(l('WEB_MIGRATION_INCOMPLETED'));
+        Main.showWarningToast(l('WEB_MIGRATION_INCOMPLETED'));
       } else {
         Main.showSuccessToast(l('WEB_MIGRATION_COMPLETED'));
       }
