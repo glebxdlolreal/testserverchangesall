@@ -2523,6 +2523,15 @@ var BotMigration = {
   errorText: '',
 
   init() {
+    WebApp.MainButton.onClick(BotMigration.onMainButton);
+    WebApp.SecondaryButton.onClick(BotMigration.onSkip);
+    Aj.onUnload(function() {
+      WebApp.MainButton.hide();
+      WebApp.MainButton.offClick(BotMigration.onMainButton);
+      WebApp.SecondaryButton.hide();
+      WebApp.SecondaryButton.offClick(BotMigration.onSkip);
+    });
+
     Aj.apiRequest('diffCloudDatabase', { bid: Aj.state.botId }, function(res) {
       if (res.ok) {
         BotMigration.dbChanges = res.db_changes || [];
@@ -2585,17 +2594,80 @@ var BotMigration = {
       html = BotMigration.renderFinal();
     }
     $content.html(html);
-    BotMigration.bindEvents();
-    WebApp.MainButton.hide();
+    BotMigration.updateButtons();
+  },
+
+  updateButtons() {
+    WebApp.MainButton.hideProgress();
+
+    if (BotMigration.currentStep < 0) {
+      WebApp.MainButton.hide();
+      WebApp.SecondaryButton.hide();
+      return;
+    }
+
+    if (BotMigration.currentStep == 0) {
+      WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_START')));
+      WebApp.MainButton.show();
+      WebApp.SecondaryButton.hide();
+      return;
+    }
+
+    if (BotMigration.currentStep <= BotMigration.steps.length) {
+      var step = BotMigration.steps[BotMigration.currentStep - 1];
+      if (step.type == 'safe') {
+        if (BotMigration.errorText) {
+          WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_RETRY')));
+        } else {
+          WebApp.MainButton.setText(l('WEB_MIGRATION_APPLY_CHANGES').replace('{count}', step.changes.length));
+        }
+        WebApp.MainButton.show();
+        WebApp.SecondaryButton.setText(uncleanHTML(l('WEB_MIGRATION_SKIP')));
+        WebApp.SecondaryButton.setParams({ position: 'left' });
+        WebApp.SecondaryButton.show();
+      } else if (step.type == 'warning') {
+        if (BotMigration.errorText) {
+          WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_RETRY')));
+        } else {
+          WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_APPLY')));
+        }
+        WebApp.MainButton.show();
+        WebApp.SecondaryButton.setText(uncleanHTML(l('WEB_MIGRATION_SKIP')));
+        WebApp.SecondaryButton.setParams({ position: 'left' });
+        WebApp.SecondaryButton.show();
+      } else {
+        WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_CONTINUE')));
+        WebApp.MainButton.show();
+        WebApp.SecondaryButton.hide();
+      }
+      return;
+    }
+
+    var skippedCount = 0;
+    for (var i = 0; i < BotMigration.dbChanges.length; i++) {
+      var c = BotMigration.dbChanges[i];
+      var id = c.changeId;
+      if (!BotMigration.appliedIds[id] && BotMigration.skippedIds[id]) { skippedCount++; }
+      else if (!BotMigration.appliedIds[id] && !BotMigration.skippedIds[id]) { skippedCount++; }
+    }
+    if (skippedCount > 0) {
+      WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_RESUME')));
+    } else {
+      WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_DONE')));
+    }
+    WebApp.MainButton.show();
+    WebApp.SecondaryButton.hide();
   },
 
   renderIntro() {
     var total = BotMigration.dbChanges.length;
-    var title = l('WEB_MIGRATION_INTRO_TITLE').replace('{count}', total);
+    var title = l('WEB_MIGRATION_INTRO_TITLE');
+    var subtitle = l('WEB_MIGRATION_INTRO_SUBTITLE').replace('{count}', total);
     var desc = uncleanHTML(l('WEB_MIGRATION_INTRO_DESC'));
     var html = '<div class="tm-section">';
     html += '<div class="tm-section-header"><h2 class="tm-section-header-text">' + title + '</h2></div>';
-    html += '<p class="tm-section-desc">' + desc + '</p>';
+    html += '<p class="tm-row-description">' + subtitle + '</p>';
+    html += '<p class="help-text">' + desc + '</p>';
     html += '<div class="tm-migration-brief">';
     for (var i = 0; i < BotMigration.dbChanges.length; i++) {
       var c = BotMigration.dbChanges[i];
@@ -2607,9 +2679,6 @@ var BotMigration = {
       html += '</div>';
     }
     html += '</div></div>';
-    html += '<div class="tm-migration-cta">';
-    html += '<button class="btn btn-primary btn-primary-full" id="migration-start">' + uncleanHTML(l('WEB_MIGRATION_START')) + '</button>';
-    html += '</div>';
     return html;
   },
 
@@ -2649,25 +2718,6 @@ var BotMigration = {
     if (BotMigration.errorText) {
       html += '<div class="tm-section"><div class="tm-migration-comment tm-migration-comment--manual">\u2717 ' + BotMigration.errorText + '</div></div>';
     }
-    html += '<div class="tm-migration-cta">';
-    if (step.type == 'safe') {
-      if (BotMigration.errorText) {
-        html += '<button class="btn btn-primary btn-primary-full" id="migration-apply">' + uncleanHTML(l('WEB_MIGRATION_RETRY')) + '</button>';
-      } else {
-        html += '<button class="btn btn-primary btn-primary-full" id="migration-apply">' + l('WEB_MIGRATION_APPLY_CHANGES').replace('{count}', step.changes.length) + '</button>';
-      }
-      html += '<span class="tm-migration-cta-skip" id="migration-skip">' + uncleanHTML(l('WEB_MIGRATION_SKIP')) + '</span>';
-    } else if (step.type == 'warning') {
-      if (BotMigration.errorText) {
-        html += '<button class="btn btn-primary btn-primary-full" style="background:var(--warning-text-color)" id="migration-apply">' + uncleanHTML(l('WEB_MIGRATION_RETRY')) + '</button>';
-      } else {
-        html += '<button class="btn btn-primary btn-primary-full" style="background:var(--warning-text-color)" id="migration-apply">' + uncleanHTML(l('WEB_MIGRATION_APPLY')) + '</button>';
-      }
-      html += '<span class="tm-migration-cta-skip" id="migration-skip">' + uncleanHTML(l('WEB_MIGRATION_SKIP')) + '</span>';
-    } else if (step.type == 'manual' || step.type == 'undocumented') {
-      html += '<button class="btn btn-primary btn-primary-full" id="migration-continue">' + uncleanHTML(l('WEB_MIGRATION_CONTINUE')) + '</button>';
-    }
-    html += '</div>';
     return html;
   },
 
@@ -2738,19 +2788,11 @@ var BotMigration = {
     html += '<div class="tm-migration-summary-row"><span class="tm-migration-summary-label">' + uncleanHTML(l('WEB_MIGRATION_SUMMARY_MANUAL')) + '</span><span class="tm-migration-summary-value tm-migration-summary-value--' + (manualCount > 0 ? 'danger' : 'neutral') + '">' + manualCount + '</span></div>';
     html += '<div class="tm-migration-summary-row"><span class="tm-migration-summary-label">' + uncleanHTML(l('WEB_MIGRATION_SUMMARY_UNDOCUMENTED')) + '</span><span class="tm-migration-summary-value tm-migration-summary-value--neutral">' + undocumentedCount + '</span></div>';
     html += '</div>';
-    html += '<div class="tm-migration-cta">';
-    if (isIncomplete) {
-      html += '<button class="btn btn-primary btn-primary-full" id="migration-resume">' + uncleanHTML(l('WEB_MIGRATION_RESUME')) + '</button>';
-    } else {
-      html += '<button class="btn btn-primary btn-primary-full" id="migration-done">' + uncleanHTML(l('WEB_MIGRATION_DONE')) + '</button>';
-    }
-    html += '</div>';
     return html;
   },
 
-  bindEvents() {
-    $(document).off('click.migration');
-    $(document).on('click.migration', '#migration-start', function() {
+  onMainButton() {
+    if (BotMigration.currentStep == 0) {
       if (BotMigration.steps.length == 0) {
         BotMigration.currentStep = BotMigration.steps.length + 1;
       } else {
@@ -2758,24 +2800,39 @@ var BotMigration = {
       }
       BotMigration.errorText = '';
       BotMigration.render();
-    });
-    $(document).on('click.migration', '#migration-apply', function() {
-      BotMigration.onApply();
-    });
-    $(document).on('click.migration', '#migration-skip', function() {
-      BotMigration.onSkip();
-    });
-    $(document).on('click.migration', '#migration-continue', function() {
-      BotMigration.currentStep++;
-      BotMigration.errorText = '';
-      BotMigration.render();
-    });
-    $(document).on('click.migration', '#migration-done', function() {
-      Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/database');
-    });
-    $(document).on('click.migration', '#migration-resume', function() {
-      Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/database/migration');
-    });
+    } else if (BotMigration.currentStep <= BotMigration.steps.length) {
+      var step = BotMigration.steps[BotMigration.currentStep - 1];
+      if (step.type == 'manual' || step.type == 'undocumented') {
+        BotMigration.currentStep++;
+        BotMigration.errorText = '';
+        BotMigration.render();
+      } else {
+        BotMigration.onApply();
+      }
+    } else {
+      var skippedCount = 0;
+      for (var i = 0; i < BotMigration.dbChanges.length; i++) {
+        var c = BotMigration.dbChanges[i];
+        var id = c.changeId;
+        if (!BotMigration.appliedIds[id]) { skippedCount++; }
+      }
+      if (skippedCount > 0) {
+        Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/database/migration');
+      } else {
+        Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/database');
+      }
+    }
+  },
+
+  onSkip() {
+    var step = BotMigration.steps[BotMigration.currentStep - 1];
+    if (!step) return;
+    for (var i = 0; i < step.changes.length; i++) {
+      BotMigration.skippedIds[step.changes[i].changeId] = true;
+    }
+    BotMigration.errorText = '';
+    BotMigration.currentStep++;
+    BotMigration.render();
   },
 
   onApply() {
@@ -2785,13 +2842,12 @@ var BotMigration = {
     for (var i = 0; i < step.changes.length; i++) {
       changeIds.push(step.changes[i].changeId);
     }
-    var $btn = $('#migration-apply');
-    $btn.addClass('btn-primary-loading');
+    WebApp.MainButton.showProgress();
     Aj.apiRequest('migrateCloudDatabase', {
       bid: Aj.state.botId,
       apply: changeIds,
     }, function(res) {
-      $btn.removeClass('btn-primary-loading');
+      WebApp.MainButton.hideProgress();
       BotMigration.errorText = '';
       if (res.ok) {
         for (var i = 0; i < step.changes.length; i++) {
@@ -2807,17 +2863,6 @@ var BotMigration = {
         BotMigration.render();
       }
     });
-  },
-
-  onSkip() {
-    var step = BotMigration.steps[BotMigration.currentStep - 1];
-    if (!step) return;
-    for (var i = 0; i < step.changes.length; i++) {
-      BotMigration.skippedIds[step.changes[i].changeId] = true;
-    }
-    BotMigration.errorText = '';
-    BotMigration.currentStep++;
-    BotMigration.render();
   },
 
   escapeHtml(str) {
