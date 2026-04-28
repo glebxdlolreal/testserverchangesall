@@ -2503,11 +2503,11 @@ var BotDatabase = {
       savedLangKey: 'WEB_DATABASE_SAVED',
       saveErrorLangKey: 'WEB_DATABASE_SAVE_ERROR',
       onSaveSuccess: function(res) {
-        if (res.ok) {
-          Main.showSuccessToast(l('WEB_DATABASE_SAVED'));
-          $('#js-database-status').html(res.status);
-        } else {
+        if (res.error) {
           Main.showErrorToast(res.error || l('WEB_DATABASE_SAVE_ERROR'));
+        } else {
+          Main.showSuccessToast(l('WEB_DATABASE_SAVED'));
+          $('#js-database-status').html(res.status_html);
         }
       },
     });
