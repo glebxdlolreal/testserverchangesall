@@ -2515,14 +2515,15 @@ var BotDatabase = {
 };
 
 var BotMigration = {
-  dbChanges: [],
-  steps: [],
-  currentStep: -1,
+  currentStep: 0,
+  totalSteps: 0,
   appliedIds: {},
   skippedIds: {},
-  errorText: '',
 
   init() {
+    BotMigration.totalSteps = Aj.state.migrationSteps ? Aj.state.migrationSteps.length : 0;
+    BotMigration.currentStep = 0;
+
     WebApp.MainButton.onClick(BotMigration.onMainButton);
     WebApp.SecondaryButton.onClick(BotMigration.onSkip);
     Aj.onUnload(function() {
@@ -2532,79 +2533,16 @@ var BotMigration = {
       WebApp.SecondaryButton.offClick(BotMigration.onSkip);
     });
 
-    Aj.apiRequest('diffCloudDatabase', { bid: Aj.state.botId }, function(res) {
-      if (res.ok) {
-        BotMigration.dbChanges = res.db_changes || [];
-        BotMigration.steps = BotMigration.buildSteps(BotMigration.dbChanges);
-        BotMigration.currentStep = 0;
-        BotMigration.render();
-      } else {
-        Main.showErrorToast(res.error || 'Failed to load migration data');
-      }
-    });
-  },
-
-  buildSteps(changes) {
-    var steps = [];
-    var safe = [];
-    var warnings = [];
-    var manual = [];
-    var undocumented = [];
-    for (var i = 0; i < changes.length; i++) {
-      var c = changes[i];
-      if (c.category == 'safe') safe.push(c);
-      else if (c.category == 'warning') warnings.push(c);
-      else if (c.category == 'manual') manual.push(c);
-      else if (c.category == 'undocumented') undocumented.push(c);
-    }
-    if (safe.length) steps.push({ type: 'safe', changes: safe });
-    for (var w = 0; w < warnings.length; w++) {
-      steps.push({ type: 'warning', changes: [warnings[w]] });
-    }
-    if (manual.length) steps.push({ type: 'manual', changes: manual });
-    if (undocumented.length) steps.push({ type: 'undocumented', changes: undocumented });
-    return steps;
-  },
-
-  markerChar(category) {
-    if (category == 'safe') return '+';
-    if (category == 'warning') return '!';
-    if (category == 'manual') return '\u2717';
-    if (category == 'undocumented') return '?';
-    return '';
-  },
-
-  progressColor(category) {
-    if (category == 'safe') return 'safe';
-    if (category == 'warning') return 'warning';
-    if (category == 'manual') return 'manual';
-    if (category == 'undocumented') return 'undocumented';
-    return 'safe';
-  },
-
-  render() {
-    var $content = $('#migration-content');
-    if (!$content.length) return;
-    var html = '';
-    if (BotMigration.currentStep == 0) {
-      html = BotMigration.renderIntro();
-    } else if (BotMigration.currentStep <= BotMigration.steps.length) {
-      html = BotMigration.renderStep(BotMigration.steps[BotMigration.currentStep - 1]);
-    } else {
-      html = BotMigration.renderFinal();
-    }
-    $content.html(html);
     BotMigration.updateButtons();
+  },
+
+  showScreen(screenId) {
+    $('.migration-screen').hide();
+    $('#' + screenId).show();
   },
 
   updateButtons() {
     WebApp.MainButton.hideProgress();
-
-    if (BotMigration.currentStep < 0) {
-      WebApp.MainButton.hide();
-      WebApp.SecondaryButton.hide();
-      return;
-    }
 
     if (BotMigration.currentStep == 0) {
       WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_START')));
@@ -2613,24 +2551,16 @@ var BotMigration = {
       return;
     }
 
-    if (BotMigration.currentStep <= BotMigration.steps.length) {
-      var step = BotMigration.steps[BotMigration.currentStep - 1];
-      if (step.type == 'safe') {
-        if (BotMigration.errorText) {
-          WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_RETRY')));
-        } else {
-          WebApp.MainButton.setText(l('WEB_MIGRATION_APPLY_CHANGES').replace('{count}', step.changes.length));
-        }
+    if (BotMigration.currentStep <= BotMigration.totalSteps) {
+      var stepInfo = Aj.state.migrationSteps[BotMigration.currentStep - 1];
+      if (stepInfo.type == 'safe') {
+        WebApp.MainButton.setText(l('WEB_MIGRATION_APPLY_CHANGES').replace('{count}', stepInfo.changeIds.length));
         WebApp.MainButton.show();
         WebApp.SecondaryButton.setText(uncleanHTML(l('WEB_MIGRATION_SKIP')));
         WebApp.SecondaryButton.setParams({ position: 'left' });
         WebApp.SecondaryButton.show();
-      } else if (step.type == 'warning') {
-        if (BotMigration.errorText) {
-          WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_RETRY')));
-        } else {
-          WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_APPLY')));
-        }
+      } else if (stepInfo.type == 'warning') {
+        WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_APPLY')));
         WebApp.MainButton.show();
         WebApp.SecondaryButton.setText(uncleanHTML(l('WEB_MIGRATION_SKIP')));
         WebApp.SecondaryButton.setParams({ position: 'left' });
@@ -2643,232 +2573,141 @@ var BotMigration = {
       return;
     }
 
-    var skippedCount = 0;
-    for (var i = 0; i < BotMigration.dbChanges.length; i++) {
-      var c = BotMigration.dbChanges[i];
-      var id = c.changeId;
-      if (!BotMigration.appliedIds[id] && BotMigration.skippedIds[id]) { skippedCount++; }
-      else if (!BotMigration.appliedIds[id] && !BotMigration.skippedIds[id]) { skippedCount++; }
-    }
-    if (skippedCount > 0) {
-      WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_RESUME')));
-    } else {
-      WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_DONE')));
-    }
     WebApp.MainButton.show();
     WebApp.SecondaryButton.hide();
   },
 
-  renderIntro() {
-    var total = BotMigration.dbChanges.length;
-    var title = l('WEB_MIGRATION_INTRO_TITLE');
-    var subtitle = l('WEB_MIGRATION_INTRO_SUBTITLE').replace('{count}', total);
-    var desc = uncleanHTML(l('WEB_MIGRATION_INTRO_DESC'));
-    var html = '<div class="tm-section">';
-    html += '<div class="tm-section-header"><h2 class="tm-section-header-text">' + title + '</h2></div>';
-    html += '<p class="tm-row-description">' + subtitle + '</p>';
-    html += '<p class="help-text">' + desc + '</p>';
-    html += '<div class="tm-migration-brief">';
-    for (var i = 0; i < BotMigration.dbChanges.length; i++) {
-      var c = BotMigration.dbChanges[i];
-      var marker = BotMigration.markerChar(c.category);
-      html += '<div class="tm-migration-brief-item">';
-      html += '<span class="tm-migration-brief-marker tm-migration-brief-marker--' + c.category + '">' + marker + '</span>';
-      html += '<span class="tm-migration-brief-target">' + BotMigration.escapeHtml(c.target) + '</span>';
-      html += '<span class="tm-migration-brief-action">' + BotMigration.escapeHtml(c.actionLabel) + '</span>';
-      html += '</div>';
-    }
-    html += '</div></div>';
-    return html;
-  },
-
-  renderStep(step) {
-    var stepIndex = BotMigration.currentStep;
-    var totalSteps = BotMigration.steps.length;
-    var progressPct = (stepIndex / totalSteps * 100);
-    var progressColor = BotMigration.progressColor(step.type);
-    var stepLabel = l('WEB_MIGRATION_STEP').replace('{current}', stepIndex).replace('{total}', totalSteps);
-    var html = '<div class="tm-migration-step-counter">' + stepLabel + '</div>';
-    html += '<div class="tm-migration-progress"><div class="tm-migration-progress-bar tm-migration-progress-bar--' + progressColor + '" style="width:' + progressPct + '%"></div></div>';
-    html += '<div class="tm-section">';
-    if (step.type == 'safe') {
-      for (var i = 0; i < step.changes.length; i++) {
-        html += BotMigration.renderChangeCard(step.changes[i], 'add');
-      }
-    } else if (step.type == 'warning') {
-      for (var i = 0; i < step.changes.length; i++) {
-        html += BotMigration.renderChangeCard(step.changes[i], 'remove');
-      }
-    } else if (step.type == 'manual') {
-      for (var i = 0; i < step.changes.length; i++) {
-        html += BotMigration.renderChangeCard(step.changes[i], 'diff');
-      }
-      var count = step.changes.length;
-      var warningText = l('WEB_MIGRATION_MANUAL_WARNING').replace('{count}', count);
-      html += '<div class="tm-migration-comment tm-migration-comment--manual">\u26A0 ' + warningText + '</div>';
-    } else if (step.type == 'undocumented') {
-      for (var i = 0; i < step.changes.length; i++) {
-        html += BotMigration.renderChangeCard(step.changes[i], 'context');
-      }
-      var count = step.changes.length;
-      var warningText = l('WEB_MIGRATION_UNDOCUMENTED_WARNING').replace('{count}', count);
-      html += '<div class="tm-migration-comment tm-migration-comment--undocumented">\u26A0 ' + warningText + '</div>';
-    }
-    html += '</div>';
-    if (BotMigration.errorText) {
-      html += '<div class="tm-section"><div class="tm-migration-comment tm-migration-comment--manual">\u2717 ' + BotMigration.errorText + '</div></div>';
-    }
-    return html;
-  },
-
-  renderChangeCard(change, sqlStyle) {
-    var html = '<div class="tm-change-card">';
-    html += '<div class="tm-change-card-header">';
-    html += '<span class="tm-change-card-target">' + BotMigration.escapeHtml(change.target) + '</span>';
-    html += '<span class="tm-change-card-action">' + BotMigration.escapeHtml(change.actionLabel) + '</span>';
-    html += '</div>';
-    if (sqlStyle == 'add') {
-      html += '<div class="tm-change-card-sql tm-change-card-sql--add">' + BotMigration.escapeHtml(change.sql || '') + '</div>';
-    } else if (sqlStyle == 'remove') {
-      html += '<div class="tm-change-card-sql tm-change-card-sql--remove">' + BotMigration.escapeHtml(change.sql || '') + '</div>';
-    } else if (sqlStyle == 'diff') {
-      if (change.diff) {
-        if (change.diff.current) {
-          html += '<div class="tm-change-card-sql tm-change-card-sql--current">- ' + BotMigration.escapeHtml(change.diff.current) + '</div>';
-        }
-        if (change.diff.expected) {
-          html += '<div class="tm-change-card-sql tm-change-card-sql--expected">+ ' + BotMigration.escapeHtml(change.diff.expected) + '</div>';
-        }
-      }
-    } else if (sqlStyle == 'context') {
-      var existingText = change.existing_schema || (change.diff && change.diff.current) || '';
-      if (existingText) {
-        html += '<div class="tm-change-card-sql tm-change-card-sql--context">  ' + BotMigration.escapeHtml(existingText) + '</div>';
-      }
-    }
-    if (change.warning) {
-      html += '<div class="tm-change-card-warning">\u26A0 ' + BotMigration.escapeHtml(change.warning) + '</div>';
-    }
-    if (change.row_count !== undefined && change.row_count !== null) {
-      html += '<div class="tm-change-card-stats">' + change.row_count + ' rows</div>';
-    }
-    html += '</div>';
-    return html;
-  },
-
-  renderFinal() {
-    var appliedCount = 0;
-    var skippedCount = 0;
-    var manualCount = 0;
-    var undocumentedCount = 0;
-    for (var i = 0; i < BotMigration.dbChanges.length; i++) {
-      var c = BotMigration.dbChanges[i];
-      var id = c.changeId;
-      if (BotMigration.appliedIds[id]) { appliedCount++; }
-      else if (BotMigration.skippedIds[id]) { skippedCount++; }
-      else if (c.category == 'manual') { manualCount++; }
-      else if (c.category == 'undocumented') { undocumentedCount++; }
-      else { skippedCount++; }
-    }
-    var isIncomplete = skippedCount > 0;
-    var html = '<div class="tm-migration-hero">';
-    if (isIncomplete) {
-      html += '<div class="tm-migration-hero-badge tm-migration-hero-badge--incomplete">\u23F8</div>';
-      html += '<div class="tm-migration-hero-title">' + uncleanHTML(l('WEB_MIGRATION_INCOMPLETE')) + '</div>';
-      html += '<div class="tm-migration-hero-desc">' + uncleanHTML(l('WEB_MIGRATION_INCOMPLETE_DESC')) + '</div>';
-    } else {
-      html += '<div class="tm-migration-hero-badge tm-migration-hero-badge--complete">\u2713</div>';
-      html += '<div class="tm-migration-hero-title">' + uncleanHTML(l('WEB_MIGRATION_COMPLETE')) + '</div>';
-      html += '<div class="tm-migration-hero-desc">' + uncleanHTML(l('WEB_MIGRATION_COMPLETE_DESC')) + '</div>';
-    }
-    html += '</div>';
-    html += '<div class="tm-migration-summary">';
-    html += '<div class="tm-migration-summary-row"><span class="tm-migration-summary-label">' + uncleanHTML(l('WEB_MIGRATION_SUMMARY_APPLIED')) + '</span><span class="tm-migration-summary-value tm-migration-summary-value--' + (appliedCount > 0 ? 'good' : 'neutral') + '">' + appliedCount + '</span></div>';
-    html += '<div class="tm-migration-summary-row"><span class="tm-migration-summary-label">' + uncleanHTML(l('WEB_MIGRATION_SUMMARY_SKIPPED')) + '</span><span class="tm-migration-summary-value tm-migration-summary-value--neutral">' + skippedCount + '</span></div>';
-    html += '<div class="tm-migration-summary-row"><span class="tm-migration-summary-label">' + uncleanHTML(l('WEB_MIGRATION_SUMMARY_MANUAL')) + '</span><span class="tm-migration-summary-value tm-migration-summary-value--' + (manualCount > 0 ? 'danger' : 'neutral') + '">' + manualCount + '</span></div>';
-    html += '<div class="tm-migration-summary-row"><span class="tm-migration-summary-label">' + uncleanHTML(l('WEB_MIGRATION_SUMMARY_UNDOCUMENTED')) + '</span><span class="tm-migration-summary-value tm-migration-summary-value--neutral">' + undocumentedCount + '</span></div>';
-    html += '</div>';
-    return html;
-  },
-
   onMainButton() {
     if (BotMigration.currentStep == 0) {
-      if (BotMigration.steps.length == 0) {
-        BotMigration.currentStep = BotMigration.steps.length + 1;
+      if (BotMigration.totalSteps == 0) {
+        BotMigration.showFinal();
       } else {
         BotMigration.currentStep = 1;
+        BotMigration.showScreen('migration-step-1');
+        BotMigration.updateButtons();
       }
-      BotMigration.errorText = '';
-      BotMigration.render();
-    } else if (BotMigration.currentStep <= BotMigration.steps.length) {
-      var step = BotMigration.steps[BotMigration.currentStep - 1];
-      if (step.type == 'manual' || step.type == 'undocumented') {
-        BotMigration.currentStep++;
-        BotMigration.errorText = '';
-        BotMigration.render();
+    } else if (BotMigration.currentStep <= BotMigration.totalSteps) {
+      var stepInfo = Aj.state.migrationSteps[BotMigration.currentStep - 1];
+      if (stepInfo.type == 'manual' || stepInfo.type == 'undocumented') {
+        BotMigration.hideStepError();
+        BotMigration.advanceStep();
       } else {
         BotMigration.onApply();
       }
     } else {
-      var skippedCount = 0;
-      for (var i = 0; i < BotMigration.dbChanges.length; i++) {
-        var c = BotMigration.dbChanges[i];
-        var id = c.changeId;
-        if (!BotMigration.appliedIds[id]) { skippedCount++; }
+      var allApplied = true;
+      for (var i = 0; i < Aj.state.migrationSteps.length; i++) {
+        var si = Aj.state.migrationSteps[i];
+        for (var j = 0; j < si.changeIds.length; j++) {
+          if (!BotMigration.appliedIds[si.changeIds[j]]) { allApplied = false; }
+        }
       }
-      if (skippedCount > 0) {
-        Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/database/migration');
-      } else {
+      if (allApplied) {
         Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/database');
+      } else {
+        Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/database/migration');
       }
     }
   },
 
   onSkip() {
-    var step = BotMigration.steps[BotMigration.currentStep - 1];
-    if (!step) return;
-    for (var i = 0; i < step.changes.length; i++) {
-      BotMigration.skippedIds[step.changes[i].changeId] = true;
+    var stepInfo = Aj.state.migrationSteps[BotMigration.currentStep - 1];
+    if (!stepInfo) return;
+    for (var i = 0; i < stepInfo.changeIds.length; i++) {
+      BotMigration.skippedIds[stepInfo.changeIds[i]] = true;
     }
-    BotMigration.errorText = '';
-    BotMigration.currentStep++;
-    BotMigration.render();
+    BotMigration.hideStepError();
+    BotMigration.advanceStep();
   },
 
   onApply() {
-    var step = BotMigration.steps[BotMigration.currentStep - 1];
-    if (!step) return;
-    var changeIds = [];
-    for (var i = 0; i < step.changes.length; i++) {
-      changeIds.push(step.changes[i].changeId);
-    }
+    var stepInfo = Aj.state.migrationSteps[BotMigration.currentStep - 1];
+    if (!stepInfo) return;
     WebApp.MainButton.showProgress();
     Aj.apiRequest('migrateCloudDatabase', {
       bid: Aj.state.botId,
-      apply: changeIds,
+      apply: stepInfo.changeIds,
     }, function(res) {
       WebApp.MainButton.hideProgress();
-      BotMigration.errorText = '';
       if (res.ok) {
-        for (var i = 0; i < step.changes.length; i++) {
-          BotMigration.appliedIds[step.changes[i].changeId] = true;
+        for (var i = 0; i < stepInfo.changeIds.length; i++) {
+          BotMigration.appliedIds[stepInfo.changeIds[i]] = true;
         }
-        if (res.db_changes) {
-          BotMigration.dbChanges = res.db_changes;
-        }
-        BotMigration.currentStep++;
-        BotMigration.render();
+        BotMigration.hideStepError();
+        BotMigration.advanceStep();
       } else {
-        BotMigration.errorText = l('WEB_MIGRATION_APPLY_ERROR').replace('{error}', res.error || 'Unknown error');
-        BotMigration.render();
+        BotMigration.showStepError(res.error || 'Unknown error');
+        WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_RETRY')));
+        WebApp.SecondaryButton.setText(uncleanHTML(l('WEB_MIGRATION_SKIP')));
+        WebApp.SecondaryButton.setParams({ position: 'left' });
+        WebApp.SecondaryButton.show();
       }
     });
   },
 
-  escapeHtml(str) {
-    var div = document.createElement('div');
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
+  advanceStep() {
+    BotMigration.currentStep++;
+    if (BotMigration.currentStep <= BotMigration.totalSteps) {
+      BotMigration.showScreen('migration-step-' + BotMigration.currentStep);
+      BotMigration.updateButtons();
+    } else {
+      BotMigration.showFinal();
+    }
+  },
+
+  showFinal() {
+    $('.migration-screen').hide();
+    $('#migration-final').show();
+
+    var appliedCount = 0;
+    var skippedCount = 0;
+    var manualCount = 0;
+    var undocumentedCount = 0;
+    for (var i = 0; i < Aj.state.migrationSteps.length; i++) {
+      var stepInfo = Aj.state.migrationSteps[i];
+      for (var j = 0; j < stepInfo.changeIds.length; j++) {
+        var id = stepInfo.changeIds[j];
+        if (BotMigration.appliedIds[id]) { appliedCount++; }
+        else if (BotMigration.skippedIds[id]) { skippedCount++; }
+        else if (stepInfo.type == 'manual') { manualCount++; }
+        else if (stepInfo.type == 'undocumented') { undocumentedCount++; }
+        else { skippedCount++; }
+      }
+    }
+
+    if (skippedCount > 0) {
+      $('#migration-final-incomplete').show();
+      $('#migration-final-complete').hide();
+      WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_RESUME')));
+    } else {
+      $('#migration-final-complete').show();
+      $('#migration-final-incomplete').hide();
+      WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_DONE')));
+    }
+
+    $('#migration-summary-applied').text(appliedCount)
+      .removeClass('tm-migration-summary-value--neutral tm-migration-summary-value--good')
+      .addClass(appliedCount > 0 ? 'tm-migration-summary-value--good' : 'tm-migration-summary-value--neutral');
+    $('#migration-summary-skipped').text(skippedCount);
+    $('#migration-summary-manual').text(manualCount)
+      .removeClass('tm-migration-summary-value--neutral tm-migration-summary-value--danger')
+      .addClass(manualCount > 0 ? 'tm-migration-summary-value--danger' : 'tm-migration-summary-value--neutral');
+    $('#migration-summary-undocumented').text(undocumentedCount);
+
+    WebApp.MainButton.show();
+    WebApp.SecondaryButton.hide();
+  },
+
+  showStepError(error) {
+    var stepNum = BotMigration.currentStep;
+    var errorText = uncleanHTML(l('WEB_MIGRATION_APPLY_ERROR')).replace('{error}', error);
+    $('#migration-step-' + stepNum + '-error-text').text(errorText);
+    $('#migration-step-' + stepNum + '-error').show();
+  },
+
+  hideStepError() {
+    var stepNum = BotMigration.currentStep;
+    $('#migration-step-' + stepNum + '-error').hide();
   },
 };
 
