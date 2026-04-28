@@ -2875,7 +2875,12 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 }
 
 
-.tm-section-breadcrumb-chevron {
+.tm-crumb {
+  color: #8794a1;
+  flex-shrink: 0;
+}
+.tm-crumb::after {
+  content: '';
   display: inline-block;
   width: 7px;
   height: 11px;
@@ -2886,16 +2891,11 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   background-position: center;
   vertical-align: middle;
 }
-
-.tm-section-breadcrumb-type {
-  color: #8794a1;
+.tm-crumb-last {
+  color: var(--header-color);
   flex-grow: 1;
   text-overflow: ellipsis;
   overflow: hidden;
-}
-.tm-section-breadcrumb-last {
-  color: #8794a1;
-  flex-shrink: 0;
 }
 
 .tm-functions-page .tm-row-add {
