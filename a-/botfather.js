@@ -2491,6 +2491,10 @@ var BotLibrary = {
     }
 
     if (!isNew) {
+      $(document).on('click.libcopy', '.js-copy-lib-path', function() {
+        navigator.clipboard.writeText(this.dataset.value);
+        Main.showSuccessToast(l('WEB_GENERIC_COPY_SUCCESS'));
+      });
       $(document).on('click.curPage', '.js-editor-delete', function() {
         WebApp.showPopup({
           title: uncleanHTML(l('WEB_LIBRARY_DELETE_CONFIRM_TITLE')),
