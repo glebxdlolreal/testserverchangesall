@@ -3140,7 +3140,6 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 .tm-migration-progress-bar--undocumented { background-color: var(--text-color); }
 
 .tm-change-card-sql {
-  padding: 0 12px 10px;
   font-family: 'Roboto Mono', monospace;
   font-size: 12px;
   line-height: 16px;
@@ -3151,7 +3150,7 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 .tm-change-card-sql--remove { color: var(--danger-text-color); }
 .tm-change-card-sql--current { color: var(--danger-text-color); }
 .tm-change-card-sql--expected { color: var(--good-text-color); }
-.tm-change-card-sql--context { color: var(--text-color); padding-left: 24px; }
+.tm-change-card-sql--context { color: var(--text-color); }
 .tm-change-card-warning {
   padding: 6px 12px 10px;
   font-size: 13px;
