@@ -2563,16 +2563,16 @@ var BotMigration = {
     if (BotMigration.currentStep <= BotMigration.totalSteps) {
       var stepInfo = Aj.state.migrationSteps[BotMigration.currentStep - 1];
       if (stepInfo.type == 'safe') {
-        WebApp.MainButton.setText(l('WEB_MIGRATION_APPLY_CHANGES').replace('{count}', stepInfo.changeIds.length));
+        WebApp.MainButton.setText(l('WEB_MIGRATION_APPLY_CHANGES', {count: stepInfo.changeIds.length}));
         WebApp.MainButton.show();
         WebApp.SecondaryButton.setText(uncleanHTML(l('WEB_MIGRATION_SKIP')));
-        WebApp.SecondaryButton.setParams({ position: 'left' });
+        WebApp.SecondaryButton.setParams({ position: 'bottom' });
         WebApp.SecondaryButton.show();
       } else if (stepInfo.type == 'warning') {
         WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_APPLY')));
         WebApp.MainButton.show();
         WebApp.SecondaryButton.setText(uncleanHTML(l('WEB_MIGRATION_SKIP')));
-        WebApp.SecondaryButton.setParams({ position: 'left' });
+        WebApp.SecondaryButton.setParams({ position: 'bottom' });
         WebApp.SecondaryButton.show();
       } else {
         WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_CONTINUE')));
@@ -2650,7 +2650,7 @@ var BotMigration = {
         BotMigration.showStepError(res.error || 'Unknown error');
         WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_RETRY')));
         WebApp.SecondaryButton.setText(uncleanHTML(l('WEB_MIGRATION_SKIP')));
-        WebApp.SecondaryButton.setParams({ position: 'left' });
+        WebApp.SecondaryButton.setParams({ position: 'bottom' });
         WebApp.SecondaryButton.show();
       }
     });
