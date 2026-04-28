@@ -2771,10 +2771,10 @@ var BotMigration = {
       BotMigration.render();
     });
     $(document).on('click.migration', '#migration-done', function() {
-      location.href = '/botfather/bot/' + Aj.state.botId + '/serverless/database';
+      Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/database');
     });
     $(document).on('click.migration', '#migration-resume', function() {
-      location.href = '/botfather/bot/' + Aj.state.botId + '/serverless/database/migration';
+      Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/database/migration');
     });
   },
 
