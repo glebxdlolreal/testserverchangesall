@@ -2541,6 +2541,15 @@ var BotMigration = {
     $('#' + screenId).show();
   },
 
+  updateProgress() {
+    var stepInfo = Aj.state.migrationSteps[BotMigration.currentStep - 1];
+    var stepLabel = l('WEB_MIGRATION_STEP').replace('{current}', BotMigration.currentStep).replace('{total}', BotMigration.totalSteps);
+    $('#migration-step-label').text(stepLabel);
+    var pct = (BotMigration.currentStep / BotMigration.totalSteps * 100);
+    $('#migration-progress-bar').css('width', pct + '%');
+    $('#migration-progress-bar')[0].className = 'tm-migration-progress-bar tm-migration-progress-bar--' + stepInfo.type;
+  },
+
   updateButtons() {
     WebApp.MainButton.hideProgress();
 
@@ -2583,7 +2592,9 @@ var BotMigration = {
         BotMigration.showFinal();
       } else {
         BotMigration.currentStep = 1;
+        $('#migration-header').show();
         BotMigration.showScreen('migration-step-1');
+        BotMigration.updateProgress();
         BotMigration.updateButtons();
       }
     } else if (BotMigration.currentStep <= BotMigration.totalSteps) {
@@ -2649,6 +2660,7 @@ var BotMigration = {
     BotMigration.currentStep++;
     if (BotMigration.currentStep <= BotMigration.totalSteps) {
       BotMigration.showScreen('migration-step-' + BotMigration.currentStep);
+      BotMigration.updateProgress();
       BotMigration.updateButtons();
     } else {
       BotMigration.showFinal();
@@ -2657,6 +2669,7 @@ var BotMigration = {
 
   showFinal() {
     $('.migration-screen').hide();
+    $('#migration-header').hide();
     $('#migration-final').show();
 
     var appliedCount = 0;

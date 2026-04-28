@@ -3196,20 +3196,6 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   color: var(--text-color);
 }
 
-.tm-migration-brief {
-  background: var(--table-bg-color);
-  border-radius: var(--def-border-radius);
-  margin: 0 16px 12px;
-}
-.tm-migration-brief-item {
-  display: flex;
-  align-items: center;
-  padding: 8px 12px;
-  gap: 8px;
-}
-.tm-migration-brief-item + .tm-migration-brief-item {
-  border-top: 1px solid var(--bg-color);
-}
 .tm-migration-brief-marker {
   font-family: 'Roboto Mono', monospace;
   font-size: 14px;
@@ -3222,20 +3208,6 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 .tm-migration-brief-marker--warning { color: var(--danger-text-color); }
 .tm-migration-brief-marker--manual { color: var(--danger-text-color); }
 .tm-migration-brief-marker--undocumented { color: var(--text-color); }
-.tm-migration-brief-target {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 13px;
-  line-height: 18px;
-  color: var(--value-color);
-  flex: 1;
-  min-width: 0;
-}
-.tm-migration-brief-action {
-  font-size: 12px;
-  line-height: 16px;
-  color: var(--text-color);
-  flex-shrink: 0;
-}
 
 .tm-migration-hero {
   display: flex;
