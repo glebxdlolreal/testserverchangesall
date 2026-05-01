@@ -2600,12 +2600,9 @@ var BotMigration = {
   },
 
   updateProgress() {
-    var stepInfo = Aj.state.migrationSteps[BotMigration.currentStep - 1];
-    var stepLabel = l('WEB_MIGRATION_STEP').replace('{current}', BotMigration.currentStep).replace('{total}', BotMigration.totalSteps);
-    $('#migration-step-label').text(stepLabel);
+    $('#migration-step-label').text(l('WEB_MIGRATION_STEP').replace('{current}', BotMigration.currentStep).replace('{total}', BotMigration.totalSteps));
     var pct = (BotMigration.currentStep / BotMigration.totalSteps * 100);
     $('#migration-progress-bar').css('width', pct + '%');
-    $('#migration-progress-bar')[0].className = 'tm-migration-progress-bar tm-migration-progress-bar--' + stepInfo.type;
   },
 
   updateButtons() {
