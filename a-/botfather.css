@@ -3174,18 +3174,9 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   color: var(--warning-text-color);
 }
 
-.tm-migration-brief-marker {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 14px;
-  font-weight: bold;
-  width: 18px;
-  text-align: center;
-  flex-shrink: 0;
+.tm-console-action {
+  opacity: 0.6;
 }
-.tm-migration-brief-marker--safe { color: var(--good-text-color); }
-.tm-migration-brief-marker--warning { color: var(--danger-text-color); }
-.tm-migration-brief-marker--manual { color: var(--danger-text-color); }
-.tm-migration-brief-marker--undocumented { color: var(--text-color); }
 
 .tm-migration-comment {
   padding: 8px 16px;
