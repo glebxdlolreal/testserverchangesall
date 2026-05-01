@@ -3140,7 +3140,7 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 
 .tm-migration-progress {
   height: 3px;
-  background: var(--field-accent-color);
+  background: #2D3A47;
   border-radius: 2px;
   margin: 0 12px 8px;
   overflow: hidden;
@@ -3159,11 +3159,38 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   white-space: pre-wrap;
   word-break: break-word;
 }
-.tm-change-card-sql--add { color: var(--good-text-color); }
+.tm-change-card-sql--add { color: #C3E88D; }
 .tm-change-card-sql--remove { color: var(--danger-text-color); }
 .tm-change-card-sql--current { color: var(--danger-text-color); }
-.tm-change-card-sql--expected { color: var(--good-text-color); }
+.tm-change-card-sql--expected { color: #C3E88D; }
 .tm-change-card-sql--context { color: var(--text-color); }
+.tm-migration-card {
+  background: var(--table-bg-color);
+  border-radius: var(--def-border-radius);
+}
+.tm-migration-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+}
+.tm-migration-card-target {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  color: #fff;
+}
+.tm-migration-card-action {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 500;
+  color: #5B6875;
+}
+.tm-migration-card-body {
+  padding: 0 12px 10px;
+}
 .tm-change-card-warning {
   padding: 6px 12px 10px;
   font-size: 13px;
