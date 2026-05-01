@@ -2653,6 +2653,14 @@ var BotMigration = {
       if (stepInfo.type == 'manual' || stepInfo.type == 'undocumented') {
         BotMigration.hideStepError();
         BotMigration.advanceStep();
+      } else if (stepInfo.type == 'warning') {
+        var msg = l('WEB_MIGRATION_APPLY_CONFIRM');
+        if (stepInfo.warningText) {
+          msg = stepInfo.warningText + '\n\n' + msg;
+        }
+        showConfirm(msg, function() {
+          BotMigration.onApply();
+        }, l('WEB_MIGRATION_APPLY'));
       } else {
         BotMigration.onApply();
       }
