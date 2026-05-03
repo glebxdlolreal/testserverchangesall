@@ -2929,8 +2929,7 @@ var BotConsole = {
         let prev_t = 0;
         for (var i = 0; i < res.log.length; i++) {
           var entry = res.log[i];
-          var vals  = entry.v || [];
-          var str   = vals.map(x => JSON5.stringify(x)).join(' ');
+          var str   = entry.m || '';
           var delta = entry.t - prev_t;
           prev_t = entry.t;
           BotConsole.addLine(entry._, str, '+' + BotConsole.formatDuration(delta));
