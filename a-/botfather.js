@@ -349,7 +349,6 @@ var BotProfile = {
       }, 
       {
         onSelected(file) {
-          debugger;
           if (!file) return;
           var src = URL.createObjectURL(file);
           bg = src;
@@ -3015,9 +3014,9 @@ var BotConsole = {
     if (type === 'input') return 'in';
     if (type === 'output') return 'out';
     if (type === 'error' || type === 'err') return 'err';
-    if (type === 'warn') return 'warn';
-    if (type === 'info') return 'info';
-    if (type === 'log' || type === 'debug') return 'log';
+    if (type === 'wrn') return 'wrn';
+    if (type === 'inf') return 'inf';
+    if (type === 'log' || type === 'dbg') return 'log';
     return 'in';
   },
 
@@ -3025,10 +3024,10 @@ var BotConsole = {
     if (type === 'input') return '>';
     if (type === 'output') return '<';
     if (type === 'error' || type === 'err') return 'x';
-    if (type === 'warn') return '!';
-    if (type === 'debug') return '·';
-    if (type === 'info') return 'i';
-    if (type === 'log' || type === 'debug') return '';
+    if (type === 'wrn') return '!';
+    if (type === 'dbg') return '·';
+    if (type === 'inf') return 'i';
+    if (type === 'log' || type === 'dbg') return '';
     return '>';
   },
 };
