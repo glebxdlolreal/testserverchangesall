@@ -1274,11 +1274,12 @@ i.emoji {
     vertical-align: baseline;
     cursor: pointer;
 }
-.js-edit-command-list.list-prevent-edit .tm-icon, .js-edit-command-list.list-prevent-edit .tm-row-close {
+.list-prevent-edit .tm-icon, .list-prevent-edit .tm-row-close {
+  /*display: none;*/
   visibility: hidden;
   margin-left: -37px;
 }
-.js-edit-command-list.list-prevent-edit .js-sortable {
+.list-prevent-edit .js-sortable {
   padding: 9px 14px;
   padding-right: 24px;
 }
