@@ -951,7 +951,7 @@ var BotSettings = {
     var field2Placeholder = platform == 'android' ? l('WEB_NATIVE_APP_SHA256_FINGERPRINT') : l('WEB_NATIVE_APP_BUNDLE_ID');
 
     var html = `<div class="tm-native-app-entry js-native-app-entry" data-platform="${platform}">
-      <div class="tm-row tm-row-no-highlight" style="gap: 8px; padding: 8px 16px;">
+      <div class="tm-row" style="gap: 8px; padding: 8px 16px;">
         <span class="tm-native-app-chip ${platformClass}">${platformLabel}<span class="js-delete-native-app"></span></span>
       </div>
       <div class="tm-field" style="margin-bottom: 1px;">
@@ -960,7 +960,7 @@ var BotSettings = {
       <div class="tm-field" style="margin-bottom: 1px;">
         <input type="text" class="form-control tm-input js-native-app-field2" value="" placeholder="${field2Placeholder}" autocomplete="off" spellcheck="false" />
       </div>
-      <div class="tm-row tm-row-no-highlight js-native-app-url-row" style="align-items: stretch; flex-direction: column; display:none;">
+      <div class="tm-row js-native-app-url-row" style="align-items: stretch; flex-direction: column; display:none;">
         <span class="tm-table-header">${l('WEB_NATIVE_APP_URL')}</span>
         <div class="tm-api-token tm-api-token-client-secret">
           <span class="js-native-app-url-value" style="flex-grow: 1; word-break: break-all;"></span>

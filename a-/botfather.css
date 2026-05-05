@@ -986,7 +986,7 @@ i.icon {
   margin-bottom: 1px;
   position: relative;
   gap: 8px;
-  cursor: pointer;
+  cursor: default;
   min-height: 42px;
   align-items: center;
 }
@@ -995,12 +995,22 @@ i.icon {
   min-width: 0;
 }
 
-.tm-row:not(.tm-row-no-highlight,.tm-field):hover {
-  background: var(--table-bg-hover-color);
+a.tm-row,
+.tm-row.tm-row-action,
+.tm-row.tm-row-toggle,
+.tm-row.tm-row-checkbox,
+.tm-row.tm-row-add,
+.tm-row.dropdown-toggle {
+  cursor: pointer;
 }
 
-.tm-row.tm-row-no-highlight {
-  cursor: default;
+a.tm-row:hover,
+.tm-row.tm-row-action:hover,
+.tm-row.tm-row-toggle:hover,
+.tm-row.tm-row-checkbox:hover,
+.tm-row.tm-row-add:hover,
+.tm-row.dropdown-toggle:hover {
+  background: var(--table-bg-hover-color);
 }
 
 .tm-row.tm-field {
