@@ -1054,7 +1054,7 @@ a.tm-row:hover,
 }
 
 .tm-row-value-mono {
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto Mono', ui-monospace, monospace;
   font-weight: 400;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -2956,6 +2956,9 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   border-radius: var(--def-border-radius);
   overflow: hidden;
   background: var(--bg-color);
+  font-family: 'Roboto Mono', ui-monospace, monospace;
+  font-size: 12px;
+  line-height: 16px;
 }
 
 .tm-console-line {
@@ -2987,27 +2990,19 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 .tm-console-gutter {
   border-right: 1px solid var(--bg-color);
   padding: 6px 8px;
-  font-family: 'Roboto Mono', monospace;
-  font-size: 12px;
-  line-height: 16px;
   text-align: right;
   width: 24px;
   user-select: none;
 }
 .tm-console-time {
   flex-shrink: 0;
-  font-family: 'Roboto Mono', monospace;
   font-size: 11px;
-  line-height: 16px;
   align-self: flex-start;
   color: #5B6875;
 }
 .tm-console-body {
   flex: 1 0 0;
   padding: 6px 10px;
-  font-family: 'Roboto Mono', monospace;
-  font-size: 12px;
-  line-height: 16px;
   color: var(--text-color);
   display: flex;
   align-items: center;
@@ -3061,9 +3056,6 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 .tm-console-input-gutter {
   border-right: 1px solid var(--bg-color);
   padding: 6px 8px;
-  font-family: 'Roboto Mono', monospace;
-  font-size: 12px;
-  line-height: 16px;
   text-align: right;
   width: 24px;
   user-select: none;
@@ -3078,7 +3070,6 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 
 .tm-console-input-editor .CodeMirror {
   background: transparent;
-  font-family: 'Roboto Mono', monospace;
   min-height: 16px;
 }
 
@@ -3163,7 +3154,7 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 }
 
 .tm-change-card-sql {
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto Mono', ui-monospace, monospace;
   font-size: 12px;
   line-height: 16px;
   white-space: pre-wrap;
@@ -3177,6 +3168,7 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 .tm-migration-card {
   background: var(--table-bg-color);
   border-radius: var(--def-border-radius);
+  font-family: 'Roboto Mono', ui-monospace, monospace;
   font-size: 12px;
   line-height: 16px;
   font-weight: 500;
@@ -3188,11 +3180,9 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   padding: 10px 12px;
 }
 .tm-migration-card-target {
-  font-family: 'Roboto Mono', monospace;
   color: #fff;
 }
 .tm-migration-card-action {
-  font-family: 'Roboto Mono', monospace;
   font-size: 11px;
   color: #5B6875;
 }
@@ -3208,6 +3198,9 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   border-radius: var(--def-border-radius);
   overflow: hidden;
   background: var(--bg-color);
+  font-family: 'Roboto Mono', ui-monospace, monospace;
+  font-size: 12px;
+  line-height: 16px;
 }
 .tm-migration-line {
   display: flex;
@@ -3217,9 +3210,6 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 .tm-migration-gutter {
   border-right: 1px solid var(--bg-color);
   padding: 6px 8px;
-  font-family: 'Roboto Mono', monospace;
-  font-size: 12px;
-  line-height: 16px;
   text-align: right;
   width: 24px;
   user-select: none;
@@ -3232,9 +3222,6 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 .tm-migration-body {
   flex: 1 0 0;
   padding: 6px 10px;
-  font-family: 'Roboto Mono', monospace;
-  font-size: 12px;
-  line-height: 16px;
   font-weight: 500;
   color: #fff;
   display: flex;
