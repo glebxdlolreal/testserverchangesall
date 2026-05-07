@@ -621,8 +621,12 @@ async function receiveEvent(eventType, eventData) {
     var token = url.searchParams.get('token');
     if (!token) return;
 
-    var authResult = await fetch('/inapp?code=' + token);
-    authResult = await authResult.json();
+    try {
+      var authResult = await fetch('/inapp?code=' + token);
+      authResult = await authResult.json();
+    } catch (e) {
+      return alert('Network error');
+    }
 
     if (!authResult.redirect) {
       alert(authResult.error || 'Unknown error');
@@ -642,8 +646,12 @@ async function inAppAuth(url) {
   if (_inAppRequestPending) return;
   _inAppRequestPending = Date.now();
 
-  var result = await fetch(url);
-  result = (await result.json());
+  try {
+    var result = await fetch(url);
+    result = (await result.json());
+  } catch (e) {
+    return alert('Network error');
+  }
 
   setTimeout(() => {_inAppRequestPending = false}, 600);
   sendEvent('oauth_request', {url: result['url']});
