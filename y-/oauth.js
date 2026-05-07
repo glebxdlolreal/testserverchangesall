@@ -609,6 +609,7 @@ function getQRSrc(url, callback, nested) {
 }
 
 _inapp = false;
+_inAppRequestPending = false;
 async function receiveEvent(eventType, eventData) {
   console.log('[Telegram.WebView] < receiveEvent', eventType);
   if (eventType == 'oauth_supported') {
@@ -636,19 +637,19 @@ function sendEvent(eventType, eventData) {
   }
 }
 
-async function inAppAuth() {
-  if (inAppRequestPending) return;
-  inAppRequestPending = Date.now();
+async function inAppAuth(url) {
+  if (_inAppRequestPending) return;
+  _inAppRequestPending = Date.now();
 
   var query_params = 'scope=' + scopes.join(' ');
   query_params += '&origin=' + encodeURIComponent(location.origin);
   query_params += '&client_id=' + clientId;
   query_params += '&response_type=id_token';
 
-  var result = await fetch(INAPP_URL + '?' + query_params);
+  var result = await fetch(url);
   result = (await result.json());
 
-  setTimeout(() => {inAppRequestPending = false}, 600);
+  setTimeout(() => {_inAppRequestPending = false}, 600);
   sendEvent('oauth_request', {url: result['url']});
   return;
 }
