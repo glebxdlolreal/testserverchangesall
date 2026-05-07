@@ -636,7 +636,7 @@ function sendEvent(eventType, eventData) {
   }
 }
 
-function inAppAuth() {
+async function inAppAuth() {
   if (inAppRequestPending) return;
   inAppRequestPending = Date.now();
 
