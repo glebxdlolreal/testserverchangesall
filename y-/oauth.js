@@ -621,12 +621,14 @@ async function receiveEvent(eventType, eventData) {
     var token = url.searchParams.get('token');
     if (!token) return;
 
-    var user_data = await fetch('/inapp?code=' + token);
-    user_data = await user_data.json();
+    var authResult = await fetch('/inapp?code=' + token);
+    authResult = await authResult.json();
 
-    alert(JSON.stringify(user_data))
+    if (!authResult.redirect) {
+      alert(authResult.error || 'Unknown error');
+    }
 
-    window.location = user_data.redirect;
+    window.location = authResult.redirect;
   }
 }
 
@@ -638,7 +640,7 @@ function sendEvent(eventType, eventData) {
 
 async function inAppAuth(url) {
   if (_inAppRequestPending) return;
-  _inAppRequestPending = Date.now();3
+  _inAppRequestPending = Date.now();
 
   var result = await fetch(url);
   result = (await result.json());
