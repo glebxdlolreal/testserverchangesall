@@ -624,10 +624,9 @@ async function receiveEvent(eventType, eventData) {
     var user_data = await fetch('/inapp?code=' + token);
     user_data = await user_data.json();
 
-    if (TelegramLogin._fireCallbacks) {
+    alert(JSON.stringify(user_data))
 
-      TelegramLogin._fireCallbacks(buildResult(user_data));
-    }
+    window.location = user_data.redirect;
   }
 }
 
@@ -639,12 +638,7 @@ function sendEvent(eventType, eventData) {
 
 async function inAppAuth(url) {
   if (_inAppRequestPending) return;
-  _inAppRequestPending = Date.now();
-
-  var query_params = 'scope=' + scopes.join(' ');
-  query_params += '&origin=' + encodeURIComponent(location.origin);
-  query_params += '&client_id=' + clientId;
-  query_params += '&response_type=id_token';
+  _inAppRequestPending = Date.now();3
 
   var result = await fetch(url);
   result = (await result.json());
