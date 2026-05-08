@@ -607,3 +607,66 @@ function getQRSrc(url, callback, nested) {
     callback(qr_url);
   });
 }
+
+_inapp = false;
+_inAppRequestPending = false;
+async function receiveEvent(eventType, eventData) {
+  console.log('[Telegram.WebView] < receiveEvent', eventType);
+  if (eventType == 'oauth_supported') {
+    _inapp = true;
+  }
+  if (eventType == 'oauth_result_confirmed') {
+    if (!eventData?.result_url) return;
+    var url = new URL(eventData.result_url);
+    var token = url.searchParams.get('token');
+    if (!token) return;
+
+    try {
+      var authResult = await fetch('/inapp?code=' + token);
+      authResult = await authResult.json();
+    } catch (e) {
+      return alert('Network error');
+    }
+
+    if (!authResult.redirect) {
+      alert(authResult.error || 'Unknown error');
+    }
+
+    window.location = authResult.redirect;
+  }
+}
+
+function sendEvent(eventType, eventData) {
+  if (window.TelegramWebviewProxy !== undefined) {
+    TelegramWebviewProxy.postEvent(eventType, JSON.stringify(eventData));
+  }
+}
+
+async function inAppAuth(url) {
+  if (_inAppRequestPending) return;
+  _inAppRequestPending = Date.now();
+
+  try {
+    var result = await fetch(url);
+    result = (await result.json());
+  } catch (e) {
+    return alert('Network error');
+  }
+
+  setTimeout(() => {_inAppRequestPending = false}, 600);
+  sendEvent('oauth_request', {url: result['url']});
+  return;
+}
+
+function initProxy() {
+  if (!window.TelegramWebviewProxy) {
+    _inapp = false;
+    return false;
+  }
+  window.Telegram = {};
+  window.Telegram.WebView = {receiveEvent};
+  window.Telegram.TelegramGameProxy = {receiveEvent};
+
+  sendEvent('oauth_request', {});
+}
+initProxy();
