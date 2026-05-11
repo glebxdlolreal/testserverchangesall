@@ -3695,9 +3695,12 @@ var Stars = {
     var recipient = $form.field('recipient').value();
     var quantity  = $form.field('quantity').value();
     var stars     = $form.field('stars').value();
+    var payment_method = $form.field('payment_method').value();
+
     Aj.apiRequest('initBuyStarsRequest', {
       recipient: recipient,
-      quantity: quantity || stars
+      quantity: quantity || stars,
+      payment_method: payment_method
     }, function(result) {
       if (result.error) {
         return showAlert(result.error);
@@ -4145,10 +4148,13 @@ var StarsGiveaway = {
     var recipient = $form.field('recipient').value();
     var quantity  = $form.field('quantity').value();
     var stars     = $form.field('stars').value();
+    var payment_method = $form.field('payment_method').value();
+
     Aj.apiRequest('initGiveawayStarsRequest', {
       recipient: recipient,
       quantity: quantity,
-      stars: stars
+      stars: stars,
+      payment_method: payment_method
     }, function(result) {
       if (result.error) {
         return showAlert(result.error);
