@@ -861,8 +861,10 @@ var Login = {
         return showAlert(result.error);
       }
       if (Login.returnTo) {
+        debugger;
         location.href = Login.returnTo;
       } else {
+        debugger;
         location.reload();
       }
     });

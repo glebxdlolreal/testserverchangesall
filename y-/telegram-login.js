@@ -135,6 +135,7 @@
     TelegramLogin._fireCallbacks = fireCallbacks;
 
     TelegramLogin._messageHandler = function(event) {
+      debugger;
       if (event.origin !== OIDC_ORIGIN) return;
       if (TelegramLogin._popup && event.source !== TelegramLogin._popup) return;
 
