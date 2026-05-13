@@ -81,8 +81,10 @@
       for (var i = 0; i < ra.length; i++) {
         if (ra[i] === 'phone') {
           scope.push('phone');
-        } else if (ra[i] === 'write') {
+        } else if (['write', 'telegram:bot_access'].includes(ra[i])) {
           scope.push('telegram:bot_access');
+        } else if (ra[i] === 'profile' && !scope.includes('profile')) {
+          scope.push('profile');
         }
       }
     }
