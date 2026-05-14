@@ -69,16 +69,22 @@
 
     var redirectUri = location.origin + location.pathname;
     var clientId    = opts.client_id;
-    var scopes = ['openid', 'profile'];
+    var scope = ['openid'];
 
     if (opts.request_access) {
-      var ra = opts.request_access;
-      if (typeof ra === 'string') ra = [ra];
+      var ra = opts.scope;
+      if (!ra) {
+        scope.push('profile');
+        ra = opts.request_access;
+      }
+      if (typeof ra === 'string') ra = ra.split(' ');
       for (var i = 0; i < ra.length; i++) {
         if (ra[i] === 'phone') {
-          scopes.push('phone');
-        } else if (ra[i] === 'write') {
-          scopes.push('telegram:bot_access');
+          scope.push('phone');
+        } else if (['write', 'telegram:bot_access'].includes(ra[i])) {
+          scope.push('telegram:bot_access');
+        } else if (ra[i] === 'profile' && !scope.includes('profile')) {
+          scope.push('profile');
         }
       }
     }
@@ -87,7 +93,7 @@
       + '?response_type=post_message'
       + '&client_id='     + encodeURIComponent(clientId)
       + '&redirect_uri='  + encodeURIComponent(redirectUri)
-      + '&scope='         + encodeURIComponent(scopes.join(' '));
+      + '&scope='         + encodeURIComponent(scope.join(' '));
 
     if (opts.nonce) {
       authUrl += '&nonce=' + opts.nonce;
