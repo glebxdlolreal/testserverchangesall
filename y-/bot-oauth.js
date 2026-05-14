@@ -237,8 +237,11 @@ var MainPage = {
 
       if (Aj.state.request_phone) {
         WebApp.showPopup({
-          title: 'Allow access?',
-          message: `${Aj.state.request_domain} wants to access your phone number +${Aj.state.request_phone}.`,
+          title: l('WEB_FALLBACK_REQUEST_PHONE', 'Allow access?'),
+          message: l('WEB_FALLBACK_REQUEST_PHONE_BODY', {
+            phone: Aj.state.request_phone,
+            domain: Aj.state.request_domain,
+          }),
           buttons: [
             {type: 'default', id: 'ok', text: 'Allow'},
             {type: 'destructive', id: 'deny', text: 'Deny'},
