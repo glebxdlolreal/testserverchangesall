@@ -227,7 +227,7 @@ var MainPage = {
       if (res) {
         if (res.ok) {
           WebApp.HapticFeedback.notificationOccurred('success');
-          // WebApp.close();
+          WebApp.close();
         }
       }
     });
