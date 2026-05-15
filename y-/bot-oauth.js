@@ -230,6 +230,7 @@ var MainPage = {
           if (res.redirect) {
             const webApp = WebApp;
             webApp.openLink(res.redirect);
+            // window.open('https://example.com', '_blank');
           }
           WebApp.close();
         }
