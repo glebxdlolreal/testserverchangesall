@@ -945,7 +945,7 @@ var BotSettings = {
       $('.js-login-alg-value').text(this.text);
       $('li.selected:has(.js-login-alg-item)').toggleClass('selected');
       $(this).parent().toggleClass('selected');
-      botChangeSettings('login_alg', value);
+      botChangeSettings('oauth_alg', value);
     });
   },
 
