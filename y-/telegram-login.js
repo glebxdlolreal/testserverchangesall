@@ -74,7 +74,7 @@
     var ra = opts.scope;
     if (!ra) {
       scope.push('profile');
-      ra = opts.request_access;
+      ra = opts.request_access || '';
     }
     if (typeof ra === 'string') ra = ra.split(' ');
     for (var i = 0; i < ra.length; i++) {
