@@ -223,10 +223,14 @@ var MainPage = {
 
     var sent = false;
 
-    var accept = (allow_phone = false) => Aj.apiRequest('confirm', {tsession: Aj.state.temp_session, accept_allow_phone: allow_phone, accept_allow_write: Aj.state.allowMsg}, res => {
+    var accept = (allow_phone = false) => Aj.apiRequest('confirm', {qtoken: Aj.state.qtoken, accept_allow_phone: allow_phone, accept_allow_write: Aj.state.allowMsg}, res => {
       if (res) {
         if (res.ok) {
           WebApp.HapticFeedback.notificationOccurred('success');
+          if (res.redirect) {
+            const webApp = WebApp;
+            webApp.openLink(res.redirect);
+          }
           WebApp.close();
         }
       }
