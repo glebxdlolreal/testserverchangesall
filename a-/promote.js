@@ -1035,16 +1035,12 @@ var NewAd = {
           if (!Aj.state.autoExcluded) {
             Aj.state.autoExcluded = {};
           }
-          if (!Aj.state.autoExcluded[result.exclude_channel.id]) {
-            var item = {
-              val: result.exclude_channel.id,
-              name: result.exclude_channel.title,
-              photo: result.exclude_channel.photo,
-              _auto: true
-            };
+          if (!Aj.state.autoExcluded[result.exclude_channel.val]) {
+            var item = result.exclude_channel;
+            item._auto = true;
             $excludeField.trigger('selectval', [item, true]);
             $excludeField.data('prevval', '');
-            Aj.state.autoExcluded[result.exclude_channel.id] = true;
+            Aj.state.autoExcluded[result.exclude_channel.val] = true;
           }
         }
       }
