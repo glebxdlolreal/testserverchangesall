@@ -1021,7 +1021,7 @@ var NewAd = {
         var excludeValueFull = $excludeField.data('valueFull');
         var already_excluded = false;
         excludeValueFull && $.each(excludeValueFull, function(val, item) {
-          if (item.val == result.exclude_channel.id) {
+          if (item.val == result.exclude_channel.val) {
             already_excluded = true;
           } else if (item._auto) {
             $excludeField.trigger('deselectval', [val]);
@@ -1375,7 +1375,7 @@ var NewAd = {
             for (var i = 0; i < result.channels.length; i++) {
               var item = result.channels[i];
               html += item.cb_item;
-              channel_items[item.id] = item;
+              channel_items[item.val] = item;
             }
             var has_items = result.channels.length > 0;
             $empty.toggleClass('hide', has_items);
@@ -1470,7 +1470,7 @@ var NewAd = {
             for (var i = 0; i < result.bots.length; i++) {
               var item = result.bots[i];
               html += item.cb_item;
-              bot_items[item.id] = item;
+              bot_items[item.val] = item;
             }
             var has_items = result.bots.length > 0;
             $empty.toggleClass('hide', has_items);
