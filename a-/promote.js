@@ -1139,13 +1139,7 @@ var NewAd = {
         return false;
       }
       if (result.bot) {
-        var item = {
-          val: result.bot.id,
-          name: result.bot.title,
-          photo: result.bot.photo,
-          username: result.bot.username
-        };
-        $fieldEl.trigger('selectval', [item, true]);
+        $fieldEl.trigger('selectval', [result.bot, true]);
         $fieldEl.data('prevval', '');
       }
     });
