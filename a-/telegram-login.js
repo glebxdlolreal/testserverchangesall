@@ -71,21 +71,19 @@
     var clientId    = opts.client_id;
     var scope = ['openid'];
 
-    if (opts.request_access) {
-      var ra = opts.scope;
-      if (!ra) {
+    var ra = opts.scope;
+    if (!ra) {
+      scope.push('profile');
+      ra = opts.request_access || '';
+    }
+    if (typeof ra === 'string') ra = ra.split(' ');
+    for (var i = 0; i < ra.length; i++) {
+      if (ra[i] === 'phone') {
+        scope.push('phone');
+      } else if (['write', 'telegram:bot_access'].includes(ra[i])) {
+        scope.push('telegram:bot_access');
+      } else if (ra[i] === 'profile' && !scope.includes('profile')) {
         scope.push('profile');
-        ra = opts.request_access;
-      }
-      if (typeof ra === 'string') ra = ra.split(' ');
-      for (var i = 0; i < ra.length; i++) {
-        if (ra[i] === 'phone') {
-          scope.push('phone');
-        } else if (['write', 'telegram:bot_access'].includes(ra[i])) {
-          scope.push('telegram:bot_access');
-        } else if (ra[i] === 'profile' && !scope.includes('profile')) {
-          scope.push('profile');
-        }
       }
     }
 
@@ -160,7 +158,7 @@
       if (inAppRequestPending) return;
       inAppRequestPending = Date.now();
 
-      var query_params = 'scope=' + scopes.join(' ');
+      var query_params = 'scope=' + scope.join(' ');
       query_params += '&origin=' + encodeURIComponent(location.origin);
       query_params += '&client_id=' + clientId;
       query_params += '&response_type=id_token';
