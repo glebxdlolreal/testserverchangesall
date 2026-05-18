@@ -1139,7 +1139,8 @@ var NewAd = {
         return false;
       }
       if (result.bot) {
-        $fieldEl.trigger('selectval', [result.bot, true]);
+        var item = result.bot;
+        $fieldEl.trigger('selectval', [item, true]);
         $fieldEl.data('prevval', '');
       }
     });
@@ -1378,7 +1379,7 @@ var NewAd = {
             for (var i = 0; i < result.channels.length; i++) {
               var item = result.channels[i];
               html += item.cb_item;
-              channel_items['ch' + item.id] = item;
+              channel_items[item.id] = item;
             }
             var has_items = result.channels.length > 0;
             $empty.toggleClass('hide', has_items);
@@ -1430,13 +1431,7 @@ var NewAd = {
       if ($(this).prop('checked')) {
         var name = $(this).prop('name');
         var channel = channel_items[name];
-        var item = {
-          val: channel.id,
-          name: channel.title,
-          photo: channel.photo,
-          username: channel.username
-        };
-        add_items.push(item);
+        add_items.push(channel);
       }
     });
     if (add_items.length > 0) {
@@ -1479,7 +1474,7 @@ var NewAd = {
             for (var i = 0; i < result.bots.length; i++) {
               var item = result.bots[i];
               html += item.cb_item;
-              bot_items['bot' + item.id] = item;
+              bot_items[item.id] = item;
             }
             var has_items = result.bots.length > 0;
             $empty.toggleClass('hide', has_items);
@@ -1526,13 +1521,7 @@ var NewAd = {
       if ($(this).prop('checked')) {
         var name = $(this).prop('name');
         var bot = bot_items[name];
-        var item = {
-          val: bot.id,
-          name: bot.title,
-          photo: bot.photo,
-          username: bot.username
-        };
-        add_items.push(item);
+        add_items.push(bot);
       }
     });
     if (add_items.length > 0) {
