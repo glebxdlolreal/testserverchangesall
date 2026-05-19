@@ -1449,20 +1449,18 @@ var BotApps = {
       if (!value) value = 0;
       if (field == 'sor') {
         botChangeSettings(field, value);
-        $('.js-sameorigin-opt-out-wrap').toggleClass('hidden', !value);
-        $('.js-sameorigin-opt-in-wrap').toggleClass('hidden', !!value);
+        $('.js-sameorigin-opt-out-wrap').addClass('hidden');
       }
     });
 
     $('.js-sameorigin-opt-out').on('click', function () {
-      var self = this;
       WebApp.showPopup({
-        title: 'Opt out of Same-Origin Restriction?',
-        message: 'Cross-origin functionality in your Mini App will stay allowed.\n\nYou can opt back in any time.',
+        title: l('WEB_MINIAPPS_SAME_ORIGIN_OPT_OUT_TITLE'),
+        message: l('WEB_MINIAPPS_SAME_ORIGIN_OPT_OUT_DESC') + '\n\n' + l('WEB_MINIAPPS_SAME_ORIGIN_OPT_OUT_CAN_REVERT'),
         buttons: [
           {
             id: 'delete',
-            text: 'Opt Out',
+            text: l('WEB_MINIAPPS_SAME_ORIGIN_OPT_OUT_BTN'),
             type: 'destructive',
           },
           {
@@ -1474,15 +1472,7 @@ var BotApps = {
         botChangeSettings('sor', 0);
         $('[data-field=sor] .tm-toggle').removeClass('tm-toggle-on');
         $('.js-sameorigin-opt-out-wrap').addClass('hidden');
-        $('.js-sameorigin-opt-in-wrap').removeClass('hidden');
       });
-    });
-
-    $('.js-sameorigin-opt-in').on('click', function () {
-      botChangeSettings('sor', 1);
-      $('[data-field=sor] .tm-toggle').addClass('tm-toggle-on');
-      $('.js-sameorigin-opt-in-wrap').addClass('hidden');
-      $('.js-sameorigin-opt-out-wrap').removeClass('hidden');
     });
 
     $('.js-game-copy').on('click', function (e) {
