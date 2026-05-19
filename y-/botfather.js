@@ -1453,11 +1453,11 @@ var BotApps = {
       var self = this;
       WebApp.showPopup({
         title: 'Opt out of Same-Origin Restriction?',
-        message: l('WEB_GAMES_DELETE_APP_CONFIRM_BODY'),
+        message: 'Cross-origin functionality in your Mini App will stay allowed.\n\nYou can opt back in any time.',
         buttons: [
           {
             id: 'delete',
-            text: l('WEB_GAMES_DELETE'),
+            text: 'Opt Out',
             type: 'destructive',
           },
           {
