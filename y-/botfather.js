@@ -1440,6 +1440,35 @@ var BotAppEdit = {
 
 var BotApps = {
   init() {
+    $('.tm-row-toggle').on('click', function () {
+      var toggleEl = this.querySelector('.tm-toggle');
+      var value = toggleEl.classList.toggle('tm-toggle-on');
+      WebApp.HapticFeedback.impactOccurred('light');
+      var field = this.dataset.field;
+      if (!field) return;
+      if (!value) value = 0;
+    });
+
+    $('.js-sameorigin-opt-out').on('click', function () {
+      var self = this;
+      WebApp.showPopup({
+        title: 'Opt out of Same-Origin Restriction?',
+        message: l('WEB_GAMES_DELETE_APP_CONFIRM_BODY'),
+        buttons: [
+          {
+            id: 'delete',
+            text: l('WEB_GAMES_DELETE'),
+            type: 'destructive',
+          },
+          {
+            type: 'cancel',
+          },
+        ]
+      }, (result) => {
+        $(self).parent().toggleClass('hidden');
+      });
+    });
+
     $('.js-game-copy').on('click', function (e) {
       navigator.clipboard.writeText(this.dataset.value);
       Main.showToast(l('WEB_LINK_COPIED'), { class: 'success' });
