@@ -1456,7 +1456,7 @@ var BotApps = {
     $('.js-sameorigin-opt-out').on('click', function () {
       WebApp.showPopup({
         title: l('WEB_MINIAPPS_SAME_ORIGIN_OPT_OUT_TITLE'),
-        message: l('WEB_MINIAPPS_SAME_ORIGIN_OPT_OUT_DESC') + '\n\n' + l('WEB_MINIAPPS_SAME_ORIGIN_OPT_OUT_CAN_REVERT'),
+        message: l('WEB_MINIAPPS_SAME_ORIGIN_OPT_OUT_DESC'),
         buttons: [
           {
             id: 'delete',
