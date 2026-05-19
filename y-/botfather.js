@@ -1447,6 +1447,11 @@ var BotApps = {
       var field = this.dataset.field;
       if (!field) return;
       if (!value) value = 0;
+      if (field == 'sor') {
+        botChangeSettings(field, value);
+        $('.js-sameorigin-opt-out-wrap').toggleClass('hidden', !value);
+        $('.js-sameorigin-opt-in-wrap').toggleClass('hidden', !!value);
+      }
     });
 
     $('.js-sameorigin-opt-out').on('click', function () {
@@ -1465,8 +1470,19 @@ var BotApps = {
           },
         ]
       }, (result) => {
-        $(self).parent().toggleClass('hidden');
+        if (result != 'delete') return;
+        botChangeSettings('sor', 0);
+        $('[data-field=sor] .tm-toggle').removeClass('tm-toggle-on');
+        $('.js-sameorigin-opt-out-wrap').addClass('hidden');
+        $('.js-sameorigin-opt-in-wrap').removeClass('hidden');
       });
+    });
+
+    $('.js-sameorigin-opt-in').on('click', function () {
+      botChangeSettings('sor', 1);
+      $('[data-field=sor] .tm-toggle').addClass('tm-toggle-on');
+      $('.js-sameorigin-opt-in-wrap').addClass('hidden');
+      $('.js-sameorigin-opt-out-wrap').removeClass('hidden');
     });
 
     $('.js-game-copy').on('click', function (e) {
