@@ -69,21 +69,17 @@
 
     var redirectUri = location.origin + location.pathname;
     var clientId    = opts.client_id;
-    var scope = ['openid'];
+    var scopes = ['openid', 'profile'];
 
-    var ra = opts.scope;
-    if (!ra) {
-      scope.push('profile');
-      ra = opts.request_access || '';
-    }
-    if (typeof ra === 'string') ra = ra.split(' ');
-    for (var i = 0; i < ra.length; i++) {
-      if (ra[i] === 'phone') {
-        scope.push('phone');
-      } else if (['write', 'telegram:bot_access'].includes(ra[i])) {
-        scope.push('telegram:bot_access');
-      } else if (ra[i] === 'profile' && !scope.includes('profile')) {
-        scope.push('profile');
+    if (opts.request_access) {
+      var ra = opts.request_access;
+      if (typeof ra === 'string') ra = [ra];
+      for (var i = 0; i < ra.length; i++) {
+        if (ra[i] === 'phone') {
+          scopes.push('phone');
+        } else if (ra[i] === 'write') {
+          scopes.push('telegram:bot_access');
+        }
       }
     }
 
@@ -91,7 +87,7 @@
       + '?response_type=post_message'
       + '&client_id='     + encodeURIComponent(clientId)
       + '&redirect_uri='  + encodeURIComponent(redirectUri)
-      + '&scope='         + encodeURIComponent(scope.join(' '));
+      + '&scope='         + encodeURIComponent(scopes.join(' '));
 
     if (opts.nonce) {
       authUrl += '&nonce=' + opts.nonce;
@@ -158,10 +154,9 @@
       if (inAppRequestPending) return;
       inAppRequestPending = Date.now();
 
-      var query_params = 'scope=' + scope.join(' ');
+      var query_params = 'scope=' + scopes.join(' ');
       query_params += '&origin=' + encodeURIComponent(location.origin);
       query_params += '&client_id=' + clientId;
-      query_params += '&response_type=id_token';
 
       var result = await fetch(INAPP_URL + '?' + query_params);
       result = (await result.json());
