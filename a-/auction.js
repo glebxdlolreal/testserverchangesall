@@ -2551,9 +2551,12 @@ var Premium = {
     var $form     = Aj.state.$premiumSearchForm;
     var recipient = $form.field('recipient').value();
     var months    = $form.field('months').value();
+    var payment_method = $form.field('payment_method').value();
+
     Aj.apiRequest('initGiftPremiumRequest', {
       recipient: recipient,
-      months: months
+      months: months,
+      payment_method: payment_method,
     }, function(result) {
       if (result.error) {
         return showAlert(result.error);
@@ -2875,10 +2878,13 @@ var PremiumGiveaway = {
     var recipient = $form.field('recipient').value();
     var quantity  = $form.field('quantity').value();
     var months    = $form.field('months').value();
+    var payment_method = $form.field('payment_method').value();
+
     Aj.apiRequest('initGiveawayPremiumRequest', {
       recipient: recipient,
       quantity: quantity,
-      months: months
+      months: months,
+      payment_method: payment_method
     }, function(result) {
       if (result.error) {
         return showAlert(result.error);
@@ -3695,9 +3701,12 @@ var Stars = {
     var recipient = $form.field('recipient').value();
     var quantity  = $form.field('quantity').value();
     var stars     = $form.field('stars').value();
+    var payment_method = $form.field('payment_method').value();
+
     Aj.apiRequest('initBuyStarsRequest', {
       recipient: recipient,
-      quantity: quantity || stars
+      quantity: quantity || stars,
+      payment_method: payment_method
     }, function(result) {
       if (result.error) {
         return showAlert(result.error);
@@ -4145,10 +4154,13 @@ var StarsGiveaway = {
     var recipient = $form.field('recipient').value();
     var quantity  = $form.field('quantity').value();
     var stars     = $form.field('stars').value();
+    var payment_method = $form.field('payment_method').value();
+
     Aj.apiRequest('initGiveawayStarsRequest', {
       recipient: recipient,
       quantity: quantity,
-      stars: stars
+      stars: stars,
+      payment_method: payment_method
     }, function(result) {
       if (result.error) {
         return showAlert(result.error);
