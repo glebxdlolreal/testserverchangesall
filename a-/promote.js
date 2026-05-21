@@ -3285,20 +3285,9 @@ var ReviewAds = {
   eFromDateChange: function() {
     var val = $(this).val();
     if (!val) return;
-    var href = window.location.pathname;
-    var params = Aj.state.filterParams || {};
-    params.from_date = val;
-    delete params.limit;
-    var parts = [];
-    for (var key in params) {
-      if (params.hasOwnProperty(key) && params[key] !== undefined && params[key] !== false && params[key] !== '') {
-        parts.push(encodeURIComponent(key) + '=' + encodeURIComponent(params[key]));
-      }
-    }
-    if (parts.length) {
-      href += '?' + parts.join('&');
-    }
-    Aj.location(href);
+    var href = $(this).data('href');
+    if (!href) return;
+    Aj.location(href.replace('!from-date!', val));
   },
   onScroll: function() {
     $('.js-load-more').each(function() {
@@ -3575,20 +3564,9 @@ var ReviewTargets = {
   eFromDateChange: function() {
     var val = $(this).val();
     if (!val) return;
-    var href = window.location.pathname;
-    var params = Aj.state.filterParams || {};
-    params.from_date = val;
-    delete params.limit;
-    var parts = [];
-    for (var key in params) {
-      if (params.hasOwnProperty(key) && params[key] !== undefined && params[key] !== false && params[key] !== '') {
-        parts.push(encodeURIComponent(key) + '=' + encodeURIComponent(params[key]));
-      }
-    }
-    if (parts.length) {
-      href += '?' + parts.join('&');
-    }
-    Aj.location(href);
+    var href = $(this).data('href');
+    if (!href) return;
+    Aj.location(href.replace('!from-date!', val));
   },
   onScroll: function() {
     $('.js-load-more').each(function() {
