@@ -1619,7 +1619,6 @@ function preventDefault(e) {
 }
 
 var WebsiteTheme = {
-  STORAGE_KEY: 'bugtracker.website.theme',
   COOKIE_NAME: 'bt_theme',
   DARK_CLASS: 'bt-theme-dark',
   SWITCHING_CLASS: 'bt-theme-switching',
@@ -1629,69 +1628,20 @@ var WebsiteTheme = {
       return;
     }
     if (!this.bound) {
-      $(document).off('click.websiteTheme').on('click.websiteTheme', '.bt-theme-toggle', WebsiteTheme.eToggle);
+      $(document).on('click.websiteTheme', '.bt-theme-toggle', WebsiteTheme.eToggle);
       this.bound = true;
     }
-    Aj.onLoad(function(state) {
-      if (state.isWebApp) {
-        return;
-      }
-      WebsiteTheme.sync();
-    });
-  },
-  read: function() {
-    return WebsiteTheme.readCookie();
-  },
-  readCookie: function() {
-    var name = WebsiteTheme.getCookieName() + '=';
-    var cookies = document.cookie ? document.cookie.split(';') : [];
-    for (var i = 0; i < cookies.length; i++) {
-      var cookie = cookies[i].replace(/^\s+/, '');
-      if (cookie.indexOf(name) === 0) {
-        return decodeURIComponent(cookie.substr(name.length));
-      }
-    }
-    return null;
-  },
-  getCookieName: function() {
-    return Aj.state.themeCookie || WebsiteTheme.COOKIE_NAME;
+    Aj.onLoad(WebsiteTheme.updateButtons);
   },
   write: function(theme) {
-    theme = theme === 'dark' ? 'dark' : 'light';
-    try {
-      localStorage.setItem(WebsiteTheme.STORAGE_KEY, theme);
-    } catch (e) {
+    var cookie = (Aj.state.themeCookie || WebsiteTheme.COOKIE_NAME) + '=' + theme + '; path=/; max-age=31536000; SameSite=Lax';
+    if (location.protocol == 'https:') {
+      cookie += '; secure';
     }
-    if (WebsiteTheme.readCookie() != theme) {
-      var cookie = WebsiteTheme.getCookieName() + '=' + encodeURIComponent(theme) + '; path=/; max-age=31536000; SameSite=Lax';
-      if (location.protocol == 'https:') {
-        cookie += '; secure';
-      }
-      try {
-        document.cookie = cookie;
-      } catch (e) {
-      }
-    }
+    document.cookie = cookie;
   },
   isDark: function() {
     return document.documentElement.classList.contains(WebsiteTheme.DARK_CLASS);
-  },
-  sync: function() {
-    if (!$('.bt-theme-toggle').length) {
-      return;
-    }
-    if (WebsiteTheme.isDark()) {
-      WebsiteTheme.write('dark');
-      WebsiteTheme.updateButtons();
-      return;
-    }
-    if (WebsiteTheme.read() === 'dark') {
-      WebsiteTheme.write('dark');
-      WebsiteTheme.apply('dark');
-      return;
-    }
-    WebsiteTheme.write('light');
-    WebsiteTheme.updateButtons();
   },
   apply: function(theme) {
     var root = document.documentElement;
