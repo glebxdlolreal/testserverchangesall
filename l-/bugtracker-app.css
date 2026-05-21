@@ -329,6 +329,8 @@ a:hover img.emoji {
 }
 
 .bt-search-tabs {
+  display: flex;
+  align-items: center;
   font-size: 14px;
   line-height: 16px;
   font-weight: 500;
@@ -345,8 +347,10 @@ span.bt-search-tab {
 }
 
 .bt-search-tabs-right {
-  /*float: right;*/
-  margin-left: 12px;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  padding-left: 12px;
 }
 
 .bt-search-tab.bt-dropdown svg.dd use {
@@ -361,6 +365,19 @@ span.bt-search-tab {
   left: -1px;
   right: auto;
   max-height: none;
+}
+
+.bt-role-switch-wrap {
+  margin-left: 12px;
+}
+
+.bt-role-switch-wrap .tm-inline-dropdown-btn:before {
+  display: none;
+}
+
+.bt-role-switch-wrap .dropdown-menu.tm-inline-dropdown {
+  left: auto;
+  right: 0;
 }
 
 .bt-create-btn {
@@ -4596,8 +4613,12 @@ header .progress-bar {
   .bt-layer-block:last-child {
     padding-bottom: 30px;
   }
-  .bt-search-tabs-right, .bt-search-tab + .bt-search-tab {
+  .bt-search-tab + .bt-search-tab {
     margin-left: 20px;
+  }
+  .bt-search-tabs-right {
+    margin-left: auto;
+    padding-left: 20px;
   }
   .bt-issue-actions {
     margin-top: 20px;
