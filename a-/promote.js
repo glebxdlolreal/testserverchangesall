@@ -3259,6 +3259,7 @@ var ReviewAds = {
         $('input[type="date"]', $fromDatePicker).initDatePicker();
         state.$fromDatePicker = $fromDatePicker;
         cont.on('click.curPage', '.js-from-date-item', ReviewAds.eFromDateClick);
+        cont.on('click.curPage', '.js-from-date-change', ReviewAds.eFromDateChangeClick);
         $('input[type="date"]', $fromDatePicker).on('change', ReviewAds.eFromDateChange);
       }
       $(window).on('scroll resize', ReviewAds.onScroll);
@@ -3275,7 +3276,20 @@ var ReviewAds = {
     });
   },
   eFromDateClick: function(e) {
+    if ($(this).attr('data-toggle') == 'dropdown') {
+      return;
+    }
     e.preventDefault();
+    var $cont = Aj.ajContainer;
+    var $dateInput = $('.js-from-date-picker input[type="date"]', $cont);
+    if ($dateInput.size()) {
+      $dateInput.trigger('focusval');
+    }
+  },
+  eFromDateChangeClick: function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $(this).parents('.dropdown').removeClass('open');
     var $cont = Aj.ajContainer;
     var $dateInput = $('.js-from-date-picker input[type="date"]', $cont);
     if ($dateInput.size()) {
@@ -3287,7 +3301,7 @@ var ReviewAds = {
     if (val) {
       var url = $(this).data('url');
       if (url) {
-        Aj.location(url.replace('__from_date__', val));
+        Aj.location(url.replace('__from_date__', val.replace(/-/g, '') + '00'));
       }
     } else {
       var clearUrl = $(this).data('clear-url');
@@ -3545,6 +3559,7 @@ var ReviewTargets = {
         $('input[type="date"]', $fromDatePicker).initDatePicker();
         state.$fromDatePicker = $fromDatePicker;
         cont.on('click.curPage', '.js-from-date-item', ReviewTargets.eFromDateClick);
+        cont.on('click.curPage', '.js-from-date-change', ReviewTargets.eFromDateChangeClick);
         $('input[type="date"]', $fromDatePicker).on('change', ReviewTargets.eFromDateChange);
       }
       $(window).on('scroll resize', ReviewTargets.onScroll);
@@ -3561,7 +3576,20 @@ var ReviewTargets = {
     });
   },
   eFromDateClick: function(e) {
+    if ($(this).attr('data-toggle') == 'dropdown') {
+      return;
+    }
     e.preventDefault();
+    var $cont = Aj.ajContainer;
+    var $dateInput = $('.js-from-date-picker input[type="date"]', $cont);
+    if ($dateInput.size()) {
+      $dateInput.trigger('focusval');
+    }
+  },
+  eFromDateChangeClick: function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $(this).parents('.dropdown').removeClass('open');
     var $cont = Aj.ajContainer;
     var $dateInput = $('.js-from-date-picker input[type="date"]', $cont);
     if ($dateInput.size()) {
@@ -3573,7 +3601,7 @@ var ReviewTargets = {
     if (val) {
       var url = $(this).data('url');
       if (url) {
-        Aj.location(url.replace('__from_date__', val));
+        Aj.location(url.replace('__from_date__', val.replace(/-/g, '') + '00'));
       }
     } else {
       var clearUrl = $(this).data('clear-url');
