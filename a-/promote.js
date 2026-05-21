@@ -3566,7 +3566,7 @@ var ReviewTargets = {
     if (!val) return;
     var href = $(this).data('href');
     if (!href) return;
-    Aj.location(href.replace('!from-date!', val));
+    Aj.location(href.replace('__from_date__', val));
   },
   onScroll: function() {
     $('.js-load-more').each(function() {
