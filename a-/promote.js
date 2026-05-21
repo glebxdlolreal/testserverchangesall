@@ -3284,10 +3284,17 @@ var ReviewAds = {
   },
   eFromDateChange: function() {
     var val = $(this).val();
-    if (!val) return;
-    var href = $(this).data('href');
-    if (!href) return;
-    Aj.location(href.replace('!from-date!', val));
+    if (val) {
+      var url = $(this).data('url');
+      if (url) {
+        Aj.location(url.replace('__from_date__', val));
+      }
+    } else {
+      var clearUrl = $(this).data('clear-url');
+      if (clearUrl) {
+        Aj.location(clearUrl);
+      }
+    }
   },
   onScroll: function() {
     $('.js-load-more').each(function() {
@@ -3563,10 +3570,17 @@ var ReviewTargets = {
   },
   eFromDateChange: function() {
     var val = $(this).val();
-    if (!val) return;
-    var href = $(this).data('href');
-    if (!href) return;
-    Aj.location(href.replace('__from_date__', val));
+    if (val) {
+      var url = $(this).data('url');
+      if (url) {
+        Aj.location(url.replace('__from_date__', val));
+      }
+    } else {
+      var clearUrl = $(this).data('clear-url');
+      if (clearUrl) {
+        Aj.location(clearUrl);
+      }
+    }
   },
   onScroll: function() {
     $('.js-load-more').each(function() {
