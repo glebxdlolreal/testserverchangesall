@@ -1657,10 +1657,16 @@ var WebsiteTheme = {
     return document.documentElement.classList.contains(WebsiteTheme.DARK_CLASS);
   },
   apply: function(theme) {
+    var root = document.documentElement;
     var dark = theme === 'dark';
-    document.documentElement.classList.toggle(WebsiteTheme.DARK_CLASS, dark);
-    document.documentElement.setAttribute('data-bt-theme', dark ? 'dark' : 'light');
+    root.classList.add('bt-theme-switching');
+    root.offsetHeight;
+    root.classList.toggle(WebsiteTheme.DARK_CLASS, dark);
+    root.setAttribute('data-bt-theme', dark ? 'dark' : 'light');
     WebsiteTheme.updateButtons();
+    (window.requestAnimationFrame || window.setTimeout)(function() {
+      root.classList.remove('bt-theme-switching');
+    });
   },
   updateButtons: function() {
     var dark = WebsiteTheme.isDark();
