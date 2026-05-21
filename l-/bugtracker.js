@@ -1618,8 +1618,70 @@ function preventDefault(e) {
   e.preventDefault();
 }
 
+var WebsiteTheme = {
+  STORAGE_KEY: 'bugtracker.website.theme',
+  DARK_CLASS: 'bt-theme-dark',
+  initialized: false,
+  init: function() {
+    if (this.initialized ||
+        Aj.state.isWebApp) {
+      return;
+    }
+    this.initialized = true;
+    Aj.onLoad(function(state) {
+      if (state.isWebApp ||
+          !$('.bt-theme-toggle').length) {
+        return;
+      }
+      WebsiteTheme.apply(WebsiteTheme.read() === 'dark' ? 'dark' : 'light');
+      $(document).off('click.websiteTheme').on('click.websiteTheme', '.bt-theme-toggle', WebsiteTheme.eToggle);
+    });
+    Aj.onUnload(function() {
+      $(document).off('click.websiteTheme', '.bt-theme-toggle', WebsiteTheme.eToggle);
+    });
+  },
+  read: function() {
+    try {
+      return localStorage.getItem(WebsiteTheme.STORAGE_KEY);
+    } catch (e) {
+      return null;
+    }
+  },
+  write: function(theme) {
+    try {
+      localStorage.setItem(WebsiteTheme.STORAGE_KEY, theme);
+    } catch (e) {
+    }
+  },
+  isDark: function() {
+    return document.documentElement.classList.contains(WebsiteTheme.DARK_CLASS);
+  },
+  apply: function(theme) {
+    var dark = theme === 'dark';
+    document.documentElement.classList.toggle(WebsiteTheme.DARK_CLASS, dark);
+    document.documentElement.setAttribute('data-bt-theme', dark ? 'dark' : 'light');
+    WebsiteTheme.updateButtons();
+  },
+  updateButtons: function() {
+    var dark = WebsiteTheme.isDark();
+    $('.bt-theme-toggle').attr({
+      'aria-pressed': dark ? 'true' : 'false',
+      'aria-label': dark ? 'Switch to light theme' : 'Switch to dark theme',
+      'title': dark ? 'Light theme' : 'Dark theme'
+    });
+  },
+  eToggle: function(e) {
+    e.preventDefault();
+    var theme = WebsiteTheme.isDark() ? 'light' : 'dark';
+    WebsiteTheme.write(theme);
+    WebsiteTheme.apply(theme);
+    return false;
+  }
+};
+
 var Bugtracker = {
   init: function() {
+    WebsiteTheme.init();
     Aj.onLoad(function(state) {
       Bugtracker.updateTime(Aj.ajContainer);
       $('.logout-link').on('click', Bugtracker.eLogOut);
