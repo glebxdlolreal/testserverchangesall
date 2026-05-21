@@ -945,11 +945,7 @@ var BotSettings = {
       $('.js-login-alg-value').text(this.text);
       $('li.selected:has(.js-login-alg-item)').toggleClass('selected');
       $(this).parent().toggleClass('selected');
-<<<<<<< Updated upstream
       botChangeSettings('oauth_alg', value);
-=======
-      botChangeSettings('login_alg', value);
->>>>>>> Stashed changes
     });
   },
 
