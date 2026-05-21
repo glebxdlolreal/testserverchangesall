@@ -1619,26 +1619,13 @@ function preventDefault(e) {
 }
 
 var WebsiteTheme = {
-  COOKIE_NAME: 'bt_theme',
   DARK_CLASS: 'bt-theme-dark',
   SWITCHING_CLASS: 'bt-theme-switching',
-  bound: false,
   init: function() {
     if (Aj.state.isWebApp) {
       return;
     }
-    if (!this.bound) {
-      $(document).on('click.websiteTheme', '.bt-theme-toggle', WebsiteTheme.eToggle);
-      this.bound = true;
-    }
-    Aj.onLoad(WebsiteTheme.updateButtons);
-  },
-  write: function(theme) {
-    var cookie = (Aj.state.themeCookie || WebsiteTheme.COOKIE_NAME) + '=' + theme + '; path=/; max-age=31536000; SameSite=Lax';
-    if (location.protocol == 'https:') {
-      cookie += '; secure';
-    }
-    document.cookie = cookie;
+    $(document).off('click.websiteTheme').on('click.websiteTheme', '.bt-theme-toggle', WebsiteTheme.eToggle);
   },
   isDark: function() {
     return document.documentElement.classList.contains(WebsiteTheme.DARK_CLASS);
@@ -1677,7 +1664,7 @@ var WebsiteTheme = {
   eToggle: function(e) {
     e.preventDefault();
     var theme = WebsiteTheme.isDark() ? 'light' : 'dark';
-    WebsiteTheme.write(theme);
+    document.cookie = Aj.state.themeCookie + '=' + theme + ';path=/;max-age=31536000';
     WebsiteTheme.apply(theme);
     return false;
   }
