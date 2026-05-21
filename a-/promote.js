@@ -3289,7 +3289,7 @@ var ReviewAds = {
   eFromDateChangeClick: function(e) {
     e.preventDefault();
     e.stopPropagation();
-    $(this).parents('.dropdown').removeClass('open');
+    $(this).parents('.open').find('.dropdown-toggle').dropdown('toggle');
     var $cont = Aj.ajContainer;
     var $dateInput = $('.js-from-date-picker input[type="date"]', $cont);
     if ($dateInput.size()) {
@@ -3301,7 +3301,7 @@ var ReviewAds = {
     if (val) {
       var url = $(this).data('url');
       if (url) {
-        Aj.location(url.replace('__from_date__', val.replace(/-/g, '') + '00'));
+        Aj.location(url.replace('__from_date__', val.replace(/-/g, '')));
       }
     } else {
       var clearUrl = $(this).data('clear-url');
@@ -3589,7 +3589,7 @@ var ReviewTargets = {
   eFromDateChangeClick: function(e) {
     e.preventDefault();
     e.stopPropagation();
-    $(this).parents('.dropdown').removeClass('open');
+    $(this).parents('.open').find('.dropdown-toggle').dropdown('toggle');
     var $cont = Aj.ajContainer;
     var $dateInput = $('.js-from-date-picker input[type="date"]', $cont);
     if ($dateInput.size()) {
@@ -3601,7 +3601,7 @@ var ReviewTargets = {
     if (val) {
       var url = $(this).data('url');
       if (url) {
-        Aj.location(url.replace('__from_date__', val.replace(/-/g, '') + '00'));
+        Aj.location(url.replace('__from_date__', val.replace(/-/g, '')));
       }
     } else {
       var clearUrl = $(this).data('clear-url');
