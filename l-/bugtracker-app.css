@@ -6018,68 +6018,6 @@ input.pr-form-control:focus {
   right: auto;
   top: 100%;
 }
-.form-group .datetime-group {
-  display: flex;
-  margin: 0 -6px;
-}
-.form-group .datetime-group .date-input-wrap {
-  width: 50%;
-  margin: 0 6px;
-  flex-grow: 1;
-}
-.form-group .datetime-group .date-input-wrap:before {
-  position: absolute;
-  right: 0;
-  top: 0;
-  display: inline-block;
-  content: '';
-  vertical-align: top;
-  width: 36px;
-  height: 36px;
-  margin: 2px;
-  pointer-events: none;
-  border-radius: 6px;
-  filter: invert(1) opacity(.72);
-  background: url('data:image/svg+xml,%3Csvg%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%20stroke%3D%22%23808080%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22m16.8%2019h-9.6c-1.22%200-2.2-.98-2.2-2.2v-8.87c0-1.21.98-2.2%202.2-2.2h9.6c1.22%200%202.2.99%202.2%202.2v8.87c0%201.22-.98%202.2-2.2%202.2zm-11.38-8.94h13.16z%22%20stroke-width%3D%221.3%22%2F%3E%3Cpath%20d%3D%22m8.24%205.44v-1.64zm7.52%200v-1.64z%22%20stroke-width%3D%221.4%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E') center no-repeat;
-}
-.form-group .datetime-group .date-input-wrap .pr-form-control[readonly] {
-  cursor: pointer;
-}
-.form-group .datetime-group .time-input-wrap {
-  width: 150px;
-  margin: 0 6px;
-  flex-grow: 1;
-}
-.form-group .datetime-group .time-input-wrap .pr-form-control {
-  padding-right: 90px;
-}
-.form-group .datetime-group .time-input-wrap .time-input-suffix {
-  position: absolute;
-  right: 0;
-  top: 0;
-  font-size: 13px;
-  padding: 11px 13px 11px 0;
-  pointer-events: none;
-  color: var(--text-secondary);
-}
-.datetime-group input::-webkit-input-placeholder {
-  letter-spacing: 1px;
-}
-.datetime-group input::-moz-placeholder {
-  letter-spacing: 1px;
-}
-.datetime-group input:-ms-input-placeholder {
-  letter-spacing: 1px;
-}
-.datetime-group input::placeholder {
-  letter-spacing: 1px;
-}
-.date-input-wrap input[type="date"],
-.time-input-wrap input[type="time"] {
-  position: absolute;
-  pointer-events: none;
-  visibility: hidden;
-}
 .pr-popup-container {
   align-items: start;
   padding: 70px 10px;
