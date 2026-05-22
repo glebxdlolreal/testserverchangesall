@@ -1496,6 +1496,519 @@
     });
   };
 
+  $.fn.initDatePicker = function() {
+
+    function getStartOfDay(d) {
+      if (isNaN(d)) {
+        return null;
+      }
+      return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    }
+    function getStartOfWeek(d) {
+      if (isNaN(d)) {
+        return null;
+      }
+      d = new Date(d.getFullYear(), d.getMonth(), 1);
+      var day = d.getDay() || 7;
+      d.setDate(2 - day);
+      return d;
+    }
+    function getWeekDiff(d1, d2) {
+      var diff = (d2.getTime() - d1.getTime()) / 86400000;
+      return Math.round(diff / 7);
+    }
+    function getStartOfMonth(d) {
+      if (isNaN(d)) {
+        return null;
+      }
+      return new Date(d.getFullYear(), d.getMonth(), 1);
+    }
+    function getDateValue(d) {
+      if (isNaN(d) || d === null) {
+        return '';
+      }
+      var y = d.getFullYear();
+      var m = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'][d.getMonth()];
+      var d = d.getDate();
+      if (d < 10) {
+        d = '0' + d;
+      }
+      return y + '-' + m + '-' + d;
+    }
+    function getDateText(d) {
+      if (isNaN(d) || d === null) {
+        return '';
+      }
+      var y = d.getFullYear();
+      var M = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getMonth()];
+      var j = d.getDate();
+      return j + ' ' + M + ' ' + y;
+    }
+
+    function openDatePicker(state, selD) {
+      if (state.$dpPopup) {
+        closePopup(state.$dpPopup);
+      }
+      var $dpPopup = $('<div class="popup-container hide alert-popup-container pr-popup-container"><section class="pr-layer-popup pr-layer-date-picker-popup popup-no-close"><h3 class="pr-layer-header js-header"></h3><div class="date-picker-controls"><div class="date-picker-button-up js-month-up"></div><div class="date-picker-button-down js-month-down"></div></div><div class="date-picker-wrap"><div class="date-picker-header"><div class="date-picker-header-content"><div class="date-picker-cell">Mon</div><div class="date-picker-cell">Tue</div><div class="date-picker-cell">Wed</div><div class="date-picker-cell">Thu</div><div class="date-picker-cell">Fri</div><div class="date-picker-cell">Sat</div><div class="date-picker-cell">Sun</div></div></div><div class="date-picker-body"><div class="date-picker-body-content js-body"></div></div></div><div class="popup-buttons"><div class="popup-button popup-button-left clear-form-btn">' + l('WEB_DATEPICKER_CLEAR', 'Clear') + '</div><div class="popup-button cancel-form-btn">' + l('WEB_DATEPICKER_CLOSE', 'Close') + '</div></div></section></div>');
+      var $dpBody = $('.js-body', $dpPopup);
+      var $dpMonthDown = $('.js-month-down', $dpPopup);
+      var $dpMonthUp = $('.js-month-up', $dpPopup);
+
+      function setHeader() {
+        var year = currentD.getFullYear();
+        var month = currentD.getMonth();
+        var header = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][month] + ' ' + year;
+        $('.js-header', $dpPopup).html(header);
+        var prevMonth = true, nextMonth = true, newD;
+        newD = getStartOfMonth(currentD);
+        newD.setMonth(month - 1);
+        if (state.minMonthD && newD < state.minMonthD ||
+            state.maxMonthD && newD > state.maxMonthD) {
+          prevMonth = false;
+        }
+        newD = getStartOfMonth(currentD);
+        newD.setMonth(month + 1);
+        if (state.minMonthD && newD < state.minMonthD ||
+            state.maxMonthD && newD > state.maxMonthD) {
+          nextMonth = false;
+        }
+        $dpMonthDown.toggleClass('disabled', !nextMonth);
+        $dpMonthUp.toggleClass('disabled', !prevMonth);
+      }
+      function cellWrap(d) {
+        var curDate = d.getDate();
+        var curMonth = d.getMonth();
+        var curYear = d.getFullYear();
+        var cellClass = ' month-' + curYear + '-' + curMonth;
+        if (curYear == selYear && curMonth == selMonth && curDate == selDate) {
+          cellClass += ' selected';
+        }
+        if (state.minDayD && d < state.minDayD ||
+            state.maxDayD && d > state.maxDayD) {
+          cellClass += ' disabled';
+        }
+        return '<div class="date-picker-cell' + cellClass + '" data-value="' + getDateValue(d) + '">' + curDate + '</div>';
+      }
+      function updateMonth() {
+        var year = currentD.getFullYear();
+        var month = currentD.getMonth();
+        var body = '';
+        var curD = getStartOfWeek(currentD);
+        fromWeekD = new Date(curD);
+        curWeekD  = new Date(curD);
+        for (var i = 0; i < 42; i++) {
+          body += cellWrap(curD);
+          curD.setDate(curD.getDate() + 1);
+        }
+        toWeekD = new Date(curD);
+        setHeader();
+        $dpBody.animOff().html(body).cssProp('--row-offset', '').cssProp('--prepend-offset', '');
+        $('.date-picker-cell.month-' + year + '-' + month, $dpBody).addClass('current');
+        $dpBody.animOn();
+      }
+      function appendMonth(diff) {
+        diff = diff > 0 ? 1 : -1;
+        var newD = getStartOfMonth(currentD);
+        newD.setMonth(newD.getMonth() + diff);
+        if (state.minMonthD && newD < state.minMonthD ||
+            state.maxMonthD && newD > state.maxMonthD) {
+          return;
+        }
+        currentD = newD;
+        var year = currentD.getFullYear();
+        var month = currentD.getMonth();
+        var body = '';
+        var curD = getStartOfWeek(currentD);
+        var weeks = getWeekDiff(curWeekD, curD);
+        if (curD >= fromWeekD) {
+          var curToD = new Date(curD);
+          curToD.setDate(curToD.getDate() + 42);
+          while (toWeekD < curToD) {
+            body += cellWrap(toWeekD);
+            toWeekD.setDate(toWeekD.getDate() + 1);
+          }
+          $dpBody.append(body).redraw();
+        } else {
+          var curFromD = new Date(curD);
+          while (curD < fromWeekD) {
+            body += cellWrap(curD);
+            curD.setDate(curD.getDate() + 1);
+          }
+          fromWeekD = new Date(curFromD);
+          var weeksOffset = getWeekDiff(fromWeekD, curWeekD);
+          $dpBody.prepend(body).cssProp('--prepend-offset', -weeksOffset).redraw();
+        }
+        $dpBody.cssProp('--row-offset', -weeks);
+        $('.date-picker-cell.current', $dpBody).removeClass('current');
+        $('.date-picker-cell.month-' + year + '-' + month, $dpBody).addClass('current');
+        setHeader();
+      }
+      function onKeyDown(e) {
+        if (e.keyCode == Keys.DOWN) {
+          e.preventDefault();
+          appendMonth(1);
+        }
+        else if (e.keyCode == Keys.UP) {
+          e.preventDefault();
+          appendMonth(-1);
+        }
+        else if (e.keyCode == Keys.TAB) {
+          e.preventDefault();
+        }
+      }
+      function onSelect(e) {
+        var value = $(this).attr('data-value');
+        setValue(state, value);
+        closePopup($dpPopup);
+        if (state.$time) {
+          state.$time.trigger('focusval');
+        }
+      }
+      function datePickerClear() {
+        setValue(state, '');
+        closePopup($dpPopup);
+        if (state.$time) {
+          state.$time.trigger('selectval', ['']);
+        }
+      }
+      function onMonthDown(e) {
+        appendMonth(1);
+      }
+      function onMonthUp(e) {
+        appendMonth(-1);
+      }
+      function onTransitionEnd(e) {
+        if (this === e.target) {
+          updateMonth();
+        }
+      }
+
+      if (isNaN(selD) || selD === null) {
+        selD = getStartOfDay(new Date);
+      }
+      if (state.minDayD && selD < state.minDayD) {
+        selD = getStartOfDay(state.minDayD);
+      }
+      if (state.maxDayD && selD > state.maxDayD) {
+        selD = getStartOfDay(state.maxDayD);
+      }
+      var selDate  = selD.getDate();
+      var selMonth = selD.getMonth();
+      var selYear  = selD.getFullYear();
+
+      var fromWeekD, curWeekD, toWeekD;
+
+      var currentD = getStartOfMonth(selD);
+      updateMonth();
+
+      $(document).on('keydown', onKeyDown);
+      $dpMonthDown.on('click', onMonthDown);
+      $dpMonthUp.on('click', onMonthUp);
+      $dpBody.on('click', '.date-picker-cell', onSelect);
+      $dpBody.on('transitionend', onTransitionEnd);
+
+      var datePickerCancel = function() {
+        closePopup($dpPopup);
+      };
+      var $clearBtn = $('.clear-form-btn', $dpPopup);
+      $clearBtn.on('click', datePickerClear);
+      var $cancelBtn = $('.cancel-form-btn', $dpPopup);
+      $cancelBtn.on('click', datePickerCancel);
+      $dpPopup.one('popup:close', function() {
+        delete state.$dpPopup;
+        $clearBtn.off('click', datePickerClear);
+        $cancelBtn.off('click', datePickerCancel);
+        $(document).off('keydown', onKeyDown);
+        $dpMonthDown.off('click', onMonthDown);
+        $dpMonthUp.off('click', onMonthUp);
+        $dpBody.off('click', '.date-picker-cell', onSelect);
+        $dpBody.off('transitionend', onTransitionEnd);
+        $dpPopup.remove();
+      });
+
+      openPopup($dpPopup, {
+        closeByClickOutside: '.popup-no-close'
+      });
+      state.$dpPopup = $dpPopup;
+      return $dpPopup;
+    }
+
+    function onFocusValue(e) {
+      var state = $(this).data('state');
+      openDatePicker(state, state.curValue);
+    }
+    function onFocus(e) {
+      var state = $(this).data('state');
+      openDatePicker(state, state.curValue);
+    }
+    function onClick(e) {
+      var state = $(this).data('state');
+      openDatePicker(state, state.curValue);
+    }
+    function eSetValue(e, value) {
+      var state = $(this).data('state');
+      setValue(state, value);
+    }
+
+    function setValue(state, value) {
+      state.curValue = getStartOfDay(new Date(value));
+      state.$input.value(getDateValue(state.curValue)).trigger('change');
+      state.$value.value(getDateText(state.curValue));
+    }
+
+    return this.each(function() {
+      var $input = $(this);
+      var $field = $input.parents('.js-date-input');
+      var $value = $('.js-date-value', $field);
+      var minValue = new Date($input.attr('min'));
+      var maxValue = new Date($input.attr('max'));
+      var state = {
+        curValue: null,
+        minDayD: getStartOfDay(minValue),
+        maxDayD: getStartOfDay(maxValue),
+        minMonthD: getStartOfMonth(minValue),
+        maxMonthD: getStartOfMonth(maxValue),
+        $input: $input,
+        $field: $field,
+        $value: $value
+      };
+      var $datetime = $input.parents('.datetime-group');
+      if ($datetime.size()) {
+        state.$time = $('input[type="time"]', $datetime);
+      }
+      if ($input.data('inited')) {
+        return;
+      }
+      $input.data('inited', true);
+      $input.data('state', state);
+      $input.on('selectval.tr-datepicker', eSetValue);
+      $input.on('focusval.tr-datepicker', onFocusValue);
+      $value.data('state', state);
+      $value.on('focus.tr-datepicker', onFocus);
+      $value.on('click.tr-datepicker', onClick);
+      setValue(state, $input.attr('value'));
+    });
+  };
+  $.fn.destroyDatePicker = function() {
+    return this.each(function() {
+      var $input = $(this);
+      var state = $input.data('state');
+      if (!state) {
+        return;
+      }
+      $input.off('.tr-datepicker');
+      state.$value.off('.tr-datepicker');
+    });
+  };
+
+  $.fn.initTimePicker = function() {
+
+    function selectHours(state) {
+      state.hoursSelected = true;
+      state.minutesSelected = false;
+      updateSelection(state);
+      state.curHoursStr = '';
+    }
+    function selectMinutes(state) {
+      state.hoursSelected = false;
+      state.minutesSelected = true;
+      updateSelection(state);
+      state.curMinutesStr = '';
+    }
+    function updateSelection(state) {
+      state.$value.each(function(){
+        if (state.hoursSelected) {
+          this.setSelectionRange(0, 2);
+        } else if (state.minutesSelected) {
+          this.setSelectionRange(3, 5);
+        }
+      });
+    }
+    function updateValue(state, apply) {
+      if (state.hasValue) {
+        var h = state.curHours || 0;
+        var m = state.curMinutes || 0;
+        if (h < 10) h = '0' + h;
+        if (h > 23) h = state.curHours = 23;
+        if (m < 10) m = '0' + m;
+        if (m > 59 && apply) m = state.curMinutes = 59;
+        var val = h + ':' + m;
+      } else {
+        var val = '';
+      }
+      state.$value.val(val);
+      if (apply) {
+        state.$input.val(val).trigger('change');
+      }
+    }
+    function getDateValue(d) {
+      if (isNaN(d) || d === null) {
+        return '';
+      }
+      var y = d.getFullYear();
+      var m = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'][d.getMonth()];
+      var d = d.getDate();
+      if (d < 10) {
+        d = '0' + d;
+      }
+      return y + '-' + m + '-' + d;
+    }
+
+    function onFocusValue(e) {
+      var state = $(this).data('state');
+      state.$value.focus();
+    }
+    function onFocus(e) {
+      var state = $(this).data('state');
+      if (!state.hasValue && state.$date && !state.$date.value()) {
+        state.$date.trigger('focusval');
+      } else {
+        if (!state.hasValue) {
+          setValue(state, new Date());
+        } else {
+          updateValue(state);
+        }
+        selectHours(state);
+      }
+    }
+    function onBlur(e) {
+      var state = $(this).data('state');
+      updateValue(state, true);
+    }
+    function onKeyDown(e) {
+      var state = $(this).data('state');
+      if (e.keyCode == Keys.LEFT) {
+        e.preventDefault();
+        selectHours(state);
+      }
+      else if (e.keyCode == Keys.RIGHT) {
+        e.preventDefault();
+        selectMinutes(state);
+      }
+      else if (e.keyCode == Keys.TAB) {
+        if (state.hoursSelected && !e.shiftKey) {
+          selectMinutes(state);
+          e.preventDefault();
+        } else if (state.minutesSelected && e.shiftKey) {
+          selectHours(state);
+          e.preventDefault();
+        }
+      }
+      else if (e.keyCode == Keys.BACKSPACE || e.keyCode == 46 || e.keyCode == 12) {
+        e.preventDefault();
+        if (state.hoursSelected) {
+          state.curHoursStr = '';
+          state.curHours = 0;
+        } else if (state.minutesSelected) {
+          state.curMinutesStr = '';
+          state.curMinutes = 0;
+        }
+      }
+      else if (e.keyCode >= 48 && e.keyCode < 58 || e.keyCode >= 96 && e.keyCode < 106) {
+        e.preventDefault();
+        var digit = e.keyCode >= 96 ? e.keyCode - 96 : e.keyCode - 48;
+        if (state.hoursSelected) {
+          state.curHoursStr += digit;
+          state.curHours = parseInt(state.curHoursStr);
+          if (state.curHoursStr.length == 2 || state.curHoursStr > 2) {
+            selectMinutes(state);
+          }
+        } else if (state.minutesSelected) {
+          state.curMinutesStr += digit;
+          state.curMinutesStr = state.curMinutesStr.substr(-2);
+          state.curMinutes = parseInt(state.curMinutesStr);
+        }
+      }
+      updateValue(state);
+      updateSelection(state);
+    }
+    function onSelect(e) {
+      if (!(this.selectionStart == 0 && this.selectionEnd == 2) &&
+          !(this.selectionStart == 3 && this.selectionEnd == 5)) {
+        var state = $(this).data('state');
+        if (this.selectionStart >= 3) {
+          selectMinutes(state);
+        } else {
+          selectHours(state);
+        }
+      }
+    }
+
+    function eSetValue(e, value) {
+      var state = $(this).data('state');
+      setValue(state, value);
+    }
+
+    function setValue(state, value) {
+      var curDate = '';
+      if (state.$date) {
+        curDate = state.$date.value();
+      } else {
+        curDate = getDateValue(new Date);
+      }
+      var curD = (value instanceof Date) ? value : new Date(curDate + 'T' + value);
+      if (isNaN(curD)) {
+        state.curHours = 0;
+        state.curMinutes = 0;
+        state.hasValue = false;
+      } else {
+        state.curHours = curD.getHours();
+        state.curMinutes = curD.getMinutes();
+        state.hasValue = true;
+      }
+      updateValue(state, true);
+    }
+
+    return this.each(function() {
+      var $input = $(this);
+      var $field = $input.parents('.js-time-input');
+      var $value = $('.js-time-value', $field);
+      var $timezone = $('.js-time-timezone', $field);
+      var state = {
+        hasValue: false,
+        curHoursStr: '',
+        curHours: 0,
+        curMinutesStr: '',
+        curMinutes: 0,
+        hoursSelected: true,
+        minutesSelected: false,
+        $input: $input,
+        $field: $field,
+        $value: $value
+      };
+      var $datetime = $input.parents('.datetime-group');
+      if ($datetime.size()) {
+        state.$date = $('input[type="date"]', $datetime);
+      }
+      if ($input.data('inited')) {
+        return;
+      }
+      $timezone.text(Bugtracker.getTimezoneText());
+      $input.data('inited', true);
+      $input.data('state', state);
+      $value.on('focus.tr-timepicker', onFocus);
+      $value.on('click.tr-timepicker', onSelect);
+      $value.on('blur.tr-timepicker', onBlur);
+      $value.on('select.tr-timepicker', onSelect);
+      $value.on('keydown.tr-timepicker', onKeyDown);
+      $input.on('selectval.tr-timepicker', eSetValue);
+      $input.on('focusval.tr-timepicker', onFocusValue);
+      $value.data('state', state);
+      setValue(state, $input.attr('value'));
+    });
+  };
+  $.fn.destroyTimePicker = function() {
+    return this.each(function() {
+      var $input = $(this);
+      var state = $input.data('state');
+      if (!state) {
+        return;
+      }
+      $input.off('.tr-timepicker');
+      state.$value.off('.tr-timepicker');
+    });
+  };
+
   $.fn.blockBodyScroll = function() {
     function onResultsMouseWheel(e) {
       var d = e.originalEvent.wheelDelta;
@@ -1673,6 +2186,7 @@ var WebsiteTheme = {
 var Bugtracker = {
   init: function() {
     WebsiteTheme.init();
+    $(document).off('click.btHint').on('click.btHint', Bugtracker.eHideAllHints);
     Aj.onLoad(function(state) {
       Bugtracker.updateTime(Aj.ajContainer);
       $('.logout-link').on('click', Bugtracker.eLogOut);
@@ -1733,11 +2247,85 @@ var Bugtracker = {
       $time.removeAttr('datetime');
     });
   },
+  dateTimeFieldValue: function($form, date_field, time_field, default_time) {
+    var $dateFieldEl = time_field ? $form.field(date_field) : $form;
+    var $timeFieldEl = time_field ? $form.field(time_field) : date_field;
+    var date_value = $dateFieldEl.value();
+    var time_value = $timeFieldEl.value() || default_time || '';
+    if (!date_value || !time_value) {
+      return '';
+    }
+    var tz_offset = -60 * (new Date()).getTimezoneOffset();
+    var is_pos = tz_offset >= 0;
+    if (!is_pos) tz_offset *= -1;
+    var h = Math.floor(tz_offset / 3600);
+    var m = Math.floor((tz_offset % 3600) / 60);
+    if (h < 10) h = '0' + h;
+    if (m < 10) m = '0' + m;
+    return date_value + 'T' + time_value + (tz_offset ? (is_pos ? '+' : '-') + h + m : 'Z');
+  },
+  getTimezoneText: function(tz_offset) {
+    if (typeof tz_offset === 'undefined') {
+      tz_offset = -60 * (new Date()).getTimezoneOffset();
+    }
+    tz_offset = parseInt(tz_offset);
+    var is_pos = tz_offset >= 0;
+    if (!is_pos) tz_offset *= -1;
+    var h = Math.floor(tz_offset / 3600);
+    var m = Math.floor((tz_offset % 3600) / 60);
+    if (m < 10) m = '0' + m;
+    return 'UTC' + (tz_offset ? (is_pos ? '+' : '-') + h + ':' + m : '');
+  },
+  showHint: function($hint, delay, hide_delay) {
+    hide_delay = hide_delay || 0;
+    var show_to = $hint.data('show_to');
+    var hide_to = $hint.data('hide_to');
+    clearTimeout(show_to);
+    clearTimeout(hide_to);
+    show_to = setTimeout(function() {
+      $hint.addClass('show-hint');
+      if (hide_delay > 0) {
+        Bugtracker.hideHint($hint, hide_delay);
+      }
+    }, delay);
+    $hint.data('show_to', show_to);
+  },
+  hideHint: function($hint, delay) {
+    var show_to = $hint.data('show_to');
+    var hide_to = $hint.data('hide_to');
+    clearTimeout(show_to);
+    clearTimeout(hide_to);
+    hide_to = setTimeout(function() {
+      $hint.removeClass('show-hint');
+    }, delay);
+    $hint.data('hide_to', hide_to);
+  },
+  eHintEvent: function(e) {
+    var $hint = $(this);
+    if (e.type == 'click') {
+      Bugtracker.showHint($hint, 50, 2000);
+    } else if (e.type == 'mouseover') {
+      Bugtracker.showHint($hint, 400);
+    } else if (e.type == 'mouseout') {
+      Bugtracker.hideHint($hint, 100);
+    }
+  },
+  eHideAllHints: function(e) {
+    var $closestHint = $(e.target).closest('.js-hint-tooltip');
+    $('.js-hint-tooltip.show-hint').each(function() {
+      if (!$closestHint.filter(this).size()) {
+        Bugtracker.hideHint($(this), 1);
+      }
+    });
+  },
   formInit: function(form) {
     var $form = $(form);
     $('.bt-form-input .cd-form-control', $form).on('focus blur keyup change input', Bugtracker.eUpdateField);
     $('.bt-attach-btn', $form).on('focus blur', Bugtracker.eUpdateField);
     $('input.checkbox,input.radio', $form).on('focus blur', Bugtracker.eUpdateField);
+    $('.js-hint-tooltip', $form).on('mouseover mouseout click', Bugtracker.eHintEvent);
+    $('input[type="date"]', $form).initDatePicker();
+    $('input[type="time"]', $form).initTimePicker();
     $('.bt-issue-files', $form).on('update', Bugtracker.onFilesUpdate);
     $form.on('focus.curPage', '.cd-issue-form', Bugtracker.checkAuth);
     $form.on('change.curPage', '.file-upload', Upload.eSelectFile);
@@ -1792,6 +2380,9 @@ var Bugtracker = {
     $('.bt-form-input .cd-form-control', $form).off('focus blur keyup change input', Bugtracker.eUpdateField);
     $('.bt-attach-btn', $form).off('focus blur', Bugtracker.eUpdateField);
     $('input.checkbox,input.radio', $form).off('focus blur', Bugtracker.eUpdateField);
+    $('.js-hint-tooltip', $form).off('mouseover mouseout click', Bugtracker.eHintEvent);
+    $('input[type="date"]', $form).destroyDatePicker();
+    $('input[type="time"]', $form).destroyTimePicker();
     $('.bt-issue-files', $form).off('update', Bugtracker.onFilesUpdate);
     $form.off('.curPage');
     $('.bt-form-input > div.input[contenteditable]', $form).destroyTextarea();
@@ -2179,6 +2770,9 @@ var Filters = {
         }
       });
       Bugtracker.updateField($filtersInput);
+      $form.on('change.curPage', 'input[type="date"],input[type="time"]', Filters.eDateTimeChange);
+      $form.on('click.curPage', '.js-activate-date-remove', Filters.eRemoveStartDate);
+      $form.on('click.curPage', '.js-deactivate-date-remove', Filters.eRemoveEndDate);
       $(document).on('click.curPage', '.bt-tab-filter-btn', Filters.eTabFilterChange);
       $('.cd-content').on('click.curPage', '.bt-sort-item', Filters.eFilterChange);
       var params = Filters.getFormParams();
@@ -2217,12 +2811,31 @@ var Filters = {
     $item.addClass('selected');
     Filters.updateForm();
   },
+  eDateTimeChange: function(e) {
+    Filters.updateForm();
+  },
+  eRemoveStartDate: function(e) {
+    e.preventDefault();
+    var $form = $(this).parents('form');
+    $form.field('date_from').trigger('selectval', ['']);
+    $form.field('date_from_time').trigger('selectval', ['']);
+    Filters.updateForm();
+  },
+  eRemoveEndDate: function(e) {
+    e.preventDefault();
+    var $form = $(this).parents('form');
+    $form.field('date_to').trigger('selectval', ['']);
+    $form.field('date_to_time').trigger('selectval', ['']);
+    Filters.updateForm();
+  },
   getFormParams: function() {
     var $form   = $('.bt-main-search-form');
     var filters = $form.field('filters').data('valueFull');
     var query   = $.trim($form.field('query').value());
     var type    = $form.field('type').value();
     var sort    = $('.bt-sort-wrap').data('value');
+    var dateFrom = Bugtracker.dateTimeFieldValue($form, 'date_from', 'date_from_time', '00:00');
+    var dateTo   = Bugtracker.dateTimeFieldValue($form, 'date_to', 'date_to_time', '23:59');
     var params  = {};
     var filters_data = {};
     for (var val in filters) {
@@ -2265,6 +2878,12 @@ var Filters = {
     }
     if (query.length) {
       params.query = query;
+    }
+    if (dateFrom) {
+      params.date_from = dateFrom;
+    }
+    if (dateTo) {
+      params.date_to = dateTo;
     }
     return params;
   },
