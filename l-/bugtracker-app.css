@@ -5857,21 +5857,29 @@ body:after {
 }
 
 
-.bt-date-range-filter {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  margin: 10px 0 0;
+.bt-date-filter-inputs {
+  display: none;
 }
-.bt-date-range-filter .form-group {
-  position: relative;
+.bt-date-filter-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: -1px 6px 0 0;
+  vertical-align: top;
+  background: currentColor;
+  -webkit-mask: url('data:image/svg+xml,%3Csvg%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%221.3%22%3E%3Crect%20height%3D%2210.2%22%20rx%3D%222%22%20width%3D%2210.8%22%20x%3D%222.6%22%20y%3D%223.2%22%2F%3E%3Cpath%20d%3D%22M5.2%202v2.4M10.8%202v2.4M2.9%206.5h10.2%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E') center / 16px 16px no-repeat;
+  mask: url('data:image/svg+xml,%3Csvg%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%221.3%22%3E%3Crect%20height%3D%2210.2%22%20rx%3D%222%22%20width%3D%2210.8%22%20x%3D%222.6%22%20y%3D%223.2%22%2F%3E%3Cpath%20d%3D%22M5.2%202v2.4M10.8%202v2.4M2.9%206.5h10.2%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E') center / 16px 16px no-repeat;
 }
-.bt-date-range-filter .form-label {
-  display: block;
-  font-size: 13px;
-  line-height: 18px;
-  margin: 0 0 7px;
-  color: var(--text-secondary);
+.selected-item.virtual-date {
+  cursor: pointer;
+}
+.selected-item.virtual-date .label {
+  display: flex;
+  align-items: center;
+}
+.select-list-item.virtual-date {
+  display: flex;
+  align-items: center;
 }
 .pr-form-link {
   display: inline-block;
@@ -6241,9 +6249,4 @@ input.pr-form-control:focus {
 .date-picker-button-down.disabled {
   background-image: url('data:image/svg+xml,%3Csvg%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M6%209.5%2011.86%2015.36C11.93%2015.44%2012.06%2015.44%2012.14%2015.36L18%209.5%22%20fill%3D%22none%22%20stroke%3D%22%23999%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%221.4%22%2F%3E%3C%2Fsvg%3E');
   pointer-events: none;
-}
-@media (max-width: 760px) {
-  .bt-date-range-filter {
-    grid-template-columns: minmax(0, 1fr);
-  }
 }

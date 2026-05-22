@@ -700,6 +700,8 @@
       }
       function delSelected(val) {
         if (selectedMap[val]) {
+          var item = selectedMap[val];
+          options.onDeleteItem && options.onDeleteItem(item, val);
           delete selectedMap[val];
           for (var i = 0; i < selectedVal.length; i++) {
             if (selectedVal[i] == val) {
@@ -714,6 +716,7 @@
       function clearSelected() {
         for (var i = 0; i < selectedVal.length; i++) {
           var val = selectedVal[i];
+          options.onDeleteItem && options.onDeleteItem(selectedMap[val], val);
           delete selectedMap[val];
         }
         selectedVal = [];
@@ -725,12 +728,25 @@
         for (var i = 0; i < selectedVal.length; i++) {
           var val = selectedVal[i];
           var item = selectedMap[val];
-          html += '<div class="selected-item' + (item.class ? ' ' + item.class : '') + '" data-val="' + cleanHTML(val.toString()) + '"><span class="close"></span><div class="label">' + item.name + '</div></div>';
+          html += '<div class="selected-item' + (item.class ? ' ' + item.class : '') + '" data-val="' + cleanHTML(val.toString()) + '"><span class="close"></span><div class="label">' + (item.selected_name || item.name) + '</div></div>';
         }
         $('.selected-item', $selected).remove();
         $selected.prepend(html);
         options.onUpdate && options.onUpdate(getValue(), getValue(true));
       }
+      var selectControls = {
+        addSelected: addSelected,
+        delSelected: delSelected,
+        updateSelected: updateSelected,
+        hasSelected: function(val) {
+          return !!selectedMap[val];
+        },
+        close: function() {
+          $field.blur();
+          $results.addClass('collapsed');
+          toggleDD(false);
+        }
+      };
 
       var initTextarea = null;
       var isContentEditable = $field.is('[contenteditable]');
@@ -780,6 +796,10 @@
           return filtered_data;
         },
         onSelect: function(item) {
+          if (options.onSelectItem &&
+              options.onSelectItem(item, selectControls) === false) {
+            return;
+          }
           var newValue = '';
           if (options.searchByLastWord) {
             var oldValue = $field.value();
@@ -863,6 +883,12 @@
         $('.selected-item.focused', $selected).removeClass('focused');
       });
       $selected.on('click.select', '.selected-item', function(e) {
+        var val = $(this).attr('data-val');
+        if (options.onSelectedItemClick &&
+            options.onSelectedItemClick(selectedMap[val], selectControls) === false) {
+          e.stopImmediatePropagation();
+          return;
+        }
         $('.selected-item.focused', $selected).removeClass('focused');
         $(this).addClass('focused');
         e.stopImmediatePropagation();
@@ -890,6 +916,7 @@
           $field.focus();
         }
       });
+      $select.data('selectControls', selectControls);
       return this;
     });
   };
@@ -1602,7 +1629,7 @@
         }
         toWeekD = new Date(curD);
         setHeader();
-        $dpBody.animOff().html(body).cssProp('--row-offset', '').cssProp('--prepend-offset', '');
+        $dpBody.animOff().html(body).css({'--row-offset': '', '--prepend-offset': ''});
         $('.date-picker-cell.month-' + year + '-' + month, $dpBody).addClass('current');
         $dpBody.animOn();
       }
@@ -1636,9 +1663,9 @@
           }
           fromWeekD = new Date(curFromD);
           var weeksOffset = getWeekDiff(fromWeekD, curWeekD);
-          $dpBody.prepend(body).cssProp('--prepend-offset', -weeksOffset).redraw();
+          $dpBody.prepend(body).css('--prepend-offset', -weeksOffset).redraw();
         }
-        $dpBody.cssProp('--row-offset', -weeks);
+        $dpBody.css('--row-offset', -weeks);
         $('.date-picker-cell.current', $dpBody).removeClass('current');
         $('.date-picker-cell.month-' + year + '-' + month, $dpBody).addClass('current');
         setHeader();
@@ -1660,16 +1687,10 @@
         var value = $(this).attr('data-value');
         setValue(state, value);
         closePopup($dpPopup);
-        if (state.$time) {
-          state.$time.trigger('focusval');
-        }
       }
       function datePickerClear() {
         setValue(state, '');
         closePopup($dpPopup);
-        if (state.$time) {
-          state.$time.trigger('selectval', ['']);
-        }
       }
       function onMonthDown(e) {
         appendMonth(1);
@@ -1772,10 +1793,6 @@
         $field: $field,
         $value: $value
       };
-      var $datetime = $input.parents('.datetime-group');
-      if ($datetime.size()) {
-        state.$time = $('input[type="time"]', $datetime);
-      }
       if ($input.data('inited')) {
         return;
       }
@@ -2325,7 +2342,6 @@ var Bugtracker = {
     $('input.checkbox,input.radio', $form).on('focus blur', Bugtracker.eUpdateField);
     $('.js-hint-tooltip', $form).on('mouseover mouseout click', Bugtracker.eHintEvent);
     $('input[type="date"]', $form).initDatePicker();
-    $('input[type="time"]', $form).initTimePicker();
     $('.bt-issue-files', $form).on('update', Bugtracker.onFilesUpdate);
     $form.on('focus.curPage', '.cd-issue-form', Bugtracker.checkAuth);
     $form.on('change.curPage', '.file-upload', Upload.eSelectFile);
@@ -2382,7 +2398,6 @@ var Bugtracker = {
     $('input.checkbox,input.radio', $form).off('focus blur', Bugtracker.eUpdateField);
     $('.js-hint-tooltip', $form).off('mouseover mouseout click', Bugtracker.eHintEvent);
     $('input[type="date"]', $form).destroyDatePicker();
-    $('input[type="time"]', $form).destroyTimePicker();
     $('.bt-issue-files', $form).off('update', Bugtracker.onFilesUpdate);
     $form.off('.curPage');
     $('.bt-form-input > div.input[contenteditable]', $form).destroyTextarea();
@@ -2749,9 +2764,26 @@ var Filters = {
           var data = Aj.state.queryValues;
           for (var i = 0; i < data.length; i++) {
             var item = data[i];
-            item._values = [item.name.toLowerCase()];
+            item._values = [(item.search_name || item.name).toLowerCase()];
           }
           return data;
+        },
+        onSelectItem: function(item, controls) {
+          if (item.date_filter) {
+            Filters.openDateFilter(item.date_filter, controls);
+            return false;
+          }
+        },
+        onSelectedItemClick: function(item, controls) {
+          if (item && item.date_filter) {
+            Filters.openDateFilter(item.date_filter, controls);
+            return false;
+          }
+        },
+        onDeleteItem: function(item) {
+          if (item && item.date_filter) {
+            Filters.setDateFilterValue(item.field, '', true);
+          }
         },
         onChange: function() {
           if (Aj.state.isWebApp) {
@@ -2770,9 +2802,7 @@ var Filters = {
         }
       });
       Bugtracker.updateField($filtersInput);
-      $form.on('change.curPage', 'input[type="date"],input[type="time"]', Filters.eDateTimeChange);
-      $form.on('click.curPage', '.js-activate-date-remove', Filters.eRemoveStartDate);
-      $form.on('click.curPage', '.js-deactivate-date-remove', Filters.eRemoveEndDate);
+      $form.on('change.curPage', 'input[type="date"]', Filters.eDateChange);
       $(document).on('click.curPage', '.bt-tab-filter-btn', Filters.eTabFilterChange);
       $('.cd-content').on('click.curPage', '.bt-sort-item', Filters.eFilterChange);
       var params = Filters.getFormParams();
@@ -2811,22 +2841,71 @@ var Filters = {
     $item.addClass('selected');
     Filters.updateForm();
   },
-  eDateTimeChange: function(e) {
-    Filters.updateForm();
+  openDateFilter: function(type, controls) {
+    var field = type == 'to' ? 'date_to' : 'date_from';
+    controls.close();
+    $('.bt-main-search-form').field(field).trigger('focusval');
   },
-  eRemoveStartDate: function(e) {
-    e.preventDefault();
-    var $form = $(this).parents('form');
-    $form.field('date_from').trigger('selectval', ['']);
-    $form.field('date_from_time').trigger('selectval', ['']);
-    Filters.updateForm();
+  setDateFilterValue: function(field, value, silent) {
+    var $input = $('.bt-main-search-form').field(field);
+    if (silent) {
+      $input.data('suppressDateChange', true);
+    }
+    $input.trigger('selectval', [value || '']);
+    if (silent) {
+      $input.data('suppressDateChange', false);
+    }
   },
-  eRemoveEndDate: function(e) {
-    e.preventDefault();
-    var $form = $(this).parents('form');
-    $form.field('date_to').trigger('selectval', ['']);
-    $form.field('date_to_time').trigger('selectval', ['']);
-    Filters.updateForm();
+  getDateFilterItem: function(field) {
+    var type = field == 'date_to' ? 'to' : 'from';
+    var data = Aj.state.queryValues || [];
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].date_filter == type) {
+        return data[i];
+      }
+    }
+    return false;
+  },
+  formatDateFilterLabel: function(field, value) {
+    var prefix = field == 'date_to' ? 'To' : 'From';
+    if (!value) {
+      return '<span class="bt-date-filter-icon"></span>' + prefix;
+    }
+    var parts = value.split('-');
+    var date = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return '<span class="bt-date-filter-icon"></span>' + prefix + ' ' + date.getDate() + ' ' + months[date.getMonth()] + ' ' + date.getFullYear();
+  },
+  eDateChange: function(e) {
+    var $input = $(this);
+    if ($input.data('suppressDateChange')) {
+      return;
+    }
+    var field = this.name;
+    var item = Filters.getDateFilterItem(field);
+    if (!item) {
+      Filters.updateForm();
+      return;
+    }
+    var value = $input.value();
+    var $filtersEl = $('.bt-main-search-form').field('filters');
+    var controls = $filtersEl.data('selectControls');
+    if (!controls) {
+      Filters.updateForm();
+      return;
+    }
+    var val = (item.prefix || '') + item.val;
+    if (value) {
+      item.selected_name = Filters.formatDateFilterLabel(field, value);
+      if (controls.hasSelected(val)) {
+        controls.updateSelected();
+        Filters.updateForm();
+      } else {
+        controls.addSelected(item);
+      }
+    } else {
+      controls.delSelected(val);
+    }
   },
   getFormParams: function() {
     var $form   = $('.bt-main-search-form');
@@ -2834,12 +2913,15 @@ var Filters = {
     var query   = $.trim($form.field('query').value());
     var type    = $form.field('type').value();
     var sort    = $('.bt-sort-wrap').data('value');
-    var dateFrom = Bugtracker.dateTimeFieldValue($form, 'date_from', 'date_from_time', '00:00');
-    var dateTo   = Bugtracker.dateTimeFieldValue($form, 'date_to', 'date_to_time', '23:59');
+    var dateFrom = $form.field('date_from').value();
+    var dateTo   = $form.field('date_to').value();
     var params  = {};
     var filters_data = {};
     for (var val in filters) {
       var filter = filters[val];
+      if (filter.date_filter) {
+        continue;
+      }
       if (filter.group) {
         filters_data[filter.field] = filter.val;
       } else {
