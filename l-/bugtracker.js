@@ -1618,8 +1618,61 @@ function preventDefault(e) {
   e.preventDefault();
 }
 
+var WebsiteTheme = {
+  DARK_CLASS: 'bt-theme-dark',
+  SWITCHING_CLASS: 'bt-theme-switching',
+  init: function() {
+    if (Aj.state.isWebApp) {
+      return;
+    }
+    $(document).off('click.websiteTheme').on('click.websiteTheme', '.bt-theme-toggle', WebsiteTheme.eToggle);
+  },
+  isDark: function() {
+    return document.documentElement.classList.contains(WebsiteTheme.DARK_CLASS);
+  },
+  apply: function(theme) {
+    var root = document.documentElement;
+    var dark = theme === 'dark';
+    if (WebsiteTheme.isDark() === dark) {
+      root.setAttribute('data-bt-theme', dark ? 'dark' : 'light');
+      WebsiteTheme.updateButtons();
+      return;
+    }
+    root.classList.add(WebsiteTheme.SWITCHING_CLASS);
+    root.offsetHeight;
+    root.classList.toggle(WebsiteTheme.DARK_CLASS, dark);
+    root.setAttribute('data-bt-theme', dark ? 'dark' : 'light');
+    WebsiteTheme.updateButtons();
+    if (window.requestAnimationFrame) {
+      window.requestAnimationFrame(function() {
+        root.classList.remove(WebsiteTheme.SWITCHING_CLASS);
+      });
+    } else {
+      window.setTimeout(function() {
+        root.classList.remove(WebsiteTheme.SWITCHING_CLASS);
+      }, 0);
+    }
+  },
+  updateButtons: function() {
+    var dark = WebsiteTheme.isDark();
+    $('.bt-theme-toggle').attr({
+      'aria-pressed': dark ? 'true' : 'false',
+      'aria-label': dark ? 'Switch to light theme' : 'Switch to dark theme',
+      'title': dark ? 'Light theme' : 'Dark theme'
+    });
+  },
+  eToggle: function(e) {
+    e.preventDefault();
+    var theme = WebsiteTheme.isDark() ? 'light' : 'dark';
+    document.cookie = Aj.state.themeCookie + '=' + theme + ';path=/;max-age=31536000';
+    WebsiteTheme.apply(theme);
+    return false;
+  }
+};
+
 var Bugtracker = {
   init: function() {
+    WebsiteTheme.init();
     Aj.onLoad(function(state) {
       Bugtracker.updateTime(Aj.ajContainer);
       $('.logout-link').on('click', Bugtracker.eLogOut);

@@ -179,6 +179,14 @@ textarea.form-control {
   outline: none;
   box-shadow: none;
 }
+a:focus {
+  outline: none;
+}
+a:focus-visible {
+  outline: 2px solid rgba(35, 143, 225, .45);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
 input.form-control[disabled],
 textarea.form-control[disabled] {
   cursor: auto;
