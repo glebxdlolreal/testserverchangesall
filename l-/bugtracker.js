@@ -725,8 +725,23 @@
       }
       function updateSelected() {
         var html = '';
+        var renderVal = [];
         for (var i = 0; i < selectedVal.length; i++) {
           var val = selectedVal[i];
+          var item = selectedMap[val];
+          if (!item || item.date_filter) {
+            continue;
+          }
+          renderVal.push(val);
+        }
+        if (selectedMap['d:from']) {
+          renderVal.push('d:from');
+        }
+        if (selectedMap['d:to']) {
+          renderVal.push('d:to');
+        }
+        for (var i = 0; i < renderVal.length; i++) {
+          var val = renderVal[i];
           var item = selectedMap[val];
           html += '<div class="selected-item' + (item.class ? ' ' + item.class : '') + '" data-val="' + cleanHTML(val.toString()) + '"><span class="close"></span><div class="label">' + (item.selected_name || item.name) + '</div></div>';
         }
@@ -1571,8 +1586,17 @@
       var j = d.getDate();
       return j + ' ' + M + ' ' + y;
     }
+    function refreshBounds(state) {
+      var minValue = new Date(state.$input.attr('min'));
+      var maxValue = new Date(state.$input.attr('max'));
+      state.minDayD = getStartOfDay(minValue);
+      state.maxDayD = getStartOfDay(maxValue);
+      state.minMonthD = getStartOfMonth(minValue);
+      state.maxMonthD = getStartOfMonth(maxValue);
+    }
 
     function openDatePicker(state, selD) {
+      refreshBounds(state);
       if (state.$dpPopup) {
         closePopup(state.$dpPopup);
       }
@@ -1781,6 +1805,12 @@
       var $input = $(this);
       var $field = $input.parents('.js-date-input');
       var $value = $('.js-date-value', $field);
+      if (!$input.data('defaultMin')) {
+        $input.data('defaultMin', $input.attr('min'));
+      }
+      if (!$input.data('defaultMax')) {
+        $input.data('defaultMax', $input.attr('max'));
+      }
       var minValue = new Date($input.attr('min'));
       var maxValue = new Date($input.attr('max'));
       var state = {
@@ -2605,9 +2635,14 @@ var Filters = {
     Filters.updateForm();
   },
   openDateFilter: function(type, controls) {
+    var $form = $('.bt-main-search-form');
     var field = type == 'to' ? 'date_to' : 'date_from';
+    var $input = $form.field(field);
+    var minDate = $input.data('defaultMin') || $input.attr('min');
+    var maxDate = $input.data('defaultMax') || $input.attr('max');
+    $input.attr({min: minDate, max: maxDate});
     controls.close();
-    $('.bt-main-search-form').field(field).trigger('focusval');
+    $input.trigger('focusval');
   },
   setDateFilterValue: function(field, value, silent) {
     var $input = $('.bt-main-search-form').field(field);
@@ -2643,35 +2678,52 @@ var Filters = {
     }
     return '<span class="bt-date-filter-icon"></span>' + label;
   },
+  syncDateFilterSelection: function(field, value, controls) {
+    var item = Filters.getDateFilterItem(field);
+    if (!item) {
+      return false;
+    }
+    var val = (item.prefix || '') + item.val;
+    if (value) {
+      item.selected_name = Filters.formatDateFilterLabel(field, value);
+      if (controls.hasSelected(val)) {
+        return false;
+      }
+      controls.addSelected(item);
+      return true;
+    }
+    if (controls.hasSelected(val)) {
+      controls.delSelected(val);
+      return true;
+    }
+    return false;
+  },
   eDateChange: function(e) {
     var $input = $(this);
     if ($input.data('suppressDateChange')) {
       return;
     }
-    var field = this.name;
-    var item = Filters.getDateFilterItem(field);
-    if (!item) {
-      Filters.updateForm();
-      return;
+    var $form = $('.bt-main-search-form');
+    var fromDate = $form.field('date_from').value();
+    var toDate = $form.field('date_to').value();
+    if (fromDate && toDate && fromDate > toDate) {
+      Filters.setDateFilterValue('date_from', toDate, true);
+      Filters.setDateFilterValue('date_to', fromDate, true);
+      fromDate = $form.field('date_from').value();
+      toDate = $form.field('date_to').value();
     }
-    var value = $input.value();
     var $filtersEl = $('.bt-main-search-form').field('filters');
     var controls = $filtersEl.data('selectControls');
     if (!controls) {
       Filters.updateForm();
       return;
     }
-    var val = (item.prefix || '') + item.val;
-    if (value) {
-      item.selected_name = Filters.formatDateFilterLabel(field, value);
-      if (controls.hasSelected(val)) {
-        controls.updateSelected();
-        Filters.updateForm();
-      } else {
-        controls.addSelected(item);
-      }
-    } else {
-      controls.delSelected(val);
+    var selectionChanged = false;
+    selectionChanged = Filters.syncDateFilterSelection('date_from', fromDate, controls) || selectionChanged;
+    selectionChanged = Filters.syncDateFilterSelection('date_to', toDate, controls) || selectionChanged;
+    controls.updateSelected();
+    if (!selectionChanged) {
+      Filters.updateForm();
     }
   },
   getFormParams: function() {
