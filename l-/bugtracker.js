@@ -2637,7 +2637,11 @@ var Filters = {
     var parts = value.split('-');
     var date = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    return '<span class="bt-date-filter-icon"></span>' + prefix + ' ' + date.getDate() + ' ' + months[date.getMonth()] + ' ' + date.getFullYear();
+    var label = prefix + ' ' + date.getDate() + ' ' + months[date.getMonth()];
+    if (date.getFullYear() != (new Date()).getFullYear()) {
+      label += ' ' + date.getFullYear();
+    }
+    return '<span class="bt-date-filter-icon"></span>' + label;
   },
   eDateChange: function(e) {
     var $input = $(this);

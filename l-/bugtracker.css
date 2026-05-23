@@ -4606,6 +4606,11 @@ button.bt-header-right-btn {
 .bt-select-query .select .selected-item.virtual-date .close:after {
   background-color: #7B3F8C;
 }
+@media (max-width: 767px) {
+  .bt-select-query .select .selected-item.virtual-date {
+    max-width: 57.5%;
+  }
+}
 .pr-form-link {
   display: inline-block;
   font-size: 13px;
