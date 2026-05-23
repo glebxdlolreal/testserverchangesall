@@ -1658,6 +1658,10 @@
         $dpBody.animOn();
       }
       function appendMonth(diff) {
+        if (transitioning) {
+          updateMonth();
+          transitioning = false;
+        }
         diff = diff > 0 ? 1 : -1;
         var newD = getStartOfMonth(currentD);
         newD.setMonth(newD.getMonth() + diff);
@@ -1693,6 +1697,7 @@
         $('.date-picker-cell.current', $dpBody).removeClass('current');
         $('.date-picker-cell.month-' + year + '-' + month, $dpBody).addClass('current');
         setHeader();
+        transitioning = true;
       }
       function onKeyDown(e) {
         if (e.keyCode == Keys.DOWN) {
@@ -1725,6 +1730,7 @@
       function onTransitionEnd(e) {
         if (this === e.target) {
           updateMonth();
+          transitioning = false;
         }
       }
 
@@ -1741,7 +1747,7 @@
       var selMonth = selD.getMonth();
       var selYear  = selD.getFullYear();
 
-      var fromWeekD, curWeekD, toWeekD;
+      var fromWeekD, curWeekD, toWeekD, transitioning = false;
 
       var currentD = getStartOfMonth(selD);
       updateMonth();
