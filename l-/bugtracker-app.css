@@ -2564,16 +2564,25 @@ button.cd-reply-btn, button.cd-edit-btn {
   color: var(--text-primary);
   font-weight: 500;
 }
+body .cd-dialog-options .radio-item .radio-input + .radio-label {
+  color: var(--text-primary);
+}
 
 .cd-dialog-options .radio-item input.radio:disabled + .radio-input {
   opacity: 1;
 }
 
 .cd-dialog-options.disabled input.radio:disabled ~ .radio-label {
-  color: #5B6875;
+  color: var(--text-secondary);
 }
 
 .cd-dialog-options.disabled input.radio:checked ~ .radio-label {
+  color: var(--text-primary);
+}
+body .cd-dialog-options.disabled input.radio:disabled ~ .radio-label {
+  color: var(--text-secondary);
+}
+body .cd-dialog-options.disabled input.radio:checked ~ .radio-label {
   color: var(--text-primary);
 }
 
