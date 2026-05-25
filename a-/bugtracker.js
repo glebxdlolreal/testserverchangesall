@@ -700,6 +700,8 @@
       }
       function delSelected(val) {
         if (selectedMap[val]) {
+          var item = selectedMap[val];
+          options.onDeleteItem && options.onDeleteItem(item, val);
           delete selectedMap[val];
           for (var i = 0; i < selectedVal.length; i++) {
             if (selectedVal[i] == val) {
@@ -714,6 +716,7 @@
       function clearSelected() {
         for (var i = 0; i < selectedVal.length; i++) {
           var val = selectedVal[i];
+          options.onDeleteItem && options.onDeleteItem(selectedMap[val], val);
           delete selectedMap[val];
         }
         selectedVal = [];
@@ -722,15 +725,43 @@
       }
       function updateSelected() {
         var html = '';
+        var renderVal = [];
         for (var i = 0; i < selectedVal.length; i++) {
           var val = selectedVal[i];
           var item = selectedMap[val];
-          html += '<div class="selected-item' + (item.class ? ' ' + item.class : '') + '" data-val="' + cleanHTML(val.toString()) + '"><span class="close"></span><div class="label">' + item.name + '</div></div>';
+          if (!item || item.date_filter) {
+            continue;
+          }
+          renderVal.push(val);
+        }
+        if (selectedMap['d:from']) {
+          renderVal.push('d:from');
+        }
+        if (selectedMap['d:to']) {
+          renderVal.push('d:to');
+        }
+        for (var i = 0; i < renderVal.length; i++) {
+          var val = renderVal[i];
+          var item = selectedMap[val];
+          html += '<div class="selected-item' + (item.class ? ' ' + item.class : '') + '" data-val="' + cleanHTML(val.toString()) + '"><span class="close"></span><div class="label">' + (item.selected_name || item.name) + '</div></div>';
         }
         $('.selected-item', $selected).remove();
         $selected.prepend(html);
         options.onUpdate && options.onUpdate(getValue(), getValue(true));
       }
+      var selectControls = {
+        addSelected: addSelected,
+        delSelected: delSelected,
+        updateSelected: updateSelected,
+        hasSelected: function(val) {
+          return !!selectedMap[val];
+        },
+        close: function() {
+          $field.blur();
+          $results.addClass('collapsed');
+          toggleDD(false);
+        }
+      };
 
       var initTextarea = null;
       var isContentEditable = $field.is('[contenteditable]');
@@ -780,6 +811,10 @@
           return filtered_data;
         },
         onSelect: function(item) {
+          if (options.onSelectItem &&
+              options.onSelectItem(item, selectControls) === false) {
+            return;
+          }
           var newValue = '';
           if (options.searchByLastWord) {
             var oldValue = $field.value();
@@ -863,6 +898,12 @@
         $('.selected-item.focused', $selected).removeClass('focused');
       });
       $selected.on('click.select', '.selected-item', function(e) {
+        var val = $(this).attr('data-val');
+        if (options.onSelectedItemClick &&
+            options.onSelectedItemClick(selectedMap[val], selectControls) === false) {
+          e.stopImmediatePropagation();
+          return;
+        }
         $('.selected-item.focused', $selected).removeClass('focused');
         $(this).addClass('focused');
         e.stopImmediatePropagation();
@@ -890,6 +931,7 @@
           $field.focus();
         }
       });
+      $select.data('selectControls', selectControls);
       return this;
     });
   };
@@ -1496,6 +1538,322 @@
     });
   };
 
+  $.fn.initDatePicker = function() {
+
+    function getStartOfDay(d) {
+      if (isNaN(d)) {
+        return null;
+      }
+      return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    }
+    function getStartOfWeek(d) {
+      if (isNaN(d)) {
+        return null;
+      }
+      d = new Date(d.getFullYear(), d.getMonth(), 1);
+      var day = d.getDay() || 7;
+      d.setDate(2 - day);
+      return d;
+    }
+    function getWeekDiff(d1, d2) {
+      var diff = (d2.getTime() - d1.getTime()) / 86400000;
+      return Math.round(diff / 7);
+    }
+    function getStartOfMonth(d) {
+      if (isNaN(d)) {
+        return null;
+      }
+      return new Date(d.getFullYear(), d.getMonth(), 1);
+    }
+    function getDateValue(d) {
+      if (isNaN(d) || d === null) {
+        return '';
+      }
+      var y = d.getFullYear();
+      var m = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'][d.getMonth()];
+      var d = d.getDate();
+      if (d < 10) {
+        d = '0' + d;
+      }
+      return y + '-' + m + '-' + d;
+    }
+    function getDateText(d) {
+      if (isNaN(d) || d === null) {
+        return '';
+      }
+      var y = d.getFullYear();
+      var M = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getMonth()];
+      var j = d.getDate();
+      return j + ' ' + M + ' ' + y;
+    }
+    function refreshBounds(state) {
+      var minValue = new Date(state.$input.attr('min'));
+      var maxValue = new Date(state.$input.attr('max'));
+      state.minDayD = getStartOfDay(minValue);
+      state.maxDayD = getStartOfDay(maxValue);
+      state.minMonthD = getStartOfMonth(minValue);
+      state.maxMonthD = getStartOfMonth(maxValue);
+    }
+
+    function openDatePicker(state, selD) {
+      refreshBounds(state);
+      if (state.$dpPopup) {
+        closePopup(state.$dpPopup);
+      }
+      var $dpPopup = $('<div class="popup-container hide alert-popup-container pr-popup-container"><section class="pr-layer-popup pr-layer-date-picker-popup popup-no-close"><h3 class="pr-layer-header js-header"></h3><div class="date-picker-controls"><div class="date-picker-button-up js-month-up"></div><div class="date-picker-button-down js-month-down"></div></div><div class="date-picker-wrap"><div class="date-picker-header"><div class="date-picker-header-content"><div class="date-picker-cell">Mon</div><div class="date-picker-cell">Tue</div><div class="date-picker-cell">Wed</div><div class="date-picker-cell">Thu</div><div class="date-picker-cell">Fri</div><div class="date-picker-cell">Sat</div><div class="date-picker-cell">Sun</div></div></div><div class="date-picker-body"><div class="date-picker-body-content js-body"></div></div></div><div class="popup-buttons"><div class="popup-button popup-button-left clear-form-btn">' + l('WEB_DATEPICKER_CLEAR', 'Clear') + '</div><div class="popup-button cancel-form-btn">' + l('WEB_DATEPICKER_CLOSE', 'Close') + '</div></div></section></div>');
+      var $dpBody = $('.js-body', $dpPopup);
+      var $dpMonthDown = $('.js-month-down', $dpPopup);
+      var $dpMonthUp = $('.js-month-up', $dpPopup);
+
+      function setHeader() {
+        var year = currentD.getFullYear();
+        var month = currentD.getMonth();
+        var header = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][month] + ' ' + year;
+        $('.js-header', $dpPopup).html(header);
+        var prevMonth = true, nextMonth = true, newD;
+        newD = getStartOfMonth(currentD);
+        newD.setMonth(month - 1);
+        if (state.minMonthD && newD < state.minMonthD ||
+            state.maxMonthD && newD > state.maxMonthD) {
+          prevMonth = false;
+        }
+        newD = getStartOfMonth(currentD);
+        newD.setMonth(month + 1);
+        if (state.minMonthD && newD < state.minMonthD ||
+            state.maxMonthD && newD > state.maxMonthD) {
+          nextMonth = false;
+        }
+        $dpMonthDown.toggleClass('disabled', !nextMonth);
+        $dpMonthUp.toggleClass('disabled', !prevMonth);
+      }
+      function cellWrap(d) {
+        var curDate = d.getDate();
+        var curMonth = d.getMonth();
+        var curYear = d.getFullYear();
+        var cellClass = ' month-' + curYear + '-' + curMonth;
+        if (curYear == selYear && curMonth == selMonth && curDate == selDate) {
+          cellClass += ' selected';
+        }
+        if (state.minDayD && d < state.minDayD ||
+            state.maxDayD && d > state.maxDayD) {
+          cellClass += ' disabled';
+        }
+        return '<div class="date-picker-cell' + cellClass + '" data-value="' + getDateValue(d) + '">' + curDate + '</div>';
+      }
+      function updateMonth() {
+        var year = currentD.getFullYear();
+        var month = currentD.getMonth();
+        var body = '';
+        var curD = getStartOfWeek(currentD);
+        fromWeekD = new Date(curD);
+        curWeekD  = new Date(curD);
+        for (var i = 0; i < 42; i++) {
+          body += cellWrap(curD);
+          curD.setDate(curD.getDate() + 1);
+        }
+        toWeekD = new Date(curD);
+        setHeader();
+        $dpBody.animOff().html(body).css({'--row-offset': '', '--prepend-offset': ''});
+        $('.date-picker-cell.month-' + year + '-' + month, $dpBody).addClass('current');
+        $dpBody.animOn();
+      }
+      function appendMonth(diff) {
+        if (transitioning) {
+          updateMonth();
+          transitioning = false;
+        }
+        diff = diff > 0 ? 1 : -1;
+        var newD = getStartOfMonth(currentD);
+        newD.setMonth(newD.getMonth() + diff);
+        if (state.minMonthD && newD < state.minMonthD ||
+            state.maxMonthD && newD > state.maxMonthD) {
+          return;
+        }
+        currentD = newD;
+        var year = currentD.getFullYear();
+        var month = currentD.getMonth();
+        var body = '';
+        var curD = getStartOfWeek(currentD);
+        var weeks = getWeekDiff(curWeekD, curD);
+        if (curD >= fromWeekD) {
+          var curToD = new Date(curD);
+          curToD.setDate(curToD.getDate() + 42);
+          while (toWeekD < curToD) {
+            body += cellWrap(toWeekD);
+            toWeekD.setDate(toWeekD.getDate() + 1);
+          }
+          $dpBody.append(body).redraw();
+        } else {
+          var curFromD = new Date(curD);
+          while (curD < fromWeekD) {
+            body += cellWrap(curD);
+            curD.setDate(curD.getDate() + 1);
+          }
+          fromWeekD = new Date(curFromD);
+          var weeksOffset = getWeekDiff(fromWeekD, curWeekD);
+          $dpBody.prepend(body).css('--prepend-offset', -weeksOffset).redraw();
+        }
+        $dpBody.css('--row-offset', -weeks);
+        $('.date-picker-cell.current', $dpBody).removeClass('current');
+        $('.date-picker-cell.month-' + year + '-' + month, $dpBody).addClass('current');
+        setHeader();
+        transitioning = true;
+      }
+      function onKeyDown(e) {
+        if (e.keyCode == Keys.DOWN) {
+          e.preventDefault();
+          appendMonth(1);
+        }
+        else if (e.keyCode == Keys.UP) {
+          e.preventDefault();
+          appendMonth(-1);
+        }
+        else if (e.keyCode == Keys.TAB) {
+          e.preventDefault();
+        }
+      }
+      function onSelect(e) {
+        var value = $(this).attr('data-value');
+        setValue(state, value);
+        closePopup($dpPopup);
+      }
+      function datePickerClear() {
+        setValue(state, '');
+        closePopup($dpPopup);
+      }
+      function onMonthDown(e) {
+        appendMonth(1);
+      }
+      function onMonthUp(e) {
+        appendMonth(-1);
+      }
+      function onTransitionEnd(e) {
+        if (this === e.target) {
+          updateMonth();
+          transitioning = false;
+        }
+      }
+
+      if (isNaN(selD) || selD === null) {
+        selD = getStartOfDay(new Date);
+      }
+      if (state.minDayD && selD < state.minDayD) {
+        selD = getStartOfDay(state.minDayD);
+      }
+      if (state.maxDayD && selD > state.maxDayD) {
+        selD = getStartOfDay(state.maxDayD);
+      }
+      var selDate  = selD.getDate();
+      var selMonth = selD.getMonth();
+      var selYear  = selD.getFullYear();
+
+      var fromWeekD, curWeekD, toWeekD, transitioning = false;
+
+      var currentD = getStartOfMonth(selD);
+      updateMonth();
+
+      $(document).on('keydown', onKeyDown);
+      $dpMonthDown.on('click', onMonthDown);
+      $dpMonthUp.on('click', onMonthUp);
+      $dpBody.on('click', '.date-picker-cell', onSelect);
+      $dpBody.on('transitionend', onTransitionEnd);
+
+      var datePickerCancel = function() {
+        closePopup($dpPopup);
+      };
+      var $clearBtn = $('.clear-form-btn', $dpPopup);
+      $clearBtn.on('click', datePickerClear);
+      var $cancelBtn = $('.cancel-form-btn', $dpPopup);
+      $cancelBtn.on('click', datePickerCancel);
+      $dpPopup.one('popup:close', function() {
+        delete state.$dpPopup;
+        $clearBtn.off('click', datePickerClear);
+        $cancelBtn.off('click', datePickerCancel);
+        $(document).off('keydown', onKeyDown);
+        $dpMonthDown.off('click', onMonthDown);
+        $dpMonthUp.off('click', onMonthUp);
+        $dpBody.off('click', '.date-picker-cell', onSelect);
+        $dpBody.off('transitionend', onTransitionEnd);
+        $dpPopup.remove();
+      });
+
+      openPopup($dpPopup, {
+        closeByClickOutside: '.popup-no-close'
+      });
+      state.$dpPopup = $dpPopup;
+      return $dpPopup;
+    }
+
+    function onFocusValue(e) {
+      var state = $(this).data('state');
+      openDatePicker(state, state.curValue);
+    }
+    function onFocus(e) {
+      var state = $(this).data('state');
+      openDatePicker(state, state.curValue);
+    }
+    function onClick(e) {
+      var state = $(this).data('state');
+      openDatePicker(state, state.curValue);
+    }
+    function eSetValue(e, value) {
+      var state = $(this).data('state');
+      setValue(state, value);
+    }
+
+    function setValue(state, value) {
+      state.curValue = getStartOfDay(new Date(value));
+      state.$input.value(getDateValue(state.curValue)).trigger('change');
+      state.$value.value(getDateText(state.curValue));
+    }
+
+    return this.each(function() {
+      var $input = $(this);
+      var $field = $input.parents('.js-date-input');
+      var $value = $('.js-date-value', $field);
+      if (!$input.data('defaultMin')) {
+        $input.data('defaultMin', $input.attr('min'));
+      }
+      if (!$input.data('defaultMax')) {
+        $input.data('defaultMax', $input.attr('max'));
+      }
+      var minValue = new Date($input.attr('min'));
+      var maxValue = new Date($input.attr('max'));
+      var state = {
+        curValue: null,
+        minDayD: getStartOfDay(minValue),
+        maxDayD: getStartOfDay(maxValue),
+        minMonthD: getStartOfMonth(minValue),
+        maxMonthD: getStartOfMonth(maxValue),
+        $input: $input,
+        $field: $field,
+        $value: $value
+      };
+      if ($input.data('inited')) {
+        return;
+      }
+      $input.data('inited', true);
+      $input.data('state', state);
+      $input.on('selectval.tr-datepicker', eSetValue);
+      $input.on('focusval.tr-datepicker', onFocusValue);
+      $value.data('state', state);
+      $value.on('focus.tr-datepicker', onFocus);
+      $value.on('click.tr-datepicker', onClick);
+      setValue(state, $input.attr('value'));
+    });
+  };
+  $.fn.destroyDatePicker = function() {
+    return this.each(function() {
+      var $input = $(this);
+      var state = $input.data('state');
+      if (!state) {
+        return;
+      }
+      $input.off('.tr-datepicker');
+      state.$value.off('.tr-datepicker');
+    });
+  };
+
   $.fn.blockBodyScroll = function() {
     function onResultsMouseWheel(e) {
       var d = e.originalEvent.wheelDelta;
@@ -1618,8 +1976,62 @@ function preventDefault(e) {
   e.preventDefault();
 }
 
+var WebsiteTheme = {
+  DARK_CLASS: 'bt-theme-dark',
+  SWITCHING_CLASS: 'bt-theme-switching',
+  init: function() {
+    if (Aj.state.isWebApp) {
+      return;
+    }
+    $(document).off('click.websiteTheme').on('click.websiteTheme', '.bt-theme-toggle', WebsiteTheme.eToggle);
+  },
+  isDark: function() {
+    return document.documentElement.classList.contains(WebsiteTheme.DARK_CLASS);
+  },
+  apply: function(theme) {
+    var root = document.documentElement;
+    var dark = theme === 'dark';
+    if (WebsiteTheme.isDark() === dark) {
+      root.setAttribute('data-bt-theme', dark ? 'dark' : 'light');
+      WebsiteTheme.updateButtons();
+      return;
+    }
+    root.classList.add(WebsiteTheme.SWITCHING_CLASS);
+    root.offsetHeight;
+    root.classList.toggle(WebsiteTheme.DARK_CLASS, dark);
+    root.setAttribute('data-bt-theme', dark ? 'dark' : 'light');
+    WebsiteTheme.updateButtons();
+    if (window.requestAnimationFrame) {
+      window.requestAnimationFrame(function() {
+        root.classList.remove(WebsiteTheme.SWITCHING_CLASS);
+      });
+    } else {
+      window.setTimeout(function() {
+        root.classList.remove(WebsiteTheme.SWITCHING_CLASS);
+      }, 0);
+    }
+  },
+  updateButtons: function() {
+    var dark = WebsiteTheme.isDark();
+    $('.bt-theme-toggle').attr({
+      'aria-pressed': dark ? 'true' : 'false',
+      'aria-label': dark ? 'Switch to light theme' : 'Switch to dark theme',
+      'title': dark ? 'Light theme' : 'Dark theme'
+    });
+  },
+  eToggle: function(e) {
+    e.preventDefault();
+    var theme = WebsiteTheme.isDark() ? 'light' : 'dark';
+    document.cookie = Aj.state.themeCookie + '=' + theme + ';path=/;max-age=31536000';
+    WebsiteTheme.apply(theme);
+    return false;
+  }
+};
+
 var Bugtracker = {
   init: function() {
+    WebsiteTheme.init();
+    $(document).off('click.btHint').on('click.btHint', Bugtracker.eHideAllHints);
     Aj.onLoad(function(state) {
       Bugtracker.updateTime(Aj.ajContainer);
       $('.logout-link').on('click', Bugtracker.eLogOut);
@@ -1680,11 +2092,55 @@ var Bugtracker = {
       $time.removeAttr('datetime');
     });
   },
+  showHint: function($hint, delay, hide_delay) {
+    hide_delay = hide_delay || 0;
+    var show_to = $hint.data('show_to');
+    var hide_to = $hint.data('hide_to');
+    clearTimeout(show_to);
+    clearTimeout(hide_to);
+    show_to = setTimeout(function() {
+      $hint.addClass('show-hint');
+      if (hide_delay > 0) {
+        Bugtracker.hideHint($hint, hide_delay);
+      }
+    }, delay);
+    $hint.data('show_to', show_to);
+  },
+  hideHint: function($hint, delay) {
+    var show_to = $hint.data('show_to');
+    var hide_to = $hint.data('hide_to');
+    clearTimeout(show_to);
+    clearTimeout(hide_to);
+    hide_to = setTimeout(function() {
+      $hint.removeClass('show-hint');
+    }, delay);
+    $hint.data('hide_to', hide_to);
+  },
+  eHintEvent: function(e) {
+    var $hint = $(this);
+    if (e.type == 'click') {
+      Bugtracker.showHint($hint, 50, 2000);
+    } else if (e.type == 'mouseover') {
+      Bugtracker.showHint($hint, 400);
+    } else if (e.type == 'mouseout') {
+      Bugtracker.hideHint($hint, 100);
+    }
+  },
+  eHideAllHints: function(e) {
+    var $closestHint = $(e.target).closest('.js-hint-tooltip');
+    $('.js-hint-tooltip.show-hint').each(function() {
+      if (!$closestHint.filter(this).size()) {
+        Bugtracker.hideHint($(this), 1);
+      }
+    });
+  },
   formInit: function(form) {
     var $form = $(form);
     $('.bt-form-input .cd-form-control', $form).on('focus blur keyup change input', Bugtracker.eUpdateField);
     $('.bt-attach-btn', $form).on('focus blur', Bugtracker.eUpdateField);
     $('input.checkbox,input.radio', $form).on('focus blur', Bugtracker.eUpdateField);
+    $('.js-hint-tooltip', $form).on('mouseover mouseout click', Bugtracker.eHintEvent);
+    $('input[type="date"]', $form).initDatePicker();
     $('.bt-issue-files', $form).on('update', Bugtracker.onFilesUpdate);
     $form.on('focus.curPage', '.cd-issue-form', Bugtracker.checkAuth);
     $form.on('change.curPage', '.file-upload', Upload.eSelectFile);
@@ -1739,6 +2195,8 @@ var Bugtracker = {
     $('.bt-form-input .cd-form-control', $form).off('focus blur keyup change input', Bugtracker.eUpdateField);
     $('.bt-attach-btn', $form).off('focus blur', Bugtracker.eUpdateField);
     $('input.checkbox,input.radio', $form).off('focus blur', Bugtracker.eUpdateField);
+    $('.js-hint-tooltip', $form).off('mouseover mouseout click', Bugtracker.eHintEvent);
+    $('input[type="date"]', $form).destroyDatePicker();
     $('.bt-issue-files', $form).off('update', Bugtracker.onFilesUpdate);
     $form.off('.curPage');
     $('.bt-form-input > div.input[contenteditable]', $form).destroyTextarea();
@@ -2105,9 +2563,26 @@ var Filters = {
           var data = Aj.state.queryValues;
           for (var i = 0; i < data.length; i++) {
             var item = data[i];
-            item._values = [item.name.toLowerCase()];
+            item._values = [(item.search_name || item.name).toLowerCase()];
           }
           return data;
+        },
+        onSelectItem: function(item, controls) {
+          if (item.date_filter) {
+            Filters.openDateFilter(item.date_filter, controls);
+            return false;
+          }
+        },
+        onSelectedItemClick: function(item, controls) {
+          if (item && item.date_filter) {
+            Filters.openDateFilter(item.date_filter, controls);
+            return false;
+          }
+        },
+        onDeleteItem: function(item) {
+          if (item && item.date_filter) {
+            Filters.setDateFilterValue(item.field, '', true);
+          }
         },
         onChange: function() {
           if (Aj.state.isWebApp) {
@@ -2126,6 +2601,7 @@ var Filters = {
         }
       });
       Bugtracker.updateField($filtersInput);
+      $form.on('change.curPage', 'input[type="date"]', Filters.eDateChange);
       $(document).on('click.curPage', '.bt-tab-filter-btn', Filters.eTabFilterChange);
       $('.cd-content').on('click.curPage', '.bt-sort-item', Filters.eFilterChange);
       var params = Filters.getFormParams();
@@ -2164,16 +2640,113 @@ var Filters = {
     $item.addClass('selected');
     Filters.updateForm();
   },
+  openDateFilter: function(type, controls) {
+    var $form = $('.bt-main-search-form');
+    var field = type == 'to' ? 'date_to' : 'date_from';
+    var $input = $form.field(field);
+    var minDate = $input.data('defaultMin') || $input.attr('min');
+    var maxDate = $input.data('defaultMax') || $input.attr('max');
+    $input.attr({min: minDate, max: maxDate});
+    controls.close();
+    $input.trigger('focusval');
+  },
+  setDateFilterValue: function(field, value, silent) {
+    var $input = $('.bt-main-search-form').field(field);
+    if (silent) {
+      $input.data('suppressDateChange', true);
+    }
+    $input.trigger('selectval', [value || '']);
+    if (silent) {
+      $input.data('suppressDateChange', false);
+    }
+  },
+  getDateFilterItem: function(field) {
+    var type = field == 'date_to' ? 'to' : 'from';
+    var data = Aj.state.queryValues || [];
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].date_filter == type) {
+        return data[i];
+      }
+    }
+    return false;
+  },
+  formatDateFilterLabel: function(field, value) {
+    var prefix = field == 'date_to' ? 'To' : 'From';
+    if (!value) {
+      return '<span class="bt-date-filter-icon"></span>' + prefix;
+    }
+    var parts = value.split('-');
+    var date = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var label = prefix + ' ' + date.getDate() + ' ' + months[date.getMonth()];
+    if (date.getFullYear() != (new Date()).getFullYear()) {
+      label += ' ' + date.getFullYear();
+    }
+    return '<span class="bt-date-filter-icon"></span>' + label;
+  },
+  syncDateFilterSelection: function(field, value, controls) {
+    var item = Filters.getDateFilterItem(field);
+    if (!item) {
+      return false;
+    }
+    var val = (item.prefix || '') + item.val;
+    if (value) {
+      item.selected_name = Filters.formatDateFilterLabel(field, value);
+      if (controls.hasSelected(val)) {
+        return false;
+      }
+      controls.addSelected(item);
+      return true;
+    }
+    if (controls.hasSelected(val)) {
+      controls.delSelected(val);
+      return true;
+    }
+    return false;
+  },
+  eDateChange: function(e) {
+    var $input = $(this);
+    if ($input.data('suppressDateChange')) {
+      return;
+    }
+    var $form = $('.bt-main-search-form');
+    var fromDate = $form.field('date_from').value();
+    var toDate = $form.field('date_to').value();
+    if (fromDate && toDate && fromDate > toDate) {
+      Filters.setDateFilterValue('date_from', toDate, true);
+      Filters.setDateFilterValue('date_to', fromDate, true);
+      fromDate = $form.field('date_from').value();
+      toDate = $form.field('date_to').value();
+    }
+    var $filtersEl = $('.bt-main-search-form').field('filters');
+    var controls = $filtersEl.data('selectControls');
+    if (!controls) {
+      Filters.updateForm();
+      return;
+    }
+    var selectionChanged = false;
+    selectionChanged = Filters.syncDateFilterSelection('date_from', fromDate, controls) || selectionChanged;
+    selectionChanged = Filters.syncDateFilterSelection('date_to', toDate, controls) || selectionChanged;
+    controls.updateSelected();
+    if (!selectionChanged) {
+      Filters.updateForm();
+    }
+  },
   getFormParams: function() {
     var $form   = $('.bt-main-search-form');
     var filters = $form.field('filters').data('valueFull');
     var query   = $.trim($form.field('query').value());
     var type    = $form.field('type').value();
     var sort    = $('.bt-sort-wrap').data('value');
+    var dateFrom = $form.field('date_from').value();
+    var dateTo   = $form.field('date_to').value();
     var params  = {};
     var filters_data = {};
     for (var val in filters) {
       var filter = filters[val];
+      if (filter.date_filter) {
+        continue;
+      }
       if (filter.group) {
         filters_data[filter.field] = filter.val;
       } else {
@@ -2212,6 +2785,12 @@ var Filters = {
     }
     if (query.length) {
       params.query = query;
+    }
+    if (dateFrom) {
+      params.date_from = dateFrom;
+    }
+    if (dateTo) {
+      params.date_to = dateTo;
     }
     return params;
   },
