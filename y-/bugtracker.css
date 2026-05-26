@@ -7,6 +7,12 @@ body {
   color: #000;
   margin: 0;
   padding: 0;
+  --link-color: #0288db;
+  --link-bghover: #e6f1f7;
+  --link-bgactive: #d4e6f1;
+  --accent-color: #119af5;
+  --accent-bghover: #2a96ef;
+  --accent-bgactive: #2a96ef;
 }
 
 .btn,
@@ -178,6 +184,14 @@ input.form-control,
 textarea.form-control {
   outline: none;
   box-shadow: none;
+}
+a:focus {
+  outline: none;
+}
+a:focus-visible {
+  outline: 2px solid rgba(35, 143, 225, .45);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 input.form-control[disabled],
 textarea.form-control[disabled] {
@@ -3182,6 +3196,7 @@ header .btn-lg {
 .header-auth {
   float: right;
   margin-left: 15px;
+  white-space: nowrap;
 }
 .header-auth-item {
   display: inline-block;
@@ -4555,4 +4570,349 @@ button.bt-header-right-btn {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='65' height='64' viewBox='0 0 65 64' fill='none'%3E%3Cpath d='M12.5712 48.6718C14.7372 43.1018 17.5222 37.5319 20.3072 31.962C23.0921 26.3921 26.1865 21.1316 29.8998 15.8711C30.8281 14.0145 33.3036 13.7051 35.1603 14.6334C35.4697 14.9428 35.7791 15.2523 36.0886 15.8711C39.4924 21.1316 42.5868 26.3921 45.6812 31.962C48.4662 37.5319 50.9417 43.1018 53.4172 48.6718C54.0361 50.5284 53.1078 53.0039 51.2511 53.6228C50.6322 53.9322 50.0134 53.9322 49.3945 53.9322L41.0396 53.0039C38.5641 52.6945 36.398 50.8378 36.0886 48.3623L34.8508 39.3886C34.8508 38.1508 33.6131 37.5319 32.6847 37.8414C31.7564 37.8414 31.1375 38.4602 31.1375 39.3886L29.8998 48.3623C29.5903 50.8378 27.4243 52.6945 24.9487 53.0039L16.2844 53.9322C14.4278 54.2417 12.5712 52.6945 12.2617 50.5284C12.2617 49.9095 12.2617 49.2906 12.5712 48.6718Z' fill='%230088CC'/%3E%3Cpath d='M48.9695 16.1033C50.3175 16.9233 50.6607 18.6947 49.9466 19.7519L45.9526 26.2014C45.2385 27.2587 44.1545 27.5228 43.1764 27.496C42.7797 27.681 42.3831 27.8659 41.8016 27.6543L32.5223 26.9113C30.8568 26.9637 29.7204 25.5622 29.9588 24.0024C29.9064 22.3369 31.3079 21.2005 32.8676 21.4389L41.8561 22.076L45.1359 16.6838C46.2466 15.4416 47.7272 14.9926 48.9695 16.1033Z' fill='%230088CC'/%3E%3Cpath d='M56.7916 39.6767L57.0973 39.6283C58.2714 39.1291 58.9463 37.4557 58.447 36.2816C58.3986 35.976 58.3986 35.976 58.3986 35.976L56.5468 32.1964C56.0959 31.3279 55.0338 30.5562 53.8113 30.7499C53.4573 30.4926 53.1516 30.5411 52.7976 30.2838L43.5471 29.2426C41.9221 28.8734 40.5392 30.0323 40.1699 31.6573C40.1063 33.2338 41.2653 34.6167 42.8418 34.6803L52.1408 36.0272L53.1393 38.3754C53.9442 39.5011 55.3119 40.2244 56.7916 39.6767Z' fill='%230088CC'/%3E%3Cpath d='M9.20728 39.5336C7.72754 38.9859 7.05268 37.3126 7.55194 36.1385C7.90598 35.8812 7.90598 35.8812 7.90598 35.8812L9.75779 32.1017C10.2086 31.2332 11.2708 30.4615 12.1876 30.6067L12.4933 30.6552C12.8473 30.3979 13.1529 30.4463 13.507 30.1891L22.7575 29.1479C24.3825 28.7787 25.7654 29.9376 25.829 31.5141C26.1982 33.1391 25.0393 34.522 23.4627 34.5856L14.1638 35.9325L12.8597 38.2323C12.3604 39.4064 10.687 40.0813 9.20728 39.5336Z' fill='%230088CC'/%3E%3Cpath d='M17.0677 16.0947C15.7197 16.9147 15.3765 18.6861 16.0906 19.7433L20.0846 26.1928C20.7987 27.2501 21.8827 27.5142 22.8608 27.4874C23.2575 27.6724 23.6541 27.8573 24.2356 27.6457L33.5149 26.9027C35.1804 26.9551 36.3168 25.5536 36.0784 23.9938C35.84 22.4341 34.7293 21.1919 33.1696 21.4303L24.1811 22.0674L20.9013 16.6752C19.7906 15.433 18.0192 15.0898 17.0677 16.0947Z' fill='%230088CC'/%3E%3C/svg%3E");
   background-size: 18px;
   opacity: 0.7;
+}
+
+
+.bt-date-filter-inputs {
+  display: none;
+}
+.bt-date-filter-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 6px 0 0;
+  vertical-align: -3px;
+  background: currentColor;
+  -webkit-mask: url('data:image/svg+xml,%3Csvg%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%221.3%22%3E%3Crect%20height%3D%2210.2%22%20rx%3D%222%22%20width%3D%2210.8%22%20x%3D%222.6%22%20y%3D%223.2%22%2F%3E%3Cpath%20d%3D%22M5.2%202v2.4M10.8%202v2.4M2.9%206.5h10.2%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E') center / 16px 16px no-repeat;
+  mask: url('data:image/svg+xml,%3Csvg%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%221.3%22%3E%3Crect%20height%3D%2210.2%22%20rx%3D%222%22%20width%3D%2210.8%22%20x%3D%222.6%22%20y%3D%223.2%22%2F%3E%3Cpath%20d%3D%22M5.2%202v2.4M10.8%202v2.4M2.9%206.5h10.2%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E') center / 16px 16px no-repeat;
+}
+.selected-item.virtual-date {
+  cursor: pointer;
+}
+.bt-select-query .select .search-item .select-list-item.virtual-date {
+  background-color: #F3E5F5;
+  color: #7B3F8C;
+}
+.bt-select-query .select .search-item.selected .select-list-item.virtual-date {
+  background-color: #E9D4EE;
+}
+.bt-select-query .select .selected-item.virtual-date {
+  background-color: #F3E5F5;
+  color: #7B3F8C;
+}
+.bt-select-query .select .selected-item.virtual-date.focused {
+  background-color: #E9D4EE;
+}
+.bt-select-query .select .selected-item.virtual-date .close:before,
+.bt-select-query .select .selected-item.virtual-date .close:after {
+  background-color: #7B3F8C;
+}
+@media (max-width: 767px) {
+  .bt-select-query .select .selected-item.virtual-date {
+    max-width: 57.5%;
+  }
+}
+.pr-form-link {
+  display: inline-block;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 0 12px;
+  float: right;
+  right: 15px;
+  cursor: pointer;
+  transition: opacity .2s ease, visibility .2s ease;
+  color: var(--link-color);
+}
+.pr-form-link:hover,
+.pr-form-link:focus {
+  color: var(--link-color);
+}
+.pr-form-control,
+input.pr-form-control {
+  font-size: 14px;
+  line-height: 18px;
+  padding: 11px 13px;
+  box-shadow: inset 0 0 0 1px #d9d9d9;
+  border-radius: 6px;
+  transition: box-shadow .2s ease;
+  height: auto;
+  border: none;
+}
+.pr-form-control:focus,
+input.pr-form-control:focus {
+  box-shadow: inset 0 0 0 2px #35a3f6;
+}
+.pr-form-control-wrap {
+  position: relative;
+  font-size: 14px;
+  line-height: 18px;
+  color: #222;
+  background-color: #fff;
+  border-radius: 6px;
+}
+.pr-form-control-wrap:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 0 1px #d9d9d9;
+  background-color: transparent;
+  border-radius: 6px;
+  transition: box-shadow .2s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.field-focused .pr-form-control-wrap:after {
+  box-shadow: inset 0 0 0 2px #35a3f6;
+}
+.pr-form-control-wrap .pr-form-control,
+.pr-form-control-wrap input.pr-form-control,
+.field-focused .pr-form-control-wrap .pr-form-control,
+.field-focused .pr-form-control-wrap input.pr-form-control {
+  background: none;
+  box-shadow: none;
+}
+.form-label > .pr-form-label-hint {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  margin: 0 1px;
+  border-radius: 9px;
+  cursor: pointer;
+}
+.form-label > .pr-form-label-hint:before {
+  content: '';
+  display: inline-block;
+  vertical-align: top;
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  background: url('data:image/svg+xml,%3Csvg%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%20width%3D%2218%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Ccircle%20cx%3D%229%22%20cy%3D%229.5%22%20r%3D%225.6%22%20stroke%3D%22%23222%22%20stroke-width%3D%221.2%22%2F%3E%3Ccircle%20cx%3D%229%22%20cy%3D%227.2%22%20fill%3D%22%23222%22%20r%3D%221%22%2F%3E%3Cpath%20d%3D%22m9%2012.1v-2.822087%22%20stroke%3D%22%23222%22%20stroke-width%3D%221.27%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E') no-repeat center;
+}
+.pr-form-label-hint-tooltip {
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: normal;
+  color: #fff;
+  padding: 10px 12px 9px;
+  border-radius: 8px;
+  position: absolute;
+  width: max-content;
+  max-width: 300px;
+  max-width: min(350px, calc(100vw - 30px));
+  min-width: 60px;
+  left: -37px;
+  right: auto;
+  bottom: 100%;
+  z-index: 3;
+  text-align: center;
+  margin-bottom: 7px;
+  transition: all .2s ease;
+  transform: translateY(-10px);
+  visibility: hidden;
+  opacity: 0;
+}
+.form-label > .show-hint .pr-form-label-hint-tooltip {
+  transform: translateY(0px);
+  visibility: visible;
+  opacity: 1;
+}
+.pr-form-label-hint-tooltip > .bubble {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 8px;
+  background-color: #202426;
+  opacity: 0.85;
+  z-index: -1;
+}
+.pr-form-label-hint-tooltip > .bubble:after {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  width: 18px;
+  height: 8px;
+  margin-top: -1px;
+  background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%228%22%20viewBox%3D%220%200%2018%208%22%3E%3Cpath%20fill%3D%22%23202426%22%20fill-rule%3D%22evenodd%22%20d%3D%22M%200%201%20L%200%200%20L%2018%200%20L%2018%201%20C%2017.74%201%2017.24%201.21%2016.86%201.58%20L%2011.47%206.91%20C%2010.3%208.07%208.42%208.07%207.25%206.91%20L%201.86%201.58%20C%201.48%201.21%200.98%201%200.45%201%20Z%22%2F%3E%3C%2Fsvg%3E');
+  left: 36px;
+  right: auto;
+  top: 100%;
+}
+.pr-popup-container {
+  align-items: start;
+  padding: 70px 10px;
+}
+.pr-layer-popup {
+  padding: 19px 23px;
+  margin: auto 0;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, .3);
+  flex-shrink: 1;
+  max-width: 90%;
+  max-width: calc(100vw - 30px);
+}
+.pr-layer-header {
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0 0 18px;
+  font-weight: 500;
+}
+.popup-buttons {
+  margin: 20px -9px -5px;
+  text-align: right;
+}
+.popup-button {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: 5px;
+  text-align: center;
+  white-space: nowrap;
+  background-color: transparent;
+  transition: background-color .15s ease;
+  color: var(--link-color);
+  cursor: pointer;
+}
+.popup-button:hover {
+  background: var(--link-bghover);
+}
+.popup-button:active {
+  background: var(--link-bgactive);
+}
+.popup-button-left {
+  float: left;
+  margin-bottom: -5px;
+}
+.date-picker-wrap {
+  margin: 0 -23px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.date-picker-header {
+  background: #f7f7f7;
+  padding: 0 7px;
+}
+.date-picker-body {
+  --row-height: 43px;
+  --row-offset: 0;
+  --prepend-offset: 0;
+  --animation: .3s ease;
+  padding: 0 7px;
+  height: 265px;
+  position: relative;
+  overflow: hidden;
+}
+.date-picker-body:before,
+.date-picker-body:after {
+  content: '';
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 7px;
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 15%, rgba(255,255,255,0) 100%);
+  z-index: 1;
+}
+.date-picker-body:after {
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 85%);
+  bottom: 0;
+  top: auto;
+}
+.date-picker-header-content,
+.date-picker-body-content {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-items: center;
+  width: 350px;
+  max-width: 100%;
+}
+.date-picker-header-content {
+  padding: 7px 0;
+}
+.date-picker-body-content {
+  padding: 7px 0 0;
+  transition: transform var(--animation);
+  transform: translateY(calc(var(--row-offset) * var(--row-height)));
+  margin-top: calc(var(--prepend-offset) * var(--row-height));
+}
+.date-picker-cell {
+  text-align: center;
+  width: 36px;
+}
+.date-picker-header-content .date-picker-cell {
+  font-size: 12px;
+  line-height: 14px;
+  color: #808080;
+}
+.date-picker-body-content .date-picker-cell {
+  font-size: 13px;
+  line-height: 36px;
+  height: 36px;
+  border-radius: 18px;
+  margin: 0 0 7px;
+  cursor: pointer;
+  color: #999;
+  transition: color var(--animation);
+}
+.date-picker-body-content .date-picker-cell.current {
+  color: #000;
+}
+.date-picker-body-content .date-picker-cell.disabled {
+  color: #999;
+  pointer-events: none;
+}
+.date-picker-body-content .date-picker-cell.selected {
+  font-weight: 500;
+  background-color: var(--accent-color);
+  color: #fff;
+}
+.date-picker-wrap + .popup-buttons {
+  margin-top: 7px;
+}
+.pr-layer-date-picker-popup {
+  position: relative;
+}
+.date-picker-controls {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  z-index: 1;
+}
+.date-picker-button-down,
+.date-picker-button-up {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  vertical-align: top;
+  border-radius: 50%;
+  margin-left: 8px;
+  background: no-repeat center;
+  cursor: pointer;
+}
+.date-picker-button-down:hover,
+.date-picker-button-up:hover {
+  background-color: var(--link-bghover);
+}
+.date-picker-button-up {
+  background-image: url('data:image/svg+xml,%3Csvg%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M6%2014.5%2011.86%208.64C11.93%208.56%2012.06%208.56%2012.14%208.64L18%2014.5%2018%2014.5%22%20fill%3D%22none%22%20stroke%3D%22%230288db%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%221.4%22%2F%3E%3C%2Fsvg%3E');
+}
+.date-picker-button-up.disabled {
+  background-image: url('data:image/svg+xml,%3Csvg%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M6%2014.5%2011.86%208.64C11.93%208.56%2012.06%208.56%2012.14%208.64L18%2014.5%2018%2014.5%22%20fill%3D%22none%22%20stroke%3D%22%23999%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%221.4%22%2F%3E%3C%2Fsvg%3E');
+  pointer-events: none;
+}
+.date-picker-button-down {
+  background-image: url('data:image/svg+xml,%3Csvg%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M6%209.5%2011.86%2015.36C11.93%2015.44%2012.06%2015.44%2012.14%2015.36L18%209.5%22%20fill%3D%22none%22%20stroke%3D%22%230288db%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%221.4%22%2F%3E%3C%2Fsvg%3E');
+}
+.date-picker-button-down.disabled {
+  background-image: url('data:image/svg+xml,%3Csvg%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M6%209.5%2011.86%2015.36C11.93%2015.44%2012.06%2015.44%2012.14%2015.36L18%209.5%22%20fill%3D%22none%22%20stroke%3D%22%23999%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%221.4%22%2F%3E%3C%2Fsvg%3E');
+  pointer-events: none;
 }
