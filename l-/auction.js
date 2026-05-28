@@ -32,6 +32,7 @@ var Main = {
       $(cont).on('click.curPage', '.js-attribute-item .js-attribute-checkbox', Main.eChooseAttributeCheckbox);
       $(cont).on('click.curPage', '.js-attribute-item', Main.eChooseAttributeValue);
       $(cont).on('click.curPage', '.js-attribute-all', Main.eChooseAttributeAll);
+      $(cont).on('click.curPage', '.js-currency-item', Main.eChooseCurrencyValue);
       state.$headerMenu = $('.js-header-menu');
       state.$unavailPopup = $('.js-unavailable-popup');
       state.$howitworksPopup = $('.js-howitworks-popup');
@@ -710,6 +711,18 @@ var Main = {
     var value_str = value_full.length > 0 ? JSON.stringify(value_full) : '';
     var $form  = Aj.state.$mainSearchForm;
     $form.field(field).value(value_str);
+  },
+  eChooseCurrencyValue: function(e) {
+    e.preventDefault();
+    // e.stopImmediatePropagation();
+    var item    = this;
+    var $dropdown = $(this).parents('.tm-dropdown');
+    var $cur_cont = $('.dropdown-toggle', $dropdown);
+
+    $cur_cont.html($(this).html());
+
+    var $radio = $('input.radio', $cur_cont);
+    $radio.prop('checked', true).trigger('change');
   },
   eMainSearchClear: function(e) {
     var $form = Aj.state.$mainSearchForm;
@@ -2352,6 +2365,7 @@ var Premium = {
       state.$premiumSearchForm.field('query').on('change', Premium.eSearchChange);
       $('.js-form-clear', state.$premiumSearchForm).on('click', Premium.eSearchClear);
       state.$premiumSearchForm.on('change', '.js-premium-options input.radio', Premium.eRadioChanged);
+      state.$premiumSearchForm.on('change', 'input.radio', Premium.updateButton);
       state.$giftPremiumForm.on('change', 'input.checkbox', Premium.eCheckboxChanged);
       state.$giftPremiumBtn = $('.js-gift-premium-btn');
       state.updLastReq = +Date.now();
@@ -2365,6 +2379,7 @@ var Premium = {
         RLottie.init(this, {playUntilEnd: true});
       });
       RLottie.init();
+      Premium.updateButton();
     });
     Aj.onUnload(function(state) {
       clearTimeout(state.updStateTo);
@@ -2375,6 +2390,7 @@ var Premium = {
       state.$premiumSearchForm.field('query').off('change', Premium.eSearchChange);
       $('.js-form-clear', state.$premiumSearchForm).off('click', Premium.eSearchClear);
       state.$premiumSearchForm.off('change', '.js-premium-options input.radio', Premium.eRadioChanged);
+      state.$premiumSearchForm.off('change', 'input.radio', Premium.updateButton);
       state.$giftPremiumForm.off('change', 'input.checkbox', Premium.eCheckboxChanged);
       $('.js-preview-sticker').each(function() {
         RLottie.destroy(this);
@@ -2503,15 +2519,14 @@ var Premium = {
         $form.field('recipient').value(result.found.recipient);
         $field.addClass('found');
         $form.field('query').prop('disabled', true);
-        $btn.prop('disabled', false);
       } else {
         $form.removeClass('myself');
         $form.field('recipient').value('');
         $field.removeClass('found');
         $form.field('query').prop('disabled', false);
-        $btn.prop('disabled', true);
       }
     }
+    Premium.updateButton();
     Premium.updateUrl();
   },
   updateUrl: function() {
@@ -2545,6 +2560,12 @@ var Premium = {
       RLottie.init(this, {playUntilEnd: true});
     });
   },
+  updateButton: function() {
+    var $form = Aj.state.$premiumSearchForm;
+    var recipient = $form.field('recipient').value();
+    var payment_method = $form.field('payment_method').value();
+    Aj.state.$giftPremiumBtn.prop('disabled', !recipient || !$form.field('months').value() || !payment_method);
+  },
   eGiftPremium: function(e) {
     e.stopImmediatePropagation();
     e.preventDefault();
@@ -2558,6 +2579,9 @@ var Premium = {
       months: months,
       payment_method: payment_method,
     }, function(result) {
+      if (result.need_ton) {
+        return Aj.globalState.tonConnectUI.openModal();
+      }
       if (result.error) {
         return showAlert(result.error);
       }
@@ -2589,24 +2613,33 @@ var Premium = {
     var req_id = $form.field('id').value();
     var show_sender = $form.field('show_sender').prop('checked');
     closePopup(Aj.state.$giftPremiumPopup);
-    Wallet.sendTransaction({
-      request: {
-        method: 'getGiftPremiumLink',
-        params: {
-          id: req_id,
-          show_sender: show_sender ? 1 : 0
-        }
-      },
-      title: l('WEB_POPUP_QR_PREMIUM_HEADER'),
-      description: l('WEB_POPUP_QR_PREMIUM_TEXT', {
-        amount: '<span class="icon-before icon-ton-text js-amount_fee">' + Aj.state.giftPrice + '</span>'
-      }),
-      qr_label: item_title,
-      tk_label: l('WEB_POPUP_QR_PREMIUM_TK_BUTTON'),
-      terms_label: l('WEB_POPUP_QR_PROCEED_TERMS'),
-      onConfirm: function(by_server) {
-        Premium.updateState(true);
+    Aj.apiRequest('getGiftPremiumLink', {
+      id: req_id,
+      show_sender: show_sender ? 1 : 0,
+      transaction: 1
+    }, function(result) {
+      if (result.error) {
+        return showAlert(result.error);
       }
+      if (result.evm) {
+        location.reload();
+        return;
+      }
+      Wallet.sendTransaction({
+        transaction: result.transaction,
+        confirm_method: result.confirm_method,
+        confirm_params: result.confirm_params,
+        title: l('WEB_POPUP_QR_PREMIUM_HEADER'),
+        description: l('WEB_POPUP_QR_PREMIUM_TEXT', {
+          amount: '<span class="icon-before icon-ton-text js-amount_fee">' + Aj.state.giftPrice + '</span>'
+        }),
+        qr_label: item_title,
+        tk_label: l('WEB_POPUP_QR_PREMIUM_TK_BUTTON'),
+        terms_label: l('WEB_POPUP_QR_PROCEED_TERMS'),
+        onConfirm: function(by_server) {
+          Premium.updateState(true);
+        }
+      });
     });
     Aj.state.needUpdate = true;
   },
@@ -2640,6 +2673,7 @@ var PremiumGiveaway = {
       state.$premiumQuantityField = $('.js-premium-quantity-field');
       state.$premiumSearchForm.field('quantity').on('change', PremiumGiveaway.eQuantityChanged);
       state.$premiumSearchForm.on('change', '.js-premium-options input.radio', PremiumGiveaway.eRadioChanged);
+      state.$premiumSearchForm.on('change', 'input.radio', PremiumGiveaway.updateButton);
       state.$giveawayPremiumBtn = $('.js-giveaway-premium-btn');
       state.curQuantity = state.$premiumSearchForm.field('quantity').value();
       state.updLastReq = +Date.now();
@@ -2653,6 +2687,7 @@ var PremiumGiveaway = {
         RLottie.init(this, {playUntilEnd: true});
       });
       RLottie.init();
+      PremiumGiveaway.updateButton();
     });
     Aj.onUnload(function(state) {
       clearTimeout(state.updStateTo);
@@ -2664,6 +2699,7 @@ var PremiumGiveaway = {
       $('.js-form-clear', state.$premiumSearchForm).off('click', PremiumGiveaway.eSearchClear);
       state.$premiumSearchForm.field('quantity').off('change', PremiumGiveaway.eQuantityChanged);
       state.$premiumSearchForm.off('change', '.js-premium-options input.radio', PremiumGiveaway.eRadioChanged);
+      state.$premiumSearchForm.off('change', 'input.radio', PremiumGiveaway.updateButton);
       state.$giveawayPremiumForm.off('change', 'input.checkbox', PremiumGiveaway.eCheckboxChanged);
       $('.js-preview-sticker').each(function() {
         RLottie.destroy(this);
@@ -2871,6 +2907,12 @@ var PremiumGiveaway = {
       RLottie.init(this, {playUntilEnd: true});
     });
   },
+  updateButton: function() {
+    var $form = Aj.state.$premiumSearchForm;
+    var recipient = $form.field('recipient').value();
+    var payment_method = $form.field('payment_method').value();
+    Aj.state.$giveawayPremiumBtn.prop('disabled', !recipient || !Aj.state.curQuantity || !payment_method);
+  },
   eGiveawayPremium: function(e) {
     e.stopImmediatePropagation();
     e.preventDefault();
@@ -2886,6 +2928,9 @@ var PremiumGiveaway = {
       months: months,
       payment_method: payment_method
     }, function(result) {
+      if (result.need_ton) {
+        return Aj.globalState.tonConnectUI.openModal();
+      }
       if (result.error) {
         return showAlert(result.error);
       }
@@ -2915,23 +2960,32 @@ var PremiumGiveaway = {
     var item_title = Aj.state.itemTitle;
     var req_id = $form.field('id').value();
     closePopup(Aj.state.$giveawayPremiumPopup);
-    Wallet.sendTransaction({
-      request: {
-        method: 'getGiveawayPremiumLink',
-        params: {
-          id: req_id
-        }
-      },
-      title: l('WEB_POPUP_QR_GIVEAWAY_HEADER'),
-      description: l('WEB_POPUP_QR_GIVEAWAY_TEXT', {
-        amount: '<span class="icon-before icon-ton-text js-amount_fee">' + Aj.state.giveawayPrice + '</span>'
-      }),
-      qr_label: item_title,
-      tk_label: l('WEB_POPUP_QR_GIVEAWAY_TK_BUTTON'),
-      terms_label: l('WEB_POPUP_QR_PROCEED_TERMS'),
-      onConfirm: function(by_server) {
-        PremiumGiveaway.updateState(true);
+    Aj.apiRequest('getGiveawayPremiumLink', {
+      id: req_id,
+      transaction: 1
+    }, function(result) {
+      if (result.error) {
+        return showAlert(result.error);
       }
+      if (result.evm) {
+        location.reload();
+        return;
+      }
+      Wallet.sendTransaction({
+        transaction: result.transaction,
+        confirm_method: result.confirm_method,
+        confirm_params: result.confirm_params,
+        title: l('WEB_POPUP_QR_GIVEAWAY_HEADER'),
+        description: l('WEB_POPUP_QR_GIVEAWAY_TEXT', {
+          amount: '<span class="icon-before icon-ton-text js-amount_fee">' + Aj.state.giveawayPrice + '</span>'
+        }),
+        qr_label: item_title,
+        tk_label: l('WEB_POPUP_QR_GIVEAWAY_TK_BUTTON'),
+        terms_label: l('WEB_POPUP_QR_PROCEED_TERMS'),
+        onConfirm: function(by_server) {
+          PremiumGiveaway.updateState(true);
+        }
+      });
     });
     Aj.state.needUpdate = true;
   },
@@ -3444,6 +3498,7 @@ var Stars = {
       $(cont).on('click.curPage', '.js-quantity-clear', Stars.eQuantityClear);
       state.$starsSearchForm.field('quantity').on('change', Stars.eQuantityChanged);
       state.$starsSearchForm.on('change', '.js-stars-options input.radio', Stars.eRadioChanged);
+      state.$starsSearchForm.on('change', 'input.radio', Stars.updateButton);
       state.$starsBuyForm.on('change', 'input.checkbox', Stars.eCheckboxChanged);
       state.$starsBuyBtn = $('.js-stars-buy-btn');
       state.curQuantity = state.$starsSearchForm.field('quantity').value();
@@ -3459,6 +3514,7 @@ var Stars = {
         RLottie.init(this, {playUntilEnd: true});
       });
       RLottie.init();
+      Stars.updateButton();
     });
     Aj.onUnload(function(state) {
       clearTimeout(state.updStateTo);
@@ -3610,7 +3666,7 @@ var Stars = {
     var quantity = Aj.state.curQuantity || Aj.state.curStars;
     var btn_label = l('WEB_BUY_N_TELEGRAM_STARS_BUTTON', {n: quantity || 0, __format_number: true});
     $('.js-stars-btn-label').html(btn_label);
-    Aj.state.$starsBuyBtn.prop('disabled', !quantity || !$form.field('recipient').value());
+    Aj.state.$starsBuyBtn.prop('disabled', !quantity || !$form.field('recipient').value() || !$form.field('payment_method').value());
   },
   eSearchSubmit: function(e) {
     e.preventDefault();
@@ -3708,6 +3764,9 @@ var Stars = {
       quantity: quantity || stars,
       payment_method: payment_method
     }, function(result) {
+      if (result.need_ton) {
+        return Aj.globalState.tonConnectUI.openModal();
+      }
       if (result.error) {
         return showAlert(result.error);
       }
@@ -3740,24 +3799,33 @@ var Stars = {
     var req_id = $form.field('id').value();
     var show_sender = $form.field('show_sender').prop('checked');
     closePopup(Aj.state.$starsBuyPopup);
-    Wallet.sendTransaction({
-      request: {
-        method: 'getBuyStarsLink',
-        params: {
-          id: req_id,
-          show_sender: show_sender ? 1 : 0
-        }
-      },
-      title: l('WEB_POPUP_QR_STARS_HEADER'),
-      description: l('WEB_POPUP_QR_STARS_TEXT', {
-        amount: '<span class="icon-before icon-ton-text js-amount_fee">' + Aj.state.starsPrice + '</span>'
-      }),
-      qr_label: item_title,
-      tk_label: l('WEB_POPUP_QR_STARS_TK_BUTTON'),
-      terms_label: l('WEB_POPUP_QR_PROCEED_TERMS'),
-      onConfirm: function(by_server) {
-        Stars.updateState(true);
+    Aj.apiRequest('getBuyStarsLink', {
+      id: req_id,
+      show_sender: show_sender ? 1 : 0,
+      transaction: 1
+    }, function(result) {
+      if (result.error) {
+        return showAlert(result.error);
       }
+      if (result.evm) {
+        location.reload();
+        return;
+      }
+      Wallet.sendTransaction({
+        transaction: result.transaction,
+        confirm_method: result.confirm_method,
+        confirm_params: result.confirm_params,
+        title: l('WEB_POPUP_QR_STARS_HEADER'),
+        description: l('WEB_POPUP_QR_STARS_TEXT', {
+          amount: '<span class="icon-before icon-ton-text js-amount_fee">' + Aj.state.starsPrice + '</span>'
+        }),
+        qr_label: item_title,
+        tk_label: l('WEB_POPUP_QR_STARS_TK_BUTTON'),
+        terms_label: l('WEB_POPUP_QR_PROCEED_TERMS'),
+        onConfirm: function(by_server) {
+          Stars.updateState(true);
+        }
+      });
     });
     Aj.state.needUpdate = true;
   },
@@ -3902,6 +3970,7 @@ var StarsGiveaway = {
       state.$starsQuantityField = $('.js-stars-quantity-field');
       state.$starsSearchForm.field('quantity').on('change', StarsGiveaway.eQuantityChanged);
       state.$starsSearchForm.on('change', '.js-stars-options input.radio', StarsGiveaway.eRadioChanged);
+      state.$starsSearchForm.on('change', 'input.radio', StarsGiveaway.updateButton);
       state.$giveawayStarsBtn = $('.js-giveaway-stars-btn');
       state.$starsBuyBtn = $('.js-stars-buy-btn');
       state.curQuantity = state.$starsSearchForm.field('quantity').value();
@@ -3927,6 +3996,7 @@ var StarsGiveaway = {
       $('.js-form-clear', state.$starsSearchForm).off('click', StarsGiveaway.eSearchClear);
       state.$starsSearchForm.field('quantity').off('change', StarsGiveaway.eQuantityChanged);
       state.$starsSearchForm.off('change', '.js-stars-options input.radio', StarsGiveaway.eRadioChanged);
+      state.$starsSearchForm.off('change', 'input.radio', StarsGiveaway.updateButton);
       state.$giveawayStarsForm.off('change', 'input.checkbox', StarsGiveaway.eCheckboxChanged);
       $('.js-preview-sticker').each(function() {
         RLottie.destroy(this);
@@ -4051,9 +4121,10 @@ var StarsGiveaway = {
     var $form    = Aj.state.$starsSearchForm;
     var stars    = $form.field('stars').value();
     var quantity = Aj.state.curQuantity;
+    var payment_method = $form.field('payment_method').value();
     var btn_label = l('WEB_BUY_N_STARS_FOR_GIVEAWAY_BUTTON', {n: stars || 0, __format_number: true});
     $('.js-stars-btn-label').html(btn_label);
-    Aj.state.$starsBuyBtn.prop('disabled', !quantity || !stars || !$form.field('recipient').value());
+    Aj.state.$giveawayStarsBtn.prop('disabled', !quantity || !stars || !$form.field('recipient').value() || !payment_method);
   },
   eSearchSubmit: function(e) {
     e.preventDefault();
@@ -4162,6 +4233,9 @@ var StarsGiveaway = {
       stars: stars,
       payment_method: payment_method
     }, function(result) {
+      if (result.need_ton) {
+        return Aj.globalState.tonConnectUI.openModal();
+      }
       if (result.error) {
         return showAlert(result.error);
       }
@@ -4191,23 +4265,32 @@ var StarsGiveaway = {
     var item_title = Aj.state.itemTitle;
     var req_id = $form.field('id').value();
     closePopup(Aj.state.$giveawayStarsPopup);
-    Wallet.sendTransaction({
-      request: {
-        method: 'getGiveawayStarsLink',
-        params: {
-          id: req_id
-        }
-      },
-      title: l('WEB_POPUP_QR_STARS_GIVEAWAY_HEADER'),
-      description: l('WEB_POPUP_QR_STARS_GIVEAWAY_TEXT', {
-        amount: '<span class="icon-before icon-ton-text js-amount_fee">' + Aj.state.giveawayPrice + '</span>'
-      }),
-      qr_label: item_title,
-      tk_label: l('WEB_POPUP_QR_STARS_GIVEAWAY_TK_BUTTON'),
-      terms_label: l('WEB_POPUP_QR_PROCEED_TERMS'),
-      onConfirm: function(by_server) {
-        StarsGiveaway.updateState(true);
+    Aj.apiRequest('getGiveawayStarsLink', {
+      id: req_id,
+      transaction: 1
+    }, function(result) {
+      if (result.error) {
+        return showAlert(result.error);
       }
+      if (result.evm) {
+        location.reload();
+        return;
+      }
+      Wallet.sendTransaction({
+        transaction: result.transaction,
+        confirm_method: result.confirm_method,
+        confirm_params: result.confirm_params,
+        title: l('WEB_POPUP_QR_STARS_GIVEAWAY_HEADER'),
+        description: l('WEB_POPUP_QR_STARS_GIVEAWAY_TEXT', {
+          amount: '<span class="icon-before icon-ton-text js-amount_fee">' + Aj.state.giveawayPrice + '</span>'
+        }),
+        qr_label: item_title,
+        tk_label: l('WEB_POPUP_QR_STARS_GIVEAWAY_TK_BUTTON'),
+        terms_label: l('WEB_POPUP_QR_PROCEED_TERMS'),
+        onConfirm: function(by_server) {
+          StarsGiveaway.updateState(true);
+        }
+      });
     });
     Aj.state.needUpdate = true;
   },
@@ -5139,3 +5222,426 @@ var SimpleSpoiler = {
     };
   }
 };
+
+var PaymentInvoice = {
+  _modal: null,
+  _wagmiAdapter: null,
+  _pending: null,
+  _sending: false,
+  _connPoll: null,
+  _unsubProvider: null,
+ 
+  init: function() {
+    var $popup = $('.js-process-erc20');
+    if (!$popup.length) return;
+    PaymentInvoice.startTimer();
+    PaymentInvoice.initQR();
+    PaymentInvoice.initWalletConnect();
+    PaymentInvoice.restoreSession();
+    PaymentInvoice.initCopyButtons();
+    PaymentInvoice.startPolling();
+    $('.tm-main').on('click', '.js-cancel-payment', PaymentInvoice.cancelInvoice);
+  },
+ 
+  cancelInvoice: function() {
+    Aj.apiRequest('cancelInvoice', {
+      req_id: Aj.state.invoiceReqId,
+    }, function (result) {
+      if (result.redirect) {
+        Aj.location(result.redirect);
+      } else if (result.ok) {
+        window.location.reload();
+      }
+    });
+  },
+ 
+  startTimer: function() {
+    var $fill = $('.js-timer-fill', '.js-main-content');
+    var $display = $('.js-timer-display', '.js-main-content');
+    var $bar = $('.tm-pay-timer-bar', '.js-main-content');
+    if (!$display.length) return;
+ 
+    $bar.removeClass('hidden');
+    var expiresAt = Aj.state.invoiceExpiresAt;
+    if (!expiresAt) return;
+    function tick() {
+      var remaining = Math.max(0, expiresAt - Math.floor(Date.now() / 1000));
+      if (remaining <= 0) {
+        $fill.css('width', '0%');
+        $display.text('00:00');
+        return;
+      }
+      var pct = Math.min(100, Math.round(remaining / 600 * 100));
+      $fill.css('width', pct + '%');
+      var m = Math.floor(remaining / 60);
+      var s = remaining % 60;
+      $display.text((m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s);
+      PaymentInvoice._timerRaf = requestAnimationFrame(tick);
+    }
+    tick();
+  },
+ 
+  initQR: function() {
+    var $qrCode = $('.tm-pay-qr', '.js-main-content');
+    var address = Aj.state.invoiceAddress;
+    if (!address) return;
+    var token = Aj.state.invoiceToken || '';
+    var chainId = Aj.state.invoiceChainId || 1;
+    var uri = 'ethereum:' + token + '@' + chainId + '/transfer?address=' + address;
+    var amount = Aj.state.invoiceAmount;
+    if (amount) {
+      uri += '&uint256=' + amount;
+    }
+    new QR.getUrl(uri, function (url) {
+      $qrCode.css('backgroundImage', "url('" + url + "')");
+    });
+  },
+ 
+  initWalletConnect: function() {
+    $('.js-main-content')
+      .off('click.wc')
+      .on('click.wc', '.js-walletconnect-btn', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        PaymentInvoice.connectAndSend();
+      })
+      .on('click.wc', '.js-change-wallet', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        PaymentInvoice.changeWallet();
+      })
+      .on('click.wc', '.js-retry-tx', function(e) {
+        e.preventDefault();
+        PaymentInvoice.connectAndSend();
+      });
+    PaymentInvoice.setWalletState('notconnected');
+  },
+
+  changeWallet: function() {
+    var modal = PaymentInvoice._modal;
+    PaymentInvoice._pending = null;
+    PaymentInvoice._sending = false;
+
+    var d = (modal && typeof modal.disconnect === 'function')
+      ? modal.disconnect()
+      : Promise.resolve();
+
+    Promise.resolve(d)
+      .catch(function() {})
+      .then(function() { PaymentInvoice.setWalletState('notconnected'); });
+  },
+
+  restoreSession: function() {
+    var modal = PaymentInvoice.getModal();
+    if (!modal) return;
+
+    var attempts = 0;
+    var maxAttempts = 24; // ~6s at 250ms
+    var poll = setInterval(function() {
+      attempts++;
+      if (PaymentInvoice._isConnected(modal)) {
+        clearInterval(poll);
+        PaymentInvoice.setWalletState('connected');
+      } else if (attempts >= maxAttempts) {
+        clearInterval(poll);
+        PaymentInvoice.setWalletState('notconnected');
+      }
+    }, 250);
+  },
+ 
+  getModal: function() {
+    if (PaymentInvoice._modal) return PaymentInvoice._modal;
+    if (!window.AppKit) {
+      console.error('[PaymentInvoice] window.AppKit not loaded');
+      return null;
+    }
+
+    var n = window.AppKit.networks;
+    var nets = [n.mainnet, n.base, n.polygon, n.arbitrum];
+    var byId = { 1: n.mainnet, 8453: n.base, 137: n.polygon, 42161: n.arbitrum };
+
+    var ethersAdapter = new window.AppKit.EthersAdapter();
+
+    var modal = window.AppKit.createAppKit({
+      adapters: [ethersAdapter],
+      projectId: Aj.state.appKitProjectId,
+      networks: nets,
+      defaultNetwork: byId[Aj.state.invoiceChainId] || n.mainnet,
+      enableInjected: true,
+      enableEIP6963: true,
+      enableCoinbase: true,
+      enableWalletConnect: true,
+      allWallets: 'SHOW',
+      metadata: {
+        name: l('WEB_PAYMENT_INVOICE_WC_NAME'),
+        description: l('WEB_PAYMENT_INVOICE_WC_DESC'),
+        url: window.location.origin,
+        icons: []
+      },
+      themeVariables: {
+        "--apkt-accent": "#248BDA",
+      },
+      features: { email: false, socials: false, swaps: false, onramp: false }
+    });
+
+    PaymentInvoice._modal = modal;
+    return modal;
+  },
+
+  connectAndSend: function() {
+    var address = Aj.state.invoiceAddress;
+    var token   = Aj.state.invoiceToken;
+    var amount  = Aj.state.invoiceAmount;
+    var chainId = Aj.state.invoiceChainId;
+    if (!address || !token || !amount || !chainId) return;
+ 
+    try {
+      var modal = PaymentInvoice.getModal();
+      if (!modal) return;
+ 
+      PaymentInvoice._pending = {
+        address: address, token: token, amount: amount, chainId: chainId
+      };
+      PaymentInvoice._sending = false;
+ 
+      if (PaymentInvoice._isConnected(modal)) {
+        PaymentInvoice._fire();
+        return;
+      }
+ 
+      modal.open();
+      PaymentInvoice._startConnectionPoll(modal);
+    } catch (err) {
+      console.error('[PaymentInvoice] connectAndSend failed:', err);
+    }
+  },
+ 
+  _isConnected: function(modal) {
+    return !!(modal.getAddress && modal.getAddress() &&
+              modal.getWalletProvider && modal.getWalletProvider());
+  },
+ 
+  _startConnectionPoll: function(modal) {
+    if (PaymentInvoice._connPoll) clearInterval(PaymentInvoice._connPoll);
+    var attempts = 0;
+    var maxAttempts = 1200; // 1200 * 250ms = 5 min
+    PaymentInvoice._connPoll = setInterval(function() {
+      attempts++;
+      if (PaymentInvoice._isConnected(modal)) {
+        PaymentInvoice._fire();
+      } else if (attempts >= maxAttempts) {
+        clearInterval(PaymentInvoice._connPoll);
+        PaymentInvoice._connPoll = null;
+      }
+    }, 250);
+  },
+ 
+  _fire: function() {
+    if (PaymentInvoice._sending) return;
+    if (!PaymentInvoice._pending) return;
+    var modal = PaymentInvoice._modal;
+    if (!modal || !PaymentInvoice._isConnected(modal)) return;
+ 
+    PaymentInvoice._sending = true;
+    var p = PaymentInvoice._pending;
+    PaymentInvoice._pending = null;
+ 
+    if (PaymentInvoice._connPoll) {
+      clearInterval(PaymentInvoice._connPoll);
+      PaymentInvoice._connPoll = null;
+    }
+    try { modal.close(); } catch (e) {}
+ 
+    PaymentInvoice.sendErc20Transfer(modal, p.address, p.token, p.amount, p.chainId);
+  },
+
+  _walletState: 'notconnected',
+
+  setWalletState: function(state) {
+    PaymentInvoice._walletState = state;
+    var $section = $('.tm-pay-wallet-section', '.js-main-content');
+    if (!$section.length) return;
+
+    $('.js-wallet-state', $section).prop('hidden', true);
+    $('.js-wallet-state[data-wallet-state="' + state + '"]', $section).prop('hidden', false);
+
+    if (state === 'connected') {
+      var modal = PaymentInvoice._modal;
+      var addr = (modal && modal.getAddress) ? modal.getAddress() : '';
+      $('.js-wallet-addr', $section).text(addr ? addr.slice(0, 8) + '…' + addr.slice(-6) : '');
+      $('.js-wallet-net', $section).text(modal?.getWalletInfo?.()?.name);
+    }
+  },
+ 
+  _getSigner: function(eip1193) {
+    var ethers = window.AppKit.ethers;
+    var address = PaymentInvoice._modal ? PaymentInvoice._modal.getAddress() : undefined;
+    if (ethers.BrowserProvider) {
+      return new ethers.BrowserProvider(eip1193).getSigner(address);
+    }
+    return Promise.resolve(
+      new ethers.providers.Web3Provider(eip1193).getSigner(address)
+    );
+  },
+
+  sendErc20Transfer: function(modal, to, token, amount, chainId) {
+    var eip1193 = modal.getWalletProvider();
+    if (!eip1193) { PaymentInvoice._sending = false; return; }
+
+    PaymentInvoice.setWalletState('confirming');
+
+    var ethers = window.AppKit.ethers;
+    var targetChainId = '0x' + parseInt(chainId).toString(16);
+
+    eip1193.request({ method: 'eth_chainId' })
+      .then(function(current) {
+        if (parseInt(current, 16) === parseInt(chainId)) return null;
+        return eip1193.request({
+          method: 'wallet_switchEthereumChain',
+          params: [{ chainId: targetChainId }]
+        });
+      })
+      .then(function() {
+        return PaymentInvoice._getSigner(modal.getWalletProvider());
+      })
+      .then(function(signer) {
+        var erc20 = new ethers.Contract(token, ['function transfer(address,uint256)'], signer);
+        return erc20.transfer(to, amount);
+      })
+      .then(function(tx) {
+        PaymentInvoice.setWalletState('submitted');
+        PaymentInvoice.onTxSent(tx.hash);
+      })
+      .catch(function(err) {
+        console.warn('[PaymentInvoice] transfer error:', err);
+        PaymentInvoice.setWalletState('connected');
+        var error = PaymentInvoice.getErrorMessage(err);
+        if (error) {
+          showAlert(error);
+        }
+      })
+      .then(function() {
+        PaymentInvoice._sending = false;
+      });
+  },
+
+  onTxSent: function(txHash) {
+    // Aj.apiRequest('evmInvoiceTxSent', {
+    //   req_id: Aj.state.invoiceReqId,
+    //   tx_hash: txHash
+    // }, function() {});
+  },
+ 
+  initCopyButtons: function() {
+    $('.js-copy-btn', '.js-main-content').on('click', function() {
+      var text = $(this).attr('data-copy');
+      if (text) {
+        Main.copyText(text);
+        var $tooltip = $('.tm-pay-copy-tooltip', this);
+        $tooltip.css('opacity', 1);
+        setTimeout(function() { $tooltip.css('opacity', 0); }, 1500);
+      }
+    });
+  },
+ 
+  startPolling: function() {
+    clearTimeout(PaymentInvoice._pollTimeout);
+    PaymentInvoice._pollTimeout = setTimeout(function() {
+      PaymentInvoice.poll();
+    }, 3000);
+  },
+ 
+  poll: function() {
+    Aj.apiRequest('checkInvoiceStatus', {
+      req_id: Aj.state.invoiceReqId,
+      status: Aj.state.status
+    }, function(result) {
+      Aj.state.status = result.status;
+      if (result.status === 'confirmed' || result.status === 'done') {
+        PaymentInvoice.onPaid(result);
+        return;
+      }
+      if (result.status === 'underpaid') {
+        PaymentInvoice.onUnderpaid(result);
+        return;
+      }
+      if (result.status === 'expired') {
+        PaymentInvoice.onExpired();
+        return;
+      }
+      PaymentInvoice.startPolling();
+    });
+  },
+ 
+  onPaid: function(result) {
+    clearTimeout(PaymentInvoice._pollTimeout);
+    cancelAnimationFrame(PaymentInvoice._timerRaf);
+    if (result.redirect) {
+      Aj.location(result.redirect);
+    } else {
+      window.location.reload();
+    }
+  },
+ 
+  onExpired: function() {
+    clearTimeout(PaymentInvoice._pollTimeout);
+    cancelAnimationFrame(PaymentInvoice._timerRaf);
+    window.location.reload();
+  },
+ 
+  onUnderpaid: function(result) {
+    if (result.underpaid_received !== Aj.state.underpaidAmount && result.html) {
+      clearTimeout(PaymentInvoice._pollTimeout);
+      cancelAnimationFrame(PaymentInvoice._timerRaf);
+      $('.js-main-content').html(result.html);
+      PaymentInvoice.init();
+    } else {
+      PaymentInvoice.startPolling();
+    }
+    Aj.state.underpaidAmount = result.underpaid_received;
+  },
+ 
+  destroy: function() {
+    clearTimeout(PaymentInvoice._pollTimeout);
+    cancelAnimationFrame(PaymentInvoice._timerRaf);
+    if (PaymentInvoice._connPoll) {
+      clearInterval(PaymentInvoice._connPoll);
+      PaymentInvoice._connPoll = null;
+    }
+    if (PaymentInvoice._unsubProvider) {
+      try { PaymentInvoice._unsubProvider(); } catch (e) {}
+      PaymentInvoice._unsubProvider = null;
+    }
+    PaymentInvoice._pending = null;
+    PaymentInvoice._sending = false;
+    $('.js-copy-btn', '.js-process-erc20').off('click');
+    $('.js-walletconnect-btn', '.js-process-erc20').off('click');
+  },
+ 
+  getErrorMessage: function (error) {
+    var raw = (
+      error?.reason ||
+      error?.error?.message ||
+      error?.message ||
+      ""
+    ).toLowerCase();
+ 
+    if (
+      raw.includes("transfer amount exceeds balance") ||
+      raw.includes("insufficient funds")
+    ) {
+      return l('WEB_PAYMENT_INVOICE_ERR_INSUFFICIENT');
+    }
+ 
+    if (raw.includes("user rejected") || raw.includes("user denied") || raw == 'rejected') {
+      return false
+    }
+ 
+    if (raw.includes("nonce")) {
+      return l('WEB_PAYMENT_INVOICE_ERR_NONCE');
+    }
+ 
+    return l('WEB_PAYMENT_INVOICE_ERR_GENERIC');
+  }
+};
+
