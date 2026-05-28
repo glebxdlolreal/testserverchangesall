@@ -5554,7 +5554,8 @@ var PaymentInvoice = {
   poll: function() {
     Aj.apiRequest('checkInvoiceStatus', {
       req_id: Aj.state.invoiceReqId,
-      status: Aj.state.status
+      status: Aj.state.status,
+      status: Aj.state.invoiceData,
     }, function(result) {
       Aj.state.status = result.status;
       if (result.status === 'confirmed' || result.status === 'done') {
