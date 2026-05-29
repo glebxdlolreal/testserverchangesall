@@ -2618,6 +2618,9 @@ var Premium = {
       show_sender: show_sender ? 1 : 0,
       transaction: 1
     }, function(result) {
+      if (result.need_verify) {
+        return Verify.showPopup(result);
+      }
       if (result.error) {
         return showAlert(result.error);
       }
@@ -2964,6 +2967,9 @@ var PremiumGiveaway = {
       id: req_id,
       transaction: 1
     }, function(result) {
+      if (result.need_verify) {
+        return Verify.showPopup(result);
+      }
       if (result.error) {
         return showAlert(result.error);
       }
@@ -3804,6 +3810,9 @@ var Stars = {
       show_sender: show_sender ? 1 : 0,
       transaction: 1
     }, function(result) {
+      if (result.need_verify) {
+        return Verify.showPopup(result);
+      }
       if (result.error) {
         return showAlert(result.error);
       }
@@ -4269,6 +4278,9 @@ var StarsGiveaway = {
       id: req_id,
       transaction: 1
     }, function(result) {
+      if (result.need_verify) {
+        return Verify.showPopup(result);
+      }
       if (result.error) {
         return showAlert(result.error);
       }
@@ -5557,6 +5569,10 @@ var PaymentInvoice = {
       status: Aj.state.status
     }, function(result) {
       Aj.state.status = result.status;
+      if (result.reload) {
+        window.location.reload();
+        return;
+      }
       if (result.status === 'confirmed' || result.status === 'done') {
         PaymentInvoice.onPaid(result);
         return;
