@@ -2043,9 +2043,6 @@ var WebsiteTheme = {
 
   var Bugtracker = {
   useMobileMarkdownInput: function() {
-    // if (Aj.state.isWebApp) {
-    //   return false;
-    // }
     var isSmallDisplay = false;
     if (window.matchMedia) {
       isSmallDisplay = window.matchMedia('(max-width: 1024px)').matches;
