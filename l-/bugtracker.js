@@ -2043,14 +2043,14 @@ var WebsiteTheme = {
 
   var Bugtracker = {
   useMobileMarkdownInput: function() {
-    if (Aj.state.isWebApp) {
-      return false;
-    }
+    // if (Aj.state.isWebApp) {
+    //   return false;
+    // }
     var isSmallDisplay = false;
     if (window.matchMedia) {
-      isSmallDisplay = window.matchMedia('(max-width: 767px)').matches;
+      isSmallDisplay = window.matchMedia('(max-width: 1024px)').matches;
     } else {
-      isSmallDisplay = Math.min(window.innerWidth || 0, screen.width || 0) <= 767;
+      isSmallDisplay = Math.min(window.innerWidth || 0, screen.width || 0) <= 1024;
     }
     var isTouchInput = navigator.maxTouchPoints > 0 ||
         window.matchMedia && window.matchMedia('(pointer: coarse)').matches ||
