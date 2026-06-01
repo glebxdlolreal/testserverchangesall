@@ -45,19 +45,6 @@
     return this.parents().map(function(){ return $(this).css('position'); }).get().indexOf('fixed') != -1;
   };
   $.fn.focusAndSelect = function(select_all) {
-    var editor = this.data('cm-editor');
-    if (editor) {
-      var lastLine = editor.lastLine();
-      var lastCh = editor.getLine(lastLine).length;
-      editor.focus();
-      if (select_all) {
-        editor.setSelection({line: editor.firstLine(), ch: 0}, {line: lastLine, ch: lastCh});
-      } else {
-        editor.setCursor({line: lastLine, ch: lastCh});
-      }
-      return this;
-    }
-
     var field = this.get(0), len = this.value().length;
     if (field) {
       field.focus();
@@ -2041,19 +2028,7 @@ var WebsiteTheme = {
   }
 };
 
-  var Bugtracker = {
-  useMobileMarkdownInput: function() {
-    var isSmallDisplay = false;
-    if (window.matchMedia) {
-      isSmallDisplay = window.matchMedia('(max-width: 1024px)').matches;
-    } else {
-      isSmallDisplay = Math.min(window.innerWidth || 0, screen.width || 0) <= 1024;
-    }
-    var isTouchInput = navigator.maxTouchPoints > 0 ||
-        window.matchMedia && window.matchMedia('(pointer: coarse)').matches ||
-        'ontouchstart' in window;
-    return isSmallDisplay && isTouchInput;
-  },
+var Bugtracker = {
   init: function() {
     WebsiteTheme.init();
     $(document).off('click.btHint').on('click.btHint', Bugtracker.eHideAllHints);
@@ -2177,7 +2152,7 @@ var WebsiteTheme = {
     $('.bt-issue-files', $form).trigger('update');
     $('.bt-markdown-control', $form).each(function() {
       var field = this;
-      var editorOptions = {
+      var editor = CodeMirror.fromTextArea(field, {
         mode: {
           name: 'gfm',
           emoji: false,
@@ -2192,9 +2167,8 @@ var WebsiteTheme = {
         lineWrapping: true,
         theme: 'default',
         height: 'dynamic',
-        inputStyle: Bugtracker.useMobileMarkdownInput() ? 'contenteditable' : 'textarea',
-      };
-      var editor = CodeMirror.fromTextArea(field, editorOptions);
+        inputStyle: 'textarea',
+      });
       editor._onChangeHandler = function(cm) {
         cm.save();
         Bugtracker.eUpdateField.call(field, {type: 'change'});
