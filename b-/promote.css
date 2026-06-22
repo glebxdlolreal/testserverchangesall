@@ -58,6 +58,9 @@ a,
 a:hover {
   color: var(--link-color);
 }
+a:focus:not(:focus-visible) {
+  outline: none;
+}
 tg-link {
   color: var(--link-color);
   text-decoration: none;
@@ -3165,7 +3168,7 @@ a.pr-account-button-wrap {
 }
 .pr-account-button-wrap.current,
 a.pr-account-button-wrap:hover,
-a.pr-account-button-wrap:focus {
+a.pr-account-button-wrap:focus-visible {
   box-shadow: inset 0 0 0 2px #35a3f6;
   color: inherit;
   text-decoration: none;
@@ -4645,6 +4648,35 @@ a.ad-declined:focus {
 .pr-ad-info-label > .ad-reports-badge {
   color: #e67f0b !important;
   background-color: #fdf0e2;
+}
+.ad-rp-chip {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 0 6px;
+  padding: 1px 6px;
+  border-radius: 9px;
+  font-size: 11px;
+  line-height: 15px;
+  font-weight: 600;
+  color: #606060;
+  background-color: #eceff3;
+  white-space: nowrap;
+}
+.ad-rp-chip.rp-h {
+  color: #1b7015;
+  background-color: #e0efde;
+}
+.ad-rp-chip.rp-b {
+  color: #0b6cae;
+  background-color: #dceefb;
+}
+.ad-rp-chip.rp-m {
+  color: #8a4a00;
+  background-color: #fdf0e2;
+}
+.ad-rp-chip.rp-l {
+  color: #9f2424;
+  background-color: #f5d8d8;
 }
 .pr-ad-status-colored .ad-status.ad-stopped {
   display: none;

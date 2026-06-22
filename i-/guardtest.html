@@ -1,65 +1,64 @@
-<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>[DT] Captcha</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<meta name="format-detection" content="telephone=no" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="MobileOptimized" content="176" />
-<meta name="HandheldFriendly" content="True" />
-<meta name="robots" content="noindex, nofollow" />
-    <link rel="icon" type="image/svg+xml" href="/img/website_icon.svg?4">
-<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
-<link rel="alternate icon" href="/img/favicon.ico" type="image/x-icon" />
-    <script>document.cookie="stel_dt="+encodeURIComponent((new Date).getTimezoneOffset())+";path=/;max-age=31536000;samesite=None;secure"</script>
-    
-    <link href="//i-telegram.stel.com/css/font-roboto.css?1" rel="stylesheet" type="text/css">
-    <link href="//i-telegram.stel.com/css/bootstrap.min.css?3" rel="stylesheet">
-    <link href="//i-telegram.stel.com/css/bootstrap-extra.css?2" rel="stylesheet">
+    <title>Guardian Bot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="MobileOptimized" content="176" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="robots" content="noindex, nofollow" />
+    <script src="https://a-tgme.stel.com/js/telegram-web-app-beta.js?90"></script>
     <link href="/css/telegram.css?0" rel="stylesheet">
+    <style>
+      .main-container {
+        display: flex;
+        min-height: var(--tg-viewport-height);
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+        align-items: center;
+      }
 
+      .btn.btn-primary {
+        width: 240px;
+        font-size: 20px;
+        border-radius: 8px;
+        padding: 14px 12px;
+        background: #21a7ea;
+        color: white;
+        border: none;
+      }
+    </style>
   </head>
-  <body class="emoji_image no-transition">
-    
-    <div id="aj_progress" class="progress-bar"></div>
-    
-    <div id="aj_content"><div class="main-container">
-  <button class="btn btn-primary btn-block" onclick="sendResult('approved');">Approve</button>
-  <button class="btn btn-primary btn-block" onclick="sendResult('queued');">Queue</button>
-  <button class="btn btn-primary btn-block" onclick="sendResult('declined');">Decline</button>
-</div></div>
-    <script src="//i-telegram.stel.com/js/jquery.min.js?1"></script>
-    <script src="//i-telegram.stel.com/js/bootstrap.min.js"></script>
-    <script src="//i-telegram.stel.com/js/main-aj.js?73"></script>
-    <script src="/js/telegram-web-app.js?62"></script>
-
-    <script>ajInit({"version":639,"apiUrl":"\/api?hash=xieworld_vf","unauth":true});</script>
-    <script id="aj_script">Telegram.WebApp.ready();
-function sendResult(result) {
-  var queryId = Telegram.WebApp.initDataUnsafe.query_id;
-  if (!queryId) {
-    alert('No query_id');
-    return;
-  }
-  fetch('/guardtest/api', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    body: 'result=' + encodeURIComponent(result) + '&_auth=' + encodeURIComponent(Telegram.WebApp.initData)
-  }).then(function(r) { return r.json(); }).then(function(data) {
-    if (data.ok) {
-      // Telegram.WebApp.close();
-    } else {
-      alert('Error: ' + (data.error || 'unknown'));
-    }
-  }).catch(function(e) {
-    alert('Request failed: ' + e);
-  });
-}
-</script>
-    <script>Aj.pageLoaded();</script>
-    
+  <body>
+    <div class="main-container">
+      <button class="btn btn-primary btn-block" onclick="sendResult('approved');">Approve</button>
+      <button class="btn btn-primary btn-block" onclick="sendResult('queued');">Queue</button>
+      <button class="btn btn-primary btn-block" onclick="sendResult('declined');">Decline</button>
+    </div>
+    <script>
+      Telegram.WebApp.ready();
+      function sendResult(result) {
+        var queryId = Telegram.WebApp.initDataUnsafe.query_id;
+        if (!queryId) {
+          alert('No query_id');
+          return;
+        }
+        fetch('/guardtest/api', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          body: 'result=' + encodeURIComponent(result) + '&_auth=' + encodeURIComponent(Telegram.WebApp.initData)
+        }).then(function(r) { return r.json(); }).then(function(data) {
+          if (data.ok) {
+            Telegram.WebApp.close();
+          } else {
+            alert('Error: ' + (data.error || 'unknown'));
+          }
+        }).catch(function(e) {
+          alert('Request failed: ' + e);
+        });
+      }
+    </script>
   </body>
 </html>
