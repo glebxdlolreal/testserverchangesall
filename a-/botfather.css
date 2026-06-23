@@ -2969,6 +2969,10 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   align-items: stretch;
   background: var(--table-bg-color);
   position: relative;
+  user-select: auto;
+}
+.tm-console-line * {
+  user-select: auto;
 }
 .tm-console-line--err:before,
 .tm-console-line--wrn:before,
