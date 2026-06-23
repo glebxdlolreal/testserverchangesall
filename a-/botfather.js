@@ -2931,8 +2931,12 @@ var BotConsole = {
       if (res.log && res.log.length) {
         let prev_t = 0;
         for (var i = 0; i < res.log.length; i++) {
-          var entry = res.log[i];
-          var str   = entry.m || '';
+          var entry = res.log[i], str;
+          if (entry.M) {
+            str = entry.M + ' [...]';
+          } else {
+            str = entry.m || '';
+          }
           var delta = entry.t - prev_t;
           prev_t = entry.t;
           BotConsole.addLine(entry._, str, '+' + BotConsole.formatDuration(delta));
