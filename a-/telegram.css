@@ -583,8 +583,8 @@ i.anchor-icon:hover {
 
 
 .navbar-tg .navbar-twitter a {
-  padding-top: 14.5px;
-  padding-bottom: 14.5px;
+  padding-top: 15.5px;
+  padding-bottom: 15.5px;
 }
 
 .tl_page_container,
@@ -1742,7 +1742,6 @@ a.dev_blog_card_link_wrap:hover .dev_blog_card_title {
   position: relative;
 
   margin-bottom: 9px;
-  color: #555555;
   border: 1px solid #ccc;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1755,6 +1754,9 @@ a.dev_blog_card_link_wrap:hover .dev_blog_card_title {
   -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
   -o-transition: border linear 0.2s, box-shadow linear 0.2s;
   transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+.dev_page_edit_form .cm-s-default.CodeMirror {
+  color: #555555;
 }
 
 .dev_page_edit_form .CodeMirror-focused {
@@ -2779,9 +2781,11 @@ body.rtl .checkbox-item .checkbox-input + .checkbox-label {
 }
 
 .widget_container {
-  padding: 10px 20px;
+  padding: 15px;
   margin: -10px 0;
   text-align: center;
+  border-radius: 12px;
+  background: #fff;
 }
 .widget_container.dark {
   background: #15202b;
@@ -3006,7 +3010,10 @@ img.blog_side_centered_image {
 
 .blog_wide_image img {
   width: 100%;
-  padding-bottom: 20px;
+  border-radius: 10px;
+  border: 7px solid #fff;
+  background-color: #fff;
+  margin-bottom: 20px;
 }
 .blog_image_wrap {
   width: 275px;
