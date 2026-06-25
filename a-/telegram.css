@@ -1368,9 +1368,10 @@ a.dev_blog_card_link_wrap:focus {
 }
 .dev_blog_card_image {
   display: block;
-  max-width: 100%;
+  width: calc(100% - 30px);
   height: auto;
-  max-height: 235px;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
   margin: 0 auto;
   -webkit-transition: opacity .2s ease-in-out;
   -moz-transition: opacity .2s ease-in-out;
