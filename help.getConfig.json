@@ -1,14 +1,14 @@
 {
   "_": "types.Config",
-  "blocked_mode": false,
+  "blocked_mode": true,
   "call_connect_timeout_ms": 30000,
   "call_packet_timeout_ms": 10000,
   "call_receive_timeout_ms": 20000,
   "call_ring_timeout_ms": 90000,
-  "caption_length_max": 1024,
+  "caption_length_max": 4096,
   "channels_read_media_period": 300,
   "chat_size_max": 50,
-  "date": 1782250226,
+  "date": 1782403437,
   "dc_options": [
     {
       "_": "types.DcOption",
@@ -122,7 +122,7 @@
   "dc_txt_domain_name": "tapv3.stel.com",
   "default_p2p_contacts": true,
   "edit_time_limit": 900,
-  "expires": 1782254160,
+  "expires": 1782406669,
   "force_try_ipv6": false,
   "forwarded_count_max": 100,
   "gif_search_username": "contextbot",
@@ -140,6 +140,10 @@
   "push_chat_limit": 2,
   "push_chat_period_ms": 60000,
   "rating_e_decay": 2419200,
+  "reactions_default": {
+    "_": "types.ReactionCustomEmoji",
+    "document_id": 5271835522753363969
+  },
   "revoke_pm_inbox": true,
   "revoke_pm_time_limit": 2147483647,
   "revoke_time_limit": 2147483647,

@@ -16,7 +16,7 @@
         "key": "emojies_animated_zoom",
         "value": {
           "_": "types.JsonNumber",
-          "value": 0.625
+          "value": 0.8
         }
       },
       {
@@ -139,6 +139,65 @@
       },
       {
         "_": "types.JsonObjectValue",
+        "key": "dialog_filters_enabled",
+        "value": {
+          "_": "types.JsonBool",
+          "value": true
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "dialog_filters_tooltip",
+        "value": {
+          "_": "types.JsonBool",
+          "value": true
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "ignore_restriction_reasons",
+        "value": {
+          "_": "types.JsonArray",
+          "value": [
+            {
+              "_": "types.JsonString",
+              "value": "sensitive"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "porn"
+            }
+          ]
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "autologin_domains",
+        "value": {
+          "_": "types.JsonArray",
+          "value": [
+            {
+              "_": "types.JsonString",
+              "value": "a-autologin.stel.com"
+            }
+          ]
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "url_auth_domains",
+        "value": {
+          "_": "types.JsonArray",
+          "value": [
+            {
+              "_": "types.JsonString",
+              "value": "a-urlauth.stel.com"
+            }
+          ]
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
         "key": "round_video_encoding",
         "value": {
           "_": "types.JsonObject",
@@ -196,6 +255,14 @@
       },
       {
         "_": "types.JsonObjectValue",
+        "key": "reactions_uniq_max",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 11.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
         "key": "ringtone_duration_max",
         "value": {
           "_": "types.JsonNumber",
@@ -223,7 +290,457 @@
         "key": "premium_purchase_blocked",
         "value": {
           "_": "types.JsonBool",
-          "value": true
+          "value": false
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "channels_limit_default",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 100.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "channels_limit_premium",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 200.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "saved_gifs_limit_default",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 25.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "saved_gifs_limit_premium",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 50.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "stickers_faved_limit_default",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 5.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "stickers_faved_limit_premium",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 10.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "dialog_filters_limit_default",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 4.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "dialog_filters_limit_premium",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 6.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "dialog_filters_chats_limit_default",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 5.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "dialog_filters_chats_limit_premium",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 10.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "dialogs_pinned_limit_default",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 4.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "dialogs_pinned_limit_premium",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 6.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "dialogs_folder_pinned_limit_default",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 3.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "dialogs_folder_pinned_limit_premium",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 6.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "channels_public_limit_default",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 5.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "channels_public_limit_premium",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 10.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "caption_length_limit_default",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 1024.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "caption_length_limit_premium",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 4096.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "upload_max_fileparts_default",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 4000.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "upload_max_fileparts_premium",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 8000.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "about_length_limit_default",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 70.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "about_length_limit_premium",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 140.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "stickers_premium_by_emoji_num",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 2.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "stickers_normal_by_emoji_per_premium_num",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 3.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "message_animated_emoji_max",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 100.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "reactions_user_max_default",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 1.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "reactions_user_max_premium",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 3.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "reactions_in_chat_max",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 100.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "default_emoji_statuses_stickerset_id",
+        "value": {
+          "_": "types.JsonString",
+          "value": "2964141614563343"
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "chatlist_invites_limit_default",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 3.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "chatlist_invites_limit_premium",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 5.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "chatlists_joined_limit_default",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 2.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "chatlists_joined_limit_premium",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 5.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "bots_create_limit_default",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 20.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "bots_create_limit_premium",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 40.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "premium_promo_order",
+        "value": {
+          "_": "types.JsonArray",
+          "value": [
+            {
+              "_": "types.JsonString",
+              "value": "stories"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "more_upload"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "double_limits"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "business"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "last_seen"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "voice_to_text"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "faster_download"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "translations"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "animated_emoji"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "emoji_status"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "saved_tags"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "peer_colors"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "wallpapers"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "profile_badge"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "message_privacy"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "pm_noforwards"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "advanced_chat_management"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "no_ads"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "app_icons"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "infinite_reactions"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "animated_userpics"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "premium_stickers"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "effects"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "ai_compose"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "todo"
+            }
+          ]
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "business_promo_order",
+        "value": {
+          "_": "types.JsonArray",
+          "value": [
+            {
+              "_": "types.JsonString",
+              "value": "business_location"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "business_hours"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "quick_replies"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "greeting_message"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "away_message"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "business_links"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "business_intro"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "business_bots"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "emoji_status"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "folder_tags"
+            },
+            {
+              "_": "types.JsonString",
+              "value": "stories"
+            }
+          ]
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "premium_bot_username",
+        "value": {
+          "_": "types.JsonString",
+          "value": "izpremiumbot"
         }
       },
       {
@@ -330,7 +847,7 @@
         "key": "hidden_members_group_size_min",
         "value": {
           "_": "types.JsonNumber",
-          "value": 1.0
+          "value": 2.0
         }
       },
       {
@@ -517,7 +1034,7 @@
         "key": "stories_posting",
         "value": {
           "_": "types.JsonString",
-          "value": "disabled"
+          "value": "enabled"
         }
       },
       {
@@ -605,7 +1122,7 @@
         "key": "stories_export_nopublic_link",
         "value": {
           "_": "types.JsonBool",
-          "value": false
+          "value": true
         }
       },
       {
@@ -693,7 +1210,7 @@
         "key": "boosts_per_sent_gift",
         "value": {
           "_": "types.JsonNumber",
-          "value": 0.0
+          "value": 3.0
         }
       },
       {
@@ -717,7 +1234,7 @@
         "key": "transcribe_audio_trial_weekly_number",
         "value": {
           "_": "types.JsonNumber",
-          "value": 0.0
+          "value": 2.0
         }
       },
       {
@@ -938,10 +1455,26 @@
       },
       {
         "_": "types.JsonObjectValue",
-        "key": "stars_purchase_blocked",
+        "key": "new_noncontact_peers_require_premium_without_ownpremium",
         "value": {
           "_": "types.JsonBool",
           "value": true
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "stories_pinned_to_top_count_max",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 3.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "stars_purchase_blocked",
+        "value": {
+          "_": "types.JsonBool",
+          "value": false
         }
       },
       {
@@ -1163,7 +1696,7 @@
         "key": "stars_paid_messages_available",
         "value": {
           "_": "types.JsonBool",
-          "value": false
+          "value": true
         }
       },
       {
@@ -1347,7 +1880,7 @@
         "key": "ton_usd_rate",
         "value": {
           "_": "types.JsonNumber",
-          "value": 1.5610794804398043
+          "value": 1.55203668766245
         }
       },
       {
@@ -1990,6 +2523,55 @@
       },
       {
         "_": "types.JsonObjectValue",
+        "key": "ton_stakedice_stake_amount_min",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 100000000.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "ton_stakedice_stake_amount_max",
+        "value": {
+          "_": "types.JsonNumber",
+          "value": 50000000000.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "ton_stakedice_stake_suggested_amounts",
+        "value": {
+          "_": "types.JsonArray",
+          "value": [
+            {
+              "_": "types.JsonNumber",
+              "value": 100000000.0
+            },
+            {
+              "_": "types.JsonNumber",
+              "value": 1000000000.0
+            },
+            {
+              "_": "types.JsonNumber",
+              "value": 2000000000.0
+            },
+            {
+              "_": "types.JsonNumber",
+              "value": 5000000000.0
+            },
+            {
+              "_": "types.JsonNumber",
+              "value": 10000000000.0
+            },
+            {
+              "_": "types.JsonNumber",
+              "value": 20000000000.0
+            }
+          ]
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
         "key": "stargifts_craft_attribute_permilles",
         "value": {
           "_": "types.JsonArray",
@@ -2083,6 +2665,14 @@
       },
       {
         "_": "types.JsonObjectValue",
+        "key": "music_search_username",
+        "value": {
+          "_": "types.JsonString",
+          "value": "ugcmusicbot"
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
         "key": "aicompose_tone_examples_num",
         "value": {
           "_": "types.JsonNumber",
@@ -2127,6 +2717,14 @@
         "value": {
           "_": "types.JsonNumber",
           "value": 12.0
+        }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "phone_country_iso2",
+        "value": {
+          "_": "types.JsonString",
+          "value": "RU"
         }
       },
       {
@@ -2192,8 +2790,16 @@
           "_": "types.JsonNumber",
           "value": 20.0
         }
+      },
+      {
+        "_": "types.JsonObjectValue",
+        "key": "message_primary_edited_date",
+        "value": {
+          "_": "types.JsonBool",
+          "value": true
+        }
       }
     ]
   },
-  "hash": -1645476613
+  "hash": 155500216
 }
