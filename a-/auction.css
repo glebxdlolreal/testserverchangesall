@@ -1505,7 +1505,8 @@ a.tm-menu-link:focus {
 .tm-main-intro-link {
   display: inline-block;
   font-size: 12px;
-  line-height: 19px;
+  --line-height: 19px;
+  line-height: var(--line-height);
   border-radius: 20px;
   background-color: #12171c;
   color: var(--text-color);
@@ -4471,14 +4472,12 @@ a.tm-table-action-link:hover {
 }
 .ads-popup-container .whats-next-list {
   font-size: 14px;
-  line-height: 18px;
+  --line-height: 18px;
+  line-height: var(--line-height);
   margin: 20px 10px 0;
 }
 .ads-popup-container .form-main-button {
   margin-top: 30px;
-}
-.ads-popup-container .icon-link-more:after {
-  padding-right: 9px;
 }
 
 .choose-collection-popup-container .popup-body h4 {
@@ -5036,12 +5035,8 @@ a.tm-table-action-link:hover {
   }
   .tm-main-intro-link {
     font-size: 14px;
-    line-height: 19px;
     padding: 10px 20px;
     margin: 20px 0 -8px;
-  }
-  .tm-main-intro-link .icon-link-more:after {
-    padding-right: 10px;
   }
   .icon-telegram-premium,
   .icon-telegram-stars {
