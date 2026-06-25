@@ -1497,9 +1497,9 @@ a.tm-menu-link:focus {
   margin: 4px 0 0;
 }
 .icon-link-more:after {
+  display: inline;
   --icon-height: var(--line-height, 17px);
-  width: calc(0.5 * var(--icon-height));
-  height: var(--icon-height);
+  padding-right: calc(0.5 * var(--icon-height));
   background-image: var(--image-url-link-more);
 }
 .tm-main-intro-link {
@@ -1524,8 +1524,7 @@ a.tm-menu-link:focus {
   text-decoration: underline;
 }
 .tm-main-intro-link .icon-link-more:after {
-  width: 8px;
-  height: 18px;
+  padding-right: 8px;
 }
 .tm-main-intro-buttons {
   text-align: center;
@@ -1658,8 +1657,7 @@ a.tm-menu-link:focus {
   margin-right: -13px;
 }
 .tm-search-field-hint .icon-link-more:after {
-  width: 9px;
-  height: 20px;
+  padding-right: 9px;
 }
 .tm-search-field-photo {
   display: none;
@@ -4480,8 +4478,7 @@ a.tm-table-action-link:hover {
   margin-top: 30px;
 }
 .ads-popup-container .icon-link-more:after {
-  width: 9px;
-  height: 18px;
+  padding-right: 9px;
 }
 
 .choose-collection-popup-container .popup-body h4 {
@@ -5037,10 +5034,6 @@ a.tm-table-action-link:hover {
     --line-height: 23px;
     margin-top: 8px;
   }
-  /*.icon-link-more:after {
-    width: 12px;
-    height: 23px;
-  }*/
   .tm-main-intro-link {
     font-size: 14px;
     line-height: 19px;
@@ -5048,8 +5041,7 @@ a.tm-table-action-link:hover {
     margin: 20px 0 -8px;
   }
   .tm-main-intro-link .icon-link-more:after {
-    width: 10px;
-    height: 19px;
+    padding-right: 10px;
   }
   .icon-telegram-premium,
   .icon-telegram-stars {
