@@ -615,6 +615,9 @@ function mainInitDemoAutoplay(videoLinkElsSelector) {
 }
 
 function mainDemoVideoHover(videoLinkEl, isHover) {
+  if (isHover && document.documentElement.getAttribute('data-theme') === 'dark') {
+    return false;
+  }
   var outTimeout = videoLinkEl.outTimeout;
   var curIsHover = videoLinkEl.isHover || 0;
   if (outTimeout) {
