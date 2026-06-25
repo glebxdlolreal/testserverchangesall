@@ -346,7 +346,7 @@ function initDevPageNav() {
 
   updateMenuAffix(menu);
 
-  /* Hand off to mainX.js for the smooth-scroll/scrollspy rail UI. */
+  /* Hand off to main-theme.js for the smooth-scroll/scrollspy rail UI. */
   if (window.initDevSideNavX) window.initDevSideNavX();
 }
 
@@ -359,7 +359,7 @@ function updateDevPageNav() {
   $('body').scrollspy('refresh');
   updateMenuAffix(menu);
 
-  /* mainX.js rebuilt the nav's <ul>; re-init its rail/scrollspy UI. */
+  /* main-theme.js rebuilt the nav's <ul>; re-init its rail/scrollspy UI. */
   var sideNav = document.querySelector('.dev_side_nav');
   if (sideNav) sideNav.dataset.localNav = '';
   if (window.initDevSideNavX) window.initDevSideNavX();
