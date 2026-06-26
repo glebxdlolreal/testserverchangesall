@@ -1536,7 +1536,8 @@ window.Graph = {
         this.state.masterVisibility = 1;
         this.state.slaveVisibility = 0;
         this.specialZoomTransition = undefined;
-        this.darkMode = !!document.documentElement.classList.contains('dark');
+        this.darkMode = document.documentElement.classList.contains('dark') ||
+                        document.documentElement.getAttribute('data-theme') === 'dark';
 
         var isIEOld = ((!!window.ActiveXObject && +(/msie\s(\d+)/i.exec(navigator.userAgent)[1])) || NaN - 0) < 11
         var isIE11 = navigator.userAgent.indexOf('Trident/') != -1 && (navigator.userAgent.indexOf('rv:') != -1 || navigator.appName.indexOf('Netscape') != -1)
@@ -1797,7 +1798,9 @@ window.Graph = {
         window.addEventListener('resize', this.onResize);
 
         document.addEventListener('darkmode', function (e) {
-            this.setDarkMode(!this.darkMode);
+            var dark = document.documentElement.classList.contains('dark') ||
+                       document.documentElement.getAttribute('data-theme') === 'dark';
+            this.setDarkMode(dark);
         }.bind(this), false);
 
         document.addEventListener('chart-hide-tips', function (e) {
