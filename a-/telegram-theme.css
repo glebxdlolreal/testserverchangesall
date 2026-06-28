@@ -468,14 +468,12 @@ html[data-theme="dark"] {
   color-scheme: dark;
   --d-bg: #17212b;
   --d-surface: #232e3c;
-  --d-surface-2: #1c2733;
-  --d-deep: #0e1621;
   --d-text: #e9edf1;
-  --d-text-2: #828d99;
+  --d-text-muted: #828d99;
   --d-border: rgba(255, 255, 255, 0.08);
   --d-accent: #3390ec;
   --d-accent-bright: #5eb0f3;
-  --d-accent-soft: rgba(51, 144, 236, 0.16);
+  --d-accent-soft: color-mix(in srgb, var(--d-accent) 16%, transparent);
   --bullet-color: var(--d-accent-bright);
 }
 html[data-theme="dark"],
@@ -557,7 +555,7 @@ html[data-theme="dark"] .footer_wrap .container,
 html[data-theme="dark"] .footer_columns_wrap,
 html[data-theme="dark"] .footer_column {
   background: var(--d-bg);
-  color: var(--d-text-2);
+  color: var(--d-text-muted);
 }
 html[data-theme="dark"] .footer_wrap {
   border-top-color: var(--d-border);
@@ -567,14 +565,14 @@ html[data-theme="dark"] .footer_wrap a {
 }
 html[data-theme="dark"] .footer_column h5,
 html[data-theme="dark"] .footer_column h5 a {
-  color: var(--d-text-2);
+  color: var(--d-text-muted);
 }
 html[data-theme="dark"] .dev_page_bread_crumbs,
 html[data-theme="dark"] .breadcrumb {
   background: transparent;
 }
 html[data-theme="dark"] .dev_page_bread_crumbs {
-  color: var(--d-text-2);
+  color: var(--d-text-muted);
 }
 html[data-theme="dark"] .dev_page_bread_crumbs a {
   color: var(--d-accent-bright);
@@ -614,7 +612,7 @@ html[data-theme="dark"] #dev_page_content textarea.embed_code {
   background-color: var(--d-surface);
 }
 html[data-theme="dark"] #dev_page_content .form-control::placeholder {
-  color: var(--d-text-2);
+  color: var(--d-text-muted);
 }
 html[data-theme="dark"] #dev_page_content .widget-color-label {
   color: var(--d-text);
@@ -636,7 +634,7 @@ html[data-theme="dark"] .support_wrap .form-control {
 }
 html[data-theme="dark"] .dev_page_edit_form .form-control::placeholder,
 html[data-theme="dark"] .support_wrap .form-control::placeholder {
-  color: var(--d-text-2);
+  color: var(--d-text-muted);
 }
 .dev_page_edit_form .CodeMirror {
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -769,7 +767,7 @@ html[data-theme="dark"] .dev_page_edit_form .btn-default:focus {
 html[data-theme="dark"] #dev_page_content .radio-input-icon,
 html[data-theme="dark"] #dev_page_content .checkbox-input-icon {
   background: transparent;
-  border-color: var(--d-text-2);
+  border-color: var(--d-text-muted);
 }
 html[data-theme="dark"] #dev_page_content pre,
 html[data-theme="dark"] #dev_page_content_wrap pre.page_scheme {
@@ -810,7 +808,7 @@ html[data-theme="dark"] #dev_page_content blockquote {
 html[data-theme="dark"] #dev_page_content mark {
   background-color: transparent;
   border-color: var(--d-border);
-  color: var(--d-text-2);
+  color: var(--d-text-muted);
 }
 html[data-theme="dark"] #dev_page_content mark.mark-new {
   background-color: var(--d-accent);
@@ -849,7 +847,7 @@ html[data-theme="dark"] .tl_main_logo_title {
   color: var(--d-text);
 }
 html[data-theme="dark"] .tl_main_logo_lead {
-  color: var(--d-text-2);
+  color: var(--d-text-muted);
 }
 html[data-theme="dark"] .tl_main_body_header {
   color: var(--d-text);
@@ -862,7 +860,7 @@ html[data-theme="dark"] .dev_blog_card_lead {
 html[data-theme="dark"] .dev_blog_card_date,
 html[data-theme="dark"] .side_blog_date,
 html[data-theme="dark"] .tl_main_side_blog .side_blog_date {
-  color: var(--d-text-2);
+  color: var(--d-text-muted);
 }
 html[data-theme="dark"] .video_play .tl_main_video_player {
   opacity: 0;
@@ -892,7 +890,7 @@ html[data-theme="dark"] .td_content_title {
 html[data-theme="dark"] #td_about_tdesktop,
 html[data-theme="dark"] .td_about_license,
 html[data-theme="dark"] .td_download_divider {
-  color: var(--d-text-2);
+  color: var(--d-text-muted);
 }
 html[data-theme="dark"] .td_content_wrap a:not(.td_download_btn) {
   color: var(--d-accent-bright);
@@ -917,7 +915,7 @@ html[data-theme="dark"] .tl_dashboard_container table tr td {
 }
 html[data-theme="dark"] .tl_dashboard_table_explanation,
 html[data-theme="dark"] .tl_dashboard_table_desc {
-  color: var(--d-text-2);
+  color: var(--d-text-muted);
 }
 html[data-theme="dark"] .tl_dashboard_footer {
   --bg-color: var(--d-surface);
