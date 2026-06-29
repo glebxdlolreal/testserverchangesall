@@ -2697,15 +2697,8 @@ button.cd-edit-btn {
   margin-top: 14px;
 }
 .mtk-item {
-  display: grid;
-  grid-template-columns: minmax(220px, 1fr) auto auto auto;
-  align-items: center;
-  gap: 8px 12px;
-  background: #fff;
-  border: 1px solid #dfe6ee;
-  border-radius: 6px;
-  padding: 10px 12px;
-  margin-bottom: 8px;
+  padding: 10px 0 12px;
+  border-bottom: 1px solid #e1e7ee;
 }
 .mtk-item-title {
   color: #222;
@@ -2718,40 +2711,40 @@ button.cd-edit-btn {
   color: #7b8794;
   font-size: 13px;
   line-height: 18px;
-  margin-top: 3px;
-}
-.mtk-meta-item {
-  display: inline-block;
-  margin-right: 14px;
+  margin-top: 4px;
 }
 .mtk-value-wrap {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
+  margin-top: 3px;
 }
 .mtk-value {
   flex: 0 0 auto;
   min-width: 0;
   color: #34495e;
-  background: #f4f7fa;
-  border: 1px solid #dde6ef;
-  border-radius: 4px;
-  font-size: 12px;
-  line-height: 18px;
-  padding: 8px 10px;
-  word-break: break-all;
-}
-.mtk-ip-mini {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #7b8794;
+  background: transparent;
+  border: 0;
   font-size: 13px;
   line-height: 18px;
+  padding: 0;
+  word-break: break-all;
+  cursor: pointer;
+}
+.mtk-value-wrap .btn-link {
+  border: 0;
+  background: transparent;
+  color: #2481cc;
+  font-size: 13px;
+  line-height: 18px;
+  padding: 0;
+  text-decoration: none;
+}
+.mtk-value-wrap .mtk-revoke {
+  color: #d14e4e;
 }
 .mtk-ipedit {
-  grid-column: 1 / -1;
-  padding-top: 3px;
+  padding-top: 7px;
 }
 .mtk-ipedit .mtk-ipbox {
   min-height: 30px;
@@ -2831,12 +2824,8 @@ button.cd-edit-btn {
 }
 
 @media (max-width: 700px) {
-  .mtk-item {
-    grid-template-columns: 1fr;
-  }
-  .mtk-value-wrap,
-  .mtk-ip-mini {
-    justify-content: flex-start;
+  .mtk-value-wrap {
+    flex-wrap: wrap;
   }
 }
 

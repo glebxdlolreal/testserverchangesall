@@ -247,7 +247,6 @@ html.bt-theme-dark .select {
 }
 html.bt-theme-dark .mtk-item {
   color: var(--bt-dark-text-primary);
-  background: var(--bt-dark-card-bg);
   border-color: var(--bt-dark-border);
 }
 html.bt-theme-dark .mtk-intro,
@@ -255,21 +254,20 @@ html.bt-theme-dark .mtk-help,
 html.bt-theme-dark .mtk-item-meta,
 html.bt-theme-dark .mtk-label,
 html.bt-theme-dark .mtk-value,
-html.bt-theme-dark .mtk-ip-mini,
 html.bt-theme-dark .mtk-empty,
 html.bt-theme-dark .mtk-limit {
   color: var(--bt-dark-text-secondary);
 }
-html.bt-theme-dark .mtk-help-btn {
+html.bt-theme-dark .mtk-help-btn,
+html.bt-theme-dark .mtk-value-wrap .btn-link {
   color: var(--bt-dark-text-accent);
+}
+html.bt-theme-dark .mtk-value-wrap .mtk-revoke {
+  color: #e07070;
 }
 html.bt-theme-dark .mtk-item-title,
 html.bt-theme-dark .mtk-ipinput {
   color: var(--bt-dark-text-primary);
-}
-html.bt-theme-dark .mtk-value {
-  background: var(--bt-dark-card-bg-hover);
-  border-color: var(--bt-dark-border);
 }
 html.bt-theme-dark .mtk-empty,
 html.bt-theme-dark .mtk-limit {
