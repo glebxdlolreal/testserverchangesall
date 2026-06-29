@@ -1992,12 +1992,6 @@ function preventDefault(e) {
 var WebsiteTheme = {
   DARK_CLASS: 'bt-theme-dark',
   SWITCHING_CLASS: 'bt-theme-switching',
-  init: function() {
-    if (Aj.state.isWebApp) {
-      return;
-    }
-    $(document).off('click.websiteTheme').on('click.websiteTheme', '.bt-theme-toggle', WebsiteTheme.eToggle);
-  },
   isDark: function() {
     return document.documentElement.classList.contains(WebsiteTheme.DARK_CLASS);
   },
@@ -2024,6 +2018,10 @@ var WebsiteTheme = {
       }, 0);
     }
   },
+  commit: function(theme) {
+    document.cookie = Aj.state.themeCookie + '=' + theme + ';path=/;max-age=31536000';
+    WebsiteTheme.apply(theme);
+  },
   updateButtons: function() {
     var dark = WebsiteTheme.isDark();
     $('.bt-theme-toggle').attr({
@@ -2031,13 +2029,6 @@ var WebsiteTheme = {
       'aria-label': dark ? 'Switch to light theme' : 'Switch to dark theme',
       'title': dark ? 'Light theme' : 'Dark theme'
     });
-  },
-  eToggle: function(e) {
-    e.preventDefault();
-    var theme = WebsiteTheme.isDark() ? 'light' : 'dark';
-    document.cookie = Aj.state.themeCookie + '=' + theme + ';path=/;max-age=31536000';
-    WebsiteTheme.apply(theme);
-    return false;
   }
 };
 
@@ -2055,7 +2046,7 @@ var WebsiteTheme = {
     return isSmallDisplay && isTouchInput;
   },
   init: function() {
-    WebsiteTheme.init();
+    if (window.BtTheme && !Aj.state.isWebApp) { BtTheme.init(); }
     $(document).off('click.btHint').on('click.btHint', Bugtracker.eHideAllHints);
     Aj.onLoad(function(state) {
       Bugtracker.updateTime(Aj.ajContainer);
