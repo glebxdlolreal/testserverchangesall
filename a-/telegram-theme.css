@@ -988,30 +988,21 @@ html[data-theme="dark"] .pager li > a:hover {
   font-weight: 500;
 }
 .tlb_page_head {
-  padding-right: 56px !important;
+  padding-right: 56px;
 }
 html[data-theme="dark"] .tlb_page_wrap {
-  background-color: var(--d-bg) !important;
+  background-color: var(--d-bg);
   color: var(--d-text);
 }
 html[data-theme="dark"] .tlb_page_head {
-  background: var(--d-bg) !important;
-  border-bottom: 1px solid var(--d-border) !important;
+  background: var(--d-bg);
+  border-bottom: 1px solid var(--d-border);
 }
 html[data-theme="dark"] .tlb_page_head a.tlb_head_home,
 html[data-theme="dark"] .tlb_top_lang_select > a.dropdown-toggle,
 html[data-theme="dark"] .tlb_page_wrap #dev_page_title a {
-  /* Drives the language planet (mask + currentColor) and the minicaret
-     (border-top with no colour → currentColor) on the article header. */
   color: var(--d-accent-bright);
 }
-/* The wordmark is two-tone: a blue Telegram plane (left ~24px, rgb 63,173,232)
-   then the dark-grey "Telegram Blog" text (rgb 64,64,64). On dark, keep the
-   plane blue (it reads fine on the dark header) and flip only the dark text to
-   white — it was dark on the light theme, so it should be light on the dark.
-   Leave the original PNG as the element background (the plane stays correct)
-   and paint --d-text over just the text glyphs via a masked ::after, clipped
-   to start at 30px — past the plane, inside the empty 24–36px gap. */
 html[data-theme="dark"] .tlb_blog_logo {
   position: relative;
 }
@@ -1023,32 +1014,32 @@ html[data-theme="dark"] .tlb_blog_logo::after {
   left: 30px;
   right: 0;
   background-color: var(--d-text);
-  -webkit-mask: url("https://telegram.org/img/blog/BlogLogo3x.png") -30px 0 / 146px 20px no-repeat;
-  mask: url("https://telegram.org/img/blog/BlogLogo3x.png") -30px 0 / 146px 20px no-repeat;
+  -webkit-mask: url(/img/blog/BlogLogo3x.png) -30px 0 / 146px 20px no-repeat;
+  mask: url(/img/blog/BlogLogo3x.png) -30px 0 / 146px 20px no-repeat;
 }
 .tlb_blog_page .tl_blog_list_cards_wrap,
 .tlb_blog_page .tl_main_recent_news_cards {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+  margin-left: 0;
+  margin-right: 0;
 }
 .tlb_blog_page .dev_blog_card_link_wrap {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+  padding-left: 0;
+  padding-right: 0;
 }
 .tlb_blog_page .dev_blog_card_title,
 .tlb_blog_page .dev_blog_card_lead,
 .tlb_blog_page .dev_blog_card_date {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+  padding-left: 0;
+  padding-right: 0;
 }
 .tlb_blog_page .dev_blog_card_image,
 .tlb_blog_page .preload .dev_blog_card_image {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 0 !important;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
 }
 body:has(.tlb_page_wrap) .theme-toggle {
-  position: absolute !important;
+  position: absolute;
 }
 
 
