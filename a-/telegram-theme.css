@@ -29,7 +29,8 @@ body .glyphicon {
   font-weight: 500 !important;
 }
 
-.tl_page_head .dev_top_lang_icon {
+.tl_page_head .dev_top_lang_icon,
+.tlb_page_head .dev_top_lang_icon {
   background: none !important;
   background-color: currentColor !important;
   -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><path fill='black' d='M8 0.4C12.2 0.4 15.6 3.8 15.6 8 15.6 12.2 12.2 15.6 8 15.6 3.8 15.6 0.4 12.2 0.4 8 0.4 3.8 3.8 0.4 8 0.4ZM9.63 11.1L6.37 11.1C6.73 13.07 7.4 14.4 8 14.4 8.6 14.4 9.27 13.07 9.63 11.1ZM5.14 11.1L2.4 11.1C3.19 12.52 4.51 13.61 6.09 14.11 5.71 13.41 5.41 12.5 5.21 11.45L5.14 11.1ZM13.6 11.1L10.86 11.1C10.65 12.3 10.33 13.33 9.92 14.11 11.4 13.64 12.66 12.65 13.46 11.35L13.6 11.1ZM4.99 6.1L1.89 6.1C1.7 6.7 1.6 7.34 1.6 8 1.6 8.66 1.7 9.3 1.89 9.9L4.99 9.9C4.94 9.44 4.92 8.97 4.91 8.49L4.9 8 4.9 7.71C4.91 7.16 4.94 6.62 4.99 6.1ZM9.8 6.1L6.2 6.1C6.14 6.7 6.1 7.34 6.1 8 6.1 8.66 6.14 9.3 6.2 9.9L9.8 9.9C9.86 9.3 9.9 8.66 9.9 8 9.9 7.34 9.86 6.7 9.8 6.1ZM14.11 6.1L11.01 6.1C11.07 6.71 11.1 7.34 11.1 8 11.1 8.66 11.07 9.29 11.01 9.9L14.11 9.9C14.3 9.3 14.4 8.66 14.4 8 14.4 7.34 14.3 6.7 14.11 6.1ZM6.08 1.89L6.02 1.91C4.47 2.42 3.18 3.5 2.4 4.9L5.14 4.9C5.33 3.82 5.6 2.87 5.96 2.13L6.08 1.89ZM8 1.6L7.93 1.61C7.35 1.71 6.72 3.01 6.37 4.9L9.63 4.9C9.28 3.01 8.66 1.71 8.08 1.61L8 1.6ZM9.91 1.89L9.97 2C10.36 2.76 10.66 3.76 10.86 4.9L13.6 4.9C12.86 3.56 11.65 2.52 10.19 1.98L9.91 1.89Z'/></svg>") no-repeat 0 0;
@@ -980,6 +981,93 @@ html[data-theme="dark"] .pager li > a {
 html[data-theme="dark"] .pager li > a:hover {
   background-color: var(--d-accent-soft);
   border-color: var(--d-accent);
+}
+
+.tlb_page_head,
+.tlb_page_head * {
+  font-weight: 500 !important;
+}
+/* Reserve room for the theme-toggle on the right (the desktop rule below
+   targets .navbar-inner, which the tlb_ header doesn't have). The toggle's
+   icon cluster is ~38px wide from the edge; reserve past it plus a gap so the
+   right-floated "Home" link sits clear of the icon, not crammed against it. */
+.tlb_page_head {
+  padding-right: 56px !important;
+}
+/* Dark theme — telegram.css hard-codes .tlb_page_head white and its links
+   #1497d9; theme both like .tl_page_head / .tl_page_wrap above. */
+html[data-theme="dark"] .tlb_page_wrap {
+  background-color: var(--d-bg) !important;
+  color: var(--d-text);
+}
+html[data-theme="dark"] .tlb_page_head {
+  background: var(--d-bg) !important;
+  border-bottom: 1px solid var(--d-border) !important;
+}
+html[data-theme="dark"] .tlb_page_head a.tlb_head_home,
+html[data-theme="dark"] .tlb_top_lang_select > a.dropdown-toggle,
+html[data-theme="dark"] .tlb_page_wrap #dev_page_title a {
+  /* Drives the language planet (mask + currentColor) and the minicaret
+     (border-top with no colour → currentColor) on the article header. */
+  color: var(--d-accent-bright) !important;
+}
+/* The wordmark is two-tone: a blue Telegram plane (left ~24px, rgb 63,173,232)
+   then the dark-grey "Telegram Blog" text (rgb 64,64,64). On dark, keep the
+   plane blue (it reads fine on the dark header) and flip only the dark text to
+   white — it was dark on the light theme, so it should be light on the dark.
+   Leave the original PNG as the element background (the plane stays correct)
+   and paint --d-text over just the text glyphs via a masked ::after, clipped
+   to start at 30px — past the plane, inside the empty 24–36px gap. */
+html[data-theme="dark"] .tlb_blog_logo {
+  position: relative;
+}
+html[data-theme="dark"] .tlb_blog_logo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 30px;
+  right: 0;
+  background-color: var(--d-text);
+  -webkit-mask: url("https://telegram.org/img/blog/BlogLogo3x.png") -30px 0 / 146px 20px no-repeat;
+  mask: url("https://telegram.org/img/blog/BlogLogo3x.png") -30px 0 / 146px 20px no-repeat;
+}
+/* Unified horizontal rhythm — one inset for the whole mobile blog: the
+   container's 15px edge. The article body, breadcrumbs and section headers
+   ("Telegram News" on the list, "Other News" on an article) already sit there;
+   the card system, though, adds ~10px on top (a -15px wrapper offset plus the
+   card's own padding), so card titles and images landed further in than the
+   article text. Neutralise the wrapper offset and the cards' horizontal padding
+   so every card — the blog list AND the article's Other News — lines its title,
+   lead, date and image up with the article text at the same 15px edge. Scoped
+   to .tlb_blog_page (mobile only): the desktop blog's 2-column grid relies on
+   those offsets for its gutter, so it stays untouched. (Vertical 15px top/bottom
+   card padding is kept; only the horizontal axis is unified. The container's
+   top-margin also stays as telegram set it — the tlb_ header is static, 47px in
+   flow, while the desktop header is fixed and cleared by margin-top:50px.) */
+.tlb_blog_page .tl_blog_list_cards_wrap,
+.tlb_blog_page .tl_main_recent_news_cards {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.tlb_blog_page .dev_blog_card_link_wrap {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.tlb_blog_page .dev_blog_card_title,
+.tlb_blog_page .dev_blog_card_lead,
+.tlb_blog_page .dev_blog_card_date {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.tlb_blog_page .dev_blog_card_image,
+.tlb_blog_page .preload .dev_blog_card_image {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+body:has(.tlb_page_wrap) .theme-toggle {
+  position: absolute !important;
 }
 
 
