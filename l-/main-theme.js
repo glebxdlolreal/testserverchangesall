@@ -350,14 +350,6 @@ window.initDevSideNavX = (function () {
       return;
     }
 
-    /* Skip the double rasterisation on very large pages */
-    if (document.documentElement.scrollHeight >= 100000) {
-      setTheme(t);
-      if (applyInstant) applyInstant(reduce);
-      thawDemoVideos();
-      return;
-    }
-
     /* Skip any in-flight transition so a new click never has to wait. */
     if (activeVT && activeVT.skipTransition) { try { activeVT.skipTransition(); } catch (e) {} }
 
