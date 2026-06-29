@@ -2637,7 +2637,7 @@ button.cd-edit-btn {
   color: #6b7785;
   font-size: 15px;
   line-height: 1.45;
-  margin: 0 0 10px;
+  margin: 0;
 }
 .mtk-help-btn {
   border: 0;
@@ -2655,8 +2655,10 @@ button.cd-edit-btn {
 }
 .mtk-form {
   background: transparent;
-  padding: 0 0 14px;
-  margin-bottom: 0;
+  border-top: 1px solid #39ade7;
+  border-bottom: 1px solid #39ade7;
+  padding: 18px 0 16px;
+  margin: 18px 0 0;
 }
 .mtk-form-row {
   display: flex;
@@ -2694,7 +2696,7 @@ button.cd-edit-btn {
   margin-bottom: 8px;
 }
 .mtk-list {
-  margin-top: 14px;
+  margin-top: 16px;
 }
 .mtk-item {
   padding: 10px 0 12px;
@@ -2718,9 +2720,10 @@ button.cd-edit-btn {
   align-items: center;
   gap: 10px;
   margin-top: 3px;
+  width: 100%;
 }
 .mtk-value {
-  flex: 0 0 auto;
+  flex: 1 1 auto;
   min-width: 0;
   color: #34495e;
   background: transparent;
@@ -2728,10 +2731,13 @@ button.cd-edit-btn {
   font-size: 13px;
   line-height: 18px;
   padding: 0;
-  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   cursor: pointer;
 }
 .mtk-value-wrap .btn-link {
+  flex: 0 0 auto;
   border: 0;
   background: transparent;
   color: #2481cc;
@@ -2739,6 +2745,9 @@ button.cd-edit-btn {
   line-height: 18px;
   padding: 0;
   text-decoration: none;
+}
+.mtk-value-wrap .mtk-ip-toggle {
+  margin-left: auto;
 }
 .mtk-value-wrap .mtk-revoke {
   color: #d14e4e;
@@ -2821,12 +2830,6 @@ button.cd-edit-btn {
   border-top: 1px solid #e1e7ee;
   padding-top: 14px;
   margin-top: 0;
-}
-
-@media (max-width: 700px) {
-  .mtk-value-wrap {
-    flex-wrap: wrap;
-  }
 }
 
 
