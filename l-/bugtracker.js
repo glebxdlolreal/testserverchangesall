@@ -2018,10 +2018,7 @@ var WebsiteTheme = {
       }, 0);
     }
   },
-  /* Lightweight variant for the VT callback path: toggles the dark class
-     without the freeze-class or forced reflow. The caller manages the
-     freeze-class (added before startViewTransition, removed on vt.finished)
-     so the snapshot captures the final theme with transitions suppressed. */
+
   applyNoFreeze: function(theme) {
     var root = document.documentElement;
     var dark = theme === 'dark';
