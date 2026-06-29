@@ -985,17 +985,11 @@ html[data-theme="dark"] .pager li > a:hover {
 
 .tlb_page_head,
 .tlb_page_head * {
-  font-weight: 500 !important;
+  font-weight: 500;
 }
-/* Reserve room for the theme-toggle on the right (the desktop rule below
-   targets .navbar-inner, which the tlb_ header doesn't have). The toggle's
-   icon cluster is ~38px wide from the edge; reserve past it plus a gap so the
-   right-floated "Home" link sits clear of the icon, not crammed against it. */
 .tlb_page_head {
   padding-right: 56px !important;
 }
-/* Dark theme — telegram.css hard-codes .tlb_page_head white and its links
-   #1497d9; theme both like .tl_page_head / .tl_page_wrap above. */
 html[data-theme="dark"] .tlb_page_wrap {
   background-color: var(--d-bg) !important;
   color: var(--d-text);
@@ -1009,7 +1003,7 @@ html[data-theme="dark"] .tlb_top_lang_select > a.dropdown-toggle,
 html[data-theme="dark"] .tlb_page_wrap #dev_page_title a {
   /* Drives the language planet (mask + currentColor) and the minicaret
      (border-top with no colour → currentColor) on the article header. */
-  color: var(--d-accent-bright) !important;
+  color: var(--d-accent-bright);
 }
 /* The wordmark is two-tone: a blue Telegram plane (left ~24px, rgb 63,173,232)
    then the dark-grey "Telegram Blog" text (rgb 64,64,64). On dark, keep the
@@ -1032,19 +1026,6 @@ html[data-theme="dark"] .tlb_blog_logo::after {
   -webkit-mask: url("https://telegram.org/img/blog/BlogLogo3x.png") -30px 0 / 146px 20px no-repeat;
   mask: url("https://telegram.org/img/blog/BlogLogo3x.png") -30px 0 / 146px 20px no-repeat;
 }
-/* Unified horizontal rhythm — one inset for the whole mobile blog: the
-   container's 15px edge. The article body, breadcrumbs and section headers
-   ("Telegram News" on the list, "Other News" on an article) already sit there;
-   the card system, though, adds ~10px on top (a -15px wrapper offset plus the
-   card's own padding), so card titles and images landed further in than the
-   article text. Neutralise the wrapper offset and the cards' horizontal padding
-   so every card — the blog list AND the article's Other News — lines its title,
-   lead, date and image up with the article text at the same 15px edge. Scoped
-   to .tlb_blog_page (mobile only): the desktop blog's 2-column grid relies on
-   those offsets for its gutter, so it stays untouched. (Vertical 15px top/bottom
-   card padding is kept; only the horizontal axis is unified. The container's
-   top-margin also stays as telegram set it — the tlb_ header is static, 47px in
-   flow, while the desktop header is fixed and cleared by margin-top:50px.) */
 .tlb_blog_page .tl_blog_list_cards_wrap,
 .tlb_blog_page .tl_main_recent_news_cards {
   margin-left: 0 !important;
