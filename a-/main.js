@@ -345,9 +345,6 @@ function initDevPageNav() {
   $('body').trigger('activate.bs.scrollspy');
 
   updateMenuAffix(menu);
-
-  /* Hand off to main-theme.js for the smooth-scroll/scrollspy rail UI. */
-  if (window.initDevSideNavX) window.initDevSideNavX();
 }
 
 function updateDevPageNav() {
@@ -358,11 +355,6 @@ function updateDevPageNav() {
   $('.dev_side_nav > ul').replaceWith(menu);
   $('body').scrollspy('refresh');
   updateMenuAffix(menu);
-
-  /* main-theme.js rebuilt the nav's <ul>; re-init its rail/scrollspy UI. */
-  var sideNav = document.querySelector('.dev_side_nav');
-  if (sideNav) sideNav.dataset.localNav = '';
-  if (window.initDevSideNavX) window.initDevSideNavX();
 }
 
 function updateMenuAffix(menu) {
@@ -615,9 +607,6 @@ function mainInitDemoAutoplay(videoLinkElsSelector) {
 }
 
 function mainDemoVideoHover(videoLinkEl, isHover) {
-  if (isHover && document.documentElement.getAttribute('data-theme') === 'dark') {
-    return false;
-  }
   var outTimeout = videoLinkEl.outTimeout;
   var curIsHover = videoLinkEl.isHover || 0;
   if (outTimeout) {

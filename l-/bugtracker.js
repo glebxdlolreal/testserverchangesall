@@ -2018,6 +2018,22 @@ var WebsiteTheme = {
       }, 0);
     }
   },
+  /* Lightweight variant for the VT callback path: toggles the dark class
+     without the freeze-class or forced reflow. The caller manages the
+     freeze-class (added before startViewTransition, removed on vt.finished)
+     so the snapshot captures the final theme with transitions suppressed. */
+  applyNoFreeze: function(theme) {
+    var root = document.documentElement;
+    var dark = theme === 'dark';
+    if (WebsiteTheme.isDark() === dark) {
+      root.setAttribute('data-bt-theme', dark ? 'dark' : 'light');
+      WebsiteTheme.updateButtons();
+      return;
+    }
+    root.classList.toggle(WebsiteTheme.DARK_CLASS, dark);
+    root.setAttribute('data-bt-theme', dark ? 'dark' : 'light');
+    WebsiteTheme.updateButtons();
+  },
   commit: function(theme) {
     document.cookie = Aj.state.themeCookie + '=' + theme + ';path=/;max-age=31536000';
     WebsiteTheme.apply(theme);
