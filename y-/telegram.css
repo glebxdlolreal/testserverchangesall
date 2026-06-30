@@ -316,7 +316,29 @@ a:hover {
   padding-right: 20px;
 }
 
-
+#dev_page_content table.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 17px;
+  display: block;
+  overflow: auto;
+  margin: 0 -14px;
+  margin-bottom: 17px;
+  padding: 0 14px;
+  box-sizing: content-box;
+}
+#dev_page_content code {
+  overflow-wrap: break-word;
+}
+#dev_page_content table.table code {
+  overflow-wrap: normal;
+}
+#dev_page_content table.table-bordered {
+  border: 0;
+}
+#dev_page_content table.table-bordered thead th {
+  border-top: 1px solid #eee;
+}
 
 .breadcrumb > li {
   text-shadow: none;
@@ -560,8 +582,8 @@ i.anchor-icon:hover {
 
 
 .navbar-tg .navbar-twitter a {
-  padding-top: 14.5px;
-  padding-bottom: 14.5px;
+  padding-top: 15.5px;
+  padding-bottom: 15.5px;
 }
 
 .tl_page_container,
@@ -850,7 +872,7 @@ a.tl_main_download_link:hover:after {
 .tl_main_download_link_tdesktop {
   display: none;
   min-width: 320px;
-  background: url(../img/SiteTDesktop.jpg) 50% 0 no-repeat;
+  background: url('/img/SiteTDesktop.webp') 50% 0 no-repeat;
 }
 
 .tl_main_download_image__ios,
@@ -872,13 +894,13 @@ a.tl_main_download_link:hover:after {
   margin: -150px 0 0 -152px;
   width: 304px;
   height: 240px;
-  background: url(../img/SiteiOS.jpg?2) 50% 0 no-repeat;
+  background: url('/img/SiteiOS.webp') 50% 0 no-repeat;
 }
 .tl_main_download_image__android {
   margin: -150px 0 0 -152px;
   width: 304px;
   height: 240px;
-  background: url(../img/SiteAndroid.jpg?2) 50% 0 no-repeat;
+  background: url('/img/SiteAndroid.webp') 50% 0 no-repeat;
 }
 
 .tl_main_video_player {
@@ -966,7 +988,7 @@ a.tl_main_download_link:hover:after {
   left: 0;
   right: 0;
   min-width: 804px;
-  background: url(../img/SiteDesktop.jpg?2) 50% 19px no-repeat;
+  background: url(/img/SiteDesktop.webp) 50% 19px no-repeat;
   /*overflow: hidden;*/
 }
 
@@ -1345,18 +1367,15 @@ a.dev_blog_card_link_wrap:focus {
 }
 .dev_blog_card_image {
   display: block;
-  max-width: 100%;
+  width: calc(100% - 30px);
   height: auto;
-  max-height: 220px;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
   margin: 0 auto;
   -webkit-transition: opacity .2s ease-in-out;
   -moz-transition: opacity .2s ease-in-out;
   -ms-transition: opacity .2s ease-in-out;
   opacity: 1;
-}
-.preload .dev_blog_card_image {
-  height: 220px;
-  max-height: initial;
 }
 a:hover .dev_blog_card_image {
   opacity: 0.9;
@@ -1719,7 +1738,6 @@ a.dev_blog_card_link_wrap:hover .dev_blog_card_title {
   position: relative;
 
   margin-bottom: 9px;
-  color: #555555;
   border: 1px solid #ccc;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1732,6 +1750,9 @@ a.dev_blog_card_link_wrap:hover .dev_blog_card_title {
   -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
   -o-transition: border linear 0.2s, box-shadow linear 0.2s;
   transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+.dev_page_edit_form .cm-s-default.CodeMirror {
+  color: #555555;
 }
 
 .dev_page_edit_form .CodeMirror-focused {
@@ -2756,9 +2777,11 @@ body.rtl .checkbox-item .checkbox-input + .checkbox-label {
 }
 
 .widget_container {
-  padding: 10px 20px;
+  padding: 15px;
   margin: -10px 0;
   text-align: center;
+  border-radius: 12px;
+  background: #fff;
 }
 .widget_container.dark {
   background: #15202b;
@@ -2983,7 +3006,12 @@ img.blog_side_centered_image {
 
 .blog_wide_image img {
   width: 100%;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.blog_wide_image.legacy img {
+  border-radius: 10px;
+  padding: 7px;
+  background-color: #fff;
 }
 .blog_image_wrap {
   width: 275px;
@@ -4708,7 +4736,7 @@ i.tl_telegram_share_icon {
 }
 
 .td_screenshot_macos {
-  background: url(https://osx.telegram.org/updates/site/artboard.png) 50% 0 no-repeat;
+  background: url(/img/macos.png) 50% 0 no-repeat;
   background-size: 420px 280px;
   height: 280px;
 }
@@ -4787,20 +4815,20 @@ i.tl_telegram_share_icon {
     background-size: 6px 11px;
   }
   .tl_main_download_desktop {
-    background-image: url(../img/SiteDesktop_2x.jpg?2);
+    background-image: url('/img/SiteDesktop_2x.webp');
     background-size: 1246px 260px;
   }
 
   .tl_main_download_image__android {
-    background-image: url(../img/SiteAndroid_2x.jpg?2);
+    background-image: url('/img/SiteAndroid_2x.webp');
     background-size: 290px 270px;
   }
   .tl_main_download_image__ios {
-    background-image: url(../img/SiteiOS_2x.jpg?2);
+    background-image: url('/img/SiteiOS_2x.webp');
     background-size: 442px 270px;
   }
   .tl_main_download_link_tdesktop {
-    background-image: url(../img/SiteTDesktop_2x.jpg?1);
+    background-image: url('/img/SiteTDesktop_2x.webp');
     background-size: 320px 157px;
   }
 
@@ -4840,7 +4868,7 @@ i.tl_telegram_share_icon {
     background-size: 20px 152px;
   }
   .td_screenshot_macos {
-    background-image: url(https://osx.telegram.org/updates/site/artboard_2x.png);
+    background-image: url(/img/macos_2x.png);
     background-size: 420px 280px;
     height: 280px;
   }
