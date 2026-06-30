@@ -1619,7 +1619,7 @@
     {
       "_": "types.LangPackString",
       "key": "AiEditor.NewStyle.InstructionsDescription",
-      "value": "Instructions (for example \"write in bold, nautical tone, light slang (aye, matey), vivid sea imagery, playful swagger, rhythmic phrasing, and adventurous mood\")"
+      "value": "Instructions (for example, \"Write like a swashbuckling pirate. Use arr, ye, matey, and talk about treasure and the sea\")"
     },
     {
       "_": "types.LangPackString",
@@ -1698,6 +1698,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AiEditor.TranslateFrom",
+      "value": "From %s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AiEditor.TranslateTo",
       "value": "To %s"
     },
@@ -1736,6 +1741,12 @@
       "key": "AiEditor.ViewStyle.InstallsCount",
       "one_value": "Used by %d person.",
       "other_value": "Used by %d people."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "AiEditor.ViewStyle.InstallsCountCreatedByYou",
+      "one_value": "Used by %d person. Created by you.",
+      "other_value": "Used by %d people. Created by you."
     },
     {
       "_": "types.LangPackString",
@@ -4819,7 +4830,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.Pinned.DontShow",
-      "value": "Don't Show Pinned Messages"
+      "value": "Hide Pinned Messages"
     },
     {
       "_": "types.LangPackString",
@@ -18552,6 +18563,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Story.Notification",
+      "value": "posted a story"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Story.RemoveFromProfile",
       "value": "Remove from Profile"
     },
@@ -19397,6 +19413,11 @@
       "_": "types.LangPackString",
       "key": "Translate",
       "value": "Translate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translate.Error",
+      "value": "Something went wrong while trying to translate the text."
     },
     {
       "_": "types.LangPackString",
@@ -20671,5 +20692,5 @@
       "other_value": "%1$d messages"
     }
   ],
-  "version": 298046
+  "version": 298973
 }
