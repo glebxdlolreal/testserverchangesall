@@ -4387,6 +4387,17 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CountryCode",
+      "value": "Landskode"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CountryLimit",
+      "one_value": "Du kan velge inntil %1$s land",
+      "other_value": "Du kan velge inntil %1$s land"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CreateAHintForYourPassword",
       "value": "Lag et hint for passordet ditt"
     },
@@ -5865,6 +5876,11 @@
       "_": "types.LangPackString",
       "key": "EncryptionKeyDescription",
       "value": "Dette bildet og teksten ble generert av krypteringsnøkkelen for denne hemmelige samtalen med %1$s.\n\nHvis dette ser likt ut på %1$s sin enhet, er ende-til-ende kryptering garantert."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EndsInDuration",
+      "value": "avsluttes om %1$s"
     },
     {
       "_": "types.LangPackString",
@@ -12794,6 +12810,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollDescription",
+      "value": "Beskrivelse (valgfritt)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollDescriptionEmpty",
+      "value": "Legg til beskrivelse"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollDescriptionInfo",
+      "value": "Beskrivelsen vil bli vist over avstemningens tittel."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDiscard",
       "value": "Forkast avstemning?"
     },
@@ -12860,13 +12891,103 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingAdding",
+      "value": "Tillat å legge til alternativer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingAddingOff",
+      "value": "Deltakere kan ikke foreslå nye alternativer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingAddingOn",
+      "value": "Deltakere kan foreslå nye alternativer"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingAnonymous",
       "value": "Anonym avstemning"
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingCountries",
+      "value": "Begrens etter land"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOff",
+      "value": "Brukere fra alle land kan stemme"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOn",
+      "value": "Kun brukere fra valgte land kan stemme"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOnSpecific",
+      "value": "Kun brukere fra %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDuration",
+      "value": "Begrens varighet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDurationOff",
+      "value": "Lukk avstemningen automatisk på et angitt tidspunkt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDurationOn",
+      "value": "Avstemningen avsluttes kl. %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResults",
+      "value": "Skjul resultater"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResultsOff",
+      "value": "Resultatene vises ved avstemning"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResultsOn",
+      "value": "Resultatene vil vises så snart avstemningen er stengt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembers",
+      "value": "Begrens til abonnenter"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembersOff",
+      "value": "Ikke-abonnenter kan stemme"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembersOn",
+      "value": "Kun abonnenter som ble med for 24+ timer siden kan stemme"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingMultiple",
       "value": "Flere svar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMultipleOff",
+      "value": "Bare ett alternativ kan velges"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMultipleOn",
+      "value": "Mer enn ett alternativ kan velges"
     },
     {
       "_": "types.LangPackString",
@@ -12877,6 +12998,61 @@
       "_": "types.LangPackString",
       "key": "PollSettingQuizInfo",
       "value": "Avstemninger i quizmodus må ha et korrekt svar. Brukere kan ikke trekke tilbake svarene sine."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingQuizOff",
+      "value": "Aktiver for å angi riktig svar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingQuizOn",
+      "value": "Velg det eneste riktige svaret"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevoting",
+      "value": "Tillat endring av stemme"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevotingOff",
+      "value": "Deltakerne kan kun stemme én gang"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevotingOn",
+      "value": "Deltakere kan endre sin stemme"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVoters",
+      "value": "Vis hvem som har stemt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVotersOff",
+      "value": "Deltakerne er anonyme"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVotersOn",
+      "value": "Vis navn på stemmedeltakere på hvert alternativ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffle",
+      "value": "Tilfeldig valgrekkefølge"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffleOff",
+      "value": "Deltakerne ser alternativene i samme rekkefølge"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffleOn",
+      "value": "Svaralternativer vises i tilfeldig rekkefølge for hver deltaker"
     },
     {
       "_": "types.LangPackString",
@@ -14383,6 +14559,11 @@
       "_": "types.LangPackString",
       "key": "QuizAnonymous",
       "value": "Anonym quiz"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "QuizDescriptionInfo",
+      "value": "Beskrivelsen vil vises over quiztittelen."
     },
     {
       "_": "types.LangPackString",
@@ -15942,6 +16123,11 @@
       "key": "SearchApproximateResults",
       "one_value": "~%1$s resultat",
       "other_value": "~%1$s resultater"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SearchCountry",
+      "value": "Søk…"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -20000,6 +20186,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WaitingResultsPoll",
+      "value": "Resultatene vil vises så snart avstemningen er avsluttet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "WaitingResultsQuiz",
+      "value": "Resultatene vil vises så snart quizen er avsluttet"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Wallpaper",
       "value": "Bakgrunn"
     },
@@ -23680,5 +23876,5 @@
       "other_value": "%1$s år"
     }
   ],
-  "version": 1618519
+  "version": 1621541
 }
