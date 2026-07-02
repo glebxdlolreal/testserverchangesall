@@ -53,7 +53,7 @@ html.bt-theme-switching body * {
 @property --vt-radius {
   syntax: '<percentage>';
   inherits: true;
-  initial-value: 0%;
+  initial-value: 200%;
 }
 
 ::view-transition-group(root),
@@ -68,18 +68,23 @@ html.bt-theme-switching body * {
   backface-visibility: hidden;
   contain: paint;
 }
-::view-transition-new(root) {
-  z-index: 9999;
+::view-transition-old(root) {
+  z-index: 9999; /* the shrinking layer rides on top */
   will-change: clip-path;
-  transform: translateZ(0);
-  clip-path: circle(var(--vt-radius, 0%) at var(--vt-x, 95%) var(--vt-y, 2%));
-  animation: 500ms cubic-bezier(0.16, 1, 0.3, 1) both vt-circle-reveal;
+  transform: translateZ(0); /* dedicated, fully-rasterised GPU layer */
+  clip-path: circle(var(--vt-radius, 200%) at var(--vt-x, 95%) var(--vt-y, 2%));
+  animation: 500ms cubic-bezier(0.23, 1, 0.32, 1) both vt-circle-reveal;
+  animation-duration: var(--vt-duration, 500ms);
 }
-::view-transition-old(root) { z-index: 1; }
+::view-transition-new(root) { z-index: 1; }
+
+html.bt-theme-drain ::view-transition-old(root) {
+  animation: none;
+}
 
 @keyframes vt-circle-reveal {
-  from { --vt-radius: 0%; }
-  to { --vt-radius: var(--vt-target-radius, 145%); }
+  from { --vt-radius: var(--vt-target-radius, 145%); }
+  to { --vt-radius: 0%; }
 }
 
 /* Theme toggle icon morph animation. */
@@ -269,27 +274,27 @@ html.bt-theme-dark .mtk-value-wrap .mtk-revoke {
   color: #e07070;
 }
 html.bt-theme-dark .mtk-item-title,
-html.bt-theme-dark .mtk-ipinput {
+html.bt-theme-dark .mtk-irule-input {
   color: var(--bt-dark-text-primary);
 }
 html.bt-theme-dark .mtk-empty,
 html.bt-theme-dark .mtk-limit {
   border-color: var(--bt-dark-border);
 }
-html.bt-theme-dark .mtk-ipbox {
+html.bt-theme-dark .mtk-irule {
   box-shadow: inset 0 -1px 0 var(--bt-dark-border);
 }
-html.bt-theme-dark .mtk-ipbox:focus-within {
+html.bt-theme-dark .mtk-irule:focus-within {
   box-shadow: inset 0 -2px 0 var(--bt-dark-text-accent);
 }
-html.bt-theme-dark .mtk-ipinput {
+html.bt-theme-dark .mtk-irule-input {
   background: transparent;
 }
-html.bt-theme-dark .mtk-ipchip {
+html.bt-theme-dark .mtk-irule-item {
   color: #8ee0ad;
   background: rgba(91, 173, 87, .18);
 }
-html.bt-theme-dark .mtk-ipdel {
+html.bt-theme-dark .mtk-irule-del {
   color: #8ee0ad;
 }
 html.bt-theme-dark .select .items-list,
