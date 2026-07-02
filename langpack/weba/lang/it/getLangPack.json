@@ -9790,6 +9790,11 @@
       "value": "I votanti possono cambiare il loro voto"
     },
     {
+      "_": "types.LangPackString",
+      "key": "PollAllowedCountries",
+      "value": "Paesi consentiti"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "PollAnswerCountButton",
       "one_value": "{count} risposta >",
@@ -9823,6 +9828,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollChooseCountry",
+      "value": "Per favore scegli almeno un Paese."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "PollCountriesCount",
+      "one_value": "{count} Paese",
+      "other_value": "{count} Paesi"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "PollCountriesLimit",
+      "one_value": "Puoi scegliere fino a {count} Paese.",
+      "other_value": "Puoi scegliere fino a {count} Paesi."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollCountryRestriction",
+      "value": "Solo gli utenti da **{countries}** possono votare."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDuration",
       "value": "Durata"
     },
@@ -9840,6 +9867,16 @@
       "_": "types.LangPackString",
       "key": "PollHideResultsUntilClose",
       "value": "Nascondi i risultati fino al termine"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountry",
+      "value": "Limita per Paese"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountryDescription",
+      "value": "Solo gli utenti dai Paesi selezionati possono votare."
     },
     {
       "_": "types.LangPackString",
@@ -9909,8 +9946,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribers",
+      "value": "Limita agli iscritti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribersDescription",
+      "value": "Solo gli iscritti uniti da più di 24 ore possono votare"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollResults",
       "value": "Risultati finali"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollResultsAnswerTitle",
+      "value": "{answer} - {percent}%"
     },
     {
       "_": "types.LangPackString",
@@ -9931,6 +9983,11 @@
       "_": "types.LangPackString",
       "key": "PollSubmitVotes",
       "value": "Vota"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSubscriberRestriction",
+      "value": "Solo gli iscritti di {channel} possono votare."
     },
     {
       "_": "types.LangPackString",
@@ -14295,5 +14352,5 @@
       "value": "Il tuo nome"
     }
   ],
-  "version": 264113
+  "version": 264756
 }
