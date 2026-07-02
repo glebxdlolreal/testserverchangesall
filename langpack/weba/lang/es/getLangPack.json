@@ -4174,7 +4174,7 @@
     {
       "_": "types.LangPackString",
       "key": "CountryNone",
-      "value": "País no encontrado"
+      "value": "No se encontró el país"
     },
     {
       "_": "types.LangPackString",
@@ -4449,7 +4449,7 @@
     {
       "_": "types.LangPackString",
       "key": "DescriptionAboutGram",
-      "value": "Ofrece grams para enviar sugerencias de posts a canales en Telegram."
+      "value": "Usa grams para comprar regalos y sugerir posts a canales."
     },
     {
       "_": "types.LangPackString",
@@ -7351,7 +7351,7 @@
     {
       "_": "types.LangPackString",
       "key": "GuardApproveNewPublicGroupMembersInfo",
-      "value": "Un admin. debe aprobar a cualquiera que quiera enviar un mensaje en el grupo."
+      "value": "Un admin. debe aprobar a los usuarios que quieran enviar un mensaje en el grupo."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -9790,6 +9790,11 @@
       "value": "Los votantes pueden cambiar su voto"
     },
     {
+      "_": "types.LangPackString",
+      "key": "PollAllowedCountries",
+      "value": "Países permitidos"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "PollAnswerCountButton",
       "one_value": "{count} respuesta >",
@@ -9823,6 +9828,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollChooseCountry",
+      "value": "Elige al menos un país."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "PollCountriesCount",
+      "one_value": "{count} país",
+      "other_value": "{count} países"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "PollCountriesLimit",
+      "one_value": "Puedes elegir hasta {count} país.",
+      "other_value": "Puedes elegir hasta {count} países."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollCountryRestriction",
+      "value": "Sólo pueden votar los usuarios de **{countries}**."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDuration",
       "value": "Duración"
     },
@@ -9840,6 +9867,16 @@
       "_": "types.LangPackString",
       "key": "PollHideResultsUntilClose",
       "value": "Ocultar resultados hasta el cierre"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountry",
+      "value": "Limitar por país"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountryDescription",
+      "value": "Sólo pueden votar los usuarios de los países seleccionados."
     },
     {
       "_": "types.LangPackString",
@@ -9909,8 +9946,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribers",
+      "value": "Restringir a suscriptores"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribersDescription",
+      "value": "Sólo pueden votar los suscriptores que se unieron hace más de 24 horas"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollResults",
       "value": "Resultados finales"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollResultsAnswerTitle",
+      "value": "{answer} - {percent} %"
     },
     {
       "_": "types.LangPackString",
@@ -9931,6 +9983,11 @@
       "_": "types.LangPackString",
       "key": "PollSubmitVotes",
       "value": "Votar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSubscriberRestriction",
+      "value": "Sólo pueden votar los suscriptores de {channel}."
     },
     {
       "_": "types.LangPackString",
@@ -14295,5 +14352,5 @@
       "value": "Tu nombre"
     }
   ],
-  "version": 263556
+  "version": 264589
 }
