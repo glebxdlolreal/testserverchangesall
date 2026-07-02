@@ -9790,6 +9790,11 @@
       "value": "Deltakere kan endre sin stemme"
     },
     {
+      "_": "types.LangPackString",
+      "key": "PollAllowedCountries",
+      "value": "Tillatte land"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "PollAnswerCountButton",
       "one_value": "{count} har svart >",
@@ -9823,6 +9828,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollChooseCountry",
+      "value": "Vennligst velg minst et land."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "PollCountriesCount",
+      "one_value": "{count} land",
+      "other_value": "{count} land"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "PollCountriesLimit",
+      "one_value": "Du kan velge inntil {count} land.",
+      "other_value": "Du kan velge inntil {count} land."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollCountryRestriction",
+      "value": "Kun brukere fra **{countries}** kan stemme."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDuration",
       "value": "Varighet"
     },
@@ -9840,6 +9867,16 @@
       "_": "types.LangPackString",
       "key": "PollHideResultsUntilClose",
       "value": "Skjul resultater frem til avslutning"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountry",
+      "value": "Begrens etter land"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountryDescription",
+      "value": "Kun brukere fra valgte land kan stemme."
     },
     {
       "_": "types.LangPackString",
@@ -9909,8 +9946,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribers",
+      "value": "Begrens til abonnenter"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribersDescription",
+      "value": "Kun abonnenter som ble med for 24+ timer siden kan stemme."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollResults",
       "value": "Endelige resultater"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollResultsAnswerTitle",
+      "value": "{answer} - {percent}%"
     },
     {
       "_": "types.LangPackString",
@@ -9931,6 +9983,11 @@
       "_": "types.LangPackString",
       "key": "PollSubmitVotes",
       "value": "Stem"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSubscriberRestriction",
+      "value": "Kun abonnenter på {channel} kan stemme."
     },
     {
       "_": "types.LangPackString",
@@ -14295,5 +14352,5 @@
       "value": "Navnet ditt"
     }
   ],
-  "version": 264416
+  "version": 264601
 }
