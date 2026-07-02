@@ -10042,6 +10042,11 @@
       "value": "Hlasující mohou změnit svůj hlas"
     },
     {
+      "_": "types.LangPackString",
+      "key": "PollAllowedCountries",
+      "value": "Povolené země"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "{count} odpovědi >",
       "key": "PollAnswerCountButton",
@@ -10079,6 +10084,32 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollChooseCountry",
+      "value": "Vyberte prosím alespoň jednu zemi."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "{count} země",
+      "key": "PollCountriesCount",
+      "many_value": "{count} zemí",
+      "one_value": "{count} země",
+      "other_value": "{count} zemí"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Můžete vybrat až {count} země.",
+      "key": "PollCountriesLimit",
+      "many_value": "Můžete vybrat až {count} zemí.",
+      "one_value": "Můžete vybrat {count} zemi.",
+      "other_value": "Můžete vybrat až {count} zemí."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollCountryRestriction",
+      "value": "Hlasovat mohou pouze uživatelé z **{countries}**."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDuration",
       "value": "Doba trvání"
     },
@@ -10096,6 +10127,16 @@
       "_": "types.LangPackString",
       "key": "PollHideResultsUntilClose",
       "value": "Skrýt výsledky do ukončení"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountry",
+      "value": "Omezit podle země"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountryDescription",
+      "value": "Hlasovat mohou pouze uživatelé z vybraných zemí."
     },
     {
       "_": "types.LangPackString",
@@ -10167,8 +10208,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribers",
+      "value": "Omezit na odběratele"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribersDescription",
+      "value": "Hlasovat mohou pouze odběratelé, kteří se připojili před více než 24 hodinami."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollResults",
       "value": "Konečné výsledky"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollResultsAnswerTitle",
+      "value": "{answer} - {percent} %"
     },
     {
       "_": "types.LangPackString",
@@ -10189,6 +10245,11 @@
       "_": "types.LangPackString",
       "key": "PollSubmitVotes",
       "value": "Hlasovat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSubscriberRestriction",
+      "value": "Pouze odběratelé {channel} mohou hlasovat."
     },
     {
       "_": "types.LangPackString",
@@ -14617,5 +14678,5 @@
       "value": "Vaše jméno"
     }
   ],
-  "version": 264132
+  "version": 264559
 }
