@@ -106,7 +106,7 @@
     {
       "_": "types.LangPackString",
       "key": "AccSwitchToFullscreen",
-      "value": "На повний екран"
+      "value": "На весь екран"
     },
     {
       "_": "types.LangPackString",
@@ -10042,6 +10042,11 @@
       "value": "Учасники зможуть скасовувати голос та змінювати свій вибір"
     },
     {
+      "_": "types.LangPackString",
+      "key": "PollAllowedCountries",
+      "value": "Дозволені країни"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "{count} відповіді >",
       "key": "PollAnswerCountButton",
@@ -10079,6 +10084,32 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollChooseCountry",
+      "value": "Потрібно вибрати принаймні одну країну."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "{count} країни",
+      "key": "PollCountriesCount",
+      "many_value": "{count} країн",
+      "one_value": "{count} країна",
+      "other_value": "{count} країн"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Можна вибрати щонайбільше {count} країни.",
+      "key": "PollCountriesLimit",
+      "many_value": "Можна вибрати щонайбільше {count} країн.",
+      "one_value": "Можна вибрати щонайбільше {count} країну.",
+      "other_value": "Можна вибрати щонайбільше {count} країн."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollCountryRestriction",
+      "value": "Голосувати можуть тільки користувачі з певних країн: **{countries}**."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDuration",
       "value": "Тривалість"
     },
@@ -10096,6 +10127,16 @@
       "_": "types.LangPackString",
       "key": "PollHideResultsUntilClose",
       "value": "Приховати результати до кінця"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountry",
+      "value": "Обмеження за країною"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountryDescription",
+      "value": "Голосувати можуть тільки користувачі з вибраних країн."
     },
     {
       "_": "types.LangPackString",
@@ -10167,8 +10208,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribers",
+      "value": "Обмеження за підпискою"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribersDescription",
+      "value": "Голосувати зможуть тільки ті, хто підписався 24+ год тому."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollResults",
       "value": "Остаточні результати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollResultsAnswerTitle",
+      "value": "{answer} - {percent}%"
     },
     {
       "_": "types.LangPackString",
@@ -10189,6 +10245,11 @@
       "_": "types.LangPackString",
       "key": "PollSubmitVotes",
       "value": "Проголосувати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSubscriberRestriction",
+      "value": "Голосувати можуть тільки підписники {channel}."
     },
     {
       "_": "types.LangPackString",
@@ -14132,7 +14193,7 @@
     {
       "_": "types.LangPackString",
       "key": "VideoPlayerFullscreen",
-      "value": "Повний екран"
+      "value": "На весь екран"
     },
     {
       "_": "types.LangPackString",
@@ -14617,5 +14678,5 @@
       "value": "Ваше імʼя"
     }
   ],
-  "version": 264134
+  "version": 264770
 }
