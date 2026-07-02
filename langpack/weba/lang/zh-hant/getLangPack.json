@@ -9664,6 +9664,11 @@
       "value": "投票人可以變更投票選擇"
     },
     {
+      "_": "types.LangPackString",
+      "key": "PollAllowedCountries",
+      "value": "允許的國家"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "PollAnswerCountButton",
       "other_value": "{count} 人回答 >"
@@ -9695,6 +9700,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollChooseCountry",
+      "value": "請至少選擇一個國家。"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "PollCountriesCount",
+      "other_value": "{count} 個國家"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "PollCountriesLimit",
+      "other_value": "您可以選擇最多 {count} 個國家。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollCountryRestriction",
+      "value": "只有來自**{countries}**的用戶可以投票。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDuration",
       "value": "投票時長"
     },
@@ -9712,6 +9737,16 @@
       "_": "types.LangPackString",
       "key": "PollHideResultsUntilClose",
       "value": "投票結束前隱藏投票結果"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountry",
+      "value": "依國家限制"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountryDescription",
+      "value": "只有選定國家的用戶才能投票。"
     },
     {
       "_": "types.LangPackString",
@@ -9780,8 +9815,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribers",
+      "value": "僅限訂閱者"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribersDescription",
+      "value": "只有在 24 小時前加入的訂閱者才能投票。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollResults",
       "value": "最終結果"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollResultsAnswerTitle",
+      "value": "{answer} - {percent}%"
     },
     {
       "_": "types.LangPackString",
@@ -9802,6 +9852,11 @@
       "_": "types.LangPackString",
       "key": "PollSubmitVotes",
       "value": "投票"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSubscriberRestriction",
+      "value": "只有「{channel}」的訂閱者可以投票。"
     },
     {
       "_": "types.LangPackString",
@@ -14134,5 +14189,5 @@
       "value": "您的姓名"
     }
   ],
-  "version": 264167
+  "version": 264744
 }
