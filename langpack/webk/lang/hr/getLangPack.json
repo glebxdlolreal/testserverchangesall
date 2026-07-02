@@ -1556,8 +1556,78 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AiEditor.Chat.ViewStyle",
+      "value": "Pogledaj stil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.DeleteStyle.Description",
+      "value": "Želite li izbrisati ovaj stil? Bit će uklonjen svima koji su ga instalirali."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.Emojify",
+      "value": "emojiji"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.Fix",
+      "value": "Ispravi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.NewStyle.AddLink",
+      "value": "Dodaj link do mog računa"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AiEditor.NewStyle.InstructionsDescription",
       "value": "Upute (naprimjer: piši kao pirat, koristi arr, ahoy i govori o blagu i moru)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.NewStyle.StyleNameDescription",
+      "value": "Naziv stila (naprimjer: „Pirat”)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.NewStyle.Title",
+      "value": "Novi stil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.NewStyle.TitleEdit",
+      "value": "Uredi stil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.Original",
+      "value": "Izvorno:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.Result",
+      "value": "Rezultat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.Style",
+      "value": "Stil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.StyleAdded",
+      "value": "Stil je dodan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.StyleBy",
+      "value": "Stil od %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.Title",
+      "value": "AI uređivač"
     },
     {
       "_": "types.LangPackString",
@@ -1568,6 +1638,53 @@
       "_": "types.LangPackString",
       "key": "AiEditor.TranslateTo",
       "value": "Na jezik: %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.ViewStyle.After",
+      "value": "Poslije"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.ViewStyle.AnotherExample",
+      "value": "Novi primjer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.ViewStyle.Before",
+      "value": "Prije"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.ViewStyle.CreatedBy",
+      "value": "Kreator: %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.ViewStyle.DeleteStyle",
+      "value": "Izbriši stil"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Koriste %d osobe.",
+      "key": "AiEditor.ViewStyle.InstallsCount",
+      "one_value": "Koristi %d osoba.",
+      "other_value": "Koristi %d osoba."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.ViewStyle.MaxSavedTones",
+      "value": "Dosegli ste ograničenje prilagođenih stilova."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.ViewStyle.RemoveStyle",
+      "value": "Ukloni stil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.ViewStyle.SaveStyle",
+      "value": "Spremi stil"
     },
     {
       "_": "types.LangPackString",
@@ -1650,6 +1767,11 @@
       "_": "types.LangPackString",
       "key": "Appearance.Reset",
       "value": "Vrati na izvorno"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Apply",
+      "value": "Primijeni"
     },
     {
       "_": "types.LangPackString",
@@ -9995,7 +10117,7 @@
     {
       "_": "types.LangPackString",
       "key": "Login.QR.Cancel",
-      "value": "Prijavite se pomoću broja telefona"
+      "value": "Prijavite se pomoću broja telefona >"
     },
     {
       "_": "types.LangPackString",
@@ -10015,7 +10137,7 @@
     {
       "_": "types.LangPackString",
       "key": "Login.QR.Login",
-      "value": "Prijavite se preko QR koda"
+      "value": "Prijavite se preko QR koda >"
     },
     {
       "_": "types.LangPackString",
@@ -12426,6 +12548,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PeerInfo.AppFooter",
+      "value": "Pokretanjem ove mini-aplikacije pristajete na. Uvjete korištenja za mini-aplikacije](https://telegram.org/privacy)."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.AppFooterAdmin",
+      "value": "Objavljivanjem ove mini aplikacije pristajete na. [Telegramove uvjete pružanja usluge za programere](https://telegram.org/privacy)."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PeerInfo.DeleteChannel",
       "value": "Izbriši kanal"
     },
@@ -13865,8 +13997,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PrivacySettingsController.RemovePublicPhotoConfirmDescription",
+      "value": "Želite li ukloniti javnu sliku? Osobe koje ne mogu vidjeti vašu glavnu sliku profila vidjet će umjesto nje vaše inicijale."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PrivacySettingsController.RemovePublicPhotoConfirmTitle",
+      "value": "Ukloni javnu sliku"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PrivacySettingsController.SetPhotoForRest",
+      "value": "Postavi javnu sliku"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PrivacySettingsController.SetPublicPhoto",
       "value": "Postavi javnu sliku"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PrivacySettingsController.UpdatePhotoForRest",
+      "value": "Promijeni javnu sliku"
     },
     {
       "_": "types.LangPackString",
@@ -14805,7 +14957,7 @@
     {
       "_": "types.LangPackString",
       "key": "Rtmp.Topbar.Join",
-      "value": "PRIDRUŽI SE"
+      "value": "Pridruži se"
     },
     {
       "_": "types.LangPackString",
@@ -16224,7 +16376,7 @@
     {
       "_": "types.LangPackString",
       "key": "StarGiftMaxSellAmountTon",
-      "value": "Možete zatražiti maksimalno %s TON"
+      "value": "Možete zatražiti maksimalno %s GRAM"
     },
     {
       "_": "types.LangPackString",
@@ -16234,7 +16386,7 @@
     {
       "_": "types.LangPackString",
       "key": "StarGiftMinSellAmountTon",
-      "value": "Morate zatražiti minimalno %s TON"
+      "value": "Morate zatražiti minimalno %s GRAM"
     },
     {
       "_": "types.LangPackString",
@@ -16707,7 +16859,7 @@
     {
       "_": "types.LangPackString",
       "key": "StarGiftSentMessageSelfTon",
-      "value": "Kupili ste poklon za **%d TON**"
+      "value": "Kupili ste poklon za **%d GRAM**"
     },
     {
       "_": "types.LangPackString",
@@ -17077,7 +17229,7 @@
     {
       "_": "types.LangPackString",
       "key": "StarGiftYouWillReceiveTon",
-      "value": "Dobit ćete **%s** TON."
+      "value": "Dobit ćete **%s** GRAM."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -18371,7 +18523,7 @@
     {
       "_": "types.LangPackString",
       "key": "SuggestedPosts.TONAmount",
-      "value": "%d TON"
+      "value": "%d GRAM"
     },
     {
       "_": "types.LangPackString",
@@ -19121,6 +19273,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UserInfo.CustomPhotoHelp",
+      "value": "Postavite sliku za ovaj kontakt koju ćete samo vi vidjeti ili mu predložite novu sliku profila."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UserInfo.CustomPhotoNote",
       "value": "Samo vi možete vidjeti ovu sliku."
     },
@@ -19148,6 +19305,11 @@
       "_": "types.LangPackString",
       "key": "UserInfo.ResetCustomPhoto",
       "value": "Vrati originalnu sliku"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.ResetCustomPhotoDescription",
+      "value": "Prilagođena slika za ovaj kontakt bit će uklonjena i umjesto nje će se prikazat slika profila kontakta."
     },
     {
       "_": "types.LangPackString",
@@ -20040,5 +20202,5 @@
       "other_value": "%1$d poruka"
     }
   ],
-  "version": 299332
+  "version": 299381
 }
