@@ -10032,6 +10032,11 @@
       "value": "Głosujący mogą zmieniać swój głos"
     },
     {
+      "_": "types.LangPackString",
+      "key": "PollAllowedCountries",
+      "value": "Dozwolone kraje"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "{count} odpowiedzi »",
       "key": "PollAnswerCountButton",
@@ -10069,6 +10074,32 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollChooseCountry",
+      "value": "Wybierz co najmniej jeden kraj."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "{count} kraje",
+      "key": "PollCountriesCount",
+      "many_value": "{count} krajów",
+      "one_value": "{count} kraj",
+      "other_value": "{count} kraju"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Możesz wybrać maksymalnie {count} kraje.",
+      "key": "PollCountriesLimit",
+      "many_value": "Możesz wybrać maksymalnie {count} krajów.",
+      "one_value": "Możesz wybrać maksymalnie {count} kraj.",
+      "other_value": "Możesz wybrać maksymalnie {count} kraju."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollCountryRestriction",
+      "value": "Głosować mogą tylko użytkownicy z **{countries}**."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDuration",
       "value": "Czas trwania"
     },
@@ -10086,6 +10117,16 @@
       "_": "types.LangPackString",
       "key": "PollHideResultsUntilClose",
       "value": "Ukryj wyniki do zamknięcia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountry",
+      "value": "Ogranicz według kraju"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountryDescription",
+      "value": "Głosować mogą tylko użytkownicy z wybranych krajów."
     },
     {
       "_": "types.LangPackString",
@@ -10157,8 +10198,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribers",
+      "value": "Ogranicz do subskrybentów"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribersDescription",
+      "value": "Głosować mogą tylko subskrybenci, którzy dołączyli ponad 24 godziny temu."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollResults",
       "value": "Wyniki końcowe"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollResultsAnswerTitle",
+      "value": "{answer} - {percent}%"
     },
     {
       "_": "types.LangPackString",
@@ -10179,6 +10235,11 @@
       "_": "types.LangPackString",
       "key": "PollSubmitVotes",
       "value": "Głosuj"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSubscriberRestriction",
+      "value": "Tylko subskrybenci {channel} mogą głosować."
     },
     {
       "_": "types.LangPackString",
@@ -14587,5 +14648,5 @@
       "value": "Twoja nazwa"
     }
   ],
-  "version": 264249
+  "version": 264565
 }
