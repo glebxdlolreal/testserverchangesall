@@ -9916,6 +9916,11 @@
       "value": "Гласачи могу променити свој глас"
     },
     {
+      "_": "types.LangPackString",
+      "key": "PollAllowedCountries",
+      "value": "Дозвољене државе"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "{count} одговора >",
       "key": "PollAnswerCountButton",
@@ -9951,6 +9956,30 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollChooseCountry",
+      "value": "Изаберите најмање једну државу."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "{count} државе",
+      "key": "PollCountriesCount",
+      "one_value": "{count} држава",
+      "other_value": "{count} држава"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Можете изабрати до {count} државе.",
+      "key": "PollCountriesLimit",
+      "one_value": "Можете изабрати до {count} државу.",
+      "other_value": "Можете изабрати до {count} држава."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollCountryRestriction",
+      "value": "Могу гласати само корисници из **{countries}**."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDuration",
       "value": "Трајање"
     },
@@ -9968,6 +9997,16 @@
       "_": "types.LangPackString",
       "key": "PollHideResultsUntilClose",
       "value": "Сакриј резултате до затварања"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountry",
+      "value": "Ограничење држава"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountryDescription",
+      "value": "Могу гласати само корисници из изабраних држава."
     },
     {
       "_": "types.LangPackString",
@@ -10038,8 +10077,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribers",
+      "value": "Ограничење пратилаца"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribersDescription",
+      "value": "Могу гласати само пратиоци придружени пре више од 24 часа."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollResults",
       "value": "Коначни резултати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollResultsAnswerTitle",
+      "value": "{answer} - {percent}%"
     },
     {
       "_": "types.LangPackString",
@@ -10060,6 +10114,11 @@
       "_": "types.LangPackString",
       "key": "PollSubmitVotes",
       "value": "Гласај"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSubscriberRestriction",
+      "value": "Могу гласати само пратиоци канала {channel}."
     },
     {
       "_": "types.LangPackString",
@@ -14456,5 +14515,5 @@
       "value": "Ваше име"
     }
   ],
-  "version": 264242
+  "version": 264577
 }
