@@ -4310,6 +4310,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CountryCode",
+      "value": "국가 코드"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CountryLimit",
+      "other_value": "%1$s개 국가까지만 선택할 수 있습니다"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CreateAHintForYourPassword",
       "value": "비밀번호 힌트를 만드세요"
     },
@@ -5767,6 +5777,11 @@
       "_": "types.LangPackString",
       "key": "EncryptionKeyDescription",
       "value": "이 이미지와 문자는 **%1$s** 님과의 비밀 대화에 사용된 암호화 키에서 파생되었습니다.\n\n이 이미지와 문자가 **%1$s** 님 기기에서 똑같이 보인다면, 단대단 암호화가 보장됩니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EndsInDuration",
+      "value": "%1$s 후 종료"
     },
     {
       "_": "types.LangPackString",
@@ -12640,6 +12655,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollDescription",
+      "value": "설명 (선택)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollDescriptionEmpty",
+      "value": "설명 추가"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollDescriptionInfo",
+      "value": "설명은 투표 제목 위에 표시됩니다."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDiscard",
       "value": "설문 삭제"
     },
@@ -12705,13 +12735,103 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingAdding",
+      "value": "선택지 추가 허용"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingAddingOff",
+      "value": "참여자는 새 선택지를 제안할 수 없습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingAddingOn",
+      "value": "참여자가 새 선택지를 제안할 수 있습니다"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingAnonymous",
       "value": "익명 투표"
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingCountries",
+      "value": "국가별 제한"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOff",
+      "value": "모든 국가의 사용자가 투표할 수 있습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOn",
+      "value": "선택한 국가의 사용자만 투표할 수 있습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOnSpecific",
+      "value": "%1$s의 사용자만"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDuration",
+      "value": "기간 제한"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDurationOff",
+      "value": "설정한 시간에 투표를 자동으로 종료"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDurationOn",
+      "value": "%1$s에 투표가 종료됩니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResults",
+      "value": "결과 숨기기"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResultsOff",
+      "value": "투표하면 결과가 표시됩니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResultsOn",
+      "value": "투표가 종료되면 결과가 표시됩니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembers",
+      "value": "구독자로 제한"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembersOff",
+      "value": "구독하지 않은 사용자도 투표할 수 있습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembersOn",
+      "value": "24시간 이상 전에 가입한 구독자만 투표할 수 있습니다"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingMultiple",
       "value": "다중 선택"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMultipleOff",
+      "value": "하나의 선택지만 선택할 수 있습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMultipleOn",
+      "value": "여러 선택지를 선택할 수 있습니다"
     },
     {
       "_": "types.LangPackString",
@@ -12722,6 +12842,61 @@
       "_": "types.LangPackString",
       "key": "PollSettingQuizInfo",
       "value": "설문이 퀴즈 모드일 때는 올바른 답이 하나만 있습니다. 사용자는 한 번 고른 답을 무를 수 없습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingQuizOff",
+      "value": "정답을 설정하려면 활성화하세요"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingQuizOn",
+      "value": "하나의 정답을 선택하세요"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevoting",
+      "value": "재투표 허용"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevotingOff",
+      "value": "투표자는 한 번만 투표할 수 있습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevotingOn",
+      "value": "투표자가 선택을 변경할 수 있습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVoters",
+      "value": "투표한 사람 표시"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVotersOff",
+      "value": "투표자는 익명입니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVotersOn",
+      "value": "각 선택지에 투표자를 표시"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffle",
+      "value": "선택지 섞기"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffleOff",
+      "value": "투표자에게 선택지를 같은 순서로 표시"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffleOn",
+      "value": "각 투표자에게 선택지를 무작위 순서로 표시"
     },
     {
       "_": "types.LangPackString",
@@ -14212,6 +14387,11 @@
       "_": "types.LangPackString",
       "key": "QuizAnonymous",
       "value": "익명 퀴즈"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "QuizDescriptionInfo",
+      "value": "설명은 퀴즈 제목 위에 표시됩니다."
     },
     {
       "_": "types.LangPackString",
@@ -15737,6 +15917,11 @@
       "_": "types.LangPackStringPluralized",
       "key": "SearchApproximateResults",
       "other_value": "~%1$s개 결과"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SearchCountry",
+      "value": "검색…"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -19730,6 +19915,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WaitingResultsPoll",
+      "value": "투표가 종료되면 결과가 공개됩니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "WaitingResultsQuiz",
+      "value": "퀴즈가 중지되면 결과가 공개됩니다"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Wallpaper",
       "value": "배경화면"
     },
@@ -23189,5 +23384,5 @@
       "other_value": "%1$s년"
     }
   ],
-  "version": 1618403
+  "version": 1621784
 }

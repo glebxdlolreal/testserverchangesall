@@ -1509,6 +1509,11 @@
       "value": "이 스타일을 추가해 메시지를 즉시 다시 작성하세요."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "AiTonePreviewUsedBy2",
+      "other_value": "{count}명이 사용 중입니다."
+    },
+    {
       "_": "types.LangPackString",
       "key": "AiTonePreviewUsedByCreatedBy",
       "value": "{usedBy} {createdBy}"
@@ -1632,6 +1637,16 @@
       "_": "types.LangPackString",
       "key": "ApproveNewMembersDescription",
       "value": "관리자 승인한 후에만 사용자 입장이 가능하도록 하려면 이 옵션을 키세요."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ApproveNewMembersPublicUnavailable",
+      "value": "공개 그룹 링크를 통해 누구나 가입하고 메시지를 보낼 수 있으므로 이 옵션을 사용할 수 없습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ApproveNewSubscribersPublicUnavailable",
+      "value": "공개 채널 링크를 통해 누구나 가입할 수 있으므로 이 옵션을 사용할 수 없습니다."
     },
     {
       "_": "types.LangPackString",
@@ -2951,7 +2966,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChannelEarnLearnCoinAbout",
-      "value": "그램은 빠른 속도와 낮은 거래 수수료를 위해 텔레그램이 사용하는 TON 블록체인 플랫폼의 암호화폐입니다. {link}"
+      "value": "그램은 TON 블록체인 플랫폼의 암호화폐로, 텔레그램이 빠른 속도와 낮은 거래 수수료를 위해 사용합니다. {link}"
     },
     {
       "_": "types.LangPackString",
@@ -3805,6 +3820,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ConfirmBuyGiftForGramDescription",
+      "value": "판매자는 그램 결제만 받습니다."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ConfirmDialogMessageRemoveFee",
       "value": "**{peer}**가 회원님에게 무료로 메시지를 보낼 수 있도록 허용하시겠습니까?"
     },
@@ -4195,6 +4215,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CurrencyGram",
+      "value": "그램"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CurrencyStars",
       "value": "스타"
     },
@@ -4267,6 +4292,16 @@
       "_": "types.LangPackString",
       "key": "DeleteAll",
       "value": "모두 삭제"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteAllMessages",
+      "value": "모든 메시지 삭제"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteAllReactions",
+      "value": "모든 반응 삭제"
     },
     {
       "_": "types.LangPackString",
@@ -4349,6 +4384,16 @@
       "value": "내 계정 삭제하기"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "DeleteReactionTitle",
+      "other_value": "{count}개 반응을 삭제할까요?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteReactionTooltip",
+      "value": "반응 삭제"
+    },
+    {
       "_": "types.LangPackString",
       "key": "DeleteSingleMessagesTitle",
       "value": "메시지 삭제"
@@ -4357,6 +4402,11 @@
       "_": "types.LangPackString",
       "key": "DeleteThisChat",
       "value": "대화방 삭제"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DescriptionAboutGram",
+      "value": "그램으로 선물을 구매하고 채널에 게시물 제안을 보낼 수 있습니다."
     },
     {
       "_": "types.LangPackString",
@@ -4407,6 +4457,11 @@
       "_": "types.LangPackString",
       "key": "DescriptionOptionalPlaceholder",
       "value": "설명 (선택)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DescriptionPayInGram",
+      "value": "그램으로 결제하면 선물을 다시 이전하기 전 21일 대기를 건너뛸 수 있습니다."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -4482,6 +4537,11 @@
       "_": "types.LangPackString",
       "key": "DiceToastSend",
       "value": "보내기"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Disable",
+      "value": "끄기"
     },
     {
       "_": "types.LangPackString",
@@ -4900,6 +4960,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Enable",
+      "value": "켜기"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EnablePasscode",
       "value": "암호 설정"
     },
@@ -4937,6 +5002,11 @@
       "_": "types.LangPackString",
       "key": "EnterPasswordDescription",
       "value": "이 작업을 완료하려면 2단계 인증 비밀번호를 입력해 주세요."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EnterPriceInGram",
+      "value": "그램 가격 입력"
     },
     {
       "_": "types.LangPackString",
@@ -7005,6 +7075,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GramAmount",
+      "value": "💎{amount}"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "GramAmountText",
+      "other_value": "그램 {amount}개"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GramGiftReceived",
+      "value": "그램 충전"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GramModalHint",
+      "value": "Fragment를 사용해 그램을 충전할 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GraphZoomOut",
       "value": "전체 보기"
     },
@@ -7135,6 +7225,101 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GuardApplyToInvitesApply",
+      "value": "적용"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "GuardApplyToInvitesChannel",
+      "other_value": "이 채널의 **기존 초대 링크 {count}개**에 대해 **새 구독자 승인**도 활성화할까요?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApplyToInvitesDontApply",
+      "value": "적용 안 함"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "GuardApplyToInvitesGroup",
+      "other_value": "이 그룹의 **기존 초대 링크 {count}개**에 대해 **새 참가자 승인**도 활성화할까요?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApplyToInvitesTitle",
+      "value": "기존 초대 링크에 적용할까요?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApproveNewChannelSubscribersInfo",
+      "value": "채널에 가입하려는 사용자는 관리자의 승인이 필요합니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApproveNewMembers",
+      "value": "새로운 참가자 승인"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApproveNewPrivateGroupMembersInfo",
+      "value": "그룹에 가입하려는 사용자는 관리자의 승인이 필요합니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApproveNewPublicGroupMembersInfo",
+      "value": "그룹에서 메시지를 보내려는 사용자는 관리자의 승인이 필요합니다."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "GuardDisableInvitesChannel",
+      "other_value": "이 채널의 **기존 초대 링크 {count}개**에 대해 **새 구독자 승인**도 비활성화할까요?"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "GuardDisableInvitesGroup",
+      "other_value": "이 그룹의 **기존 초대 링크 {count}개**에 대해 **새 참가자 승인**도 비활성화할까요?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardManagedBy",
+      "value": "{bot}에서 관리"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardManagedByDescription",
+      "value": "{approvalInfo} {managedBy}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequests",
+      "value": "가입 요청 처리"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequestsDisableChannel",
+      "value": "새 구독자는 이 채널에 가입하기 전에 더 이상 {bot}의 승인이 필요하지 않습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequestsDisableGroup",
+      "value": "새 참가자는 이 그룹에서 메시지를 보내기 전에 더 이상 {bot}의 승인이 필요하지 않습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequestsEnableChannel",
+      "value": "새 구독자는 이제 이 채널에 가입하기 전에 {bot}의 승인이 필요합니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequestsEnableGroup",
+      "value": "새 참가자는 이제 이 그룹에서 메시지를 보내기 전에 {bot}의 승인이 필요합니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequestsInfo",
+      "value": "이 봇이 캡차와 같은 자체 인터페이스를 사용해 새 참가자를 승인하도록 허용합니다."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "HEX",
       "value": "HEX"
     },
@@ -7142,6 +7327,21 @@
       "_": "types.LangPackStringPluralized",
       "key": "HeaderDescriptionResaleGifts",
       "other_value": "{count}개 목록"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "HeaderMenuViewGroupInfo",
+      "value": "그룹 정보 보기"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "HeaderMenuViewProfile",
+      "value": "프로필 보기"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "HeaderMenuViewTopicInfo",
+      "value": "주제 정보 보기"
     },
     {
       "_": "types.LangPackString",
@@ -7250,6 +7450,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "InstantView",
+      "value": "인스턴트 뷰"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "InstantViewWrongLayout",
+      "value": "레이아웃이 잘못되었나요?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "InviteBlockedManyMessage",
       "value": "일부 사용자는 그룹에 추가하는 것을 제한합니다. 대신 비공개 메시지로 초대 링크를 보낼 수 있습니다."
     },
@@ -7287,6 +7497,11 @@
       "_": "types.LangPackString",
       "key": "InviteLink",
       "value": "초대 링크"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "InviteLinkApprovalRequired",
+      "value": "승인 필요"
     },
     {
       "_": "types.LangPackString",
@@ -7367,6 +7582,11 @@
       "_": "types.LangPackString",
       "key": "JustNowAgo",
       "value": "방금 전"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "LabelPayInGram",
+      "value": "그램으로 결제"
     },
     {
       "_": "types.LangPackString",
@@ -7980,6 +8200,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "MenuGram",
+      "value": "내 그램"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "MenuInstallApp",
       "value": "앱 설치"
     },
@@ -8152,6 +8377,16 @@
       "_": "types.LangPackString",
       "key": "MessageMetaEdited",
       "value": "수정됨"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MessageMetaEditedAtTime",
+      "value": "{time}에 수정됨"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MessageMetaEditedOnDateAtTime",
+      "value": "{date} {time}에 수정됨"
     },
     {
       "_": "types.LangPackString",
@@ -8337,6 +8572,11 @@
       "_": "types.LangPackString",
       "key": "MonetizationBalanceZeroInfo",
       "value": "광고주가 광고 비용을 지불하는 데 사용하는 타사 플랫폼인 Fragment를 사용하여 보상을 수집할 수 있습니다. {link}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MonetizationInfoGramTitle",
+      "value": "💎 그램이란?"
     },
     {
       "_": "types.LangPackString",
@@ -8825,6 +9065,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "OnlyAcceptGram",
+      "value": "그램만 허용"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "OnlyAcceptGramDescription",
+      "value": "구매자가 그램으로 결제하면 스타 결제와 달리 환불 위험이 없습니다."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Open",
       "value": "열기"
     },
@@ -8887,6 +9137,16 @@
       "_": "types.LangPackString",
       "key": "P2PNobody",
       "value": "없음"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PageContentEmbed",
+      "value": "삽입된 콘텐츠"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PageContentUnsupported",
+      "value": "지원되지 않는 콘텐츠"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -9404,6 +9664,11 @@
       "value": "투표자가 선택을 변경할 수 있습니다"
     },
     {
+      "_": "types.LangPackString",
+      "key": "PollAllowedCountries",
+      "value": "허용된 국가"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "PollAnswerCountButton",
       "other_value": "{count}명이 답변했습니다 >"
@@ -9435,6 +9700,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollChooseCountry",
+      "value": "국가를 하나 이상 선택하세요."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "PollCountriesCount",
+      "other_value": "{count}개 국가"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "PollCountriesLimit",
+      "other_value": "{count}개 국가까지 선택할 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollCountryRestriction",
+      "value": "**{countries}**의 사용자만 투표할 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDuration",
       "value": "기간"
     },
@@ -9452,6 +9737,16 @@
       "_": "types.LangPackString",
       "key": "PollHideResultsUntilClose",
       "value": "종료될 때까지 결과 숨기기"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountry",
+      "value": "국가별 제한"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountryDescription",
+      "value": "선택한 국가의 사용자만 투표할 수 있습니다."
     },
     {
       "_": "types.LangPackString",
@@ -9520,8 +9815,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribers",
+      "value": "구독자로 제한"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribersDescription",
+      "value": "24시간 이상 전에 가입한 구독자만 투표할 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollResults",
       "value": "최종 결과"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollResultsAnswerTitle",
+      "value": "{answer} - {percent}%"
     },
     {
       "_": "types.LangPackString",
@@ -9542,6 +9852,11 @@
       "_": "types.LangPackString",
       "key": "PollSubmitVotes",
       "value": "투표"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSubscriberRestriction",
+      "value": "{channel} 구독자만 투표할 수 있습니다."
     },
     {
       "_": "types.LangPackString",
@@ -9817,6 +10132,11 @@
       "_": "types.LangPackString",
       "key": "PriceChangedText",
       "value": "가격이 이미 **{originalAmount}**에서 **{newAmount}**로 변경되었습니다. 새로운 가격을 지불하시겠습니까?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PriceInGram",
+      "value": "그램 가격"
     },
     {
       "_": "types.LangPackString",
@@ -10419,6 +10739,11 @@
       "value": "암호를 다시 입력하세요"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ReactionDeleted",
+      "other_value": "반응 삭제됨"
+    },
+    {
       "_": "types.LangPackString",
       "key": "Reactions",
       "value": "반응"
@@ -10507,6 +10832,26 @@
       "_": "types.LangPackString",
       "key": "RemoveSymbol",
       "value": "이모지 삭제"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReplaceGuardBotDescription",
+      "value": "현재 **{current}**이(가) 가입 요청을 처리하고 있습니다. 대신 **{new}**(으)로 전환할까요?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReplaceGuardBotKeep",
+      "value": "{bot} 유지"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReplaceGuardBotTitle",
+      "value": "가드 봇 교체"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReplaceGuardBotUse",
+      "value": "{bot} 사용"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -10600,8 +10945,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RequestToJoinChannelDeclined",
+      "value": "채널 가입 요청이 거절되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RequestToJoinChannelSentDescription",
       "value": "관리자가 요청 승인한 후에 채널에 추가가 됩니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RequestToJoinGroupDeclined",
+      "value": "그룹 가입 요청이 거절되었습니다."
     },
     {
       "_": "types.LangPackString",
@@ -10662,6 +11017,21 @@
       "_": "types.LangPackString",
       "key": "RevokedLinks",
       "value": "폐기된 링크"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichMessageMore",
+      "value": "더 보기"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextMapPreview",
+      "value": "[지도]"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextMathPreview",
+      "value": "[수식]"
     },
     {
       "_": "types.LangPackString",
@@ -12350,6 +12720,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SuggestMessagePriceDescriptionGram",
+      "value": "이 게시물을 게시하기 위해 지불할 그램 수를 선택하세요."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SuggestMessagePriceDescriptionStars",
       "value": "이 게시물을 게시하기 위해 결제할 스타 수를 선택하세요."
     },
@@ -13205,6 +13580,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UserRestrictionsSendReactions",
+      "value": "반응 보내기"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UserTyping",
       "value": "{user} 님이 입력 중"
     },
@@ -13382,6 +13762,11 @@
       "_": "types.LangPackString",
       "key": "ViewButtonGroup",
       "value": "그룹 보기"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ViewButtonInstantView",
+      "value": "즉시 보기"
     },
     {
       "_": "types.LangPackString",
@@ -13804,5 +14189,5 @@
       "value": "성명"
     }
   ],
-  "version": 263556
+  "version": 264877
 }
