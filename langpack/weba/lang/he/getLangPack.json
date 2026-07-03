@@ -10042,6 +10042,11 @@
       "value": "מצביעים יכולים לשנות את ההצבעה שלהם"
     },
     {
+      "_": "types.LangPackString",
+      "key": "PollAllowedCountries",
+      "value": "מדינות מותרות"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "PollAnswerCountButton",
       "many_value": "⁨{count}⁩ תשובות >",
@@ -10079,6 +10084,32 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollChooseCountry",
+      "value": "נא לבחור לפחות מדינה אחת."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "PollCountriesCount",
+      "many_value": "⁨{count}⁩ מדינות",
+      "one_value": "מדינה ⁨{count}⁩",
+      "other_value": "⁨{count}⁩ מדינות",
+      "two_value": "⁨{count}⁩ מדינות"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "PollCountriesLimit",
+      "many_value": "באפשרותך לבחור עד ל⁨{count}⁩ מדינות.",
+      "one_value": "באפשרותך לבחור עד למדינה ⁨{count}⁩.",
+      "other_value": "באפשרותך לבחור עד ל⁨{count}⁩ מדינות.",
+      "two_value": "באפשרותך לבחור עד ל⁨{count}⁩ מדינות."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollCountryRestriction",
+      "value": "רק משתמשים מ**⁨{countries}⁩** יכולים להצביע."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDuration",
       "value": "משך"
     },
@@ -10096,6 +10127,16 @@
       "_": "types.LangPackString",
       "key": "PollHideResultsUntilClose",
       "value": "הסתר את התוצאות עד הסגירה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountry",
+      "value": "הגבל לפי מדינה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountryDescription",
+      "value": "רק משתמשים מהמדינות שנבחרו יכולים להצביע."
     },
     {
       "_": "types.LangPackString",
@@ -10167,8 +10208,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribers",
+      "value": "הגבל למנויים"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribersDescription",
+      "value": "רק מנויים שהצטרפו לפני יותר מ24 שעות יכולים להצביע."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollResults",
       "value": "תוצאות סופיות"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollResultsAnswerTitle",
+      "value": "⁨{answer}⁩ - ⁨{percent}⁩%"
     },
     {
       "_": "types.LangPackString",
@@ -10189,6 +10245,11 @@
       "_": "types.LangPackString",
       "key": "PollSubmitVotes",
       "value": "הצבעה "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSubscriberRestriction",
+      "value": "רק מנויים של ⁨{channel}⁩ יכולים להצביע."
     },
     {
       "_": "types.LangPackString",
@@ -14617,5 +14678,5 @@
       "value": "השם שלך"
     }
   ],
-  "version": 264245
+  "version": 264798
 }
