@@ -40,7 +40,7 @@
     <script>
       Telegram.WebApp.ready();
       function sendResult(result) {
-        var queryId = Telegram.WebApp.initDataUnsafe.chat_join_request_query_id;
+        var queryId = Telegram.WebApp.initDataUnsafe.query_id;
         if (!queryId) {
           alert('No query_id');
           return;
