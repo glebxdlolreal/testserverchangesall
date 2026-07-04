@@ -4387,6 +4387,17 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CountryCode",
+      "value": "Código de país"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CountryLimit",
+      "one_value": "Puedes seleccionar hasta %1$s país",
+      "other_value": "Puedes seleccionar hasta %1$s países"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CreateAHintForYourPassword",
       "value": "Crea una pista para tu contraseña"
     },
@@ -5865,6 +5876,11 @@
       "_": "types.LangPackString",
       "key": "EncryptionKeyDescription",
       "value": "Este texto e imagen derivan de la clave de cifrado para el chat secreto creado con %1$s.\n\nSi se ven igual en el dispositivo de %1$s, el cifrado end-to-end está garantizado."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EndsInDuration",
+      "value": "finaliza en %1$s"
     },
     {
       "_": "types.LangPackString",
@@ -10954,7 +10970,7 @@
     {
       "_": "types.LangPackString",
       "key": "NoDownloadFilesFound",
-      "value": "No se han encontrado archivos descargados"
+      "value": "No se encontraron archivos descargados"
     },
     {
       "_": "types.LangPackString",
@@ -12794,6 +12810,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollDescription",
+      "value": "Descripción (opcional)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollDescriptionEmpty",
+      "value": "Añade una descripción"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollDescriptionInfo",
+      "value": "La descripción se mostrará encima del título de la encuesta."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDiscard",
       "value": "Descartar encuesta"
     },
@@ -12846,7 +12877,7 @@
     {
       "_": "types.LangPackString",
       "key": "PollQuestionEmpty",
-      "value": "Hacer una pregunta"
+      "value": "Haz una pregunta"
     },
     {
       "_": "types.LangPackString",
@@ -12860,13 +12891,103 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingAdding",
+      "value": "Permitir añadir opciones"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingAddingOff",
+      "value": "Los participantes no pueden sugerir nuevas opciones"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingAddingOn",
+      "value": "Los participantes pueden sugerir nuevas opciones"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingAnonymous",
       "value": "Voto anónimo"
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingCountries",
+      "value": "Limitar por país"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOff",
+      "value": "Pueden votar usuarios de todos los países"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOn",
+      "value": "Sólo pueden votar los usuarios de los países seleccionados"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOnSpecific",
+      "value": "Sólo usuarios de %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDuration",
+      "value": "Duración límite"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDurationOff",
+      "value": "Cerrar automáticamente la votación a la hora fijada"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDurationOn",
+      "value": "La votación cierra a las %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResults",
+      "value": "Ocultar resultados"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResultsOff",
+      "value": "Los resultados se muestran al votar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResultsOn",
+      "value": "Los resultados se muestran una vez cerrada la votación"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembers",
+      "value": "Restringir a suscriptores"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembersOff",
+      "value": "Los usuarios no suscritos pueden votar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembersOn",
+      "value": "Sólo pueden votar los suscriptores que se unieron hace más de 24 horas"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingMultiple",
       "value": "Respuesta múltiple"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMultipleOff",
+      "value": "Sólo se puede seleccionar una opción"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMultipleOn",
+      "value": "Se puede seleccionar más de una opción"
     },
     {
       "_": "types.LangPackString",
@@ -12880,13 +13001,68 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingQuizOff",
+      "value": "Actívalo para establecer la respuesta correcta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingQuizOn",
+      "value": "Elige la única respuesta correcta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevoting",
+      "value": "Permitir volver a votar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevotingOff",
+      "value": "Los votantes pueden votar sólo una vez"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevotingOn",
+      "value": "Los votantes pueden cambiar su voto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVoters",
+      "value": "Mostrar quién votó"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVotersOff",
+      "value": "Los votantes son anónimos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVotersOn",
+      "value": "Mostrar los votantes en cada opción"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffle",
+      "value": "Opciones aleatorias"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffleOff",
+      "value": "Los votantes ven opciones en el mismo orden"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffleOn",
+      "value": "Las opciones son aleatorias para cada votante"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Pornography",
       "value": "Pornografía"
     },
     {
       "_": "types.LangPackString",
       "key": "PostNotFound",
-      "value": "Post no encontrado"
+      "value": "No se encontró el post"
     },
     {
       "_": "types.LangPackString",
@@ -14383,6 +14559,11 @@
       "_": "types.LangPackString",
       "key": "QuizAnonymous",
       "value": "Cuestionario anónimo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "QuizDescriptionInfo",
+      "value": "La descripción se mostrará encima del título del cuestionario."
     },
     {
       "_": "types.LangPackString",
@@ -15932,6 +16113,11 @@
       "key": "SearchApproximateResults",
       "one_value": "~%1$s resultado",
       "other_value": "~%1$s resultados"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SearchCountry",
+      "value": "Buscar…"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -19990,6 +20176,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WaitingResultsPoll",
+      "value": "Los resultados se revelarán una vez cerrada la votación"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "WaitingResultsQuiz",
+      "value": "Los resultados se revelarán una vez detenido el cuestionario"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Wallpaper",
       "value": "Fondo de pantalla"
     },
@@ -23670,5 +23866,5 @@
       "other_value": "%1$s años"
     }
   ],
-  "version": 1618135
+  "version": 1621303
 }

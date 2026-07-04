@@ -1563,8 +1563,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AiEditor.Chat.ViewStyle",
+      "value": "Stijl bekijken"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AiEditor.ComposeError",
       "value": "Er is iets misgegaan bij het opstellen van dit bericht."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.DeleteStyle.Description",
+      "value": "Weet je zeker dat je deze stijl wilt verwijderen? Het wordt dan verwijderd voor iedereen die het heeft bewaard."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.DeleteStyle.Title",
+      "value": "Stijl verwijderen"
     },
     {
       "_": "types.LangPackString",
@@ -1580,6 +1595,21 @@
       "_": "types.LangPackString",
       "key": "AiEditor.NewStyle.AddLink",
       "value": "Voeg een link toe naar mijn account"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.NewStyle.EmojiUnsupported",
+      "value": "Sorry, deze emoji wordt niet ondersteund. Kies in plaats hiervan een geanimeerde emoji."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.NewStyle.Error",
+      "value": "Nieuwe stijl aanmaken mislukt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.NewStyle.ErrorEdit",
+      "value": "Stijl opslaan mislukt"
     },
     {
       "_": "types.LangPackString",
@@ -1633,8 +1663,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AiEditor.StyleAddError",
+      "value": "Stijl toevoegen mislukt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.StyleAdded",
+      "value": "Stijl toegevoegd"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AiEditor.StyleBy",
       "value": "Stijl door %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.StyleNotFound",
+      "value": "Stijl niet gevonden. Het is waarschijnlijk verwijderd"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.StyleRemoveError",
+      "value": "Stijl verwijderen mislukt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.StyleRemoved",
+      "value": "Stijl verwijderd"
     },
     {
       "_": "types.LangPackString",
@@ -1643,8 +1698,70 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AiEditor.TranslateFrom",
+      "value": "Van %s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AiEditor.TranslateTo",
       "value": "Naar %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.ViewStyle.After",
+      "value": "Na"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.ViewStyle.AnotherExample",
+      "value": "Ander voorbeeld"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.ViewStyle.Before",
+      "value": "Voor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.ViewStyle.CreatedBy",
+      "value": "Gecreëerd door %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.ViewStyle.DeleteStyle",
+      "value": "Stijl verwijderen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.ViewStyle.Description",
+      "value": "Voeg deze stijl toe om berichten snel te herschrijven."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "AiEditor.ViewStyle.InstallsCount",
+      "one_value": "Gebruikt door %d persoon.",
+      "other_value": "Gebruikt door %d personen."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "AiEditor.ViewStyle.InstallsCountCreatedByYou",
+      "one_value": "Gebruikt door %d persoon. Gemaakt door jou.",
+      "other_value": "Gebruikt door %d personen. Gemaakt door jou."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.ViewStyle.MaxSavedTones",
+      "value": "Je hebt het maximumaantal zelfgemaakte stijlen bereikt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.ViewStyle.RemoveStyle",
+      "value": "Stijl verwijderen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiEditor.ViewStyle.SaveStyle",
+      "value": "Stijl bewaren"
     },
     {
       "_": "types.LangPackString",
@@ -1726,6 +1843,11 @@
       "_": "types.LangPackString",
       "key": "Appearance.Reset",
       "value": "Reset naar standaard"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Apply",
+      "value": "Toepassen"
     },
     {
       "_": "types.LangPackString",
@@ -3328,6 +3450,11 @@
       "_": "types.LangPackString",
       "key": "BotCantAddToAttachMenu",
       "value": "Deze bot kan niet aan het bijlagemenu worden toegevoegd."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotCantReadChatTooltip",
+      "value": "Deze bot kan de chat niet lezen — alleen het bericht waarin het is genoemd."
     },
     {
       "_": "types.LangPackString",
@@ -8663,6 +8790,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GuestChatFor",
+      "value": "voor"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "HelpUpgradeChannel",
       "value": "Draag bij aan dit kanaal"
     },
@@ -11644,6 +11776,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NotificationsStoriesDisplayAuthor",
+      "value": "Naam van afzender tonen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NotificationsStoriesGlobal",
+      "value": "Nieuwe verhalen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NotificationsStoriesImportant",
+      "value": "Belangrijke verhalen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NotificationsStoriesImportantInfo",
+      "value": "Altijd aan voor de top 5 contacten."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NotificationsStoryMute2",
       "value": "Geen meldingen bij verhalen"
     },
@@ -14493,6 +14645,31 @@
       "_": "types.LangPackString",
       "key": "ReactionsByEmotionChartTitle",
       "value": "Reacties"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReactionsNotifyContacts",
+      "value": "Mijn contacten"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReactionsNotifyEveryone",
+      "value": "Iedereen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReactionsNotifyFrom",
+      "value": "Van"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReactionsNotifyMessages",
+      "value": "Reacties op mijn berichten"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReactionsNotifyStories",
+      "value": "Reacties op mijn verhalen"
     },
     {
       "_": "types.LangPackString",
@@ -18441,6 +18618,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Story.Notification",
+      "value": "heeft een verhaal gedeeld"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Story.RemoveFromProfile",
       "value": "Verwijderen van profiel"
     },
@@ -19286,6 +19468,11 @@
       "_": "types.LangPackString",
       "key": "Translate",
       "value": "Vertalen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translate.Error",
+      "value": "Er is iets misgegaan tijdens het vertalen van de tekst."
     },
     {
       "_": "types.LangPackString",
@@ -20560,5 +20747,5 @@
       "other_value": "%1$d berichten"
     }
   ],
-  "version": 298588
+  "version": 299658
 }
