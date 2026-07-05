@@ -4807,6 +4807,14 @@
       "value": "Automatické sťahovanie videí a GIF obrázkov"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d automatické výnimky",
+      "key": "AutoException",
+      "many_value": "",
+      "one_value": "%1$d automatická výnimka",
+      "other_value": "%1$d automatických výnimiek"
+    },
+    {
       "_": "types.LangPackString",
       "key": "AutoLock",
       "value": "Automatické uzamknutie"
@@ -5257,7 +5265,7 @@
     {
       "_": "types.LangPackString",
       "key": "BirthdaySetupLater",
-      "value": "Svoje narodeniny môžete nastaviť v nastaveniach profilu."
+      "value": "Narodeniny si môžete nastaviť v nastaveniach profilu."
     },
     {
       "_": "types.LangPackString",
@@ -8444,6 +8452,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BusinessBotUpdated",
+      "value": "Aktualizované nastavenia %s."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BusinessBots",
       "value": "Automatizácia konverzácie"
     },
@@ -9941,7 +9954,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChannelAlertText",
-      "value": "Kanály sú nástrojom jedna-k-viacerým na vysielanie vašich správ ku neobmedzenému publiku."
+      "value": "Kanály sú nástrojom, ktorý umožňuje šíriť správy širokému publiku."
     },
     {
       "_": "types.LangPackString",
@@ -10222,7 +10235,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChannelEnablePaidReactionsInfo",
-      "value": "Zapnite túto funkciu, aby vaši predplatitelia mohli reagovať na príspevky pomocou telegramových hviezdičiek, ktoré budete môcť neskôr vybrať ako TON."
+      "value": "Zapnite túto funkciu, aby vaši predplatitelia mohli reagovať na príspevky pomocou telegramových hviezdičiek, ktoré budete môcť neskôr vybrať ako GRAM."
     },
     {
       "_": "types.LangPackString",
@@ -10935,6 +10948,11 @@
       "_": "types.LangPackString",
       "key": "CharactersPerMessage",
       "value": "%s na správu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChartInTON",
+      "value": "%s in GRAM"
     },
     {
       "_": "types.LangPackString",
@@ -12261,6 +12279,11 @@
       "_": "types.LangPackString",
       "key": "ConferenceEncryptedSyncing",
       "value": "Šifrované end-to-end"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Confirm",
+      "value": "Potvrdiť"
     },
     {
       "_": "types.LangPackString",
@@ -14552,6 +14575,16 @@
       "_": "types.LangPackString",
       "key": "EditAdminPostStories",
       "value": "Zverejniť príbehy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditAdminProcessJoinRequests",
+      "value": "Spracovať žiadosti o pripojenie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditAdminProcessJoinRequestsInfo",
+      "value": "Povoľte tomuto robotovi schvaľovať nových členov cez vlastné rozhrania, napríklad cez captcha."
     },
     {
       "_": "types.LangPackString",
@@ -18040,7 +18073,7 @@
     {
       "_": "types.LangPackString",
       "key": "FragmentAddFunds",
-      "value": "TON si môžete pridať na účet cez platformu tretej strany Fragment."
+      "value": "GRAM si môžete pridať na účet cez platformu tretej strany Fragment."
     },
     {
       "_": "types.LangPackString",
@@ -20819,6 +20852,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GiftOfferTONToOfferInfoIsHigh",
+      "value": "Táto ponuka je príliš vysoká. Maximálna ponuka za **%2$s** je **%1$s GRAM**."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GiftOfferToBuyMenu",
       "value": "Ponúknuť na nákup"
     },
@@ -20831,6 +20869,11 @@
       "_": "types.LangPackString",
       "key": "GiftOfferTransferInfoTextSellStars",
       "value": "Chcete predať **%3$s** používateľovi **%2$s** za **⭐️%1$s**?\n\nPo odpočítaní poplatkov dostanete **⭐️%4$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GiftOfferTransferInfoTextSellTON",
+      "value": "Chcete predať **%3$s** používateľovi **%2$s** za **%1$s GRAM**?\n\nPo poplatkoch dostanete **%4$s GRAM**."
     },
     {
       "_": "types.LangPackString",
@@ -22009,6 +22052,26 @@
       "_": "types.LangPackString",
       "key": "GuardBotJoinRequestApproved",
       "value": "Vaša žiadosť o pripojenie do skupiny **%1$s** bola schválená"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotReplaceKeepCurrent",
+      "value": "Ponechať %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotReplaceMessage",
+      "value": "**%1$s** momentálne spracováva žiadosti o pripojenie. Chcete namiesto toho prejsť na **%2$s**?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotReplaceTitle",
+      "value": "Nahradiť bota"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotReplaceUseNew",
+      "value": "Použiť %1$s"
     },
     {
       "_": "types.LangPackString",
@@ -24132,6 +24195,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "LiteOptionsBlur2",
+      "value": "Rozmazanie"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "LiteOptionsCalls",
       "value": "Animácie v hovoroch"
     },
@@ -26018,7 +26086,7 @@
     {
       "_": "types.LangPackString",
       "key": "MonetizationChartInTON",
-      "value": "%s v TON"
+      "value": "%s v GRAM"
     },
     {
       "_": "types.LangPackString",
@@ -26123,12 +26191,12 @@
     {
       "_": "types.LangPackString",
       "key": "MonetizationProceedsStarsTONInfo",
-      "value": "Hviezdičky a TON z celkového zostatku môžete použiť na reklamy alebo si ich vybrať ako odmenu 21, resp. 3 dni po ich získaní."
+      "value": "Hviezdičky a GRAM z celkového zostatku môžete použiť na reklamy alebo si ich vybrať ako odmenu 21, resp. 3 dni po ich získaní."
     },
     {
       "_": "types.LangPackString",
       "key": "MonetizationProceedsTONInfo",
-      "value": "TON z celkového zostatku môžete použiť na reklamy alebo si ho vybrať ako odmenu 3 dni po získaní. Nemôžete vybrať menej ako 10 TON."
+      "value": "Gram z celkového zostatku môžete použiť na reklamy alebo si ho vybrať ako odmenu 3 dni po získaní. Nemôžete vybrať menej ako 10 GRAM."
     },
     {
       "_": "types.LangPackString",
@@ -26206,7 +26274,7 @@
     {
       "_": "types.LangPackString",
       "key": "MonetizationTransactionsTON",
-      "value": "Prevody TON"
+      "value": "Prevody GRAM"
     },
     {
       "_": "types.LangPackString",
@@ -26418,7 +26486,7 @@
     {
       "_": "types.LangPackString",
       "key": "MyTON",
-      "value": "Môj TON"
+      "value": "Môj GRAM"
     },
     {
       "_": "types.LangPackString",
@@ -32139,7 +32207,7 @@
     {
       "_": "types.LangPackString",
       "key": "PostSuggestionsOfferTitlePriceTON",
-      "value": "Zadajte cenu v TON"
+      "value": "Zadajte cenu v GRAM"
     },
     {
       "_": "types.LangPackString",
@@ -34873,7 +34941,7 @@
     {
       "_": "types.LangPackString",
       "key": "RaiseToSpeak",
-      "value": "Zdvihnúť a počúvať"
+      "value": "Zdvihnúť a hovoriť"
     },
     {
       "_": "types.LangPackString",
@@ -37178,7 +37246,7 @@
     {
       "_": "types.LangPackString",
       "key": "ScheduleNotifyOnChannel",
-      "value": "Odberatelia budu upozornení"
+      "value": "Odberatelia budú upozornení"
     },
     {
       "_": "types.LangPackString",
@@ -40550,6 +40618,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarsBuy",
+      "value": "Kúpiť hviezdičky"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarsBuyMore",
       "value": "Kúpiť viac hviezdičiek"
     },
@@ -43470,7 +43543,7 @@
     {
       "_": "types.LangPackString",
       "key": "SuggestedOfferTON",
-      "value": "Ponúknuť TON"
+      "value": "Ponúknuť GRAM"
     },
     {
       "_": "types.LangPackString",
@@ -43606,6 +43679,11 @@
       "_": "types.LangPackString",
       "key": "SuggestionOfferInfoTitleYou",
       "value": "**Vy** ste navrhli tento príspevok."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SuggestionTONWillBeLost",
+      "value": "GRAM sa stratí"
     },
     {
       "_": "types.LangPackString",
@@ -44952,21 +45030,26 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "%d TON",
+      "few_value": "%d GRAM",
       "key": "TonCount",
-      "many_value": "%d TON",
-      "one_value": "%d TON",
-      "other_value": "%d TON"
+      "many_value": "%d GRAM",
+      "one_value": "%d GRAM",
+      "other_value": "%d GRAM"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TonCountX",
+      "value": "%s GRAM"
     },
     {
       "_": "types.LangPackString",
       "key": "TonNeededTextSuggestMessage",
-      "value": "Kúpte si **TON** a navrhnite príspevok pre **%s** a ďalších."
+      "value": "Kúpte si **GRAM** a navrhnite príspevok pre **%s** a ďalších."
     },
     {
       "_": "types.LangPackString",
       "key": "TonNeededTitle",
-      "value": "Vyžaduje sa %s TON"
+      "value": "Vyžaduje sa %s GRAM"
     },
     {
       "_": "types.LangPackString",
@@ -49904,5 +49987,5 @@
       "value": "Telegram pas"
     }
   ],
-  "version": 59552811
+  "version": 59821970
 }
