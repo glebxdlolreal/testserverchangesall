@@ -2483,7 +2483,7 @@
     {
       "_": "types.LangPackString",
       "key": "AuthSessions.AddDevice.UrlLoginHint",
-      "value": "Tento kód môže byť použitý na to, aby sa niekto mohol prihlásiť do vášho Telegram účtu.\n\nAk chcete potvrdiť prihlásenie do Telegramu, prejdite do časti Nastavenia> Zariadenia > Prepojiť stolové zariadenie a naskenujte kód."
+      "value": "Tento kód môže byť použitý na to, aby sa niekto mohol prihlásiť do vášho Telegram účtu.\n\nAk chcete potvrdiť prihlásenie do Telegramu, prejdite do časti Nastavenia> Zariadenia > Pridať zariadenie a naskenujte kód."
     },
     {
       "_": "types.LangPackString",
@@ -26125,6 +26125,14 @@
       "value": "Chcete tiež v tomto kanáli zapnúť funkciu **Schvaľovať nových odberateľov** pre **%@** v tomto kanály?"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%@ existujúce pozvánky",
+      "key": "Group.Setup.ApproveNewMembersApplyToExistingInviteLinksText.Links",
+      "many_value": "%@ existujúcich pozvánok",
+      "one_value": "%@ existujúcu pozvánku",
+      "other_value": "%@ existujúcich pozvánok"
+    },
+    {
       "_": "types.LangPackString",
       "key": "Group.Setup.ApproveNewMembersApplyToExistingInviteLinksTitle",
       "value": "Použiť na existujúce pozvánky?"
@@ -47670,7 +47678,7 @@
     {
       "_": "types.LangPackString",
       "key": "Stars.Transaction.FragmentTopUpTon.Title",
-      "value": "Dobíjanie Gramu"
+      "value": "Dobíjanie GRAM"
     },
     {
       "_": "types.LangPackString",
@@ -56903,6 +56911,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WebApp.GuardDisclaimerText",
+      "value": "**%1$@** používa **%2$@** na privítanie nových členov. Ak chcete pokračovať, musíte súhlasiť s Podmienkami používania miniaplikácií."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "WebApp.ImportData.AccountHeader",
       "value": "ÚČET, Z KTORÉHO CHCETE IMPORTOVAŤ ÚDAJE"
     },
@@ -57608,5 +57621,5 @@
       "value": "Zadali ste neplatný bezpečnostný kód."
     }
   ],
-  "version": 21453289
+  "version": 21453335
 }
