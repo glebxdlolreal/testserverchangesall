@@ -9916,6 +9916,11 @@
       "value": "Votanții își pot schimba votul"
     },
     {
+      "_": "types.LangPackString",
+      "key": "PollAllowedCountries",
+      "value": "Țări Eligibile"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "{count} răspunsuri >",
       "key": "PollAnswerCountButton",
@@ -9951,6 +9956,30 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollChooseCountry",
+      "value": "Te rugăm alege cel puțin o țară."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "{count} țări",
+      "key": "PollCountriesCount",
+      "one_value": "{count} țară",
+      "other_value": "{count} de țări"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Poți alege până la {count} țări.",
+      "key": "PollCountriesLimit",
+      "one_value": "Poți alege până la {count} țară.",
+      "other_value": "Poți alege până la {count} de țări."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollCountryRestriction",
+      "value": "Doar utilizatorii din **{countries}** pot vota."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDuration",
       "value": "Durată"
     },
@@ -9968,6 +9997,16 @@
       "_": "types.LangPackString",
       "key": "PollHideResultsUntilClose",
       "value": "Ascunde Rezultatele Până la Încheiere"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountry",
+      "value": "Limitează după Țară"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountryDescription",
+      "value": "Doar utilizatorii din țările selectate pot vota."
     },
     {
       "_": "types.LangPackString",
@@ -10038,8 +10077,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribers",
+      "value": "Restricționează la Abonați"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribersDescription",
+      "value": "Doar abonații care s-au alăturat acum +24 de ore pot vota."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollResults",
       "value": "Rezultate Finale"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollResultsAnswerTitle",
+      "value": "{answer} - {percent}%"
     },
     {
       "_": "types.LangPackString",
@@ -10060,6 +10114,11 @@
       "_": "types.LangPackString",
       "key": "PollSubmitVotes",
       "value": "Votează"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSubscriberRestriction",
+      "value": "Doar abonații **{channel}** pot vota."
     },
     {
       "_": "types.LangPackString",
@@ -14456,5 +14515,5 @@
       "value": "Numele tău"
     }
   ],
-  "version": 264247
+  "version": 265124
 }
