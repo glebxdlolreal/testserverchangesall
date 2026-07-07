@@ -9664,6 +9664,11 @@
       "value": "Pengundi boleh tukar undi mereka"
     },
     {
+      "_": "types.LangPackString",
+      "key": "PollAllowedCountries",
+      "value": "Negara Dibenarkan"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "PollAnswerCountButton",
       "other_value": "{count} dijawab >"
@@ -9695,6 +9700,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollChooseCountry",
+      "value": "Sila pilih minimum satu negara."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "PollCountriesCount",
+      "other_value": "{count} negara"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "PollCountriesLimit",
+      "other_value": "Anda boleh pilih hingga {count} negara."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollCountryRestriction",
+      "value": "Hanya pengguna dari **{countries}** boleh undi."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDuration",
       "value": "Tempoh"
     },
@@ -9712,6 +9737,16 @@
       "_": "types.LangPackString",
       "key": "PollHideResultsUntilClose",
       "value": "Sorok Keputusan Hingga Tutup"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountry",
+      "value": "Had ikut Negara"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountryDescription",
+      "value": "Hanya pengguna dari negara terpilih boleh undi."
     },
     {
       "_": "types.LangPackString",
@@ -9780,8 +9815,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribers",
+      "value": "Hanya untuk Pelanggan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribersDescription",
+      "value": "Hanya pelanggan yang sertai 24+ jam lalu boleh undi"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollResults",
       "value": "Keputusan Akhir "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollResultsAnswerTitle",
+      "value": "{answer} - {percent}%"
     },
     {
       "_": "types.LangPackString",
@@ -9802,6 +9852,11 @@
       "_": "types.LangPackString",
       "key": "PollSubmitVotes",
       "value": "Undi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSubscriberRestriction",
+      "value": "Hanya pelanggan {channel} boleh undi."
     },
     {
       "_": "types.LangPackString",
@@ -14134,5 +14189,5 @@
       "value": "Nama Anda"
     }
   ],
-  "version": 264243
+  "version": 265232
 }
