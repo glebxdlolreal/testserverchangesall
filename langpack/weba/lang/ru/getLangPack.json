@@ -4535,7 +4535,7 @@
     {
       "_": "types.LangPackString",
       "key": "DescriptionAboutGram",
-      "value": "GRAM можно предлагать каналам за публикацию постов."
+      "value": "GRAM можно тратить на подарки и предложенные посты в каналах."
     },
     {
       "_": "types.LangPackString",
@@ -10032,6 +10032,11 @@
       "value": "Участники могут изменить выбранный ответ"
     },
     {
+      "_": "types.LangPackString",
+      "key": "PollAllowedCountries",
+      "value": "Выбранные страны"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "{count} ответа >",
       "key": "PollAnswerCountButton",
@@ -10069,6 +10074,32 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollChooseCountry",
+      "value": "Выберите хотя бы одну страну."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "{count} страны",
+      "key": "PollCountriesCount",
+      "many_value": "{count} стран",
+      "one_value": "{count} страна",
+      "other_value": "{count} cтран"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Можно выбрать не более {count} стран.",
+      "key": "PollCountriesLimit",
+      "many_value": "Можно выбрать не более {count} стран.",
+      "one_value": "Можно выбрать не более {count} страны.",
+      "other_value": "Можно выбрать не более {count} стран."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollCountryRestriction",
+      "value": "Голосовать могут только пользователи из выбранных стран **({countries})**."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDuration",
       "value": "Срок проведения"
     },
@@ -10086,6 +10117,16 @@
       "_": "types.LangPackString",
       "key": "PollHideResultsUntilClose",
       "value": "Скрыть результаты до завершения"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountry",
+      "value": "Ограничение географии"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountryDescription",
+      "value": "Голосовать могут только пользователи из выбранных стран."
     },
     {
       "_": "types.LangPackString",
@@ -10157,8 +10198,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribers",
+      "value": "Только подписчики"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribersDescription",
+      "value": "Голосовать могут только подписавшиеся 24+ часа назад."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollResults",
       "value": "Результаты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollResultsAnswerTitle",
+      "value": "{answer} — {percent}%"
     },
     {
       "_": "types.LangPackString",
@@ -10179,6 +10235,11 @@
       "_": "types.LangPackString",
       "key": "PollSubmitVotes",
       "value": "Голосовать"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSubscriberRestriction",
+      "value": "Голосовать могут только подписчики {channel}."
     },
     {
       "_": "types.LangPackString",
@@ -14597,5 +14658,5 @@
       "value": "Ваше имя"
     }
   ],
-  "version": 264071
+  "version": 265254
 }

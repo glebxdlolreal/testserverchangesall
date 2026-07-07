@@ -1575,7 +1575,7 @@
     {
       "_": "types.LangPackString",
       "key": "AiEditor.ComposeError",
-      "value": "Ошибка при генерации сообщения."
+      "value": "При генерации сообщения произошла ошибка."
     },
     {
       "_": "types.LangPackString",
@@ -1704,6 +1704,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AiEditor.TranslateFrom",
+      "value": "С: %s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AiEditor.TranslateTo",
       "value": "На %s"
     },
@@ -1744,6 +1749,14 @@
       "many_value": "Используют %d человек.",
       "one_value": "Использует %d человек.",
       "other_value": "Используют %d человек."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Используют %d человека. Создан Вами.",
+      "key": "AiEditor.ViewStyle.InstallsCountCreatedByYou",
+      "many_value": "Используют %d человек. Создан Вами.",
+      "one_value": "Использует %d человек. Создан Вами.",
+      "other_value": "Используют %d человек. Создан Вами."
     },
     {
       "_": "types.LangPackString",
@@ -3533,6 +3546,11 @@
       "_": "types.LangPackString",
       "key": "BotCantAddToAttachMenu",
       "value": "Этого бота нельзя добавить в меню вложений."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotCantReadChatTooltip",
+      "value": "У бота нет доступа ко всему чату — только к сообщениям, в которых он упомянут."
     },
     {
       "_": "types.LangPackString",
@@ -9032,6 +9050,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GuestChatFor",
+      "value": "для"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "HelpUpgradeChannel",
       "value": "Истории для канала"
     },
@@ -12065,6 +12088,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NotificationsStoriesDisplayAuthor",
+      "value": "Показывать имя отправителя"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NotificationsStoriesGlobal",
+      "value": "Новые истории"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NotificationsStoriesImportant",
+      "value": "Важные истории"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NotificationsStoriesImportantInfo",
+      "value": "Вы можете по умолчанию получать уведомления об историях от 5 частых контактов."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NotificationsStoryMute2",
       "value": "Не уведомлять\nоб историях"
     },
@@ -14983,6 +15026,31 @@
       "_": "types.LangPackString",
       "key": "ReactionsByEmotionChartTitle",
       "value": "Реакции"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReactionsNotifyContacts",
+      "value": "Контактов"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReactionsNotifyEveryone",
+      "value": "Всех"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReactionsNotifyFrom",
+      "value": "От"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReactionsNotifyMessages",
+      "value": "Реакции на сообщения"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReactionsNotifyStories",
+      "value": "Реакции на истории"
     },
     {
       "_": "types.LangPackString",
@@ -19031,6 +19099,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Story.Notification",
+      "value": "опубликовал(а) историю"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Story.RemoveFromProfile",
       "value": "Удалить из профиля"
     },
@@ -19892,6 +19965,11 @@
       "_": "types.LangPackString",
       "key": "Translate",
       "value": "Перевести"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translate.Error",
+      "value": "При переводе текста произошла ошибка."
     },
     {
       "_": "types.LangPackString",
@@ -21190,5 +21268,5 @@
       "other_value": "%1$d сообщений"
     }
   ],
-  "version": 298443
+  "version": 300080
 }
