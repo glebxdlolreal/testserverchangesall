@@ -80,6 +80,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AIStyleModal.DeleteStyleForAll",
+      "value": "Für alle löschen"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AIStyleModal.DeleteStyleHeader",
       "value": "Stil löschen"
     },
@@ -113,6 +118,12 @@
       "key": "AIStyleModal.SavedLimitPremium",
       "one_value": "",
       "other_value": "Du kannst bis zu %1$d Stile speichern. Mit Telegram Premium erhöht sich dieses Limit auf %2$d."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "AIStyleModal.SavedLimitReached",
+      "one_value": "",
+      "other_value": "Du hast das Limit von %1$d gespeicherten Stilen erreicht."
     },
     {
       "_": "types.LangPackString",
@@ -208,6 +219,11 @@
       "_": "types.LangPackString",
       "key": "AboutFeature.DisableSharing.NoScreenshotsDesc",
       "value": "Keine Screenshots und Aufnahmen in diesem Chat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AboutFeature.DisableSharing.Title",
+      "value": "Teilen abschalten"
     },
     {
       "_": "types.LangPackString",
@@ -596,6 +612,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AiStylePreview.DefaultDescription",
+      "value": "Ein Stil für den KI-Editor, mit dem du deine Nachrichten umschreiben kannst."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AiStylePreview.ExampleHeader",
       "value": "BEISPIEL"
     },
@@ -608,6 +629,11 @@
       "_": "types.LangPackString",
       "key": "AiStylePreview.LabelBefore",
       "value": "Vorher"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AiStylePreview.OpenLinkOnTelegram",
+      "value": "Öffne den Link in Telegram, um diesen Stil hinzuzufügen."
     },
     {
       "_": "types.LangPackString",
@@ -1299,6 +1325,11 @@
       "_": "types.LangPackString",
       "key": "Auth.Login.ConfirmPhone",
       "value": "Ist %@ deine Telefonnummer?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Auth.LoginWithPasskey",
+      "value": "Mit Passkey anmelden"
     },
     {
       "_": "types.LangPackString",
@@ -2397,6 +2428,11 @@
       "_": "types.LangPackString",
       "key": "Call.StatusRinging",
       "value": "Es klingelt..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Call.StatusSwitchingToConference",
+      "value": "Wechsle zum Gruppenanruf ..."
     },
     {
       "_": "types.LangPackString",
@@ -3607,6 +3643,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Channel.Member.Promote",
+      "value": "Befördern"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Member.Restrict",
+      "value": "Einschränken"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Channel.NameHeader",
       "value": "KANALNAME"
     },
@@ -4581,6 +4627,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChannelParticipant.EditTag",
+      "value": "Tag bearbeiten"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChannelParticipant.Member",
+      "value": "Mitglied"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChannelParticipant.Permissions",
+      "value": "Berechtigungen"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChannelParticipant.PreviewMessage",
       "value": "Guten Morgen! 👋"
     },
@@ -4613,6 +4674,11 @@
       "_": "types.LangPackString",
       "key": "ChannelParticipant.TagDescSelf",
       "value": "Teile deine Rolle, deinen Titel oder wie du in dieser Gruppe bekannt bist. Dein Tag ist für alle Mitglieder sichtbar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChannelParticipant.TagUpdateError",
+      "value": "Beim Aktualisieren des Tags ist ein Fehler aufgetreten."
     },
     {
       "_": "types.LangPackString",
@@ -5687,6 +5753,11 @@
       "_": "types.LangPackString",
       "key": "Chat.Context.Sticker.RemovedFromFavorites",
       "value": "Sticker wurde aus Favoriten entfernt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Context.Summarize",
+      "value": "Zusammenfassen"
     },
     {
       "_": "types.LangPackString",
@@ -6815,7 +6886,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.Pinned.DontShow",
-      "value": "Keine angehefteten Nachrichten zeigen"
+      "value": "Angeheftete ausblenden"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -7152,6 +7223,11 @@
       "_": "types.LangPackString",
       "key": "Chat.Send.AddToCalendar",
       "value": "Zum Kalender hinzufügen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Send.EventAddedToCalendar",
+      "value": "Zum Kalender hinzugefügt"
     },
     {
       "_": "types.LangPackString",
@@ -8212,6 +8288,11 @@
       "value": "Übersetzen nach %1$@"
     },
     {
+      "_": "types.LangPackString",
+      "key": "Chat.TranslationPoweredByCocoon",
+      "value": "Übersetzungen stammen von Cocoon. [Wie funktioniert das?]()"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "Chat.UndoManager.ChannelDeleted",
       "one_value": "Kanal gelöscht.",
@@ -8451,6 +8532,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatEmpty.ManagedBot.Tap",
+      "value": "Klicken"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatEmpty.Topic",
       "value": "Sende eine Nachricht, um das Thema zu starten."
     },
@@ -8479,6 +8565,11 @@
       "_": "types.LangPackString",
       "key": "ChatHeader.RestartTopic",
       "value": "Thema wiedereröffnen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatHeader.Tone",
+      "value": "Ton"
     },
     {
       "_": "types.LangPackString",
@@ -9670,6 +9761,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatMenu.AddedByYou",
+      "value": "Du"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatMenu.DeleteOption",
       "value": "Eintrag löschen"
     },
@@ -9719,6 +9815,12 @@
       "_": "types.LangPackString",
       "key": "ChatMessage.RelativeDate.InFuture",
       "value": "in %1$@"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ChatMessage.RelativeDate.Minutes",
+      "one_value": "",
+      "other_value": "%1$d Minuten"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -9878,6 +9980,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatService.CopyProtection.Reject",
+      "value": "Ablehnen"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatService.CopyProtection.RequestExpired",
       "value": "Die Freigabeanfrage ist abgelaufen."
     },
@@ -9905,6 +10012,16 @@
       "_": "types.LangPackString",
       "key": "ChatService.CopyProtection.SharingEnabledToast",
       "value": "Teilen für diesen Chat aktiviert"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.CopyProtection.SharingWillBeDisabled",
+      "value": "Nach der Genehmigung wird die Freigabe deaktiviert."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.CopyProtection.SharingWillBeEnabled",
+      "value": "Nach der Genehmigung wird die Freigabe aktiviert."
     },
     {
       "_": "types.LangPackString",
@@ -9992,6 +10109,11 @@
       "_": "types.LangPackString",
       "key": "ChatService.JoinedGroupByRequest",
       "value": "Dein Antrag auf Mitgliedschaft in der Gruppe wurde genehmigt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.ManagedBotCreated",
+      "value": "%1$@ hat %2$@ erstellt"
     },
     {
       "_": "types.LangPackString",
@@ -11037,6 +11159,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CreateBot.LimitReached",
+      "value": "Du hast das Limit von %1$d Bots erreicht. Mit Telegram Premium kannst du bis zu %2$d Bots erstellen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CreateBot.LimitReachedPremium",
+      "value": "Du hast die maximale Anzahl von %1$d Bots erreicht."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CreateBot.SuccessInfo",
       "value": "%1$@ wird den Bot für dich verwalten."
     },
@@ -11484,6 +11616,11 @@
       "_": "types.LangPackString",
       "key": "DiceRoll.EmojiStakeDescription",
       "value": "Ein Emoji-Spiel für Nutzer ab Level 5. Verdiente 💎 können nur für Telegram-Geschenke und Beiträge ausgegeben werden."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DiceRoll.EnterStakePlaceholder",
+      "value": "Gib deinen Einsatz ein"
     },
     {
       "_": "types.LangPackString",
@@ -12859,6 +12996,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "FormattedDate.LongDate.m12",
+      "value": "%1$@. Dezember %2$@"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "FormattedDate.LongDate.m2",
       "value": "%1$@. Februar %2$@"
     },
@@ -12908,6 +13050,11 @@
       "key": "FormattedDate.SecondsAgo",
       "one_value": "vor %1$d Sekunde",
       "other_value": "vor %1$d Sekunden"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattedDate.ShortDate.Separator",
+      "value": "/"
     },
     {
       "_": "types.LangPackString",
@@ -13145,6 +13292,16 @@
       "_": "types.LangPackString",
       "key": "Fragment.Ton.AddFunds.Header.Info",
       "value": "Du kannst TON über die Drittanbieter-Plattform Fragment zu deinem Guthaben hinzufügen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Fragment.Ton.MaxWithdraw",
+      "value": "Du kannst nicht mehr als %d Grams auf einmal abheben."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Fragment.Ton.MinWithdraw",
+      "value": "Du kannst nicht weniger als %d Grams auf einmal abheben."
     },
     {
       "_": "types.LangPackString",
@@ -15298,6 +15455,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "LiteMode.Key.liquidGlass.Info",
+      "value": "UI-Flächen mit dem Liquid-Glass-Effekt von macOS Tahoe darstellen. Deaktivieren, um leichte Systemunschärfe zu verwenden und GPU-Leistung zu sparen."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "LiteMode.Key.liquidGlass.Title",
       "value": "Liquid Glass aktivieren"
     },
@@ -15370,6 +15532,16 @@
       "_": "types.LangPackString",
       "key": "Localization.Preview.Error.Generic",
       "value": "Diese Sprache existiert nicht."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Location.SelectMyLocation",
+      "value": "Meinen Standort auswählen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Location.SelectThisLocation",
+      "value": "Diesen Standort auswählen"
     },
     {
       "_": "types.LangPackString",
@@ -15873,6 +16045,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "LoginWidget.Confirmation.TapNumber",
+      "value": "Tippe auf den Code auf deiner Anmeldeseite"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "LoginWidget.Confirmation.VerifyIdentity",
       "value": "Telegram möchte sicherstellen, dass du es wirklich bist."
     },
@@ -15880,6 +16057,16 @@
       "_": "types.LangPackString",
       "key": "LoginWidget.IPAddress",
       "value": "IP-Adresse"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "LoginWidget.LogInTo",
+      "value": "Bei %1$@ anmelden"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "LoginWidget.LogInToApp",
+      "value": "Bei App %1$@ anmelden"
     },
     {
       "_": "types.LangPackString",
@@ -16912,6 +17099,11 @@
       "key": "NewPoll.CountriesCount",
       "one_value": "",
       "other_value": "%1$d Länder"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.CountriesNone",
+      "value": "Keines"
     },
     {
       "_": "types.LangPackString",
@@ -19000,8 +19192,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PeerInfo.CopyProtection.Info",
+      "value": "Nutzer können Inhalte aus deinem Profil speichern und weiterleiten."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.CopyProtection.InfoRestrict",
+      "value": "Nutzer können keine Nachrichten aus deinem privaten Chat weiterleiten, Medien daraus speichern oder Screenshots davon erstellen. Außerdem können sie keinen Text daraus kopieren."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PeerInfo.CopyProtection.RequiresPremium",
       "value": "Diese Funktion erfordert Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.CopyProtection.Restrict",
+      "value": "Weiterleiten einschränken"
     },
     {
       "_": "types.LangPackString",
@@ -25730,6 +25937,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarList.Ton.Withdraw.Info",
+      "value": "Grams über Fragment erhalten. [Mehr erfahren >](telegram.org)"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarList.TonInfo",
       "value": "Biete TON an, um Beitragsvorschläge an Kanäle auf Telegram einzureichen."
     },
@@ -27305,6 +27517,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StoryListView.AddToProfile",
+      "value": "Zum Profil hinzufügen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StoryListView.AddToSavedMessages",
+      "value": "Zu Gespeichert hinzufügen"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StoryMedia.Album.Add",
       "value": "Album hinzufügen"
     },
@@ -28112,6 +28334,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextUtils.ManagedBotCreated",
+      "value": "%1$@ hat %2$@ erstellt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextUtils.PollOptionAppended",
+      "value": "%1$@ hat eine neue Option hinzugefügt: %2$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextUtils.PollOptionDeleted",
+      "value": "%1$@ hat eine Option gelöscht: %2$@"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextView.Transform.Bold",
       "value": "Fett"
     },
@@ -28190,6 +28427,11 @@
       "_": "types.LangPackString",
       "key": "Time.AtDate",
       "value": "{date}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Time.AtPreciseDate",
+      "value": "%1$@ um %2$@"
     },
     {
       "_": "types.LangPackString",
@@ -28552,6 +28794,11 @@
       "_": "types.LangPackString",
       "key": "Translate.Apply",
       "value": "Anwenden"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translate.CopyToClipboard",
+      "value": "In Zwischenablage kopieren"
     },
     {
       "_": "types.LangPackString",
@@ -29220,6 +29467,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Translate.Tone",
+      "value": "Ton"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Translate.TranslateEntireChat",
       "value": "Gesamten Chat übersetzen"
     },
@@ -29237,6 +29489,11 @@
       "_": "types.LangPackString",
       "key": "TranslateModal.DeleteStyleConfirm",
       "value": "Wirklich diesen Stil löschen?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TranslateModal.DeleteStyleForAll",
+      "value": "Für alle löschen"
     },
     {
       "_": "types.LangPackString",
@@ -29735,6 +29992,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UserTag.Info.Admin",
+      "value": "Admin"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UserTag.Info.AdminTag",
       "value": "Admin-Tag"
     },
@@ -29745,13 +30007,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UserTag.Info.CustomTagDesc",
+      "value": "ist %1$@s angepasstes Tag in %2$@."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserTag.Info.Member",
+      "value": "Mitglied"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UserTag.Info.MemberTag",
       "value": "Mitglieds-Tag"
     },
     {
       "_": "types.LangPackString",
+      "key": "UserTag.Info.Owner",
+      "value": "Inhaber"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UserTag.Info.OwnerTag",
       "value": "Inhaber-Tag"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserTag.Info.OwnerTagDesc",
+      "value": "ist der Inhaber-Tag von %1$@ in %2$@."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserTag.Info.SetOwnTag",
+      "value": "Du kannst in dieser Gruppe deinen eigenen Mitgliedertag festlegen."
     },
     {
       "_": "types.LangPackString",
@@ -31653,5 +31940,5 @@
       "value": "Ersetzungen anzeigen"
     }
   ],
-  "version": 2225501
+  "version": 2227135
 }
