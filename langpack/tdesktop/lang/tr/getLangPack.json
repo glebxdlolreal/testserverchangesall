@@ -1545,6 +1545,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_gift_sent_upgradable",
+      "value": "{user} bu hediyeyi eşsiz bir koleksiyon parçasına dönüştürebilir."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_gift_sent_upgrade",
       "value": "{from} hediyeniz için {cost} değerinde bir yükseltme gönderdi."
     },
@@ -1622,6 +1627,11 @@
       "_": "types.LangPackString",
       "key": "lng_action_gift_upgraded_channel",
       "value": "{user}, {channel} kanala verdiği bu hediyeyi eşsiz bir koleksiyon parçasına dönüştürdü."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_gift_upgraded_helped",
+      "value": "{user}, yükseltilmesine yardımcı olduğunuz hediyeyi açtı."
     },
     {
       "_": "types.LangPackString",
@@ -4030,6 +4040,18 @@
       "_": "types.LangPackString",
       "key": "lng_ai_compose_tone_save",
       "value": "Kaydet"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_ai_compose_tone_saved_limit",
+      "one_value": "{link} aboneliğiyle en fazla {premium_count} stil kaydedin veya yeni bir stil eklemek için mevcut {count} stilinizden birini silin.",
+      "other_value": "\n{link} aboneliğiyle en fazla {premium_count} stil kaydedin veya yeni bir stil eklemek için mevcut {count} stilinizden birini silin."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_ai_compose_tone_saved_limit_final",
+      "one_value": "**{count}** adede kadar stil kaydedebilirsiniz. Birini silerek başka bir stil ekleyebilirsiniz.",
+      "other_value": "**{count}** adede kadar stil kaydedebilirsiniz. Birini silerek başka bir stil ekleyebilirsiniz."
     },
     {
       "_": "types.LangPackString",
@@ -10582,6 +10604,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_credits_box_history_entry_gift_from",
+      "value": "Kullanıcıdan Hediye"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_credits_box_history_entry_gift_full_price",
       "value": "Tam Fiyat"
     },
@@ -16850,6 +16877,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_gift_transferred_about",
+      "value": "{name}, {recipient} adlı kişiye başarıyla aktarıldı."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_gift_transferred_title",
       "value": "Hediye Transfer Edildi"
     },
@@ -16893,6 +16925,11 @@
       "_": "types.LangPackString",
       "key": "lng_gift_unique_gift_upgrade",
       "value": "Bir Yükseltme Hediye Et"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_gift_unique_info",
+      "value": "{recipient} adlı kişiye {date} tarihinde hediye edilmiştir."
     },
     {
       "_": "types.LangPackString",
@@ -19070,6 +19107,16 @@
       "_": "types.LangPackString",
       "key": "lng_group_invite_about_approve_channel",
       "value": "Kullanıcıların yalnızca bir yönetici tarafından onaylandıktan sonra katılmalarını istiyorsanız bunu açın."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_group_invite_about_approve_disabled",
+      "value": "Bu seçenek kullanılamıyor çünkü herkes genel grup bağlantısı üzerinden gruba katılabilir ve mesaj gönderebilir."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_group_invite_about_approve_disabled_channel",
+      "value": "Herkes genel kanal bağlantısı aracılığıyla kanala katılabileceğinden bu seçenek kullanılamaz."
     },
     {
       "_": "types.LangPackString",
@@ -35555,6 +35602,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_star_ref_link_about_bot",
+      "value": "Bu bağlantıyı kullanıcılarınızla paylaşarak, {app} uygulamasında yaptıkları harcamalardan {amount} {duration} tutarında komisyon kazanın."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_star_ref_link_about_channel",
       "value": "Bu bağlantıyı abonelerinizle paylaşarak, onların {app} {duration} süresince yaptıkları harcamalardan {amount} tutarında komisyon kazanın."
     },
@@ -37135,9 +37187,21 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "key": "lng_suggest_accept_pay_now_ton",
+      "one_value": "Şu anda yayınlamak için **{count} Gram** ödeyeceksiniz.",
+      "other_value": "Şu anda yayınlamak için **{count} Gram** ödeyeceksiniz."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "key": "lng_suggest_accept_pay_stars",
       "one_value": "{date} tarihinde yayınlamak için **{count} Yıldız** ödeyeceksiniz.",
       "other_value": "{date} tarihinde yayınlamak için **{count} Yıldız** ödeyeceksiniz."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_suggest_accept_pay_ton",
+      "one_value": "{date} tarihli yayını için **{count} Gram** ödeyeceksiniz.",
+      "other_value": "{date} tarihli yayını için **{count} Gram** ödeyeceksiniz."
     },
     {
       "_": "types.LangPackString",
@@ -37149,6 +37213,24 @@
       "key": "lng_suggest_accept_receive_now_stars",
       "one_value": "{channel} şu anda yayınladığı için **{count} Yıldız** ({percent}) alacak.",
       "other_value": "{channel} şu anda yayınladığı için **{count} Yıldız** ({percent}) alacak."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_suggest_accept_receive_now_ton",
+      "one_value": "{channel}, şu anda yayınladığı için **{count} Gram** ({percent}) alacak.",
+      "other_value": "{channel}, şu anda yayınladığı için **{count} Gram** ({percent}) alacak."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_suggest_accept_receive_stars",
+      "one_value": "{channel}, {date} tarihinde yayınladığı içerik için **{count} Yıldız** ({percent}) alacak.",
+      "other_value": "{channel}, {date} tarihinde yayınladığı içerik için **{count} Yıldız** ({percent}) alacak."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_suggest_accept_receive_ton",
+      "one_value": "{channel}, {date} tarihli yayını için **{count} Gram** ({percent}) alacak.",
+      "other_value": "{channel}, {date} tarihli yayını için **{count} Gram** ({percent}) alacak."
     },
     {
       "_": "types.LangPackString",
@@ -39451,5 +39533,5 @@
       "other_value": "{count} yıldız ödediniz."
     }
   ],
-  "version": 5700947
+  "version": 5703414
 }
