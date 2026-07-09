@@ -2357,10 +2357,10 @@ var BotCliAccess = {
         }
         if (response.ok) {
           $('.js-spoiler.js-cli-token').html(response.token);
-          $('.copy-btn.js-cli-token').data('value', response.token);
+          $('.copy-btn.js-cli-token').attr('data-value', response.token);
           $('.js-spoiler.js-cli-token').each(function () {
             SimpleSpoiler.init(this);
-          });
+          }).removeClass('js-spoiler-revealed');
           Main.showSuccessToast(l('WEB_CLI_TOKEN_REVOKE_SUCCESS'));
         }
       });
