@@ -2533,7 +2533,7 @@ var BotLibrary = {
     }
     var existing = Aj.state.existingLibraries || [];
     if (existing.indexOf(name) !== -1) {
-      Main.showErrorToast(l('WEB_FUNCTION_NAME_EXISTS'));
+      Main.showErrorToast(l('WEB_LIBRARY_FILE_EXISTS'));
       $('#library-name').focus();
       return;
     }
