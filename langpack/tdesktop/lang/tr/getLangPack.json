@@ -236,6 +236,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "cloud_lng_language_ig",
+      "value": "İbo"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "cloud_lng_language_is",
       "value": "İzlandaca"
     },
@@ -1560,6 +1565,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_gift_sent_upgrade_other",
+      "value": "{from}, {user} kişisinden aldığınız hediye karşılığında {cost} değerinde bir yükseltme gönderdi."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_gift_sent_upgrade_self",
       "value": "Bu hediye için {cost} değerinde bir yükseltme gönderdiniz."
     },
@@ -1673,6 +1683,12 @@
       "_": "types.LangPackString",
       "key": "lng_action_giveaway_credits_started_group",
       "value": "{from} üyelerine {amount} değerinde hediye çekilişi başlattı."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_action_giveaway_results",
+      "one_value": "{count} numaralı çekiliş kazananı, Telegram tarafından rastgele seçildi ve hediye kodlarını içeren özel mesajlar aldı.",
+      "other_value": "{count} numaralı çekiliş kazananı, Telegram tarafından rastgele seçildi ve hediye kodlarını içeren özel mesajlar aldı."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -2227,8 +2243,8 @@
     {
       "_": "types.LangPackStringPluralized",
       "key": "lng_action_suggest_success_ton",
-      "one_value": "{from}, gönderiyi yayınladığı için {count} TON aldı.",
-      "other_value": "{from}, gönderiyi yayınladığı için {count} TON aldı."
+      "one_value": "{from}, bir gönderi yayınladığı için {count} Gram kazandı.",
+      "other_value": "{from}, bir gönderi yayınladığı için {count} Gram kazandı."
     },
     {
       "_": "types.LangPackString",
@@ -5689,6 +5705,12 @@
       "other_value": "{channel} kanalını tekrar güçlendirmek için, bir arkadaşınıza **Telegram Premium** hediye edin ve **{count}** ek destek alın."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_boost_need_more_text",
+      "one_value": "{channel} kanalını güçlendirmek için bir arkadaşınıza **Telegram Premium** hediye edin ve **{count}** destek kazanın.",
+      "other_value": "{channel} kanalını güçlendirmek için bir arkadaşınıza **Telegram Premium** hediye edin ve **{count}** destek kazanın."
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_boost_now_instead",
       "value": "Şu anda {channel} kanalını güçlendiriyorsunuz. Bunun yerine {other} kanalını güçlendirmek ister misiniz?"
@@ -7722,7 +7744,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_channel_earn_transfer_sure_about2",
-      "value": "Bu işlem geri alınamaz. Yukarıdaki adres yanlışsa TON'unuzu kaybedersiniz."
+      "value": "Bu işlem geri alınamaz. Yukarıdaki adres yanlışsa, Gram'larınızı kaybedersiniz."
     },
     {
       "_": "types.LangPackString",
@@ -15996,6 +16018,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_gift_link_pending_about",
+      "value": "Bu bağlantı, {user} kişisinin bir **Telegram Premium** aboneliğini etkinleştirmesini sağlar."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_gift_link_pending_footer",
       "value": "Bu bağlantı henüz kullanılmadı."
     },
@@ -17576,6 +17603,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_giveaway_additional_about",
+      "value": "Kazananlara Premium aboneliklerin yanı sıra kendi ödüllerinizi de vermek istiyorsanız bu seçeneği etkinleştirin."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_giveaway_additional_credits_about",
       "value": "Yıldızlara ek olarak kazananlara kendi ödüllerinizi vermek istiyorsanız bunu açın."
     },
@@ -17609,6 +17641,11 @@
       "_": "types.LangPackString",
       "key": "lng_giveaway_award_subtitle",
       "value": "Alıcıları seçin >"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_giveaway_awarded_body",
+      "value": "Kanallarınızın {link} sayfasını kontrol ederek hediyelerin kanalınızı nasıl geliştirdiğini görün."
     },
     {
       "_": "types.LangPackString",
@@ -17793,6 +17830,12 @@
       "key": "lng_giveaway_maximum_countries_error",
       "one_value": "En fazla {count} ülke seçebilirsiniz.",
       "other_value": "En fazla {count} ülke seçebilirsiniz."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_giveaway_maximum_users_error",
+      "one_value": "En fazla {count} abone seçebilirsiniz.",
+      "other_value": "En fazla {count} abone seçebilirsiniz."
     },
     {
       "_": "types.LangPackString",
@@ -25645,7 +25688,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_pinned_hide_all",
-      "value": "Sabitlenmiş mesajları gösterme"
+      "value": "Sabitlenmiş Mesajları Gizle"
     },
     {
       "_": "types.LangPackString",
@@ -26615,10 +26658,21 @@
       "value": "**{user}** ve **{second_user}** satın aldığınız hediyeler hakkında bilgilendirildi."
     },
     {
+      "_": "types.LangPackString",
+      "key": "lng_premium_gifts_about_paid3",
+      "value": "**{user}**, **{second_user}** ve **{name}**, satın aldığınız hediyelerle ilgili bilgilendirildi."
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "lng_premium_gifts_about_paid_below",
       "one_value": "Artık ek özelliklere erişimleri var.",
       "other_value": "Artık ek özelliklere erişimleri var."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_premium_gifts_about_paid_more",
+      "one_value": "**{user}**, **{second_user}**, **{name}** ve **{count}** diğer kullanıcı satın aldığınız hediyelerle ilgili bilgilendirildi.",
+      "other_value": "**{user}**, **{second_user}**, **{name}** ve **{count}** diğer kullanıcı satın aldığınız hediyelerle ilgili bilgilendirildi."
     },
     {
       "_": "types.LangPackString",
@@ -26633,8 +26687,24 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_premium_gifts_about_user1",
+      "value": "**{user}** kişisine özel özelliklere erişim izni verin."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_premium_gifts_about_user2",
       "value": "**{user}** ve **{second_user}** kişilerine özel özelliklere erişim verin."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_premium_gifts_about_user3",
+      "value": "**{user}**, **{second_user}** ve **{name}** için özel özelliklere erişim izni verin."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_premium_gifts_about_user_more",
+      "one_value": "**{user}**, **{second_user}**, **{name}** ve **{count}** daha fazla arkadaşınızın özel özelliklere erişmesini sağlayın.",
+      "other_value": "**{user}**, **{second_user}**, **{name}** ve **{count}** daha fazla arkadaşınızın özel özelliklere erişmesini sağlayın."
     },
     {
       "_": "types.LangPackString",
@@ -27279,6 +27349,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_prizes_cancelled_group",
+      "value": "Grup, ödemeyi iade ederek ödülleri iptal etti."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_prizes_countries",
       "value": "{countries} ülkesinden"
     },
@@ -27370,6 +27445,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_prizes_how_no_admin_group",
+      "value": "Katılımcı grubun ({channel}) yöneticisi olduğunuz için bu çekilişe katılmaya uygun değilsiniz."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_prizes_how_no_country",
       "value": "Ülkeniz çekiliş şartlarında yer almadığı için bu çekilişe katılmaya uygun değilsiniz."
     },
@@ -27380,8 +27460,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_prizes_how_no_joined_group",
+      "value": "Bu gruba yarışma başlamadan önce, yani {date} tarihinde katıldığınız için bu çekilişe katılmaya uygun değilsiniz."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_prizes_how_participate_many",
       "value": "Bu çekilişe katılmak için lütfen {date} tarihinden önce {channel} kanalına ve listelenen diğer grup ve kanallara katılın."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_prizes_how_participate_one",
+      "value": "Bu çekilişe katılmak için lütfen {date} tarihinden önce {channel} kanalına katılın."
     },
     {
       "_": "types.LangPackString",
@@ -30199,6 +30289,11 @@
       "_": "types.LangPackString",
       "key": "lng_rights_add_admins",
       "value": "Yeni yöneticiler ekleme"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_rights_boosts_about",
+      "value": "Grubunuzu güçlendiren kullanıcıların her zaman mesaj ve medya göndermesine izin vermek için bunu açın."
     },
     {
       "_": "types.LangPackString",
@@ -35051,6 +35146,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_sr_chat_column_closed",
+      "value": "Kapandı"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_sr_chat_column_delivery",
       "value": "Teslimat"
     },
@@ -37393,7 +37493,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_suggest_action_agree_receive_ton",
-      "value": "Gönderi yayınlandıktan 24 saat sonra {channel} kanalına TON gönderilecektir."
+      "value": "Gönderi 24 saat boyunca yayında kaldıktan sonra {channel}, Gram kazanacaktır."
     },
     {
       "_": "types.LangPackString",
@@ -37444,8 +37544,8 @@
     {
       "_": "types.LangPackStringPluralized",
       "key": "lng_suggest_action_his_charged_ton",
-      "one_value": "**{count} TON** tutarında ücret {from} yansıtılmıştır.",
-      "other_value": "**{count} TON** tutarında ücret {from} yansıtılmıştır."
+      "one_value": "{from} kişisine **{count} Gram** tutarında yüklendi.",
+      "other_value": "{from} kişisine **{count} Gram** tutarında yüklendi."
     },
     {
       "_": "types.LangPackString",
@@ -37786,7 +37886,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_suggest_warn_text_ton",
-      "value": "Gönderiyi şimdi silerseniz **TON** puan alamazsınız. Gönderinin yayınlandıktan sonra en az **24 saat** görünür kalması gerekiyor."
+      "value": "Gönderiyi şimdi silerseniz, bu gönderi için **Gram** kazanamazsınız. Gönderi, yayınlandıktan sonra en az **24 saat** boyunca görünür durumda kalmalıdır."
     },
     {
       "_": "types.LangPackString",
@@ -38796,6 +38896,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_ttl_round_sent",
+      "value": "Kendiliğinden silinen bir görüntülü mesaj gönderdiniz."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_ttl_round_tooltip_in",
       "value": "Bu görüntülü mesaj yalnızca bir kez oynatılabilir."
     },
@@ -38828,6 +38933,11 @@
       "_": "types.LangPackString",
       "key": "lng_ttl_voice_expired",
       "value": "Sesli mesajın süresi doldu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ttl_voice_sent",
+      "value": "Kendiliğinden silinen bir sesli mesaj gönderdiniz."
     },
     {
       "_": "types.LangPackString",
@@ -38895,6 +39005,12 @@
       "key": "lng_unconfirmed_auth_multiple",
       "one_value": "Hesabınıza {count} yeni giriş tespit ettik. Bu siz misiniz?",
       "other_value": "Hesabınıza {count} yeni giriş tespit ettik. Bu siz misiniz?"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_unconfirmed_auth_multiple_from",
+      "one_value": "{country} konumundan hesabınıza {count} yeni giriş tespit ettik. Bu siz misiniz?",
+      "other_value": "{country} konumundan hesabınıza {count} yeni giriş tespit ettik. Bu siz misiniz?"
     },
     {
       "_": "types.LangPackString",
@@ -39656,5 +39772,5 @@
       "other_value": "{count} yıldız ödediniz."
     }
   ],
-  "version": 5703441
+  "version": 5703482
 }
