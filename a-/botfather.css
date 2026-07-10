@@ -3146,6 +3146,45 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   --icon-s: var(--image-url-db-no-sync);
 }
 
+.tm-wh-status {
+  display: flex;
+  align-items: center;
+  background: var(--table-bg-color);
+  border-radius: var(--def-border-radius);
+  position: relative;
+  padding-left: 12px;
+  gap: 10px;
+}
+.tm-wh-status > div {
+  flex: 1;
+  min-width: 0;
+}
+.tm-wh-status .tm-icon {
+  width: 32px;
+  height: 32px;
+  background-size: 32px;
+  flex-shrink: 0;
+  margin: 0;
+}
+.tm-wh-status-sync .tm-icon {
+  --icon-s: var(--image-url-db-sync);
+}
+.tm-wh-status-no-sync .tm-icon {
+  --icon-s: var(--image-url-db-no-sync);
+}
+.tm-wh-status-action {
+  flex-shrink: 0;
+  align-self: center;
+  color: var(--btn-primary-bg-color);
+  font-weight: 600;
+  font-size: 14px;
+  padding-right: 14px;
+}
+.js-webhook-syncing {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
 .tm-migration-progress {
   height: 3px;
   background: #2D3A47;
