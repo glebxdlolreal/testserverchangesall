@@ -3130,7 +3130,11 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   border-radius: var(--def-border-radius);
   position: relative;
   padding-left: 12px;
+  padding-right: 12px;
   gap: 10px;
+}
+.tm-db-status.tm-row-link {
+  padding-right: 24px;
 }
 .tm-db-status .tm-icon {
   width: 32px;
@@ -3145,40 +3149,17 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 .tm-db-status-no-sync .tm-icon {
   --icon-s: var(--image-url-db-no-sync);
 }
-
-.tm-wh-status {
-  display: flex;
-  align-items: center;
-  background: var(--table-bg-color);
-  border-radius: var(--def-border-radius);
-  position: relative;
-  padding-left: 12px;
-  gap: 10px;
-}
-.tm-wh-status > div {
+.tm-db-status-body {
   flex: 1;
   min-width: 0;
 }
-.tm-wh-status .tm-icon {
-  width: 32px;
-  height: 32px;
-  background-size: 32px;
-  flex-shrink: 0;
-  margin: 0;
-}
-.tm-wh-status-sync .tm-icon {
-  --icon-s: var(--image-url-db-sync);
-}
-.tm-wh-status-no-sync .tm-icon {
-  --icon-s: var(--image-url-db-no-sync);
-}
-.tm-wh-status-action {
+.tm-db-status-action {
   flex-shrink: 0;
   align-self: center;
   color: var(--btn-primary-bg-color);
   font-weight: 600;
   font-size: 14px;
-  padding-right: 14px;
+  padding: 0 5px;
 }
 .js-webhook-syncing {
   opacity: 0.6;
