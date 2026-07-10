@@ -170,6 +170,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AIEditorStylePrompt",
+      "value": "Prompt"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AIEditorStylePromptHint",
       "value": "Instrucciones (por ejemplo: “Escribe como un pirata espadachín. Usa 'arr', 'ahoy', 'camarada'. Habla de tesoros y del mar”)"
     },
@@ -4460,13 +4465,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleCode",
+      "value": "Código"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandAudio",
+      "value": "Audio"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleCommandDivider",
       "value": "Divisor"
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleCommandImage",
+      "value": "Imagen"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleCommandList",
       "value": "Lista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandMap",
+      "value": "Mapa"
     },
     {
       "_": "types.LangPackString",
@@ -4490,6 +4515,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleCommandVideo",
+      "value": "Video"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleConversionSendPlain",
       "value": "Enviar sin formato"
     },
@@ -4505,6 +4535,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleConversionTitle",
+      "value": "Borrar formato"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleDateByAuthor",
       "value": "%1$s por %2$s"
     },
@@ -4515,8 +4550,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleDeleteDraft",
+      "value": "Eliminar borrador"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleDeleteDraftMessage",
       "value": "Perderás lo que has escrito."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteDraftTitle",
+      "value": "¿Eliminar este borrador?"
     },
     {
       "_": "types.LangPackString",
@@ -4530,8 +4575,48 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleEditor",
+      "value": "Editor enriquecido"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleFooter",
       "value": "Pie de página"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading",
+      "value": "Encabezado"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading1",
+      "value": "Encabezado 1"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading2",
+      "value": "Encabezado 2"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading3",
+      "value": "Encabezado 3"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading4",
+      "value": "Encabezado 4"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading5",
+      "value": "Encabezado 5"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading6",
+      "value": "Encabezado 6"
     },
     {
       "_": "types.LangPackString",
@@ -4550,13 +4635,48 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleHintAuthor",
+      "value": "Autor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintCode",
+      "value": "Escribe código aquí…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintDetailsTitle",
+      "value": "Título"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintLanguage",
+      "value": "Idioma"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleHintQuote",
       "value": "Pon la cita"
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleHintText",
+      "value": "Escribe algo…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintTitle",
+      "value": "Título"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleIndent",
       "value": "Aumentar sangría"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleInsertAbove",
+      "value": "Insertar arriba"
     },
     {
       "_": "types.LangPackString",
@@ -4650,8 +4770,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleSaveDraftTitle",
+      "value": "¿Guardar este borrador?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleSplitCells",
       "value": "Dividir celdas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleText",
+      "value": "Texto"
     },
     {
       "_": "types.LangPackString",
@@ -13991,10 +14121,30 @@
       "other_value": "%1$d grupos en común"
     },
     {
+      "_": "types.LangPackString",
+      "key": "Community",
+      "value": "Comunidad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAChatToCommunity",
+      "value": "Añadir un chat a la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAdmin",
+      "value": "Añadir administrador"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "CommunityAddAllChatsMessage",
       "one_value": "¿Quieres añadir **%1$d** chat a la comunidad?",
       "other_value": "¿Quieres añadir **%1$d** chats a la comunidad?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAllChatsTitle",
+      "value": "Añadir todos los chats"
     },
     {
       "_": "types.LangPackString",
@@ -14003,8 +14153,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAddBotToCommunity",
+      "value": "Añadir bot a una comunidad"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAddBotToCommunityInfo",
       "value": "Haz que tu bot forme parte de una comunidad con múltiples chats relacionados."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChannelToCommunity",
+      "value": "Añadir canal a una comunidad"
     },
     {
       "_": "types.LangPackString",
@@ -14015,6 +14175,11 @@
       "_": "types.LangPackString",
       "key": "CommunityAddChatTitle",
       "value": "Añadir chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddGroupToCommunity",
+      "value": "Añadir grupo a una comunidad"
     },
     {
       "_": "types.LangPackString",
@@ -14048,8 +14213,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAddToExistingCommunity",
+      "value": "Añadir a una comunidad existente"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdminRightBanMembers",
+      "value": "Expulsar miembros"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdminRightEditCommunityName",
+      "value": "Editar nombre de la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAdminRightEditGroupList",
       "value": "Editar lista de grupos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdministrators",
+      "value": "Administradores"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdministratorsTitle",
+      "value": "Administradores"
     },
     {
       "_": "types.LangPackString",
@@ -14109,8 +14299,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityCommunityCreated",
+      "value": "¡Comunidad creada!"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityCommunityPending",
       "value": "Tu solicitud para unirte a la comunidad ha sido enviada a los admins."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCreateCommunity",
+      "value": "Crear comunidad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDeclineAllTitle",
+      "value": "Rechazar todos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDelete",
+      "value": "Eliminar comunidad"
     },
     {
       "_": "types.LangPackString",
@@ -14184,6 +14394,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityMenuAddChat",
+      "value": "Añadir chat a la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityMenuRemoveBotFromCommunityConfirm",
       "value": "¿Quieres eliminar este bot de la comunidad?"
     },
@@ -14201,6 +14416,11 @@
       "_": "types.LangPackString",
       "key": "CommunityMenuRemoveGroupFromCommunityConfirm",
       "value": "¿Quieres eliminar este grupo de la comunidad?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuSettings",
+      "value": "Ajustes"
     },
     {
       "_": "types.LangPackString",
@@ -14229,8 +14449,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityNewCommunityNameHint",
+      "value": "Nombre de la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNewCommunityTitle",
+      "value": "Nueva comunidad"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityNoChatsToAdd",
       "value": "No tienes chats para añadir a la comunidad."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequest",
+      "value": "Solicitud pendiente"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestAdd",
+      "value": "Añadir"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestAddAll",
+      "value": "Añadir todos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestDecline",
+      "value": "Rechazar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestDeclineAll",
+      "value": "Rechazar todos"
     },
     {
       "_": "types.LangPackString",
@@ -14251,6 +14506,11 @@
       "_": "types.LangPackString",
       "key": "CommunityPendingRequestSuggestedGroup",
       "value": "**%s** sugirió este grupo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequests",
+      "value": "Solicitudes pendientes"
     },
     {
       "_": "types.LangPackString",
@@ -14286,8 +14546,63 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityRemoveBotFromCommunity",
+      "value": "Quitar bot de la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveChannelFromCommunity",
+      "value": "Quitar canal de la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveGroupFromCommunity",
+      "value": "Quitar grupo de la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemovedUsers",
+      "value": "Usuarios expulsados"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityRequestDeclinedToast",
       "value": "Rechazaste la solicitud de añadir **%1$s** a la comunidad."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouAreIn",
+      "value": "Chats en los que estás"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanJoin",
+      "value": "Chats a los que puedes unirte"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanRequestToJoin",
+      "value": "Chats a los que puedes solicitar unirte"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanView",
+      "value": "Chats que puedes ver"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionCommunityName",
+      "value": "Nombre de la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionHiddenChats",
+      "value": "Chats ocultos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionWhoCanAddChats",
+      "value": "Quién puede añadir chats"
     },
     {
       "_": "types.LangPackString",
@@ -14386,6 +14701,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunitySettingsChangePhoto",
+      "value": "Cambiar foto de la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsSetPhoto",
+      "value": "Establecer foto de la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsTitle",
+      "value": "Comunidad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChat",
+      "value": "Mostrar como un chat"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityShowAsOneChatInfo",
       "value": "Agrupa todos los chats de la comunidad en un solo ítem en la lista de chats."
     },
@@ -14411,8 +14746,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsAllMembers",
+      "value": "Todos los miembros"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityWhoCanAddChatsAllMembersInfo",
       "value": "Permite a los miembros añadir sus grupos y canales a la comunidad."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsOnlyAdmins",
+      "value": "Sólo administradores"
     },
     {
       "_": "types.LangPackString",
@@ -14420,9 +14765,30 @@
       "value": "Los chats sugeridos por los miembros de la comunidad requieren la aprobación de los admins."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityWithChats",
+      "one_value": "Comunidad con %1$d chat",
+      "other_value": "Comunidad con %1$d chats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminContinue",
+      "value": "Continuar"
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityYouAreAdminMessage",
       "value": "Ahora puedes editar la info. de **%1$s** y usar otras herramientas de administración."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminNoThanks",
+      "value": "No, gracias"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminTitle",
+      "value": "Eres un admin. de la comunidad"
     },
     {
       "_": "types.LangPackString",
@@ -18032,6 +18398,16 @@
       "_": "types.LangPackString",
       "key": "EphemeralMessageMenuHint",
       "value": "Sólo tú ves este mensaje. Desaparecerá cuando vuelvas a iniciar sesión."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageVisibleToOther",
+      "value": "Visible sólo para @%s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageVisibleToYou",
+      "value": "Visible sólo para ti"
     },
     {
       "_": "types.LangPackString",
@@ -41469,6 +41845,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorDraftSaved",
+      "value": "Borrador guardado."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RightNow",
       "value": "Recién"
     },
@@ -43575,6 +43956,11 @@
       "_": "types.LangPackString",
       "key": "SetColorAsBackground",
       "value": "Usar un color como fondo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SetCommunityPhoto",
+      "value": "Establecer foto de la comunidad"
     },
     {
       "_": "types.LangPackString",
@@ -56386,5 +56772,5 @@
       "value": "Telegram Passport"
     }
   ],
-  "version": 59889550
+  "version": 59889586
 }
