@@ -2795,14 +2795,14 @@ var BotHandlers = {
     var $row = $('.js-webhook-sync');
     if ($row.hasClass('js-webhook-syncing')) return;
     $row.addClass('js-webhook-syncing');
-    $row.find('.tm-wh-status-action').html(l('WEB_WEBHOOK_SYNCING'));
+    $row.find('.js-status-action').html(l('WEB_WEBHOOK_SYNCING'));
     Aj.apiRequest('syncCloudWebhook', { bid: Aj.state.botId }, function(res) {
       if (res.ok) {
         $('#js-webhook-status').html(res.status_html);
         Main.showSuccessToast(l('WEB_WEBHOOK_SYNCED'));
       } else {
         $row.removeClass('js-webhook-syncing');
-        $row.find('.tm-wh-status-action').html(l('WEB_WEBHOOK_SYNC'));
+        $row.find('.js-status-action').html(l('WEB_WEBHOOK_SYNC'));
         Main.showErrorToast(res.error || l('WEB_WEBHOOK_SYNC_ERROR'));
       }
     });
