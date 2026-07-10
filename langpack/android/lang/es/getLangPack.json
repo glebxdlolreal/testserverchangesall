@@ -4435,6 +4435,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleDeleteDraftMessage",
+      "value": "Perderás lo que has escrito."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleSaveDraftMessage",
+      "value": "Puedes guardar el texto escrito en un borrador antes de cerrarlo."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AskAQuestion",
       "value": "Hacer una pregunta"
     },
@@ -13761,14 +13771,100 @@
       "other_value": "%1$d grupos en común"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityAddAllChatsMessage",
+      "one_value": "¿Quieres añadir **%1$d** chat a la comunidad?",
+      "other_value": "¿Quieres añadir **%1$d** chats a la comunidad?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityChannelMessage",
+      "value": "Si este canal es aprobado por un admin. de la comunidad, sus suscriptores podrán unirse o solicitar unirse a otros chats de la comunidad."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityGroupMessage",
+      "value": "Si este grupo es aprobado por un admin. de la comunidad, sus miembros podrán unirse o solicitar unirse a otros chats de la comunidad."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHiddenInfo",
+      "value": "Sólo los miembros invitados y los admins. de la comunidad verán este chat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisibleBotInfo",
+      "value": "Cualquiera en la comunidad podrá ver este bot."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisibleInfo",
+      "value": "Cualquiera en la comunidad podrá ver este chat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenChatTooltipMessage",
+      "value": "Sólo los miembros invitados y los admins. de la comunidad verán este chat."
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityInviteOnlyChannelInfo",
       "value": "Este canal es sólo para invitados.\nSólo sus suscriptores pueden verlo."
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyChannelMessageOwner",
+      "value": "Enviar mensaje al propietario"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityInviteOnlyGroupInfo",
       "value": "Este grupo es sólo para invitados.\nSólo sus miembros pueden verlo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyGroupMessageOwner",
+      "value": "Enviar mensaje al propietario"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminTitle",
+      "value": "Admin. de la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfo",
+      "value": "Los chats requieren la aprobación de los admins. antes de ser añadidos a la comunidad. **Cambiar ajustes >**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfoNoChange",
+      "value": "Los chats requieren la aprobación de los admins. antes de ser añadidos a la comunidad."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequestDeclinedToast",
+      "value": "Rechazaste la solicitud de añadir **%1$s** a la comunidad."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChatInfo",
+      "value": "Agrupa todos los chats de la comunidad en un solo ítem en la lista de chats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsAllMembersInfo",
+      "value": "Permite a los miembros añadir sus grupos y canales a la comunidad."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsOnlyAdminsInfo",
+      "value": "Los chats sugeridos por los miembros de la comunidad requieren la aprobación de los admins."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminMessage",
+      "value": "Ahora puedes editar la info. de **%1$s** y usar otras herramientas de administración."
     },
     {
       "_": "types.LangPackString",
@@ -55692,5 +55788,5 @@
       "value": "Telegram Passport"
     }
   ],
-  "version": 59884921
+  "version": 59885094
 }
