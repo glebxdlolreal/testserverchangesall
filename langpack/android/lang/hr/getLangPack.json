@@ -14339,6 +14339,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityChannelMessage",
+      "value": "Ako ovaj kanal odobri administrator zajednice, njegovi pretplatnici moći će se pridružiti drugim razgovorima u zajednici ili zatražiti da se pridruže."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityGroupMessage",
+      "value": "Ako ovu grupu odobri administrator zajednice, njeni članovi moći će se pridružiti drugim razgovorima u zajednici ili zatražiti da se pridruže."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAddToCommunityRequestButton",
       "value": "Pošalji zahtjev za pridruživanje"
     },
@@ -14354,8 +14364,13 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAdminRightBanMembers",
+      "value": "Zabranjivanje pristupa članovima"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAdminRightEditCommunityName",
-      "value": "Uredi naziv zajednice"
+      "value": "Uređivanje naziva zajednice"
     },
     {
       "_": "types.LangPackString",
@@ -14376,6 +14391,13 @@
       "_": "types.LangPackString",
       "key": "CommunityBanFromCommunity",
       "value": "Zabrani pristup zajednici"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Korisnik će biti uklonjen iz **%1$d razgovora >**",
+      "key": "CommunityBanFromCommunityInfo",
+      "one_value": "Korisnik će biti uklonjen iz **%1$d razgovora >**",
+      "other_value": "Korisnik će biti uklonjen iz **%1$d razgovora >**"
     },
     {
       "_": "types.LangPackString",
@@ -14508,6 +14530,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityMakeAdminMessage",
+      "value": "**%1$s** će moći uređivati ​​podatke o zajednici i koristiti druge administratorske alate."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminPromote",
+      "value": "Ovlasti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminTitle",
+      "value": "Unaprijedi u admina"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityMenuAddChat",
       "value": "Dodaj razgovor u zajednicu"
     },
@@ -14533,8 +14570,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityMenuSettings",
+      "value": "Postavke"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityMenuShowAsOneChat",
       "value": "Prikaži kao jedan razgovor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuShowAsSeparateChats",
+      "value": "Prikaži kao odvojene razgovore"
     },
     {
       "_": "types.LangPackString",
@@ -14595,6 +14642,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityRequestApprovedToast",
+      "value": "Odobrili ste zahtjev za dodavanje **%1$s** u zajednicu."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequestDeclinedToast",
+      "value": "Odbili ste zahtjev za dodavanje **%1$s** u zajednicu."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunitySectionChatsYouAreIn",
       "value": "Razgovori u kojima se nalazite"
     },
@@ -14630,6 +14687,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotAdded",
+      "value": "**%1$s** dodaje ovaj bot u zajednicu **%2$s**."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityServiceMessageBotAddedUnknown",
       "value": "Ova bot je dodan u zajednicu **%1$s**."
     },
@@ -14652,6 +14714,11 @@
       "_": "types.LangPackString",
       "key": "CommunityServiceMessageBotYouRemoved",
       "value": "Uklonili ste ovog bota iz zajednice"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelAdded",
+      "value": "**%1$s** dodaje ovaj kanal u zajednicu **%2$s**."
     },
     {
       "_": "types.LangPackString",
@@ -14695,6 +14762,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupRemovedUnknown",
+      "value": "Ova grupa je uklonjena iz zajednice"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityServiceMessageGroupYouAdded",
       "value": "Dodali ste ovu grupu u zajednicu **%1$s**."
     },
@@ -14702,6 +14774,11 @@
       "_": "types.LangPackString",
       "key": "CommunityServiceMessageGroupYouRemoved",
       "value": "Uklonili ste ovu grupu iz zajednice"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageView",
+      "value": "Pogledaj"
     },
     {
       "_": "types.LangPackString",
@@ -14755,10 +14832,10 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "Zajednica ima %1$d razgovora",
+      "few_value": "Zajednica sadrži %1$d razgovora",
       "key": "CommunityWithChats",
-      "one_value": "Zajednica ima %1$d razgovor",
-      "other_value": "Zajednica ima %1$d razgovora"
+      "one_value": "Zajednica sadrži %1$d razgovor",
+      "other_value": "Zajednica sadrži %1$d razgovora"
     },
     {
       "_": "types.LangPackString",
@@ -57108,5 +57185,5 @@
       "value": "Telegram osobna"
     }
   ],
-  "version": 59899525
+  "version": 59900110
 }

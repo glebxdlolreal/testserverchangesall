@@ -4775,6 +4775,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleToggleBlock",
+      "value": "Blok aan-/uitzetten"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AskAQuestion",
       "value": "Stel een vraag"
     },
@@ -14111,6 +14116,52 @@
       "value": "Beheerder toevoegen"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityAddAllChatsMessage",
+      "one_value": "Wil je **%1$d** chat aan de gemeenschap toevoegen?",
+      "other_value": "Wil je **%1$d** chats aan de gemeenschap toevoegen?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAllChatsTitle",
+      "value": "Alle chats toevoegen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotTitle",
+      "value": "Bot toevoegen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChatTitle",
+      "value": "Chat toevoegen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityButton",
+      "value": "Toevoegen aan gemeenschap"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityChannelMessage",
+      "value": "Als dit kanaal wordt goedgekeurd door een beheerder van de gemeenschap, kunnen de leden ook lid worden of een verzoek doen om lid te worden van andere chats in de gemeenschap."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityGroupMessage",
+      "value": "Als deze groep wordt goedgekeurd door een beheerder van de gemeenschap, kunnen de leden ook lid worden of een verzoek doen om lid te worden van andere chats in de gemeenschap."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityRequestButton",
+      "value": "Deelnameverzoek sturen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityTitle",
+      "value": "Toevoegen aan gemeenschap"
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityAddToExistingCommunity",
       "value": "Toevoegen aan een bestaande gemeenschap"
@@ -14169,6 +14220,46 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityCannotChange",
+      "value": "Je kunt dit later niet meer wijzigen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHidden",
+      "value": "Verborgen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHiddenBotInfo",
+      "value": "Alleen uitgenodigde leden en beheerders van de gemeenschap zullen deze bot zien."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHiddenInfo",
+      "value": "Alleen uitgenodigde leden en beheerders van de gemeenschap zullen deze chat zien."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilitySection",
+      "value": "Zichtbaarheid van chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisible",
+      "value": "Zichtbaar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisibleBotInfo",
+      "value": "Iedereen in de gemeenschap kan deze bot zien."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisibleInfo",
+      "value": "Iedereen in de gemeenschap kan deze chat zien."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityCommunityCreated",
       "value": "Gemeenschap aangemaakt!"
     },
@@ -14186,6 +14277,17 @@
       "_": "types.LangPackString",
       "key": "CommunityCommunityPending",
       "value": "Je verzoek om lid te worden van de gemeenschap is verstuurd naar de beheerders"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityDeclineAllMessage",
+      "one_value": "Wil je **%1$d** verzoek om lid te worden van de gemeenschap, afwijzen?",
+      "other_value": "Wil je alle **%1$d** verzoeken om lid te worden van de gemeenschap, afwijzen?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDeclineAllTitle",
+      "value": "Allemaal afwijzen"
     },
     {
       "_": "types.LangPackString",
@@ -14216,6 +14318,41 @@
       "_": "types.LangPackString",
       "key": "CommunityHiddenStatus",
       "value": "Verborgen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyChannelInfo",
+      "value": "Dit kanaal is alleen op uitnodiging toegankelijk.\nHet is uitsluitend voor leden zichtbaar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyChannelMessageOwner",
+      "value": "Eigenaar van kanaal een bericht sturen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyGroupInfo",
+      "value": "Deze groep is alleen op uitnodiging toegankelijk.\nHet is uitsluitend voor leden zichtbaar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyGroupMessageOwner",
+      "value": "Eigenaar van groep een bericht sturen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminMessage",
+      "value": "**%1$s** kan de gegevens van de gemeenschap bewerken en andere beheerderstools gebruiken."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminPromote",
+      "value": "Benoemen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminTitle",
+      "value": "Benoemen tot beheerder van de gemeenschap"
     },
     {
       "_": "types.LangPackString",
@@ -14264,6 +14401,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityMenuViewChannel",
+      "value": "Kanaal bekijken"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuViewGroup",
+      "value": "Groep bekijken"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityNewCommunityNameHint",
       "value": "Naam van gemeenschap"
     },
@@ -14279,14 +14426,75 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityPendingRequestAdd",
+      "value": "Toevoegen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestAddAll",
+      "value": "Allemaal toevoegen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestDecline",
+      "value": "Afwijzen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestDeclineAll",
+      "value": "Allemaal afwijzen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestOnlyVisibleToMembers",
+      "value": "Alleen zichtbaar voor leden"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedBot",
+      "value": "**%s** heeft deze bot voorgesteld"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedChannel",
+      "value": "**%s** heeft dit kanaal voorgesteld"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedGroup",
+      "value": "**%s** heeft deze groep voorgesteld"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityPendingRequests",
       "value": "Openstaande verzoeken"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfo",
+      "value": "Chats worden pas aan de gemeenschap toegevoegd wanneer ze zijn goedgekeurd door een beheerder. **Instellingen wijzigen>**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfoNoChange",
+      "value": "Chats worden pas aan de gemeenschap toegevoegd wanneer ze zijn goedgekeurd door een beheerder."
     },
     {
       "_": "types.LangPackStringPluralized",
       "key": "CommunityPendingRequestsRow",
       "one_value": "%1$d openstaand verzoek",
       "other_value": "%1$d openstaande verzoeken"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityPendingRequestsSuggestedHeader",
+      "one_value": "%1$d chat voorgesteld voor deze gemeenschap",
+      "other_value": "%1$d chats voorgesteld voor deze gemeenschap"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsTitle",
+      "value": "Openstaande verzoeken"
     },
     {
       "_": "types.LangPackString",
@@ -14498,6 +14706,21 @@
       "key": "CommunityWithChats",
       "one_value": "Gemeenschap met %1$d chat",
       "other_value": "Gemeenschap met %1$d chats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminContinue",
+      "value": "Doorgaan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminMessage",
+      "value": "Je kunt nu de gegevens van **%1$s** bewerken en andere beheerderstools gebruiken."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminNoThanks",
+      "value": "Nee, dank je"
     },
     {
       "_": "types.LangPackString",
@@ -56436,5 +56659,5 @@
       "value": "Telegram Passport"
     }
   ],
-  "version": 59899888
+  "version": 59900059
 }
