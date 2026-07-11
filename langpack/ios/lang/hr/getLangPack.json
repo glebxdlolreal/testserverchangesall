@@ -3233,6 +3233,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AvatarEditor.SetCommunityPhoto",
+      "value": "Postavi kao sliku zajednice"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AvatarEditor.SetGroupPhoto",
       "value": "Postavi kao sliku grupe"
     },
@@ -14647,6 +14652,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Remove",
+      "value": "Ukloni"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.RemoveFolder",
       "value": "Ukloni"
     },
@@ -16678,6 +16688,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Add.Title",
+      "value": "Dodaj razgovor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHeader",
+      "value": "VIDLJIVOST RAZGOVORA"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Add.VisibilityHidden",
       "value": "Skriven"
     },
@@ -16717,9 +16737,31 @@
       "value": "Zabrani pristup zajednici"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%@ njegova razgovora",
+      "key": "Community.AdminActions.WarningChatCount",
+      "one_value": "%@ njegovi razgovor",
+      "other_value": "%@ njegovih razgovora"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningText",
+      "value": "Zabrana pristupa korisniku **%@** će ukloniti iz zaјednice i **%@**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningTitle",
+      "value": "Upozorenje"
+    },
+    {
       "_": "types.LangPackString",
       "key": "Community.Blacklist.UsersSectionTitle",
       "value": "UKLONJENI KORISNICI"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Chat.JoinToView",
+      "value": "Morate se pridružiti ovoj grupi da biste vidjeli njezine poruke."
     },
     {
       "_": "types.LangPackString",
@@ -16773,6 +16815,51 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.List.Title",
+      "value": "Zajednica"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.Info",
+      "value": "Ova grupa je dostupna samo uz pozivnicu.\nMogu je vidjeti samo njeni članovi."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.MessageOwner",
+      "value": "Kontaktiraj vlasnika grupe"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAll",
+      "value": "Dodaj sve"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAllChats",
+      "value": "Dodaj sve razgovore"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovalInfo",
+      "value": "Razgovori zahtijevaju odobrenje administratora prije nego što se dodaju u zajednicu. [Promijeni postavke >](settings)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovedToast",
+      "value": "Dodali ste razgovor u zajednicu."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAll",
+      "value": "Odbij sve"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclinedToast",
+      "value": "Odbili ste dodavanje razgovora u zajednicu."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Request.PrivateStatus",
       "value": "Vidljivo samo članovima"
     },
@@ -16780,6 +16867,11 @@
       "_": "types.LangPackString",
       "key": "Community.View.AddChatButton",
       "value": "Dodaj razgovor u zajednicu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestDeclinedToast",
+      "value": "Odbili ste dodavanje razgovora u zajednicu."
     },
     {
       "_": "types.LangPackString",
@@ -34520,6 +34612,46 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedBot",
+      "value": "Ovaj bot je dodan u zajednicu %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedChannel",
+      "value": "Ovaj kanal je dodan u zajednicu %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroup",
+      "value": "%1$@ dodaje ovu grupu u zajednicu %2$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroupYou",
+      "value": "Dodali ste ovu grupu u zajednicu %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedBot",
+      "value": "Ovaj bot je uklonjen iz zajednice"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedChannel",
+      "value": "Ovaj kanal je uklonjen iz zajednice"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroup",
+      "value": "%1$@ uklanja ovu grupu iz zajednice"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroupYou",
+      "value": "Uklonili ste ovu grupu iz zajednice"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Notification.CopyProtection.Disabled",
       "value": "%1$@ dopušta kopiranje sadržaja u ovom razgovoru"
     },
@@ -40674,6 +40806,13 @@
       "value": "Izbriši poruke"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Zajednica sadrži %@ razgovora",
+      "key": "PeerInfo.Community",
+      "one_value": "Zajednica sadrži %@ razgovor",
+      "other_value": "Zajednica sadrži %@ razgovora"
+    },
+    {
       "_": "types.LangPackString",
       "key": "PeerInfo.Community.AddBot",
       "value": "Dodaj bot u zajednicu"
@@ -40702,6 +40841,21 @@
       "_": "types.LangPackString",
       "key": "PeerInfo.Community.GroupInfo",
       "value": "Dodajte svoju grupu u zajednicu s više povezanih razgovora"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveBot",
+      "value": "Ukloni bot iz zajednice"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveChannel",
+      "value": "Ukloni kanal iz zajednice"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveGroup",
+      "value": "Ukloni grupu iz zajednice"
     },
     {
       "_": "types.LangPackString",
@@ -43353,6 +43507,11 @@
       "_": "types.LangPackString",
       "key": "Premium.RichText",
       "value": "Alati za oblikovanje"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.RichTextInfo",
+      "value": "Dodajte zaglavlja, tablice, popise, AI i ugrađene medije u poruke."
     },
     {
       "_": "types.LangPackString",
@@ -46143,6 +46302,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.AddMediaTitle",
+      "value": "Dodaj medij"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaAdd",
+      "value": "Dodaj formulu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkRemove",
+      "value": "Ukloni"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkSet",
+      "value": "Postavi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkTitle",
+      "value": "Link"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichText.Menu.List.Bullet",
       "value": "Popis s grafičkim oznakama"
     },
@@ -46158,6 +46342,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.ConvertToText",
+      "value": "Pretvori u tekst"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Copy",
+      "value": "Kopiraj tablicu"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichText.Menu.Table.Delete",
       "value": "Izbriši tablicu"
     },
@@ -46165,6 +46359,11 @@
       "_": "types.LangPackString",
       "key": "RichText.MenuFormula",
       "value": "Formula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuHeading",
+      "value": "Naslov"
     },
     {
       "_": "types.LangPackString",
@@ -46195,6 +46394,11 @@
       "_": "types.LangPackString",
       "key": "RichText.TableMenu.Alignment",
       "value": "Poravnanje"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TitleArticle",
+      "value": "Tekst"
     },
     {
       "_": "types.LangPackString",
@@ -54259,6 +54463,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.PromptPlaceholder",
+      "value": "Generirajte tekst, formule ili tablice..."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ResultBadge",
       "value": "Rezultat:"
     },
@@ -60250,5 +60459,5 @@
       "value": "Unijeli ste pogrešan sigurnosni kod."
     }
   ],
-  "version": 21502883
+  "version": 21503006
 }

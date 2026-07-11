@@ -170,6 +170,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AIEditorStylePrompt",
+      "value": "Uputa"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AIEditorStylePromptHint",
       "value": "Upute (naprimjer: piši kao pirat, koristi arr, ahoy i govori o blagu i moru)"
     },
@@ -4522,6 +4527,11 @@
       "_": "types.LangPackString",
       "key": "ArticleCommandMap",
       "value": "Karta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandOrderedList",
+      "value": "Numerirani popis"
     },
     {
       "_": "types.LangPackString",
@@ -14289,8 +14299,30 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community",
+      "value": "Zajednica"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAddAChatToCommunity",
       "value": "Dodaj razgovor u zajednicu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAdmin",
+      "value": "Dodaj administratora"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Želite li dodati **%1$d** razgovora u zajednicu?",
+      "key": "CommunityAddAllChatsMessage",
+      "one_value": "Želite li dodati **%1$d** razgovor u zajednicu?",
+      "other_value": "Želite li dodati **%1$d** razgovora u zajednicu?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAllChatsTitle",
+      "value": "Dodaj sve razgovore"
     },
     {
       "_": "types.LangPackString",
@@ -14480,8 +14512,30 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityCommunityPending",
+      "value": "Vaš zahtjev za pridruživanje zajednici je poslan administratorima"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityCreateCommunity",
       "value": "Napravi zajednicu"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Želite li odbiti **%1$d** zahtjeva za pridruživanje zajednici?",
+      "key": "CommunityDeclineAllMessage",
+      "one_value": "Želite li odbiti **%1$d** zahtjev za pridruživanje zajednici?",
+      "other_value": "Želite li odbiti **%1$d** zahtjeva za pridruživanje zajednici?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDeclineAllTitle",
+      "value": "Odbij sve"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDelete",
+      "value": "Izbriši zajednicu"
     },
     {
       "_": "types.LangPackString",
@@ -14525,8 +14579,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyChannelInfo",
+      "value": "Ovaj kanal je dostupan samo uz pozivnicu.\nMogu ga vidjeti samo njegovi pretplatnici."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityInviteOnlyChannelMessageOwner",
       "value": "Kontaktiraj vlasnika kanala"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyGroupInfo",
+      "value": "Ova grupa je dostupna samo uz pozivnicu.\nMogu je vidjeti samo njeni članovi."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyGroupMessageOwner",
+      "value": "Kontaktiraj vlasnika grupe"
     },
     {
       "_": "types.LangPackString",
@@ -14615,13 +14684,63 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityPendingRequest",
+      "value": "Zahtjev na čekanju"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestAdd",
+      "value": "Dodaj"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestAddAll",
+      "value": "Dodaj sve"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestDecline",
+      "value": "Odbij"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestDeclineAll",
+      "value": "Odbij sve"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityPendingRequestOnlyVisibleToMembers",
       "value": "Vidljivo samo članovima"
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedBot",
+      "value": "**%s** predlaže ovaj bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedChannel",
+      "value": "**%s** predlaže ovaj kanal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedGroup",
+      "value": "**%s** predlaže ovu grupu"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityPendingRequests",
       "value": "Zahtjevi na čekanju"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfo",
+      "value": "Razgovori zahtijevaju odobrenje administratora prije nego što se dodaju u zajednicu. **Promijeni postavke >**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfoNoChange",
+      "value": "Razgovori zahtijevaju odobrenje administratora prije nego što se dodaju u zajednicu."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -14631,9 +14750,36 @@
       "other_value": "%1$d zahtjeva na čekanju"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d predložena razgovora za ovu zajednicu",
+      "key": "CommunityPendingRequestsSuggestedHeader",
+      "one_value": "%1$d predloženi razgovor za ovu zajednicu",
+      "other_value": "%1$d predloženih razgovor za ovu zajednicu"
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityPendingRequestsTitle",
       "value": "Zahtjevi na čekanju"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPermissionsHeader",
+      "value": "Koja dopuštenja imaju članovi ove zajednice?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveBotFromCommunity",
+      "value": "Ukloni bot iz zajednice"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveChannelFromCommunity",
+      "value": "Ukloni kanal iz zajednice"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveGroupFromCommunity",
+      "value": "Ukloni grupu iz zajednice"
     },
     {
       "_": "types.LangPackString",
@@ -14698,7 +14844,7 @@
     {
       "_": "types.LangPackString",
       "key": "CommunityServiceMessageBotRemoved",
-      "value": "**%1$s** uklanja ovog bota iz zajednice"
+      "value": "**%1$s** uklanja ovaj bot iz zajednice"
     },
     {
       "_": "types.LangPackString",
@@ -14713,7 +14859,7 @@
     {
       "_": "types.LangPackString",
       "key": "CommunityServiceMessageBotYouRemoved",
-      "value": "Uklonili ste ovog bota iz zajednice"
+      "value": "Uklonili ste ovaj bot iz zajednice"
     },
     {
       "_": "types.LangPackString",
@@ -14792,6 +14938,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunitySettingsTitle",
+      "value": "Zajednica"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityShowAsOneChat",
       "value": "Prikaži kao jedan razgovor"
     },
@@ -14836,6 +14987,26 @@
       "key": "CommunityWithChats",
       "one_value": "Zajednica sadrži %1$d razgovor",
       "other_value": "Zajednica sadrži %1$d razgovora"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminContinue",
+      "value": "Nastavi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminMessage",
+      "value": "Sada možete uređivati podatke zajednice **%1$s** i koristiti druge administratorske alate."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminNoThanks",
+      "value": "Ne, hvala"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminTitle",
+      "value": "Sada ste administrator zajednice"
     },
     {
       "_": "types.LangPackString",
@@ -18464,6 +18635,11 @@
       "_": "types.LangPackString",
       "key": "EnterYourTelegramPasscode",
       "value": "Unesite Telegram lozinku"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageMenuHint",
+      "value": "Samo vi vidite ovu poruku. Nestat će nakon što se ponovno prijavite."
     },
     {
       "_": "types.LangPackString",
@@ -37791,6 +37967,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumPreviewRichEditorDescription",
+      "value": "Dodajte zaglavlja, tablice, popise, AI i ugrađene medije u poruke."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumPreviewSharingDisable",
       "value": "Zabrana kopiranja"
     },
@@ -42117,6 +42298,11 @@
       "_": "types.LangPackString",
       "key": "RevokedLinks",
       "value": "Opozvani linkovi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorDraftSaved",
+      "value": "Skica je spremljena."
     },
     {
       "_": "types.LangPackString",
@@ -56259,6 +56445,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WearCouldntLoad",
+      "value": "Nije moguće učitati"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "WearCouldntSignIn",
+      "value": "Neuspješna prijava"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "WearDeletedMessage",
       "value": "Izbrisana poruka"
     },
@@ -57185,5 +57381,5 @@
       "value": "Telegram osobna"
     }
   ],
-  "version": 59900110
+  "version": 59900539
 }
