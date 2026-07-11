@@ -27,7 +27,7 @@ var Main = {
 
     Main.checkAuth();
 
-    window.showConfirm = (message, onConfirm, confirm_btn, onCancel, cancel_btn) => {
+    window.showConfirm = (message, onConfirm, confirm_btn, onCancel) => {
       WebApp.showPopup({
         message: message,
         buttons: [
@@ -101,7 +101,7 @@ var Main = {
             $toast.remove();
             window.$toast = null;
         }, 300);
-      }, options.duration || 5000);
+      }, options.duration || 3000);
     }
   },
   showErrorToast(text) {

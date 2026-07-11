@@ -1955,6 +1955,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Attachment.Article",
+      "value": "Artikel"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Attachment.Audio",
       "value": "Geluid"
     },
@@ -14501,6 +14506,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Remove",
+      "value": "Verwijderen"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.RemoveFolder",
       "value": "Verwijderen"
     },
@@ -16528,9 +16538,65 @@
       "value": "Iedereen in de gemeenschap kan deze chat zien."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.AdminActions.WarningChatCount",
+      "one_value": "zal **%@ chat**",
+      "other_value": "zullen **%@ chats**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningText",
+      "value": "Als je **%@** verbant, %@ van deze gebruiker ook uit de gemeenschap verdwijnen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.CommunityAdded.View",
+      "value": "Bekijken"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleBot",
+      "value": "Maak je bot onderdeel van een gemeenschap met meerdere gerelateerde chats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleChannel",
+      "value": "Maak je kanaal onderdeel van een gemeenschap met meerdere gerelateerde chats."
+    },
+    {
       "_": "types.LangPackString",
       "key": "Community.Request.AddAllChats",
       "value": "Alle chats toevoegen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovalInfo",
+      "value": "Chats worden pas aan de gemeenschap toegevoegd wanneer ze zijn goedgekeurd door een beheerder. [Instellingen wijzigen>](settings)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovedToast",
+      "value": "Je hebt de chat toegevoegd aan de gemeenschap."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclinedToast",
+      "value": "Je hebt geweigerd om de chat aan de gemeenschap toe te voegen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsGroup",
+      "value": "%@ stelt deze chat voor:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.HiddenChatToast",
+      "value": "Je kunt deze chat alleen volgen of bekijken op uitnodiging van een beheerder."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestDeclinedToast",
+      "value": "Je hebt geweigerd om de chat aan de gemeenschap toe te voegen."
     },
     {
       "_": "types.LangPackString",
@@ -40114,6 +40180,12 @@
       "value": "Berichten wissen"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "PeerInfo.Community",
+      "one_value": "Gemeenschap met %@ chat",
+      "other_value": "Gemeenschap met %@ chats"
+    },
+    {
       "_": "types.LangPackString",
       "key": "PeerInfo.CustomizeNotifications",
       "value": "Aanpassen"
@@ -42259,6 +42331,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Premium.Limits.Messages",
+      "value": "Berichten"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.Limits.MessagesInfo",
+      "value": "Druk je uit met langere berichten"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Premium.Limits.PinnedChats",
       "value": "Vastgezette chats"
     },
@@ -42745,6 +42827,11 @@
       "_": "types.LangPackString",
       "key": "Premium.RichText",
       "value": "Opmaaktools"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.RichTextInfo",
+      "value": "Voeg kopteksten, tabellen, lijsten, AI en inline media toe aan berichten."
     },
     {
       "_": "types.LangPackString",
@@ -45514,8 +45601,153 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.AddMediaTitle",
+      "value": "Media toevoegen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaAdd",
+      "value": "Formule toevoegen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaEdit",
+      "value": "Formule bewerken"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionResultTitle",
+      "value": "Resultaat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionSourceTitle",
+      "value": "LaTeX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkRemove",
+      "value": "Verwijderen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkSet",
+      "value": "Instellen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkText",
+      "value": "Stel een URL in voor de geselecteerde tekst"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkTitle",
+      "value": "Link"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Bullet",
+      "value": "Opsommingtekens"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Checklist",
+      "value": "Checklist"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.None",
+      "value": "Geen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Numbered",
+      "value": "Genummerde lijst"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.ConvertToText",
+      "value": "Omzetten in tekst"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Copy",
+      "value": "Tabel kopiëren"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Delete",
+      "value": "Tabel verwijderen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuCode",
+      "value": "Code"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuFormula",
+      "value": "Formule"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuHeading",
+      "value": "Koptekst"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuHeadingItem",
+      "value": "Kop %@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuPullquote",
+      "value": "Blikvanger"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuQuote",
+      "value": "Citaat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuText",
+      "value": "Tekst"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.PremiumToastText",
+      "value": "Om een bericht met deze opmaak te versturen, heb je [Telegram Premium]() nodig."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingText",
+      "value": "Dit bericht gebruikt rijke opmaak, waarvoor Telegram Premium vereist is."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingTitle",
+      "value": "Opmaak verwijderen?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.SendWithoutFormatting",
+      "value": "Zonder opmaak versturen"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichText.SubscribeToPremium",
       "value": "Abonneren op premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TableMenu.Alignment",
+      "value": "Uitlijning"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TitleArticle",
+      "value": "Tekst"
     },
     {
       "_": "types.LangPackString",
@@ -53322,6 +53554,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.ActionAddToPage",
+      "value": "Toevoegen aan pagina"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ActionApply",
       "value": "Toepassen"
     },
@@ -53329,6 +53566,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.ActionClose",
       "value": "Sluiten"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.ActionGenerate",
+      "value": "Genereren"
     },
     {
       "_": "types.LangPackString",
@@ -53437,6 +53679,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.PromptPlaceholder",
+      "value": "Genereer tekst, formules en tabellen..."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ResultBadge",
       "value": "Resultaat"
     },
@@ -53470,6 +53717,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.StyleList.Add",
       "value": "Creëren"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.StyleList.Prompt",
+      "value": "Prompt"
     },
     {
       "_": "types.LangPackString",
@@ -53550,6 +53802,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.TextExpand",
       "value": "meer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.TitleAICompose",
+      "value": "Creëren met AI"
     },
     {
       "_": "types.LangPackString",
@@ -59392,5 +59649,5 @@
       "value": "Je hebt een ongeldige beveiligingscode ingevoerd."
     }
   ],
-  "version": 21503227
+  "version": 21503269
 }
