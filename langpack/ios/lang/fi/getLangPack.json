@@ -1955,6 +1955,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Attachment.Article",
+      "value": "Artikkeli"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Attachment.Audio",
       "value": "Ääni"
     },
@@ -11795,7 +11800,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.PanelHidePinnedMessages",
-      "value": "Älä näytä kiinnitettyjä viestejä"
+      "value": "Piilota kiinnitykset"
     },
     {
       "_": "types.LangPackString",
@@ -14939,6 +14944,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Action",
+      "value": "Erottele"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Text",
+      "value": "Tämän yhteisön keskustelut näytetään erikseen keskusteluluettelossasi."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.UnhideAction",
       "value": "Kiinnitä"
     },
@@ -15559,7 +15574,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChatbotSetup.ErrorBotNotBusinessCapable",
-      "value": "Botti ei vielä tue yritysominaisuuksia."
+      "value": "Botti ei vielä tue sihteeritilaa."
     },
     {
       "_": "types.LangPackString",
@@ -16506,6 +16521,181 @@
       "_": "types.LangPackString",
       "key": "Common.of",
       "value": "/"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHeader",
+      "value": "KESKUSTELUN NÄKYVYYS"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHidden",
+      "value": "Piilossa"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHiddenInfo",
+      "value": "Tämä keskustelu näkyy vain yhteisön valvojille ja kutsutuille jäsenille."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityInfo",
+      "value": "Tätä ei voi muuttaa myöhemmin."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityVisible",
+      "value": "Näkyvyys"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityVisibleInfo",
+      "value": "Tämä keskustelu näkyy kaikille yhteisössä."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.BanFromCommunity",
+      "value": "Estä yhteisöstä"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.AdminActions.Footer",
+      "one_value": "Käyttäjä poistetaan [%@ keskustelusta >](community)",
+      "other_value": "Käyttäjä poistetaan [%@ keskustelusta >](community)"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.AdminActions.WarningChatCount",
+      "one_value": "%@ keskustelun",
+      "other_value": "%@ keskustelua"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningText",
+      "value": "Käyttäjän **%@** estäminen poistaa myös heidän lisäämänsä **%@** yhteisöstä."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.Info",
+      "value": "Valvojien tästä yhteisöstä poistamat käyttäjät eivät voi palata kutsulinkillä."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.UsersSectionTitle",
+      "value": "POISTETUT KÄYTTÄJÄT"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.Edit.ChatsHeader",
+      "one_value": "%@ KESKUSTELU",
+      "other_value": "%@ KESKUSTELUA"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionAllMembersInfo",
+      "value": "Sallii jäsenten lisätä omia ryhmiään ja kanaviaan yhteisöön."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionOnlyAdminsInfo",
+      "value": "Valvojan pitää hyväksyä yhteisön jäsenten ehdottamat keskustelut."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionBanUsers",
+      "value": "Estää jäseniä"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.AddToExistingHeader",
+      "value": "LISÄÄ VALMIISEEN YHTEISÖÖN"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.List.ChatCount",
+      "one_value": "%@ keskustelu",
+      "other_value": "%@ keskustelua"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleBot",
+      "value": "Lisää bottisi osaksi montaa keskustelua kattavaa yhteisöä."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleChannel",
+      "value": "Lisää kanavasi osaksi montaa keskustelua kattavaa yhteisöä."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.Info",
+      "value": "Ryhmään pääsee vain kutsusta.\nSisältö näkyy vain jäsenille."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.MessageOwner",
+      "value": "Lähetä viesti ryhmän omistajalle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAll",
+      "value": "Lisää kaikki"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAllChats",
+      "value": "Lisää kaikki keskustelut"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAllConfirmation",
+      "value": "Haluatko lisätä %@ keskustelua yhteisöön?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovalInfo",
+      "value": "Valvojien pitää hyväksyä yhteisöön lisättävät keskustelut. [Muuta asetuksia >](settings)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAll",
+      "value": "Hylkää kaikki"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAllConfirmation",
+      "value": "Haluatko hylätä kaikki %@ pyyntöä liittyä yhteisöön?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.PrivateStatus",
+      "value": "näkyy vain jäsenille"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsGroup",
+      "value": "%@ ehdotti tätä ryhmää:"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.Request.SectionTitle",
+      "one_value": "%@ YHTEISÖÖN EHDOTETTU KESKUSTELU",
+      "other_value": "%@ YHTEISÖÖN EHDOTETTUA KESKUSTELUA"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.AddChatButton",
+      "value": "Lisää keskustelu yhteisöön"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ShowAsOneChat",
+      "value": "Näytä yhtenä keskusteluna"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ShowAsOneChatInfo",
+      "value": "Ryhmittää yhteisön keskustelut saman kohdan alle keskustelulistassa."
     },
     {
       "_": "types.LangPackString",
@@ -33990,6 +34180,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedBot",
+      "value": "Botti lisättiin yhteisöön %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedChannel",
+      "value": "Kanava lisättiin yhteisöön %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroup",
+      "value": "%1$@ lisäsi tämän ryhmän yhteisöön %2$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroupYou",
+      "value": "Lisäsit tämän ryhmän yhteisöön %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroup",
+      "value": "%1$@ poisti tämän ryhmän yhteisöstä"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Notification.CopyProtection.Disabled",
       "value": "%1$@ salli jakamisen tässä keskustelussa"
     },
@@ -40050,6 +40265,51 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddBot",
+      "value": "Lisää botti yhteisöön"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddChannel",
+      "value": "Lisää kanava yhteisöön"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddGroup",
+      "value": "Lisää ryhmä yhteisöön"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.BotInfo",
+      "value": "Lisää bottisi osaksi montaa keskustelua kattavaa yhteisöä."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.ChannelInfo",
+      "value": "Lisää kanavasi osaksi montaa keskustelua kattavaa yhteisöä."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.GroupInfo",
+      "value": "Lisää ryhmäsi osaksi montaa keskustelua kattavaa yhteisöä."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveBot",
+      "value": "Poista botti yhteisöstä"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveChannel",
+      "value": "Poista kanava yhteisöstä"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveGroup",
+      "value": "Poista ryhmä yhteisöstä"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PeerInfo.CustomizeNotifications",
       "value": "Mukauta"
     },
@@ -40428,6 +40688,11 @@
       "_": "types.LangPackString",
       "key": "PeerInfo.GroupAboutItem",
       "value": "tietoja"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.HiddenCommunityStatus",
+      "value": "Piilossa • %@"
     },
     {
       "_": "types.LangPackString",
@@ -42678,6 +42943,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Premium.RichText",
+      "value": "Muotoilutyökalut"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.RichTextInfo",
+      "value": "Lisää otsikoita, taulukoita, mediaa ja tekoälysisältöä viesteihisi."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Premium.Semiannual",
       "value": "Puolivuosittain"
     },
@@ -43408,6 +43683,11 @@
       "_": "types.LangPackString",
       "key": "Privacy.GroupsAndChannels.InviteToChannelMultipleError",
       "value": "Valitettavasti et voi luoda ryhmää näiden käyttäjien kanssa heidän yksityisyysasetuksiensa takia."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Privacy.GroupsAndChannels.InviteToCommunityError",
+      "value": "Et voi valitettavasti lisätä käyttäjää %@ yhteisöihin käyttäjän %@ yksityisyysasetuksien takia."
     },
     {
       "_": "types.LangPackString",
@@ -45441,6 +45721,66 @@
       "_": "types.LangPackString",
       "key": "Resolve.GiftErrorNotFound",
       "value": "Valitettavasti tätä lahjaa ei löydy."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Bullet",
+      "value": "Luettelomerkitty luettelo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Checklist",
+      "value": "Tehtävälista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Numbered",
+      "value": "Numeroitu luettelo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Delete",
+      "value": "Poista taulukko"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuCode",
+      "value": "Koodi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuFormula",
+      "value": "Kaava"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuHeadingItem",
+      "value": "Otsikko %@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuPullquote",
+      "value": "Nosto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuQuote",
+      "value": "Lainaus"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingText",
+      "value": "Viesti käyttää edistynyttä muotoilua, mikä vaatii **Telegram Premium** -tilauksen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.SubscribeToPremium",
+      "value": "Tilaa Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TableMenu.Alignment",
+      "value": "Tasaus"
     },
     {
       "_": "types.LangPackString",
@@ -53257,6 +53597,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.ActionGenerate",
+      "value": "Luo"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ActionTitleNonPremium",
       "value": "Kasvata rajaa"
     },
@@ -53362,6 +53707,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.PromptPlaceholder",
+      "value": "Syötä tekstiä, kaavoja tai taulukoita..."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ResultBadge",
       "value": "Tulos"
     },
@@ -53395,6 +53745,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.StyleList.Add",
       "value": "Luo uusi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.StyleList.Prompt",
+      "value": "Kehote"
     },
     {
       "_": "types.LangPackString",
@@ -53475,6 +53830,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.TextExpand",
       "value": "enemmän"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.TitleAICompose",
+      "value": "Luo tekoälyllä"
     },
     {
       "_": "types.LangPackString",
@@ -58954,7 +59314,7 @@
     {
       "_": "types.LangPackString",
       "key": "WebBrowser.Exceptions.Create.ExternalText",
-      "value": "Syötä verkkotunnus, jota ei kuulu avata ulkoisessa selaimessa."
+      "value": "Syötä verkkotunnus, joka avataan apin sisäisessä selaimessa."
     },
     {
       "_": "types.LangPackString",
@@ -59317,5 +59677,5 @@
       "value": "Olet syöttänyt virheellisen turvaluvun."
     }
   ],
-  "version": 21283209
+  "version": 21500044
 }

@@ -1524,6 +1524,12 @@
       "value": "Lisää tyyli ja kirjoita sillä viestisi helposti uusiksi."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "AiTonePreviewUsedBy2",
+      "one_value": "{count} käyttää.",
+      "other_value": "{count} käyttää."
+    },
+    {
       "_": "types.LangPackString",
       "key": "AiTonePreviewUsedByCreatedBy",
       "value": "{usedBy} {createdBy}"
@@ -1648,6 +1654,16 @@
       "_": "types.LangPackString",
       "key": "ApproveNewMembersDescription",
       "value": "Jos tämä on päällä, valvojan tulee erikseen hyväksyä käyttäjän liittyminen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ApproveNewMembersPublicUnavailable",
+      "value": "Tätä ei voi käyttää, koska kuka tahansa voi liittyä ryhmään ja lähettää sinne viestejä julkisen ryhmälinkin avulla."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ApproveNewSubscribersPublicUnavailable",
+      "value": "Tätä ei voi käyttää, koska kuka tahansa voi liittyä kanavalle julkisen kanavalinkin avulla."
     },
     {
       "_": "types.LangPackString",
@@ -3840,6 +3856,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ConfirmBuyGiftForGramDescription",
+      "value": "Tämä myyjä ottaa maksuja vastaan vain grameina."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ConfirmDialogMessageRemoveFee",
       "value": "Haluatko, että **{peer}** voi lähettää sinulle viestejä ilmaiseksi?"
     },
@@ -4232,6 +4253,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CurrencyGram",
+      "value": "Gram"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CurrencyStars",
       "value": "Tähdet"
     },
@@ -4306,6 +4332,16 @@
       "_": "types.LangPackString",
       "key": "DeleteAll",
       "value": "Poista kaikki"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteAllMessages",
+      "value": "Poista kaikki viestit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteAllReactions",
+      "value": "Poista kaikki reaktiot"
     },
     {
       "_": "types.LangPackString",
@@ -4390,6 +4426,17 @@
       "value": "Poista tilini"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "DeleteReactionTitle",
+      "one_value": "Poistetaanko {count} reaktio?",
+      "other_value": "Poistetaanko {count} reaktiota?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteReactionTooltip",
+      "value": "Poista reaktio"
+    },
+    {
       "_": "types.LangPackString",
       "key": "DeleteSingleMessagesTitle",
       "value": "Poista viesti"
@@ -4398,6 +4445,11 @@
       "_": "types.LangPackString",
       "key": "DeleteThisChat",
       "value": "Poista tämä keskustelu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DescriptionAboutGram",
+      "value": "Grameilla voit ostaa lahjoja ja ehdottaa viestejäsi kanaville."
     },
     {
       "_": "types.LangPackString",
@@ -4450,6 +4502,11 @@
       "_": "types.LangPackString",
       "key": "DescriptionOptionalPlaceholder",
       "value": "Kuvaus (valinnainen)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DescriptionPayInGram",
+      "value": "Voit maksaa grameilla, jolloin et joudu odottamaan 21 päivää ennen lahjan siirtämistä uudelleen."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -4526,6 +4583,11 @@
       "_": "types.LangPackString",
       "key": "DiceToastSend",
       "value": "Lähetä"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Disable",
+      "value": "Poista käytöstä"
     },
     {
       "_": "types.LangPackString",
@@ -4944,6 +5006,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Enable",
+      "value": "Ota käyttöön"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EnablePasscode",
       "value": "Ota pääsykoodi käyttöön"
     },
@@ -4981,6 +5048,11 @@
       "_": "types.LangPackString",
       "key": "EnterPasswordDescription",
       "value": "Vahvista syöttämällä kaksivaiheisen todennuksen salasana."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EnterPriceInGram",
+      "value": "Syötä gram-hinta"
     },
     {
       "_": "types.LangPackString",
@@ -7084,6 +7156,27 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GramAmount",
+      "value": "💎{amount}"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "GramAmountText",
+      "one_value": "{amount} gram",
+      "other_value": "{amount} gramia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GramGiftReceived",
+      "value": "Gramien hankkiminen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GramModalHint",
+      "value": "Voit hankkia grameja Fragmentilla."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GraphZoomOut",
       "value": "Pienennä"
     },
@@ -7215,6 +7308,105 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GuardApplyToInvitesApply",
+      "value": "Sovella"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "GuardApplyToInvitesChannel",
+      "one_value": "Otetaanko **Vaadi valvojan hyväksyntä** käyttöön myös tämän kanavan jo olemassa olevalle **1 kutsulinkille**?",
+      "other_value": "Otetaanko **Vaadi valvojan hyväksyntä** käyttöön myös tämän kanavan jo olemassa olevalle **{count} kutsulinkille**?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApplyToInvitesDontApply",
+      "value": "Älä sovella"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "GuardApplyToInvitesGroup",
+      "one_value": "Otetaanko **Vaadi valvojan hyväksyntä** käyttöön myös tämän ryhmän jo olemassa olevalle **{count} kutsulinkille**?",
+      "other_value": "Otetaanko **Vaadi valvojan hyväksyntä** käyttöön myös tämän ryhmän jo olemassa olevalle **{count} kutsulinkille**?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApplyToInvitesTitle",
+      "value": "Sovella myös nykyisille kutsulinkeille"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApproveNewChannelSubscribersInfo",
+      "value": "Valvojan pitää hyväksyä kanavalle liittyvät käyttäjät."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApproveNewMembers",
+      "value": "Vaadi valvojan hyväksyntä"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApproveNewPrivateGroupMembersInfo",
+      "value": "Valvojan pitää hyväksyä kaikki ryhmään liittyvät."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApproveNewPublicGroupMembersInfo",
+      "value": "Valvojan pitää hyväksyä ryhmään viestin lähettävät käyttäjät."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "GuardDisableInvitesChannel",
+      "one_value": "Poistetaanko **Vaadi valvojan hyväksyntä** käytöstä myös tämän kanavan jo olemassa olevasta **1 kutsulinkistä**?",
+      "other_value": "Poistetaanko **Vaadi valvojan hyväksyntä** käytöstä myös tämän kanavan jo olemassa olevasta **{count} kutsulinkistä**?"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "GuardDisableInvitesGroup",
+      "one_value": "Poistetaanko **Vaadi valvojan hyväksyntä** käytöstä myös tämän ryhmän jo olemassa olevasta **1 kutsulinkistä**?",
+      "other_value": "Poistetaanko **Vaadi valvojan hyväksyntä** käytöstä myös tämän ryhmän jo olemassa olevasta **{count} kutsulinkistä**?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardManagedBy",
+      "value": "{bot} hallinnoi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardManagedByDescription",
+      "value": "{approvalInfo} {managedBy}."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequests",
+      "value": "Käsittele liittymispyynnöt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequestsDisableChannel",
+      "value": "Uudet käyttäjät voivat taas tilata kanavan ilman että {bot} hyväksyy heidät."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequestsDisableGroup",
+      "value": "Uudet jäsenet voivat taas lähettää viestejä ryhmään ilman että {bot} hyväksyy heidät."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequestsEnableChannel",
+      "value": "Uudet käyttäjät eivät voi enää tilata kanavaa ennen kuin {bot} hyväksyy heidät."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequestsEnableGroup",
+      "value": "Uudet jäsenet eivät voi enää lähettää viestejä ryhmään ennen kuin {bot} hyväksyy heidät."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequestsInfo",
+      "value": "Antaa botin hyväksyä uusia jäseniä omilla käyttöliittymällään (esim. CAPTCHA)."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "HEX",
       "value": "Heksa"
     },
@@ -7223,6 +7415,21 @@
       "key": "HeaderDescriptionResaleGifts",
       "one_value": "{count} myytävänä",
       "other_value": "{count} myytävänä"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "HeaderMenuViewGroupInfo",
+      "value": "Näytä ryhmän tiedot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "HeaderMenuViewProfile",
+      "value": "Näytä profiili"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "HeaderMenuViewTopicInfo",
+      "value": "Näytä ketjun tiedot"
     },
     {
       "_": "types.LangPackString",
@@ -7335,6 +7542,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "InstantView",
+      "value": "Pikakatselu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "InstantViewWrongLayout",
+      "value": "Väärä asettelu?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "InviteBlockedManyMessage",
       "value": "Jotkin käyttäjistä eivät anna sinun lisätä heitä ryhmiin. Voit kuitenkin lähettää heille kutsulinkin."
     },
@@ -7372,6 +7589,11 @@
       "_": "types.LangPackString",
       "key": "InviteLink",
       "value": "Kutsulinkki"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "InviteLinkApprovalRequired",
+      "value": "hyväksyntä vaaditaan"
     },
     {
       "_": "types.LangPackString",
@@ -7455,6 +7677,11 @@
       "_": "types.LangPackString",
       "key": "JustNowAgo",
       "value": "äsken"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "LabelPayInGram",
+      "value": "Maksa grameina"
     },
     {
       "_": "types.LangPackString",
@@ -8076,6 +8303,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "MenuGram",
+      "value": "Gramini"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "MenuInstallApp",
       "value": "Asenna sovellus"
     },
@@ -8249,6 +8481,16 @@
       "_": "types.LangPackString",
       "key": "MessageMetaEdited",
       "value": "muokattu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MessageMetaEditedAtTime",
+      "value": "muokattu klo {time}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MessageMetaEditedOnDateAtTime",
+      "value": "muokattu {date} klo {time}"
     },
     {
       "_": "types.LangPackString",
@@ -8444,6 +8686,11 @@
       "_": "types.LangPackString",
       "key": "MonetizationBalanceZeroInfo",
       "value": "Voit alkaa keräämään palkkiosi Fragmentin kautta. Se on kolmannen puolen alusta, jolla mainostajat voivat maksaa mainonnasta. {link}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MonetizationInfoGramTitle",
+      "value": "Mikä 💎 gram on?"
     },
     {
       "_": "types.LangPackString",
@@ -8937,6 +9184,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "OnlyAcceptGram",
+      "value": "Vaadi gram-maksua"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "OnlyAcceptGramDescription",
+      "value": "Toisin kuin tähtiä käytettäessä, ostaja ei voi vaatia gramejaan takaisin maksun jälkeen."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Open",
       "value": "Avaa"
     },
@@ -8999,6 +9256,16 @@
       "_": "types.LangPackString",
       "key": "P2PNobody",
       "value": "Ei kukaan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PageContentEmbed",
+      "value": "Upotettu sisältö"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PageContentUnsupported",
+      "value": "Sisältöä ei tueta"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -9523,6 +9790,11 @@
       "value": "Antaa äänestäjien muuttaa mieltään"
     },
     {
+      "_": "types.LangPackString",
+      "key": "PollAllowedCountries",
+      "value": "Sallitut maat"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "PollAnswerCountButton",
       "one_value": "{count} vastasi >",
@@ -9556,6 +9828,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollChooseCountry",
+      "value": "Valitse ainakin yksi maa."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "PollCountriesCount",
+      "one_value": "{count} maa",
+      "other_value": "{count} maata"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "PollCountriesLimit",
+      "one_value": "Voit valita enintään {count} maan.",
+      "other_value": "Voit valita enintään {count} maata."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollCountryRestriction",
+      "value": "Vain käyttäjät maista **{countries}** saavat äänestää."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDuration",
       "value": "Kesto"
     },
@@ -9573,6 +9867,16 @@
       "_": "types.LangPackString",
       "key": "PollHideResultsUntilClose",
       "value": "Näytä tulokset vasta suljettua"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountry",
+      "value": "Rajoita maittain"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountryDescription",
+      "value": "Vain käyttäjät valituista maista saavat äänestää."
     },
     {
       "_": "types.LangPackString",
@@ -9642,8 +9946,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribers",
+      "value": "Rajoita tilaajiin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribersDescription",
+      "value": "Vain kanavan yli 24 tuntia sitten tilanneet saavat äänestää."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollResults",
       "value": "Lopputulos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollResultsAnswerTitle",
+      "value": "{answer} - {percent}%"
     },
     {
       "_": "types.LangPackString",
@@ -9664,6 +9983,11 @@
       "_": "types.LangPackString",
       "key": "PollSubmitVotes",
       "value": "Äänestä"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSubscriberRestriction",
+      "value": "Vain kanavan {channel} tilaajat saavat äänestää."
     },
     {
       "_": "types.LangPackString",
@@ -9945,6 +10269,11 @@
       "_": "types.LangPackString",
       "key": "PriceChangedText",
       "value": "Hinta on ehtinyt muuttua: se oli **{originalAmount}** ja on nyt **{newAmount}**. Haluatko maksaa uuden hinnan?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PriceInGram",
+      "value": "Gram-hinta"
     },
     {
       "_": "types.LangPackString",
@@ -10550,6 +10879,12 @@
       "value": "Anna pääsykoodi uudelleen"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ReactionDeleted",
+      "one_value": "Reaktio poistettiin",
+      "other_value": "Reaktiot poistettiin"
+    },
+    {
       "_": "types.LangPackString",
       "key": "Reactions",
       "value": "Reaktiot"
@@ -10639,6 +10974,26 @@
       "_": "types.LangPackString",
       "key": "RemoveSymbol",
       "value": "Poista emoji"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReplaceGuardBotDescription",
+      "value": "**{current}** käsittelee tällä hetkellä liittymispyynnöt. Vaihdetaanko bottiin **{new}**?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReplaceGuardBotKeep",
+      "value": "Pidä: {bot}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReplaceGuardBotTitle",
+      "value": "Vaihda bottia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReplaceGuardBotUse",
+      "value": "Käytä: {bot}"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -10733,8 +11088,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RequestToJoinChannelDeclined",
+      "value": "Pyyntösi liittyä kanavalle hylättiin."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RequestToJoinChannelSentDescription",
       "value": "Sinut lisätään kanavalle jos sen valvojat hyväksyvät liittymispyyntösi."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RequestToJoinGroupDeclined",
+      "value": "Pyyntösi liittyä ryhmään hylättiin."
     },
     {
       "_": "types.LangPackString",
@@ -10795,6 +11160,21 @@
       "_": "types.LangPackString",
       "key": "RevokedLinks",
       "value": "Mitätöidyt linkit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichMessageMore",
+      "value": "Näytä lisää"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextMapPreview",
+      "value": "[kartta]"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextMathPreview",
+      "value": "[kaava]"
     },
     {
       "_": "types.LangPackString",
@@ -12496,6 +12876,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SuggestMessagePriceDescriptionGram",
+      "value": "Valitse, montako gramia haluat maksaa julkaisusta."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SuggestMessagePriceDescriptionStars",
       "value": "Valitse, montako tähteä haluat maksaa julkaisusta."
     },
@@ -13352,6 +13737,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UserRestrictionsSendReactions",
+      "value": "Lähettää reaktioita"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UserTyping",
       "value": "{user} kirjoittaa"
     },
@@ -13531,6 +13921,11 @@
       "_": "types.LangPackString",
       "key": "ViewButtonGroup",
       "value": "AVAA RYHMÄ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ViewButtonInstantView",
+      "value": "PIKAKATSELU"
     },
     {
       "_": "types.LangPackString",
@@ -13957,5 +14352,5 @@
       "value": "Nimesi"
     }
   ],
-  "version": 263556
+  "version": 265493
 }

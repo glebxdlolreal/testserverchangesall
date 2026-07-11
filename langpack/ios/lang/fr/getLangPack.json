@@ -1955,6 +1955,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Attachment.Article",
+      "value": "Article"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Attachment.Audio",
       "value": "Audio"
     },
@@ -3206,6 +3211,11 @@
       "_": "types.LangPackString",
       "key": "AvatarEditor.SetChannelPhoto",
       "value": "Définir la photo du canal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AvatarEditor.SetCommunityPhoto",
+      "value": "Définir comme photo de communauté"
     },
     {
       "_": "types.LangPackString",
@@ -11795,7 +11805,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.PanelHidePinnedMessages",
-      "value": "Ne pas afficher les messages épinglés"
+      "value": "Cacher les messages épinglés"
     },
     {
       "_": "types.LangPackString",
@@ -13887,6 +13897,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Context.Ungroup",
+      "value": "Dégrouper"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.Context.UnhideArchive",
       "value": "Épingler aux échanges"
     },
@@ -14496,6 +14511,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Remove",
+      "value": "Supprimer"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.RemoveFolder",
       "value": "Supprimer"
     },
@@ -14936,6 +14956,16 @@
       "_": "types.LangPackString",
       "key": "ChatList.UndoArchiveTitle",
       "value": "Échange archivé."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Action",
+      "value": "Dégrouper"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Title",
+      "value": "Dégrouper les échanges ?"
     },
     {
       "_": "types.LangPackString",
@@ -15559,7 +15589,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChatbotSetup.ErrorBotNotBusinessCapable",
-      "value": "Ce bot ne prend pas encore en charge Telegram Professionnel."
+      "value": "Ce bot ne prend pas encore en charge le mode secrétaire."
     },
     {
       "_": "types.LangPackString",
@@ -16506,6 +16536,401 @@
       "_": "types.LangPackString",
       "key": "Common.of",
       "value": "sur"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.ActionAddToCommunity",
+      "value": "Ajouter à la communauté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Title",
+      "value": "Ajouter un échange"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHeader",
+      "value": "VISIBILITÉ DE L'ÉCHANGE"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHidden",
+      "value": "Caché"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHiddenInfo",
+      "value": "Seuls les membres invités et les administrateurs pourront voir cet échange."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityInfo",
+      "value": "Vous ne pourrez pas modifier cela plus tard."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityVisible",
+      "value": "Visible"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityVisibleInfo",
+      "value": "Tous les membres de la communauté auront accès à cet échange."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat.Description",
+      "value": "Sélectionnez un échange à ajouter à cette communauté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat.Title",
+      "value": "Ajouter un échange"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.BanFromCommunity",
+      "value": "Bannir de la communauté"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.AdminActions.Footer",
+      "one_value": "L'utilisateur sera exclu de [%@ échange >](community)",
+      "other_value": "L'utilisateur sera exclu de [%@ échanges >](community)"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.AdminActions.WarningChatCount",
+      "one_value": "%@ échange",
+      "other_value": "%@ échanges"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningText",
+      "value": "Bannir **%@** supprimera aussi **%@** qu'il a créés de la communauté."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningTitle",
+      "value": "Avertissement"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.AddAdmin",
+      "value": "Ajouter un administrateur"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.Info",
+      "value": "Vous pouvez ajouter des administrateurs pour vous aider à gérer votre communauté."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.SectionTitle",
+      "value": "ADMINISTRATEURS DE LA COMMUNAUTÉ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.Title",
+      "value": "Administrateurs"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.Info",
+      "value": "Les utilisateurs retirés de la communauté par les administrateurs ne peuvent pas la rejoindre à nouveau avec un lien d'invitation."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.RemoveUser",
+      "value": "Retirer un utilisateur"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.Title",
+      "value": "Utilisateurs supprimés"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.UsersSectionTitle",
+      "value": "UTILISATEURS SUPPRIMÉS"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Chat.JoinToView",
+      "value": "Vous devez rejoindre ce groupe pour voir ses messages."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.AddChat",
+      "value": "Ajouter un échange à la communauté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.Administrators",
+      "value": "Administrateurs"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.Edit.ChatsHeader",
+      "one_value": "%@ ÉCHANGE",
+      "other_value": "%@ ÉCHANGES"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.ChatsLimitReached",
+      "value": "Désolé, cette communauté a atteint le nombre maximum d'échanges."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.CommunityNamePlaceholder",
+      "value": "Nom de la communauté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.DeleteCommunity",
+      "value": "Supprimer la communauté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.DeleteConfirmationText",
+      "value": "Voulez-vous vraiment supprimer cette communauté ?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PendingRequests",
+      "value": "Demandes en attente"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionAllMembers",
+      "value": "Tous les membres"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionAllMembersInfo",
+      "value": "Permettre aux membres d'ajouter leurs groupes et canaux à la communauté."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionOnlyAdmins",
+      "value": "Administrateurs uniquement"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.RemovedUsers",
+      "value": "Utilisateurs supprimés"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.WhoCanAddChats",
+      "value": "QUI PEUT AJOUTER DES ÉCHANGES ?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionAddAdmins",
+      "value": "Ajouter des administrateurs de communauté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionBanUsers",
+      "value": "Bannir des membres"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionChangeInfo",
+      "value": "Modifier les infos de la communauté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionManageLinkedPeers",
+      "value": "Modifier la liste d'échanges"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.AddToExistingHeader",
+      "value": "AJOUTER À UNE COMMUNAUTÉ EXISTANTE"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.List.ChatCount",
+      "one_value": "%@ échange",
+      "other_value": "%@ échanges"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.CreateCommunity",
+      "value": "Créer une communauté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleBot",
+      "value": "Intégrez votre bot à une communauté avec plusieurs échanges liées."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleChannel",
+      "value": "Intégrez votre canal à une communauté avec plusieurs échanges liées."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleGroup",
+      "value": "Intégrez votre groupe à une communauté avec plusieurs échanges liées."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.Title",
+      "value": "Communauté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.Info",
+      "value": "Ce groupe est sur invitation.\nSeuls ses membres y ont accès."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.MessageOwner",
+      "value": "Contacter le propriétaire du groupe"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Remove",
+      "value": "Supprimer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.Add",
+      "value": "Ajouter"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAll",
+      "value": "Tout ajouter"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAllChats",
+      "value": "Ajouter tous les échanges"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAllConfirmation",
+      "value": "Souhaitez-vous ajouter %@ échanges à la communauté ?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovalInfo",
+      "value": "Les échanges doivent être validés par un administrateur avant d'être ajoutés à la communauté. [Modifier les paramètres >](settings)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovedToast",
+      "value": "Vous avez ajouté le groupe à la communauté."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.Decline",
+      "value": "Baisse"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAll",
+      "value": "Tout refuser"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAllConfirmation",
+      "value": "Voulez-vous refuser les %@ demandes d'adhésion à la communauté ?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclinedToast",
+      "value": "Vous avez refusé d'ajouter ce groupe à la communauté."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.EmptyText",
+      "value": "Il n'y a plus d'échanges suggérés pour cette communauté."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.EmptyTitle",
+      "value": "Aucune demande en attente"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.PrivateStatus",
+      "value": "visible uniquement par ses membres"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsGroup",
+      "value": "%@ suggère ce groupe :"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.Request.SectionTitle",
+      "one_value": "%@ ÉCHANGE SUGGÉRÉ POUR CETTE COMMUNAUTÉ",
+      "other_value": "%@ ÉCHANGES SUGGÉRÉ POUR CETTE COMMUNAUTÉ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.Title",
+      "value": "Demandes en attente"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.UnknownRequester",
+      "value": "Quelqu'un"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.AddChatButton",
+      "value": "Ajouter un échange à la communauté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ChatsLimitReached",
+      "value": "Désolé, cette communauté a atteint le nombre maximum d'échanges."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestApprovedToast",
+      "value": "Vous avez ajouté le groupe à la communauté."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestDeclinedToast",
+      "value": "Vous avez refusé d'ajouter ce groupe à la communauté."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestHeader",
+      "value": "DEMANDE EN ATTENTE"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequests",
+      "value": "Demandes en attente"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionHidden",
+      "value": "ÉCHANGES CACHÉS"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ShowAsOneChat",
+      "value": "Afficher comme un seul échange"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ShowAsOneChatInfo",
+      "value": "Regrouper tous les échanges communautaires en un seul élément dans la liste des échanges."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.Title",
+      "value": "Communauté"
     },
     {
       "_": "types.LangPackString",
@@ -28427,7 +28852,7 @@
     {
       "_": "types.LangPackString",
       "key": "InviteLink.ApprovalRequired",
-      "value": "Validation requise"
+      "value": "Approbation requise"
     },
     {
       "_": "types.LangPackString",
@@ -31734,6 +32159,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "MediaPicker.SetNewCommunityPhoto",
+      "value": "Définir une nouvelle photo de communauté"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "MediaPicker.SetNewGroupPhoto",
       "value": "Définir une nouvelle photo de groupe"
     },
@@ -33987,6 +34417,46 @@
       "_": "types.LangPackString",
       "key": "Notification.ChatTheme.TextYou",
       "value": "Vous avez définit **%@** comme nouveau thème pour cet échange."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedBot",
+      "value": "Le bot a été ajouté à la communauté %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedChannel",
+      "value": "Le canal a été ajouté à la communauté %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroup",
+      "value": "%1$@ a ajouté ce groupe à la communauté %2$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroupYou",
+      "value": "Vous avez ajouté ce groupe à la communauté %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedBot",
+      "value": "Le bot a été supprimé d'une communauté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedChannel",
+      "value": "Le canal a été supprimé d'une communauté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroup",
+      "value": "%1$@ a supprimé ce groupe d'une communauté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroupYou",
+      "value": "Vous avez supprimé ce groupe d'une communauté"
     },
     {
       "_": "types.LangPackString",
@@ -40050,6 +40520,46 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddBot",
+      "value": "Ajouter un bot à une communauté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddChannel",
+      "value": "Ajouter un canal à une communauté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddGroup",
+      "value": "Ajouter le groupe à une communauté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.BotInfo",
+      "value": "Intégrez votre bot à une communauté avec plusieurs échanges liés"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.ChannelInfo",
+      "value": "Intégrez votre canal à une communauté avec plusieurs échanges liées"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveBot",
+      "value": "Supprimer le bot de la communauté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveChannel",
+      "value": "Supprimer un canal de la communauté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveGroup",
+      "value": "Ajouter le groupe à une communauté"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PeerInfo.CustomizeNotifications",
       "value": "Personnaliser"
     },
@@ -40428,6 +40938,11 @@
       "_": "types.LangPackString",
       "key": "PeerInfo.GroupAboutItem",
       "value": "à propos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.HiddenCommunityStatus",
+      "value": "Caché • %@"
     },
     {
       "_": "types.LangPackString",
@@ -42194,6 +42709,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Premium.Limits.Messages",
+      "value": "Messages"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.Limits.MessagesInfo",
+      "value": "Exprimez-vous avec des messages plus longs"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Premium.Limits.PinnedChats",
       "value": "Échanges épinglés"
     },
@@ -42675,6 +43200,16 @@
       "_": "types.LangPackString",
       "key": "Premium.Restore.Success",
       "value": "Restauré"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.RichText",
+      "value": "Outils de mise en forme"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.RichTextInfo",
+      "value": "Ajouter des titres, tableaux, listes, images et médias intégrés aux messages."
     },
     {
       "_": "types.LangPackString",
@@ -43408,6 +43943,11 @@
       "_": "types.LangPackString",
       "key": "Privacy.GroupsAndChannels.InviteToChannelMultipleError",
       "value": "Vous ne pouvez pas créer un groupe avec ces utilisateurs à cause de leurs paramètres de confidentialité."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Privacy.GroupsAndChannels.InviteToCommunityError",
+      "value": "Désolé, vous ne pouvez pas ajouter %@ à la communauté à cause des paramètres de confidentialité de %@."
     },
     {
       "_": "types.LangPackString",
@@ -45444,6 +45984,151 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.AddMediaTitle",
+      "value": "Ajouter un média"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaAdd",
+      "value": "Ajouter une formule"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaEdit",
+      "value": "Modifier la formule"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionResultTitle",
+      "value": "RÉSULTAT"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionSourceTitle",
+      "value": "LaTeX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkRemove",
+      "value": "Supprimer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkSet",
+      "value": "Définir"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkText",
+      "value": "Définir une URL pour le texte sélectionné"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkTitle",
+      "value": "Lien"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Bullet",
+      "value": "Liste à puces"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Checklist",
+      "value": "Liste"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.None",
+      "value": "Aucun"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Numbered",
+      "value": "Liste numérotée"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.ConvertToText",
+      "value": "Convertir en texte"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Copy",
+      "value": "Copier le tableau"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Delete",
+      "value": "Supprimer une table"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuCode",
+      "value": "Code"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuFormula",
+      "value": "Formule"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuHeading",
+      "value": "Titre"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuHeadingItem",
+      "value": "Titre %@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuQuote",
+      "value": "Citation"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuText",
+      "value": "Texte"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.PremiumToastText",
+      "value": "Pour envoyer un message avec cette mise en forme, vous devez être abonné à [Telegram Premium]()."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingText",
+      "value": "Ce message contient une mise en forme avancée, qui nécessite Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingTitle",
+      "value": "Supprimer la mise en forme ?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.SendWithoutFormatting",
+      "value": "Envoyer sans mise en forme"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.SubscribeToPremium",
+      "value": "S'abonner à Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TableMenu.Alignment",
+      "value": "Alignement"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TitleArticle",
+      "value": "Texte"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextPreview.Formula",
       "value": "[formule]"
     },
@@ -46404,6 +47089,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Settings.ChangePhoto",
+      "value": "Changer de photo"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Settings.ChangeProfilePhoto",
       "value": "Changer la photo de profil"
     },
@@ -46866,6 +47556,11 @@
       "_": "types.LangPackString",
       "key": "Settings.SetNewProfilePhotoOrVideo",
       "value": "Définir une photo de profil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Settings.SetPhoto",
+      "value": "Définir une photo"
     },
     {
       "_": "types.LangPackString",
@@ -53247,6 +53942,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.ActionAddToPage",
+      "value": "Ajouter à la page"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ActionApply",
       "value": "Appliquer"
     },
@@ -53254,6 +53954,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.ActionClose",
       "value": "Fermer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.ActionGenerate",
+      "value": "Générer"
     },
     {
       "_": "types.LangPackString",
@@ -53475,6 +54180,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.TextExpand",
       "value": "plus"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.TitleAICompose",
+      "value": "Créer avec l'IA"
     },
     {
       "_": "types.LangPackString",
@@ -59317,5 +60027,5 @@
       "value": "Vous avez entré un code de sécurité invalide."
     }
   ],
-  "version": 21288246
+  "version": 21500057
 }

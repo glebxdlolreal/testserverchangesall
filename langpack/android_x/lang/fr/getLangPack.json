@@ -4387,6 +4387,17 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CountryCode",
+      "value": "Indicatif pays"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CountryLimit",
+      "one_value": "Vous pouvez sélectionner jusqu'à %1$s pays.",
+      "other_value": "Vous pouvez sélectionner jusqu'à %1$s pays."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CreateAHintForYourPassword",
       "value": "Créez un indice pour le mot de passe"
     },
@@ -5865,6 +5876,11 @@
       "_": "types.LangPackString",
       "key": "EncryptionKeyDescription",
       "value": "Cette image et ce texte sont issus de la clé de chiffrement de cet échange secret avec %1$s.\n\nS'ils sont identiques pour %1$s, le chiffrement de bout en bout est garanti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EndsInDuration",
+      "value": "finit dans %1$s"
     },
     {
       "_": "types.LangPackString",
@@ -12794,6 +12810,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollDescription",
+      "value": "Description (facultatif)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollDescriptionEmpty",
+      "value": "Ajouter une description"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollDescriptionInfo",
+      "value": "La description s'affichera au-dessus du titre du sondage."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDiscard",
       "value": "Effacer le sondage"
     },
@@ -12860,13 +12891,103 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingAdding",
+      "value": "Autoriser l'ajout d'options"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingAddingOff",
+      "value": "Les participants ne peuvent pas proposer de nouvelles options"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingAddingOn",
+      "value": "Les participants peuvent proposer de nouvelles options"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingAnonymous",
       "value": "Vote anonyme"
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingCountries",
+      "value": "Limiter par pays"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOff",
+      "value": "Les utilisateurs de tous les pays peuvent voter"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOn",
+      "value": "Seuls les utilisateurs de certains pays peuvent voter"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOnSpecific",
+      "value": "Seuls les utilisateurs de %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDuration",
+      "value": "Limiter la durée"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDurationOff",
+      "value": "Fermer automatiquement le sondage à l'heure définie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDurationOn",
+      "value": "Le vote se termine à %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResults",
+      "value": "Cacher les résultats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResultsOff",
+      "value": "Les résultats s'affichent après le vote"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResultsOn",
+      "value": "Les résultats seront affichés à l'issue du vote."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembers",
+      "value": "Réserver aux abonnés"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembersOff",
+      "value": "Les utilisateurs non abonnés peuvent voter"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembersOn",
+      "value": "Seuls les abonnés inscrits depuis au moins 24 heures peuvent voter"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingMultiple",
       "value": "Réponses multiples"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMultipleOff",
+      "value": "Une seule option peut être sélectionnée"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMultipleOn",
+      "value": "Plusieurs options peuvent être sélectionnées"
     },
     {
       "_": "types.LangPackString",
@@ -12877,6 +12998,61 @@
       "_": "types.LangPackString",
       "key": "PollSettingQuizInfo",
       "value": "Les quiz n'ont qu'une seule bonne réponse. Les utilisateurs ne peuvent pas révoquer leurs réponses."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingQuizOff",
+      "value": "Activer pour définir la bonne réponse"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingQuizOn",
+      "value": "Choisissez la seule bonne réponse"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevoting",
+      "value": "Autoriser les revotes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevotingOff",
+      "value": "Les voteurs ne peuvent voter qu'une seule fois"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevotingOn",
+      "value": "Les votants peuvent modifier leur vote"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVoters",
+      "value": "Afficher les votants"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVotersOff",
+      "value": "Les votes sont anonymes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVotersOn",
+      "value": "Afficher les noms des votants pour chaque option"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffle",
+      "value": "Options aléatoires"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffleOff",
+      "value": "Les votants voient les options dans le même ordre"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffleOn",
+      "value": "Les réponses s'affichent dans un ordre aléatoire pour chaque votant"
     },
     {
       "_": "types.LangPackString",
@@ -14383,6 +14559,11 @@
       "_": "types.LangPackString",
       "key": "QuizAnonymous",
       "value": "Quiz anonyme"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "QuizDescriptionInfo",
+      "value": "La description s'affichera au-dessus du titre du quiz."
     },
     {
       "_": "types.LangPackString",
@@ -15942,6 +16123,11 @@
       "key": "SearchApproximateResults",
       "one_value": "~%1$s résultat",
       "other_value": "~%1$s résultats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SearchCountry",
+      "value": "Rechercher…"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -20000,6 +20186,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WaitingResultsPoll",
+      "value": "Les résultats seront dévoilés à l'issue du vote."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "WaitingResultsQuiz",
+      "value": "Les résultats seront dévoilés à la fin du quiz."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Wallpaper",
       "value": "Arrière-plan"
     },
@@ -23680,5 +23876,5 @@
       "other_value": "%1$s ans"
     }
   ],
-  "version": 1618198
+  "version": 1623248
 }

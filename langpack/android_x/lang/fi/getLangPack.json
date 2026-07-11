@@ -4387,6 +4387,17 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CountryCode",
+      "value": "Maakoodi"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CountryLimit",
+      "one_value": "Voit valita enintään %1$s maan",
+      "other_value": "Voit valita enintään %1$s maata"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CreateAHintForYourPassword",
       "value": "Luo salasanavihje"
     },
@@ -5865,6 +5876,11 @@
       "_": "types.LangPackString",
       "key": "EncryptionKeyDescription",
       "value": "Tämä kuva ja teksti on muodostettu sinun ja käyttäjän %1$s välisen salatun keskustelun salausavaimesta.\n\nJos ne näyttävät samoilta kuin käyttäjän %1$s laitteella, keskusteluyhteys on salattu päästä päähän."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EndsInDuration",
+      "value": "päättymiseen %1$s"
     },
     {
       "_": "types.LangPackString",
@@ -12794,6 +12810,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollDescription",
+      "value": "Kuvaus (valinnainen)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollDescriptionEmpty",
+      "value": "Lisää kuvaus (valinnainen)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollDescriptionInfo",
+      "value": "Kuvaus näytetään kyselyn nimen yläpuolella."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDiscard",
       "value": "Hylätäänkö kysely?"
     },
@@ -12860,13 +12891,103 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingAdding",
+      "value": "Salli vaihtoehtojen lisäys"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingAddingOff",
+      "value": "Osallistujat eivät voi ehdottaa uusia vaihtoehtoja"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingAddingOn",
+      "value": "Osallistujat voivat ehdottaa uusia vaihtoehtoja"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingAnonymous",
       "value": "Vastaukset nimettömiä"
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingCountries",
+      "value": "Rajoita maittain"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOff",
+      "value": "Käyttäjät saavat äänestää maastaan riippumatta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOn",
+      "value": "Vain käyttäjät valituista maista saavat äänestää"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOnSpecific",
+      "value": "Vain käyttäjät maista: %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDuration",
+      "value": "Rajoita kestoa"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDurationOff",
+      "value": "Sulkee kyselyn tiettyyn päättymisaikaan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDurationOn",
+      "value": "Äänestys päättyy %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResults",
+      "value": "Piilota tulokset"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResultsOff",
+      "value": "Tulokset näytetään heti äänestäneille"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResultsOn",
+      "value": "Tulokset näytetään vasta, kun äänestys on päättynyt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembers",
+      "value": "Rajoita tilaajiin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembersOff",
+      "value": "Äänestäminen ei vaadi kanavan tilaamista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembersOn",
+      "value": "Vain kanavan yli 24 tuntia sitten tilanneet saavat äänestää"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingMultiple",
       "value": "Monta vastausta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMultipleOff",
+      "value": "Vain yhden vaihtoehdon voi valita"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMultipleOn",
+      "value": "Monta eri vaihtoehtoa voi valita"
     },
     {
       "_": "types.LangPackString",
@@ -12877,6 +12998,61 @@
       "_": "types.LangPackString",
       "key": "PollSettingQuizInfo",
       "value": "Visatilassa olevilla kyselyillä on yksi oikea vastaus. Käyttäjät eivät voi perua vastauksiaan."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingQuizOff",
+      "value": "Ota käyttöön valitaksesi oikean vastauksen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingQuizOn",
+      "value": "Valitse oikea vastausvaihtoehto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevoting",
+      "value": "Salli äänen vaihto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevotingOff",
+      "value": "Ääni on peruuttamaton"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevotingOn",
+      "value": "Antaa äänestäjien muuttaa mieltään"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVoters",
+      "value": "Näytä äänestäjät"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVotersOff",
+      "value": "Äänestäneiden nimiä ei näytetä"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVotersOn",
+      "value": "Näyttää joka vaihtoehtoa äänestäneiden nimet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffle",
+      "value": "Sekoita vaihtoehdot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffleOff",
+      "value": "Vaihtoehdot näkyvät samassa järjestyksessä kaikille"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffleOn",
+      "value": "Vaihtoehtojen esitysjärjestys vaihtelee käyttäjittäin"
     },
     {
       "_": "types.LangPackString",
@@ -14383,6 +14559,11 @@
       "_": "types.LangPackString",
       "key": "QuizAnonymous",
       "value": "Visa, vastaukset nimettömiä"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "QuizDescriptionInfo",
+      "value": "Kuvaus näytetään visan nimen yläpuolella."
     },
     {
       "_": "types.LangPackString",
@@ -15942,6 +16123,11 @@
       "key": "SearchApproximateResults",
       "one_value": "~%1$s tulos",
       "other_value": "~%1$s tulosta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SearchCountry",
+      "value": "Hae…"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -20000,6 +20186,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WaitingResultsPoll",
+      "value": "Tulokset näkyvät, kun äänestys on päättynyt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "WaitingResultsQuiz",
+      "value": "Tulokset näkyvät, kun vastausaika on päättynyt"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Wallpaper",
       "value": "Taustakuva"
     },
@@ -23680,5 +23876,5 @@
       "other_value": "%1$s vuotta"
     }
   ],
-  "version": 1618199
+  "version": 1623250
 }

@@ -1524,6 +1524,12 @@
       "value": "Ajoutez ce style pour réécrire instantanément vos messages."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "AiTonePreviewUsedBy2",
+      "one_value": "Utilisé par {count} personne.",
+      "other_value": "Utilisé par {count} personnes."
+    },
+    {
       "_": "types.LangPackString",
       "key": "AiTonePreviewUsedByCreatedBy",
       "value": "{usedBy} {createdBy}"
@@ -1648,6 +1654,16 @@
       "_": "types.LangPackString",
       "key": "ApproveNewMembersDescription",
       "value": "Activez ceci si vous souhaitez que les utilisateurs ne puissent rejoindre qu'avec l'accord d'un administrateur."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ApproveNewMembersPublicUnavailable",
+      "value": "Cette option est indisponible, car n'importe qui peut rejoindre le groupe et envoyer des messages via le lien public du groupe."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ApproveNewSubscribersPublicUnavailable",
+      "value": "Cette option est indisponible car n'importe qui peut rejoindre le canal public via le lien."
     },
     {
       "_": "types.LangPackString",
@@ -2976,7 +2992,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChannelEarnLearnCoinAbout",
-      "value": "**Gram** est la cryptomonnaie de la plateforme blockchain TON sur laquelle Telegram s'appuie pour assurer des transactions rapides et à faible commission. {link}"
+      "value": "Gram est la cryptomonnaie de la plateforme blockchain TON sur laquelle Telegram s'appuie pour assurer des transactions rapides et à faible commission. {link}"
     },
     {
       "_": "types.LangPackString",
@@ -3840,6 +3856,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ConfirmBuyGiftForGramDescription",
+      "value": "Le vendeur n'accepte que des Grams en paiement."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ConfirmDialogMessageRemoveFee",
       "value": "Voulez-vous vraiment permettre à **{peer}** de vous envoyer des messages gratuitement ?"
     },
@@ -4232,6 +4253,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CurrencyGram",
+      "value": "Gram"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CurrencyStars",
       "value": "Étoiles"
     },
@@ -4306,6 +4332,16 @@
       "_": "types.LangPackString",
       "key": "DeleteAll",
       "value": "Supprimer tout"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteAllMessages",
+      "value": "Supprimer tous les messages"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteAllReactions",
+      "value": "Supprimer toutes les réactions"
     },
     {
       "_": "types.LangPackString",
@@ -4390,6 +4426,17 @@
       "value": "Supprimer mon compte"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "DeleteReactionTitle",
+      "one_value": "Supprimer {count} réaction ?",
+      "other_value": "Supprimer {count} réactions ?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteReactionTooltip",
+      "value": "Supprimer la réaction"
+    },
+    {
       "_": "types.LangPackString",
       "key": "DeleteSingleMessagesTitle",
       "value": "Supprimer le message"
@@ -4398,6 +4445,11 @@
       "_": "types.LangPackString",
       "key": "DeleteThisChat",
       "value": "Supprimer cet échange"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DescriptionAboutGram",
+      "value": "Utilisez des Grams pour proposer des publications aux canaux Telegram."
     },
     {
       "_": "types.LangPackString",
@@ -4450,6 +4502,11 @@
       "_": "types.LangPackString",
       "key": "DescriptionOptionalPlaceholder",
       "value": "Description (facultative)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DescriptionPayInGram",
+      "value": "Payez en Gram pour éviter le délai d'attente de 21 jours avant de pouvoir transférer à nouveau le cadeau."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -4526,6 +4583,11 @@
       "_": "types.LangPackString",
       "key": "DiceToastSend",
       "value": "Envoyer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Disable",
+      "value": "Désactiver"
     },
     {
       "_": "types.LangPackString",
@@ -4944,6 +5006,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Enable",
+      "value": "Activer"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EnablePasscode",
       "value": "Définir un code d'accès"
     },
@@ -4981,6 +5048,11 @@
       "_": "types.LangPackString",
       "key": "EnterPasswordDescription",
       "value": "Veuillez saisir votre mot de passe de double authentification pour terminer cette action."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EnterPriceInGram",
+      "value": "Entrez le prix en Gram"
     },
     {
       "_": "types.LangPackString",
@@ -7084,6 +7156,27 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GramAmount",
+      "value": "💎 {amount}"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "GramAmountText",
+      "one_value": "{amount} Gram",
+      "other_value": "{amount} Grams"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GramGiftReceived",
+      "value": "Recharge Gram"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GramModalHint",
+      "value": "Vous pouvez recharger votre compte Gram via Fragment."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GraphZoomOut",
       "value": "Dézoomer"
     },
@@ -7215,6 +7308,105 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GuardApplyToInvitesApply",
+      "value": "Activer"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "GuardApplyToInvitesChannel",
+      "one_value": "Activer aussi **Approuver les nouveaux abonnés** pour **1 lien d'invitation existant** sur ce canal ?",
+      "other_value": "Activer aussi **Approuver les nouveaux abonnés** pour les **{count} liens d'invitation existants** sur ce canal ?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApplyToInvitesDontApply",
+      "value": "Ne pas activer"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "GuardApplyToInvitesGroup",
+      "one_value": "Activer aussi **Approuver les nouveaux membres** pour **1 lien d'invitation existant** pour ce groupe ?",
+      "other_value": "Activer aussi **Approuver les nouveaux membres** pour les **{count} liens d'invitation existants** pour ce groupe ?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApplyToInvitesTitle",
+      "value": "Appliquer aux liens d'invitation existants"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApproveNewChannelSubscribersInfo",
+      "value": "Un administrateur doit valider toute demande d'adhésion au canal."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApproveNewMembers",
+      "value": "Approuver les nouveaux membres"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApproveNewPrivateGroupMembersInfo",
+      "value": "Un administrateur doit approuver toute demande d'adhésion au groupe."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApproveNewPublicGroupMembersInfo",
+      "value": "Un administrateur doit valider les utilisateurs qui veulent envoyer des messages dans le groupe"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "GuardDisableInvitesChannel",
+      "one_value": "Désactiver aussi **Approuver les nouveaux abonnés** pour **1 lien d'invitation existant** sur ce canal ?",
+      "other_value": "Désactiver aussi **Approuver les nouveaux abonnés** pour les **{count} liens d'invitation existants** sur ce canal ?"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "GuardDisableInvitesGroup",
+      "one_value": "Désactiver aussi **Approuver les nouveaux membres** pour **1 lien d'invitation existant** pour ce groupe ?",
+      "other_value": "Désactiver aussi **Approuver les nouveaux membres** pour les **{count} liens d'invitation existants** pour ce groupe ?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardManagedBy",
+      "value": "Géré par {bot}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardManagedByDescription",
+      "value": "{approvalInfo} {managedBy}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequests",
+      "value": "Traiter les demandes d'adhésion"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequestsDisableChannel",
+      "value": "Les nouveaux abonnés n'auront plus besoin de l'autorisation de {bot} pour rejoindre ce canal."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequestsDisableGroup",
+      "value": "Les nouveaux membres n'auront plus besoin de l'autorisation de {bot} pour envoyer des messages dans ce groupe."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequestsEnableChannel",
+      "value": "Les nouveaux abonnés devront désormais obtenir l'autorisation de {bot} avant de pouvoir rejoindre ce canal."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequestsEnableGroup",
+      "value": "Les nouveaux membres devront désormais obtenir l'autorisation de {bot} avant de pouvoir envoyer des messages dans ce groupe."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequestsInfo",
+      "value": "Autorisez ce bot à valider les nouveaux membres à l'aide de ses propres interfaces, telles que les captchas."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "HEX",
       "value": "HEX"
     },
@@ -7223,6 +7415,21 @@
       "key": "HeaderDescriptionResaleGifts",
       "one_value": "{count} offre",
       "other_value": "{count} offres"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "HeaderMenuViewGroupInfo",
+      "value": "Voir les infos du groupe"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "HeaderMenuViewProfile",
+      "value": "Ouvrir le profil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "HeaderMenuViewTopicInfo",
+      "value": "Voir les infos du sujet"
     },
     {
       "_": "types.LangPackString",
@@ -7335,6 +7542,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "InstantView",
+      "value": "Aperçu instantané"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "InstantViewWrongLayout",
+      "value": "Mauvaise mise en page ?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "InviteBlockedManyMessage",
       "value": "Certains utilisateurs empêchent de les ajouter à des groupes. Vous pouvez envoyer à ces personnes un lien d'invitation par message privé à la place."
     },
@@ -7372,6 +7589,11 @@
       "_": "types.LangPackString",
       "key": "InviteLink",
       "value": "Lien d'invitation"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "InviteLinkApprovalRequired",
+      "value": "Approbation requise"
     },
     {
       "_": "types.LangPackString",
@@ -7455,6 +7677,11 @@
       "_": "types.LangPackString",
       "key": "JustNowAgo",
       "value": "à l'instant"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "LabelPayInGram",
+      "value": "Payer en Gram"
     },
     {
       "_": "types.LangPackString",
@@ -8076,6 +8303,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "MenuGram",
+      "value": "Mes Grams"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "MenuInstallApp",
       "value": "Installer l'application"
     },
@@ -8249,6 +8481,16 @@
       "_": "types.LangPackString",
       "key": "MessageMetaEdited",
       "value": "modifié"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MessageMetaEditedAtTime",
+      "value": "modifié à {time}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MessageMetaEditedOnDateAtTime",
+      "value": "modifié le {date} à {time}"
     },
     {
       "_": "types.LangPackString",
@@ -8444,6 +8686,11 @@
       "_": "types.LangPackString",
       "key": "MonetizationBalanceZeroInfo",
       "value": "Vous pourrez collecter vos récompenses en utilisant Fragment, une plateforme tierce utilisée par les annonceurs pour payer leurs publicités. {link}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MonetizationInfoGramTitle",
+      "value": "Qu'est-ce que 💎 Gram ?"
     },
     {
       "_": "types.LangPackString",
@@ -8937,6 +9184,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "OnlyAcceptGram",
+      "value": "Accepter seulement Gram"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "OnlyAcceptGramDescription",
+      "value": "Si l'acheteur vous paie en Gram, il n'y a aucun risque de remboursement, contrairement aux paiements en étoile."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Open",
       "value": "Ouvrir"
     },
@@ -8999,6 +9256,16 @@
       "_": "types.LangPackString",
       "key": "P2PNobody",
       "value": "Personne"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PageContentEmbed",
+      "value": "Contenu intégré"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PageContentUnsupported",
+      "value": "Contenu non pris en charge"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -9523,6 +9790,11 @@
       "value": "Les votants peuvent modifier leur vote"
     },
     {
+      "_": "types.LangPackString",
+      "key": "PollAllowedCountries",
+      "value": "Pays autorisés"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "PollAnswerCountButton",
       "one_value": "{count} réponse >",
@@ -9556,6 +9828,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollChooseCountry",
+      "value": "Veuillez choisir au moins un pays."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "PollCountriesCount",
+      "one_value": "{count} pays",
+      "other_value": "{count} pays"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "PollCountriesLimit",
+      "one_value": "Vous pouvez choisir jusqu'à {count} pays.",
+      "other_value": "Vous pouvez choisir jusqu'à {count} pays."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollCountryRestriction",
+      "value": "Seuls les utilisateurs de **{countries}** peuvent voter."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDuration",
       "value": "Durée"
     },
@@ -9573,6 +9867,16 @@
       "_": "types.LangPackString",
       "key": "PollHideResultsUntilClose",
       "value": "Masquer les résultats jusqu'à la clôture"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountry",
+      "value": "Limite par pays"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollLimitByCountryDescription",
+      "value": "Seuls les utilisateurs de certains pays peuvent voter."
     },
     {
       "_": "types.LangPackString",
@@ -9642,8 +9946,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribers",
+      "value": "Réserver aux abonnés"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribersDescription",
+      "value": "Seuls les abonnés inscrits depuis au 24 heures ou plus peuvent voter."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollResults",
       "value": "Résultats finaux"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollResultsAnswerTitle",
+      "value": "{answer} - {percent} % "
     },
     {
       "_": "types.LangPackString",
@@ -9664,6 +9983,11 @@
       "_": "types.LangPackString",
       "key": "PollSubmitVotes",
       "value": "Voter"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSubscriberRestriction",
+      "value": "Seuls les abonnés de {channel} peuvent voter."
     },
     {
       "_": "types.LangPackString",
@@ -9945,6 +10269,11 @@
       "_": "types.LangPackString",
       "key": "PriceChangedText",
       "value": "Le prix est déjà passé de **{originalAmount}** à **{newAmount}**. Souhaitez-vous payer le nouveau prix ?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PriceInGram",
+      "value": "Prix en Gram"
     },
     {
       "_": "types.LangPackString",
@@ -10550,6 +10879,12 @@
       "value": "Confirmez votre nouveau code d'accès"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ReactionDeleted",
+      "one_value": "Réaction supprimée",
+      "other_value": "Réactions supprimées"
+    },
+    {
       "_": "types.LangPackString",
       "key": "Reactions",
       "value": "Réactions"
@@ -10639,6 +10974,26 @@
       "_": "types.LangPackString",
       "key": "RemoveSymbol",
       "value": "Supprimer l'emoji"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReplaceGuardBotDescription",
+      "value": "**{current}** traite actuellement des demandes d'adhésion. Passer plutôt à **{new}** ?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReplaceGuardBotKeep",
+      "value": "Garder {bot}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReplaceGuardBotTitle",
+      "value": "Remplacer le bot de sécurité"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReplaceGuardBotUse",
+      "value": "Utiliser {bot}"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -10733,8 +11088,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RequestToJoinChannelDeclined",
+      "value": "Votre demande d'adhésion au canal a été refusée."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RequestToJoinChannelSentDescription",
       "value": "Vous serez ajouté au canal une fois que ses administrateurs auront approuvé votre demande."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RequestToJoinGroupDeclined",
+      "value": "Votre demande d'adhésion au groupe a été refusée."
     },
     {
       "_": "types.LangPackString",
@@ -10795,6 +11160,21 @@
       "_": "types.LangPackString",
       "key": "RevokedLinks",
       "value": "Liens révoqués"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichMessageMore",
+      "value": "Voir plus"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextMapPreview",
+      "value": "[carte]"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextMathPreview",
+      "value": "[formule]"
     },
     {
       "_": "types.LangPackString",
@@ -12496,6 +12876,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SuggestMessagePriceDescriptionGram",
+      "value": "Choisissez le nombre de Gram à payer pour publier ce message."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SuggestMessagePriceDescriptionStars",
       "value": "Choisissez le nombre d'étoiles à offrir pour cette publication."
     },
@@ -13352,6 +13737,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UserRestrictionsSendReactions",
+      "value": "Envoyer des réactions"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UserTyping",
       "value": "{user} écrit"
     },
@@ -13531,6 +13921,11 @@
       "_": "types.LangPackString",
       "key": "ViewButtonGroup",
       "value": "VOIR LE GROUPE"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ViewButtonInstantView",
+      "value": "APERÇU INSTANTANÉ"
     },
     {
       "_": "types.LangPackString",
@@ -13957,5 +14352,5 @@
       "value": "Votre nom"
     }
   ],
-  "version": 263556
+  "version": 265492
 }
