@@ -101,7 +101,7 @@ var Main = {
             $toast.remove();
             window.$toast = null;
         }, 300);
-      }, options.duration || 2000);
+      }, options.duration || 5000);
     }
   },
   showErrorToast(text) {
@@ -2746,9 +2746,8 @@ var BotMigration = {
 
   showStepError(error) {
     var stepNum = BotMigration.currentStep;
-    var errorText = uncleanHTML(l('WEB_MIGRATION_APPLY_ERROR')).replace('{error}', error);
-    $('#migration-step-' + stepNum + '-error-text').text(errorText);
-    $('#migration-step-' + stepNum + '-error').show();
+    var errorText = uncleanHTML(l('WEB_MIGRATION_APPLY_ERROR', {error: error}));
+    WebApp.showAlert(uncleanHTML(errorText));
   },
 
   hideStepError() {
