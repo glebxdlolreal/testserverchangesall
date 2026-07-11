@@ -2357,10 +2357,10 @@ var BotCliAccess = {
         }
         if (response.ok) {
           $('.js-spoiler.js-cli-token').html(response.token);
-          $('.copy-btn.js-cli-token').data('value', response.token);
+          $('.copy-btn.js-cli-token').attr('data-value', response.token);
           $('.js-spoiler.js-cli-token').each(function () {
             SimpleSpoiler.init(this);
-          });
+          }).removeClass('js-spoiler-revealed');
           Main.showSuccessToast(l('WEB_CLI_TOKEN_REVOKE_SUCCESS'));
         }
       });
@@ -2399,7 +2399,7 @@ var BotCodeEditor = {
       autoCloseBrackets: true,
       indentUnit: 2,
       tabSize: 2,
-      lineWrapping: false,
+      lineWrapping: true,
       json: false,
       placeholder: opts.placeholder || '',
       extraKeys: $.extend({
@@ -2533,7 +2533,7 @@ var BotLibrary = {
     }
     var existing = Aj.state.existingLibraries || [];
     if (existing.indexOf(name) !== -1) {
-      Main.showErrorToast(l('WEB_FUNCTION_NAME_EXISTS'));
+      Main.showErrorToast(l('WEB_LIBRARY_FILE_EXISTS'));
       $('#library-name').focus();
       return;
     }
@@ -2783,6 +2783,29 @@ var BotHandler = {
         });
       });
     }
+  },
+};
+
+var BotHandlers = {
+  init() {
+    $(document).on('click.curPage', '.js-webhook-sync', BotHandlers.onSync);
+  },
+
+  onSync() {
+    var $row = $('.js-webhook-sync');
+    if ($row.hasClass('js-webhook-syncing')) return;
+    $row.addClass('js-webhook-syncing');
+    $row.find('.js-status-action').html(l('WEB_WEBHOOK_SYNCING'));
+    Aj.apiRequest('syncCloudWebhook', { bid: Aj.state.botId }, function(res) {
+      if (res.ok) {
+        $('#js-webhook-status').html(res.status_html);
+        Main.showSuccessToast(l('WEB_WEBHOOK_SYNCED'));
+      } else {
+        $row.removeClass('js-webhook-syncing');
+        $row.find('.js-status-action').html(l('WEB_WEBHOOK_SYNC'));
+        Main.showErrorToast(res.error || l('WEB_WEBHOOK_SYNC_ERROR'));
+      }
+    });
   },
 };
 
