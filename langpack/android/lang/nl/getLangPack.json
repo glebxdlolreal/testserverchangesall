@@ -170,6 +170,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AIEditorStylePrompt",
+      "value": "Prompt"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AIEditorStylePromptHint",
       "value": "Instructies (bijvoorbeeld \"schrijf als een zwaardvechtende piraat. Gebruik worden als 'arr', 'ye', 'matey' en praat over schatten en de zee\")"
     },
@@ -654,6 +659,11 @@
       "_": "types.LangPackString",
       "key": "AccDescrIVFooter",
       "value": "Footer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AccDescrIVFormula",
+      "value": "Formule"
     },
     {
       "_": "types.LangPackString",
@@ -4792,6 +4802,11 @@
       "_": "types.LangPackString",
       "key": "AskButton",
       "value": "Vraag een vrijwilliger"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AttachArticle",
+      "value": "Artikel"
     },
     {
       "_": "types.LangPackString",
@@ -14107,6 +14122,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community",
+      "value": "Gemeenschap"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAddAChatToCommunity",
       "value": "Een chat toevoegen aan de gemeenschap"
     },
@@ -14133,8 +14153,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAddBotToCommunity",
+      "value": "Bot toevoegen aan een gemeenschap"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotToCommunityInfo",
+      "value": "Maak je bot onderdeel van een gemeenschap met meerdere gerelateerde chats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChannelToCommunity",
+      "value": "Kanaal toevoegen aan een gemeenschap"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChannelToCommunityInfo",
+      "value": "Maak je kanaal onderdeel van een gemeenschap met meerdere gerelateerde chats."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAddChatTitle",
       "value": "Chat toevoegen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddGroupToCommunity",
+      "value": "Groep toevoegen aan een gemeenschap"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddGroupToCommunityInfo",
+      "value": "Maak je groep onderdeel van een gemeenschap met meerdere gerelateerde chats."
     },
     {
       "_": "types.LangPackString",
@@ -14208,6 +14258,12 @@
       "value": "Gebruiker verbannen"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityBanWarningMessage",
+      "one_value": "Als je **%2$s** verbant, zal **%1$d** chat van deze gebruiker ook uit de gemeenschap verdwijnen.",
+      "other_value": "Als je **%2$s** verbant, zullen de **%1$d** chats van deze gebruiker ook uit de gemeenschap verdwijnen."
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityBanWarningTitle",
       "value": "Waarschuwing"
@@ -14279,6 +14335,11 @@
       "value": "Je verzoek om lid te worden van de gemeenschap is verstuurd naar de beheerders"
     },
     {
+      "_": "types.LangPackString",
+      "key": "CommunityCreateCommunity",
+      "value": "Creëer een gemeenschap"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "CommunityDeclineAllMessage",
       "one_value": "Wil je **%1$d** verzoek om lid te worden van de gemeenschap, afwijzen?",
@@ -14293,6 +14354,21 @@
       "_": "types.LangPackString",
       "key": "CommunityDelete",
       "value": "Gemeenschap verwijderen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionBot",
+      "value": "Maak je bot onderdeel van een gemeenschap met meerdere gerelateerde chats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionChannel",
+      "value": "Maak je kanaal onderdeel van een gemeenschap met meerdere gerelateerde chats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionGroup",
+      "value": "Maak je groep onderdeel van een gemeenschap met meerdere gerelateerde chats."
     },
     {
       "_": "types.LangPackString",
@@ -14421,6 +14497,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityNoChatsToAdd",
+      "value": "Je hebt geen chats om aan de gemeenschap toe te voegen."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityPendingRequest",
       "value": "Openstaand verzoek"
     },
@@ -14498,6 +14579,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityPermissionsHeader",
+      "value": "Wat kunnen leden van deze gemeenschap doen?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveBotFromCommunity",
+      "value": "Bot verwijderen uit de gemeenschap"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveChannelFromCommunity",
+      "value": "Kanaal verwijderen uit de gemeenschap"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveGroupFromCommunity",
+      "value": "Groep verwijderen uit de gemeenschap"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityRemovedUsers",
       "value": "Verwijderde gebruikers"
     },
@@ -14559,7 +14660,7 @@
     {
       "_": "types.LangPackString",
       "key": "CommunityServiceMessageBotRemoved",
-      "value": "**%1$s** heeft deze bot verwijderd uit de gemeenschap"
+      "value": "**%1$s** heeft deze bot uit de gemeenschap verwijderd"
     },
     {
       "_": "types.LangPackString",
@@ -14574,7 +14675,7 @@
     {
       "_": "types.LangPackString",
       "key": "CommunityServiceMessageBotYouRemoved",
-      "value": "**Jij** hebt deze bot verwijderd uit de gemeenschap"
+      "value": "**Jij** hebt deze bot uit de gemeenschap verwijderd"
     },
     {
       "_": "types.LangPackString",
@@ -14589,7 +14690,7 @@
     {
       "_": "types.LangPackString",
       "key": "CommunityServiceMessageChannelRemoved",
-      "value": "**%1$s** heeft dit kanaal verwijderd uit de gemeenschap"
+      "value": "**%1$s** heeft dit kanaal uit de gemeenschap verwijderd"
     },
     {
       "_": "types.LangPackString",
@@ -14604,7 +14705,7 @@
     {
       "_": "types.LangPackString",
       "key": "CommunityServiceMessageChannelYouRemoved",
-      "value": "**Jij** hebt dit kanaal verwijderd uit de gemeenschap"
+      "value": "**Jij** hebt dit kanaal uit de gemeenschap verwijderd"
     },
     {
       "_": "types.LangPackString",
@@ -14665,6 +14766,11 @@
       "_": "types.LangPackString",
       "key": "CommunityShowAsOneChatInfo",
       "value": "Groepeer alle chats in deze gemeenschap onder één item in de chatlijst."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityTitle",
+      "value": "Gemeenschap"
     },
     {
       "_": "types.LangPackString",
@@ -18330,6 +18436,21 @@
       "_": "types.LangPackString",
       "key": "EnterYourTelegramPasscode",
       "value": "Voer je Telegram-toegangscode in"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageMenuHint",
+      "value": "Alleen jij ziet dit bericht. Het zal verdwijnen wanneer je opnieuw inlogt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageVisibleToOther",
+      "value": "Alleen zichtbaar voor @%s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageVisibleToYou",
+      "value": "Alleen zichtbaar voor jou"
     },
     {
       "_": "types.LangPackString",
@@ -31174,6 +31295,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NoBlockedCommunity2",
+      "value": "Gebruikers die door beheerders uit de gemeenschap zijn verwijderd, kunnen zich niet opnieuw aanmelden via uitnodigingslinks."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NoBlockedGroup",
       "value": "Geblokkeerde gebruikers kunnen alleen worden uitgenodigd door beheerders, uitnodigingslinks werken niet voor hen."
     },
@@ -31241,6 +31367,16 @@
       "_": "types.LangPackString",
       "key": "NoComments",
       "value": "Nog geen opmerkingen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NoCommunityJoinRequests",
+      "value": "Geen deelnameverzoeken"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NoCommunityJoinRequestsDescription",
+      "value": "Er zijn geen openstaande verzoeken\nom lid te worden van je gemeenschap."
     },
     {
       "_": "types.LangPackString",
@@ -37465,6 +37601,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumPreviewRichEditorDescription",
+      "value": "Voeg kopteksten, tabellen, lijsten, AI en inline media toe aan berichten."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumPreviewSharingDisable",
       "value": "Deeloptie uitschakelen"
     },
@@ -41747,6 +41888,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorDraftSaved",
+      "value": "Bewaard concept."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RightNow",
       "value": "Zojuist"
     },
@@ -43853,6 +43999,11 @@
       "_": "types.LangPackString",
       "key": "SetColorAsBackground",
       "value": "Kleur als achtergrond instellen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SetCommunityPhoto",
+      "value": "Foto voor gemeenschap instellen"
     },
     {
       "_": "types.LangPackString",
@@ -49820,6 +49971,11 @@
       "_": "types.LangPackString",
       "key": "SwipeToReplyHintMessage",
       "value": "Veeg naar links op een bericht om te reageren."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SwipeUngroupCommunity",
+      "value": "Degroeperen"
     },
     {
       "_": "types.LangPackString",
@@ -56659,5 +56815,5 @@
       "value": "Telegram Passport"
     }
   ],
-  "version": 59900059
+  "version": 59900432
 }

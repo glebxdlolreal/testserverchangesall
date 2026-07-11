@@ -1975,6 +1975,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Attachment.Article",
+      "value": "Статья"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Attachment.Audio",
       "value": "Звук"
     },
@@ -3244,6 +3249,11 @@
       "_": "types.LangPackString",
       "key": "AvatarEditor.SetChannelPhoto",
       "value": "Добавить фото канала"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AvatarEditor.SetCommunityPhoto",
+      "value": "Добавить фото сообщества"
     },
     {
       "_": "types.LangPackString",
@@ -14151,6 +14161,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Context.Ungroup",
+      "value": "Разделить"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.Context.UnhideArchive",
       "value": "Закрепить в списке чатов"
     },
@@ -14788,6 +14803,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Remove",
+      "value": "Удалить"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.RemoveFolder",
       "value": "Удалить"
     },
@@ -15234,6 +15254,21 @@
       "_": "types.LangPackString",
       "key": "ChatList.UndoArchiveTitle",
       "value": "Чат перенесён в архив."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Action",
+      "value": "Разделить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Text",
+      "value": "Чаты из сообщества будут отображаться в списке чатов по отдельности, а не одним пунктом."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Title",
+      "value": "Разделить чаты?"
     },
     {
       "_": "types.LangPackString",
@@ -16817,8 +16852,66 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Add.ActionAddToCommunity",
+      "value": "Добавить в сообщество"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Title",
+      "value": "Добавление чата"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHeader",
+      "value": "ОТОБРАЖЕНИЕ ЧАТА"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHidden",
+      "value": "Скрыт"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHiddenInfo",
+      "value": "Чат будет виден только приглашённым участникам и администраторам сообщества."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Add.VisibilityInfo",
       "value": "Эту настройку нельзя будет изменить позже."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityVisible",
+      "value": "Виден"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityVisibleInfo",
+      "value": "Чат будет виден всем в сообществе."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat.Description",
+      "value": "Выберите чат для сообщества"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat.Title",
+      "value": "Добавление чата"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.BanFromCommunity",
+      "value": "Заблокировать в сообществе"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Пользователь будет исключён из [%@ чатов >](community)",
+      "key": "Community.AdminActions.Footer",
+      "many_value": "Пользователь будет исключён из [%@ чатов >](community)",
+      "one_value": "Пользователь будет исключён из [%@ чата >](community)",
+      "other_value": "Пользователь будет исключён из [%@ чатов >](community)"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -16831,7 +16924,7 @@
     {
       "_": "types.LangPackString",
       "key": "Community.AdminActions.WarningText",
-      "value": "В случае блокировки **%@** из сообщества также %@ этим пользователем."
+      "value": "При блокировке **%@** из сообщества также %@ этим пользователем."
     },
     {
       "_": "types.LangPackString",
@@ -16842,6 +16935,11 @@
       "_": "types.LangPackString",
       "key": "Community.Admins.AddAdmin",
       "value": "Добавить администратора"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.Info",
+      "value": "Выберите помощников для управления сообществом."
     },
     {
       "_": "types.LangPackString",
@@ -16874,12 +16972,112 @@
       "value": "ЧЁРНЫЙ СПИСОК"
     },
     {
+      "_": "types.LangPackString",
+      "key": "Community.Chat.JoinToView",
+      "value": "Сообщения в этой группе можно просматривать только после вступления."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.CommunityAdded.View",
+      "value": "Посмотреть"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.AddChat",
+      "value": "Добавить чат в сообщество"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.Administrators",
+      "value": "Администраторы"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "%@ ЧАТА",
       "key": "Community.Edit.ChatsHeader",
       "many_value": "%@ ЧАТОВ",
       "one_value": "%@ ЧАТ",
       "other_value": "%@ ЧАТОВ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.ChatsLimitReached",
+      "value": "В этом сообществе уже максимальное количество чатов."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.CommunityNamePlaceholder",
+      "value": "Название сообщества"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.DeleteCommunity",
+      "value": "Удалить сообщество"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.DeleteConfirmationText",
+      "value": "Вы точно хотите удалить это сообщество?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PendingRequests",
+      "value": "Непроверенные заявки"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionAllMembers",
+      "value": "Все участники"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionAllMembersInfo",
+      "value": "Участники могут добавлять в сообщество свои группы и каналы."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionOnlyAdmins",
+      "value": "Только администраторы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionOnlyAdminsInfo",
+      "value": "Чаты, предложенные участниками, добавляются после подтверждения администратором."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.RemovedUsers",
+      "value": "Чёрный список"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.WhoCanAddChats",
+      "value": "КТО МОЖЕТ ДОБАВЛЯТЬ ЧАТЫ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionAddAdmins",
+      "value": "Назначение администраторов"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionBanUsers",
+      "value": "Блокировка участников"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionChangeInfo",
+      "value": "Изменение профиля сообщества"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionManageLinkedPeers",
+      "value": "Изменение списка чатов"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.AddToExistingHeader",
+      "value": "ДОБАВИТЬ В СУЩЕСТВУЮЩЕЕ"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -16906,7 +17104,195 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.List.SubtitleGroup",
+      "value": "Вы можете сделать группу частью сообщества, состоящего из связанных между собой чатов."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.List.Title",
+      "value": "Сообщество"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.Info",
+      "value": "Это частный чат. Его могут\nпросматривать только участники."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.MessageOwner",
+      "value": "Написать владельцу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Remove",
+      "value": "Удалить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Text",
+      "value": "Этот чат будет исключён из сообщества."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Title",
+      "value": "Удалить чат из сообщества?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.Add",
+      "value": "Добавить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAll",
+      "value": "Добавить все"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAllChats",
+      "value": "Добавить все чаты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAllConfirmation",
+      "value": "Добавить все чаты (%@) в сообщество?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovalInfo",
+      "value": "Чаты добавляются в сообщество только после подтверждения администратором. [Изменить настройки >](settings)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovedToast",
+      "value": "Вы добавили чат в сообщество."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.Decline",
+      "value": "Отклонить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAll",
+      "value": "Отклонить все"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAllConfirmation",
+      "value": "Отклонить все заявки (%@) на добавление в сообщество?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclinedToast",
+      "value": "Вы отклонили предложение добавить чат в сообщество."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.EmptyText",
+      "value": "В сообществе нет непроверенных заявок на добавление чатов."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.EmptyTitle",
+      "value": "Нет заявок"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.PrivateStatus",
+      "value": "видят только участники"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsGroup",
+      "value": "%@ предложил(а) чат:"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%@ ПРЕДЛОЖЕННЫХ ЧАТА",
+      "key": "Community.Request.SectionTitle",
+      "many_value": "%@ ПРЕДЛОЖЕННЫХ ЧАТОВ",
+      "one_value": "%@ ПРЕДЛОЖЕННЫЙ ЧАТ",
+      "other_value": "%@ ПРЕДЛОЖЕННЫХ ЧАТОВ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.Title",
+      "value": "Непроверенные заявки"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.UnknownRequester",
+      "value": "Пользователь"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.AddChatButton",
+      "value": "Добавить чат в сообщество"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ChatsLimitReached",
+      "value": "В этом сообществе уже максимальное количество чатов."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.HiddenChatToast",
+      "value": "Вы не можете вступить в чат или просматривать его без приглашения администратора."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestApprovedToast",
+      "value": "Вы добавили группу в сообщество."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestDeclinedToast",
+      "value": "Вы отклонили предложение добавить группу в сообщество."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestHeader",
+      "value": "НЕПРОВЕРЕННАЯ ЗАЯВКА"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequests",
+      "value": "Непроверенные заявки"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionHidden",
+      "value": "СКРЫТЫЕ ЧАТЫ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionJoined",
+      "value": "ЧАТЫ, В КОТОРЫХ ВЫ СОСТОИТЕ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionRequestable",
+      "value": "ЧАТЫ С ЗАЯВКАМИ НА ВСТУПЛЕНИЕ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionVisible",
+      "value": "ЧАТЫ, ДОСТУПНЫЕ ДЛЯ ПРОСМОТРА"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ShowAsOneChat",
+      "value": "Отображать как один чат"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ShowAsOneChatInfo",
+      "value": "Отображать в списке чатов только сообщество, а не отдельные чаты в его составе."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.Title",
       "value": "Сообщество"
     },
     {
@@ -32506,6 +32892,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "MediaPicker.SetNewCommunityPhoto",
+      "value": "Выбор фотографии сообщества"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "MediaPicker.SetNewGroupPhoto",
       "value": "Выбор фотографии группы"
     },
@@ -34871,6 +35262,46 @@
       "_": "types.LangPackString",
       "key": "Notification.ChatTheme.TextYou",
       "value": "Вы установили **%@** в качестве новой темы оформления этого чата."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedBot",
+      "value": "Бот добавлен в сообщество %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedChannel",
+      "value": "Канал добавлен в сообщество %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroup",
+      "value": "%1$@ добавил(а) эту группу в сообщество %2$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroupYou",
+      "value": "Вы добавили эту группу в сообщество %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedBot",
+      "value": "Бот удалён из сообщества"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedChannel",
+      "value": "Канал удалён из сообщества"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroup",
+      "value": "%1$@ удалил(а) эту группу из сообщества"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroupYou",
+      "value": "Вы удалили эту группу из сообщества"
     },
     {
       "_": "types.LangPackString",
@@ -41115,6 +41546,14 @@
       "value": "Удалить переписку"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Сообщество с %@ чатами",
+      "key": "PeerInfo.Community",
+      "many_value": "Сообщество с %@ чатами",
+      "one_value": "Сообщество с %@ чатом",
+      "other_value": "Сообщество с %@ чатов"
+    },
+    {
       "_": "types.LangPackString",
       "key": "PeerInfo.Community.AddBot",
       "value": "Добавить бота в сообщество"
@@ -43333,6 +43772,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Premium.Limits.Messages",
+      "value": "Сообщения"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.Limits.MessagesInfo",
+      "value": "Увеличенная длина сообщений"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Premium.Limits.PinnedChats",
       "value": "Закреплённые чаты"
     },
@@ -44571,6 +45020,11 @@
       "_": "types.LangPackString",
       "key": "Privacy.GroupsAndChannels.InviteToChannelMultipleError",
       "value": "Вы не можете создать группу с этими пользователями из-за их настроек приватности."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Privacy.GroupsAndChannels.InviteToCommunityError",
+      "value": "Настройки конфиденциальности %@ не позволяют добавить %@ в сообщество."
     },
     {
       "_": "types.LangPackString",
@@ -46643,6 +47097,71 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.AddMediaTitle",
+      "value": "Добавить медиафайл"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaAdd",
+      "value": "Новая формула"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaEdit",
+      "value": "Изменение формулы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionResultTitle",
+      "value": "ВИД В ТЕКСТЕ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionSourceTitle",
+      "value": "LATEX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkRemove",
+      "value": "Убрать"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkSet",
+      "value": "Применить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkText",
+      "value": "Укажите ссылку, которую хотите привязать к выбранному тексту"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkTitle",
+      "value": "Ссылка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Bullet",
+      "value": "Маркированный список"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Checklist",
+      "value": "Список задач"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.None",
+      "value": "Без списка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Numbered",
+      "value": "Нумерованный список"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichText.Menu.Table.ConvertToText",
       "value": "Преобразовать в текст"
     },
@@ -46658,6 +47177,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.MenuCode",
+      "value": "Код"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuFormula",
+      "value": "Формула"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichText.MenuHeading",
       "value": "Заголовок"
     },
@@ -46668,18 +47197,48 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.MenuPullquote",
+      "value": "Выносная цитата"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuQuote",
+      "value": "Цитата"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuText",
+      "value": "Текст"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.PremiumToastText",
+      "value": "Отправить сообщение с таким форматированием можно только с подпиской [Telegram Premium]()."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichText.RemoveFormattingText",
       "value": "В сообщении используется расширенное форматирование, доступное только с подпиской Telegram Premium."
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingTitle",
+      "value": "Сбросить форматирование?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichText.SendWithoutFormatting",
-      "value": "Отправить без форматирования"
+      "value": "Сбросить и отправить"
     },
     {
       "_": "types.LangPackString",
       "key": "RichText.SubscribeToPremium",
       "value": "Оформить Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TableMenu.Alignment",
+      "value": "Выравнивание"
     },
     {
       "_": "types.LangPackString",
@@ -47688,6 +48247,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Settings.ChangePhoto",
+      "value": "Изменить фотографию"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Settings.ChangeProfilePhoto",
       "value": "Изменить фотографию"
     },
@@ -48149,6 +48713,11 @@
     {
       "_": "types.LangPackString",
       "key": "Settings.SetNewProfilePhotoOrVideo",
+      "value": "Выбрать фотографию"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Settings.SetPhoto",
       "value": "Выбрать фотографию"
     },
     {
@@ -60944,5 +61513,5 @@
       "value": "Вы ввели неверный код безопасности."
     }
   ],
-  "version": 21500041
+  "version": 21502931
 }
