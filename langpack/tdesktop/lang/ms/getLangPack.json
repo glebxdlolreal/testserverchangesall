@@ -1225,6 +1225,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_community_added",
+      "value": "{from} tambah grup ini ke komuniti {community}."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown",
+      "value": "{from} tambah grup ini ke komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_removed",
+      "value": "{from} keluarkan grup ini dari komuniti."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_created_channel",
       "value": "Saluran dicipta"
     },
@@ -3785,6 +3800,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_ai_compose_add_to_page",
+      "value": "Tambah ke Halaman"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_ai_compose_after",
       "value": "Selepas"
     },
@@ -3830,6 +3850,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_ai_compose_create_placeholder",
+      "value": "Beritahu kami apa yang harus dijana..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ai_compose_create_title",
+      "value": "Cipta dengan AI"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_ai_compose_create_tone_title",
       "value": "Gaya Baru"
     },
@@ -3867,6 +3897,16 @@
       "_": "types.LangPackString",
       "key": "lng_ai_compose_flood_title",
       "value": "Had harian dicapai"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ai_compose_generate",
+      "value": "Jana"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ai_compose_in_language",
+      "value": "Dalam {language}"
     },
     {
       "_": "types.LangPackString",
@@ -4292,6 +4332,371 @@
       "_": "types.LangPackString",
       "key": "lng_archived_unread_two",
       "value": "{chat}, {second_chat}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_editor_title",
+      "value": "Artikel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_blockquote",
+      "value": "Petik blok"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_bullet_list",
+      "value": "Senarai Berbulet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_code",
+      "value": "Blok Kod"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_details",
+      "value": "Perincian"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_divider",
+      "value": "Pembahagi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_emoji",
+      "value": "Emoji"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading",
+      "value": "Tajuk"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading1",
+      "value": "Tajuk 1"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading2",
+      "value": "Tajuk 2"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading3",
+      "value": "Tajuk 3"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading4",
+      "value": "Tajuk 4"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading5",
+      "value": "Tajuk 5"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading6",
+      "value": "Tajuk 6"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_math",
+      "value": "Matematik"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_media",
+      "value": "Lampir Media"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_ordered_list",
+      "value": "Senarai Tersusun"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_pullquote",
+      "value": "Tarikpetik"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_table",
+      "value": "Jadual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_task_list",
+      "value": "Senarai Tugas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_text",
+      "value": "Teks"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_blocks",
+      "value": "Artikel ada terlalu banyak blok."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_columns",
+      "value": "Artikal ada terlalu banyak kolum."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_depth",
+      "value": "Artikel dirangkai terlalu dalam."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_length",
+      "value": "Artikel terlalu panjang."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_media",
+      "value": "Artikel ada terlalu banyak fail media."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_change",
+      "value": "Tukar Senarai"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_insert",
+      "value": "Selit Senarai"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_item_change",
+      "value": "Tukar Item Senarai"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_lowercase_letters",
+      "value": "Huruf Besar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_lowercase_roman",
+      "value": "Huruf Kecil Roman"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_numbers",
+      "value": "Nombor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_reversed",
+      "value": "Diterbalik"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_uppercase_letters",
+      "value": "Huruf Besar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_uppercase_roman",
+      "value": "Huruf Besar Roman"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_media_collage",
+      "value": "Kolaj"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_media_slideshow",
+      "value": "Tayangan Slaid"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_media_ungroup",
+      "value": "Nyahgrup"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_menu_item",
+      "value": "Artikel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_choice_about",
+      "value": "Mesej ini guna pemformatan kaya, yang perlukan {link}."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_choice_about_link",
+      "value": "Telegram Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_choice_plain",
+      "value": "Kirim Tanpa Pemformatan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_choice_title",
+      "value": "Keluarkan Pemformatan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_required",
+      "value": "Langgani {link} untuk kirim artikel kaya."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_required_link",
+      "value": "Telegram Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_submit_empty",
+      "value": "Artikel ini tak boleh kosong."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_add_column",
+      "value": "Tambah Kolum"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_add_row",
+      "value": "Tambah Baris"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_bottom",
+      "value": "Sejajar Bawah"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_center",
+      "value": "Sejajar Tengah"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_left",
+      "value": "Sejajar Kiri"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_middle",
+      "value": "Sejajar Tengah"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_right",
+      "value": "Sejajar Kanan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_top",
+      "value": "Sejajar Atas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_borderless",
+      "value": "Tanpa batas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_change",
+      "value": "Tukar Jadual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_column",
+      "value": "Hapus Kolum"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_columns",
+      "value": "Hapus Kolum"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_row",
+      "value": "Hapus Baris"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_rows",
+      "value": "Hapus Baris"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_table",
+      "value": "Hapus Jadual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_header",
+      "value": "Tajuk"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_split_cell",
+      "value": "Pisah Sel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_striped",
+      "value": "Jadual Berjalur"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_unite_cells",
+      "value": "Gabung Sel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_emoji",
+      "value": "Panel Emoji"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_formula",
+      "value": "Selit Formula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_link",
+      "value": "Selit Link"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_list_style",
+      "value": "Gaya Senarai"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_media",
+      "value": "Selit Media"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_table_insert",
+      "value": "Selit Jadual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_table_style",
+      "value": "Gaya Jadual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_text_style",
+      "value": "Gaya Teks"
     },
     {
       "_": "types.LangPackString",
@@ -8366,7 +8771,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_chatbots_not_supported",
-      "value": "Bot ini belum lagi sokong Telegram Bisnes."
+      "value": "Bot ini belum sokong Mod Setiausaha"
     },
     {
       "_": "types.LangPackString",
@@ -8847,6 +9252,546 @@
       "_": "types.LangPackString",
       "key": "lng_comments_open_none",
       "value": "Tinggalkan komen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_about",
+      "value": "Jadikan grup anda sebahagian dari komuniti dengan berbilang bual relevan."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_about_bot",
+      "value": "Jadikan bot anda sebahagian dari komuniti dengan berbilang bual relevan."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_button",
+      "value": "Tambah Grup ke Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_button_bot",
+      "value": "Tambah Bot ke Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_button_channel",
+      "value": "Tambah Saluran ke Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_chat",
+      "value": "Tambah Bual ke Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_confirm",
+      "value": "Jika grup ini dilulus oleh pentadbir komuniti, ahlinya akan boleh sertai atau mohon untuk sertai bual lain dalam komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_confirm_add",
+      "value": "Tambah"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_confirm_bot",
+      "value": "Jika bot ini dilulus oleh pentadbir komuniti, ahli komuniti akan boleh lihat dan gunanya."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_done",
+      "value": "Grup ditambah ke komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_done_bot",
+      "value": "Bot ditambah ke komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_done_channel",
+      "value": "Saluran tambah ke komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_to",
+      "value": "Tambah ke Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_about",
+      "value": "Anda kini boleh sunting info {community} dan guna pentadbir lain."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_continue",
+      "value": "Teruskan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_decline",
+      "value": "Tak, terima kasih"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_dismiss_text",
+      "value": "Anda akan hilang akses ke alat tadbir komuniti, tetapi kekal kuasa pentadbir grup."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_dismiss_title",
+      "value": "Pecat diri anda sebagai pentadbir komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_promote",
+      "value": "Naik taraf"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_promote_sure",
+      "value": "{user} akan boleh sunting info komuniti dan guna alat pentadbir lain."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_promote_title",
+      "value": "Jadikan Pentadbir Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_title",
+      "value": "Anda ialah pentadbir komuniti"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_ban_about",
+      "other_value": "Pengguna akan dikeluarkan dari {count} bual."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_button",
+      "value": "Larang"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_done",
+      "value": "{user} dilarang dari komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_toggle",
+      "value": "Larang dari Komuniti"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_ban_warning",
+      "other_value": "Melarang {user} juga akan keluarkan {count} bual mereka dari komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_warning_title",
+      "value": "Amaran"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_bot_peers_limit",
+      "other_value": "Had {count} bot dicapai."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_loading",
+      "value": "Memuat..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_remove_bot",
+      "value": "Keluarkan Bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_remove_channel",
+      "value": "Keluarkan Saluran"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_remove_group",
+      "value": "Keluarkan Grup"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_view_bot",
+      "value": "Lihat Bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_view_channel",
+      "value": "Lihat Saluran"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_view_group",
+      "value": "Lihat Grup"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_chats",
+      "other_value": "{count} bual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chats_joined",
+      "value": "Bual anda di dalam"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chats_requestable",
+      "value": "Bual disorok"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chats_viewable",
+      "value": "Bual anda boleh lihat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_create",
+      "value": "Cipta Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_create_hidden",
+      "value": "Grup disorok"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_create_name",
+      "value": "Nama Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_create_title",
+      "value": "Komuniti Baru"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_created",
+      "value": "Komuniti dicipta."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_delete",
+      "value": "Hapus Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_delete_sure",
+      "value": "Anda pasti ingin hapus komuniti ini? Ini akan keluarkan semua bualnya."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_existing",
+      "value": "Tambah ke komuniti sedia ada"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_chat_about",
+      "value": "Hanya ahli jemputan dan pentadbir komuniti akan nampak bual ini."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_chat_title",
+      "value": "Bual Tersorok"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_not_accessible",
+      "value": "Anda tak boleh sertai atau lihat grup ini hingga pentadbir jemput anda."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_status",
+      "value": "Tersorok"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_join_sure",
+      "value": "Anda ingin sertai {group}?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage",
+      "value": "Urus Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_all_members",
+      "value": "Semua ahli"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_all_members_about",
+      "value": "Benar ahli untuk tambah grup dan saluran mereka ke komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_name",
+      "value": "Nama komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_only_admins",
+      "value": "Hanya pentadbir"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_only_admins_about",
+      "value": "Bual dicadang oleh ahli komuniti perlu kelulusan pentadbir."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_who_add",
+      "value": "Siapa boleh tambah bual"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_peers_limit",
+      "other_value": "Had {count} bual dicapai."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_profile_status",
+      "other_value": "Komuniti dengan {count} bual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_remove_button",
+      "value": "Keluarkan Grup dari Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_remove_button_bot",
+      "value": "Keluarkan Bot dari Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_remove_button_channel",
+      "value": "Keluarkan Saluran dari Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_remove_done",
+      "value": "Keluarkan dari komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_remove_sure",
+      "value": "Keluarkan {group} dari komuniti?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_removed_list_about",
+      "value": "Pengguna dikeluar dari komuniti akan dipapar di sini."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_add",
+      "value": "Tambah"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_request_added_toast",
+      "other_value": "{count} bual ditambah ke komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_added_toast_undo",
+      "value": "Anda lulus permohonan untuk tambah {chat} ke komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_decline",
+      "value": "Tolak"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_request_declined_toast",
+      "other_value": "{count} permohonan untuk tambah bual ditolak."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_declined_toast_undo",
+      "value": "Anda tolak permohonan untuk tambah {chat} ke komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only",
+      "value": "Grup ini untuk jemputan sahaja. Hanya ahli boleh lihatnya."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only_bot",
+      "value": "Bot ini ialah hanya dijemput. Hanya ahli dijemput boleh gunanya."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_message_owner",
+      "value": "Mesej Pemilik Grup"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_message_owner_bot",
+      "value": "Mesej Pemilik Bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_only_members",
+      "value": "Hanya ahli boleh nampak"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_sent",
+      "value": "Permohonan anda dikirim ke pentadbir komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_suggested_bot",
+      "value": "{user} cadang bot ini"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_suggested_channel",
+      "value": "{user} cadang saluran ini"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_suggested_group",
+      "value": "{user} cadang grup ini"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_about",
+      "value": "Bual perlu kelulusan pentadbir sebelum dimasukkan ke komuniti. {link}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_about_link",
+      "value": "Tukar Tetapan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_add_all",
+      "value": "Tambah Semua"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_add_all_sure",
+      "other_value": "Anda ingin tambah {count} bual ke komuniti?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_add_all_title",
+      "value": "Tambah Semua Bual"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_button",
+      "other_value": "{count} Permohonan Tertangguh"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_count",
+      "other_value": "{count} bual dicadang untuk komuniti ini"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_decline_all",
+      "value": "Tolak Semua"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_decline_all_sure",
+      "other_value": "Anda ingin tolak semua {count} permohonan untuk sertai komuniti?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_decline_all_title",
+      "value": "Tolak Semua"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_title",
+      "value": "Permohonan Tertangguh"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_show_as_one",
+      "value": "Papar sebagai Satu Bual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_show_as_one_about",
+      "value": "Gabung semua bual komuniti ke satu item dalam senarai bual."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_status",
+      "value": "komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_title",
+      "value": "Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ungroup",
+      "value": "Nyahgrup"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ungroup_text",
+      "value": "Bual dari komuniti ini akan nampak berasingan di senarai bual anda."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ungroup_title",
+      "value": "Nyahgrup Bual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_view",
+      "value": "Lihat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_hidden",
+      "value": "Tersorok"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_hidden_about",
+      "value": "Hanya ahli dijemput dan pentadbir komuniti akan nampak bual ini."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_note",
+      "value": "Anda tak akan boleh tukar ini kemudian."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_title",
+      "value": "Bual kebolehnampakan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_visible",
+      "value": "Boleh dinampak"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_visible_about",
+      "value": "Sesiapa dalam komuniti akan dapat nampak bual ini."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -9535,6 +10480,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_context_copy_in_reply_to",
+      "value": "jawab ke {name}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_context_copy_link",
       "value": "Salin Link"
     },
@@ -10172,6 +11122,11 @@
       "_": "types.LangPackString",
       "key": "lng_context_view_channel",
       "value": "Lihat info saluran"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_context_view_community",
+      "value": "Lihat info komuniti"
     },
     {
       "_": "types.LangPackString",
@@ -12805,8 +13760,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_edited_at",
+      "value": "disunting jam {time}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_edited_date",
       "value": "Disunting: {date}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_edited_on",
+      "value": "disunting pada {date} jam {time}"
     },
     {
       "_": "types.LangPackString",
@@ -12837,6 +13802,21 @@
       "_": "types.LangPackString",
       "key": "lng_effect_stickers_title",
       "value": "Kesan dari stiker"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_adapt_no_video",
+      "value": "Stiker video belum disokong."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_adapt_sticker",
+      "value": "Sesuai dari Stiker"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_add_existing",
+      "value": "Tambah Emoji Sedia Ada"
     },
     {
       "_": "types.LangPackString",
@@ -12915,8 +13895,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_emoji_create_emoji_about",
+      "value": "Pilih emoji yang padan emoji anda"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_create_image_title",
+      "value": "Emoji Baru"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_create_new",
+      "value": "Cipta Emoji Baru"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_emoji_featured_unlock",
       "value": "Gunakan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_group_badge",
+      "value": "Emoji Grup"
     },
     {
       "_": "types.LangPackString",
@@ -13067,6 +14067,41 @@
       "_": "types.LangPackString",
       "key": "lng_enter_contact_data",
       "value": "Kenalan Baru"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_about",
+      "value": "Hanya anda nampak mesej ini. Ia akan hilang selepas anda mula semula apl."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_cant_schedule",
+      "value": "Mesej sementara tidak boleh dijadualkan."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_command_tooltip",
+      "value": "Ahli lain tak akan nampak mesej ini"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_reply_single_message",
+      "value": "Anda boleh kirim hanya satu mesej untuk balas mesej ini."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_reply_text_only",
+      "value": "Jenis mesej ini tak boleh dikirim untuk balas ke mesej ini."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_visible_to",
+      "value": "Hanya boleh nampak oleh {user}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_visible_you",
+      "value": "Hanya boleh nampak oleh anda"
     },
     {
       "_": "types.LangPackString",
@@ -14662,6 +15697,41 @@
       "_": "types.LangPackString",
       "key": "lng_formatting_link_url",
       "value": "URL"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_create_title",
+      "value": "Selit formula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_edit_title",
+      "value": "Sunting formula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_result_label",
+      "value": "Keputusan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_separate_line",
+      "value": "Formula Baris Berasingan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_source",
+      "value": "Formula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_source_label",
+      "value": "LaTeX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_source_placeholder",
+      "value": "Sumber formula"
     },
     {
       "_": "types.LangPackString",
@@ -19780,6 +20850,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_in_dlg_table",
+      "value": "Jadual"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_in_dlg_todo_list",
       "value": "Senaraisemak"
     },
@@ -20182,6 +21257,46 @@
       "_": "types.LangPackString",
       "key": "lng_iv_click_to_view",
       "value": "Klik untuk Lihat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_details_state_collapsed",
+      "value": "Kecilkan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_details_state_expanded",
+      "value": "Besarkan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_close_now",
+      "value": "Tutup sekarang"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_discard_draft_sure",
+      "value": "Anda pasti ingin hapus mesej ini? Aksi ini tak boleh ditukar balik."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_media_invalid_file",
+      "value": "Maaf, hanya foto, video, dan fail audio disokong di sini."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_save_draft_failed",
+      "value": "Tak boleh simpan draf."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_save_draft_failed_error",
+      "value": "Tak boleh simpan draf.\n\nRalat: {error}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_saving_draft",
+      "value": "Menyimpan draf..."
     },
     {
       "_": "types.LangPackString",
@@ -21047,6 +22162,11 @@
       "_": "types.LangPackString",
       "key": "lng_manage_channel_title",
       "value": "Urus Saluran"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_manage_community_title",
+      "value": "Urus komuniti"
     },
     {
       "_": "types.LangPackString",
@@ -22195,6 +23315,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_media_zoom_in",
+      "value": "Zum Masuk"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_media_zoom_out",
+      "value": "Zum Keluar"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_mediaview_archive_story",
       "value": "Arkib Stori"
     },
@@ -22510,8 +23640,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_menu_formatting_marked",
+      "value": "Ditanda"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_menu_formatting_monospace",
       "value": "Sesengkang"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_menu_formatting_plain_text",
+      "value": "Teks biasa"
     },
     {
       "_": "types.LangPackString",
@@ -22522,6 +23662,16 @@
       "_": "types.LangPackString",
       "key": "lng_menu_formatting_strike_out",
       "value": "Potong"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_menu_formatting_subscript",
+      "value": "Subskrip"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_menu_formatting_superscript",
+      "value": "Superskrip"
     },
     {
       "_": "types.LangPackString",
@@ -26510,6 +27660,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_premium_summary_about_rich_formatting",
+      "value": "Tambah kepala, jadual, senarai, AI dan media di talian ke mesej."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_premium_summary_about_stories",
       "value": "Pos tanpa had, susunan keutamaan, mod ghaib, sejarah tetap lihat dan lagi."
     },
@@ -26682,6 +27837,11 @@
       "_": "types.LangPackString",
       "key": "lng_premium_summary_subtitle_profile_badge",
       "value": "Lencana Profil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_premium_summary_subtitle_rich_formatting",
+      "value": "Pemformatan Kaya"
     },
     {
       "_": "types.LangPackString",
@@ -27240,6 +28400,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_profile_action_short_live_stream",
+      "value": "Strim langsung"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_profile_action_short_manage",
       "value": "Urus"
     },
@@ -27267,6 +28432,11 @@
       "_": "types.LangPackString",
       "key": "lng_profile_action_short_unmute",
       "value": "Bunyi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_profile_action_short_video_chat",
+      "value": "Bual video"
     },
     {
       "_": "types.LangPackString",
@@ -28285,6 +29455,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_pull_next_channel",
+      "value": "Tarik untuk pergi ke saluran belum dibaca"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_pull_no_unread_channels",
+      "value": "Anda tiada saluran belum dibaca"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_qr_box_font_size",
       "value": "Saiz font"
     },
@@ -28707,6 +29887,11 @@
       "_": "types.LangPackString",
       "key": "lng_record_voice_tip",
       "value": "Tekan lama untuk rekod audio. Klik untuk tukar ke video."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_release_next_channel",
+      "value": "Bebas untuk pergi ke saluran belum dibaca"
     },
     {
       "_": "types.LangPackString",
@@ -30005,6 +31190,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_rights_community_ban",
+      "value": "Larang Ahli"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_rights_community_info",
+      "value": "Sunting Nama Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_rights_community_linked",
+      "value": "Sunting Senarai Bual"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_rights_default_restrictions_header",
       "value": "Apa ahli grup ini boleh buat?"
     },
@@ -30690,6 +31890,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_search_tab_archive",
+      "value": "Arkib"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_search_tab_by_hashtag",
       "value": "Masukkan hasytag untuk cari mesej yang mengandunginya."
     },
@@ -30727,6 +31932,11 @@
       "_": "types.LangPackString",
       "key": "lng_search_tab_this_chat",
       "value": "Bual Ini"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_search_tab_this_community",
+      "value": "Komuniti ini"
     },
     {
       "_": "types.LangPackString",
@@ -31252,6 +32462,11 @@
       "_": "types.LangPackString",
       "key": "lng_sent_date",
       "value": "Kirim: {date}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_sent_on",
+      "value": "kirim pada {date} jam {time}"
     },
     {
       "_": "types.LangPackString",
@@ -33065,6 +34280,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_settings_pull_to_next_channel",
+      "value": "Leret ke saluran belum dibaca"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_settings_qt_frame",
       "value": "Guna kerangka jendela Qt"
     },
@@ -34852,6 +36072,16 @@
       "_": "types.LangPackString",
       "key": "lng_sr_country_column_name",
       "value": "Nama negara"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_sr_folder_locked",
+      "value": "{text}, Premium diperlukan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_sr_folder_locked_about",
+      "value": "Tekan untuk lihat opsyen langganan."
     },
     {
       "_": "types.LangPackString",
@@ -39164,5 +40394,5 @@
       "other_value": "Anda bayar {count} Star."
     }
   ],
-  "version": 5702198
+  "version": 5712193
 }
