@@ -1945,6 +1945,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Attachment.Article",
+      "value": "Artikel"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Attachment.Audio",
       "value": "Audio"
     },
@@ -3187,6 +3192,11 @@
       "_": "types.LangPackString",
       "key": "AvatarEditor.SetChannelPhoto",
       "value": "Set sebagai Foto Saluran"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AvatarEditor.SetCommunityPhoto",
+      "value": "Set sebagai Foto Komuniti"
     },
     {
       "_": "types.LangPackString",
@@ -13755,6 +13765,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Context.Ungroup",
+      "value": "Nyahgrup"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.Context.UnhideArchive",
       "value": "Semat di Senarai Bual"
     },
@@ -14350,6 +14365,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Remove",
+      "value": "Keluarkan"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.RemoveFolder",
       "value": "Keluarkan"
     },
@@ -14787,6 +14807,21 @@
       "_": "types.LangPackString",
       "key": "ChatList.UndoArchiveTitle",
       "value": "Bual diarkib."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Action",
+      "value": "Nyahgrup"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Text",
+      "value": "Bual dari komuniti ini akan nampak berasingan di senarai bual anda."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Title",
+      "value": "Nyahgrup Bual?"
     },
     {
       "_": "types.LangPackString",
@@ -15406,7 +15441,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChatbotSetup.ErrorBotNotBusinessCapable",
-      "value": "Bot ini belum lagi sokong Telegram Bisnes."
+      "value": "Bot ini belum lagi sokong Mod Setiausaha."
     },
     {
       "_": "types.LangPackString",
@@ -16352,6 +16387,436 @@
       "_": "types.LangPackString",
       "key": "Common.of",
       "value": "dari"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.ActionAddToCommunity",
+      "value": "Tambah ke Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Title",
+      "value": "Tambah Bual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHeader",
+      "value": "KENAMPAKAN BUAL"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHidden",
+      "value": "Tersorok"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHiddenInfo",
+      "value": "Hanya ahli jemputan dan pentadbir komuniti akan nampak bual ini."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityInfo",
+      "value": "Anda tak akan boleh tukar ini kemudian."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityVisible",
+      "value": "Boleh nampak"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityVisibleInfo",
+      "value": "Sesiapa dalam komuniti akan dapat nampak bual ini."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat.Description",
+      "value": "Pilih bual untuk tambah ke komuniti ini"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat.Title",
+      "value": "Tambah Bual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.BanFromCommunity",
+      "value": "Larang dari Komuniti"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.AdminActions.Footer",
+      "other_value": "Pengguna akan dikeluarkan dari [bual %@ >](community)"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.AdminActions.WarningChatCount",
+      "other_value": "%@ bual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningText",
+      "value": "Menghalang **%@** juga akan keluarkan **%@** mereka cipta dari komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningTitle",
+      "value": "Amaran"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.AddAdmin",
+      "value": "Tambah Pentadbir"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.Info",
+      "value": "Anda boleh tambah pentadbir untuk bantu anda urus komuniti anda."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.SectionTitle",
+      "value": "PENTADBIR KOMUNITI"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.Title",
+      "value": "Pentadbir"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.Info",
+      "value": "Pengguna yang dikeluarkan dari komuniti oleh pentadbir tak boleh sertai melalui link jemputan."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.RemoveUser",
+      "value": "Keluar Pengguna"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.Title",
+      "value": "Pengguna Dikeluarkan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.UsersSectionTitle",
+      "value": "PENGGUNA DIKELUARKAN"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Chat.JoinToView",
+      "value": "Anda perlu sertai grup ini untuk lihat mesejnya."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.CommunityAdded.View",
+      "value": "Lihat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.AddChat",
+      "value": "Tambah Bual ke Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.Administrators",
+      "value": "Pentadbir"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.Edit.ChatsHeader",
+      "other_value": "%@ BUAL"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.ChatsLimitReached",
+      "value": "Maaf, komuniti ini telah capai jumlah maximum bual."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.CommunityNamePlaceholder",
+      "value": "Nama Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.DeleteCommunity",
+      "value": "Hapus Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.DeleteConfirmationText",
+      "value": "Anda pasti ingin hapus komuniti ini?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PendingRequests",
+      "value": "Permohonan Menunggu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionAllMembers",
+      "value": "Semua Ahli"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionAllMembersInfo",
+      "value": "Benar ahli untuk tambah grup dan saluran mereka ke komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionOnlyAdmins",
+      "value": "Hanya Pentadbir"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionOnlyAdminsInfo",
+      "value": "Bual dicadang oleh ahli komuniti perlu kelulusan pentadbir."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.RemovedUsers",
+      "value": "Pengguna Dikeluarkan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.WhoCanAddChats",
+      "value": "SIAPA BOLEH TAMBAH BUAL"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionAddAdmins",
+      "value": "Tambah Pentadbir Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionBanUsers",
+      "value": "Larang Ahli"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionChangeInfo",
+      "value": "Sunting Info Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionManageLinkedPeers",
+      "value": "Sunting Senarai Bual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.AddToExistingHeader",
+      "value": "TAMBAH KE KOMUNITI SEDIA ADA"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.List.ChatCount",
+      "other_value": "%@ bual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.CreateCommunity",
+      "value": "Cipta Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleBot",
+      "value": "Jadikan bot anda sebahagian dari komuniti dengan berbilang bual relevan."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleChannel",
+      "value": "Jadikan saluran anda sebahagian dari komuniti dengan berbilang bual relevan."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleGroup",
+      "value": "Jadikan grup anda sebagai sebahagian komuniti dengan berbilang bual relevan."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.Title",
+      "value": "Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.Info",
+      "value": "Grup ini untuk jemputan sahaja.\nHanya ahli boleh lihatnya."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.MessageOwner",
+      "value": "Mesej Pemilik Grup"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Remove",
+      "value": "Keluarkan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Text",
+      "value": "Bual ini akan dikeluarkan dari komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Title",
+      "value": "Keluarkan bual dari komuniti?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.Add",
+      "value": "Tambah"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAll",
+      "value": "Tambah Semua"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAllChats",
+      "value": "Tambah Semua Bual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAllConfirmation",
+      "value": "Anda ingin tambah %@ bual ke komuniti?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovalInfo",
+      "value": "Bual perlu kelulusan pentadbir sebelum dimasukkan ke komuniti. [Tukar Tetapan >] (settings)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovedToast",
+      "value": "Anda telah tambah bual ke komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.Decline",
+      "value": "Tolak"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAll",
+      "value": "Tolak Semua"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAllConfirmation",
+      "value": "Anda ingin tolak semua %@ permohonan untuk sertai komuniti?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclinedToast",
+      "value": "Anda tolak tambah bual ke komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.EmptyText",
+      "value": "Tiada lagi bual dicadang untuk komuniti ini."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.EmptyTitle",
+      "value": "Tiada Permohonan Menunggu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.PrivateStatus",
+      "value": "hanya ahli boleh nampak"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsGroup",
+      "value": "%@ cadang bual ini:"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.Request.SectionTitle",
+      "other_value": "%@ BUAL DICADANG UNTUK KOMUNITI INI"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.Title",
+      "value": "Permohonan Tertangguh"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.UnknownRequester",
+      "value": "Seseorang"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.AddChatButton",
+      "value": "Tambah Bual ke Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ChatsLimitReached",
+      "value": "Maaf, komuniti ini telah capai nombor maximum bual."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.HiddenChatToast",
+      "value": "Anda tak boleh sertai atau lihat bual ini hingga pentadbir jemput anda."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestApprovedToast",
+      "value": "Anda telah tambah grup ke komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestDeclinedToast",
+      "value": "Anda tolak menambah bual ke komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestHeader",
+      "value": "MENUNGGU PERMOHONAN"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequests",
+      "value": "Permohonan Tertangguh"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionHidden",
+      "value": "BUAL TERSOROK"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionJoined",
+      "value": "BUAL ANDA DI DALAM"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionRequestable",
+      "value": "BUAL ANDA BOLEH POHON UNTUK SERTAI"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionVisible",
+      "value": "BUAL ANDA BOLEH NAMPAK"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ShowAsOneChat",
+      "value": "Papar sebagai Satu Bual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ShowAsOneChatInfo",
+      "value": "Gabung semua bual komuniti ke satu item dalam senarai bual."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.Title",
+      "value": "Komuniti"
     },
     {
       "_": "types.LangPackString",
@@ -31395,6 +31860,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "MediaPicker.SetNewCommunityPhoto",
+      "value": "Set foto baru komuniti"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "MediaPicker.SetNewGroupPhoto",
       "value": "Set foto grup baru"
     },
@@ -33592,6 +34062,46 @@
       "_": "types.LangPackString",
       "key": "Notification.ChatTheme.TextYou",
       "value": "Anda set **%@** sebagai tema baru untuk bual ini."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedBot",
+      "value": "Bot ditambah ke %1$@ komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedChannel",
+      "value": "Saluran ditambah ke komuniti %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroup",
+      "value": "%1$@ tambah grup ini ke komuniti %2$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroupYou",
+      "value": "Anda tambah grup ini ke komuniti %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedBot",
+      "value": "Bot telah dikeluarkan dari komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedChannel",
+      "value": "Saluran dikeluarkan dari komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroup",
+      "value": "%1$@ keluarkan grup ini dari komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroupYou",
+      "value": "Anda keluarkan grup ini dari komuniti"
     },
     {
       "_": "types.LangPackString",
@@ -39559,6 +40069,56 @@
       "value": "Hapus Mesej"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "PeerInfo.Community",
+      "other_value": "Komuniti dengan %@ bual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddBot",
+      "value": "Tambah Bot ke Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddChannel",
+      "value": "Tambah Saluran ke Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddGroup",
+      "value": "Tambah Grup ke Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.BotInfo",
+      "value": "Jadikan bot anda sebahagian dari komuniti dengan berbilang bual relevan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.ChannelInfo",
+      "value": "Jadikan saluran anda sebahagian dari komuniti dengan berbilang bual relevan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.GroupInfo",
+      "value": "Jadikan grup anda sebahagian dari komuniti dengan berbilang bual relevan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveBot",
+      "value": "Keluarkan Bot dari Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveChannel",
+      "value": "Keluarkan Saluran dari Komuniti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveGroup",
+      "value": "Keluarkan Grup dari Komuniti"
+    },
+    {
       "_": "types.LangPackString",
       "key": "PeerInfo.CustomizeNotifications",
       "value": "Suaikan"
@@ -39937,6 +40497,11 @@
       "_": "types.LangPackString",
       "key": "PeerInfo.GroupAboutItem",
       "value": "mengenai"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.HiddenCommunityStatus",
+      "value": "Disorok • %@"
     },
     {
       "_": "types.LangPackString",
@@ -41690,6 +42255,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Premium.Limits.Messages",
+      "value": "Mesej"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.Limits.MessagesInfo",
+      "value": "Luahkan diri anda dengan mesej lebih panjang"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Premium.Limits.PinnedChats",
       "value": "Bual Disemat"
     },
@@ -42167,6 +42742,16 @@
       "_": "types.LangPackString",
       "key": "Premium.Restore.Success",
       "value": "Siap"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.RichText",
+      "value": "Alat Pemformatan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.RichTextInfo",
+      "value": "Tambah kepala, jadual, senarai, AI dan media di talian ke mesej."
     },
     {
       "_": "types.LangPackString",
@@ -42897,6 +43482,11 @@
       "_": "types.LangPackString",
       "key": "Privacy.GroupsAndChannels.InviteToChannelMultipleError",
       "value": "Maaf, anda tidak boleh cipta grup dengan pengguna ini kerana tetapan privasi mereka."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Privacy.GroupsAndChannels.InviteToCommunityError",
+      "value": "Maaf, anda tak boleh tambah %@ ke komuniti kerana tetapan privasi %@."
     },
     {
       "_": "types.LangPackString",
@@ -44915,6 +45505,156 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.AddMediaTitle",
+      "value": "Tambah Media"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaAdd",
+      "value": "Tambah Formula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaEdit",
+      "value": "Sunting Formula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionResultTitle",
+      "value": "KEPUTUSAN"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionSourceTitle",
+      "value": "LATEKS"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkRemove",
+      "value": "Keluarkan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkSet",
+      "value": "Set"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkText",
+      "value": "Set URL untuk teks terpilih"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkTitle",
+      "value": "Link"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Bullet",
+      "value": "Senarai Berbulet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Checklist",
+      "value": "Senaraisemak"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.None",
+      "value": "Tiada"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Numbered",
+      "value": "Senarai Bernombor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.ConvertToText",
+      "value": "Tukar ke Teks"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Copy",
+      "value": "Salin Jadual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Delete",
+      "value": "Hapus Jadual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuCode",
+      "value": "Kod"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuFormula",
+      "value": "Formula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuHeading",
+      "value": "Kepala"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuHeadingItem",
+      "value": "Tajuk %@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuPullquote",
+      "value": "Tarikpetik"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuQuote",
+      "value": "Petik"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuText",
+      "value": "Teks"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.PremiumToastText",
+      "value": "Mengirim mesej dengan pemformatan ini akan perlu [Telegram Premium]()."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingText",
+      "value": "Mesej ini guna pemformatan kaya, dan perlukan Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingTitle",
+      "value": "Keluarkan Pemformatan?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.SendWithoutFormatting",
+      "value": "Kirim Tanpa Pemformatan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.SubscribeToPremium",
+      "value": "Langgani Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TableMenu.Alignment",
+      "value": "Penjajaran"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TitleArticle",
+      "value": "Teks"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextPreview.Formula",
       "value": "[formula]"
     },
@@ -45855,6 +46595,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Settings.ChangePhoto",
+      "value": "Tukar Foto"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Settings.ChangeProfilePhoto",
       "value": "Tukar Foto Profil"
     },
@@ -46317,6 +47062,11 @@
       "_": "types.LangPackString",
       "key": "Settings.SetNewProfilePhotoOrVideo",
       "value": "Set Foto Profil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Settings.SetPhoto",
+      "value": "Set Foto"
     },
     {
       "_": "types.LangPackString",
@@ -52580,6 +53330,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.ActionAddToPage",
+      "value": "Tambah ke Halaman"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ActionApply",
       "value": "Guna"
     },
@@ -52587,6 +53342,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.ActionClose",
       "value": "Tutup"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.ActionGenerate",
+      "value": "Jana"
     },
     {
       "_": "types.LangPackString",
@@ -52695,6 +53455,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.PromptPlaceholder",
+      "value": "Jana teks, formula, atau jadual..."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ResultBadge",
       "value": "Keputusan"
     },
@@ -52727,6 +53492,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.StyleList.Add",
       "value": "Cipta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.StyleList.Prompt",
+      "value": "Gesa"
     },
     {
       "_": "types.LangPackString",
@@ -52807,6 +53577,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.TextExpand",
       "value": "lebih"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.TitleAICompose",
+      "value": "Cipta dengan AI"
     },
     {
       "_": "types.LangPackString",
@@ -58609,5 +59384,5 @@
       "value": "Anda telah masukkan nombor kod sekuriti yang tidak sah."
     }
   ],
-  "version": 21423526
+  "version": 21501817
 }

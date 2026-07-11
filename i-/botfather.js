@@ -2399,7 +2399,7 @@ var BotCodeEditor = {
       autoCloseBrackets: true,
       indentUnit: 2,
       tabSize: 2,
-      lineWrapping: false,
+      lineWrapping: true,
       json: false,
       placeholder: opts.placeholder || '',
       extraKeys: $.extend({
