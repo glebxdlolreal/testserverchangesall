@@ -4380,6 +4380,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_insert_blockquote",
+      "value": "Citation en bloc"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_insert_bullet_list",
       "value": "Liste à puces"
     },
@@ -4495,6 +4500,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_list_change",
+      "value": "Modifier la liste"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_list_insert",
       "value": "Insérer une liste"
     },
@@ -4512,6 +4522,11 @@
       "_": "types.LangPackString",
       "key": "lng_article_list_lowercase_roman",
       "value": "Minuscule romaine"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_numbers",
+      "value": "Chiffres"
     },
     {
       "_": "types.LangPackString",
@@ -4627,6 +4642,11 @@
       "_": "types.LangPackString",
       "key": "lng_article_table_borderless",
       "value": "Sans bordures"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_change",
+      "value": "Modifier le tableau"
     },
     {
       "_": "types.LangPackString",
@@ -9453,8 +9473,19 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_admin_promote_title",
+      "value": "Désigner un administrateur de communauté"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_admin_title",
       "value": "Vous êtes administrateur de la communauté"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_ban_about",
+      "one_value": "L'utilisateur sera exclu de {count} échange.",
+      "other_value": "L'utilisateur sera exclu de {count} échanges."
     },
     {
       "_": "types.LangPackString",
@@ -9470,6 +9501,12 @@
       "_": "types.LangPackString",
       "key": "lng_community_ban_toggle",
       "value": "Bannir de la communauté"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_ban_warning",
+      "one_value": "Bannir {user} supprimera aussi {count} échange de la communauté.",
+      "other_value": "Bannir {user} supprimera aussi {count} échanges de la communauté."
     },
     {
       "_": "types.LangPackString",
@@ -9525,8 +9562,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_chats_joined",
+      "value": "Les échanges auquel vous participez"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_chats_requestable",
       "value": "Échanges cachés"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chats_viewable",
+      "value": "Échanges que vous pouvez voir"
     },
     {
       "_": "types.LangPackString",
@@ -9605,6 +9652,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_manage_all_members_about",
+      "value": "Autoriser les membres à ajouter leurs groupes et canaux à la communauté."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_manage_name",
       "value": "Nom de la communauté"
     },
@@ -9612,6 +9664,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_manage_only_admins",
       "value": "Administrateurs uniquement"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_only_admins_about",
+      "value": "Les échanges suggérés par les membres de la communauté doivent être validés par un administrateur."
     },
     {
       "_": "types.LangPackString",
@@ -28217,6 +28274,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_premium_summary_subtitle_rich_formatting",
+      "value": "Mise en forme enrichie"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_premium_summary_subtitle_stories",
       "value": "Stories"
     },
@@ -31630,7 +31692,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_rights_community_linked",
-      "value": "Modifier la liste des groupes"
+      "value": "Modifier la liste d'échanges"
     },
     {
       "_": "types.LangPackString",
@@ -40937,5 +40999,5 @@
       "other_value": "Vous avez payé {count} étoiles."
     }
   ],
-  "version": 5711611
+  "version": 5711952
 }
