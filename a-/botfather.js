@@ -27,7 +27,7 @@ var Main = {
 
     Main.checkAuth();
 
-    window.showConfirm = (message, onConfirm, confirm_btn, onCancel) => {
+    window.showConfirm = (message, onConfirm, confirm_btn, onCancel, cancel_btn) => {
       WebApp.showPopup({
         message: message,
         buttons: [
@@ -2657,13 +2657,17 @@ var BotMigration = {
         BotMigration.hideStepError();
         BotMigration.advanceStep();
       } else if (stepInfo.type == 'warning') {
-        var msg = l('WEB_MIGRATION_APPLY_CONFIRM');
-        if (stepInfo.warningText) {
-          msg = stepInfo.warningText + '\n\n' + msg;
-        }
-        showConfirm(msg, function() {
+        WebApp.showPopup({
+          title: uncleanHTML(l('WEB_MIGRATION_APPLY_CONFIRM')),
+          message: uncleanHTML(stepInfo.warningText || l('WEB_MIGRATION_APPLY_CONFIRM_TEXT')),
+          buttons: [
+            { id: 'delete', text: uncleanHTML(l('WEB_MIGRATION_APPLY')), type: 'destructive' },
+            { type: 'cancel' },
+          ]
+        }, function(result) {
+          if (result !== 'delete') return;
           BotMigration.onApply();
-        }, l('WEB_MIGRATION_APPLY'));
+        });
       } else {
         BotMigration.onApply();
       }
