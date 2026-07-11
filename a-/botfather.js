@@ -2627,7 +2627,7 @@ var BotMigration = {
         WebApp.SecondaryButton.setParams({ position: 'bottom' });
         WebApp.SecondaryButton.show();
       } else if (stepInfo.type == 'warning') {
-        WebApp.MainButton.setText(uncleanHTML(l('WEB_MIGRATION_APPLY')));
+        WebApp.MainButton.setText(l('WEB_MIGRATION_APPLY_CHANGES', {count: 1}));
         WebApp.MainButton.show();
         WebApp.SecondaryButton.setText(uncleanHTML(l('WEB_MIGRATION_SKIP')));
         WebApp.SecondaryButton.setParams({ position: 'bottom' });
@@ -2693,6 +2693,7 @@ var BotMigration = {
         for (var i = 0; i < stepInfo.changeIds.length; i++) {
           BotMigration.appliedIds[stepInfo.changeIds[i]] = true;
         }
+        Main.showSuccessToast(l('WEB_MIGRATION_APPLIED'));
         BotMigration.hideStepError();
         BotMigration.advanceStep();
       } else {
