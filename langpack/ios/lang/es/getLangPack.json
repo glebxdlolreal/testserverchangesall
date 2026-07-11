@@ -16656,6 +16656,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.CommunityAdded.View",
+      "value": "Ver"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Edit.AddChat",
       "value": "Añadir chat a la comunidad"
     },
@@ -16824,12 +16829,12 @@
     {
       "_": "types.LangPackString",
       "key": "Community.Request.ApprovalInfo",
-      "value": "Los chats requieren la aprobación de los admins. antes de ser añadidos a la comunidad. [Cambiar ajustes >](ajustes)"
+      "value": "Los chats requieren la aprobación de los admins. antes de ser añadidos a la comunidad. [Cambiar ajustes >](settings)"
     },
     {
       "_": "types.LangPackString",
       "key": "Community.Request.ApprovedToast",
-      "value": "Añadiste el grupo a la comunidad."
+      "value": "Añadiste el chat a la comunidad."
     },
     {
       "_": "types.LangPackString",
@@ -16844,7 +16849,7 @@
     {
       "_": "types.LangPackString",
       "key": "Community.Request.DeclinedToast",
-      "value": "Rechazaste añadir el grupo a la comunidad."
+      "value": "Rechazaste añadir el chat a la comunidad."
     },
     {
       "_": "types.LangPackString",
@@ -16864,7 +16869,7 @@
     {
       "_": "types.LangPackString",
       "key": "Community.Request.RequesterSuggestsGroup",
-      "value": "%@ sugiere este grupo:"
+      "value": "%@ sugiere este chat:"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -16894,13 +16899,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.View.HiddenChatToast",
+      "value": "No puedes unirte ni ver este chat hasta que un admin. te invite."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.View.PendingRequestApprovedToast",
       "value": "Añadiste el grupo a la comunidad."
     },
     {
       "_": "types.LangPackString",
       "key": "Community.View.PendingRequestDeclinedToast",
-      "value": "Rechazaste añadir el grupo a la comunidad."
+      "value": "Rechazaste añadir el chat a la comunidad."
     },
     {
       "_": "types.LangPackString",
@@ -40534,6 +40544,12 @@
       "value": "Vaciar chat"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "PeerInfo.Community",
+      "one_value": "Comunidad con %@ chat",
+      "other_value": "Comunidad con %@ chats"
+    },
+    {
       "_": "types.LangPackString",
       "key": "PeerInfo.Community.AddBot",
       "value": "Añadir bot a una comunidad"
@@ -54083,7 +54099,7 @@
     {
       "_": "types.LangPackString",
       "key": "TextProcessing.PromptPlaceholder",
-      "value": "Generar texto, fórmulas, o tablas…"
+      "value": "Genera texto, fórmulas, o tablas…"
     },
     {
       "_": "types.LangPackString",
@@ -60052,5 +60068,5 @@
       "value": "Pusiste un código de seguridad inválido."
     }
   ],
-  "version": 21499255
+  "version": 21501135
 }

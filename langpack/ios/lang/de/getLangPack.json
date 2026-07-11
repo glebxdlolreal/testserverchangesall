@@ -16666,6 +16666,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.CommunityAdded.View",
+      "value": "Anzeigen"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Edit.AddChat",
       "value": "Chat zur Community hinzufügen"
     },
@@ -16844,7 +16849,7 @@
     {
       "_": "types.LangPackString",
       "key": "Community.Request.ApprovedToast",
-      "value": "Du hast die Gruppe zur Community hinzugefügt."
+      "value": "Du hast den Chat zur Community hinzugefügt."
     },
     {
       "_": "types.LangPackString",
@@ -16864,7 +16869,7 @@
     {
       "_": "types.LangPackString",
       "key": "Community.Request.DeclinedToast",
-      "value": "Du hast das Hinzufügen der Gruppe zur Community abgelehnt."
+      "value": "Du hast das Hinzufügen des Chats zur Community abgelehnt."
     },
     {
       "_": "types.LangPackString",
@@ -16884,7 +16889,7 @@
     {
       "_": "types.LangPackString",
       "key": "Community.Request.RequesterSuggestsGroup",
-      "value": "%@ schlägt diese Gruppe vor:"
+      "value": "%@ schlägt diesen Chat vor:"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -16914,13 +16919,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.View.HiddenChatToast",
+      "value": "Du kannst diesem Chat erst beitreten oder ihn ansehen, wenn dich ein Admin einlädt."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.View.PendingRequestApprovedToast",
       "value": "Du hast die Gruppe zur Community hinzugefügt."
     },
     {
       "_": "types.LangPackString",
       "key": "Community.View.PendingRequestDeclinedToast",
-      "value": "Du hast das Hinzufügen der Gruppe zur Community abgelehnt."
+      "value": "Du hast das Hinzufügen des Chats zur Community abgelehnt."
     },
     {
       "_": "types.LangPackString",
@@ -40554,6 +40564,12 @@
       "value": "Nachrichten leeren"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "PeerInfo.Community",
+      "one_value": "Community mit %@ Chat",
+      "other_value": "Community mit %@ Chats"
+    },
+    {
       "_": "types.LangPackString",
       "key": "PeerInfo.Community.AddBot",
       "value": "Bot einer Community hinzufügen"
@@ -60082,5 +60098,5 @@
       "value": "Du hast einen ungültigen Sicherheitscode eingegeben."
     }
   ],
-  "version": 21499252
+  "version": 21501201
 }

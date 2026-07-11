@@ -4460,8 +4460,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_limit_blocks",
+      "value": "L'articolo contiene troppi blocchi."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_columns",
+      "value": "La tabella dell'articolo contiene troppe colonne."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_limit_length",
       "value": "Questo articolo è troppo lungo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_media",
+      "value": "L'articolo contiene troppi file multimediali."
     },
     {
       "_": "types.LangPackString",
@@ -9343,8 +9358,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_add_confirm",
+      "value": "Se questo gruppo viene approvato da un amministratore della community, i suoi membri potranno unirsi o richiedere di unirsi ad altre chat della community."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_add_confirm_add",
       "value": "Aggiungi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_confirm_bot",
+      "value": "Se questo bot viene approvato da un amministratore della community, i membri della community potranno vederlo e usarlo."
     },
     {
       "_": "types.LangPackString",
@@ -9411,6 +9436,12 @@
       "_": "types.LangPackString",
       "key": "lng_community_ban_warning_title",
       "value": "Attenzione"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_bot_peers_limit",
+      "one_value": "Limite di {count} bot raggiunto.",
+      "other_value": "Limite di {count} bot raggiunto."
     },
     {
       "_": "types.LangPackString",
@@ -9500,6 +9531,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_delete_sure",
+      "value": "Sei sicuro di voler eliminare questa community? Questo separerà tutte le sue chat."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_existing",
       "value": "Aggiungi a una community esistente"
     },
@@ -9560,6 +9596,12 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "key": "lng_community_peers_limit",
+      "one_value": "Limite di {count} chat raggiunto.",
+      "other_value": "Limite di {count} chat raggiunto."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "key": "lng_community_profile_status",
       "one_value": "Community con {count} chat",
       "other_value": "Community con {count} chat"
@@ -9581,8 +9623,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_remove_done",
+      "value": "Rimosso dalla community."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_remove_sure",
+      "value": "Rimuovere {group} dalla community?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_removed_list_about",
+      "value": "Gli utenti rimossi dalla community saranno mostrati qui."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_request_add",
       "value": "Aggiungi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_added_toast_undo",
+      "value": "Hai approvato la richiesta di aggiungere {chat} alla community."
     },
     {
       "_": "types.LangPackString",
@@ -9591,8 +9653,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_request_declined_toast_undo",
+      "value": "Hai rifiutato la richiesta di aggiungere {chat} alla community."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_request_invite_only",
       "value": "Questo gruppo è solo su invito. Solo i suoi membri possono vederlo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only_bot",
+      "value": "Questo bot è solo su invito. Solo i membri invitati possono usarlo."
     },
     {
       "_": "types.LangPackString",
@@ -9641,6 +9713,12 @@
       "other_value": "{count} richieste in sospeso"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_count",
+      "one_value": "{count} chat suggerita per questa community",
+      "other_value": "{count} chat suggerite per questa community"
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_community_requests_decline_all",
       "value": "Rifiuta tutto"
@@ -9650,6 +9728,11 @@
       "key": "lng_community_requests_decline_all_sure",
       "one_value": "Vuoi davvero rifiutare {count} richiesta di accesso alla community?",
       "other_value": "Vuoi davvero rifiutare tutte le {count} richieste di accesso alla community?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_decline_all_title",
+      "value": "Rifiuta tutto"
     },
     {
       "_": "types.LangPackString",
@@ -21378,6 +21461,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_iv_editor_save_draft_failed",
+      "value": "Impossibile salvare la bozza."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_save_draft_failed_error",
+      "value": "Impossibile salvare la bozza.\n\nErrore: {error}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_iv_editor_saving_draft",
       "value": "Salvo la bozza..."
     },
@@ -23430,6 +23523,16 @@
       "_": "types.LangPackString",
       "key": "lng_media_video_title",
       "value": "Video"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_media_zoom_in",
+      "value": "Ingrandisci"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_media_zoom_out",
+      "value": "Riduci"
     },
     {
       "_": "types.LangPackString",
@@ -40737,5 +40840,5 @@
       "other_value": "Hai pagato {count} stelle."
     }
   ],
-  "version": 5711959
+  "version": 5711997
 }
