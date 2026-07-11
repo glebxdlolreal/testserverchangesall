@@ -2689,11 +2689,13 @@ var BotMigration = {
       apply: stepInfo.changeIds,
     }, function(res) {
       WebApp.MainButton.hideProgress();
+      if (res.toast) {
+        Main.showSuccessToast(res.toast);
+      }
       if (res.ok) {
         for (var i = 0; i < stepInfo.changeIds.length; i++) {
           BotMigration.appliedIds[stepInfo.changeIds[i]] = true;
         }
-        Main.showSuccessToast(l('WEB_MIGRATION_APPLIED'));
         BotMigration.hideStepError();
         BotMigration.advanceStep();
       } else {
