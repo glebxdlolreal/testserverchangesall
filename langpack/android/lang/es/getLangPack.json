@@ -9961,7 +9961,7 @@
     {
       "_": "types.LangPackString",
       "key": "BusinessBotNotSupportedMessage",
-      "value": "Este bot aún no es compatible con **Telegram Business**."
+      "value": "Este bot aún no es compatible con el **modo secretario**."
     },
     {
       "_": "types.LangPackString",
@@ -14244,7 +14244,7 @@
     {
       "_": "types.LangPackString",
       "key": "CommunityBanFromCommunity",
-      "value": "Suspender de la comunidad"
+      "value": "Expulsar de la comunidad"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -14258,19 +14258,36 @@
       "value": "Expulsar usuario"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityBanWarningMessage",
+      "one_value": "Al expulsar a **%2$s** también se quitará **%1$d** de sus chats de la comunidad.",
+      "other_value": "Al expulsar a **%2$s** también se quitarán **%1$d** de sus chats de la comunidad."
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityBanWarningTitle",
       "value": "Advertencia"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityBanWillRemoveFromChats",
+      "one_value": "**%2$s** será eliminado de **%1$d** chat de la comunidad.",
+      "other_value": "**%2$s** será eliminado de **%1$d** chats de la comunidad."
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityChatVisibilityCannotChange",
-      "value": "No podrás cambiarlo más tarde."
+      "value": "No podrás cambiar esto más tarde."
     },
     {
       "_": "types.LangPackString",
       "key": "CommunityChatVisibilityHidden",
       "value": "Oculto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHiddenBotInfo",
+      "value": "Sólo los miembros invitados y los admins. de la comunidad verán este bot."
     },
     {
       "_": "types.LangPackString",
@@ -14304,6 +14321,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityCommunityJoinedChannel",
+      "value": "¡Uniste este canal a la comunidad!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityJoinedGroup",
+      "value": "¡Uniste este grupo a la comunidad!"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityCommunityPending",
       "value": "Tu solicitud para unirte a la comunidad ha sido enviada a los admins."
     },
@@ -14311,6 +14338,12 @@
       "_": "types.LangPackString",
       "key": "CommunityCreateCommunity",
       "value": "Crear comunidad"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityDeclineAllMessage",
+      "one_value": "¿Quieres rechazar **%1$d** solicitud de unión a la comunidad?",
+      "other_value": "¿Quieres rechazar las **%1$d** solicitudes de unión a la comunidad?"
     },
     {
       "_": "types.LangPackString",
@@ -14381,6 +14414,11 @@
       "_": "types.LangPackString",
       "key": "CommunityInviteOnlyGroupMessageOwner",
       "value": "Enviar mensaje al propietario"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminMessage",
+      "value": "**%1$s** podrá editar la info. de la comunidad y usar otras herramientas de administración."
     },
     {
       "_": "types.LangPackString",
@@ -14563,6 +14601,11 @@
       "_": "types.LangPackString",
       "key": "CommunityRemovedUsers",
       "value": "Usuarios expulsados"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequestApprovedToast",
+      "value": "Aprobaste la solicitud de añadir **%1$s** a la comunidad."
     },
     {
       "_": "types.LangPackString",
@@ -37554,7 +37597,7 @@
     {
       "_": "types.LangPackString",
       "key": "PremiumPreviewRichEditor",
-      "value": "Formato enriquecido"
+      "value": "Herramientas de formato"
     },
     {
       "_": "types.LangPackString",
@@ -56772,5 +56815,5 @@
       "value": "Telegram Passport"
     }
   ],
-  "version": 59889586
+  "version": 59891749
 }
