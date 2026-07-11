@@ -1228,6 +1228,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_community_added",
+      "value": "{from} añadió este grupo a la comunidad {community}."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown",
+      "value": "{from} añadió este grupo a una comunidad."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_community_removed",
       "value": "{from} quitó este grupo de la comunidad."
     },
@@ -3824,6 +3834,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_ai_compose_add_to_page",
+      "value": "Añadir a la página"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_ai_compose_after",
       "value": "Después"
     },
@@ -3869,6 +3884,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_ai_compose_create_placeholder",
+      "value": "Dinos qué generar…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ai_compose_create_title",
+      "value": "Crear con IA"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_ai_compose_create_tone_title",
       "value": "Nuevo estilo"
     },
@@ -3906,6 +3931,16 @@
       "_": "types.LangPackString",
       "key": "lng_ai_compose_flood_title",
       "value": "Límite diario alcanzado"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ai_compose_generate",
+      "value": "Generar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ai_compose_in_language",
+      "value": "En {language}"
     },
     {
       "_": "types.LangPackString",
@@ -4337,6 +4372,371 @@
       "_": "types.LangPackString",
       "key": "lng_archived_unread_two",
       "value": "{chat}, {second_chat}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_editor_title",
+      "value": "Artículo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_blockquote",
+      "value": "Cita"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_bullet_list",
+      "value": "Lista con viñetas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_code",
+      "value": "Código"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_details",
+      "value": "Detalles"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_divider",
+      "value": "Separador"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_emoji",
+      "value": "Emoji"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading",
+      "value": "Encabezado"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading1",
+      "value": "Encabezado 1"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading2",
+      "value": "Encabezado 2"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading3",
+      "value": "Encabezado 3"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading4",
+      "value": "Encabezado 4"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading5",
+      "value": "Encabezado 5"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading6",
+      "value": "Encabezado 6"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_math",
+      "value": "Matemáticas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_media",
+      "value": "Adjuntar multimedia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_ordered_list",
+      "value": "Lista ordenada"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_pullquote",
+      "value": "Cita destacada"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_table",
+      "value": "Tabla"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_task_list",
+      "value": "Lista de tareas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_text",
+      "value": "Texto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_blocks",
+      "value": "El artículo tiene demasiados bloques."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_columns",
+      "value": "La tabla del artículo tiene demasiadas columnas."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_depth",
+      "value": "El artículo está demasiado anidado."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_length",
+      "value": "El artículo es demasiado largo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_media",
+      "value": "El artículo tiene demasiados archivos multimedia."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_change",
+      "value": "Cambiar lista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_insert",
+      "value": "Insertar lista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_item_change",
+      "value": "Cambiar ítem de la lista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_lowercase_letters",
+      "value": "Letras minúsculas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_lowercase_roman",
+      "value": "Romanos minúsculas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_numbers",
+      "value": "Números"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_reversed",
+      "value": "Invertida"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_uppercase_letters",
+      "value": "Letras mayúsculas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_uppercase_roman",
+      "value": "Romanos mayúsculas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_media_collage",
+      "value": "Collage"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_media_slideshow",
+      "value": "Presentación"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_media_ungroup",
+      "value": "Desagrupar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_menu_item",
+      "value": "Artículo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_choice_about",
+      "value": "Este mensaje usa formato enriquecido, que requiere {link}."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_choice_about_link",
+      "value": "Telegram Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_choice_plain",
+      "value": "Enviar sin formato"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_choice_title",
+      "value": "Quitar formato"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_required",
+      "value": "Suscríbete a {link} para poder enviar artículos enriquecidos."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_required_link",
+      "value": "Telegram Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_submit_empty",
+      "value": "El artículo no puede estar vacío."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_add_column",
+      "value": "Añadir columna"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_add_row",
+      "value": "Añadir fila"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_bottom",
+      "value": "Alinear abajo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_center",
+      "value": "Alinear al centro"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_left",
+      "value": "Alinear a la izquierda"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_middle",
+      "value": "Alinear al medio"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_right",
+      "value": "Alinear a la derecha"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_top",
+      "value": "Alinear arriba"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_borderless",
+      "value": "Sin bordes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_change",
+      "value": "Cambiar tabla"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_column",
+      "value": "Eliminar columna"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_columns",
+      "value": "Eliminar columnas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_row",
+      "value": "Eliminar fila"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_rows",
+      "value": "Eliminar filas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_table",
+      "value": "Eliminar tabla"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_header",
+      "value": "Encabezado"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_split_cell",
+      "value": "Dividir celdas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_striped",
+      "value": "Tabla a rayas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_unite_cells",
+      "value": "Unir celdas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_emoji",
+      "value": "Panel de emojis"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_formula",
+      "value": "Insertar fórmula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_link",
+      "value": "Insertar enlace"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_list_style",
+      "value": "Estilo de lista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_media",
+      "value": "Insertar multimedia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_table_insert",
+      "value": "Insertar tabla"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_table_style",
+      "value": "Estilo de tabla"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_text_style",
+      "value": "Estilo de texto"
     },
     {
       "_": "types.LangPackString",
@@ -9053,8 +9453,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_admin_about",
+      "value": "Ahora puedes editar la info. de {community} y usar otras herramientas de administración."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_continue",
+      "value": "Continuar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_decline",
+      "value": "No, gracias"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_dismiss_text",
+      "value": "Perderás el acceso a las herramientas de administración de la comunidad, pero conservarás tus privilegios de admin. del grupo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_dismiss_title",
+      "value": "Dejar de ser admin. de la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_admin_promote",
       "value": "Promover"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_promote_sure",
+      "value": "{user} podrá editar la info. de la comunidad y usar otras herramientas de administración."
     },
     {
       "_": "types.LangPackString",
@@ -9062,10 +9492,82 @@
       "value": "Admin. de la comunidad"
     },
     {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_title",
+      "value": "Eres un admin. de la comunidad"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "lng_community_ban_about",
       "one_value": "El usuario será expulsado de {count} chat.",
       "other_value": "El usuario será expulsado de {count} chats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_button",
+      "value": "Expulsar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_done",
+      "value": "{user} fue expulsado de la comunidad."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_toggle",
+      "value": "Expulsar de la comunidad"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_ban_warning",
+      "one_value": "Al expulsar a {user} también se quitará {count} de sus chats de la comunidad.",
+      "other_value": "Al expulsar a {user} también se quitarán {count} de sus chats de la comunidad."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_warning_title",
+      "value": "Advertencia"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_bot_peers_limit",
+      "one_value": "Límite de {count} bot alcanzado.",
+      "other_value": "Límite de {count} bots alcanzado."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_loading",
+      "value": "Cargando…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_remove_bot",
+      "value": "Quitar bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_remove_channel",
+      "value": "Quitar canal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_remove_group",
+      "value": "Quitar grupo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_view_bot",
+      "value": "Ver bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_view_channel",
+      "value": "Ver canal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_view_group",
+      "value": "Ver grupo"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -9130,6 +9632,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_hidden_chat_about",
+      "value": "Sólo los miembros invitados y los admins. de la comunidad verán este chat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_chat_title",
+      "value": "Chat oculto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_not_accessible",
+      "value": "No puedes unirte ni ver este grupo hasta que un admin. te invite."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_status",
+      "value": "Oculto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_join_sure",
+      "value": "¿Quieres unirte a {group}?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_manage",
       "value": "Gestionar comunidad"
     },
@@ -9164,6 +9691,18 @@
       "value": "Quién puede añadir chats"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_peers_limit",
+      "one_value": "Límite de {count} chat alcanzado.",
+      "other_value": "Límite de {count} chats alcanzado."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_profile_status",
+      "one_value": "Comunidad con {count} chat",
+      "other_value": "Comunidad con {count} chats"
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_community_remove_button",
       "value": "Quitar grupo de la comunidad"
@@ -9187,6 +9726,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_remove_sure",
       "value": "¿Quitar {group} de la comunidad?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_removed_list_about",
+      "value": "Los usuarios expulsados de la comunidad aparecerán aquí."
     },
     {
       "_": "types.LangPackString",
@@ -9239,6 +9783,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_request_message_owner_bot",
       "value": "Enviar mensaje al propietario"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_only_members",
+      "value": "Sólo visible para sus miembros"
     },
     {
       "_": "types.LangPackString",
@@ -9353,6 +9902,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_visibility_hidden_about",
       "value": "Sólo los miembros invitados y los admins. de la comunidad verán este chat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_note",
+      "value": "No podrás cambiar esto más tarde."
     },
     {
       "_": "types.LangPackString",
@@ -10069,6 +10623,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_context_copy_in_reply_to",
+      "value": "en respuesta a {name}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_context_copy_link",
       "value": "Copiar enlace"
     },
@@ -10716,6 +11275,11 @@
       "_": "types.LangPackString",
       "key": "lng_context_view_channel",
       "value": "Info. del canal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_context_view_community",
+      "value": "Ver info. de la comunidad"
     },
     {
       "_": "types.LangPackString",
@@ -13398,8 +13962,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_edited_at",
+      "value": "editado a las {time}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_edited_date",
       "value": "Editado: {date}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_edited_on",
+      "value": "editado el {date} a las {time}"
     },
     {
       "_": "types.LangPackString",
@@ -13430,6 +14004,21 @@
       "_": "types.LangPackString",
       "key": "lng_effect_stickers_title",
       "value": "Efectos de stickers"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_adapt_no_video",
+      "value": "Los videostickers aún no son compatibles."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_adapt_sticker",
+      "value": "Adaptar de un sticker"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_add_existing",
+      "value": "Añadir un emoji existente"
     },
     {
       "_": "types.LangPackString",
@@ -13508,8 +14097,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_emoji_create_emoji_about",
+      "value": "Elige emojis que correspondan a tu emoji"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_create_image_title",
+      "value": "Nuevo emoji"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_create_new",
+      "value": "Crear un nuevo emoji"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_emoji_featured_unlock",
       "value": "Desbloquear"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_group_badge",
+      "value": "Emoji del grupo"
     },
     {
       "_": "types.LangPackString",
@@ -13660,6 +14269,41 @@
       "_": "types.LangPackString",
       "key": "lng_enter_contact_data",
       "value": "Nuevo contacto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_about",
+      "value": "Sólo tú ves este mensaje. Desaparecerá después de que reinicies la app."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_cant_schedule",
+      "value": "Los mensajes efímeros no se pueden programar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_command_tooltip",
+      "value": "Otros miembros no verán este mensaje"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_reply_single_message",
+      "value": "Sólo puedes enviar un mensaje en respuesta a este mensaje."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_reply_text_only",
+      "value": "Este tipo de mensaje no se puede enviar como respuesta a este mensaje."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_visible_to",
+      "value": "Sólo visible para {user}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_visible_you",
+      "value": "Sólo visible para ti"
     },
     {
       "_": "types.LangPackString",
@@ -15291,6 +15935,41 @@
       "_": "types.LangPackString",
       "key": "lng_formatting_link_url",
       "value": "URL"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_create_title",
+      "value": "Insertar fórmula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_edit_title",
+      "value": "Editar fórmula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_result_label",
+      "value": "Resultado"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_separate_line",
+      "value": "Fórmula en bloque"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_source",
+      "value": "Fórmula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_source_label",
+      "value": "LaTeX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_source_placeholder",
+      "value": "Código de fórmula"
     },
     {
       "_": "types.LangPackString",
@@ -20495,6 +21174,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_in_dlg_table",
+      "value": "Tabla"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_in_dlg_todo_list",
       "value": "Lista de verificación"
     },
@@ -20908,6 +21592,16 @@
       "_": "types.LangPackString",
       "key": "lng_iv_click_to_view",
       "value": "Clic para ver"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_details_state_collapsed",
+      "value": "Contraído"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_details_state_expanded",
+      "value": "Expandido"
     },
     {
       "_": "types.LangPackString",
@@ -23312,8 +24006,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_menu_formatting_marked",
+      "value": "Resaltado"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_menu_formatting_monospace",
       "value": "Monoespaciado"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_menu_formatting_plain_text",
+      "value": "Texto plano"
     },
     {
       "_": "types.LangPackString",
@@ -23324,6 +24028,16 @@
       "_": "types.LangPackString",
       "key": "lng_menu_formatting_strike_out",
       "value": "Tachado"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_menu_formatting_subscript",
+      "value": "Subíndice"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_menu_formatting_superscript",
+      "value": "Superíndice"
     },
     {
       "_": "types.LangPackString",
@@ -27376,6 +28090,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_premium_summary_about_rich_formatting",
+      "value": "Añade encabezados, tablas, listas, IA y multimedia integrada a los mensajes."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_premium_summary_about_stories",
       "value": "Sin límites, orden prioritario, modo incógnito, vistas permanentes y más."
     },
@@ -27552,6 +28271,11 @@
       "_": "types.LangPackString",
       "key": "lng_premium_summary_subtitle_profile_badge",
       "value": "Distintivo en el perfil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_premium_summary_subtitle_rich_formatting",
+      "value": "Formato enriquecido"
     },
     {
       "_": "types.LangPackString",
@@ -31667,6 +32391,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_search_tab_archive",
+      "value": "Archivo"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_search_tab_by_hashtag",
       "value": "Pon un hashtag para encontrar mensajes que lo contengan."
     },
@@ -31704,6 +32433,11 @@
       "_": "types.LangPackString",
       "key": "lng_search_tab_this_chat",
       "value": "Este chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_search_tab_this_community",
+      "value": "Esta comunidad"
     },
     {
       "_": "types.LangPackString",
@@ -32241,6 +32975,11 @@
       "_": "types.LangPackString",
       "key": "lng_sent_date",
       "value": "Enviado: {date}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_sent_on",
+      "value": "enviado el {date} a las {time}"
     },
     {
       "_": "types.LangPackString",
@@ -35868,6 +36607,16 @@
       "_": "types.LangPackString",
       "key": "lng_sr_country_column_name",
       "value": "Nombre del país"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_sr_folder_locked",
+      "value": "{text}, se requiere Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_sr_folder_locked_about",
+      "value": "Haz clic para ver opciones de suscripción."
     },
     {
       "_": "types.LangPackString",
@@ -40250,5 +40999,5 @@
       "other_value": "Pagaste {count} estrellas."
     }
   ],
-  "version": 5710833
+  "version": 5710971
 }
