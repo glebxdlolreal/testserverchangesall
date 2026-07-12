@@ -1228,6 +1228,51 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_community_added",
+      "value": "{from} hat diese Gruppe zur Community {community} hinzugefügt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_channel",
+      "value": "Dieser Kanal wurde zur Community {community} hinzugefügt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_chat",
+      "value": "Dieser Chat wurde zur Community {community} hinzugefügt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown",
+      "value": "{from} hat diese Gruppe zu einer Community hinzugefügt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown_channel",
+      "value": "Dieser Kanal wurde einer Community hinzugefügt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown_chat",
+      "value": "Dieser Chat wurde einer Community hinzugefügt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_removed",
+      "value": "{from} hat diese Gruppe aus der Community entfernt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_removed_channel",
+      "value": "Dieser Kanal wurde aus der Community entfernt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_removed_chat",
+      "value": "Dieser Chat wurde aus der Community entfernt."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_created_channel",
       "value": "Kanal erstellt"
     },
@@ -3819,6 +3864,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_ai_compose_add_to_page",
+      "value": "Zur Seite hinzufügen"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_ai_compose_after",
       "value": "Nachher"
     },
@@ -3864,6 +3914,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_ai_compose_create_placeholder",
+      "value": "Beschreibe, was erstellt werden soll..."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_ai_compose_create_title",
       "value": "Mit KI erstellen"
     },
@@ -3906,6 +3961,16 @@
       "_": "types.LangPackString",
       "key": "lng_ai_compose_flood_title",
       "value": "Tägliches Limit erreicht"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ai_compose_generate",
+      "value": "Generieren"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ai_compose_in_language",
+      "value": "Auf {language}"
     },
     {
       "_": "types.LangPackString",
@@ -4340,8 +4405,388 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_editor_title",
+      "value": "Artikel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_blockquote",
+      "value": "Blockzitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_bullet_list",
+      "value": "Aufzählungsliste"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_code",
+      "value": "Codeblock"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_details",
+      "value": "Details"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_divider",
+      "value": "Trennlinie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_emoji",
+      "value": "Emoji"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading",
+      "value": "Überschrift"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading1",
+      "value": "Überschrift 1"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading2",
+      "value": "Überschrift 2"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading3",
+      "value": "Überschrift 3"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading4",
+      "value": "Überschrift 4"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading5",
+      "value": "Überschrift 5"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_heading6",
+      "value": "Überschrift 6"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_math",
+      "value": "Mathe"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_media",
+      "value": "Medien anhängen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_ordered_list",
+      "value": "Nummerierte Liste"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_insert_pullquote",
       "value": "Hervorgehobenes Zitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_table",
+      "value": "Tabelle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_task_list",
+      "value": "Aufgabenliste"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_text",
+      "value": "Text"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_blocks",
+      "value": "Der Artikel enthält zu viele Blöcke."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_columns",
+      "value": "Die Tabelle im Artikel hat zu viele Spalten."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_depth",
+      "value": "Der Artikel ist zu tief verschachtelt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_length",
+      "value": "Der Artikel ist zu lang."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_media",
+      "value": "Der Artikel enthält zu viele Medien."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_change",
+      "value": "Liste ändern"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_insert",
+      "value": "Liste einfügen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_item_change",
+      "value": "Listeneintrag ändern"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_lowercase_letters",
+      "value": "Kleinbuchstaben"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_lowercase_roman",
+      "value": "Kleinbuchstaben (Römisch)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_numbers",
+      "value": "Zahlen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_reversed",
+      "value": "Umgekehrt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_uppercase_letters",
+      "value": "Großbuchstaben"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_uppercase_roman",
+      "value": "Großbuchstaben (Römisch)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_media_collage",
+      "value": "Collage"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_media_slideshow",
+      "value": "Diashow"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_media_ungroup",
+      "value": "Gruppierung aufheben"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_menu_item",
+      "value": "Artikel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_placeholder_author",
+      "value": "Autor hinzufügen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_placeholder_cell",
+      "value": "Zelle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_placeholder_quote",
+      "value": "Zitat eingeben"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_placeholder_title",
+      "value": "Titel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_choice_about",
+      "value": "Diese Nachricht verwendet erweiterte Formatierungen, für die {link} erforderlich ist."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_choice_about_link",
+      "value": "Telegram Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_choice_plain",
+      "value": "Ohne Formatierung senden"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_choice_title",
+      "value": "Formatierung entfernen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_required",
+      "value": "Abonniere {link}, um Rich-Text-Artikel senden zu können."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_required_link",
+      "value": "Telegram Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_submit_empty",
+      "value": "Der Artikel darf nicht leer sein."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_add_column",
+      "value": "Spalte hinzufügen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_add_row",
+      "value": "Zeile hinzufügen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_bottom",
+      "value": "Unten ausrichten"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_center",
+      "value": "Zentrieren"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_left",
+      "value": "Links ausrichten"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_middle",
+      "value": "Mittig ausrichten"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_right",
+      "value": "Rechts ausrichten"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_top",
+      "value": "Oben ausrichten"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_borderless",
+      "value": "Ohne Rahmen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_change",
+      "value": "Tabelle ändern"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_column",
+      "value": "Spalte löschen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_columns",
+      "value": "Spalten löschen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_row",
+      "value": "Zeile löschen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_rows",
+      "value": "Zeilen löschen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_table",
+      "value": "Tabelle löschen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_header",
+      "value": "Überschrift"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_split_cell",
+      "value": "Zelle teilen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_striped",
+      "value": "Tabelle mit Streifen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_unite_cells",
+      "value": "Zellen verbinden"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_emoji",
+      "value": "Emoji-Panel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_formula",
+      "value": "Formel einfügen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_link",
+      "value": "Link einfügen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_list_style",
+      "value": "Listenstil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_media",
+      "value": "Medien einfügen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_table_insert",
+      "value": "Tabelle einfügen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_table_style",
+      "value": "Tabellenstil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_text_style",
+      "value": "Textstil"
     },
     {
       "_": "types.LangPackString",
@@ -9003,6 +9448,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_add_about_channel",
+      "value": "Mache deinen Kanal zum Teil einer Community mit mehreren zusammengehörigen Chats"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_add_button",
       "value": "Gruppe einer Community hinzufügen"
     },
@@ -9028,8 +9478,222 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_add_confirm_add",
+      "value": "Hinzufügen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_confirm_bot",
+      "value": "Wenn dieser Bot von einem Community-Admin genehmigt wird, können Community-Mitglieder ihn sehen und verwenden."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_confirm_channel",
+      "value": "Wenn dieser Kanal von einem Community-Admin genehmigt wird, können seine Abonnenten anderen Chats in der Community beitreten oder eine Beitrittsanfrage senden."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_done",
+      "value": "Gruppe zur Community hinzugefügt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_done_bot",
+      "value": "Bot zur Community hinzugefügt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_done_channel",
+      "value": "Kanal zur Community hinzugefügt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_to",
+      "value": "Zur Community hinzufügen"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_admin_about",
       "value": "Du kannst jetzt die Infos zu {community} bearbeiten und andere Admin-Werkzeuge verwenden."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_continue",
+      "value": "Fortsetzen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_decline",
+      "value": "Nein, danke"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_dismiss_text",
+      "value": "Du verlierst den Zugriff auf die Community-Admin-Tools, behältst aber deine Gruppenadminrechte."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_dismiss_title",
+      "value": "Community-Adminrechte abgeben"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_promote",
+      "value": "Befördern"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_promote_sure",
+      "value": "{user} wird Community-Infos bearbeiten und andere Admin-Werkzeuge verwenden können."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_promote_title",
+      "value": "Zum Community-Admin machen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_title",
+      "value": "Du bist Community-Admin"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_ban_about",
+      "one_value": "Nutzer wird aus {count} Chat entfernt.",
+      "other_value": "Nutzer wird aus {count} Chats entfernt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_button",
+      "value": "Sperren"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_done",
+      "value": "{user} wurde aus der Community ausgeschlossen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_toggle",
+      "value": "Aus Community ausschließen"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_ban_warning",
+      "one_value": "Durch das Sperren von {user} wird auch der von ihnen erstellte {count} Chat aus der Community entfernt.",
+      "other_value": "Durch das Sperren von {user} werden auch die von ihnen erstellte {count} Chats aus der Community entfernt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_warning_title",
+      "value": "Warnung"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_bot_peers_limit",
+      "one_value": "Limit von {count} Bot erreicht.",
+      "other_value": "Limit von {count} Bots erreicht."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_loading",
+      "value": "Wird geladen..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_remove_bot",
+      "value": "Bot entfernen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_remove_channel",
+      "value": "Kanal entfernen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_remove_group",
+      "value": "Gruppe entfernen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_view_bot",
+      "value": "Bot anzeigen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_view_channel",
+      "value": "Kanal anzeigen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_view_group",
+      "value": "Gruppe anzeigen"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_chats",
+      "one_value": "{count} Chat",
+      "other_value": "{count} Chats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chats_joined",
+      "value": "Chats, in denen du bist"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chats_requestable",
+      "value": "Versteckte Chats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chats_viewable",
+      "value": "Chats, die du sehen kannst"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_create",
+      "value": "Community erstellen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_create_hidden",
+      "value": "Versteckte Gruppe"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_create_hidden_bot",
+      "value": "Versteckter Bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_create_hidden_channel",
+      "value": "Versteckter Kanal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_create_name",
+      "value": "Name der Community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_create_title",
+      "value": "Neue Community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_created",
+      "value": "Community erstellt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_delete",
+      "value": "Community löschen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_delete_sure",
+      "value": "Möchtest du diese Community wirklich löschen? Dadurch werden alle ihre Chats von der Community getrennt."
     },
     {
       "_": "types.LangPackString",
@@ -9038,8 +9702,85 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_hidden_chat_about",
+      "value": "Nur eingeladene Mitglieder und Community-Admins sehen diesen Chat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_chat_title",
+      "value": "Versteckter Chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_not_accessible",
+      "value": "Du kannst diese Gruppe weder ansehen noch ihr beitreten, bis dich ein Admin einlädt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_not_accessible_bot",
+      "value": "Du kannst diesen Bot erst verwenden, wenn dich ein Admin einlädt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_not_accessible_channel",
+      "value": "Du kannst diesem Kanal erst beitreten oder ihn ansehen, wenn dich ein Admin einlädt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_status",
+      "value": "Versteckt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_join_sure",
+      "value": "Möchtest du {group} beitreten?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage",
+      "value": "Community verwalten"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_all_members",
+      "value": "Alle Mitglieder"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_manage_all_members_about",
       "value": "Mitgliedern erlauben, ihre Gruppen und Kanäle zur Community hinzuzufügen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_name",
+      "value": "Name der Community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_only_admins",
+      "value": "Nur Admins"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_only_admins_about",
+      "value": "Von Community-Mitgliedern vorgeschlagene Chats müssen von einem Admin genehmigt werden."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_who_add",
+      "value": "Wer Chats hinzufügen darf"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_peers_limit",
+      "one_value": "Limit von {count} Chat erreicht.",
+      "other_value": "Limit of {count} Chats erreicht."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_profile_status",
+      "one_value": "Community mit {count} Chat",
+      "other_value": "Community mit {count} Chats"
     },
     {
       "_": "types.LangPackString",
@@ -9058,13 +9799,234 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_remove_done",
+      "value": "Aus der Community entfernt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_remove_sure",
+      "value": "{group} aus der Community entfernen?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_removed_list_about",
+      "value": "Aus der Community entfernte Nutzer werden hier angezeigt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_add",
+      "value": "Hinzufügen"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_request_added_toast",
+      "one_value": "Chat wurde zur Community hinzugefügt.",
+      "other_value": "{count} Chats wurden zur Community hinzugefügt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_added_toast_undo",
+      "value": "Du hast die Anfrage genehmigt, {chat} zur Community hinzuzufügen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_decline",
+      "value": "Ablehnen"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_request_declined_toast",
+      "one_value": "Anfrage zum Hinzufügen des Chats wurde abgelehnt.",
+      "other_value": "{count} Anfragen zum Hinzufügen der Chats wurde abgelehnt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_declined_toast_undo",
+      "value": "Du hast die Anfrage abgelehnt, {chat} zur Community hinzuzufügen."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_request_invite_only",
-      "value": "Diese Gruppe ist nur per Einladung zugänglich.\nNur ihre Mitglieder können sie sehen."
+      "value": "Diese Gruppe ist nur per Einladung zugänglich. Nur ihre Mitglieder können sie sehen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only_bot",
+      "value": "Dieser Bot ist nur per Einladung zugänglich.\nNur eingeladene Mitglieder können ihn verwenden."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only_channel",
+      "value": "Dieser Kanal ist nur per Einladung zugänglich. Nur seine Mitglieder können ihn sehen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_message_owner",
+      "value": "Gruppeninhaber anschreiben"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_message_owner_bot",
+      "value": "Botinhaber anschreiben"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_message_owner_channel",
+      "value": "Kanalinhaber anschreiben"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_only_members",
+      "value": "Nur für Mitglieder sichtbar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_sent",
+      "value": "Deine Anfrage wurde an die Community-Admins gesendet."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_suggested_bot",
+      "value": "{user} hat diesen Bot vorgeschlagen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_suggested_channel",
+      "value": "{user} hat diesen Kanal vorgeschlagen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_suggested_group",
+      "value": "{user} hat diese Gruppe vorgeschlagen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_about",
+      "value": "Chats müssen von einem Admin genehmigt werden, bevor sie zur Community hinzugefügt werden. {link}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_about_link",
+      "value": "Einstellungen ändern."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_add_all",
+      "value": "Alle hinzufügen"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_add_all_sure",
+      "one_value": "Möchtest du {count} Chat zur Community hinzufügen?",
+      "other_value": "Möchtest du {count} Chats zur Community hinzufügen?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_add_all_title",
+      "value": "Alle Chats hinzufügen"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_button",
+      "one_value": "{count} ausstehende Anfrage",
+      "other_value": "{count} ausstehende Anfragen"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_count",
+      "one_value": "{count} Chat für diese Community vorgeschlagen",
+      "other_value": "{count} Chats für diese Community vorgeschlagen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_decline_all",
+      "value": "Alle ablehnen"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_decline_all_sure",
+      "one_value": "Möchtest du {count} Beitrittsanfrage zur Community ablehnen?",
+      "other_value": "Möchtest du alle {count} Beitrittsanfragen zur Community ablehnen?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_decline_all_title",
+      "value": "Alle ablehnen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_title",
+      "value": "Ausstehende Anfragen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_show_as_one",
+      "value": "Als einen Chat anzeigen"
     },
     {
       "_": "types.LangPackString",
       "key": "lng_community_show_as_one_about",
       "value": "Alle Community-Chats in der Chatliste zu einem Eintrag zusammenfassen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_status",
+      "value": "Community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_title",
+      "value": "Community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ungroup",
+      "value": "Gruppierung aufheben"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ungroup_text",
+      "value": "Chats aus dieser Community werden separat in deiner Chatliste angezeigt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ungroup_title",
+      "value": "Chat-Gruppierung aufheben"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_view",
+      "value": "Anzeigen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_hidden",
+      "value": "Versteckt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_hidden_about",
+      "value": "Nur eingeladene Mitglieder und Community-Admins sehen diesen Chat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_note",
+      "value": "Du kannst das später nicht mehr ändern."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_title",
+      "value": "Sichtbarkeit des Chats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_visible",
+      "value": "Sichtbar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_visible_about",
+      "value": "Jeder in der Community kann diesen Chat sehen."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -9766,6 +10728,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_context_copy_in_reply_to",
+      "value": "als Antwort auf {name}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_context_copy_link",
       "value": "Link kopieren"
     },
@@ -10413,6 +11380,11 @@
       "_": "types.LangPackString",
       "key": "lng_context_view_channel",
       "value": "Kanalinfo anzeigen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_context_view_community",
+      "value": "Community-Infos ansehen"
     },
     {
       "_": "types.LangPackString",
@@ -13095,8 +14067,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_edited_at",
+      "value": "bearbeitet um {time}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_edited_date",
       "value": "Bearbeitet: {date}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_edited_on",
+      "value": "bearbeitet am {date} um {time}"
     },
     {
       "_": "types.LangPackString",
@@ -13127,6 +14109,21 @@
       "_": "types.LangPackString",
       "key": "lng_effect_stickers_title",
       "value": "Sticker-Effekte"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_adapt_no_video",
+      "value": "Video-Sticker werden noch nicht unterstützt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_adapt_sticker",
+      "value": "Von einem Sticker übernehmen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_add_existing",
+      "value": "Vorhandenes Emoji hinzufügen"
     },
     {
       "_": "types.LangPackString",
@@ -13205,8 +14202,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_emoji_create_emoji_about",
+      "value": "Wähle Emoji, die zu deinem Emoji passen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_create_image_title",
+      "value": "Neues Emoji"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_create_new",
+      "value": "Neues Emoji erstellen"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_emoji_featured_unlock",
       "value": "Freischalten"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_group_badge",
+      "value": "Emoji gruppieren"
     },
     {
       "_": "types.LangPackString",
@@ -13357,6 +14374,41 @@
       "_": "types.LangPackString",
       "key": "lng_enter_contact_data",
       "value": "Neuer Kontakt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_about",
+      "value": "Nur du siehst diese Nachricht. Sie verschwindet, nachdem du die App neu gestartet hast."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_cant_schedule",
+      "value": "Temporäre Nachrichten können nicht geplant werden."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_command_tooltip",
+      "value": "Andere Mitglieder sehen diese Nachricht nicht"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_reply_single_message",
+      "value": "Du kannst nur mit einer Nachricht auf diese Nachricht antworten."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_reply_text_only",
+      "value": "Dieser Nachrichtentyp kann nicht als Antwort auf diese Nachricht gesendet werden."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_visible_to",
+      "value": "Nur für {user} sichtbar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_visible_you",
+      "value": "Nur für dich sichtbar"
     },
     {
       "_": "types.LangPackString",
@@ -14988,6 +16040,41 @@
       "_": "types.LangPackString",
       "key": "lng_formatting_link_url",
       "value": "URL"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_create_title",
+      "value": "Formel einfügen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_edit_title",
+      "value": "Formel bearbeiten"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_result_label",
+      "value": "Ergebnis"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_separate_line",
+      "value": "Abgesetzte Formel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_source",
+      "value": "Formel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_source_label",
+      "value": "LaTeX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_source_placeholder",
+      "value": "Formelquelle"
     },
     {
       "_": "types.LangPackString",
@@ -20192,6 +21279,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_in_dlg_table",
+      "value": "Tabelle"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_in_dlg_todo_list",
       "value": "Aufgabenliste"
     },
@@ -20605,6 +21697,46 @@
       "_": "types.LangPackString",
       "key": "lng_iv_click_to_view",
       "value": "Zum Anzeigen klicken"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_details_state_collapsed",
+      "value": "Eingeklappt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_details_state_expanded",
+      "value": "Ausgeklappt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_close_now",
+      "value": "Jetzt schließen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_discard_draft_sure",
+      "value": "Möchtest du diese Nachricht wirklich verwerfen? Diese Aktion kann nicht rückgängig gemacht werden."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_media_invalid_file",
+      "value": "Leider werden hier nur Bilder, Videos und Audiodateien unterstützt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_save_draft_failed",
+      "value": "Entwurf konnte nicht gespeichert werden."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_save_draft_failed_error",
+      "value": "Der Entwurf konnte nicht gespeichert werden.\n\nFehler: {error}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_saving_draft",
+      "value": "Entwurf wird gespeichert..."
     },
     {
       "_": "types.LangPackString",
@@ -21484,6 +22616,11 @@
       "_": "types.LangPackString",
       "key": "lng_manage_channel_title",
       "value": "Kanal verwalten"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_manage_community_title",
+      "value": "Community verwalten"
     },
     {
       "_": "types.LangPackString",
@@ -22544,6 +23681,12 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "key": "lng_media_selected_message",
+      "one_value": "{count} Nachricht",
+      "other_value": "{count} Nachrichten"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "key": "lng_media_selected_photo",
       "one_value": "{count} Bild",
       "other_value": "{count} Bilder"
@@ -22603,6 +23746,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_media_type_gifts",
+      "value": "Geschenke"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_media_type_groups",
+      "value": "Gruppen"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_media_type_links",
       "value": "Links"
     },
@@ -22618,13 +23771,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_media_type_posts",
+      "value": "Beiträge"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_media_type_rounds",
       "value": "Videonachrichten"
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_media_type_saved",
+      "value": "Gespeichert"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_media_type_similar",
+      "value": "Ähnlich"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_media_type_songs",
       "value": "Audios"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_media_type_stories",
+      "value": "Stories"
     },
     {
       "_": "types.LangPackString",
@@ -22650,6 +23823,16 @@
       "_": "types.LangPackString",
       "key": "lng_media_video_title",
       "value": "Videos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_media_zoom_in",
+      "value": "Vergrößern"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_media_zoom_out",
+      "value": "Verkleinern"
     },
     {
       "_": "types.LangPackString",
@@ -22974,8 +24157,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_menu_formatting_marked",
+      "value": "Markiert"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_menu_formatting_monospace",
       "value": "Monospace"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_menu_formatting_plain_text",
+      "value": "Nur Text"
     },
     {
       "_": "types.LangPackString",
@@ -22986,6 +24179,16 @@
       "_": "types.LangPackString",
       "key": "lng_menu_formatting_strike_out",
       "value": "Durchstreichen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_menu_formatting_subscript",
+      "value": "Tiefgestellt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_menu_formatting_superscript",
+      "value": "Hochgestellt"
     },
     {
       "_": "types.LangPackString",
@@ -27038,6 +28241,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_premium_summary_about_rich_formatting",
+      "value": "Füge Nachrichten Überschriften, Tabellen, Inline-Medien und KI-Inhalte hinzu."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_premium_summary_about_stories",
       "value": "Unbegrenztes Veröffentlichen, Prioritätsreihenfolge, Tarnmodus, dauerhafter Ansichtenverlauf und mehr."
     },
@@ -27214,6 +28422,11 @@
       "_": "types.LangPackString",
       "key": "lng_premium_summary_subtitle_profile_badge",
       "value": "Abzeichen im Profil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_premium_summary_subtitle_rich_formatting",
+      "value": "Formatierungsoptionen"
     },
     {
       "_": "types.LangPackString",
@@ -27801,6 +29014,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_profile_action_short_live_stream",
+      "value": "Livestream"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_profile_action_short_manage",
       "value": "Verwalten"
     },
@@ -27828,6 +29046,11 @@
       "_": "types.LangPackString",
       "key": "lng_profile_action_short_unmute",
       "value": "Stumm aus"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_profile_action_short_video_chat",
+      "value": "Videochat"
     },
     {
       "_": "types.LangPackString",
@@ -28865,6 +30088,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_pull_next_channel",
+      "value": "Hochziehen für nächster ungelesener Kanal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_pull_no_unread_channels",
+      "value": "Du hast keine ungelesenen Kanäle"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_qr_box_font_size",
       "value": "Textgröße"
     },
@@ -29288,6 +30521,11 @@
       "_": "types.LangPackString",
       "key": "lng_record_voice_tip",
       "value": "Halten für Audioaufnahme. Klicken für Video."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_release_next_channel",
+      "value": "Loslassen für nächster ungelesener Kanal"
     },
     {
       "_": "types.LangPackString",
@@ -30599,6 +31837,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_rights_community_info",
+      "value": "Community-Namen ändern"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_rights_community_linked",
       "value": "Chatliste bearbeiten"
     },
@@ -31299,6 +32542,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_search_tab_archive",
+      "value": "Archiv"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_search_tab_by_hashtag",
       "value": "Hashtag eingeben, um Nachrichten zu finden, die ihn enthalten."
     },
@@ -31336,6 +32584,11 @@
       "_": "types.LangPackString",
       "key": "lng_search_tab_this_chat",
       "value": "Dieser Chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_search_tab_this_community",
+      "value": "Diese Community"
     },
     {
       "_": "types.LangPackString",
@@ -31873,6 +33126,11 @@
       "_": "types.LangPackString",
       "key": "lng_sent_date",
       "value": "Gesendet: {date}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_sent_on",
+      "value": "gesendet am {date} um {time}"
     },
     {
       "_": "types.LangPackString",
@@ -33690,6 +34948,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_settings_pull_to_next_channel",
+      "value": "Zum nächsten ungelesenen Kanal wischen"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_settings_qt_frame",
       "value": "Qt-Rahmen benutzen"
     },
@@ -35495,6 +36758,16 @@
       "_": "types.LangPackString",
       "key": "lng_sr_country_column_name",
       "value": "Name des Landes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_sr_folder_locked",
+      "value": "{text}, Premium notwendig"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_sr_folder_locked_about",
+      "value": "Hier tippen, um Abo-Optionen anzuzeigen."
     },
     {
       "_": "types.LangPackString",
@@ -39877,5 +41150,5 @@
       "other_value": "Du hast {count} Sterne gezahlt."
     }
   ],
-  "version": 5713548
+  "version": 5714650
 }
