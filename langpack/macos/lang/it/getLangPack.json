@@ -3998,6 +3998,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersEnable",
+      "value": "Attiva"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersHeader",
+      "value": "Approva i nuovi membri"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Channel.Admin.CantEdit",
       "value": "Non puoi modificare i diritti di questo amministratore."
     },
@@ -4010,6 +4020,16 @@
       "_": "types.LangPackString",
       "key": "Channel.Admin.Dismiss",
       "value": "Rimuovi amministratore"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ProcessJoinRequests",
+      "value": "Gestire le richieste di accesso"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ProcessJoinRequestsInfo",
+      "value": "Consenti a questo bot di approvare i nuovi membri usando le proprie interfacce, come i captcha."
     },
     {
       "_": "types.LangPackString",
@@ -12744,6 +12764,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.UngroupChats",
+      "value": "Separare le chat?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.UnhideMuted",
       "value": "Mostra silenziate"
     },
@@ -13911,6 +13936,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.InviteOnlyInfo",
+      "value": "Questa chat è solo su invito.\nSolo i suoi membri possono vederlo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.MessageGroupOwner",
+      "value": "Scrivi al proprietario del gruppo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.BanMembers",
+      "value": "Bannare membri"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.Dismiss",
+      "value": "Rimuovi amministratore"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAdmin.EditGroupList",
       "value": "Modificare la lista chat"
     },
@@ -13926,8 +13971,34 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAdmin.PermissionsHeader",
+      "value": "COSA PUÒ FARE QUESTO AMMINISTRATORE"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.Save",
+      "value": "Salva"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.Header",
+      "value": "AMMINISTRATORI"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.Title",
+      "value": "Amministratori"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityInfo.Community",
       "value": "Community"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityInfo.CommunityWithChats",
+      "one_value": "Community con %1$d chat",
+      "other_value": "Community con %1$d chat"
     },
     {
       "_": "types.LangPackString",
@@ -19325,8 +19396,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupInfo.Remove",
+      "value": "Rimuovi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.RemoveGroupFromCommunity",
+      "value": "Rimuovi gruppo dalla community"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupInfo.ScamWarning",
       "value": "⚠️ Attenzione: molti utenti hanno segnalato questo gruppo come truffa o account falso. Per favore fai attenzione, soprattutto se ti vengono chiesti dei soldi."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.SomethingWentWrong",
+      "value": "Qualcosa è andato storto."
     },
     {
       "_": "types.LangPackString",
@@ -27062,6 +27148,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumBoarding.RichFormattingInfo",
+      "value": "Aggiungi titoli, tabelle, elenchi, IA e media inline ai messaggi."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumBoarding.RichFormattingTitle",
       "value": "Strumenti di formattazione"
     },
@@ -28899,6 +28990,76 @@
       "_": "types.LangPackString",
       "key": "RichTextAiCompose.Title",
       "value": "Crea con IA"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AddMedia",
+      "value": "Aggiungi foto o video"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignCenter",
+      "value": "Allinea al centro"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignLeft",
+      "value": "Allinea a sinistra"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignRight",
+      "value": "Allinea a destra"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Apply",
+      "value": "Applica"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Body",
+      "value": "Corpo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.BulletList",
+      "value": "Elenco puntato"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Copy",
+      "value": "Copia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Cut",
+      "value": "Taglia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DecreaseIndent",
+      "value": "Riduci rientro"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Delete",
+      "value": "Elimina"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DeleteColumn",
+      "value": "Elimina colonna"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DeleteRow",
+      "value": "Elimina riga"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Edit",
+      "value": "Modifica"
     },
     {
       "_": "types.LangPackString",
@@ -37132,6 +37293,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextUtils.AddedToCommunity",
+      "value": "Aggiunto alla community \"%1$@\""
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextUtils.ManagedBotCreated",
       "value": "%1$@ ha creato %2$@"
     },
@@ -38730,8 +38896,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UserInfo.AddBotToCommunityInfo",
+      "value": "Rendi il tuo bot parte di una community con più chat correlate."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UserInfo.ManagedBotCreatedBy",
       "value": "Creato e gestito da "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.RemoveBotFromCommunityButton",
+      "value": "Rimovi bot dalla community"
     },
     {
       "_": "types.LangPackString",
@@ -40983,5 +41159,5 @@
       "value": "Mostra sostituzioni"
     }
   ],
-  "version": 2230784
+  "version": 2230860
 }
