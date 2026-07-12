@@ -1233,13 +1233,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_community_added_channel",
+      "value": "Questo canale è stato aggiunto alla community {community}."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_chat",
+      "value": "Questa chat è stata aggiunta alla community {community}."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_community_added_unknown",
       "value": "{from} ha aggiunto questo gruppo alla community."
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown_channel",
+      "value": "Questo canale è stato aggiunto alla community."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown_chat",
+      "value": "Questa chat è stata aggiunta alla community."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_community_removed",
       "value": "{from} ha rimosso questo gruppo dalla community."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_removed_channel",
+      "value": "Questo canale è stato rimosso dalla community."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_removed_chat",
+      "value": "Questa chat è stata rimossa dalla community."
     },
     {
       "_": "types.LangPackString",
@@ -4577,6 +4607,11 @@
       "_": "types.LangPackString",
       "key": "lng_article_placeholder_cell",
       "value": "Cella"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_placeholder_quote",
+      "value": "Inserisci citazione"
     },
     {
       "_": "types.LangPackString",
@@ -9453,6 +9488,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_add_confirm_channel",
+      "value": "Se questo canale viene approvato da un amministratore della community, i suoi iscritti potranno unirsi o richiedere di unirsi ad altre chat della community."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_add_done",
       "value": "Gruppo aggiunto alla community."
     },
@@ -9622,6 +9662,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_create_hidden_bot",
+      "value": "Bot nascosto"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_create_hidden_channel",
       "value": "Canale nascosto"
     },
@@ -9669,6 +9714,16 @@
       "_": "types.LangPackString",
       "key": "lng_community_hidden_not_accessible",
       "value": "Non puoi unirti o vedere questo gruppo finché un amministratore non ti inviterà."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_not_accessible_bot",
+      "value": "Non puoi usare questo bot finché un amministratore non ti inviterà."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_not_accessible_channel",
+      "value": "Non puoi unirti o vedere questo canale finché un amministratore non ti inviterà."
     },
     {
       "_": "types.LangPackString",
@@ -9801,6 +9856,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only_channel",
+      "value": "Questo canale è solo su invito. Solo i suoi iscritti possono vederlo."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_request_message_owner",
       "value": "Scrivi al proprietario del gruppo"
     },
@@ -9808,6 +9868,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_request_message_owner_bot",
       "value": "Scrivi al proprietario del bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_message_owner_channel",
+      "value": "Scrivi al proprietario del canale"
     },
     {
       "_": "types.LangPackString",
@@ -23613,6 +23678,12 @@
       "key": "lng_media_selected_link",
       "one_value": "{count} link condiviso",
       "other_value": "{count} link condivisi"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_media_selected_message",
+      "one_value": "{count} messaggio",
+      "other_value": "{count} messaggi"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -41069,5 +41140,5 @@
       "other_value": "Hai pagato {count} stelle."
     }
   ],
-  "version": 5713077
+  "version": 5713703
 }
