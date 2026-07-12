@@ -1883,6 +1883,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AuthEmailSetup.ErrorEmailNotAllowed",
+      "value": "Ова е-пошта се не може користити."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.ErrorInvalidEmail",
+      "value": "Унесите важећу адресу е-поште."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AuthEmailSetup.Placeholder",
       "value": "Унесите своју е-пошту"
     },
@@ -4013,6 +4023,11 @@
       "_": "types.LangPackString",
       "key": "Channel.Admin.ApproveMembersHeader",
       "value": "Одобрење нових чланова"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersInfo",
+      "value": "Новим члановима ће бити потребно одобрење бота %1$@ да би слали поруке у овој групи."
     },
     {
       "_": "types.LangPackString",
@@ -14102,6 +14117,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Communities.AdminRequired",
+      "value": "Само администратори овог ћаскања могу направити заједницу за њега."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Communities.CantChangeLater",
       "value": "Ово се не може накнадно променити."
     },
@@ -14138,6 +14158,11 @@
       "value": "Скривено"
     },
     {
+      "_": "types.LangPackString",
+      "key": "Communities.HiddenInfo",
+      "value": "Само позвани чланови и администратори заједнице ће моћи да виде ово ћаскање."
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "%1$d члана",
       "key": "Communities.Members",
@@ -14156,8 +14181,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Communities.SubtitleBot",
+      "value": "Учините свог бота делом зајенице са више сродних ћаскања."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Communities.SubtitleChannel",
       "value": "Учините свој канал делом заједнице са више сродних ћаскања."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SubtitleGroup",
+      "value": "Учините своју групу делом заједнице са више сродних ћаскања."
     },
     {
       "_": "types.LangPackString",
@@ -14171,6 +14206,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Communities.VisibleInfo",
+      "value": "Сви чланови заједнице ће моћи да виде ово ћаскање."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Continue",
       "value": "Настави"
     },
@@ -14181,13 +14221,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.DismissAdminInfo",
+      "value": "Изгубићете приступ администраторским алатима заједнице, али ћете задржати права администратора групе."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Group",
       "value": "Група"
     },
     {
       "_": "types.LangPackString",
       "key": "Community.InviteOnlyInfo",
-      "value": "Ова група је доступна уз позивницу.\nМогу је видети само њени чланови."
+      "value": "Ово ћаскање је доступно уз позивницу.\nМогу га видети само његови чланови."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -14372,6 +14417,11 @@
       "_": "types.LangPackString",
       "key": "CommunityEdit.AllMembers",
       "value": "Сви чланови"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AllMembersDescription",
+      "value": "Дозволите члановима да додају своје групе и канале у заједницу."
     },
     {
       "_": "types.LangPackString",
@@ -14573,6 +14623,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityRequests.ApprovalInfo",
+      "value": "Ћаскања захтевају одобрење администратора пре него што буду додата у заједницу. [Промени подешавања](settings)"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityRequests.Decline",
       "value": "Одбиј"
     },
@@ -14614,14 +14669,21 @@
       "value": "Неко"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "ПРЕДЛОЖЕНА %d ЋАСКАЊА ЗА ОВУ ЗАЈЕДНИЦУ",
+      "key": "CommunityRequests.SuggestedHeader",
+      "one_value": "ПРЕДЛОЖЕНО %d ЋАСКАЊЕ ЗА ОВУ ЗАЈЕДНИЦУ",
+      "other_value": "ПРЕДЛОЖЕНО %d ЋАСКАЊА ЗА ОВУ ЗАЈЕДНИЦУ"
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityRequests.SuggestsGroup",
-      "value": "%1$@ предложио/ла ову групу:"
+      "value": "%1$@ предлаже ово ћаскање:"
     },
     {
       "_": "types.LangPackString",
       "key": "CommunityRequests.SuggestsGroupSuffix",
-      "value": " предложио/ла ову групу:"
+      "value": " предлаже ово ћаскање:"
     },
     {
       "_": "types.LangPackString",
@@ -15692,6 +15754,13 @@
       "_": "types.LangPackString",
       "key": "DeleteGroupMessages.BanFromCommunity",
       "value": "Забрани приступ заједници"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Забрана приступа кориснику %2$@ ће уклонити из заједнице и његова %1$d ћаскања.",
+      "key": "DeleteGroupMessages.CommunityBanWarning",
+      "one_value": "Забрана приступа кориснику **%2$@** ће уклонити из заједнице и његово **%1$d** ћаскање.",
+      "other_value": "Забрана приступа кориснику %2$@ ће уклонити из заједнице и његових %1$d ћаскања."
     },
     {
       "_": "types.LangPackString",
@@ -30114,6 +30183,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PremiumToastEdit",
+      "value": "Уређивање овако обликоване поруке захтева [Telegram Premium](premium)."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditorWindow.PremiumToastSend",
       "value": "Слање овако обликоване поруке захтева [Telegram Premium](premium)."
     },
@@ -30126,6 +30200,11 @@
       "_": "types.LangPackString",
       "key": "RichTextEditorWindow.RemoveFormatting",
       "value": "Уклони обликовање"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.RichFormattingRequiresPremium",
+      "value": "Ова порука користи напредно обликовање, што захтева Telegram Premium."
     },
     {
       "_": "types.LangPackString",
@@ -42187,5 +42266,5 @@
       "value": "Прикажи замене"
     }
   ],
-  "version": 2231194
+  "version": 2231218
 }
