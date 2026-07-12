@@ -1230,13 +1230,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_community_added_channel",
+      "value": "Saluran ini ditambah ke komuniti {community}."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_chat",
+      "value": "Bual ini ditambah ke komuniti {community}."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_community_added_unknown",
       "value": "{from} tambah grup ini ke komuniti."
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown_channel",
+      "value": "Saluran ini ditambah ke komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown_chat",
+      "value": "Bual ini ditambah ke komuniti."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_community_removed",
       "value": "{from} keluarkan grup ini dari komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_removed_channel",
+      "value": "Saluran ini dikeluarkan dari komuniti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_removed_chat",
+      "value": "Bual ini dikeluarkan dari komuniti."
     },
     {
       "_": "types.LangPackString",
@@ -4527,6 +4557,26 @@
       "_": "types.LangPackString",
       "key": "lng_article_menu_item",
       "value": "Artikel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_placeholder_author",
+      "value": "Tambah pengarang"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_placeholder_cell",
+      "value": "Sel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_placeholder_quote",
+      "value": "Masukkan petikan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_placeholder_title",
+      "value": "Tajuk"
     },
     {
       "_": "types.LangPackString",
@@ -9265,6 +9315,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_add_about_channel",
+      "value": "Jadikan saluran anda sebahagian dari komuniti dengan berbilang bual relevan."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_add_button",
       "value": "Tambah Grup ke Komuniti"
     },
@@ -9300,6 +9355,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_add_confirm_channel",
+      "value": "Jika saluran ini dilulus oleh pentadbir, pelanggannya akan boleh sertai atau mohon untuk sertai bual lain dalam komuniti."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_add_done",
       "value": "Grup ditambah ke komuniti."
     },
@@ -9321,7 +9381,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_community_admin_about",
-      "value": "Anda kini boleh sunting info {community} dan guna pentadbir lain."
+      "value": "Anda kini boleh sunting info {community} dan guna alat pentadbir lain."
     },
     {
       "_": "types.LangPackString",
@@ -9465,6 +9525,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_create_hidden_bot",
+      "value": "Bot disorok"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_create_hidden_channel",
+      "value": "Saluran disorok"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_create_name",
       "value": "Nama Komuniti"
     },
@@ -9486,7 +9556,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_community_delete_sure",
-      "value": "Anda pasti ingin hapus komuniti ini? Ini akan keluarkan semua bualnya."
+      "value": "Anda pasti ingin hapus komuniti ini? Ini akan nyahlink semua bualnya."
     },
     {
       "_": "types.LangPackString",
@@ -9507,6 +9577,16 @@
       "_": "types.LangPackString",
       "key": "lng_community_hidden_not_accessible",
       "value": "Anda tak boleh sertai atau lihat grup ini hingga pentadbir jemput anda."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_not_accessible_bot",
+      "value": "Anda tak boleh guna bot ini hingga pentadbir jemput anda."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_not_accessible_channel",
+      "value": "Anda tak boleh guna saluran ini hingga pentadbir jemput anda."
     },
     {
       "_": "types.LangPackString",
@@ -9635,6 +9715,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only_channel",
+      "value": "Saluran ini untuk jemputan sahaja. Hanya pelanggan boleh lihatnya."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_request_message_owner",
       "value": "Mesej Pemilik Grup"
     },
@@ -9642,6 +9727,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_request_message_owner_bot",
       "value": "Mesej Pemilik Bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_message_owner_channel",
+      "value": "Mesej Pemilik Saluran"
     },
     {
       "_": "types.LangPackString",
@@ -14076,7 +14166,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_ephemeral_cant_schedule",
-      "value": "Mesej sementara tidak boleh dijadualkan."
+      "value": "Mesej sementara tak boleh dijadualkan."
     },
     {
       "_": "types.LangPackString",
@@ -23210,6 +23300,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "key": "lng_media_selected_message",
+      "other_value": "{count} Mesej"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "key": "lng_media_selected_photo",
       "other_value": "{count} Foto"
     },
@@ -23265,6 +23360,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_media_type_gifts",
+      "value": "Hadiah"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_media_type_groups",
+      "value": "Grup"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_media_type_links",
       "value": "Link kongsi"
     },
@@ -23280,13 +23385,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_media_type_posts",
+      "value": "Pos"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_media_type_rounds",
       "value": "Mesej video"
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_media_type_saved",
+      "value": "Disimpan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_media_type_similar",
+      "value": "Sama"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_media_type_songs",
       "value": "Fail audio"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_media_type_stories",
+      "value": "Stori"
     },
     {
       "_": "types.LangPackString",
@@ -27841,7 +27966,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_premium_summary_subtitle_rich_formatting",
-      "value": "Pemformatan Kaya"
+      "value": "Alat Pemformatan"
     },
     {
       "_": "types.LangPackString",
@@ -36081,7 +36206,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_sr_folder_locked_about",
-      "value": "Tekan untuk lihat opsyen langganan."
+      "value": "Klik untuk lihat opsyen langganan."
     },
     {
       "_": "types.LangPackString",
@@ -40394,5 +40519,5 @@
       "other_value": "Anda bayar {count} Star."
     }
   ],
-  "version": 5712193
+  "version": 5713102
 }
