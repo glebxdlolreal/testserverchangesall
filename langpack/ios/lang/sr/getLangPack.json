@@ -1965,6 +1965,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Attachment.Article",
+      "value": "Чланак"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Attachment.Audio",
       "value": "Музика"
     },
@@ -3225,6 +3230,11 @@
       "_": "types.LangPackString",
       "key": "AvatarEditor.SetChannelPhoto",
       "value": "Подеси као слику канала"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AvatarEditor.SetCommunityPhoto",
+      "value": "Подеси као слику заједнице"
     },
     {
       "_": "types.LangPackString",
@@ -8555,7 +8565,7 @@
     {
       "_": "types.LangPackString",
       "key": "Channel.EditAdmin.PermissionsHeader",
-      "value": "КОЈЕ ДОЗВОЛЕ ИМА ОВАЈ АДМИН?"
+      "value": "КОЈЕ ДОЗВОЛЕ ИМА ОВАЈ АДМИНИСТРАТОР?"
     },
     {
       "_": "types.LangPackString",
@@ -8585,7 +8595,7 @@
     {
       "_": "types.LangPackString",
       "key": "Channel.ErrorAddBlocked",
-      "value": "Не можете додати овог корисника на канале због његових подешавања приватности."
+      "value": "Не можете додавати овог корисника на канале због његових подешавања приватности."
     },
     {
       "_": "types.LangPackString",
@@ -8810,7 +8820,7 @@
     {
       "_": "types.LangPackString",
       "key": "Channel.Moderator.Title",
-      "value": "Админ"
+      "value": "Администратор"
     },
     {
       "_": "types.LangPackString",
@@ -14019,6 +14029,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Context.Ungroup",
+      "value": "Разгрупиши"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.Context.UnhideArchive",
       "value": "Закачи на врх списка"
     },
@@ -14642,6 +14657,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Remove",
+      "value": "Уклони"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.RemoveFolder",
       "value": "Уклони"
     },
@@ -15085,6 +15105,21 @@
       "_": "types.LangPackString",
       "key": "ChatList.UndoArchiveTitle",
       "value": "Ћаскање архивирано."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Action",
+      "value": "Разгрупиши"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Text",
+      "value": "Ћаскања из ове заједнице приказиваће се засебно на вашем списку ћаскања."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Title",
+      "value": "Разгруписати ћаскања?"
     },
     {
       "_": "types.LangPackString",
@@ -16660,6 +16695,446 @@
       "_": "types.LangPackString",
       "key": "Common.of",
       "value": "од"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.ActionAddToCommunity",
+      "value": "Додај у заједницу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Title",
+      "value": "Додавање ћаскања"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHeader",
+      "value": "ВИДЉИВОСТ ЋАСКАЊА"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHidden",
+      "value": "Скривено"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHiddenInfo",
+      "value": "Само позвани чланови и администратори заједнице ће моћи да виде ово ћаскање."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityInfo",
+      "value": "Ово се не може накнадно променити."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityVisible",
+      "value": "Видљиво"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityVisibleInfo",
+      "value": "Сви чланови заједнице ће моћи да виде ово ћаскање."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat.Description",
+      "value": "Изаберите ћаскање да додате у ову заједницу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat.Title",
+      "value": "Додавање ћаскања"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.BanFromCommunity",
+      "value": "Забрани приступ заједници"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Корисник ће бити уклоњен из [%@ ћаскања >](community)",
+      "key": "Community.AdminActions.Footer",
+      "one_value": "Корисник ће бити уклоњен из [%@ ћаскања >](community)",
+      "other_value": "Корисник ће бити уклоњен из [%@ ћаскања >](community)"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%@ ћаскања која је направио",
+      "key": "Community.AdminActions.WarningChatCount",
+      "one_value": "%@ ћаскање које је направио",
+      "other_value": "%@ ћаскања која је направио"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningText",
+      "value": "Забрана приступа кориснику **%@** ће уклонити из заједнице и **%@**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningTitle",
+      "value": "Упозорење"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.AddAdmin",
+      "value": "Додај администратора"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.Info",
+      "value": "Можете додати администраторе који ће вам помоћи да управљате заједницом."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.SectionTitle",
+      "value": "АДМИНИСТРАТОРИ ЗАЈЕДНИЦЕ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.Title",
+      "value": "Администратори"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.Info",
+      "value": "Корисници које су уклонили администратори заједнице не могу се поново придружити путем позивница."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.RemoveUser",
+      "value": "Уклони корисника"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.Title",
+      "value": "Уклоњени корисници"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.UsersSectionTitle",
+      "value": "УКЛОЊЕНИ КОРИСНИЦИ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Chat.JoinToView",
+      "value": "Морате се придружити овој групи да бисте видели њене поруке."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.CommunityAdded.View",
+      "value": "Погледај"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.AddChat",
+      "value": "Додај ћаскање у заједницу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.Administrators",
+      "value": "Администратори"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%@ ЋАСКАЊА",
+      "key": "Community.Edit.ChatsHeader",
+      "one_value": "%@ ЋАСКАЊЕ",
+      "other_value": "%@ ЋАСКАЊА"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.ChatsLimitReached",
+      "value": "Ова заједница је достигла максималан број ћаскања."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.CommunityNamePlaceholder",
+      "value": "Назив заједнице"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.DeleteCommunity",
+      "value": "Избриши заједницу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.DeleteConfirmationText",
+      "value": "Желите ли да избришете ову заједницу?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PendingRequests",
+      "value": "Захтеви на чекању"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionAllMembers",
+      "value": "Сви чланови"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionAllMembersInfo",
+      "value": "Дозволите члановима да додају своје групе и канале у заједницу."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionOnlyAdmins",
+      "value": "Само администратори"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionOnlyAdminsInfo",
+      "value": "За ћаскања која предложе чланови заједнице потребно је одобрење администратора."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.RemovedUsers",
+      "value": "Уклоњени корисници"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.WhoCanAddChats",
+      "value": "КО МОЖЕ ДОДАВАТИ ЋАСКАЊА"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionAddAdmins",
+      "value": "Додавање админа заједнице"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionBanUsers",
+      "value": "Забрана чланова"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionChangeInfo",
+      "value": "Уређивање података заједнице"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionManageLinkedPeers",
+      "value": "Уређивање листе ћаскања"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.AddToExistingHeader",
+      "value": "ДОДАЈТЕ У ПОСТОЈЕЋУ ЗАЈЕДНИЦУ"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%@ ћаскања",
+      "key": "Community.List.ChatCount",
+      "one_value": "%@ ћаскање",
+      "other_value": "%@ ћаскања"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.CreateCommunity",
+      "value": "Направи заједницу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleBot",
+      "value": "Учините свог бота делом заједнице са више сродних ћаскања."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleChannel",
+      "value": "Учините свој канал делом заједнице са више сродних ћаскања."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleGroup",
+      "value": "Учините своју групу делом заједнице са више сродних ћаскања."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.Title",
+      "value": "Заједница"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.Info",
+      "value": "Ово ћаскање је доступно уз позивницу.\nМогу га видети само његови чланови."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.MessageOwner",
+      "value": "Обрати се власнику ћаскања"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Remove",
+      "value": "Уклони"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Text",
+      "value": "Ово ћаскање ће бити уклоњено из заједнице."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Title",
+      "value": "Уклонити ћаскање из заједнице?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.Add",
+      "value": "Додај"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAll",
+      "value": "Додај све"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAllChats",
+      "value": "Додај сва ћаскања"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAllConfirmation",
+      "value": "Желите ли да додате сва ћаскања (%@) у заједницу?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovalInfo",
+      "value": "Ћаскања захтевају одобрење администратора пре него што буду додата у заједницу. [Промени подешавања >](settings)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovedToast",
+      "value": "Додали сте ћаскање у заједницу."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.Decline",
+      "value": "Одбиј"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAll",
+      "value": "Одбиј све"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAllConfirmation",
+      "value": "Желите ли да одбијете све захтеве (%@) за придруживање заједници?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclinedToast",
+      "value": "Одбили сте да додате ћаскање у заједницу."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.EmptyText",
+      "value": "Нема више предложених ћаскања за ову заједницу."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.EmptyTitle",
+      "value": "Нема захтева на чекању"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.PrivateStatus",
+      "value": "видљиво само члановима"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsGroup",
+      "value": "%@ предлаже ово ћаскање:"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "ПРЕДЛОЖЕНА %@ ЋАСКАЊА ЗА ОВУ ЗАЈЕДНИЦУ",
+      "key": "Community.Request.SectionTitle",
+      "one_value": "ПРЕДЛОЖЕНО %@ ЋАСКАЊЕ ЗА ОВУ ЗАЈЕДНИЦУ",
+      "other_value": "ПРЕДЛОЖЕНО %@ ЋАСКАЊА ЗА ОВУ ЗАЈЕДНИЦУ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.Title",
+      "value": "Захтеви на чекању"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.UnknownRequester",
+      "value": "Неко"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.AddChatButton",
+      "value": "Додај ћаскање у заједницу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ChatsLimitReached",
+      "value": "Ова заједница је достигла максималан број ћаскања."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.HiddenChatToast",
+      "value": "Не можете се придружити овом ћаскању нити видети његов садржај док вас администратор не позове."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestApprovedToast",
+      "value": "Додали сте групу у заједницу."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestDeclinedToast",
+      "value": "Одбили сте да додате ћаскање у заједницу."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestHeader",
+      "value": "ЗАХТЕВИ НА ЧЕКАЊУ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequests",
+      "value": "Захтеви на чекању"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionHidden",
+      "value": "СКРИВЕНА ЋАСКАЊА"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionJoined",
+      "value": "ЋАСКАЊА У КОЈИМА СЕ НАЛАЗИТЕ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionRequestable",
+      "value": "ЋАСКАЊА КОЈИМА МОЖЕТЕ ПОСЛАТИ ЗАХТЕВ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionVisible",
+      "value": "ЋАСКАЊА КОЈА МОЖЕТЕ ВИДЕТИ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ShowAsOneChat",
+      "value": "Прикажи као једно ћаскање"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ShowAsOneChatInfo",
+      "value": "Групишите сва ћаскања заједнице у једну ставку на списку ћаскања."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.Title",
+      "value": "Заједница"
     },
     {
       "_": "types.LangPackString",
@@ -32073,6 +32548,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "MediaPicker.SetNewCommunityPhoto",
+      "value": "Подесите нову слику заједнице"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "MediaPicker.SetNewGroupPhoto",
       "value": "Подесите нову слику групе"
     },
@@ -34382,6 +34862,46 @@
       "_": "types.LangPackString",
       "key": "Notification.ChatTheme.TextYou",
       "value": "Подесили сте **%@** као нову тему за ово ћаскање."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedBot",
+      "value": "Овај бот је додат у заједницу %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedChannel",
+      "value": "Овај канал је додат у заједницу %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroup",
+      "value": "%1$@ додао/ла ову групу у заједницу %2$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroupYou",
+      "value": "Додали сте ову групу у заједницу %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedBot",
+      "value": "Овај бот је уклоњен из заједнице"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedChannel",
+      "value": "Овај канал је уклоњен из заједнице"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroup",
+      "value": "%1$@ уклонио/ла ову групу из заједнице"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroupYou",
+      "value": "Уклонили сте групу из заједнице"
     },
     {
       "_": "types.LangPackString",
@@ -40539,6 +41059,58 @@
       "value": "Избриши поруке"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Заједница садржи %@ ћаскања",
+      "key": "PeerInfo.Community",
+      "one_value": "Заједница садржи %@ ћаскање",
+      "other_value": "Заједница садржи %@ ћаскања"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddBot",
+      "value": "Додај бота у заједницу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddChannel",
+      "value": "Додај канал у заједницу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddGroup",
+      "value": "Додај групу у заједницу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.BotInfo",
+      "value": "Учините свог бота делом заједнице са више сродних ћаскања."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.ChannelInfo",
+      "value": "Учините свој канал делом заједнице са више сродних ћаскања."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.GroupInfo",
+      "value": "Учините своју групу делом заједнице са више сродних ћаскања."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveBot",
+      "value": "Уклони бота из заједнице"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveChannel",
+      "value": "Уклони канал из заједнице"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveGroup",
+      "value": "Уклони групу из заједнице"
+    },
+    {
       "_": "types.LangPackString",
       "key": "PeerInfo.CustomizeNotifications",
       "value": "Прилагоди"
@@ -40919,6 +41491,11 @@
       "_": "types.LangPackString",
       "key": "PeerInfo.GroupAboutItem",
       "value": "опис"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.HiddenCommunityStatus",
+      "value": "Скривено • %@"
     },
     {
       "_": "types.LangPackString",
@@ -42698,6 +43275,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Premium.Limits.Messages",
+      "value": "Поруке"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.Limits.MessagesInfo",
+      "value": "Изразите се дужим порукама"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Premium.Limits.PinnedChats",
       "value": "Закачена ћаскања"
     },
@@ -43183,6 +43770,16 @@
       "_": "types.LangPackString",
       "key": "Premium.Restore.Success",
       "value": "Готово"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.RichText",
+      "value": "Алати за обликовање"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.RichTextInfo",
+      "value": "Додајте заглавља, табеле, листе, ВИ и уграђене медије у поруке."
     },
     {
       "_": "types.LangPackString",
@@ -43922,8 +44519,13 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Privacy.GroupsAndChannels.InviteToCommunityError",
+      "value": "Не можете додавати %@ у заједнице због подешавања приватности корисника %@."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Privacy.GroupsAndChannels.InviteToGroupError",
-      "value": "Не можете додавати корисника %@ у групе због подешавања приватности корисника %@."
+      "value": "Не можете додавати %@ у групе због подешавања приватности корисника %@."
     },
     {
       "_": "types.LangPackString",
@@ -45973,6 +46575,156 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.AddMediaTitle",
+      "value": "Додајте медијски садржај"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaAdd",
+      "value": "Додај формулу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaEdit",
+      "value": "Уреди формулу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionResultTitle",
+      "value": "РЕЗУЛТАТ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionSourceTitle",
+      "value": "LATEX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkRemove",
+      "value": "Уклони"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkSet",
+      "value": "Подеси"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkText",
+      "value": "Подесите URL за изабрани текст"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkTitle",
+      "value": "Веза"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Bullet",
+      "value": "Листа с тачкама"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Checklist",
+      "value": "Контролна листа"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.None",
+      "value": "Ништа"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Numbered",
+      "value": "Нумерисана листа"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.ConvertToText",
+      "value": "Претвори у текст"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Copy",
+      "value": "Копирај табелу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Delete",
+      "value": "Избриши табелу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuCode",
+      "value": "Кôд"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuFormula",
+      "value": "Формула"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuHeading",
+      "value": "Наслов"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuHeadingItem",
+      "value": "Наслов %@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuPullquote",
+      "value": "Истакнути цитат"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuQuote",
+      "value": "Цитат"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuText",
+      "value": "Текст"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.PremiumToastText",
+      "value": "Слање овако обликоване поруке захтева [Telegram Premium]()."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingText",
+      "value": "Ова порука користи напредно обликовање, што захтева Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingTitle",
+      "value": "Уклонити обликовање?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.SendWithoutFormatting",
+      "value": "Пошаљи без обликовања"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.SubscribeToPremium",
+      "value": "Претплати ме на Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TableMenu.Alignment",
+      "value": "Поравнање"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TitleArticle",
+      "value": "Текст"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextPreview.Formula",
       "value": "[формула]"
     },
@@ -46953,6 +47705,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Settings.ChangePhoto",
+      "value": "Промени слику"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Settings.ChangeProfilePhoto",
       "value": "Промени слику профила"
     },
@@ -47415,6 +48172,11 @@
       "_": "types.LangPackString",
       "key": "Settings.SetNewProfilePhotoOrVideo",
       "value": "Подеси нову слику"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Settings.SetPhoto",
+      "value": "Подеси слику"
     },
     {
       "_": "types.LangPackString",
@@ -53914,6 +54676,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.ActionAddToPage",
+      "value": "Додај на страницу"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ActionApply",
       "value": "Примени"
     },
@@ -53921,6 +54688,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.ActionClose",
       "value": "Затвори"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.ActionGenerate",
+      "value": "Генериши"
     },
     {
       "_": "types.LangPackString",
@@ -54029,6 +54801,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.PromptPlaceholder",
+      "value": "Генеришите текст, формуле или табеле..."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ResultBadge",
       "value": "Резултат"
     },
@@ -54063,6 +54840,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.StyleList.Add",
       "value": "Направи"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.StyleList.Prompt",
+      "value": "Упит"
     },
     {
       "_": "types.LangPackString",
@@ -54143,6 +54925,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.TextExpand",
       "value": "више"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.TitleAICompose",
+      "value": "Направите помоћу ВИ"
     },
     {
       "_": "types.LangPackString",
@@ -60025,5 +60812,5 @@
       "value": "Унели сте неважећи безбедносни кôд."
     }
   ],
-  "version": 21495239
+  "version": 21504975
 }
