@@ -170,6 +170,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AIEditorStylePrompt",
+      "value": "Utasítás"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AIEditorStylePromptHint",
       "value": "Instrukciók (például: „Beszélj úgy, mint egy dörzsölt kalóz. Használd az ahój, cimbi szavakat, és mesélj kincsekről meg a tengerről!”)"
     },
@@ -657,6 +662,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AccDescrIVFormula",
+      "value": "Képlet"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AccDescrIVHeading",
       "value": "Irány"
     },
@@ -664,6 +674,11 @@
       "_": "types.LangPackString",
       "key": "AccDescrIVKicker",
       "value": "Felcím"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AccDescrIVPullquote",
+      "value": "Kiemelt idézet"
     },
     {
       "_": "types.LangPackString",
@@ -4400,13 +4415,353 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleAIAddToPage",
+      "value": "Hozzáadás a dokumentumhoz"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleAICreate",
+      "value": "Létrehozás AI-jal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleAIGenerate",
+      "value": "Generálás"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleAIPrompt",
+      "value": "Írj egy utasítást..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleAlignment",
+      "value": "Igazítás"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleByAuthor",
       "value": "szerző: %1$s"
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleCode",
+      "value": "Kód"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandAudio",
+      "value": "Hang"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandDivider",
+      "value": "Elválasztás"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandImage",
+      "value": "Kép"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandList",
+      "value": "Lista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandMap",
+      "value": "Térkép"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandMath",
+      "value": "Matematika"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandOrderedList",
+      "value": "Rendezett lista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandTable",
+      "value": "Táblázat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandVideo",
+      "value": "Videó"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleConversionSendPlain",
+      "value": "Küldés formázás nélkül"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleConversionSubscribe",
+      "value": "Előfizetés Prémiumra"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleConversionText",
+      "value": "Ez az üzenet speciális formázást tartalmaz, amelyhez a **Telegram Premium** szükséges."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleConversionTitle",
+      "value": "Formázás törlése"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleDateByAuthor",
       "value": "%1$s, szerző: %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteColumn",
+      "value": "Oszlop törlése"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteDraft",
+      "value": "Piszkozat törlése"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteDraftMessage",
+      "value": "El fogod veszíteni az eddig írt tartalmat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteDraftTitle",
+      "value": "Piszkozat törlése?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteRow",
+      "value": "Sor törlése"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteTable",
+      "value": "Táblázat törlése"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleEditor",
+      "value": "Fejlett szövegszerkesztő"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleFooter",
+      "value": "Lábjegyzet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading",
+      "value": "Címsor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading1",
+      "value": "Címsor 1"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading2",
+      "value": "Címsor 2"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading3",
+      "value": "Címsor 3"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading4",
+      "value": "Címsor 4"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading5",
+      "value": "Címsor 5"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading6",
+      "value": "Címsor 6"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHighlightCell",
+      "value": "Cella kiemelése"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHighlightColumn",
+      "value": "Oszlop kiemelése"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHighlightRow",
+      "value": "Sor kiemelése"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintAuthor",
+      "value": "Szerző"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintCode",
+      "value": "Írj be kódot ide..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintDetailsTitle",
+      "value": "Cím"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintLanguage",
+      "value": "Nyelv"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintQuote",
+      "value": "Idézet megadása"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintText",
+      "value": "Gépelj valamit..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintTitle",
+      "value": "Cím"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleIndent",
+      "value": "Behúzás növelése"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleInsertAbove",
+      "value": "Beszúrás fölé"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleInsertBelow",
+      "value": "Beszúrás alá"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleInsertLeft",
+      "value": "Beszúrás balra"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleInsertRight",
+      "value": "Beszúrás jobbra"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleLatexEquation",
+      "value": "LaTeX egyenlet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleLatexError",
+      "value": "Hiba"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleListBulleted",
+      "value": "Pontozott"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleListBulletedList",
+      "value": "Listajeles lista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleListChecklist",
+      "value": "Ellenőrzőlista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleListNumbered",
+      "value": "Számozott"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleListNumberedList",
+      "value": "Számozott lista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleListTodo",
+      "value": "To-Do"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleMergeCells",
+      "value": "Cellák egyesítése"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleNone",
+      "value": "Nincs"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleOutdent",
+      "value": "Behúzás csökkentése"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticlePullquote",
+      "value": "Kiemelt idézet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleQuote",
+      "value": "Idézet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleRemoveHighlight",
+      "value": "Kiemelés törlése"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleSaveDraftMessage",
+      "value": "Mentheted a beírt szöveget piszkozatként kilépés előtt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleSaveDraftTitle",
+      "value": "Mented a piszkozatot?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleSplitCells",
+      "value": "Cellák szétválasztása"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleText",
+      "value": "Szöveg"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleToggleBlock",
+      "value": "Lenyitható blokk"
     },
     {
       "_": "types.LangPackString",
@@ -4422,6 +4777,11 @@
       "_": "types.LangPackString",
       "key": "AskButton",
       "value": "Kérdezz egy önkéntestől"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AttachArticle",
+      "value": "Cikk"
     },
     {
       "_": "types.LangPackString",
@@ -13737,6 +14097,704 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community",
+      "value": "Közösség"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAChatToCommunity",
+      "value": "Adj hozzá egy csevegést a közösséghez"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAdmin",
+      "value": "Admin hozzáadása"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityAddAllChatsMessage",
+      "one_value": "Hozzá szeretnél adni **%1$d** csevegést a közösséghez?",
+      "other_value": "Hozzá szeretnél adni **%1$d** csevegést a közösséghez?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAllChatsTitle",
+      "value": "Összes chat hozzáadása"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotTitle",
+      "value": "Bot hozzáadása"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotToCommunity",
+      "value": "Bot hozzádása egy közösséghez"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotToCommunityInfo",
+      "value": "Csatlakoztasd a botodat egy olyan közösséghez, amely több, egymással összefüggő csevegést foglal magában"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChannelToCommunity",
+      "value": "Csatorna hozzáadása egy közösséghez"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChannelToCommunityInfo",
+      "value": "Tedd csatornádat egy olyan közösség részévé, amely több kapcsolódó csevegéssel rendelkezik."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChatTitle",
+      "value": "Csevegés hozzáadása"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddGroupToCommunity",
+      "value": "Csoport hozzáadása egy közösséghez"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddGroupToCommunityInfo",
+      "value": "Tedd a csoportodat egy olyan közösség részévé, amely több kapcsolódó csevegéssel rendelkezik."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityButton",
+      "value": "Hozzáadás közösséghez"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityChannelMessage",
+      "value": "Ha ezt a csatornát a közösség egyik rendszergazdája jóváhagyja, a csatorna föliratkozói csatlakozhatnak a közösség egyéb csevegéseihez, illetve csatlakozási kérelmet nyújthatnak be azokhoz."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityGroupMessage",
+      "value": "Ha ezt a csoportot a közösség adminisztrátora jóváhagyja, tagjai csatlakozhatnak vagy csatlakozási kérelmet nyújthatnak be a közösség egyéb csevegéseihez."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityRequestButton",
+      "value": "Csatlakozási kérelem küldése"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityTitle",
+      "value": "Hozzáadás közösséghez"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToExistingCommunity",
+      "value": "Hozzáadás létező közösséghez"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdminRightBanMembers",
+      "value": "Tagok kitiltása"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdminRightEditCommunityName",
+      "value": "Közösség nevének szerkesztése"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdminRightEditGroupList",
+      "value": "Csevegési lista szerkesztése"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdministrators",
+      "value": "Adminisztrátorok"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdministratorsTitle",
+      "value": "Adminisztrátorok"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityBanFromCommunity",
+      "value": "Kitiltás a közösségből"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityBanFromCommunityInfo",
+      "one_value": "A felhasználó törölve lesz **%1$d csevegésből >**",
+      "other_value": "A felhasználó törölve lesz **%1$d csevegésből >**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityBanUserTitle",
+      "value": "Felhasználó kitiltása"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityBanWarningMessage",
+      "one_value": "**%2$s** kitiltásával törölni fogod az általa létrehozott **%1$d** csevegést is a közösségből.",
+      "other_value": "**%2$s** kitiltásával törölni fogod az általa létrehozott **%1$d** csevegést is a közösségből."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityBanWarningTitle",
+      "value": "Figyelmeztetés"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityBanWillRemoveFromChats",
+      "one_value": "**%2$s** törölve lesz **%1$d** közösségi csevegésből.",
+      "other_value": "**%2$s** törölve lesz **%1$d** közösségi csevegésből."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityCannotChange",
+      "value": "Ezt később nem tudod megváltoztatni."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHidden",
+      "value": "Elrejtve"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHiddenBotInfo",
+      "value": "Csak a meghívott tagok és a közösségi adminisztrátorok fogják látni ezt a botot."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHiddenInfo",
+      "value": "Csak a meghívott tagok és a közösség adminisztrátorai fogják látni ezt a csevegést."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilitySection",
+      "value": "Csevegés láthatósága"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisible",
+      "value": "Látható"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisibleBotInfo",
+      "value": "A közösségben bárki látni fogja ezt a botot."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisibleInfo",
+      "value": "A közösségben bárki láthatja majd ezt a csevegést."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityCreated",
+      "value": "Közösség létrehozva!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityJoinedChannel",
+      "value": "Hozzáadtad ezt a csatornát a közösséghez!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityJoinedGroup",
+      "value": "Hozzáadtad ezt a csoportot a közösséghez!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityPending",
+      "value": "A csatlakozási kérelmed el lett küldve az adminisztrátoroknak"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCreateCommunity",
+      "value": "Közösség létrehozása"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityDeclineAllMessage",
+      "one_value": "Elutasítod mind a(z) **%1$d** közösséghez való csatlakozási kérelmet?",
+      "other_value": "Elutasítod mind a(z) **%1$d** közösséghez való csatlakozási kérelmet?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDeclineAllTitle",
+      "value": "Összes elutasítása"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDelete",
+      "value": "Közösség törlése"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionBot",
+      "value": "Tedd a botodat egy olyan közösség részévé, amely több kapcsolódó csevegéssel rendelkezik."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionChannel",
+      "value": "Csatlakoztasd a csatornádat egy olyan közösséghez, amely több, egymással összefüggő csevegést foglal magában"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionGroup",
+      "value": "Csatlakoztasd a csoportodat egy olyan közösséghez, amely több, egymással összefüggő csevegést foglal magában"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenChannelUnavailable",
+      "value": "Nem csatlakozhatsz és nem nézheted meg ezt a csatornát amíg egy admin meg nem hív."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenChatTooltipMessage",
+      "value": "Csak a meghívott tagok és közösségi adminisztrátorok fogják látni ezt a csevegést."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenChatTooltipTitle",
+      "value": "Rejtett csevegés"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenGroupUnavailable",
+      "value": "Nem csatlakozhatsz és nem nézheted meg ezt a csoportot, amíg egy admin meg nem hív."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenStatus",
+      "value": "Elrejtve"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyChannelInfo",
+      "value": "Ez a csatorna csak meghívásos alapon működik.\nCsak a tagjai tekinthetik meg."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyGroupInfo",
+      "value": "Ez a csoport csak meghívásos alapon működik.\nCsak a tagjai tekinthetik meg."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyGroupMessageOwner",
+      "value": "Üzenet a csoport tulajdonosának"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminMessage",
+      "value": "**%1$s** mostantól szerkesztheti a közösség adatait és további adminisztrátori eszközöket használhat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminPromote",
+      "value": "Előléptetés"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminTitle",
+      "value": "Kinevezés a közösség adminjaként"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuAddChat",
+      "value": "Csevegés hozzáadása a közösséghez"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuRemoveBotFromCommunityConfirm",
+      "value": "Biztosan törölni szeretnéd ezt a botot a közösségből?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuRemoveChannelFromCommunityConfirm",
+      "value": "Biztosan törölni szeretnéd ezt a csatornát a közösségből?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuRemoveFromCommunity",
+      "value": "Törlés a közösségből"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuRemoveGroupFromCommunityConfirm",
+      "value": "Biztosan törölni szeretnéd ezt a csoportot a közösségből?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuSettings",
+      "value": "Beállítások"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuShowAsOneChat",
+      "value": "Megjelenítés egy csevegésként"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuShowAsSeparateChats",
+      "value": "Megjelenítés külön csevegekként"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuViewBot",
+      "value": "Bot megtekintése"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuViewChannel",
+      "value": "Csatorna megtekintése"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuViewGroup",
+      "value": "Csoport megtekintése"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNewCommunityNameHint",
+      "value": "Közösség neve"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNewCommunityTitle",
+      "value": "Új közösség"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNoChatsToAdd",
+      "value": "Nincsenek csevegéseid amelyeket hozzáadhatnál közösségekhez."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequest",
+      "value": "Függő kérelem"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestAdd",
+      "value": "Hozzáad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestAddAll",
+      "value": "Összes hozzáadása"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestDecline",
+      "value": "Elutasít"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestDeclineAll",
+      "value": "Összes elutasítása"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestOnlyVisibleToMembers",
+      "value": "Csak a tagjai számára látható"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedBot",
+      "value": "**%s** ajánlotta ezt a botot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedChannel",
+      "value": "**%s** ajánlotta ezt a csatornát"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedGroup",
+      "value": "**%s** ajánlotta ezt a csoportot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequests",
+      "value": "Függőben lévő kérelmek"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfo",
+      "value": "A csevegések adminisztrátori jóváhagyást igényelnek mielőtt hozzáadásra kerülnek a közösséghez. **Beállítások módosítása >**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfoNoChange",
+      "value": "A csevegések adminisztrátori jóváhagyást igényelnek mielőtt hozzáadásra kerülnek a közösséghez."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityPendingRequestsRow",
+      "one_value": "%1$d függőben lévő kérelem",
+      "other_value": "%1$d függőben lévő kérelem"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityPendingRequestsSuggestedHeader",
+      "one_value": "%1$d csevegés ajánlott ehhez a közösséghez",
+      "other_value": "%1$d csevegés ajánlott ehhez a közösséghez"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsTitle",
+      "value": "Függőben lévő kérelmek"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPermissionsHeader",
+      "value": "Mit tehetnek a közösség tagjai?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveBotFromCommunity",
+      "value": "Bot törlése a közösségből"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveChannelFromCommunity",
+      "value": "Csatorna törlése a közösségből"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveGroupFromCommunity",
+      "value": "Csoport törlése a közösségből"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemovedUsers",
+      "value": "Törölt felhasználók"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequestApprovedToast",
+      "value": "Jóváhagytad **%1$s** hozzáadását a közösséghez."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequestDeclinedToast",
+      "value": "Elutasítottad **%1$s** hozzáadását a közösséghez."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouAreIn",
+      "value": "Csevegések, amelyekben szerepelsz"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanJoin",
+      "value": "Csevegések, amelyekhez csatlakozhatsz"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanRequestToJoin",
+      "value": "Csevegések, amelyekhez csatlakozást kérhetsz"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanView",
+      "value": "Csevegések, amelyeket megtekinthetsz"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionCommunityName",
+      "value": "Közösség neve"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionHiddenChats",
+      "value": "Rejtett csevegések"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionWhoCanAddChats",
+      "value": "Ki adhat hozzá csevegéseket"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotAdded",
+      "value": "**%1$s** hozzáadta ezt a botot a(z) **%2$s** közösséghez."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotAddedUnknown",
+      "value": "Ez a bot hozzá lett adva a(z) **%1$s** közösséghez."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotRemoved",
+      "value": "**%1$s** törölte ezt a botot a közösségből"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotRemovedUnknown",
+      "value": "Ez a bot törölve lett a közösségből"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotYouAdded",
+      "value": "**Hozzáadtad** ezt a botot a(z) **%1$s** közösséghez."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotYouRemoved",
+      "value": "**Törölted** ezt a botot a közösségből"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelAdded",
+      "value": "**%1$s** hozzáadta ezt a csatornát a(z) **%2$s** közösséghez."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelAddedUnknown",
+      "value": "Ez a csatorna hozzá lett adva a(z) **%1$s** közösséghez."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelRemoved",
+      "value": "**%1$s** törölte ezt a csatornát a közösségből"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelRemovedUnknown",
+      "value": "Ez a csatorna törölve lett a közösségből"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelYouAdded",
+      "value": "**Hozzáadtad** ezt a csatornát a(z) **%1$s** közösséghez."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelYouRemoved",
+      "value": "**Törölted** ezt a csatornát a közösségből"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupAdded",
+      "value": "**%1$s** hozzáadta ezt a csoportot a(z) **%2$s** közösséghez."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupAddedUnknown",
+      "value": "Ez a csoport hozzá lett adva a(z) **%1$s** közösséghez."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupRemoved",
+      "value": "**%1$s** törölte ezt a csoportot a közösségből"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupRemovedUnknown",
+      "value": "Ez a csoport törölve lett a közösségből"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupYouAdded",
+      "value": "**Hozzáadtad** ezt a csoportot a(z) **%1$s** közösséghez."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupYouRemoved",
+      "value": "**Törölted** ezt a csoportot a közösségből"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageView",
+      "value": "Megtekintés"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsChangePhoto",
+      "value": "Közösség képének módosítása"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsSetPhoto",
+      "value": "Közösség képének beállítása"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsTitle",
+      "value": "Közösség"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChat",
+      "value": "Mutatás egy csevegésként"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChatInfo",
+      "value": "Csoportosítsd az összes közösségi csevegést egyetlen elemre a csevegési listában."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityUngroupChats",
+      "value": "Csevegések csoportjának feloldása"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityUngroupChatsButton",
+      "value": "Csoport feloldása"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityUngroupChatsText",
+      "value": "Az ebben a közösségben lévő csevegések külön jelennek meg a csevegési listádban."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsAllMembers",
+      "value": "Összes tag"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsAllMembersInfo",
+      "value": "Engedélyezd tagok számára, hogy hozzáadhassák a csoportjaikat és csatornáikat a közösséghez."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsOnlyAdmins",
+      "value": "Csak adminok"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsOnlyAdminsInfo",
+      "value": "A tagok által javasolt csevegések adminisztrátori jóváhagyást igényelnek."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityWithChats",
+      "one_value": "Közösség %1$d csevegéssel",
+      "other_value": "Közösség %1$d csevegéssel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminContinue",
+      "value": "Folytatás"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminNoThanks",
+      "value": "Nem, köszönöm"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminTitle",
+      "value": "Közösségi adminisztrátor vagy"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CompatibilityChat",
       "value": "%1$s egy régebbi Telegram verziót használ, ezért az automatikusan eltűnő fényképek kompatibilis módban fognak megjelenni.\n\nAmint %2$s frissíti a Telegramot, a maximum 1 perc láthatósággal rendelkező képek hosszan nyomással megnézhetőek, valamint értesítést kapsz, ha a másik fél képernyőképet készít."
     },
@@ -17338,6 +18396,21 @@
       "_": "types.LangPackString",
       "key": "EnterYourTelegramPasscode",
       "value": "Add meg a Telegram jelkódod"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageMenuHint",
+      "value": "Csak te látod ezt az üzenetet. A következő belépés után el fog tűnni."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageVisibleToOther",
+      "value": "Csak @%s számára látható"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageVisibleToYou",
+      "value": "Csak számodra látható"
     },
     {
       "_": "types.LangPackString",
@@ -25904,6 +26977,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "InviteToCommunityError",
+      "value": "Sajnáljuk, de nem adhatod hozzá ezt a felhasználót a közösséghez az adatvédelmi beállításai miatt."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "InviteToGroupByLink",
       "value": "Meghívás a csoportba hivatkozással"
     },
@@ -30052,6 +31130,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NoBlockedCommunity2",
+      "value": "Az adminok által a közösségből törölt felhasználók nem csatlakozhatnak újra meghívó linkekkel."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NoBlockedGroup",
       "value": "A kitiltott felhasználók eltávolításra kerülnek a csoportból és csak egy adminisztrátor hívhatja vissza őket. A meghívási hivatkozások nem működnek a számukra."
     },
@@ -30119,6 +31202,16 @@
       "_": "types.LangPackString",
       "key": "NoComments",
       "value": "Még nincsenek hozzászólások..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NoCommunityJoinRequests",
+      "value": "Nincsenek csatlakozási kérelmek"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NoCommunityJoinRequestsDescription",
+      "value": "Nincsenek függőben lévő kérelmeid a közösséghez való csatlakozáshoz."
     },
     {
       "_": "types.LangPackString",
@@ -36338,6 +37431,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumPreviewRichEditor",
+      "value": "Formázási eszközök"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PremiumPreviewRichEditorDescription",
+      "value": "Fejlécek, táblázatok, listák, AI és beágyazott médiaelemek hozzáadása az üzenetekhez."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumPreviewSharingDisable",
       "value": "Megosztás letiltása"
     },
@@ -40600,6 +41703,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorDraftSaved",
+      "value": "Piszkozat mentve."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RightNow",
       "value": "Épp most"
     },
@@ -42706,6 +43814,11 @@
       "_": "types.LangPackString",
       "key": "SetColorAsBackground",
       "value": "Szín beállítása háttérként"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SetCommunityPhoto",
+      "value": "Közösség képének beállítása"
     },
     {
       "_": "types.LangPackString",
@@ -48668,6 +49781,11 @@
       "_": "types.LangPackString",
       "key": "SwipeToReplyHintMessage",
       "value": "Bármely üzenetre a balra húzással lehet válaszolni."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SwipeUngroupCommunity",
+      "value": "Csoport feloldása"
     },
     {
       "_": "types.LangPackString",
@@ -55477,5 +56595,5 @@
       "value": "Telegram Passport"
     }
   ],
-  "version": 59741619
+  "version": 59906304
 }
