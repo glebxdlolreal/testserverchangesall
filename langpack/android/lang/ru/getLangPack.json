@@ -4611,7 +4611,7 @@
     {
       "_": "types.LangPackString",
       "key": "ArticleConversionSendPlain",
-      "value": "Отправить без форматирования"
+      "value": "Сбросить и отправить"
     },
     {
       "_": "types.LangPackString",
@@ -4662,6 +4662,11 @@
       "_": "types.LangPackString",
       "key": "ArticleDeleteTable",
       "value": "Удалить таблицу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleEditor",
+      "value": "Расширенный редактор"
     },
     {
       "_": "types.LangPackString",
@@ -4796,12 +4801,12 @@
     {
       "_": "types.LangPackString",
       "key": "ArticleListBulletedList",
-      "value": "Маркированный список"
+      "value": "Список с маркерами"
     },
     {
       "_": "types.LangPackString",
       "key": "ArticleListChecklist",
-      "value": "Список задач"
+      "value": "Чек-лист"
     },
     {
       "_": "types.LangPackString",
@@ -4811,12 +4816,12 @@
     {
       "_": "types.LangPackString",
       "key": "ArticleListNumberedList",
-      "value": "Нумерованный список"
+      "value": "Список с номерами"
     },
     {
       "_": "types.LangPackString",
       "key": "ArticleListTodo",
-      "value": "Список задач"
+      "value": "Чек-лист"
     },
     {
       "_": "types.LangPackString",
@@ -4836,7 +4841,7 @@
     {
       "_": "types.LangPackString",
       "key": "ArticlePullquote",
-      "value": "Выносная цитата"
+      "value": "Выноска"
     },
     {
       "_": "types.LangPackString",
@@ -14575,7 +14580,7 @@
     {
       "_": "types.LangPackString",
       "key": "CommunityAddBotToCommunityInfo",
-      "value": "Вы можете сделать бота частью сообщества, состоящего из связанных между собой чатов."
+      "value": "Вы можете добавить бота в сообщество чатов, связанных между собой."
     },
     {
       "_": "types.LangPackString",
@@ -14585,7 +14590,7 @@
     {
       "_": "types.LangPackString",
       "key": "CommunityAddChannelToCommunityInfo",
-      "value": "Вы можете сделать канал частью сообщества, состоящего из связанных между собой чатов."
+      "value": "Вы можете добавить канал в сообщество чатов, связанных между собой."
     },
     {
       "_": "types.LangPackString",
@@ -14600,7 +14605,7 @@
     {
       "_": "types.LangPackString",
       "key": "CommunityAddGroupToCommunityInfo",
-      "value": "Вы можете сделать группу частью сообщества, состоящего из связанных между собой чатов."
+      "value": "Вы можете добавить группу в сообщество чатов, связанных между собой."
     },
     {
       "_": "types.LangPackString",
@@ -14754,7 +14759,7 @@
     {
       "_": "types.LangPackString",
       "key": "CommunityCommunityPending",
-      "value": "Ваша заявка на вступление в сообщество отправлена администраторам"
+      "value": "Ваша заявка на добавление в сообщество отправлена администраторам"
     },
     {
       "_": "types.LangPackString",
@@ -14763,11 +14768,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "Вы точно хотите отклонить **%1$d** заявки на вступление в сообщество?",
+      "few_value": "Вы точно хотите отклонить **%1$d** заявки на добавление в сообщество?",
       "key": "CommunityDeclineAllMessage",
-      "many_value": "Вы точно хотите отклонить все **%1$d** заявок на вступление в сообщество?",
-      "one_value": "Вы точно хотите отклонить **%1$d** заявку на вступление в сообщество?",
-      "other_value": "Вы точно хотите отклонить **%1$d** заявок на вступление в сообщество?"
+      "many_value": "Вы точно хотите отклонить все **%1$d** заявок на добавление в сообщество?",
+      "one_value": "Вы точно хотите отклонить **%1$d** заявку на добавление в сообщество?",
+      "other_value": "Вы точно хотите отклонить **%1$d** заявок на добавление в сообщество?"
     },
     {
       "_": "types.LangPackString",
@@ -14782,17 +14787,17 @@
     {
       "_": "types.LangPackString",
       "key": "CommunityDescriptionBot",
-      "value": "Вы можете сделать бота частью сообщества, состоящего из связанных между собой чатов."
+      "value": "Вы можете добавить бота в сообщество чатов, связанных между собой."
     },
     {
       "_": "types.LangPackString",
       "key": "CommunityDescriptionChannel",
-      "value": "Вы можете сделать канал частью сообщества, состоящего из связанных между собой чатов."
+      "value": "Вы можете добавить канал в сообщество чатов, связанных между собой."
     },
     {
       "_": "types.LangPackString",
       "key": "CommunityDescriptionGroup",
-      "value": "Вы можете сделать группу частью сообщества, состоящего из связанных между собой чатов."
+      "value": "Вы можете добавить группу в сообщество чатов, связанных между собой."
     },
     {
       "_": "types.LangPackString",
@@ -32276,7 +32281,7 @@
     {
       "_": "types.LangPackString",
       "key": "NoCommunityJoinRequests",
-      "value": "Нет заявок на вступление"
+      "value": "Нет заявок"
     },
     {
       "_": "types.LangPackString",
@@ -58230,5 +58235,5 @@
       "value": "Telegram Passport"
     }
   ],
-  "version": 59900453
+  "version": 59904356
 }
