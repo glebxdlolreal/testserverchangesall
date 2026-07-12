@@ -1228,6 +1228,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown_channel",
+      "value": "Бұл арна бірлестікке қосылды."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown_chat",
+      "value": "Бұл чат бірлестікке қосылды."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_removed_channel",
+      "value": "Бұл арна бірлестіктен алынып тасталды."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_removed_chat",
+      "value": "Бұл чат бірлестіктен алынып тасталды."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_created_channel",
       "value": "Арна құрылды"
     },
@@ -4385,6 +4405,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_insert_pullquote",
+      "value": "Ірі дәйексөз"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_insert_text",
       "value": "Мәтін"
     },
@@ -4392,6 +4417,26 @@
       "_": "types.LangPackString",
       "key": "lng_article_menu_item",
       "value": "Мақала"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_placeholder_author",
+      "value": "Автор қосу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_placeholder_cell",
+      "value": "Ұяшық"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_placeholder_quote",
+      "value": "Дәйексөз мәтіні"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_placeholder_title",
+      "value": "Атау"
     },
     {
       "_": "types.LangPackString",
@@ -9043,6 +9088,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_add_about_channel",
+      "value": "Арнаңызды бірнеше ұқсас чаттары бар бірлестіктің бір бөлігі етіңіз."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_add_chat",
       "value": "Бірлестікке чат қосу"
     },
@@ -9059,7 +9109,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_community_hidden_not_accessible",
-      "value": "Әкімші шақырмайынша, бұл топқа қосыла немесе көре алмайсыз."
+      "value": "Әкімші шақырмайынша, бұл топқа қосыла не көре алмайсыз."
     },
     {
       "_": "types.LangPackString",
@@ -9072,10 +9122,31 @@
       "value": "Бірлестік мүшелері ұсынған чаттар әкімшінің қабылдауын талап етеді."
     },
     {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only",
+      "value": "Бұл жабық чат. Оны тек мүшелері көре алады."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_add_all_title",
+      "value": "Барлық чатты қосу"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "lng_community_requests_button",
       "one_value": "{count} тексерілмеген өтініш",
       "other_value": "{count} тексерілмеген өтініш"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_decline_all",
+      "value": "Бәрін қабылдамау"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_decline_all_sure",
+      "one_value": "Бірлестікке {count} қосылу өтінішін қабылдамайсыз ба?",
+      "other_value": "Бірлестікке барлық {count} қосылу өтінішін қабылдамайсыз ба?"
     },
     {
       "_": "types.LangPackString",
@@ -13538,7 +13609,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_export_about_frequent",
-      "value": "Бұл рейтинг сіз қай адамдарға жиі хат жазатыныңызды көрсетеді. Telegram бұл деректерді «іздеу» бөлімінің жоғарғы жағындағы «Адамдар» өрісін толтыру үшін қолданады. Бұл рейтинг сонымен қатар инлайн-боттар үшін де есептеледі, сондықтан қолданба тіркеме мәзірінде (немесе «@» белгісімен жаңа хат бастағанда) сіз жиі қолданатын боттарды ұсына алады.\n\nБұл деректерді жою үшін «Баптау» > «Құпиялық пен қауіпсіздік» бөліміне өтіп, «Жиі хабарласатынды ұсыну» теңшеуін өшіріңіз."
+      "value": "Бұл рейтинг сіз қай адамдарға жиі хат жазатыныңызды көрсетеді. Telegram бұл деректерді «іздеу» бөлімінің жоғарғы жағындағы «Адамдар» өрісін толтыру үшін қолданады. Бұл рейтинг сонымен қатар инлайн-боттар үшін де есептеледі, сондықтан қолданба тіркеме мәзірінде (не «@» белгісімен жаңа хат бастағанда) сіз жиі қолданатын боттарды ұсына алады.\n\nБұл деректерді жою үшін «Баптау» > «Құпиялық пен қауіпсіздік» бөліміне өтіп, «Жиі хабарласатынды ұсыну» теңшеуін өшіріңіз."
     },
     {
       "_": "types.LangPackString",
@@ -15018,7 +15089,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_formatting_math_create_title",
-      "value": "Формуланы кірістіру"
+      "value": "Формуланы енгізу"
     },
     {
       "_": "types.LangPackString",
@@ -26276,7 +26347,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_polls_create_set_correct_answer_about_multi",
-      "value": "Бір немесе бірнеше нұсқаны дұрыс жауап ретінде белгілеңіз."
+      "value": "Бір не бірнеше нұсқаны дұрыс жауап ретінде белгілеңіз."
     },
     {
       "_": "types.LangPackString",
@@ -27096,6 +27167,11 @@
       "_": "types.LangPackString",
       "key": "lng_premium_summary_about_profile_badge",
       "value": "Бұл таңба Telegram Premium-ге жазылғаныңызды көрсетіп тұрады."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_premium_summary_about_rich_formatting",
+      "value": "Хатқа тақырып, кесте, тізім, ЖИ және медиа қосу."
     },
     {
       "_": "types.LangPackString",
@@ -39943,5 +40019,5 @@
       "other_value": "{count} жұлдыз төледіңіз"
     }
   ],
-  "version": 5712847
+  "version": 5713203
 }
