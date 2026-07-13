@@ -1889,6 +1889,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AuthEmailSetup.ErrorInvalidEmail",
+      "value": "Pon una dirección de correo válida."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AuthSessions.MessageApp",
       "value": "Al abrir %@, autorizaste que este bot te envíe mensajes."
     },
@@ -3993,6 +3998,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersEnable",
+      "value": "Activar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersHeader",
+      "value": "Aprobar nuevos miembros"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersInfo",
+      "value": "Los nuevos miembros ahora necesitarán la aprobación de %1$@ antes de poder enviar mensajes en este grupo."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Channel.Admin.CantEdit",
       "value": "No tienes permitido editar los privilegios de este administrador."
     },
@@ -4005,6 +4025,16 @@
       "_": "types.LangPackString",
       "key": "Channel.Admin.Dismiss",
       "value": "Eliminar administrador"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ProcessJoinRequests",
+      "value": "Procesar solicitudes de unión"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ProcessJoinRequestsInfo",
+      "value": "Permite que este bot apruebe nuevos miembros utilizando sus propias interfaces, como captchas."
     },
     {
       "_": "types.LangPackString",
@@ -7798,6 +7828,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.EmptyMessageError",
+      "value": "No puedes enviar un mensaje vacío."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.File.QuickLook.Malf",
       "value": "Obtener una vista previa de este archivo puede exponer potencialmente tu dirección IP al remitente o dañar tu dispositivo."
     },
@@ -11403,6 +11438,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatInput.EmptyMessageError",
+      "value": "No puedes enviar un mensaje vacío."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatInput.OpenChat",
       "value": "Abrir chat"
     },
@@ -12442,6 +12482,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.RemoveFromCommunity",
+      "value": "Quitar de la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.RevealAction.Collapse",
       "value": "Contraer"
     },
@@ -12729,6 +12774,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.UngroupChatsInfo",
+      "value": "Los chats de esta comunidad aparecerán separados en tu lista de chats."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.UnhideMuted",
       "value": "Mostrar silenciados"
     },
@@ -12990,6 +13040,11 @@
       "_": "types.LangPackString",
       "key": "ChatRow.BotForConnector",
       "value": " para "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatRow.Edited",
+      "value": "editado %1$@"
     },
     {
       "_": "types.LangPackString",
@@ -13916,6 +13971,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Communities.AddToExisting",
+      "value": "AÑADIR A UNA COMUNIDAD EXISTENTE"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Communities.AdminRequired",
       "value": "Sólo los admins. de este chat pueden crear una comunidad para él."
     },
@@ -13926,13 +13986,98 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Communities.SomethingWentWrong",
+      "value": "Algo salió mal."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DismissAdminHeader",
+      "value": "Dejar de ser admin. de la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.DismissAdminInfo",
       "value": "Perderás el acceso a las herramientas de administración de la comunidad, pero conservarás tus privilegios de admin. del grupo."
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.InviteOnlyInfo",
+      "value": "Este chat es sólo para invitados.\nSólo sus miembros pueden verlo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.MessageGroupOwner",
+      "value": "Enviar mensaje al propietario"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.YouAreAdmin",
+      "value": "Eres un admin. de la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.YouAreAdminInfo",
       "value": "Ahora puedes editar la info. de %1$@ y usar otras herramientas de administración."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorAdminRequired",
+      "value": "Sólo los admins. de la comunidad pueden añadir chats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorGeneric",
+      "value": "Algo salió mal."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorLimitReached",
+      "value": "Esta comunidad alcanzó su límite de chats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Title",
+      "value": "Añadir chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.VisibilityFooter",
+      "value": "No podrás cambiar esto más tarde."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.AddAdmin",
+      "value": "Añadir administrador"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.Dismiss",
+      "value": "Eliminar administrador"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.DismissConfirm",
+      "value": "¿Quieres eliminar a este administrador?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.EditGroupList",
+      "value": "Editar lista de chats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.EditName",
+      "value": "Editar nombre de la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.ErrorGeneric",
+      "value": "Algo salió mal."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.PermissionsHeader",
+      "value": "QUÉ PUEDE HACER ESTE ADMIN."
     },
     {
       "_": "types.LangPackString",
@@ -13950,15 +14095,76 @@
       "value": "Algo salió mal."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityInfo.CommunityWithChats",
+      "one_value": "",
+      "other_value": "Comunidad con %1$d chats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.ErrorGeneric",
+      "value": "Algo salió mal."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.AddAllConfirm",
+      "value": "¿Añadir todos los chats sugeridos a la comunidad?"
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityRequests.ApprovalInfo",
       "value": "Los chats requieren la aprobación de los admins. antes de ser añadidos a la comunidad. [Cambiar ajustes](settings)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.DeclineAllConfirm",
+      "value": "¿Rechazar todos los chats sugeridos?"
     },
     {
       "_": "types.LangPackStringPluralized",
       "key": "CommunityRequests.SuggestedHeader",
       "one_value": "",
       "other_value": "%d CHATS SUGERIDOS PARA ESTA COMUNIDAD"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.SuggestsGroup",
+      "value": "%1$@ sugiere este chat:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.SuggestsGroupSuffix",
+      "value": " sugiere este chat:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Unknown",
+      "value": "Desconocido"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.VisibleOnlyToMembersSuffix",
+      "value": " · visible sólo para sus miembros"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.AddChatToCommunity",
+      "value": "Añadir un chat a la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Remove",
+      "value": "Quitar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.RemoveChatConfirm",
+      "value": "¿Quitar este chat de la comunidad?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SomethingWentWrong",
+      "value": "Algo salió mal."
     },
     {
       "_": "types.LangPackString",
@@ -19216,6 +19422,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupInfo.AddGroupToCommunity",
+      "value": "Añadir grupo a la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupInfo.AddUserLeftError",
       "value": "Si una persona salió del grupo, necesitas estar en sus contactos de Telegram para añadirla de nuevo.\n\nTambién puede unirse con un enlace de invitación si no está en la lista de usuarios expulsados."
     },
@@ -19276,8 +19487,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupInfo.RemoveGroupFromCommunityConfirm",
+      "value": "¿Quieres quitar este grupo de la comunidad?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupInfo.ScamWarning",
       "value": "⚠️ Advertencia: Muchos usuarios reportaron este grupo como una estafa o una cuenta falsa. Por favor, ten cuidado, especialmente si te pide dinero."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.SomethingWentWrong",
+      "value": "Algo salió mal."
     },
     {
       "_": "types.LangPackString",
@@ -27013,6 +27234,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumBoarding.RichFormattingInfo",
+      "value": "Añade encabezados, tablas, multimedia integrada y contenido de IA a los mensajes."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PremiumBoarding.RichFormattingTitle",
+      "value": "Herramientas de formato"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumBoarding.Stories.ExpirationDuration.Info",
       "value": "Establece duraciones personalizadas para tus historias, como 6 o 48 horas."
     },
@@ -28820,6 +29051,11 @@
       "_": "types.LangPackString",
       "key": "RichTextAiCompose.ErrorEmpty",
       "value": "No puedes procesar un mensaje vacío."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.ErrorTooLong",
+      "value": "El mensaje es demasiado largo."
     },
     {
       "_": "types.LangPackString",
@@ -36933,6 +37169,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextUtils.AddedToCommunity",
+      "value": "Añadió “%1$@” a la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextUtils.ManagedBotCreated",
       "value": "%1$@ creó %2$@"
     },
@@ -36945,6 +37186,11 @@
       "_": "types.LangPackString",
       "key": "TextUtils.PollOptionDeleted",
       "value": "%1$@ eliminó una opción: %2$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextUtils.RemovedFromCommunity",
+      "value": "Eliminado de una comunidad"
     },
     {
       "_": "types.LangPackString",
@@ -38531,8 +38777,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UserInfo.AddBotToCommunity",
+      "value": "Añadir bot a la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UserInfo.ManagedBotCreatedBy",
       "value": "Creado y gestionado por "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.RemoveBotFromCommunity",
+      "value": "¿Quitar este bot de la comunidad?"
     },
     {
       "_": "types.LangPackString",
@@ -40784,5 +41040,5 @@
       "value": "Mostrar sustituciones"
     }
   ],
-  "version": 2232800
+  "version": 2232817
 }
