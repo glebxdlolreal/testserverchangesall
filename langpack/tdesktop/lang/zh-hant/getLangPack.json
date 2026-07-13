@@ -1260,6 +1260,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_community_removed_channel",
+      "value": "此頻道已從社群中移除。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_community_removed_chat",
       "value": "此聊天室已從社群中移除。"
     },
@@ -3875,6 +3880,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_ai_compose_create_placeholder",
+      "value": "請告訴我們要產生什麼…"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_ai_compose_create_title",
       "value": "AI 生成"
     },
@@ -3921,7 +3931,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_ai_compose_generate",
-      "value": "生成"
+      "value": "產生"
     },
     {
       "_": "types.LangPackString",
@@ -4560,6 +4570,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_placeholder_title",
+      "value": "標題"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_premium_choice_about",
       "value": "此訊息包含進階格式，需要 {link} 才能顯示。"
     },
@@ -4577,6 +4592,11 @@
       "_": "types.LangPackString",
       "key": "lng_article_premium_choice_title",
       "value": "清除格式"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_required",
+      "value": "訂閱 {link} 即可傳送富媒體文章。"
     },
     {
       "_": "types.LangPackString",
@@ -9325,6 +9345,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_add_confirm_bot",
+      "value": "如果此機器人獲得社群管理員批准，社群成員便能看到並使用它。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_add_confirm_channel",
       "value": "若此頻道獲得社群管理員的批准，其成員將能夠加入或申請加入社群中的其他聊天室。"
     },
@@ -9424,6 +9449,11 @@
       "value": "警告"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_bot_peers_limit",
+      "other_value": "已達到 {count} 個機器人的上限。"
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_community_chat_loading",
       "value": "載入中..."
@@ -9520,6 +9550,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_delete_sure",
+      "value": "您確定要刪除此社群嗎？這將取消與所有聊天室的綁定。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_existing",
       "value": "加入到現有社群"
     },
@@ -9595,6 +9630,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "key": "lng_community_peers_limit",
+      "other_value": "已達到 {count} 個聊天室的上限。"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "key": "lng_community_profile_status",
       "other_value": "包含 {count} 個聊天室的社群"
     },
@@ -9625,8 +9665,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_removed_list_about",
+      "value": "被移出社群的用戶將顯示於此處。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_request_add",
       "value": "批准"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_request_added_toast",
+      "other_value": "{count} 個聊天室已加入到社群。"
     },
     {
       "_": "types.LangPackString",
@@ -9637,6 +9687,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_request_decline",
       "value": "拒絕"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_request_declined_toast",
+      "other_value": "已拒絕 {count} 份新增聊天室的申請。"
     },
     {
       "_": "types.LangPackString",
@@ -9677,6 +9732,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_request_only_members",
       "value": "僅對成員可見"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_sent",
+      "value": "您的申請已傳送給社群管理員。"
     },
     {
       "_": "types.LangPackString",
@@ -9755,6 +9815,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_show_as_one_about",
+      "value": "將所有社群聊天室彙整為聊天室清單中的單一項目。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_status",
       "value": "社群"
     },
@@ -9787,6 +9852,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_visibility_hidden",
       "value": "隱藏"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_hidden_about",
+      "value": "只有受邀成員和社群管理員才能看到此聊天室。"
     },
     {
       "_": "types.LangPackString",
@@ -14090,8 +14160,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_ephemeral_cant_schedule",
+      "value": "無法預約臨時訊息。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_ephemeral_command_tooltip",
       "value": "其他成員不會看到此訊息"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_reply_single_message",
+      "value": "您只能回覆此訊息一次。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_reply_text_only",
+      "value": "這種類型的訊息，無法作為對此訊息的回覆。"
     },
     {
       "_": "types.LangPackString",
@@ -21277,6 +21362,11 @@
       "_": "types.LangPackString",
       "key": "lng_iv_editor_discard_draft_sure",
       "value": "您確定要放棄此訊息嗎？此操作無法復原。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_media_invalid_file",
+      "value": "抱歉，此處僅支援照片、影片及音訊檔。"
     },
     {
       "_": "types.LangPackString",
@@ -36110,6 +36200,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_sr_folder_locked_about",
+      "value": "點擊查看訂閱選項。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_sr_from_me",
       "value": "我"
     },
@@ -40419,5 +40514,5 @@
       "other_value": "您支付了 {count} 顆星星。"
     }
   ],
-  "version": 5715129
+  "version": 5716850
 }
