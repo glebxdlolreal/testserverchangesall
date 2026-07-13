@@ -1225,8 +1225,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_community_added",
+      "value": "{from} 已將此群組加入到「{community}」社群。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_community_added_channel",
       "value": "此頻道已加入到「{community}」社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_chat",
+      "value": "此頻道已加入到「{community}」社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown",
+      "value": "{from} 已將此群組加入到社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown_channel",
+      "value": "此頻道已加入到社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown_chat",
+      "value": "此聊天室已加入到社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_removed",
+      "value": "{from} 已將此群組從社群中移除。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_removed_chat",
+      "value": "此聊天室已從社群中移除。"
     },
     {
       "_": "types.LangPackString",
@@ -3790,6 +3825,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_ai_compose_add_to_page",
+      "value": "加入到頁面"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_ai_compose_after",
       "value": "套用風格後"
     },
@@ -4315,6 +4355,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_insert_blockquote",
+      "value": "引用區塊"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_insert_bullet_list",
       "value": "項目清單"
     },
@@ -4327,6 +4372,11 @@
       "_": "types.LangPackString",
       "key": "lng_article_insert_details",
       "value": "詳細資訊"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_divider",
+      "value": "分隔線"
     },
     {
       "_": "types.LangPackString",
@@ -4395,8 +4445,83 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_insert_task_list",
+      "value": "任務清單"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_insert_text",
       "value": "文字"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_blocks",
+      "value": "文章的區塊過多。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_columns",
+      "value": "文章表格的欄位過多。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_depth",
+      "value": "文章的嵌套層級過深。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_length",
+      "value": "文章過長。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_media",
+      "value": "文章中的媒體檔案過多。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_change",
+      "value": "變更清單"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_insert",
+      "value": "插入清單"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_item_change",
+      "value": "變更清單項目"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_lowercase_letters",
+      "value": "小寫字母"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_lowercase_roman",
+      "value": "小寫羅馬數字"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_numbers",
+      "value": "數字"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_reversed",
+      "value": "顛倒順序"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_uppercase_letters",
+      "value": "大寫字母"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_uppercase_roman",
+      "value": "大寫羅馬數字"
     },
     {
       "_": "types.LangPackString",
@@ -4445,6 +4570,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_premium_choice_plain",
+      "value": "以純文字傳送"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_premium_choice_title",
       "value": "清除格式"
     },
@@ -4452,6 +4582,21 @@
       "_": "types.LangPackString",
       "key": "lng_article_premium_required_link",
       "value": "Telegram Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_submit_empty",
+      "value": "文章不能為空。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_add_column",
+      "value": "新增欄"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_add_row",
+      "value": "新增列"
     },
     {
       "_": "types.LangPackString",
@@ -4482,6 +4627,16 @@
       "_": "types.LangPackString",
       "key": "lng_article_table_align_top",
       "value": "頂部對齊"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_borderless",
+      "value": "無邊框"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_change",
+      "value": "變更表格"
     },
     {
       "_": "types.LangPackString",
@@ -4517,6 +4672,56 @@
       "_": "types.LangPackString",
       "key": "lng_article_table_split_cell",
       "value": "分割儲存格"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_striped",
+      "value": "隔行跳色"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_unite_cells",
+      "value": "合併儲存格"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_emoji",
+      "value": "表情符號面板"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_formula",
+      "value": "插入公式"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_link",
+      "value": "插入連結"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_list_style",
+      "value": "清單樣式"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_media",
+      "value": "插入媒體"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_table_insert",
+      "value": "插入表格"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_table_style",
+      "value": "表格樣式"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_text_style",
+      "value": "文字樣式"
     },
     {
       "_": "types.LangPackString",
@@ -9115,8 +9320,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_add_confirm_add",
+      "value": "批准"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_add_confirm_channel",
       "value": "若此頻道獲得社群管理員的批准，其成員將能夠加入或申請加入社群中的其他聊天室。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_done",
+      "value": "群組已加入到社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_done_bot",
+      "value": "機器人已加入到社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_done_channel",
+      "value": "頻道已加入到社群。"
     },
     {
       "_": "types.LangPackString",
@@ -9164,6 +9389,11 @@
       "value": "指派社群管理員"
     },
     {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_title",
+      "value": "您是社群管理員"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "lng_community_ban_about",
       "other_value": "用戶將被移出 {count} 個聊天室。"
@@ -9172,6 +9402,16 @@
       "_": "types.LangPackString",
       "key": "lng_community_ban_button",
       "value": "封鎖"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_done",
+      "value": "{user} 已遭社群封鎖。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_toggle",
+      "value": "遭社群封鎖"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -9219,6 +9459,11 @@
       "value": "查看群組"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_chats",
+      "other_value": "{count} 個聊天室"
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_community_chats_joined",
       "value": "已加入的聊天室"
@@ -9240,6 +9485,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_create_hidden",
+      "value": "隱藏群組"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_create_hidden_bot",
       "value": "隱藏機器人"
     },
@@ -9250,8 +9500,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_create_name",
+      "value": "社群名稱"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_create_title",
       "value": "新社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_created",
+      "value": "社群已建立。"
     },
     {
       "_": "types.LangPackString",
@@ -9270,13 +9530,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_hidden_chat_title",
+      "value": "隱藏聊天室"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_hidden_not_accessible",
       "value": "在獲得管理員邀請之前，您無法加入或查看此群組。"
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_hidden_not_accessible_bot",
+      "value": "在獲得管理員邀請之前，您無法使用此機器人。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_hidden_not_accessible_channel",
       "value": "在獲得管理員邀請之前，您無法加入或查看此頻道。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_status",
+      "value": "隱藏"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_join_sure",
+      "value": "您想加入「{group}」嗎？"
     },
     {
       "_": "types.LangPackString",
@@ -9314,6 +9594,11 @@
       "value": "誰可以新增聊天室"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_profile_status",
+      "other_value": "包含 {count} 個聊天室的社群"
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_community_remove_button",
       "value": "從社群中移除群組"
@@ -9330,13 +9615,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_remove_done",
+      "value": "已從社群中移除。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_remove_sure",
+      "value": "從社群中移除「{group}」？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_add",
+      "value": "批准"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_added_toast_undo",
+      "value": "您已批准將「{chat}」加入到社群。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_request_decline",
       "value": "拒絕"
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_request_declined_toast_undo",
+      "value": "您已拒絕將「{chat}」加入到社群。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_request_invite_only",
       "value": "此群組僅限受邀者加入。只有群組成員才能查看此群組。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only_bot",
+      "value": "此機器人僅限受邀者使用。只有限受邀成員才能使用它。"
     },
     {
       "_": "types.LangPackString",
@@ -9365,6 +9680,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_request_suggested_bot",
+      "value": "{user} 推薦了此機器人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_suggested_channel",
+      "value": "{user} 推薦了此頻道"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_suggested_group",
+      "value": "{user} 推薦了此群組"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_requests_about",
       "value": "聊天室必須經管理員批准後才能加入社群。{link}"
     },
@@ -9379,9 +9709,24 @@
       "value": "全部批准"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_add_all_sure",
+      "other_value": "您想要將 {count} 個聊天室加入到社群嗎？"
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_community_requests_add_all_title",
       "value": "新增全部聊天室"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_button",
+      "other_value": "{count} 份待處理的申請"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_count",
+      "other_value": "{count} 個聊天室已推薦給此社群"
     },
     {
       "_": "types.LangPackString",
@@ -9440,8 +9785,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_visibility_hidden",
+      "value": "隱藏"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_visibility_note",
       "value": "您之後將無法變更此設定。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_title",
+      "value": "聊天室是否可見"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_visible",
+      "value": "顯示"
     },
     {
       "_": "types.LangPackString",
@@ -10135,6 +10495,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_context_copy_in_reply_to",
+      "value": "回覆 {name}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_context_copy_link",
       "value": "複製連結"
     },
@@ -10772,6 +11137,11 @@
       "_": "types.LangPackString",
       "key": "lng_context_view_channel",
       "value": "查看頻道資訊"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_context_view_community",
+      "value": "查看社群資訊"
     },
     {
       "_": "types.LangPackString",
@@ -13405,8 +13775,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_edited_at",
+      "value": "編輯於 {time}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_edited_date",
       "value": "已編輯：{date}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_edited_on",
+      "value": "編輯於 {date} {time}"
     },
     {
       "_": "types.LangPackString",
@@ -13437,6 +13817,21 @@
       "_": "types.LangPackString",
       "key": "lng_effect_stickers_title",
       "value": "貼圖特效"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_adapt_no_video",
+      "value": "目前尚不支援影片貼圖。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_adapt_sticker",
+      "value": "由貼圖建立"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_add_existing",
+      "value": "加入到現有的表情符號"
     },
     {
       "_": "types.LangPackString",
@@ -13512,6 +13907,21 @@
       "_": "types.LangPackString",
       "key": "lng_emoji_copy",
       "value": "複製表情符號"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_create_emoji_about",
+      "value": "選擇相配的表情符號"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_create_image_title",
+      "value": "新表情符號"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_create_new",
+      "value": "建立新表情符號"
     },
     {
       "_": "types.LangPackString",
@@ -13672,6 +14082,26 @@
       "_": "types.LangPackString",
       "key": "lng_enter_contact_data",
       "value": "新增聯絡人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_about",
+      "value": "只有您能看到此訊息。重新啟動應用程式後，此訊息就會消失。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_command_tooltip",
+      "value": "其他成員不會看到此訊息"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_visible_to",
+      "value": "僅 {user} 可見"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_visible_you",
+      "value": "僅您可見"
     },
     {
       "_": "types.LangPackString",
@@ -15270,6 +15700,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_formatting_math_create_title",
+      "value": "插入公式"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_formatting_math_edit_title",
       "value": "編輯公式"
     },
@@ -15280,6 +15715,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_formatting_math_separate_line",
+      "value": "分行公式"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_formatting_math_source",
       "value": "公式"
     },
@@ -15287,6 +15727,11 @@
       "_": "types.LangPackString",
       "key": "lng_formatting_math_source_label",
       "value": "LaTeX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_source_placeholder",
+      "value": "公式來源"
     },
     {
       "_": "types.LangPackString",
@@ -20825,6 +21270,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_iv_editor_close_now",
+      "value": "立即關閉"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_discard_draft_sure",
+      "value": "您確定要放棄此訊息嗎？此操作無法復原。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_save_draft_failed",
+      "value": "無法儲存草稿。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_save_draft_failed_error",
+      "value": "無法儲存草稿。\n\n錯誤：{error}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_saving_draft",
+      "value": "正在儲存草稿..."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_iv_join_channel",
       "value": "加入"
     },
@@ -23200,6 +23670,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_menu_formatting_marked",
+      "value": "已標示"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_menu_formatting_monospace",
       "value": "等寬字體"
     },
@@ -23217,6 +23692,16 @@
       "_": "types.LangPackString",
       "key": "lng_menu_formatting_strike_out",
       "value": "刪除線"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_menu_formatting_subscript",
+      "value": "下標"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_menu_formatting_superscript",
+      "value": "上標"
     },
     {
       "_": "types.LangPackString",
@@ -32010,6 +32495,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_sent_on",
+      "value": "傳送於 {date} {time}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_sessions_about_apps",
       "value": " 官方版 Telegram 應用程式適用於 iPhone、iPad、Android、macOS、Windows 和 Linux。"
     },
@@ -33820,6 +34310,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_settings_pull_to_next_channel",
+      "value": "滑動可前往下一個未讀頻道"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_settings_qt_frame",
       "value": "使用 Qt 視窗邊框"
     },
@@ -35607,6 +36102,11 @@
       "_": "types.LangPackString",
       "key": "lng_sr_country_column_name",
       "value": "國家名稱"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_sr_folder_locked",
+      "value": "{text}，需要 Premium"
     },
     {
       "_": "types.LangPackString",
@@ -39919,5 +40419,5 @@
       "other_value": "您支付了 {count} 顆星星。"
     }
   ],
-  "version": 5715006
+  "version": 5715129
 }

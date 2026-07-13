@@ -1875,6 +1875,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AuthEmailSetup.ErrorEmailNotAllowed",
+      "value": "抱歉，無法使用此電子信箱。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.ErrorInvalidEmail",
+      "value": "請輸入有效的電子信箱地址。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Placeholder",
+      "value": "輸入您的電子郵件地址"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Title",
+      "value": "新增電子郵件"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AuthSessions.MessageApp",
       "value": "您允許此機器人在您開啟 %@ 時向您傳送訊息。"
     },
@@ -7765,6 +7785,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.EmptyMessageError",
+      "value": "您不能傳送空訊息。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.File.QuickLook.Malf",
       "value": "預覽此檔案可能會將您的 IP 位址暴露給其傳送者或損害您的裝置。"
     },
@@ -11310,6 +11335,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatInput.EmptyMessageError",
+      "value": "您不能傳送空訊息。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatInput.OpenChat",
       "value": "開啟聊天室"
     },
@@ -12620,6 +12650,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Ungroup",
+      "value": "分開顯示"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.UngroupChats",
       "value": "分開顯示聊天室？"
     },
@@ -12790,6 +12825,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatMessageMenu.SentAt",
+      "value": "傳送於 %1$@"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatMessageMenuItems.AndJoiner",
       "value": " 和 "
     },
@@ -12885,6 +12925,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatRow.Edited",
+      "value": "編輯於 %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.AddedGroup",
+      "value": "%2$@ 已將此群組加入到「%1$@」社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.BotAddedToCommunity",
+      "value": "機器人已加入到「%1$@」社群。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatService.ChangedToSameWallpaper",
       "value": "%1$@ 為此聊天室設定了相同的背景"
     },
@@ -12892,6 +12947,11 @@
       "_": "types.LangPackString",
       "key": "ChatService.ChangedWallpaper",
       "value": "%1$@ 為此聊天設定了新背景"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.ChannelAddedToCommunity",
+      "value": "頻道已加入到「%1$@」社群。"
     },
     {
       "_": "types.LangPackString",
@@ -13187,6 +13247,11 @@
       "_": "types.LangPackString",
       "key": "ChatService.ViewBackground",
       "value": "查看背景"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.YouAddedGroup",
+      "value": "您已將此群組加入到「%1$@」社群。"
     },
     {
       "_": "types.LangPackString",
@@ -13819,6 +13884,11 @@
       "value": "隱藏"
     },
     {
+      "_": "types.LangPackString",
+      "key": "Communities.HiddenInfo",
+      "value": "只有受邀成員和社群管理員才能看到此聊天室。"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "Communities.Members",
       "other_value": "%1$d 位成員"
@@ -13835,8 +13905,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Communities.SubtitleBot",
+      "value": "將您的機器人加入擁有多個相關聊天室的社群中。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Communities.SubtitleChannel",
       "value": "將您的頻道加入擁有多個相關聊天室的社群中。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SubtitleGroup",
+      "value": "將您的群組加入擁有多個相關聊天室的社群中。"
     },
     {
       "_": "types.LangPackString",
@@ -13879,9 +13959,19 @@
       "value": "此聊天室僅限受邀者加入。\n只有成員才能查看內容。"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.Members",
+      "other_value": "%1$d 位成員"
+    },
+    {
       "_": "types.LangPackString",
       "key": "Community.MessageGroupOwner",
       "value": "私訊群組擁有者"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoThanks",
+      "value": "不用了，謝謝"
     },
     {
       "_": "types.LangPackString",
@@ -13900,6 +13990,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAdd.Confirm",
+      "value": "加入到社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorGeneric",
+      "value": "發生錯誤。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAdd.Hidden",
       "value": "隱藏"
     },
@@ -13907,6 +14007,21 @@
       "_": "types.LangPackString",
       "key": "CommunityAdd.HiddenInfo",
       "value": "只有受邀成員和社群管理員才能看到此聊天室。"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityAdd.Members",
+      "other_value": "%1$d 位成員"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Title",
+      "value": "新增聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.VisibilityFooter",
+      "value": "您之後將無法變更此設定。"
     },
     {
       "_": "types.LangPackString",
@@ -13920,6 +14035,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAdmin.AddAdmin",
+      "value": "新增管理員"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAdmin.BanMembers",
       "value": "封鎖成員"
     },
@@ -13927,6 +14047,11 @@
       "_": "types.LangPackString",
       "key": "CommunityAdmin.Dismiss",
       "value": "解除管理員身分"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.DismissConfirm",
+      "value": "您確定要解除此管理員的身分嗎？"
     },
     {
       "_": "types.LangPackString",
@@ -13940,6 +14065,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAdmin.ErrorGeneric",
+      "value": "發生錯誤。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAdmin.PermissionsHeader",
       "value": "這個管理員可以做什麼？"
     },
@@ -13950,13 +14080,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAdmins.AddAdmin",
+      "value": "新增管理員"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAdmins.Header",
       "value": "管理員"
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAdmins.Loading",
+      "value": "載入中…"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAdmins.StatusAdmin",
       "value": "管理員"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.StatusPromotedBy",
+      "value": "由 %1$@ 任命"
     },
     {
       "_": "types.LangPackString",
@@ -13966,6 +14111,11 @@
     {
       "_": "types.LangPackString",
       "key": "CommunityEdit.AddAChatToCommunity",
+      "value": "將聊天室加入到社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AddChatToCommunity",
       "value": "將聊天室加入到社群"
     },
     {
@@ -13989,6 +14139,11 @@
       "value": "變更大頭貼"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityEdit.ChatsCount",
+      "other_value": "%d 個聊天室"
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityEdit.CommunityName",
       "value": "社群名稱"
@@ -14007,6 +14162,11 @@
       "_": "types.LangPackString",
       "key": "CommunityEdit.Hidden",
       "value": "已隱藏"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityEdit.MembersCount",
+      "other_value": "%d 位成員"
     },
     {
       "_": "types.LangPackString",
@@ -14030,8 +14190,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityEdit.RemoveChatConfirm",
+      "value": "從社群中移除此聊天室？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemoveFromCommunity",
+      "value": "從社群中移除"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemovedUsers",
+      "value": "已移除的用戶"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityEdit.SetPhoto",
       "value": "設定大頭貼"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.SomethingWentWrong",
+      "value": "發生錯誤。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Title",
+      "value": "編輯社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.UpdatingPhoto",
+      "value": "更新照片中..."
     },
     {
       "_": "types.LangPackString",
@@ -14044,9 +14234,54 @@
       "value": "社群"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityInfo.CommunityWithChats",
+      "other_value": "包含 %1$d 個聊天室的社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.AddChat",
+      "value": "新增聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.AddChatToCommunity",
+      "value": "將聊天室加入到社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.DefaultTitle",
+      "value": "社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.EditCommunity",
+      "value": "編輯社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.ErrorGeneric",
+      "value": "發生錯誤。"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityList.Members",
+      "other_value": "%1$d 位成員"
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityList.PendingRequests",
       "value": "待處理的申請"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.Remove",
+      "value": "移除"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.RemoveChatConfirm",
+      "value": "從社群中移除此聊天室？"
     },
     {
       "_": "types.LangPackString",
@@ -14070,8 +14305,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityRequests.Add",
+      "value": "批准"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityRequests.AddAll",
       "value": "全部批准"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.AddAllConfirm",
+      "value": "將所有推薦的聊天室加入到社群？"
     },
     {
       "_": "types.LangPackString",
@@ -14090,6 +14335,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityRequests.DeclineAllConfirm",
+      "value": "拒絕所有推薦的聊天室？"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityRequests.Empty",
       "value": "沒有待處理的申請。"
     },
@@ -14097,6 +14347,11 @@
       "_": "types.LangPackString",
       "key": "CommunityRequests.Loading",
       "value": "載入中…"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityRequests.MembersCount",
+      "other_value": "%d 位成員"
     },
     {
       "_": "types.LangPackString",
@@ -14109,6 +14364,21 @@
       "value": "某人"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityRequests.SuggestedHeader",
+      "other_value": "%d 個聊天室已推薦給此社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.SuggestsGroup",
+      "value": "%1$@ 推薦了此聊天室："
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.SuggestsGroupSuffix",
+      "value": " 推薦了此聊天室："
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityRequests.Unknown",
       "value": "未知"
@@ -14117,6 +14387,16 @@
       "_": "types.LangPackString",
       "key": "CommunityRequests.VisibleOnlyToMembers",
       "value": "僅對成員可見"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.VisibleOnlyToMembersSuffix",
+      "value": " · 僅成員可見"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.AddChatToCommunity",
+      "value": "將聊天室加入到社群"
     },
     {
       "_": "types.LangPackString",
@@ -14150,6 +14430,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityView.RemoveChatConfirm",
+      "value": "從社群中移除此聊天室？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.RemoveFromCommunity",
+      "value": "從社群中移除"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityView.SectionChatsYouAreIn",
       "value": "已加入的聊天室"
     },
@@ -14162,6 +14452,16 @@
       "_": "types.LangPackString",
       "key": "CommunityView.SectionChatsYouCanRequestToJoin",
       "value": "可申請加入的聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowAsOneChat",
+      "value": "以單一聊天室顯示"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowAsOneChatInfo",
+      "value": "將所有社群聊天室彙整為聊天室清單中的單一項目。"
     },
     {
       "_": "types.LangPackString",
@@ -15164,6 +15464,11 @@
       "value": "刪除反應"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "DeleteGroupMessages.MemberCount",
+      "other_value": "%1$d 位成員"
+    },
+    {
       "_": "types.LangPackString",
       "key": "DeleteGroupMessages.ReactionTitle",
       "value": "刪除 1 個反應"
@@ -15866,7 +16171,7 @@
     {
       "_": "types.LangPackString",
       "key": "Email.Enter.Placeholder",
-      "value": "輸入您的電郵"
+      "value": "輸入您的電子郵件地址"
     },
     {
       "_": "types.LangPackString",
@@ -19485,8 +19790,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupInfo.RemoveGroupFromCommunityConfirm",
+      "value": "您確定要將從社群中移除此群組嗎？"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupInfo.ScamWarning",
       "value": "⚠️ 警告：許多用戶檢舉此群組涉及詐騙事件或是虛假帳號。請小心，特別是如果它向您索取錢財。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.SomethingWentWrong",
+      "value": "發生錯誤。"
     },
     {
       "_": "types.LangPackString",
@@ -28980,8 +29295,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextAiCompose.ErrorTooLong",
+      "value": "訊息過長。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextAiCompose.Generate",
-      "value": "生成"
+      "value": "產生"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.PromptPlaceholder",
+      "value": "產生文字、公式或表格……"
     },
     {
       "_": "types.LangPackString",
@@ -29025,6 +29350,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.Body",
+      "value": "主體"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.BulletList",
       "value": "項目清單"
     },
@@ -29050,8 +29380,53 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.Delete",
+      "value": "刪除"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DeleteColumn",
+      "value": "刪除欄"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DeleteRow",
+      "value": "刪除列"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Edit",
+      "value": "編輯"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.EditFormula",
+      "value": "編輯公式"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Format",
+      "value": "格式"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Formula",
+      "value": "公式"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.FormulaPreviewPlaceholder",
+      "value": "預覽將顯示在此處"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.Heading",
       "value": "標題"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Highlight",
+      "value": "強調"
     },
     {
       "_": "types.LangPackString",
@@ -29080,6 +29455,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertTable",
+      "value": "插入表格"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InvalidFormula",
+      "value": "無效公式"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.LatexSection",
       "value": "LATEX"
     },
@@ -29092,6 +29477,11 @@
       "_": "types.LangPackString",
       "key": "RichTextEditor.ListNone",
       "value": "無"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.MakeCollage",
+      "value": "建立拼貼"
     },
     {
       "_": "types.LangPackString",
@@ -29165,6 +29555,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.Placeholder.AddCaption",
+      "value": "加入說明文字..."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.Placeholder.TypeSomething",
       "value": "請輸入內容..."
     },
@@ -29187,6 +29582,41 @@
       "_": "types.LangPackString",
       "key": "RichTextEditor.ResultSection",
       "value": "結果"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.SelectAll",
+      "value": "全選"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ShowAsCollage",
+      "value": "拼貼顯示"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ShowAsSlider",
+      "value": "輪播顯示"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddColumnLeft",
+      "value": "在左側新增一欄"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddColumnRight",
+      "value": "在右側新增一欄"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddRowAbove",
+      "value": "在上方新增一行"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddRowBelow",
+      "value": "在下方新增一行"
     },
     {
       "_": "types.LangPackString",
@@ -29230,6 +29660,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.AiPremiumRequired",
+      "value": "Telegram Premium 提供富文本編輯器中的 AI 工具。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditorWindow.CodeBlock",
       "value": "程式碼區塊"
     },
@@ -29247,6 +29682,21 @@
       "_": "types.LangPackString",
       "key": "RichTextEditorWindow.EditWithoutFormatting",
       "value": "以純文字編輯？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.EmptyMessage",
+      "value": "您不能傳送空訊息。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PremiumToastEdit",
+      "value": "透過進階格式編輯訊息需要 [Telegram Premium](premium)。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PremiumToastSend",
+      "value": "傳送進階格式的訊息需要 [Telegram Premium](premium)。"
     },
     {
       "_": "types.LangPackString",
@@ -29272,6 +29722,11 @@
       "_": "types.LangPackString",
       "key": "RichTextEditorWindow.SendWithoutFormatting",
       "value": "以純文字傳送？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.SetLanguage",
+      "value": "設定語言..."
     },
     {
       "_": "types.LangPackString",
@@ -37260,6 +37715,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextUtils.AddedToCommunity",
+      "value": "已加入到「%1$@」社群"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextUtils.ManagedBotCreated",
       "value": "%1$@ 已建立 %2$@"
     },
@@ -38862,6 +39322,11 @@
       "_": "types.LangPackString",
       "key": "UserInfo.ManagedBotCreatedBy",
       "value": "建立和管理： "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.RemoveBotFromCommunity",
+      "value": "從社群中移除此機器人？"
     },
     {
       "_": "types.LangPackString",
@@ -41114,5 +41579,5 @@
       "value": "顯示替換"
     }
   ],
-  "version": 2231633
+  "version": 2231750
 }

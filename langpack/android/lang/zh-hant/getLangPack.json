@@ -4396,7 +4396,7 @@
     {
       "_": "types.LangPackString",
       "key": "ArticleAIGenerate",
-      "value": "生成"
+      "value": "產生"
     },
     {
       "_": "types.LangPackString",
@@ -4420,13 +4420,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleCommandAudio",
+      "value": "音訊"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleCommandDivider",
       "value": "分隔線"
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleCommandImage",
+      "value": "圖片"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleCommandList",
       "value": "項目符號清單"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandMap",
+      "value": "地圖"
     },
     {
       "_": "types.LangPackString",
@@ -4440,8 +4455,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleCommandTable",
+      "value": "表格"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleCommandToggle",
       "value": "切換"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandVideo",
+      "value": "影片"
     },
     {
       "_": "types.LangPackString",
@@ -4492,6 +4517,11 @@
       "_": "types.LangPackString",
       "key": "ArticleDeleteRow",
       "value": "刪除列"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteTable",
+      "value": "刪除表格"
     },
     {
       "_": "types.LangPackString",
@@ -4555,6 +4585,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleHintAuthor",
+      "value": "作者"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintCode",
+      "value": "請在此處輸入代碼..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintDetailsTitle",
+      "value": "標題"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintLanguage",
+      "value": "語言"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleHintQuote",
       "value": "插入引用"
     },
@@ -4562,6 +4612,11 @@
       "_": "types.LangPackString",
       "key": "ArticleHintText",
       "value": "請輸入內容..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintTitle",
+      "value": "標題"
     },
     {
       "_": "types.LangPackString",
@@ -4592,6 +4647,11 @@
       "_": "types.LangPackString",
       "key": "ArticleLatexEquation",
       "value": "LaTeX 數學公式"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleLatexError",
+      "value": "錯誤"
     },
     {
       "_": "types.LangPackString",
@@ -13864,9 +13924,19 @@
       "value": "新增管理員"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityAddAllChatsMessage",
+      "other_value": "您想要將 **%1$d** 個聊天室加入到社群嗎？"
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityAddAllChatsTitle",
       "value": "新增全部聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotTitle",
+      "value": "新增機器人"
     },
     {
       "_": "types.LangPackString",
@@ -13887,6 +13957,11 @@
       "_": "types.LangPackString",
       "key": "CommunityAddChannelToCommunityInfo",
       "value": "將您的頻道加入擁有多個相關聊天室的社群中。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChatTitle",
+      "value": "新增聊天室"
     },
     {
       "_": "types.LangPackString",
@@ -13945,6 +14020,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAdministrators",
+      "value": "管理員"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAdministratorsTitle",
       "value": "管理員"
     },
@@ -13974,6 +14054,11 @@
       "value": "警告"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityBanWillRemoveFromChats",
+      "other_value": "**%2$s** 個聊天室將從社群「**%1$d**」中移除。"
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityChatVisibilityCannotChange",
       "value": "您之後將無法變更此設定。"
@@ -13992,6 +14077,11 @@
       "_": "types.LangPackString",
       "key": "CommunityChatVisibilityHiddenInfo",
       "value": "只有受邀成員和社群管理員才能看到此聊天室。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilitySection",
+      "value": "聊天是否可見"
     },
     {
       "_": "types.LangPackString",
@@ -14150,6 +14240,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityMenuSettings",
+      "value": "設定"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityMenuShowAsOneChat",
       "value": "以單一聊天室顯示"
     },
@@ -14157,6 +14252,21 @@
       "_": "types.LangPackString",
       "key": "CommunityMenuShowAsSeparateChats",
       "value": "以個別聊天室顯示"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuViewBot",
+      "value": "查看機器人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuViewChannel",
+      "value": "查看頻道"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuViewGroup",
+      "value": "查看群組"
     },
     {
       "_": "types.LangPackString",
@@ -14187,6 +14297,11 @@
       "_": "types.LangPackString",
       "key": "CommunityPendingRequestAddAll",
       "value": "全部批准"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestDecline",
+      "value": "拒絕"
     },
     {
       "_": "types.LangPackString",
@@ -14232,6 +14347,11 @@
       "_": "types.LangPackStringPluralized",
       "key": "CommunityPendingRequestsRow",
       "other_value": "%1$d 個待處理的申請"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityPendingRequestsSuggestedHeader",
+      "other_value": "%1$d 個聊天室已推薦給此社群"
     },
     {
       "_": "types.LangPackString",
@@ -14311,7 +14431,7 @@
     {
       "_": "types.LangPackString",
       "key": "CommunityServiceMessageBotAdded",
-      "value": "**%2$s** 已將此機器人加入到「**%1$s**」社群。"
+      "value": "**%1$s** 已將此機器人加入到「**%2$s**」社群。"
     },
     {
       "_": "types.LangPackString",
@@ -14341,7 +14461,7 @@
     {
       "_": "types.LangPackString",
       "key": "CommunityServiceMessageChannelAdded",
-      "value": "**%2$s** 已將此頻道加入到「**%1$s**」社群。"
+      "value": "**%1$s** 已將此頻道加入到「**%2$s**」社群。"
     },
     {
       "_": "types.LangPackString",
@@ -14371,7 +14491,7 @@
     {
       "_": "types.LangPackString",
       "key": "CommunityServiceMessageGroupAdded",
-      "value": "**%2$s** 已將此群組加入到「**%1$s**」社群。"
+      "value": "**%1$s** 已將此群組加入到「**%2$s**」社群。"
     },
     {
       "_": "types.LangPackString",
@@ -14425,6 +14545,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChatInfo",
+      "value": "將所有社群聊天室彙整為聊天室清單中的單一項目。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityTitle",
       "value": "社群"
     },
@@ -14445,8 +14570,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsAllMembers",
+      "value": "所有成員"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityWhoCanAddChatsAllMembersInfo",
       "value": "允許成員將自己的群組和頻道新增到社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsOnlyAdmins",
+      "value": "僅限管理員"
     },
     {
       "_": "types.LangPackString",
@@ -14460,8 +14595,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminContinue",
+      "value": "繼續"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityYouAreAdminMessage",
       "value": "您現在可以編輯 **%1$s** 的資訊，並使用其他管理工具。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminNoThanks",
+      "value": "不用了，謝謝"
     },
     {
       "_": "types.LangPackString",
@@ -55864,5 +56009,5 @@
       "value": "Telegram Passport"
     }
   ],
-  "version": 59917351
+  "version": 59917882
 }
