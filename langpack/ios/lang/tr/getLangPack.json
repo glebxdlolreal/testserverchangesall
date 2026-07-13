@@ -16509,8 +16509,63 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningText",
+      "value": "**%@** kişisini yasaklamak, onun **%@** sohbetini de topluluktan kaldıracaktır."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.CommunityAdded.View",
+      "value": "Görüntüle"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.EditAdmin.PermissionBanUsers",
       "value": "Üyeleri Yasakla"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleBot",
+      "value": "Botunuzu, birbiriyle ilişkili birçok sohbetin bulunduğu bir topluluğun parçası haline getirin."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleChannel",
+      "value": "Kanalınızı, birbiriyle ilişkili birçok sohbetin bulunduğu bir topluluğun parçası haline getirin."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.Info",
+      "value": "Bu grup sadece davetle katılınabilen bir kanaldır.\nYalnızca üyeleri bu kanalı görüntüleyebilir."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.MessageOwner",
+      "value": "Sohbet Sahibine Mesaj Gönder"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovalInfo",
+      "value": "Sohbetler, topluluğa eklenmeden önce yönetici onayı gerektirir. [Ayarları Değiştir >](settings)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovedToast",
+      "value": "Sohbeti topluluğa eklediniz."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclinedToast",
+      "value": "Sohbeti topluluğa eklemeyi reddettiniz."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.HiddenChatToast",
+      "value": "Bir yönetici sizi davet edene kadar bu sohbete katılamaz veya sohbeti görüntüleyemezsiniz."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestDeclinedToast",
+      "value": "Sohbeti topluluğa eklemeyi reddettiniz."
     },
     {
       "_": "types.LangPackString",
@@ -33995,6 +34050,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedBot",
+      "value": "Bu bot, %1$@ topluluğuna eklendi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedChannel",
+      "value": "Bu kanal %1$@ topluluğuna eklendi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroup",
+      "value": "%1$@ bu grubu %2$@ topluluğuna ekledi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroupYou",
+      "value": "Bu grubu %1$@ topluluğuna eklediniz"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedBot",
+      "value": "Bu bot bir topluluktan kaldırıldı"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedChannel",
+      "value": "Bu kanal bir topluluktan kaldırıldı"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Notification.CopyProtection.Disabled",
       "value": "%1$@ bu sohbette paylaşımı etkinleştirdi"
     },
@@ -40054,6 +40139,12 @@
       "value": "Mesajları Temizle"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "PeerInfo.Community",
+      "one_value": "%@ sohbeti olan topluluk",
+      "other_value": "%@ sohbeti olan topluluk"
+    },
+    {
       "_": "types.LangPackString",
       "key": "PeerInfo.CustomizeNotifications",
       "value": "Özelleştir"
@@ -42680,6 +42771,11 @@
       "_": "types.LangPackString",
       "key": "Premium.Restore.Success",
       "value": "Bitti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.RichTextInfo",
+      "value": "Mesajlara başlıklar, tablolar, satır içi medya ve yapay zeka içeriği ekleyin."
     },
     {
       "_": "types.LangPackString",
@@ -45446,6 +45542,26 @@
       "_": "types.LangPackString",
       "key": "Resolve.GiftErrorNotFound",
       "value": "Üzgünüm, bu hediye mevcut değil gibi görünüyor."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.ConvertToText",
+      "value": "Metne Dönüştür"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Delete",
+      "value": "Tabloyu Sil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.PremiumToastText",
+      "value": "Bu biçimlendirmeyle mesaj göndermek için [Telegram Premium]() gereklidir."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingText",
+      "value": "Bu mesaj, Telegram Premium gerektiren zengin biçimlendirme özellikleri kullanmaktadır."
     },
     {
       "_": "types.LangPackString",
@@ -53252,6 +53368,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.ActionAddToPage",
+      "value": "Sayfaya Ekle"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ActionApply",
       "value": "Uygula"
     },
@@ -53259,6 +53380,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.ActionClose",
       "value": "Kapat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.ActionGenerate",
+      "value": "Oluştur"
     },
     {
       "_": "types.LangPackString",
@@ -53367,6 +53493,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.PromptPlaceholder",
+      "value": "Metin, formüller veya tablolar oluşturun..."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ResultBadge",
       "value": "Sonuç"
     },
@@ -53400,6 +53531,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.StyleList.Add",
       "value": "Oluştur"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.StyleList.Prompt",
+      "value": "Komut"
     },
     {
       "_": "types.LangPackString",
@@ -53480,6 +53616,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.TextExpand",
       "value": "daha fazla"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.TitleAICompose",
+      "value": "YZ ile Oluştur"
     },
     {
       "_": "types.LangPackString",
@@ -59322,5 +59463,5 @@
       "value": "Geçersiz bir güvenlik kodu girdiniz."
     }
   ],
-  "version": 21513763
+  "version": 21513822
 }
