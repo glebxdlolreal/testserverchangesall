@@ -1879,6 +1879,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Description",
+      "value": "Añade tu dirección de correo para mantener el acceso a tu cuenta."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.ErrorEmailNotAllowed",
+      "value": "Lo sentimos, este correo no se puede usar."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AuthSessions.MessageApp",
       "value": "Al abrir %@, autorizaste que este bot te envíe mensajes."
     },
@@ -5427,6 +5437,11 @@
       "_": "types.LangPackString",
       "key": "ChannelBlacklist.Restricted",
       "value": "RESTRINGIDO"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChannelBlocklist.CommunityEmptyDescription",
+      "value": "Los usuarios expulsados son eliminados de la comunidad y sólo pueden volver si los añade un administrador. Los enlaces de invitación no funcionan para ellos."
     },
     {
       "_": "types.LangPackString",
@@ -11403,6 +11418,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatInputAccessory.HideSenderPremium",
+      "value": "Ocultar el nombre del remitente para los mensajes creados con IA está disponible con Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatLink.Unavailable",
       "value": "Parece que este enlace no existe."
     },
@@ -12973,6 +12993,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatService.AddedGroup",
+      "value": "%1$@ añadió este grupo a la comunidad %2$@."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.BotAddedToCommunity",
+      "value": "El bot fue añadido a la comunidad %1$@."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatService.ChangedToSameWallpaper",
       "value": "%1$@ estableció el mismo fondo para este chat"
     },
@@ -12980,6 +13010,11 @@
       "_": "types.LangPackString",
       "key": "ChatService.ChangedWallpaper",
       "value": "%1$@ estableció un nuevo fondo para este chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.ChannelAddedToCommunity",
+      "value": "El canal fue añadido a la comunidad %1$@."
     },
     {
       "_": "types.LangPackString",
@@ -13283,6 +13318,11 @@
       "_": "types.LangPackString",
       "key": "ChatService.ViewBackground",
       "value": "Ver fondo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.YouAddedGroup",
+      "value": "Añadiste este grupo a la comunidad %1$@."
     },
     {
       "_": "types.LangPackString",
@@ -13873,6 +13913,52 @@
       "_": "types.LangPackString",
       "key": "Common.Restart",
       "value": "Reiniciar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.AdminRequired",
+      "value": "Sólo los admins. de este chat pueden crear una comunidad para él."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.CantChangeLater",
+      "value": "No podrás cambiar esto más tarde."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DismissAdminInfo",
+      "value": "Perderás el acceso a las herramientas de administración de la comunidad, pero conservarás tus privilegios de admin. del grupo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.YouAreAdminInfo",
+      "value": "Ahora puedes editar la info. de %1$@ y usar otras herramientas de administración."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AllMembersDescription",
+      "value": "Permite a los miembros añadir sus grupos y canales a la comunidad."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.DeleteCommunityConfirm",
+      "value": "¿Quieres eliminar esta comunidad? Esto no se puede deshacer."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.SomethingWentWrong",
+      "value": "Algo salió mal."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.ApprovalInfo",
+      "value": "Los chats requieren la aprobación de los admins. antes de ser añadidos a la comunidad. [Cambiar ajustes](settings)"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityRequests.SuggestedHeader",
+      "one_value": "",
+      "other_value": "%d CHATS SUGERIDOS PARA ESTA COMUNIDAD"
     },
     {
       "_": "types.LangPackString",
@@ -28732,6 +28818,46 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextAiCompose.ErrorEmpty",
+      "value": "No puedes procesar un mensaje vacío."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AddMedia",
+      "value": "Añadir foto o video"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.FormulaPreviewPlaceholder",
+      "value": "La vista previa aparecerá aquí"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.AiPremiumRequired",
+      "value": "Las herramientas de IA en el editor de texto enriquecido están disponibles con Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.EmptyMessage",
+      "value": "No puedes enviar un mensaje vacío."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PremiumToastEdit",
+      "value": "Editar un mensaje con este formato requiere [Telegram Premium](premium)."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PremiumToastSend",
+      "value": "Enviar un mensaje con este formato requiere [Telegram Premium](premium)."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.RichFormattingRequiresPremium",
+      "value": "Este mensaje usa formato enriquecido, que requiere Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Ruw-6m-B2m.title",
       "value": "Seleccionar todo"
     },
@@ -33592,6 +33718,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarGiftNft.ResaleMinPriceInfo",
+      "value": "Esta opción sólo está disponible para regalos con un precio superior a %1$@."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarList.Ton",
       "value": "Grams"
     },
@@ -37985,6 +38116,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TranslateModal.PromptPlaceholder",
+      "value": "Describe cómo reescribir el texto…"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TranslateModal.ShareStyle",
       "value": "Compartir estilo"
     },
@@ -40648,5 +40784,5 @@
       "value": "Mostrar sustituciones"
     }
   ],
-  "version": 2232792
+  "version": 2232800
 }
