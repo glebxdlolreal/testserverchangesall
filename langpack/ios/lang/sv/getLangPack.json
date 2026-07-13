@@ -3307,7 +3307,7 @@
     {
       "_": "types.LangPackString",
       "key": "BalanceNeeded.FragmentTitle",
-      "value": "%@ TON behövs"
+      "value": "%@ Grams behövs"
     },
     {
       "_": "types.LangPackString",
@@ -12392,7 +12392,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.PostSuggestion.Suggest.OfferTon",
-      "value": "Erbjud TON"
+      "value": "Erbjud Grams"
     },
     {
       "_": "types.LangPackString",
@@ -12407,7 +12407,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.PostSuggestion.Suggest.PriceSectionTon",
-      "value": "ANGE PRIS I TON"
+      "value": "ANGE PRIS I GRAMS"
     },
     {
       "_": "types.LangPackString",
@@ -12543,6 +12543,21 @@
       "_": "types.LangPackString",
       "key": "Chat.PrivateMessageSeenTimestamp.YesterdayAt",
       "value": "läst igår kl %@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.PrivateMessageSentTimestamp.Date",
+      "value": "skickat %@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.PrivateMessageSentTimestamp.TodayAt",
+      "value": "skickat idag %@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.PrivateMessageSentTimestamp.YesterdayAt",
+      "value": "skickat igår %@"
     },
     {
       "_": "types.LangPackString",
@@ -13872,6 +13887,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Context.Ungroup",
+      "value": "Avgruppera"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.Context.UnhideArchive",
       "value": "Fäst upp i chattlistan"
     },
@@ -14921,6 +14941,21 @@
       "_": "types.LangPackString",
       "key": "ChatList.UndoArchiveTitle",
       "value": "Chatt arkiverades."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Action",
+      "value": "Avgruppera"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Text",
+      "value": "Chattar från den här communityt visas separat i din chattlista."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Title",
+      "value": "Avgruppera chattar?"
     },
     {
       "_": "types.LangPackString",
@@ -16491,6 +16526,330 @@
       "_": "types.LangPackString",
       "key": "Common.of",
       "value": "av"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Title",
+      "value": "Lägg till chatt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHiddenInfo",
+      "value": "Endast inbjudna medlemmar och communityadmins kan se den här chatten."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityInfo",
+      "value": "Du kommer inte att kunna ändra detta senare."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityVisibleInfo",
+      "value": "Alla i communityt kommer att kunna se den här chatten."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.BanFromCommunity",
+      "value": "Uteslut från communityt"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.AdminActions.Footer",
+      "one_value": "Användaren kommer att tas bort från [%@ chat >](community)",
+      "other_value": "Användaren kommer att tas bort från [%@ chattar >](community)"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.AdminActions.WarningChatCount",
+      "one_value": "%@ chatt",
+      "other_value": "%@ chattar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningTitle",
+      "value": "Varning"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.AddAdmin",
+      "value": "Lägg till administratör"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.Info",
+      "value": "Du kan lägga till admins som kan hjälpa dig att sköta ditt community."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.SectionTitle",
+      "value": "COMMUNITYADMINS"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.Title",
+      "value": "Administratörer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.Info",
+      "value": "Användare som har uteslutits från communityt av admins kan inte återansluta sig via inbjudningslänkar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.RemoveUser",
+      "value": "Ta bort användare"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.Title",
+      "value": "Borttagna användare"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.UsersSectionTitle",
+      "value": "BORTTAGNA ANVÄNDARE"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.AddChat",
+      "value": "Lägg till chatt i community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.Administrators",
+      "value": "Administratörer"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.Edit.ChatsHeader",
+      "one_value": "%@ CHATT",
+      "other_value": "%@ CHATTAR"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.ChatsLimitReached",
+      "value": "Tyvärr har detta community nått det maximala antalet chattar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.CommunityNamePlaceholder",
+      "value": "Communitynamn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.DeleteCommunity",
+      "value": "Ta bort community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.DeleteConfirmationText",
+      "value": "Är du säker på att du vill ta bort det här communityt?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PendingRequests",
+      "value": "Väntande förfrågningar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionAllMembers",
+      "value": "Alla medlemmar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionAllMembersInfo",
+      "value": "Låt medlemmarna lägga till sina grupper och kanaler i communityt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionOnlyAdmins",
+      "value": "Endast administratörer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionOnlyAdminsInfo",
+      "value": "Chattar som föreslås av medlemmar i communityn måste godkännas av en administratör."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.RemovedUsers",
+      "value": "Borttagna användare"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.WhoCanAddChats",
+      "value": "VEM KAN LÄGGA TILL CHATTAR"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionAddAdmins",
+      "value": "Lägg till communityadmins"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionBanUsers",
+      "value": "Utesluta medlemmar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionChangeInfo",
+      "value": "Redigera communityinfo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionManageLinkedPeers",
+      "value": "Redigera chattlista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.AddToExistingHeader",
+      "value": "LÄGG TILL I ETT BEFINTLIGT COMMUNITY"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.List.ChatCount",
+      "one_value": "%@ chatt",
+      "other_value": "%@ chattar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.CreateCommunity",
+      "value": "Skapa community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleGroup",
+      "value": "Gör din grupp till en del av ett community med flera relaterade chattar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.Title",
+      "value": "Community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Remove",
+      "value": "Ta bort"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Text",
+      "value": "Denna chatt kommer att tas bort från communityt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Title",
+      "value": "Ta bort chatten från communityt?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.Add",
+      "value": "Lägg till"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAll",
+      "value": "Lägg till alla"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAllChats",
+      "value": "Lägg till alla chattar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.Decline",
+      "value": "Neka"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAll",
+      "value": "Neka alla"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.EmptyText",
+      "value": "Det finns inga fler chattförslag för det här communityt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.EmptyTitle",
+      "value": "Inga väntande förfrågningar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.PrivateStatus",
+      "value": "endast synlig för medlemmarna"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.Title",
+      "value": "Väntande förfrågningar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.UnknownRequester",
+      "value": "Någon"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.AddChatButton",
+      "value": "Lägg till en chatt i communityt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ChatsLimitReached",
+      "value": "Tyvärr har detta community nått det maximala antalet chattar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestApprovedToast",
+      "value": "Du har lagt till gruppen i communityt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestHeader",
+      "value": "VÄNTANDE FÖRFRÅGAN"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequests",
+      "value": "Väntande förfrågningar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionHidden",
+      "value": "DOLDA CHATTAR"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionJoined",
+      "value": "CHATTAR DU DELTAR I"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionRequestable",
+      "value": "CHATTAR SOM DU KAN BEGÄRA ATT FÅ GÅ MED I"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionVisible",
+      "value": "CHATTAR DU KAN SE"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ShowAsOneChat",
+      "value": "Visa som en chatt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ShowAsOneChatInfo",
+      "value": "Gruppera alla communitychattar under ett enda objekt i chattlistan."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.Title",
+      "value": "Community"
     },
     {
       "_": "types.LangPackString",
@@ -20710,6 +21069,12 @@
       "value": "Om \"Allmänt\" är dold kan gruppmedlemmar svepa nedåt i ämneslistan för att se den."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "Currency.Grams",
+      "one_value": "%@ Gram",
+      "other_value": "%@ Grams"
+    },
+    {
       "_": "types.LangPackString",
       "key": "DataUpgrade.Running",
       "value": "Optimerar…"
@@ -23833,6 +24198,12 @@
       "other_value": "Köp för %@ Stjärnor"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "Gift.Buy.Confirm.BuyForGrams",
+      "one_value": "Köp för %@ Gram",
+      "other_value": "Köp för %@ Grams"
+    },
+    {
       "_": "types.LangPackString",
       "key": "Gift.Buy.Confirm.BuyForTon",
       "value": "Köp för %@ TON"
@@ -24271,7 +24642,7 @@
     {
       "_": "types.LangPackString",
       "key": "Gift.Offer.OfferTon",
-      "value": "Erbjud TON"
+      "value": "Erbjud Grams"
     },
     {
       "_": "types.LangPackString",
@@ -24513,6 +24884,12 @@
       "key": "Gift.Sell.Confirm.ListFor",
       "one_value": "Lägg ut för %@ Stjärna",
       "other_value": "Lägg ut för %@ Stjärnor"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Gift.Sell.Confirm.ListForGrams",
+      "one_value": "Lista för %@ Gram",
+      "other_value": "Lista för %@ Grams"
     },
     {
       "_": "types.LangPackString",
@@ -31701,6 +32078,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "MediaPicker.SetNewCommunityPhoto",
+      "value": "Välj ny communitybild"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "MediaPicker.SetNewGroupPhoto",
       "value": "Välj ny gruppbild"
     },
@@ -32086,6 +32468,16 @@
       "_": "types.LangPackString",
       "key": "Message.Contact",
       "value": "Kontakt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Message.EditFullDateFormat",
+      "value": "redigerat %1$@, %2$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Message.EditTodayFullDateFormat",
+      "value": "redigerad %1$@"
     },
     {
       "_": "types.LangPackString",
@@ -32832,7 +33224,7 @@
     {
       "_": "types.LangPackString",
       "key": "Monetization.Intro.Info.Text",
-      "value": "TON är en blockchain-plattform och kryptovaluta som Telegram använder för sin höga hastighet och låga provisioner på transaktioner. [Läs mer >]()"
+      "value": "Gram är kryptovalutan för blockkedjeplattformen TON, som Telegram använder tack vare dess höga hastighet och låga transaktionsavgifter. [Läs mer >]()"
     },
     {
       "_": "types.LangPackString",
@@ -32842,12 +33234,12 @@
     {
       "_": "types.LangPackString",
       "key": "Monetization.Intro.Info.Title",
-      "value": "Vad är #TON?"
+      "value": "Vad är #Gram?"
     },
     {
       "_": "types.LangPackString",
       "key": "Monetization.Intro.Split.Text",
-      "value": "Du får hälften av annonsintäkterna i TON."
+      "value": "Du får hälften av annonsintäkterna i Grams."
     },
     {
       "_": "types.LangPackString",
@@ -32867,7 +33259,7 @@
     {
       "_": "types.LangPackString",
       "key": "Monetization.Intro.Withdrawal.Text",
-      "value": "Du kan ta ut dina TON när du vill."
+      "value": "Du kan ta ut dina Grams när du vill."
     },
     {
       "_": "types.LangPackString",
@@ -32962,7 +33354,7 @@
     {
       "_": "types.LangPackString",
       "key": "Monetization.TonBalanceTitle",
-      "value": "TON saldo"
+      "value": "GRAM SALDO"
     },
     {
       "_": "types.LangPackString",
@@ -40007,6 +40399,46 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddBot",
+      "value": "Lägg till bot till ett community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddChannel",
+      "value": "Lägg till kanal till ett community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddGroup",
+      "value": "Lägg till grupp till ett community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.ChannelInfo",
+      "value": "Gör din kanal till en del av ett community med flera relaterade chattar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.GroupInfo",
+      "value": "Gör din grupp till en del av ett community med flera relaterade chattar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveBot",
+      "value": "Ta bort bot från communityt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveChannel",
+      "value": "Ta bort kanal från communityt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveGroup",
+      "value": "Ta bort grupp från communityt"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PeerInfo.CustomizeNotifications",
       "value": "Anpassa"
     },
@@ -40385,6 +40817,11 @@
       "_": "types.LangPackString",
       "key": "PeerInfo.GroupAboutItem",
       "value": "om"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.HiddenCommunityStatus",
+      "value": "Dold • %@"
     },
     {
       "_": "types.LangPackString",
@@ -43365,6 +43802,11 @@
       "_": "types.LangPackString",
       "key": "Privacy.GroupsAndChannels.InviteToChannelMultipleError",
       "value": "Beklagar, dessa användares integritetsval hindrar dig att skapa en grupp med dem."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Privacy.GroupsAndChannels.InviteToCommunityError",
+      "value": "Tyvärr kan du inte lägga till %@ i communityt på grund av %@s sekretessinställningar."
     },
     {
       "_": "types.LangPackString",
@@ -46361,6 +46803,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Settings.ChangePhoto",
+      "value": "Ändra bild"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Settings.ChangeProfilePhoto",
       "value": "Ändra profilbild"
     },
@@ -46823,6 +47270,11 @@
       "_": "types.LangPackString",
       "key": "Settings.SetNewProfilePhotoOrVideo",
       "value": "Välj ny profilbild"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Settings.SetPhoto",
+      "value": "Välj bild"
     },
     {
       "_": "types.LangPackString",
@@ -58488,6 +58940,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WebApp.GuardDisclaimerText",
+      "value": "**%1$@** använder **%2$@** för att välkomna nya medlemmar. Du måste godkänna användarvillkoren för mini-appar för att kunna fortsätta."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "WebApp.ImportData.AccountHeader",
       "value": "KONTO ATT IMPORTERA DATA FRÅN"
     },
@@ -58905,6 +59362,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WebBrowser.Exceptions.Create.ExternalText",
+      "value": "Ange en domän som du vill öppna i appens webbläsare."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "WebBrowser.Exceptions.Create.Placeholder",
       "value": "Ange URL"
     },
@@ -59264,5 +59726,5 @@
       "value": "Du har angett en felaktig säkerhetskod."
     }
   ],
-  "version": 21217719
+  "version": 21512858
 }
