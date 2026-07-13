@@ -1945,6 +1945,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Attachment.Article",
+      "value": "文章"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Attachment.Audio",
       "value": "音訊"
     },
@@ -13755,6 +13760,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Context.Ungroup",
+      "value": "分開顯示"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.Context.UnhideArchive",
       "value": "在聊天室清單中置頂"
     },
@@ -14790,6 +14800,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Action",
+      "value": "分開顯示"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Text",
+      "value": "來自此社群的聊天室將會在您的聊天室清單中單獨顯示。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Title",
+      "value": "分開顯示聊天室？"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.UnhideAction",
       "value": "固定"
     },
@@ -15406,7 +15431,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChatbotSetup.ErrorBotNotBusinessCapable",
-      "value": "此機器人尚不支援 Telegram 企業。"
+      "value": "此機器人尚不支援「秘書模式」。"
     },
     {
       "_": "types.LangPackString",
@@ -16352,6 +16377,201 @@
       "_": "types.LangPackString",
       "key": "Common.of",
       "value": "/"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.ActionAddToCommunity",
+      "value": "加入到社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHeader",
+      "value": "聊天室是否可見"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHidden",
+      "value": "已隱藏"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHiddenInfo",
+      "value": "只有受邀成員和社群管理員才能看到此聊天室。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityInfo",
+      "value": "您之後將無法變更此設定。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityVisibleInfo",
+      "value": "社群中的任何人都能看到此聊天室。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat.Title",
+      "value": "新增聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.BanFromCommunity",
+      "value": "遭社群封鎖"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningText",
+      "value": "封鎖 **%@** 也會將其從社群中的 **%@** 個聊天室中移出。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningTitle",
+      "value": "警告"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.Info",
+      "value": "被管理員移出社群的用戶，無法透過邀請連結重新加入。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.UsersSectionTitle",
+      "value": "已移除的用戶"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.DeleteCommunity",
+      "value": "刪除社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionAllMembers",
+      "value": "所有成員"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionAllMembersInfo",
+      "value": "允許成員將自己的群組和頻道新增到社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionOnlyAdmins",
+      "value": "僅限管理員"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionOnlyAdminsInfo",
+      "value": "由社群成員建議的聊天室需經管理員批准。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.WhoCanAddChats",
+      "value": "誰可以新增聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionBanUsers",
+      "value": "封鎖成員"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionManageLinkedPeers",
+      "value": "編輯聊天室清單"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.AddToExistingHeader",
+      "value": "加入到現有社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.CreateCommunity",
+      "value": "建立社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleBot",
+      "value": "將您的機器人加入擁有多個相關聊天室的社群中。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleChannel",
+      "value": "將您的頻道加入擁有多個相關聊天室的社群中。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.Info",
+      "value": "此群組僅限受邀者加入。\n只有群組成員才能查看此群組。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Remove",
+      "value": "移除"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAll",
+      "value": "全部批准"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAllChats",
+      "value": "新增全部聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovalInfo",
+      "value": "聊天室必須經管理員批准後才能加入社群。[變更設定 >](settings)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAll",
+      "value": "全部拒絕"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAllConfirmation",
+      "value": "您要拒絕所有 %@ 個加入社群的申請嗎？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.EmptyTitle",
+      "value": "沒有待處理的申請"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.PrivateStatus",
+      "value": "僅對成員可見"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.Title",
+      "value": "待處理的申請"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.AddChatButton",
+      "value": "將聊天室加入到社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionHidden",
+      "value": "隱藏聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionJoined",
+      "value": "已加入的聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionRequestable",
+      "value": "可申請加入的聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.Title",
+      "value": "社群"
     },
     {
       "_": "types.LangPackString",
@@ -31636,7 +31856,7 @@
     {
       "_": "types.LangPackString",
       "key": "MemberRequests.NoRequests",
-      "value": "無加入請求"
+      "value": "無加入申請"
     },
     {
       "_": "types.LangPackString",
@@ -31646,7 +31866,7 @@
     {
       "_": "types.LangPackString",
       "key": "MemberRequests.NoRequestsDescriptionGroup",
-      "value": "沒有待處理的加入請求。"
+      "value": "沒有待處理的加入申請。"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -31701,7 +31921,7 @@
     {
       "_": "types.LangPackString",
       "key": "MemberRequests.Title",
-      "value": "加入請求"
+      "value": "加入申請"
     },
     {
       "_": "types.LangPackString",
@@ -39560,6 +39780,51 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddBot",
+      "value": "將機器人加入社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddChannel",
+      "value": "將頻道加入社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddGroup",
+      "value": "將群組加入社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.BotInfo",
+      "value": "將您的機器人加入擁有多個相關聊天室的社群中。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.ChannelInfo",
+      "value": "將您的頻道加入擁有多個相關聊天室的社群中。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.GroupInfo",
+      "value": "將您的群組加入擁有多個相關聊天室的社群中。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveBot",
+      "value": "從社群中移除機器人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveChannel",
+      "value": "從頻道中移除機器人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveGroup",
+      "value": "從社群中移除群組"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PeerInfo.CustomizeNotifications",
       "value": "自訂"
     },
@@ -39791,7 +40056,7 @@
     {
       "_": "types.LangPackString",
       "key": "PeerInfo.Gifts.Hidden",
-      "value": "隱藏"
+      "value": "已隱藏"
     },
     {
       "_": "types.LangPackString",
@@ -40046,7 +40311,7 @@
     {
       "_": "types.LangPackString",
       "key": "PeerInfo.NotesInfo",
-      "value": "只有您自己看得見"
+      "value": "僅您自己可見"
     },
     {
       "_": "types.LangPackString",
@@ -42167,6 +42432,16 @@
       "_": "types.LangPackString",
       "key": "Premium.Restore.Success",
       "value": "完成"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.RichText",
+      "value": "格式化工具"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.RichTextInfo",
+      "value": "在訊息中加入標題、表格、內嵌媒體和 AI 內容。"
     },
     {
       "_": "types.LangPackString",
@@ -44912,6 +45187,66 @@
       "_": "types.LangPackString",
       "key": "Resolve.GiftErrorNotFound",
       "value": "抱歉，此禮物似乎不存在。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionSourceTitle",
+      "value": "LATEX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Bullet",
+      "value": "項目清單"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Checklist",
+      "value": "核對清單"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.None",
+      "value": "無"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Numbered",
+      "value": "數字清單"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Delete",
+      "value": "刪除表格"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuFormula",
+      "value": "公式"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuPullquote",
+      "value": "精選引言"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuQuote",
+      "value": "引用"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingText",
+      "value": "此訊息包含進階格式，需要 Telegram Premium 才能顯示。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.SubscribeToPremium",
+      "value": "訂閲 Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TableMenu.Alignment",
+      "value": "對齊"
     },
     {
       "_": "types.LangPackString",
@@ -52590,6 +52925,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.ActionGenerate",
+      "value": "生成"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ActionTitleNonPremium",
       "value": "增加上限"
     },
@@ -52730,6 +53070,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.StyleList.Prompt",
+      "value": "提示詞"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.StyleMenu.ButtonAdd",
       "value": "新增風格"
     },
@@ -52807,6 +53152,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.TextExpand",
       "value": "展開"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.TitleAICompose",
+      "value": "AI 生成"
     },
     {
       "_": "types.LangPackString",
@@ -58609,5 +58959,5 @@
       "value": "您輸入了無效的安全碼。"
     }
   ],
-  "version": 21442541
+  "version": 21511379
 }

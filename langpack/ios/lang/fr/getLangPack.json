@@ -16666,6 +16666,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.CommunityAdded.View",
+      "value": "Voir"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Edit.AddChat",
       "value": "Ajouter un échange à la communauté"
     },
@@ -16794,12 +16799,12 @@
     {
       "_": "types.LangPackString",
       "key": "Community.PrivateChat.Info",
-      "value": "Ce groupe est sur invitation.\nSeuls ses membres y ont accès."
+      "value": "Cet échange est sur invitation.\nSeuls ses membres y ont accès."
     },
     {
       "_": "types.LangPackString",
       "key": "Community.PrivateChat.MessageOwner",
-      "value": "Contacter le propriétaire du groupe"
+      "value": "Contacter le propriétaire de l'échange"
     },
     {
       "_": "types.LangPackString",
@@ -16844,7 +16849,7 @@
     {
       "_": "types.LangPackString",
       "key": "Community.Request.ApprovedToast",
-      "value": "Vous avez ajouté le groupe à la communauté."
+      "value": "Vous avez ajouté l'échange à la communauté."
     },
     {
       "_": "types.LangPackString",
@@ -16864,7 +16869,7 @@
     {
       "_": "types.LangPackString",
       "key": "Community.Request.DeclinedToast",
-      "value": "Vous avez refusé d'ajouter ce groupe à la communauté."
+      "value": "Vous avez refusé d'ajouter l'échange à la communauté."
     },
     {
       "_": "types.LangPackString",
@@ -16884,7 +16889,7 @@
     {
       "_": "types.LangPackString",
       "key": "Community.Request.RequesterSuggestsGroup",
-      "value": "%@ suggère ce groupe :"
+      "value": "%@ suggère cet échange :"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -16914,13 +16919,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.View.HiddenChatToast",
+      "value": "Vous ne pouvez pas rejoindre ou consulter cet échange sans avoir été invité par un administrateur."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.View.PendingRequestApprovedToast",
       "value": "Vous avez ajouté le groupe à la communauté."
     },
     {
       "_": "types.LangPackString",
       "key": "Community.View.PendingRequestDeclinedToast",
-      "value": "Vous avez refusé d'ajouter ce groupe à la communauté."
+      "value": "Vous avez refusé d'ajouter l'échange à la communauté."
     },
     {
       "_": "types.LangPackString",
@@ -16936,6 +16946,11 @@
       "_": "types.LangPackString",
       "key": "Community.View.SectionHidden",
       "value": "ÉCHANGES CACHÉS"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionJoined",
+      "value": "ÉCHANGES OÙ VOUS PARTICIPEZ"
     },
     {
       "_": "types.LangPackString",
@@ -34451,7 +34466,7 @@
     {
       "_": "types.LangPackString",
       "key": "Notification.CommunityAddedBot",
-      "value": "Le bot a été ajouté à la communauté %1$@"
+      "value": "Ce bot a été ajouté à la communauté %1$@"
     },
     {
       "_": "types.LangPackString",
@@ -34471,12 +34486,12 @@
     {
       "_": "types.LangPackString",
       "key": "Notification.CommunityRemovedBot",
-      "value": "Le bot a été supprimé d'une communauté"
+      "value": "Ce bot a été supprimé d'une communauté"
     },
     {
       "_": "types.LangPackString",
       "key": "Notification.CommunityRemovedChannel",
-      "value": "Le canal a été supprimé d'une communauté"
+      "value": "Ce canal a été supprimé d'une communauté"
     },
     {
       "_": "types.LangPackString",
@@ -40549,6 +40564,12 @@
       "value": "Effacer les messages"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "PeerInfo.Community",
+      "one_value": "Communauté de %@ échange",
+      "other_value": "Communauté de %@ échanges"
+    },
+    {
       "_": "types.LangPackString",
       "key": "PeerInfo.Community.AddBot",
       "value": "Ajouter un bot à une communauté"
@@ -46130,7 +46151,7 @@
     {
       "_": "types.LangPackString",
       "key": "RichText.PremiumToastText",
-      "value": "Pour envoyer un message avec cette mise en forme, vous devez être abonné à [Telegram Premium]()."
+      "value": "L'envoi d'un message avec cette mise en forme nécessite [Telegram Premium]()."
     },
     {
       "_": "types.LangPackString",
@@ -60072,5 +60093,5 @@
       "value": "Vous avez entré un code de sécurité invalide."
     }
   ],
-  "version": 21500987
+  "version": 21511263
 }

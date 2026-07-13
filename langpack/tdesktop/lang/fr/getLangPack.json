@@ -1233,13 +1233,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_community_added_channel",
+      "value": "Ce canal a été ajouté à la communauté {community}."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_chat",
+      "value": "Cet échange a été ajouté à la communauté {community}."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_community_added_unknown",
       "value": "{from} a ajouté ce groupe à une communauté."
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown_channel",
+      "value": "Ce canal a été ajouté à une communauté."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown_chat",
+      "value": "Cet échange a été ajouté à une communauté."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_community_removed",
       "value": "{from} a supprimé ce groupe de la communauté."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_removed_channel",
+      "value": "Ce canal a été supprimé de la communauté."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_removed_chat",
+      "value": "Cet échange a été supprimé de la communauté."
     },
     {
       "_": "types.LangPackString",
@@ -4562,6 +4592,26 @@
       "_": "types.LangPackString",
       "key": "lng_article_menu_item",
       "value": "Article"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_placeholder_author",
+      "value": "Ajouter un auteur"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_placeholder_cell",
+      "value": "Cellule"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_placeholder_quote",
+      "value": "Saisir une citation"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_placeholder_title",
+      "value": "Titre"
     },
     {
       "_": "types.LangPackString",
@@ -9388,6 +9438,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_add_about_channel",
+      "value": "Intégrez votre canal à une communauté avec plusieurs échanges liées."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_add_button",
       "value": "Ajouter le groupe à une communauté"
     },
@@ -9420,6 +9475,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_add_confirm_bot",
       "value": "Si ce bot est validé par un administrateur de la communauté, les membres de la communauté pourront le voir et l'utiliser."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_confirm_channel",
+      "value": "Si ce canal est approuvé par un administrateur de la communauté, ses abonnés pourront rejoindre ou demander à rejoindre d'autres échanges de la communauté."
     },
     {
       "_": "types.LangPackString",
@@ -9505,8 +9565,8 @@
     {
       "_": "types.LangPackStringPluralized",
       "key": "lng_community_ban_warning",
-      "one_value": "Bannir {user} supprimera aussi {count} échange de la communauté.",
-      "other_value": "Bannir {user} supprimera aussi {count} échanges de la communauté."
+      "one_value": "Bannir {user} supprimera aussi leur {count} échange de la communauté.",
+      "other_value": "Bannir {user} supprimera aussi leur {count} échanges de la communauté."
     },
     {
       "_": "types.LangPackString",
@@ -9587,6 +9647,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_create_hidden_bot",
+      "value": "Bot caché"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_create_hidden_channel",
+      "value": "Canal caché"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_create_name",
       "value": "Nom de la communauté"
     },
@@ -9608,7 +9678,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_community_delete_sure",
-      "value": "Voulez-vous vraiment supprimer cette communauté ? Cela entraînera la suppression de tous ses échanges."
+      "value": "Voulez-vous vraiment supprimer cette communauté ? Cela dissociera tous ses échanges."
     },
     {
       "_": "types.LangPackString",
@@ -9629,6 +9699,16 @@
       "_": "types.LangPackString",
       "key": "lng_community_hidden_not_accessible",
       "value": "Vous ne pouvez pas rejoindre ou consulter ce groupe tant qu'un administrateur ne vous a pas invité."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_not_accessible_bot",
+      "value": "Vous ne pouvez pas utiliser ce bot sans invitation d'un administrateur."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_not_accessible_channel",
+      "value": "Vous ne pouvez pas rejoindre ni consulter ce canal sans l'invitation d'un administrateur."
     },
     {
       "_": "types.LangPackString",
@@ -9761,6 +9841,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only_channel",
+      "value": "Ce canal est sur invitation uniquement. Seuls ses membres peuvent y accéder."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_request_message_owner",
       "value": "Contacter le propriétaire du groupe"
     },
@@ -9768,6 +9853,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_request_message_owner_bot",
       "value": "Contacter le propriétaire du bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_message_owner_channel",
+      "value": "Contacter le propriétaire du canal"
     },
     {
       "_": "types.LangPackString",
@@ -14273,7 +14363,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_ephemeral_cant_schedule",
-      "value": "Les messages éphémères ne peuvent pas être programmés."
+      "value": "Les messages temporaires ne peuvent pas être programmés."
     },
     {
       "_": "types.LangPackString",
@@ -23566,6 +23656,12 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "key": "lng_media_selected_message",
+      "one_value": "{count} Message",
+      "other_value": "{count} Messages"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "key": "lng_media_selected_photo",
       "one_value": "{count} photo",
       "other_value": "{count} photos"
@@ -23625,6 +23721,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_media_type_gifts",
+      "value": "Cadeaux"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_media_type_groups",
+      "value": "Groupes"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_media_type_links",
       "value": "Liens partagés"
     },
@@ -23640,13 +23746,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_media_type_posts",
+      "value": " Publications"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_media_type_rounds",
       "value": "Messages vidéo"
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_media_type_saved",
+      "value": "Enregistré"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_media_type_similar",
+      "value": "Similaire"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_media_type_songs",
       "value": "Fichiers audio"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_media_type_stories",
+      "value": "Stories"
     },
     {
       "_": "types.LangPackString",
@@ -28275,7 +28401,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_premium_summary_subtitle_rich_formatting",
-      "value": "Mise en forme enrichie"
+      "value": "Outils de mise en forme"
     },
     {
       "_": "types.LangPackString",
@@ -40999,5 +41125,5 @@
       "other_value": "Vous avez payé {count} étoiles."
     }
   ],
-  "version": 5711952
+  "version": 5715002
 }
