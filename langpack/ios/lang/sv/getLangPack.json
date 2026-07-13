@@ -15594,7 +15594,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChatbotSetup.ErrorBotNotBusinessCapable",
-      "value": "Denna bot stödjer inte Telegram Företag än."
+      "value": "Denna bot stöder inte Sekreterarläge ännu."
     },
     {
       "_": "types.LangPackString",
@@ -16838,6 +16838,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Request.AddAllConfirmation",
+      "value": "Vill du lägga till %@ chattar i communityt?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Request.ApprovalInfo",
       "value": "Chattar måste godkännas av en administratör innan de läggs till i communityt. [Ändra inställningar >](settings)"
     },
@@ -16855,6 +16860,11 @@
       "_": "types.LangPackString",
       "key": "Community.Request.DeclineAll",
       "value": "Neka alla"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAllConfirmation",
+      "value": "Vill du avvisa alla %@ förfrågningar om att gå med i communityt?"
     },
     {
       "_": "types.LangPackString",
@@ -16880,6 +16890,12 @@
       "_": "types.LangPackString",
       "key": "Community.Request.RequesterSuggestsGroup",
       "value": "%@ föreslår följande chatt:"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.Request.SectionTitle",
+      "one_value": "%@ CHATT FÖRESLÅS FÖR DETTA COMMUNITY",
+      "other_value": "%@ CHATTAR FÖRESLÅS FÖR DETTA COMMUNITY"
     },
     {
       "_": "types.LangPackString",
@@ -40570,6 +40586,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PeerInfo.Community.BotInfo",
+      "value": "Gör din bot till en del av ett community med flera relaterade chattar"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PeerInfo.Community.ChannelInfo",
       "value": "Gör din kanal till en del av ett community med flera relaterade chattar"
     },
@@ -60077,5 +60098,5 @@
       "value": "Du har angett en felaktig säkerhetskod."
     }
   ],
-  "version": 21514863
+  "version": 21514892
 }

@@ -4387,6 +4387,17 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CountryCode",
+      "value": "Landskod"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CountryLimit",
+      "one_value": "Du kan välja %1$s land.",
+      "other_value": "Du kan välja upp till %1$s länder."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CreateAHintForYourPassword",
       "value": "Ange en ledtråd till ditt lösenord"
     },
@@ -5865,6 +5876,11 @@
       "_": "types.LangPackString",
       "key": "EncryptionKeyDescription",
       "value": "Den här bilden och texten hämtades från krypteringsnyckeln för den här hemliga chatten med **%1$s**.\n\nOm den ser likadana ut på **%1$s's** enhet, är end-to-end kryptering säkrad."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EndsInDuration",
+      "value": "slutar om %1$s"
     },
     {
       "_": "types.LangPackString",
@@ -12794,6 +12810,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollDescription",
+      "value": "Beskrivning (valfritt)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollDescriptionEmpty",
+      "value": "Lägg till beskrivning"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollDescriptionInfo",
+      "value": "Beskrivningen visas ovanför omröstningens rubrik."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDiscard",
       "value": "Ta bort omröstning"
     },
@@ -12860,13 +12891,103 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingAdding",
+      "value": "Tillåt nya alternativ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingAddingOff",
+      "value": "Deltagarna kan inte lägga till nya alternativ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingAddingOn",
+      "value": "Deltagare kan lägga till nya alternativ"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingAnonymous",
       "value": "Anonym omröstning"
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingCountries",
+      "value": "Begränsa efter land"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOff",
+      "value": "Användare från alla länder kan rösta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOn",
+      "value": "Endast användare från utvalda länder kan rösta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOnSpecific",
+      "value": "Endast användare från %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDuration",
+      "value": "Ange sluttid"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDurationOff",
+      "value": "Omröstningen avslutas automatiskt vid en vald tidpunkt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDurationOn",
+      "value": "Röstningen avslutas %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResults",
+      "value": "Dölj resultat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResultsOff",
+      "value": "Resultaten visas efter röstning"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResultsOn",
+      "value": "Resultaten visas när omröstningen har avslutats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembers",
+      "value": "Begränsa till prenumeranter"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembersOff",
+      "value": "Användare som inte är prenumeranter kan rösta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembersOn",
+      "value": "Endast prenumeranter som gick med för minst 24 timmar sedan kan rösta"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingMultiple",
       "value": "Flera svar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMultipleOff",
+      "value": "Endast ett alternativ kan väljas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMultipleOn",
+      "value": "Det går att välja fler än ett alternativ"
     },
     {
       "_": "types.LangPackString",
@@ -12877,6 +12998,61 @@
       "_": "types.LangPackString",
       "key": "PollSettingQuizInfo",
       "value": "Omröstningar i quizläge har bara ett rätt svar. Användare kan inte ta tillbaka sina svar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingQuizOff",
+      "value": "Aktivera för att ange det rätta svaret"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingQuizOn",
+      "value": "Välj det enda rätta svaret"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevoting",
+      "value": "Tillåt ändring"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevotingOff",
+      "value": "Deltagare får bara rösta en gång"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevotingOn",
+      "value": "Deltagare kan ändra sitt val"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVoters",
+      "value": "Visa vem som valde"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVotersOff",
+      "value": "Svaren är anonyma"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVotersOn",
+      "value": "Visa namnet på den som valde vid varje alternativ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffle",
+      "value": "Blanda alternativen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffleOff",
+      "value": "Deltagare ser alternativen i samma ordning"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffleOn",
+      "value": "Svaren visas i slumpmässig ordning för varje deltagare"
     },
     {
       "_": "types.LangPackString",
@@ -14383,6 +14559,11 @@
       "_": "types.LangPackString",
       "key": "QuizAnonymous",
       "value": "Anonymt quiz"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "QuizDescriptionInfo",
+      "value": "Beskrivningen visas ovanför quizets titel."
     },
     {
       "_": "types.LangPackString",
@@ -15942,6 +16123,11 @@
       "key": "SearchApproximateResults",
       "one_value": "~%1$s resultat",
       "other_value": "~%1$s resultat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SearchCountry",
+      "value": "Sök…"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -20000,6 +20186,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WaitingResultsPoll",
+      "value": "Resultaten kommer att offentliggöras när omröstningen är avslutad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "WaitingResultsQuiz",
+      "value": "Resultaten kommer att visas när quiz avslutas"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Wallpaper",
       "value": "Bakgrund"
     },
@@ -23680,5 +23876,5 @@
       "other_value": "%1$s år"
     }
   ],
-  "version": 1618463
+  "version": 1623532
 }
