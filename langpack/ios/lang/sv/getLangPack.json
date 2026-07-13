@@ -1955,6 +1955,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Attachment.Article",
+      "value": "Artikel"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Attachment.Audio",
       "value": "Ljud"
     },
@@ -3206,6 +3211,11 @@
       "_": "types.LangPackString",
       "key": "AvatarEditor.SetChannelPhoto",
       "value": "Ange som kanalbild"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AvatarEditor.SetCommunityPhoto",
+      "value": "Använd som communitybild"
     },
     {
       "_": "types.LangPackString",
@@ -14501,6 +14511,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Remove",
+      "value": "Ta bort"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.RemoveFolder",
       "value": "Ta bort"
     },
@@ -16529,8 +16544,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Add.ActionAddToCommunity",
+      "value": "Lägg till i community"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Add.Title",
       "value": "Lägg till chatt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHeader",
+      "value": "CHATTENS SYNLIGHET"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHidden",
+      "value": "Dold"
     },
     {
       "_": "types.LangPackString",
@@ -16544,8 +16574,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityVisible",
+      "value": "Synlig"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Add.VisibilityVisibleInfo",
       "value": "Alla i communityt kommer att kunna se den här chatten."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat.Description",
+      "value": "Välj en chatt som du vill lägga till i den här communityn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat.Title",
+      "value": "Lägg till chatt"
     },
     {
       "_": "types.LangPackString",
@@ -16563,6 +16608,11 @@
       "key": "Community.AdminActions.WarningChatCount",
       "one_value": "%@ chatt",
       "other_value": "%@ chattar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningText",
+      "value": "Om **%@** blockeras kommer även **%@** som de har skapat att tas bort från communityt."
     },
     {
       "_": "types.LangPackString",
@@ -16608,6 +16658,16 @@
       "_": "types.LangPackString",
       "key": "Community.Blacklist.UsersSectionTitle",
       "value": "BORTTAGNA ANVÄNDARE"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Chat.JoinToView",
+      "value": "Du måste gå med i den här gruppen för att kunna se inläggen där."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.CommunityAdded.View",
+      "value": "Visa"
     },
     {
       "_": "types.LangPackString",
@@ -16718,6 +16778,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.List.SubtitleBot",
+      "value": "Gör din bot till en del av ett community med flera relaterade chattar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleChannel",
+      "value": "Gör din kanal till en del av ett community med flera relaterade chattar."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.List.SubtitleGroup",
       "value": "Gör din grupp till en del av ett community med flera relaterade chattar."
     },
@@ -16725,6 +16795,16 @@
       "_": "types.LangPackString",
       "key": "Community.List.Title",
       "value": "Community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.Info",
+      "value": "Den här chatten är endast för inbjudna.\nEndast medlemmarna kan se den."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.MessageOwner",
+      "value": "Skicka meddelande till chattens ägare"
     },
     {
       "_": "types.LangPackString",
@@ -16758,6 +16838,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Request.ApprovalInfo",
+      "value": "Chattar måste godkännas av en administratör innan de läggs till i communityt. [Ändra inställningar >](settings)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovedToast",
+      "value": "Du har lagt till chatten i communityt."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Request.Decline",
       "value": "Neka"
     },
@@ -16765,6 +16855,11 @@
       "_": "types.LangPackString",
       "key": "Community.Request.DeclineAll",
       "value": "Neka alla"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclinedToast",
+      "value": "Du har valt att inte lägga till chatten i communityt."
     },
     {
       "_": "types.LangPackString",
@@ -16780,6 +16875,11 @@
       "_": "types.LangPackString",
       "key": "Community.Request.PrivateStatus",
       "value": "endast synlig för medlemmarna"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsGroup",
+      "value": "%@ föreslår följande chatt:"
     },
     {
       "_": "types.LangPackString",
@@ -16803,8 +16903,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.View.HiddenChatToast",
+      "value": "Du kan inte gå med i eller se den här chatten förrän en administratör bjuder in dig."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.View.PendingRequestApprovedToast",
       "value": "Du har lagt till gruppen i communityt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestDeclinedToast",
+      "value": "Du har valt att inte lägga till chatten i communityt."
     },
     {
       "_": "types.LangPackString",
@@ -34339,6 +34449,46 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedBot",
+      "value": "Denna bot lades till i communityt %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedChannel",
+      "value": "Den här kanalen lades till i communityt %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroup",
+      "value": "%1$@ har lagt till den här gruppen i communityt %2$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroupYou",
+      "value": "Du har lagt till den här gruppen i communityt %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedBot",
+      "value": "Denna bot togs bort från ett community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedChannel",
+      "value": "Denna kanal togs bort från ett community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroup",
+      "value": "%1$@ har tagit bort den här gruppen från ett community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroupYou",
+      "value": "Du har tagit bort den här gruppen från ett community"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Notification.CopyProtection.Disabled",
       "value": "%1$@ tillät delning i denna chatt"
     },
@@ -40398,6 +40548,12 @@
       "value": "Rensa meddelanden"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "PeerInfo.Community",
+      "one_value": "Community med %@ chatt",
+      "other_value": "Community med %@ chattar"
+    },
+    {
       "_": "types.LangPackString",
       "key": "PeerInfo.Community.AddBot",
       "value": "Lägg till bot till ett community"
@@ -42588,6 +42744,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Premium.Limits.Messages",
+      "value": "Meddelanden"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.Limits.MessagesInfo",
+      "value": "Uttryck dig genom längre meddelanden"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Premium.Limits.PinnedChats",
       "value": "Fastnålade chattar"
     },
@@ -43069,6 +43235,16 @@
       "_": "types.LangPackString",
       "key": "Premium.Restore.Success",
       "value": "Klart"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.RichText",
+      "value": "Formateringsverktyg"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.RichTextInfo",
+      "value": "Lägg till rubriker, tabeller, inbäddade mediefiler och AI-genererat innehåll i meddelanden."
     },
     {
       "_": "types.LangPackString",
@@ -45840,6 +46016,156 @@
       "_": "types.LangPackString",
       "key": "Resolve.GiftErrorNotFound",
       "value": "Tyvärr, denna gåva verkar inte existera."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.AddMediaTitle",
+      "value": "Lägg till media"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaAdd",
+      "value": "Lägg till formula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaEdit",
+      "value": "Redigera formula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionResultTitle",
+      "value": "RESULTAT"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionSourceTitle",
+      "value": "LATEX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkRemove",
+      "value": "Ta bort"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkSet",
+      "value": "Ange"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkText",
+      "value": "Ange en URL för den markerade texten"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkTitle",
+      "value": "Länk"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Bullet",
+      "value": "Punktlista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Checklist",
+      "value": "Checklista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.None",
+      "value": "Ingen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Numbered",
+      "value": "Numrerad lista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.ConvertToText",
+      "value": "Konvertera till text"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Copy",
+      "value": "Kopiera tabell"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Delete",
+      "value": "Ta bort tabell"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuCode",
+      "value": "Kod"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuFormula",
+      "value": "Formula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuHeading",
+      "value": "Rubrik"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuHeadingItem",
+      "value": "Rubrik %@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuPullquote",
+      "value": "Citat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuQuote",
+      "value": "Citat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuText",
+      "value": "Text"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.PremiumToastText",
+      "value": "För att skicka ett meddelande med denna formatering krävs [Telegram Premium]()."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingText",
+      "value": "Det här meddelandet innehåller avancerad formatering, vilket kräver Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingTitle",
+      "value": "Ta bort formatering?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.SendWithoutFormatting",
+      "value": "Skicka utan formatering"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.SubscribeToPremium",
+      "value": "Prenumerera på Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TableMenu.Alignment",
+      "value": "Justering"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TitleArticle",
+      "value": "Text"
     },
     {
       "_": "types.LangPackString",
@@ -53656,6 +53982,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.ActionAddToPage",
+      "value": "Lägg till på sidan"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ActionApply",
       "value": "Applicera"
     },
@@ -53663,6 +53994,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.ActionClose",
       "value": "Stäng"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.ActionGenerate",
+      "value": "Generera"
     },
     {
       "_": "types.LangPackString",
@@ -53771,6 +54107,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.PromptPlaceholder",
+      "value": "Skapa text, formler eller tabeller..."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ResultBadge",
       "value": "Resultat"
     },
@@ -53804,6 +54145,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.StyleList.Add",
       "value": "Skapa"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.StyleList.Prompt",
+      "value": "Prompt"
     },
     {
       "_": "types.LangPackString",
@@ -53884,6 +54230,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.TextExpand",
       "value": "mer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.TitleAICompose",
+      "value": "Skapa med AI"
     },
     {
       "_": "types.LangPackString",
@@ -59726,5 +60077,5 @@
       "value": "Du har angett en felaktig säkerhetskod."
     }
   ],
-  "version": 21512858
+  "version": 21513291
 }
