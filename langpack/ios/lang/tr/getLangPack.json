@@ -1955,6 +1955,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Attachment.Article",
+      "value": "Makale"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Attachment.Audio",
       "value": "Ses"
     },
@@ -3206,6 +3211,11 @@
       "_": "types.LangPackString",
       "key": "AvatarEditor.SetChannelPhoto",
       "value": "Kanal Fotoğrafı Olarak Ayarla"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AvatarEditor.SetCommunityPhoto",
+      "value": "Topluluk Fotoğrafı Olarak Ayarla"
     },
     {
       "_": "types.LangPackString",
@@ -14496,6 +14506,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Remove",
+      "value": "Kaldır"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.RemoveFolder",
       "value": "Kaldır"
     },
@@ -16509,8 +16524,85 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.AddChat.Description",
+      "value": "Bu topluluğa eklemek için bir sohbet seçin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat.Title",
+      "value": "Sohbeti Ekle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.BanFromCommunity",
+      "value": "Topluluktan Yasakla"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.AdminActions.Footer",
+      "one_value": "Kullanıcı, [%@ sohbet >](community) grubundan çıkarılacaktır.",
+      "other_value": "Kullanıcı, [%@ sohbet >](community) grubundan çıkarılacaktır."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.AdminActions.WarningChatCount",
+      "one_value": "%@ sohbet",
+      "other_value": "%@ sohbet"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.AdminActions.WarningText",
       "value": "**%@** kişisini yasaklamak, onun **%@** sohbetini de topluluktan kaldıracaktır."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningTitle",
+      "value": "Uyarı"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.AddAdmin",
+      "value": "Yönetici Ekle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.Info",
+      "value": "Topluluğunuzu yönetmenize yardımcı olacak yöneticiler ekleyebilirsiniz."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.SectionTitle",
+      "value": "TOPLULUK YÖNETİCİLERİ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.Title",
+      "value": "Yöneticiler"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.Info",
+      "value": "Yöneticiler tarafından topluluktan çıkarılan kullanıcılar, davet bağlantıları yoluyla tekrar katılamazlar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.RemoveUser",
+      "value": "Kullanıcıyı Sil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.Title",
+      "value": "Silinen Kullanıcılar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.UsersSectionTitle",
+      "value": "SİLİNMİŞ KULLANICILAR"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Chat.JoinToView",
+      "value": "Bu grubun mesajlarını görüntülemek için gruba katılmanız gerekiyor."
     },
     {
       "_": "types.LangPackString",
@@ -16519,8 +16611,89 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Edit.AddChat",
+      "value": "Topluluğa Sohbet Ekle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.Administrators",
+      "value": "Yöneticiler"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.Edit.ChatsHeader",
+      "one_value": "%@ SOHBET",
+      "other_value": "%@ SOHBET"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.CommunityNamePlaceholder",
+      "value": "Topluluk Adı"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.DeleteCommunity",
+      "value": "Topluluğu Sil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.DeleteConfirmationText",
+      "value": "Bu topluluğu silmek istediğinizden emin misiniz?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PendingRequests",
+      "value": "Bekleyen Talepler"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionAllMembers",
+      "value": "Tüm Üyeler"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionAllMembersInfo",
+      "value": "Üyelerin gruplarını ve kanallarını topluluğa eklemelerine izin verin."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionOnlyAdmins",
+      "value": "Yalnızca Yöneticiler"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionOnlyAdminsInfo",
+      "value": "Topluluk üyeleri tarafından önerilen sohbetler, yönetici onayı gerektirir."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.RemovedUsers",
+      "value": "Silinen Kullanıcılar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.WhoCanAddChats",
+      "value": "KİM SOHBET EKLEYEBİLİR?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionAddAdmins",
+      "value": "Topluluk Yöneticilerini Ekle"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.EditAdmin.PermissionBanUsers",
       "value": "Üyeleri Yasakla"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionChangeInfo",
+      "value": "Topluluk Bilgilerini Düzenle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionManageLinkedPeers",
+      "value": "Sohbet Listesini Düzenle"
     },
     {
       "_": "types.LangPackString",
@@ -16544,6 +16717,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Request.AddAll",
+      "value": "Tümünü Ekle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAllChats",
+      "value": "Tüm Sohbetleri Ekle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAllConfirmation",
+      "value": "%@ sohbetlerini topluluğa eklemek ister misiniz?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Request.ApprovalInfo",
       "value": "Sohbetler, topluluğa eklenmeden önce yönetici onayı gerektirir. [Ayarları Değiştir >](settings)"
     },
@@ -16554,6 +16742,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAll",
+      "value": "Hepsini Reddet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAllConfirmation",
+      "value": "Topluluğa katılma taleplerinin tamamını %@ reddetmek istiyor musunuz?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Request.DeclinedToast",
       "value": "Sohbeti topluluğa eklemeyi reddettiniz."
     },
@@ -16561,6 +16759,12 @@
       "_": "types.LangPackString",
       "key": "Community.Request.RequesterSuggestsGroup",
       "value": "%@ şu sohbeti öneriyor:"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.Request.SectionTitle",
+      "one_value": "%@ BU TOPLULUK İÇİN ÖNERİLEN SOHBET",
+      "other_value": "%@ BU TOPLULUK İÇİN ÖNERİLEN SOHBET"
     },
     {
       "_": "types.LangPackString",
@@ -34085,6 +34289,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroup",
+      "value": "%1$@ bu grubu bir topluluktan çıkardı"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroupYou",
+      "value": "Bu grubu bir topluluktan çıkardınız"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Notification.CopyProtection.Disabled",
       "value": "%1$@ bu sohbette paylaşımı etkinleştirdi"
     },
@@ -42295,6 +42509,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Premium.Limits.Messages",
+      "value": "Mesajlar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.Limits.MessagesInfo",
+      "value": "Daha uzun mesajlarla kendinizi ifade edin"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Premium.Limits.PinnedChats",
       "value": "Sabitlenmiş Sohbetler"
     },
@@ -42776,6 +43000,11 @@
       "_": "types.LangPackString",
       "key": "Premium.Restore.Success",
       "value": "Bitti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.RichText",
+      "value": "Biçimlendirme Araçları"
     },
     {
       "_": "types.LangPackString",
@@ -43514,6 +43743,11 @@
       "_": "types.LangPackString",
       "key": "Privacy.GroupsAndChannels.InviteToChannelMultipleError",
       "value": "Üzgünüz, bu kullanıcıların gizlilik ayarları nedeniyle bir grup oluşturamazsınız."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Privacy.GroupsAndChannels.InviteToCommunityError",
+      "value": "Üzgünüz, %@ kişisinin gizlilik ayarları nedeniyle %@ kişisini topluluğa ekleyemezsiniz."
     },
     {
       "_": "types.LangPackString",
@@ -45550,8 +45784,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.AddMediaTitle",
+      "value": "Medya Ekle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaAdd",
+      "value": "Formülü Ekle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaEdit",
+      "value": "Formülü Düzenle"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichText.FormulaSectionResultTitle",
       "value": "SONUÇ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionSourceTitle",
+      "value": "LATEX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkSet",
+      "value": "Ayarla"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkText",
+      "value": "Seçili metin için bir URL belirleyin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkTitle",
+      "value": "Bağlantı"
     },
     {
       "_": "types.LangPackString",
@@ -45632,6 +45901,26 @@
       "_": "types.LangPackString",
       "key": "RichText.RemoveFormattingText",
       "value": "Bu mesaj, Telegram Premium gerektiren zengin biçimlendirme özellikleri kullanmaktadır."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingTitle",
+      "value": "Biçimlendirmeyi Kaldırmak İster misiniz?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.SendWithoutFormatting",
+      "value": "Biçimlendirme Yapmadan Gönder"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.SubscribeToPremium",
+      "value": "Premium'a Abone Ol"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TableMenu.Alignment",
+      "value": "Hizalama"
     },
     {
       "_": "types.LangPackString",
@@ -59538,5 +59827,5 @@
       "value": "Geçersiz bir güvenlik kodu girdiniz."
     }
   ],
-  "version": 21514184
+  "version": 21514639
 }
