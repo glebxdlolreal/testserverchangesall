@@ -2891,7 +2891,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChannelEarnLearnCoinAbout",
-      "value": "TON یک پلتفرم بلاکچین و رمزارز است که تلگرام از آن به دلیل سرعت بالا و کارمزد پایین تراکنش‌هایش استفاده می‌کند. ⁨{link}⁩"
+      "value": "Gram رمزارز پلتفرم بلاکچین TON است که تلگرام از آن به دلیل سرعت بالا و کارمزد پایین تراکنش‌هایش استفاده می‌کند. ⁨{link}⁩"
     },
     {
       "_": "types.LangPackString",
@@ -3750,6 +3750,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ConfirmBuyGiftForGramDescription",
+      "value": "فروشنده فقط پرداخت با Gram را می‌پذیرد."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ConfirmDialogMessageRemoveFee",
       "value": "آیا از این که به **⁨{peer}⁩** اجازه دهید به صورت رایگان برای شما پیام ارسال کند، اطمینان دارید؟"
     },
@@ -4142,6 +4147,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CurrencyGram",
+      "value": "Gram"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CurrencyStars",
       "value": "ستاره"
     },
@@ -4311,6 +4321,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DescriptionAboutGram",
+      "value": "برای خریداری هدیه و پیشنهاد پست به کانال‌ها، از Gram استفاده کنید."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DescriptionAgeVerificationModal",
       "value": "این فرآیند تنها یک بار و با استفاده از دوربین تلفن همراه شما انجام می‌شود. سلفی شما توسط تلگرام ذخیره نخواهد شد."
     },
@@ -4360,6 +4375,11 @@
       "_": "types.LangPackString",
       "key": "DescriptionOptionalPlaceholder",
       "value": "توضیحات (اختیاری)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DescriptionPayInGram",
+      "value": "با پرداخت با Gram، نیازی به انتظار 21 روزه پیش از انتقال مجدد هدیه نخواهید داشت."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -4891,6 +4911,11 @@
       "_": "types.LangPackString",
       "key": "EnterPasswordDescription",
       "value": "لطفاً جهت کامل کردن این عملیات، گذرواژه تأیید دو مرحله‌ای خود را وارد کنید."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EnterPriceInGram",
+      "value": "قیمت را به Gram وارد کنید"
     },
     {
       "_": "types.LangPackString",
@@ -6420,7 +6445,7 @@
     {
       "_": "types.LangPackString",
       "key": "GiftInfoTonText",
-      "value": "این هدیه در بلاکچین TON است. ⁨{link}⁩"
+      "value": "این هدیه در بلاکچین Gram است. ⁨{link}⁩"
     },
     {
       "_": "types.LangPackString",
@@ -6993,6 +7018,22 @@
       "value": "جستجوی سراسری"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "GramAmountText",
+      "one_value": "⁨{amount}⁩ Gram",
+      "other_value": "⁨{amount}⁩ Gram"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GramGiftReceived",
+      "value": "شارژ Gram"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GramModalHint",
+      "value": "شما می‌توانید موجودی Gram خود را از طریق Fragment شارژ کنید."
+    },
+    {
       "_": "types.LangPackString",
       "key": "GraphZoomOut",
       "value": "کوچکنمایی"
@@ -7370,6 +7411,11 @@
       "_": "types.LangPackString",
       "key": "JustNowAgo",
       "value": "همین الان"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "LabelPayInGram",
+      "value": "پرداخت با Gram"
     },
     {
       "_": "types.LangPackString",
@@ -7991,6 +8037,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "MenuGram",
+      "value": "موجودی Gram"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "MenuInstallApp",
       "value": "نصب برنامه"
     },
@@ -8354,6 +8405,11 @@
       "_": "types.LangPackString",
       "key": "MonetizationBalanceZeroInfo",
       "value": "شما قادر خواهید بود پاداش را با استفاده از Fragment دریافت کنید. Fragment یک پلتفرم شخص ثالث است که تبلیغ کنندگان برای پرداخت تبلیغات از آن استفاده می‌کنند. ⁨{link}⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MonetizationInfoGramTitle",
+      "value": "💎 Gram چیست؟"
     },
     {
       "_": "types.LangPackString",
@@ -8844,6 +8900,16 @@
       "key": "OnlineCount",
       "one_value": "⁨{count}⁩ آنلاین",
       "other_value": "⁨{count}⁩ آنلاین"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "OnlyAcceptGram",
+      "value": "فقط Gram پذیرفته شود"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "OnlyAcceptGramDescription",
+      "value": "برخلاف پرداخت‌های ستاره‌ای، در صورتی که خریدار به شما Gram پرداخت کند، ریسک بازپرداخت وجود نخواهد داشت."
     },
     {
       "_": "types.LangPackString",
@@ -9744,6 +9810,11 @@
       "_": "types.LangPackString",
       "key": "PriceChangedText",
       "value": "قیمت در حال حاضر از **⁨{originalAmount}⁩** به **⁨{newAmount}⁩** تغییر کرده است. آیا می‌خواهید قیمت جدید را پرداخت کنید؟"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PriceInGram",
+      "value": "قیمت به Gram"
     },
     {
       "_": "types.LangPackString",
@@ -12284,6 +12355,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SuggestMessagePriceDescriptionGram",
+      "value": "انتخاب کنید که برای انتشار این پست، چند Gram پرداخت می‌کنید."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SuggestMessagePriceDescriptionStars",
       "value": "انتخاب کنید که برای انتشار این پست، چند ستاره پرداخت می‌کنید."
     },
@@ -12385,22 +12461,22 @@
     {
       "_": "types.LangPackString",
       "key": "SuggestedPostReceiveAmount",
-      "value": "⏳ ⁨{peer}⁩، پس از آنلاین بودن پست به مدت ⁨{duration}⁩، پرداخت را دریافت خواهد کرد."
+      "value": "⏳ ⁨{peer}⁩، پس از گذشت ⁨{duration}⁩ ساعت از انتشار پست، پرداخت را دریافت خواهد کرد."
     },
     {
       "_": "types.LangPackString",
       "key": "SuggestedPostReceiveAmountYou",
-      "value": "⏳ ⁨{peer}⁩، پس از آنلاین بودن پست به مدت ⁨{duration}⁩، پرداخت شما را دریافت خواهد کرد."
+      "value": "⏳ ⁨{peer}⁩، پس از گذشت ⁨{duration}⁩ ساعت از انتشار پست، پرداخت شما را دریافت خواهد کرد."
     },
     {
       "_": "types.LangPackString",
       "key": "SuggestedPostRefund",
-      "value": "🔁 در صورتی که ⁨{peer}⁩، پست را پیش از ⁨{duration}⁩ از آنلاین بودن آن حذف کند، هزینه بازپرداخت خواهد شد."
+      "value": "🔁 اگر ⁨{peer}⁩، پست را پیش از ⁨{duration}⁩ از انتشار آن حذف کند، هزینه بازپرداخت خواهد شد."
     },
     {
       "_": "types.LangPackString",
       "key": "SuggestedPostRefundYou",
-      "value": "🔁 در صورتی که ⁨{peer}⁩، پست را پیش از ⁨{duration}⁩ از آنلاین بودن آن حذف کند، پرداخت شما بازپرداخت خواهد شد."
+      "value": "🔁 اگر ⁨{peer}⁩، پست را پیش از ⁨{duration}⁩ از انتشار آن حذف کند، پرداخت شما بازپرداخت خواهد شد."
     },
     {
       "_": "types.LangPackString",
@@ -13664,5 +13740,5 @@
       "value": "نام شما"
     }
   ],
-  "version": 265148
+  "version": 265648
 }

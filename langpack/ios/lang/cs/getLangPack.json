@@ -14161,6 +14161,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Context.Ungroup",
+      "value": "Zrušit seskupení"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.Context.UnhideArchive",
       "value": "Připnout na seznam konverzací"
     },
@@ -15252,6 +15257,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Action",
+      "value": "Zrušit seskupení"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Text",
+      "value": "Chaty z této komunity se ve vašem seznamu chatů zobrazí samostatně."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Title",
+      "value": "Zrušit seskupení chatů?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.UnhideAction",
       "value": "Připnout"
     },
@@ -15880,7 +15900,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChatbotSetup.ErrorBotNotBusinessCapable",
-      "value": "Tento bot zatím nepodporuje Telegram Business."
+      "value": "Tento bot zatím nepodporuje Režim sekretářky."
     },
     {
       "_": "types.LangPackString",
@@ -16903,6 +16923,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningText",
+      "value": "Zablokování **%@** způsobí také odstranění **%@**, které tento uživatel v komunitě vytvořil."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.AdminActions.WarningTitle",
       "value": "Varování"
     },
@@ -17099,6 +17124,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Remove",
+      "value": "Odebrat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Text",
+      "value": "Tento chat bude odebrán z komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Title",
+      "value": "Odebrat tento chat z komunity?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Request.Add",
       "value": "Přidat"
     },
@@ -17168,7 +17208,7 @@
     {
       "_": "types.LangPackString",
       "key": "Community.Request.Title",
-      "value": "Čekající žádosti"
+      "value": "Nevyřízené žádosti"
     },
     {
       "_": "types.LangPackString",
@@ -17182,13 +17222,68 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.View.ChatsLimitReached",
+      "value": "Je nám líto, ale v této komunitě byl dosažen maximální počet chatů."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.View.HiddenChatToast",
       "value": "Do tohoto chatu se nemůžete připojit ani ho prohlížet, dokud vás nepozve správce."
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestApprovedToast",
+      "value": "Přidal/a jste skupinu do komunity."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.View.PendingRequestDeclinedToast",
       "value": "Odmítl/a jste přidat chat do komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestHeader",
+      "value": "NEVYŘÍZENÁ ŽÁDOST"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequests",
+      "value": "Nevyřízené žádosti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionHidden",
+      "value": "SKRYTÉ CHATY"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionJoined",
+      "value": "CHATY, VE KTERÝCH JSTE"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionRequestable",
+      "value": "CHATY, DO KTERÝCH MŮŽETE POŽÁDAT O PŘIJETÍ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionVisible",
+      "value": "CHATY, KTERÉ MŮŽETE ZOBRAZIT"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ShowAsOneChat",
+      "value": "Zobrazit jako 1 chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ShowAsOneChatInfo",
+      "value": "Seskupit všechny komunitní chaty do jedné položky v seznamu chatů."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.Title",
+      "value": "Komunita"
     },
     {
       "_": "types.LangPackString",
@@ -32787,6 +32882,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "MediaPicker.SetNewCommunityPhoto",
+      "value": "Nastavit novou fotku komunity"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "MediaPicker.SetNewGroupPhoto",
       "value": "Nastavit novou fotku skupiny"
     },
@@ -41453,6 +41553,51 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddBot",
+      "value": "Přidat bota do komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddChannel",
+      "value": "Přidat kanál do komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddGroup",
+      "value": "Přidat skupinu do komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.BotInfo",
+      "value": "Začleňte svého bota do komunity s několika souvisejícími chaty"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.ChannelInfo",
+      "value": "Začleňte svůj kanál do komunity s několika souvisejícími chaty"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.GroupInfo",
+      "value": "Začleňte svou skupinu do komunity s několika souvisejícími chaty"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveBot",
+      "value": "Odebrat bota z komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveChannel",
+      "value": "Odebrat kanál z komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveGroup",
+      "value": "Odebrat skupinu z komunity"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PeerInfo.CustomizeNotifications",
       "value": "Přizpůsobit"
     },
@@ -41833,6 +41978,11 @@
       "_": "types.LangPackString",
       "key": "PeerInfo.GroupAboutItem",
       "value": "O"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.HiddenCommunityStatus",
+      "value": "Skryto • %@"
     },
     {
       "_": "types.LangPackString",
@@ -44133,7 +44283,7 @@
     {
       "_": "types.LangPackString",
       "key": "Premium.RichTextInfo",
-      "value": "Do zpráv vkládejte záhlaví, tabulky, seznamy, obrázky a vložená média."
+      "value": "Do zpráv vkládejte záhlaví, tabulky, vložená média a AI obsah."
     },
     {
       "_": "types.LangPackString",
@@ -47066,7 +47216,7 @@
     {
       "_": "types.LangPackString",
       "key": "RichText.PremiumToastText",
-      "value": "K odeslání zprávy s tímto formátováním je zapotřebí [Telegram Premium]()."
+      "value": "Odeslání zprávy s tímto formátováním vyžaduje [Telegram Premium]()."
     },
     {
       "_": "types.LangPackString",
@@ -48100,6 +48250,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Settings.ChangePhoto",
+      "value": "Změnit fotku"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Settings.ChangeProfilePhoto",
       "value": "Změnit fotku profilu"
     },
@@ -48562,6 +48717,11 @@
       "_": "types.LangPackString",
       "key": "Settings.SetNewProfilePhotoOrVideo",
       "value": "Nastavit novou fotku"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Settings.SetPhoto",
+      "value": "Nastavit fotku"
     },
     {
       "_": "types.LangPackString",
@@ -61356,5 +61516,5 @@
       "value": "Byl zadán neplatný kód."
     }
   ],
-  "version": 21515030
+  "version": 21515093
 }
