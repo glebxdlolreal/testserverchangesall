@@ -2942,7 +2942,8 @@
       console.error('[Telegram.WebApp] Url protocol is not supported', url);
       throw Error('WebAppTgUrlInvalid');
     }
-    if (a.hostname != 't.me') {
+    if (a.hostname != 't.me' &&
+        a.hostname != 'telegram.me') {
       console.error('[Telegram.WebApp] Url host is not supported', url);
       throw Error('WebAppTgUrlInvalid');
     }
@@ -2963,7 +2964,7 @@
     a.href = url;
     if (a.protocol != 'http:' &&
         a.protocol != 'https:' ||
-        a.hostname != 't.me' ||
+        (a.hostname != 't.me' && a.hostname != 'telegram.me') ||
         !(match = a.pathname.match(/^\/(\$|invoice\/)([A-Za-z0-9\-_=]+)$/)) ||
         !(slug = match[2])) {
       console.error('[Telegram.WebApp] Invoice url is invalid', url);
