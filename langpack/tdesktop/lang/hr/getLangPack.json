@@ -1246,6 +1246,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown",
+      "value": "{from} dodaje ovu grupu u zajednicu."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_community_added_unknown_channel",
       "value": "Ovaj kanal je dodan u zajednicu."
     },
@@ -1253,6 +1258,11 @@
       "_": "types.LangPackString",
       "key": "lng_action_community_added_unknown_chat",
       "value": "Ovaj razgovor je dodan u zajednicu."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_removed",
+      "value": "{from} uklanja ovu grupu iz zajednice."
     },
     {
       "_": "types.LangPackString",
@@ -4465,6 +4475,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_insert_footer",
+      "value": "Podnožje"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_insert_heading",
       "value": "Naslov"
     },
@@ -4532,6 +4547,26 @@
       "_": "types.LangPackString",
       "key": "lng_article_insert_text",
       "value": "Tekst"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_blocks",
+      "value": "Članak sadrži previše blokova."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_columns",
+      "value": "Članak sadrži tablicu s previše stupaca."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_length",
+      "value": "Članak je predug."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_media",
+      "value": "Članak ima previše medijskih datoteka."
     },
     {
       "_": "types.LangPackString",
@@ -4607,6 +4642,11 @@
       "_": "types.LangPackString",
       "key": "lng_article_premium_required_link",
       "value": "Telegram Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_submit_empty",
+      "value": "Članak ne može biti prazan."
     },
     {
       "_": "types.LangPackString",
@@ -9555,6 +9595,11 @@
       "value": "Unaprijedi u admina"
     },
     {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_title",
+      "value": "Sada ste administrator zajednice"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "Korisnik će biti uklonjen iz {count} razgovora.",
       "key": "lng_community_ban_about",
@@ -9562,11 +9607,21 @@
       "other_value": "Korisnik će biti uklonjen iz {count} razgovora ."
     },
     {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_toggle",
+      "value": "Zabrani pristup zajednici"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "Zabrana pristupa korisniku {user} će ukloniti iz zaјednice i {count} njegova razgovora.",
       "key": "lng_community_ban_warning",
       "one_value": "Zabrana pristupa korisniku {user} će ukloniti iz zaјednice i {count} njegov razgovor.",
       "other_value": "Zabrana pristupa korisniku {user} će ukloniti iz zaјednice i {count} njegovih razgovora."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_warning_title",
+      "value": "Upozorenje"
     },
     {
       "_": "types.LangPackString",
@@ -11265,6 +11320,11 @@
       "_": "types.LangPackString",
       "key": "lng_context_view_channel",
       "value": "Podaci o kanalu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_context_view_community",
+      "value": "Podaci o zajednici"
     },
     {
       "_": "types.LangPackString",
@@ -14136,6 +14196,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_emoji_group_badge",
+      "value": "Emoji paket grupe"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_emoji_group_from_featured",
       "value": "Odaberite neke popularne emojije"
     },
@@ -14288,6 +14353,11 @@
       "_": "types.LangPackString",
       "key": "lng_ephemeral_about",
       "value": "Samo vi vidite ovu poruku. Nestat će nakon ponovnog pokretanja aplikacije."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_cant_schedule",
+      "value": "Privremene poruke se ne mogu zakazati."
     },
     {
       "_": "types.LangPackString",
@@ -23799,6 +23869,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_media_type_media",
+      "value": "Mediji"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_media_type_photos",
       "value": "Slike"
     },
@@ -29596,6 +29671,13 @@
       "value": "Upravljanje ograničenim korisnicima"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "{count} medija",
+      "key": "lng_profile_media",
+      "one_value": "{count} medij",
+      "other_value": "{count} medija"
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_profile_migrate_body",
       "value": "Ako želite dodati više članova, unaprijedite grupu u supergrupu."
@@ -29901,6 +29983,11 @@
       "_": "types.LangPackString",
       "key": "lng_profile_sure_remove_admin",
       "value": "Želite li ukloniti {user} iz administratora?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_profile_tab_set_as_main",
+      "value": "Postavi kao glavnu karticu"
     },
     {
       "_": "types.LangPackString",
@@ -32716,6 +32803,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_search_tab_archive",
+      "value": "Arhiva"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_search_tab_by_hashtag",
       "value": "Unesite hashtag da biste pronašli poruke koje ga sadrže."
     },
@@ -32753,6 +32845,11 @@
       "_": "types.LangPackString",
       "key": "lng_search_tab_this_chat",
       "value": "Ovaj razgovor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_search_tab_this_community",
+      "value": "Ova zajednica"
     },
     {
       "_": "types.LangPackString",
@@ -41413,5 +41510,5 @@
       "other_value": "Platili ste {count} zvjezdica."
     }
   ],
-  "version": 5717033
+  "version": 5717657
 }
