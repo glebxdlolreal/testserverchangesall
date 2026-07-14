@@ -2993,7 +2993,7 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   background: #E29829;
   opacity: 10%;
 }
-.tm-console-line--inf:before {
+.tm-console-line--spin:before {
   background: #4CB2FF;
 }
 
@@ -3055,6 +3055,25 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
 .tm-console-line--inf .tm-console-gutter,
 .tm-console-line--inf .tm-console-body {
   color: var(--accent-color);
+}
+
+.tm-console-line--spin .tm-console-gutter {
+  color: var(--accent-color);
+}
+.tm-console-line--spin .tm-console-body {
+  color: #5B6875;
+  font-style: italic;
+}
+.tm-console-line--spin .tm-console-gutter::before {
+  content: "⠋";
+  animation: ora-frames 0.8s steps(1) infinite;
+}
+@keyframes ora-frames {
+  0%  { content: "⠋"; } 10% { content: "⠙"; }
+  20% { content: "⠹"; } 30% { content: "⠸"; }
+  40% { content: "⠼"; } 50% { content: "⠴"; }
+  60% { content: "⠦"; } 70% { content: "⠧"; }
+  80% { content: "⠇"; } 90% { content: "⠏"; }
 }
 
 .tm-console-input-line {
