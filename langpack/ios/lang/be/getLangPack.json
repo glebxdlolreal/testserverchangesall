@@ -12776,7 +12776,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.PrivateMessageSentTimestamp.YesterdayAt",
-      "value": "адпраўлена ўчора ў %@"
+      "value": "адпраўлена ўчора а %@"
     },
     {
       "_": "types.LangPackString",
@@ -14138,6 +14138,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Context.Ungroup",
+      "value": "Разгрупаваць"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.Context.UnhideArchive",
       "value": "Замацаваць у спісе чатаў"
     },
@@ -15221,6 +15226,16 @@
       "_": "types.LangPackString",
       "key": "ChatList.UndoArchiveTitle",
       "value": "Чат пераведзены ў архіў."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Text",
+      "value": "Чаты з гэтай супольнасці будуць адлюстроўвацца асобна ў вашым спісе чатаў."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Title",
+      "value": "Разгрупаваць чаты?"
     },
     {
       "_": "types.LangPackString",
@@ -16796,6 +16811,26 @@
       "_": "types.LangPackString",
       "key": "Common.of",
       "value": "з"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHidden",
+      "value": "Схавана"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.BanFromCommunity",
+      "value": "Заблакіраваць у супольнасці"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningTitle",
+      "value": "Папярэджанне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionManageLinkedPeers",
+      "value": "Рэдагаванне спіса суполак"
     },
     {
       "_": "types.LangPackString",
@@ -34762,6 +34797,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedBot",
+      "value": "Гэты бот быў дададзены ў супольнасць %1$@."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedChannel",
+      "value": "Гэты канал быў дададзены ў супольнасць %1$@."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroup",
+      "value": "%1$@ дадаў(-ла) гэтую суполку ў супольнасць %2$@."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroupYou",
+      "value": "Вы дадалі гэтую суполку ў супольнасць %1$@."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedChannel",
+      "value": "Гэты канал быў аддзеляны ад супольнасці"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Notification.CopyProtection.Disabled",
       "value": "%1$@ уключыў(-ла) абагульванне ў гэтым чаце"
     },
@@ -43671,6 +43731,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Premium.RichText",
+      "value": "Інструменты фарматавання"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.RichTextInfo",
+      "value": "Загалоўкі, табліцы, убудаваныя медыяфайлы і AI-змесціва ў паведамленнях."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Premium.Semiannual",
       "value": "Раз на паўгода"
     },
@@ -44407,6 +44477,11 @@
       "_": "types.LangPackString",
       "key": "Privacy.GroupsAndChannels.InviteToChannelMultipleError",
       "value": "На жаль, вы не можаце стварыць суполку з гэтымі карыстальнікамі з-за іх налад прыватнасці."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Privacy.GroupsAndChannels.InviteToCommunityError",
+      "value": "Прабачце, вы не можаце дадаць %@ у супольнасць з-за налад прыватнасці %@."
     },
     {
       "_": "types.LangPackString",
@@ -46471,6 +46546,81 @@
       "_": "types.LangPackString",
       "key": "Resolve.GiftErrorNotFound",
       "value": "Падобна, такога падарунка не існуе."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionSourceTitle",
+      "value": "Ураўненне LaTeX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Bullet",
+      "value": "Маркіраваны спіс"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Checklist",
+      "value": "Кантрольны спіс"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Numbered",
+      "value": "Нумараваны спіс"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Delete",
+      "value": "Выдаліць табліцу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuCode",
+      "value": "Код"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuHeadingItem",
+      "value": "Загаловак %@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuPullquote",
+      "value": "Выцягнутая цытата"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuText",
+      "value": "Тэкст"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingText",
+      "value": "Гэта паведамленне выкарыстоўвае пашыранае фарматаванне, для якога патрабуецца Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingTitle",
+      "value": "Выдаліць фарматаванне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.SendWithoutFormatting",
+      "value": "Адправіць без фарматавання"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.SubscribeToPremium",
+      "value": "Падпісацца на Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TableMenu.Alignment",
+      "value": "Выраўноўванне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TitleArticle",
+      "value": "Назва"
     },
     {
       "_": "types.LangPackString",
@@ -54553,6 +54703,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.ActionAddToPage",
+      "value": "Дадаць на старонку"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ActionApply",
       "value": "Прымяніць"
     },
@@ -54560,6 +54715,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.ActionClose",
       "value": "Закрыць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.ActionGenerate",
+      "value": "Згенерыраваць"
     },
     {
       "_": "types.LangPackString",
@@ -54783,6 +54943,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.TextExpand",
       "value": "больш"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.TitleAICompose",
+      "value": "Стварыць з дапамогай AI"
     },
     {
       "_": "types.LangPackString",
@@ -60705,5 +60870,5 @@
       "value": "Вы ўвялі памылковы код бяспекі."
     }
   ],
-  "version": 21438704
+  "version": 21523781
 }
