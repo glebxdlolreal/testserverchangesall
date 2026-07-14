@@ -42,10 +42,10 @@ var BotFunction = {
           if (result !== 'delete') return;
           Aj.apiRequest('deleteCloudFunction', { bid: Aj.state.botId, name: Aj.state.functionName }, function(res) {
             if (res.ok) {
-              Aj.onUnload(function() { Main.showSuccessToast(l('WEB_FUNCTION_DELETED')); });
-              _backButton();
+              Aj.onUnload(function() { TWebApp.showSuccessToast(l('WEB_FUNCTION_DELETED')); });
+              TBackButton.onClick();
             } else {
-              Main.showErrorToast(res.error);
+              TWebApp.showErrorToast(res.error);
             }
           });
         });
@@ -55,13 +55,13 @@ var BotFunction = {
   onSave() {
     var name = $('#function-name').val().trim();
     if (!name || !/^[a-z][a-z0-9_]{0,62}[a-z0-9]$/i.test(name)) {
-      Main.showErrorToast(l('WEB_FUNCTION_NAME_INVALID'));
+      TWebApp.showErrorToast(l('WEB_FUNCTION_NAME_INVALID'));
       $('#function-name').focus();
       return;
     }
     var existing = Aj.state.existingFunctions || [];
     if (existing.indexOf(name) !== -1) {
-      Main.showErrorToast(l('WEB_FUNCTION_NAME_EXISTS'));
+      TWebApp.showErrorToast(l('WEB_FUNCTION_NAME_EXISTS'));
       $('#function-name').focus();
       return;
     }
@@ -76,10 +76,10 @@ var BotFunction = {
       WebApp.MainButton.hideProgress();
       if (res.ok) {
         BotCodeEditor.savedCode = code;
-        Aj.onUnload(function() { Main.showSuccessToast(l('WEB_FUNCTION_SAVED')); });
-        _backButton();
+        Aj.onUnload(function() { TWebApp.showSuccessToast(l('WEB_FUNCTION_SAVED')); });
+        TBackButton.onClick();
       } else {
-        Main.showErrorToast(res.error || l('WEB_FUNCTION_SAVE_ERROR'));
+        TWebApp.showErrorToast(res.error || l('WEB_FUNCTION_SAVE_ERROR'));
       }
     });
   },
