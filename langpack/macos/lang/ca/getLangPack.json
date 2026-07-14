@@ -2765,7 +2765,7 @@
     {
       "_": "types.LangPackString",
       "key": "Business.ChatBots.BotNotSupported",
-      "value": "Aquest bot encara no és compatible amb el Telegram Business."
+      "value": "Aquest bot encara no és compatible amb el Mode secretari."
     },
     {
       "_": "types.LangPackString",
@@ -12709,6 +12709,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Ungroup",
+      "value": "Desagrupa"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupChats",
+      "value": "Voleu desagrupar els xats?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupChatsInfo",
+      "value": "Els xats de la comunitat apareixeran separats a la llista de xats."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.UnhideMuted",
       "value": "Mostra els silenciats"
     },
@@ -12973,6 +12988,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatService.AddedGroup",
+      "value": "%1$@ ha afegit el grup a la comunitat %2$@."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.BotAddedToCommunity",
+      "value": "S'ha afegit el bot a la comunitat %1$@."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatService.ChangedToSameWallpaper",
       "value": "%1$@ ha establert el mateix fons per al xat"
     },
@@ -12980,6 +13005,11 @@
       "_": "types.LangPackString",
       "key": "ChatService.ChangedWallpaper",
       "value": "%1$@ ha establert un fons nou per al xat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.ChannelAddedToCommunity",
+      "value": "El canal s'ha afegit a la comunitat %1$@."
     },
     {
       "_": "types.LangPackString",
@@ -13283,6 +13313,11 @@
       "_": "types.LangPackString",
       "key": "ChatService.ViewBackground",
       "value": "Mostra el fons"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.YouAddedGroup",
+      "value": "Heu afegit el grup a la comunitat %1$@."
     },
     {
       "_": "types.LangPackString",
@@ -13873,6 +13908,208 @@
       "_": "types.LangPackString",
       "key": "Common.Restart",
       "value": "Reinicia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.AddToExisting",
+      "value": "AFEGIU A UNA COMUNITAT EXISTENT"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.CantChangeLater",
+      "value": "No ho podreu tornar a canviar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.CreateCommunity",
+      "value": "Crea una comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SubtitleGroup",
+      "value": "Feu que el grup formi part d'una comunitat amb molts altres xats relacionats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Title",
+      "value": "Comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.VisibleInfo",
+      "value": "Tothom en la comunitat podrà veure el xat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.InviteOnlyInfo",
+      "value": "El xat és restringit. \nNomés els membres el poden veure."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ChatVisibility",
+      "value": "VISIBILITAT DEL XAT"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorLimitReached",
+      "value": "La comunitat ha assolit el nombre màxim de xats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.BanMembers",
+      "value": "Bandejar membres"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.EditGroupList",
+      "value": "Editar la llista de xats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.Title",
+      "value": "Administradors"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AddAChatToCommunity",
+      "value": "Afegeix un xat a la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Administrators",
+      "value": "Administradors"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AllMembers",
+      "value": "Tots els membres"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AllMembersDescription",
+      "value": "Permet que els membres afegeixin els seus grups i canals a la comunitat."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityEdit.ChatsCount",
+      "one_value": "%d XAT",
+      "other_value": "%d XATS"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.CommunityName",
+      "value": "Nom de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.DeleteCommunity",
+      "value": "Elimina la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.DeleteCommunityConfirm",
+      "value": "Segur que voleu eliminar la comunitat? Això no es pot desfer."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Hidden",
+      "value": "Ocult"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.OnlyAdmins",
+      "value": "Només l'administració"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.OnlyAdminsDescription",
+      "value": "Cal que l'administració aprovi els xats suggerits pels membres de la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.PendingRequests",
+      "value": "Sol·licituds pendents"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.WhoCanAddChats",
+      "value": "QUI POT AFEGIR XATS"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInfo.Community",
+      "value": "Comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.SectionJoined",
+      "value": "Xats en què esteu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.SectionRequestable",
+      "value": "Xats a què podeu demanar unir-vos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.SectionVisible",
+      "value": "Xats que podeu veure"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Add",
+      "value": "Afegeix"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Decline",
+      "value": "Declina"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Empty",
+      "value": "Cap sol·licitud pendent."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.PendingRequests",
+      "value": "Sol·licituds pendents"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityRequests.SuggestedHeader",
+      "one_value": "%d XAT SUGGERIT PER A LA COMUNITAT",
+      "other_value": "%d XATS SUGGERITS PER A LA COMUNITAT"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.VisibleOnlyToMembers",
+      "value": "visible només per als membres"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.PendingRequests",
+      "value": "Sol·licituds pendents"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Remove",
+      "value": "Elimina"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.RemoveChatConfirm",
+      "value": "Voleu eliminar el xat de la comunitat?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowAsOneChat",
+      "value": "Mostra com un xat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowAsOneChatInfo",
+      "value": "Agrupa tots els xats de la comunitat en un element a la llista de xats."
     },
     {
       "_": "types.LangPackString",
@@ -14830,6 +15067,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DeleteGroupMessages.BanFromCommunity",
+      "value": "Bandeja de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DeleteGroupMessages.DeleteAllFromPeer",
       "value": "Elimina-ho tot de: %1$@"
     },
@@ -14847,6 +15089,12 @@
       "_": "types.LangPackString",
       "key": "DeleteGroupMessages.ReactionTitle",
       "value": "Elimineu 1 reacció"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "DeleteGroupMessages.RemovedFromChatsCount",
+      "one_value": "L'usuari s'eliminarà d'%1$d xat.",
+      "other_value": "L'usuari s'eliminarà dels %1$d xats."
     },
     {
       "_": "types.LangPackString",
@@ -19118,6 +19366,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupInfo.AddGroupToCommunity",
+      "value": "Afegeix el grup a una comunitat"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupInfo.AddUserLeftError",
       "value": "Si una persona abandona un grup, heu de ser als seus contactes del Telegram per a tornar a afegir-la-hi.\n\nEncara s'hi podria unir amb un enllaç d'invitació, sempre que no sigui als usuaris expulsats."
     },
@@ -19175,6 +19428,11 @@
       "_": "types.LangPackString",
       "key": "GroupInfo.Permissions.SectionTitle",
       "value": "QUÈ PODEN FER ELS MEMBRES D'AQUEST GRUP?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.RemoveGroupFromCommunity",
+      "value": "Elimina el grup de la comunitat"
     },
     {
       "_": "types.LangPackString",
@@ -26915,6 +27173,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumBoarding.RichFormattingInfo",
+      "value": "Afegiu capçaleres, taules, fitxers integrats i contingut d'IA als missatges."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumBoarding.Stories.ExpirationDuration.Info",
       "value": "Personalitzeu la durada de les històries, com ara 6 o 48 hores."
     },
@@ -28717,6 +28980,11 @@
       "_": "types.LangPackString",
       "key": "RequestJoin.Sent",
       "value": "S'ha enviat la sol·licitud"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ListNone",
+      "value": "Cap"
     },
     {
       "_": "types.LangPackString",
@@ -38383,8 +38651,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UserInfo.AddBotToCommunity",
+      "value": "Afegeix el bot a una comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.AddBotToCommunityInfo",
+      "value": "Feu que el bot formi part d'una comunitat amb molts altres xats relacionats"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UserInfo.ManagedBotCreatedBy",
       "value": "Creat i gestionat pel "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.RemoveBotFromCommunityButton",
+      "value": "Elimina el bot de la comunitat"
     },
     {
       "_": "types.LangPackString",
@@ -40636,5 +40919,5 @@
       "value": "Mostra les substitucions"
     }
   ],
-  "version": 2226370
+  "version": 2233607
 }

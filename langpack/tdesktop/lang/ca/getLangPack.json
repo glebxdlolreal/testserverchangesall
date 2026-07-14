@@ -1228,6 +1228,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_community_added",
+      "value": "{from} ha afegit el grup a la comunitat {community}."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_channel",
+      "value": "El canal s'ha afegit a la comunitat {community}."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_removed_channel",
+      "value": "S'ha eliminat el canal de la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_created_channel",
       "value": "S'ha creat el canal"
     },
@@ -8492,7 +8507,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_chatbots_not_supported",
-      "value": "Aquest bot encara no és compatible amb el Telegram Business."
+      "value": "Aquest bot encara no és compatible amb el Mode secretari."
     },
     {
       "_": "types.LangPackString",
@@ -8975,6 +8990,241 @@
       "_": "types.LangPackString",
       "key": "lng_comments_open_none",
       "value": "Deixa un comentari"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_about",
+      "value": "Feu que el grup formi part d'una comunitat amb molts altres xats relacionats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_about_bot",
+      "value": "Feu que el bot formi part d'una comunitat amb molts altres xats relacionats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_button",
+      "value": "Afegeix el grup a una comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_button_bot",
+      "value": "Afegeix el bot a una comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_button_channel",
+      "value": "Afegeix el canal a una comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_chat",
+      "value": "Afegeix un xat a la comunitat"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_ban_about",
+      "one_value": "L'usuari s'eliminarà d'{count} xat.",
+      "other_value": "L'usuari s'eliminarà dels {count} xats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_toggle",
+      "value": "Bandeja de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_warning_title",
+      "value": "Atenció"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_chats",
+      "one_value": "{count} xat",
+      "other_value": "{count} xats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chats_joined",
+      "value": "Xats en què esteu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chats_requestable",
+      "value": "Xats ocults"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chats_viewable",
+      "value": "Xats que podeu veure"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_create",
+      "value": "Crea una comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_create_name",
+      "value": "Nom de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_delete",
+      "value": "Elimina la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_delete_sure",
+      "value": "Segur que voleu eliminar la comunitat? Això desenllaçarà tots els xats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_existing",
+      "value": "Afegiu a una comunitat existent"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_status",
+      "value": "Ocult"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_all_members",
+      "value": "Tots els membres"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_all_members_about",
+      "value": "Permet que els membres afegeixin els seus grups i canals a la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_only_admins",
+      "value": "Només l'administració"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_only_admins_about",
+      "value": "Cal que l'administració aprovi els xats suggerits pels membres de la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_who_add",
+      "value": "Qui pot afegir xats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_remove_button",
+      "value": "Elimina el grup de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_remove_button_bot",
+      "value": "Elimina el bot de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_remove_button_channel",
+      "value": "Elimina el canal de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_add",
+      "value": "Afegeix"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_decline",
+      "value": "Declina"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only",
+      "value": "El xat és restringit. Només els membres el poden veure."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_only_members",
+      "value": "Visible només per als membres"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_add_all",
+      "value": "Afegeix-ho tot"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_add_all_sure",
+      "one_value": "Voleu afegir {count} xat a la comunitat?",
+      "other_value": "Voleu afegir {count} xats a la comunitat?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_add_all_title",
+      "value": "Afegeix tots els xats"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_count",
+      "one_value": "{count} xat suggerit per a la comunitat",
+      "other_value": "{count} xats suggerits per a la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_decline_all",
+      "value": "Declina-ho tot"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_decline_all_sure",
+      "one_value": "Voleu declinar {count} sol·licitud d'unió a la comunitat?",
+      "other_value": "Voleu declinar les {count} sol·licituds d'unió a la comunitat?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_title",
+      "value": "Sol·licituds pendents"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_show_as_one_about",
+      "value": "Agrupa tots els xats de la comunitat en un element a la llista de xats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_status",
+      "value": "comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_title",
+      "value": "Comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ungroup",
+      "value": "Desagrupa"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ungroup_text",
+      "value": "Els xats de la comunitat apareixeran separats a la llista de xats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ungroup_title",
+      "value": "Desagrupeu els xats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_note",
+      "value": "No ho podreu tornar a canviar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_title",
+      "value": "Visibilitat del xat"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -26943,6 +27193,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_premium_summary_about_rich_formatting",
+      "value": "Afegiu capçaleres, taules, fitxers integrats i contingut d'IA als missatges."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_premium_summary_about_stories",
       "value": "Publicacions il·limitades, ordre prioritari, mode d'incògnit, historial de vistes permanent i molt més."
     },
@@ -30496,6 +30751,16 @@
       "_": "types.LangPackString",
       "key": "lng_rights_chat_voice_messages",
       "value": "Missatges de veu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_rights_community_ban",
+      "value": "Bandejar membres"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_rights_community_linked",
+      "value": "Editar la llista de xats"
     },
     {
       "_": "types.LangPackString",
@@ -39772,5 +40037,5 @@
       "other_value": "Heu pagat {count} estrelles."
     }
   ],
-  "version": 5700086
+  "version": 5717101
 }
