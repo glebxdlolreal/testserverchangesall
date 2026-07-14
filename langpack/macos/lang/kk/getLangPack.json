@@ -1879,6 +1879,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Description",
+      "value": "Тіркелгіңізге қолжетімділікті сақтау үшін пошта қосыңыз."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.ErrorInvalidEmail",
+      "value": "Жарамды пошта енгізіңіз."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Title",
+      "value": "Пошта қосу"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AuthSessions.MessageApp",
       "value": "%@ қолданбасын ашқанда, бұл боттың сізге хат жіберуіне рұқсат бердіңіз."
     },
@@ -5427,6 +5442,11 @@
       "_": "types.LangPackString",
       "key": "ChannelBlacklist.Restricted",
       "value": "ШЕКТЕЛДІ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChannelBlocklist.CommunityEmptyDescription",
+      "value": "Әкімшілер бірлестіктен бұғатталған қолданушылар оған шақыру сілтемесі арқылы қайта қосыла алмайды."
     },
     {
       "_": "types.LangPackString",
@@ -12993,6 +13013,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatService.AddedGroup",
+      "value": "%1$@ бұл топты %2$@ бірлестігіне қосты."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.BotAddedToCommunity",
+      "value": "Бұл бот %1$@ бірлестігіне қосылды."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatService.ChangedToSameWallpaper",
       "value": "%1$@ сіз ұсынған тұсқағазды өзіне орнатты"
     },
@@ -13000,6 +13030,11 @@
       "_": "types.LangPackString",
       "key": "ChatService.ChangedWallpaper",
       "value": "%1$@ осы чатқа жаңа тұсқағаз орнатты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.ChannelAddedToCommunity",
+      "value": "Бұл арна %1$@ бірлестігіне қосылды."
     },
     {
       "_": "types.LangPackString",
@@ -13303,6 +13338,11 @@
       "_": "types.LangPackString",
       "key": "ChatService.ViewBackground",
       "value": "Тұсқағазды көру"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.YouAddedGroup",
+      "value": "Бұл топты %1$@ бірлестігіне қостыңыз."
     },
     {
       "_": "types.LangPackString",
@@ -13901,8 +13941,29 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Communities.CantChangeLater",
+      "value": "Бұны кейін өзгерте алмайсыз."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Communities.ChatVisibility",
       "value": "ЧАТТЫҢ КӨРІНУІ"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Communities.Chats",
+      "one_value": "",
+      "other_value": "%1$d чат"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.CommunityName",
+      "value": "Бірлестік атауы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.CreateCommunity",
+      "value": "Бірлестік құру"
     },
     {
       "_": "types.LangPackString",
@@ -13911,13 +13972,54 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Communities.HiddenInfo",
+      "value": "Бұл чатты тек шақырылған мүшелер мен бірлестік әкімшілері көреді."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Communities.Members",
+      "one_value": "",
+      "other_value": "%1$d мүше"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.NewCommunity",
+      "value": "Жаңа бірлестік"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SubtitleBot",
+      "value": "Ботты бірнеше ұқсас чаттары бар бірлестіктің бір бөлігі етіңіз."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SubtitleChannel",
+      "value": "Арнаңызды бірнеше ұқсас чаттары бар бірлестіктің бір бөлігі етіңіз."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Communities.SubtitleGroup",
       "value": "Тобыңызды бірнеше ұқсас чаттары бар бірлестіктің бір бөлігі етіңіз."
     },
     {
       "_": "types.LangPackString",
+      "key": "Communities.Title",
+      "value": "Бірлестік"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Communities.Visible",
       "value": "Көрінетін"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.VisibleInfo",
+      "value": "Бұл чатты бірлестіктегі кез келген адам көре алады."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Continue",
+      "value": "Жалғастыру"
     },
     {
       "_": "types.LangPackString",
@@ -13931,6 +14033,42 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Group",
+      "value": "Топ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.InviteOnlyInfo",
+      "value": "Бұл жабық топ. Оны тек \nмүшелері көре алады."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.Members",
+      "one_value": "",
+      "other_value": "%1$d мүше"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.MessageGroupOwner",
+      "value": "Топ иесіне жазу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoThanks",
+      "value": "Жоқ, рақмет"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.YouAreAdmin",
+      "value": "Сіз бірлестік әкімшісісіз"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.YouAreAdminInfo",
+      "value": "Енді %1$@ ақпарын өңдей аласыз және басқа әкімші құралын қолдана аласыз."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAdd.ChatVisibility",
       "value": "ЧАТТЫҢ КӨРІНУІ"
     },
@@ -13941,8 +14079,79 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorLimitReached",
+      "value": "Бұл бірлестіктің чаттар саны шегіне жетті."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.HiddenInfo",
+      "value": "Бұл чатты тек шақырылған мүшелер мен бірлестік әкімшілері көреді."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityAdd.Members",
+      "one_value": "",
+      "other_value": "%1$d мүше"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Title",
+      "value": "Чат қосу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.VisibleInfo",
+      "value": "Бұл чатты бірлестіктегі кез келген адам көре алады."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.AddAdmin",
+      "value": "Әкімші қосу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.BanMembers",
+      "value": "Мүшелерді бұғаттау"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.Dismiss",
+      "value": "Әкімшіліктен шығару"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.EditGroupList",
+      "value": "Чат тізімін өңдеу"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAdmin.EditName",
       "value": "Бірлестік атауын өңдеу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.PermissionsHeader",
+      "value": "ӘКІМШІ ҚҰҚЫҒЫ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.Save",
+      "value": "Сақтау"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.AddAdmin",
+      "value": "Әкімші қосу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.StatusAdmin",
+      "value": "әкімші"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.Title",
+      "value": "Әкімшілер"
     },
     {
       "_": "types.LangPackString",
@@ -13961,8 +14170,35 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityInfo.Community",
+      "value": "Бірлестік"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityInfo.CommunityWithChats",
+      "one_value": "",
+      "other_value": "%1$d чаты бар бірлестік"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.AddChat",
+      "value": "Чат қосу"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityList.AddChatToCommunity",
       "value": "Бірлестікке чат қосу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.DefaultTitle",
+      "value": "Бірлестік"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityList.Members",
+      "one_value": "",
+      "other_value": "%1$d мүше"
     },
     {
       "_": "types.LangPackString",
@@ -13986,13 +14222,106 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityRequests.Add",
+      "value": "Қосу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.AddAll",
+      "value": "Бәрін қосу"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityRequests.ApprovalInfo",
       "value": "Чаттар бірлестікке қосылмас бұрын әкімшінің мақұлдауын талап етеді. [Баптауды өзгерту](settings)"
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityRequests.Decline",
+      "value": "Қабылдамау"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.DeclineAll",
+      "value": "Бәрін қабылдамау"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Empty",
+      "value": "Қосылу өтініші жоқ"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityRequests.MembersCount",
+      "one_value": "",
+      "other_value": "%d мүше"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.PendingRequests",
+      "value": "Тексерілмеген өтініштер"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Someone",
+      "value": "Біреу"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityRequests.SuggestedHeader",
+      "one_value": "Бұл бірлестік үшін %d чат ұсынылды",
+      "other_value": "Бұл бірлестік үшін %d чат ұсынылды"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.SuggestsGroup",
+      "value": "%1$@ мына чатты ұсынады:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Unknown",
+      "value": "Белгісіз"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.VisibleOnlyToMembers",
+      "value": "тек мүшелерге көрінеді"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.VisibleOnlyToMembersSuffix",
+      "value": " · тек мүшелерге көрінеді"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityView.AddChatToCommunity",
       "value": "Бірлестікке чат қосу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.HideChat",
+      "value": "Жасыру"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityView.Members",
+      "one_value": "",
+      "other_value": "%1$d мүше"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.PendingRequests",
+      "value": "Тексерілмеген өтініштер"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Remove",
+      "value": "Жою"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.RemoveChatConfirm",
+      "value": "Чатты бірлестіктен жоясыз ба?"
     },
     {
       "_": "types.LangPackString",
@@ -14018,6 +14347,21 @@
       "_": "types.LangPackString",
       "key": "CommunityView.ShowAsOneChat",
       "value": "Бір чат қып көрсету"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowAsOneChatInfo",
+      "value": "Барлық бірлестік чатын чаттар тізіміндегі бір элементке топтастырыңыз."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowChat",
+      "value": "Көрсету"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Title",
+      "value": "Бірлестік"
     },
     {
       "_": "types.LangPackString",
@@ -14975,6 +15319,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DeleteGroupMessages.Ban",
+      "value": "Бұғаттау"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DeleteGroupMessages.BanFromCommunity",
       "value": "Бірлестіктен бұғаттау"
     },
@@ -14994,9 +15343,26 @@
       "value": "Реакцияны жою"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "DeleteGroupMessages.MemberCount",
+      "one_value": "",
+      "other_value": "%1$d мүше"
+    },
+    {
       "_": "types.LangPackString",
       "key": "DeleteGroupMessages.ReactionTitle",
       "value": "1 реакцияны жою"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "DeleteGroupMessages.RemovedFromChatsCount",
+      "one_value": "",
+      "other_value": "Қолданушы %1$d чаттан шығарылады"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteGroupMessages.WarningTitle",
+      "value": "Ескерту"
     },
     {
       "_": "types.LangPackString",
@@ -19330,6 +19696,16 @@
       "_": "types.LangPackString",
       "key": "GroupInfo.Permissions.SectionTitle",
       "value": "ОСЫ ТОПТЫҢ МҮШЕСІ НЕ ІСТЕЙ АЛАДЫ?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.RemoveGroupFromCommunity",
+      "value": "Топты бірлестіктен жою"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.RemoveGroupFromCommunityConfirm",
+      "value": "Бұл топты бірлестіктен жоясыз ба?"
     },
     {
       "_": "types.LangPackString",
@@ -27075,6 +27451,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumBoarding.RichFormattingTitle",
+      "value": "Пішімдеу құралдары"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumBoarding.Stories.ExpirationDuration.Info",
       "value": "Хикая 6 не 48 сағат көрсетілсін деп орната аласыз."
     },
@@ -28880,6 +29261,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextAiCompose.AddToPage",
+      "value": "Хатқа қосу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.Generate",
+      "value": "Генерациялау"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.PromptPlaceholder",
+      "value": "Мәтін, формула не кесте генерациялау..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.Title",
+      "value": "ЖИ арқылы жасау"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.DecreaseIndent",
       "value": "Шегіністі азайту"
     },
@@ -28895,8 +29296,93 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.LookUp",
+      "value": "Іздеу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Share",
+      "value": "Бөлісу…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Placeholder.AddAuthor",
+      "value": "Автор қосу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Placeholder.TypeSomething",
+      "value": "Бірдеңе жазыңыз..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignCenter",
+      "value": "Ортаға туралау"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignLeft",
+      "value": "Солға туралау"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignRight",
+      "value": "Оңға туралау"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteColumn",
+      "value": "Бағанды жою"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteColumns",
+      "value": "Бағандарды жою"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteRow",
+      "value": "Қатарды жою"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteRows",
+      "value": "Қатарларды жою"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditorWindow.CodeBlock",
       "value": "Код"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.CodeLanguage",
+      "value": "Бағдарламалау тілі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.Edit",
+      "value": "Өңдеу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PremiumToastSend",
+      "value": "Хатты осы пішіммен жіберу үшін [Telegram Premium](premium) қажет."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PullQuote",
+      "value": "Бөлек дәйексөз"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.RemoveFormatting",
+      "value": "Пішімдеуді жою"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.RichFormattingRequiresPremium",
+      "value": "Бұл хат Telegram Premium-ді қажет ететін пішімдеуді қолданады."
     },
     {
       "_": "types.LangPackString",
@@ -38163,6 +38649,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TranslateModal.PromptStyle",
+      "value": "Генерация"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TranslateModal.ShareStyle",
       "value": "Бөлісу"
     },
@@ -38578,8 +39069,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UserInfo.AddBotToCommunityInfo",
+      "value": "Ботты бірнеше ұқсас чаттары бар бірлестіктің бір бөлігі етіңіз."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UserInfo.ManagedBotCreatedBy",
       "value": "Жасаған және басқаратын: "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.RemoveBotFromCommunity",
+      "value": "Бұл ботты бірлестіктен жоясыз ба?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.RemoveBotFromCommunityButton",
+      "value": "Ботты бірлестіктен жою"
     },
     {
       "_": "types.LangPackString",
@@ -40831,5 +41337,5 @@
       "value": "Алмастыруды көрсету"
     }
   ],
-  "version": 2234033
+  "version": 2234142
 }

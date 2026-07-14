@@ -517,12 +517,12 @@
     {
       "_": "types.LangPackString",
       "key": "Admins.ChannelAdmins",
-      "value": "АДМІНІСТРАТОРИ КАНАЛУ"
+      "value": "АДМІНИ КАНАЛУ"
     },
     {
       "_": "types.LangPackString",
       "key": "Admins.ChannelDescription",
-      "value": "Додавайте адміністраторів, щоб керувати каналом разом."
+      "value": "Додавайте адмінів, щоб керувати каналом разом."
     },
     {
       "_": "types.LangPackString",
@@ -537,12 +537,12 @@
     {
       "_": "types.LangPackString",
       "key": "Admins.GroupAdmins",
-      "value": "АДМІНІСТРАТОРИ ГРУПИ"
+      "value": "АДМІНИ ГРУПИ"
     },
     {
       "_": "types.LangPackString",
       "key": "Admins.GroupDescription",
-      "value": "Додавайте адміністраторів, щоб керувати групою разом."
+      "value": "Додавайте адмінів, щоб керувати групою разом."
     },
     {
       "_": "types.LangPackString",
@@ -1243,7 +1243,7 @@
     {
       "_": "types.LangPackString",
       "key": "Alert.View",
-      "value": "Подивитися"
+      "value": "Переглянути"
     },
     {
       "_": "types.LangPackString",
@@ -1743,7 +1743,7 @@
     {
       "_": "types.LangPackString",
       "key": "ArchivedStickers.Empty",
-      "value": "Ваші архівовані наліпки зʼявлятимуться тут"
+      "value": "Ваші архівовані наліпки показуватимуться тут"
     },
     {
       "_": "types.LangPackString",
@@ -1884,6 +1884,31 @@
       "_": "types.LangPackString",
       "key": "Auth.LoginWithPasskey",
       "value": "Увійти за ключем доступу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Description",
+      "value": "Додайте адресу ел. пошти, щоб не втратити доступ до акаунта."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.ErrorEmailNotAllowed",
+      "value": "Неможливо використати цю адресу."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.ErrorInvalidEmail",
+      "value": "Введіть дійсну адресу ел. пошти."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Placeholder",
+      "value": "Введіть свою ел. пошту"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Title",
+      "value": "Додайте ел. пошту"
     },
     {
       "_": "types.LangPackString",
@@ -4009,6 +4034,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersEnable",
+      "value": "Увімкнути"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersHeader",
+      "value": "Схвалювати нових учасників"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersInfo",
+      "value": "Тепер нові учасники повинні отримати схвалення %1$@, перш ніж зможуть писати в групі."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Channel.Admin.CantEdit",
       "value": "Ви не можете змінювати права цього адміністратора."
     },
@@ -4021,6 +4061,16 @@
       "_": "types.LangPackString",
       "key": "Channel.Admin.Dismiss",
       "value": "Вилучити з адміністраторів"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ProcessJoinRequests",
+      "value": "Опрацьовувати приєднання"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ProcessJoinRequestsInfo",
+      "value": "Дозвольте цьому боту схвалювати нових учасників через власний інтерфейс (наприклад, капчу)."
     },
     {
       "_": "types.LangPackString",
@@ -5457,6 +5507,11 @@
       "_": "types.LangPackString",
       "key": "ChannelBlacklist.Restricted",
       "value": "ОБМЕЖЕНІ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChannelBlocklist.CommunityEmptyDescription",
+      "value": "Користувачі, яких адміни вилучили зі спільноти, не зможуть повернутися за посиланням."
     },
     {
       "_": "types.LangPackString",
@@ -7869,6 +7924,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.EmptyMessageError",
+      "value": "Не можна надіслати порожнє повідомлення."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.File.QuickLook.Malf",
       "value": "Попередній перегляд цього файлу може розкрити вашу IP-адресу його відправнику або зашкодити вашому пристрою."
     },
@@ -7885,7 +7945,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.Gigagroup.Help",
-      "value": "Лише адміністратори можуть писати в групі."
+      "value": "Тільки адміни можуть писати у цій групі."
     },
     {
       "_": "types.LangPackString",
@@ -11594,6 +11654,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatInput.EmptyMessageError",
+      "value": "Не можна надіслати порожнє повідомлення."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatInput.OpenChat",
       "value": "Відкрити чат"
     },
@@ -11606,6 +11671,11 @@
       "_": "types.LangPackString",
       "key": "ChatInput.ShowNext",
       "value": "Показати наступне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatInputAccessory.HideSenderPremium",
+      "value": "Приховати імʼя відправника у повідомленнях, згенерованих ШІ, можна тільки з Telegram Premium."
     },
     {
       "_": "types.LangPackString",
@@ -12646,6 +12716,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.RemoveFromCommunity",
+      "value": "Вилучити зі спільноти"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.RevealAction.Collapse",
       "value": "Згорнути"
     },
@@ -12937,6 +13012,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Ungroup",
+      "value": "Розгрупувати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupChats",
+      "value": "Розгрупувати чати?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupChatsInfo",
+      "value": "Чати спільноти показуватимуться у списку чатів окремо."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.UnhideMuted",
       "value": "Показати чати без сповіщень"
     },
@@ -13118,6 +13208,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatMessageMenu.SentAt",
+      "value": "Надіслано %1$@"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatMessageMenuItems.AndJoiner",
       "value": " та "
     },
@@ -13219,6 +13314,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatRow.Edited",
+      "value": "змінено %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.AddedGroup",
+      "value": "%1$@ додає цю групу до спільноти %2$@."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.BotAddedToCommunity",
+      "value": "Бота додано до спільноти %1$@."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatService.ChangedToSameWallpaper",
       "value": "%1$@ встановлює ті самі шпалери для цього чату"
     },
@@ -13226,6 +13336,11 @@
       "_": "types.LangPackString",
       "key": "ChatService.ChangedWallpaper",
       "value": "%1$@ встановлює нові шпалери для цього чату"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.ChannelAddedToCommunity",
+      "value": "Канал додано до спільноти %1$@."
     },
     {
       "_": "types.LangPackString",
@@ -13545,6 +13660,11 @@
       "_": "types.LangPackString",
       "key": "ChatService.ViewBackground",
       "value": "Переглянути шпалери"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.YouAddedGroup",
+      "value": "Ви додаєте цю групу до спільноти %1$@."
     },
     {
       "_": "types.LangPackString",
@@ -14135,6 +14255,704 @@
       "_": "types.LangPackString",
       "key": "Common.Restart",
       "value": "Перезапустити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.AddToExisting",
+      "value": "ДОДАТИ ДО НАЯВНОЇ СПІЛЬНОТИ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.AdminRequired",
+      "value": "Додати цей чат до спільноти можуть тільки його адміни."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.CantChangeLater",
+      "value": "Ви не зможете змінити це налаштування пізніше."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.ChatVisibility",
+      "value": "ВИДИМІСТЬ ЧАТУ"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d чати",
+      "key": "Communities.Chats",
+      "many_value": "%1$d чатів",
+      "one_value": "%1$d чат",
+      "other_value": "%1$d чатів"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.CommunityName",
+      "value": "Назва спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Create",
+      "value": "Створити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.CreateCommunity",
+      "value": "Створити спільноту"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Hidden",
+      "value": "Прихований"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.HiddenInfo",
+      "value": "Цей чат побачать тільки запрошені користувачі та адміни спільноти."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d учасники",
+      "key": "Communities.Members",
+      "many_value": "%1$d учасників",
+      "one_value": "%1$d учасник",
+      "other_value": "%1$d учасників"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.NewCommunity",
+      "value": "Нова спільнота"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SomethingWentWrong",
+      "value": "Щось пішло не так."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SubtitleBot",
+      "value": "Зробіть свого бота частиною спільноти з кількома повʼязаними чатами."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SubtitleChannel",
+      "value": "Зробіть свій канал частиною спільноти з кількома повʼязаними чатами."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SubtitleGroup",
+      "value": "Зробіть свою групу частиною спільноти з кількома повʼязаними чатами."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Title",
+      "value": "Спільнота"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Visible",
+      "value": "Видимий"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.VisibleInfo",
+      "value": "Цей чат побачать усі учасники спільноти."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Continue",
+      "value": "Продовжити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DismissAdminHeader",
+      "value": "Відмовитися від ролі адміна"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DismissAdminInfo",
+      "value": "Ви втратите доступ до інструментів для адмінів спільноти, але збережете права адміна групи."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Group",
+      "value": "Група"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.InviteOnlyInfo",
+      "value": "Це приватна група. Її можуть\nпереглядати тільки учасники."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d учасники",
+      "key": "Community.Members",
+      "many_value": "%1$d учасників",
+      "one_value": "%1$d учасник",
+      "other_value": "%1$d учасників"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.MessageGroupOwner",
+      "value": "Написати власнику групи"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoThanks",
+      "value": "Ні, дякую"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.YouAreAdmin",
+      "value": "Тепер ви адмін спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.YouAreAdminInfo",
+      "value": "Ви можете змінювати профіль %1$@ та використовувати інші інструменти для адмінів."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ChatVisibility",
+      "value": "ВИДИМІСТЬ ЧАТУ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Confirm",
+      "value": "Додати до спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorAdminRequired",
+      "value": "Чати можуть додавати тільки адміни спільноти."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorGeneric",
+      "value": "Щось пішло не так."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorLimitReached",
+      "value": "Досягнуто максимальної кількості чатів у спільноті."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Hidden",
+      "value": "Прихований"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.HiddenInfo",
+      "value": "Цей чат побачать тільки запрошені користувачі та адміни спільноти."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d учасники",
+      "key": "CommunityAdd.Members",
+      "many_value": "%1$d учасників",
+      "one_value": "%1$d учасник",
+      "other_value": "%1$d учасників"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Title",
+      "value": "Додати чат"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.VisibilityFooter",
+      "value": "Ви не зможете змінити це налаштування пізніше."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Visible",
+      "value": "Видимий"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.VisibleInfo",
+      "value": "Цей чат побачать усі учасники спільноти."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.AddAdmin",
+      "value": "Додати адміна"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.BanMembers",
+      "value": "Блокувати учасників"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.Dismiss",
+      "value": "Вилучити з адмінів"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.DismissConfirm",
+      "value": "Ви дійсно хочете вилучити цього користувача з адміністраторів?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.EditGroupList",
+      "value": "Змінювати список чатів"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.EditName",
+      "value": "Змінити назву спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.ErrorGeneric",
+      "value": "Щось пішло не так."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.PermissionsHeader",
+      "value": "ЦЕЙ АДМІНІСТРАТОР МОЖЕ:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.Save",
+      "value": "Зберегти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.AddAdmin",
+      "value": "Додати адміна"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.Header",
+      "value": "АДМІНИ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.Loading",
+      "value": "Завантаження…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.StatusAdmin",
+      "value": "адмін"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.StatusCreator",
+      "value": "власник"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.StatusPromotedBy",
+      "value": "призначено — %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.Title",
+      "value": "Адміни"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AddAChatToCommunity",
+      "value": "Додати чат до спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AddChatToCommunity",
+      "value": "Додати чат до спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Administrators",
+      "value": "Адміністратори"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AllMembers",
+      "value": "Усі учасники"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AllMembersDescription",
+      "value": "Учасникам дозволено додавати свої групи й канали до спільноти."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.ChangePhoto",
+      "value": "Змінити фото"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d ЧАТИ",
+      "key": "CommunityEdit.ChatsCount",
+      "many_value": "%d ЧАТІВ",
+      "one_value": "%d ЧАТ",
+      "other_value": "%d ЧАТІВ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.CommunityName",
+      "value": "Назва спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Delete",
+      "value": "Видалити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.DeleteCommunity",
+      "value": "Видалити спільноту"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.DeleteCommunityConfirm",
+      "value": "Ви впевнені, що хочете видалити цю спільноту? Це незворотна дія."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Hidden",
+      "value": "Прихований"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d учасники",
+      "key": "CommunityEdit.MembersCount",
+      "many_value": "%d учасників",
+      "one_value": "%d учасник",
+      "other_value": "%d учасників"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.OnlyAdmins",
+      "value": "Тільки адміни"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.OnlyAdminsDescription",
+      "value": "Учасники можуть пропонувати чати, але пропозицію повинен схвалити адмін."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.PendingRequests",
+      "value": "Поточні запити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Remove",
+      "value": "Вилучити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemoveChatConfirm",
+      "value": "Ви впевнені, що хочете вилучити цей чат зі спільноти?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemoveFromCommunity",
+      "value": "Вилучити зі спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemovedUsers",
+      "value": "Вилучені користувачі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.SetPhoto",
+      "value": "Встановити фото"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.SomethingWentWrong",
+      "value": "Щось пішло не так."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Title",
+      "value": "Змінити спільноту"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.UpdatingPhoto",
+      "value": "Оновлення фото..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.WhoCanAddChats",
+      "value": "ХТО МОЖЕ ДОДАВАТИ ЧАТИ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInfo.Community",
+      "value": "Спільнота"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Спільнота з %1$d чатами",
+      "key": "CommunityInfo.CommunityWithChats",
+      "many_value": "Спільнота з %1$d чатами",
+      "one_value": "Спільнота з %1$d чатом",
+      "other_value": "Спільнота з %1$d чатами"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.AddChat",
+      "value": "Додати чат"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.AddChatToCommunity",
+      "value": "Додати чат до спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.DefaultTitle",
+      "value": "Спільнота"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.EditCommunity",
+      "value": "Змінити спільноту"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.ErrorGeneric",
+      "value": "Щось пішло не так."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d учасники",
+      "key": "CommunityList.Members",
+      "many_value": "%1$d учасників",
+      "one_value": "%1$d учасник",
+      "other_value": "%1$d учасників"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.PendingRequests",
+      "value": "Поточні запити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.Remove",
+      "value": "Вилучити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.RemoveChatConfirm",
+      "value": "Ви впевнені, що хочете вилучити цей чат зі спільноти? "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.SectionJoined",
+      "value": "Чати, в яких ви перебуваєте"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.SectionRequestable",
+      "value": "Чати із запитами на приєднання"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.SectionVisible",
+      "value": "Чати, які ви можете переглядати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.ShowAsOneChat",
+      "value": "Показувати одним чатом"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Add",
+      "value": "Додати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.AddAll",
+      "value": "Додати всі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.AddAllConfirm",
+      "value": "Додати всі пропоновані чати до спільноти?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.ApprovalInfo",
+      "value": "Учасники можуть пропонувати чати, але пропозицію повинен схвалити адмін. **Змінити налаштування >**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Decline",
+      "value": "Відхилити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.DeclineAll",
+      "value": "Відхилити всі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.DeclineAllConfirm",
+      "value": "Відхилити всі пропоновані чати?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Empty",
+      "value": "Немає запитів."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Loading",
+      "value": "Завантаження…"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d учасники",
+      "key": "CommunityRequests.MembersCount",
+      "many_value": "%d учасників",
+      "one_value": "%d учасник",
+      "other_value": "%d учасників"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.PendingRequests",
+      "value": "Поточні запити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Someone",
+      "value": "Користувач"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d ПРОПОЗИЦІЇ ДОДАТИ ЧАТ",
+      "key": "CommunityRequests.SuggestedHeader",
+      "many_value": "%d ПРОПОЗИЦІЙ ДОДАТИ ЧАТ",
+      "one_value": "%d ПРОПОЗИЦІЯ ДОДАТИ ЧАТ",
+      "other_value": "%d ПРОПОЗИЦІЙ ДОДАТИ ЧАТ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.SuggestsGroup",
+      "value": "%1$@ пропонує додати чат:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.SuggestsGroupSuffix",
+      "value": " пропонує додати чат:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Unknown",
+      "value": "Невідомий"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.VisibleOnlyToMembers",
+      "value": "бачать тільки учасники"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.VisibleOnlyToMembersSuffix",
+      "value": " · бачать тільки учасники"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.AddChatToCommunity",
+      "value": "Додати чат до спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.EditCommunity",
+      "value": "Змінити спільноту"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.HideChat",
+      "value": "Приховати"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d учасники",
+      "key": "CommunityView.Members",
+      "many_value": "%1$d учасників",
+      "one_value": "%1$d учасник",
+      "other_value": "%1$d учасників"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Mute",
+      "value": "Не сповіщати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.PendingRequests",
+      "value": "Поточні запити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Remove",
+      "value": "Вилучити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.RemoveChatConfirm",
+      "value": "Ви впевнені, що хочете вилучити цей чат зі спільноти?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.RemoveFromCommunity",
+      "value": "Вилучити зі спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SectionChatsYouAreIn",
+      "value": "ЧАТИ, В ЯКИХ ВИ ПЕРЕБУВАЄТЕ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SectionChatsYouCanJoin",
+      "value": "ЧАТИ, ДО ЯКИХ ВИ МОЖЕТЕ ПРИЄДНАТИСЯ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SectionChatsYouCanRequestToJoin",
+      "value": "ЧАТИ ІЗ ЗАПИТАМИ НА ПРИЄДНАННЯ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowAsOneChat",
+      "value": "Показувати одним чатом"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowAsOneChatInfo",
+      "value": "Групувати всі чати спільноти в один елемент у списку чатів."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowChat",
+      "value": "Показувати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SomethingWentWrong",
+      "value": "Щось пішло не так."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Title",
+      "value": "Спільнота"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Unmute",
+      "value": "Сповіщати"
     },
     {
       "_": "types.LangPackString",
@@ -15100,6 +15918,24 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DeleteGroupMessages.Ban",
+      "value": "Заблокувати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteGroupMessages.BanFromCommunity",
+      "value": "Заблокувати у спільноті"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Блокування %2$@ також призведе до видалення зі спільноти %1$d чатів цього користувача.",
+      "key": "DeleteGroupMessages.CommunityBanWarning",
+      "many_value": "Блокування %2$@ також призведе до видалення зі спільноти %1$d чатів цього користувача.",
+      "one_value": "Блокування %2$@ також призведе до видалення зі спільноти %1$d чату цього користувача.",
+      "other_value": "Блокування %2$@ також призведе до видалення зі спільноти %1$d чатів цього користувача."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DeleteGroupMessages.DeleteAllFromPeer",
       "value": "Видалити все від %1$@"
     },
@@ -15114,9 +15950,30 @@
       "value": "Видалити реакцію"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d учасники",
+      "key": "DeleteGroupMessages.MemberCount",
+      "many_value": "%1$d учасників",
+      "one_value": "%1$d учасник",
+      "other_value": "%1$d учасників"
+    },
+    {
       "_": "types.LangPackString",
       "key": "DeleteGroupMessages.ReactionTitle",
       "value": "Видалити 1 реакцію"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Користувача буде вилучено з %1$d чатів.",
+      "key": "DeleteGroupMessages.RemovedFromChatsCount",
+      "many_value": "Користувача буде вилучено з %1$d чатів.",
+      "one_value": "Користувача буде вилучено з %1$d чату.",
+      "other_value": "Користувача буде вилучено з %1$d чатів."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteGroupMessages.WarningTitle",
+      "value": "Попередження"
     },
     {
       "_": "types.LangPackString",
@@ -15724,7 +16581,7 @@
     {
       "_": "types.LangPackString",
       "key": "EditInvitation.TitleDesc",
-      "value": "Цю назву бачитимуть лише адміністратори."
+      "value": "Цю назву бачитимуть тільки адміни."
     },
     {
       "_": "types.LangPackString",
@@ -19454,6 +20311,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupInfo.AddGroupToCommunity",
+      "value": "Додати групу до спільноти"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupInfo.AddUserLeftError",
       "value": "Оскільки користувач самостійно покинув групу, лише один з його контактів може повернути його.\n\nТакож користувач може самостійно повернутися за допомогою запрошувального посилання, якщо він не у «Вилучених користувачах» групи."
     },
@@ -19514,8 +20376,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupInfo.Remove",
+      "value": "Вилучити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.RemoveGroupFromCommunity",
+      "value": "Вилучити групу зі спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.RemoveGroupFromCommunityConfirm",
+      "value": "Ви впевнені, що хочете вилучити цю групу зі спільноти?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupInfo.ScamWarning",
       "value": "⚠️ Попередження: Багато користувачів поскаржилися на цю групу за шахрайство або самозванство. Будьте обачними, особливо якщо у вас просять гроші."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.SomethingWentWrong",
+      "value": "Щось пішло не так."
     },
     {
       "_": "types.LangPackString",
@@ -24340,7 +25222,7 @@
     {
       "_": "types.LangPackString",
       "key": "Peer.Media.ShareMedia.SavedMessages",
-      "value": "Медіа зʼявляться тут."
+      "value": "Медіа зʼявлятимуться тут."
     },
     {
       "_": "types.LangPackString",
@@ -24355,7 +25237,7 @@
     {
       "_": "types.LangPackString",
       "key": "Peer.Media.SharedLinksEmptyList",
-      "value": "Усі поширені в чаті посилання зʼявлятимуться тут."
+      "value": "Усі поширені посилання з цього чату показуватимуться тут."
     },
     {
       "_": "types.LangPackString",
@@ -24365,12 +25247,12 @@
     {
       "_": "types.LangPackString",
       "key": "Peer.Media.SharedMusicEmptyList",
-      "value": "Уся поширена в чаті музика зʼявлятиметься тут."
+      "value": "Уся музика з цього чату показуватиметься тут."
     },
     {
       "_": "types.LangPackString",
       "key": "Peer.Media.SharedVoiceEmptyList",
-      "value": "Усі поширені в чаті голосові та відеоповідомлення зʼявлятимуться тут."
+      "value": "Голосові та відеоповідомлення з цього чату показуватимуться тут."
     },
     {
       "_": "types.LangPackString",
@@ -25380,12 +26262,12 @@
     {
       "_": "types.LangPackString",
       "key": "PeerInfo.GroupType.Private",
-      "value": "Приватний"
+      "value": "Приватна"
     },
     {
       "_": "types.LangPackString",
       "key": "PeerInfo.GroupType.Public",
-      "value": "Публічний"
+      "value": "Публічна"
     },
     {
       "_": "types.LangPackString",
@@ -27355,6 +28237,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumBoarding.RichFormattingInfo",
+      "value": "Заголовки, таблиці, списки, вбудовані медіа та ШІ-контент у повідомленнях."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PremiumBoarding.RichFormattingTitle",
+      "value": "Розширене форматування"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumBoarding.Stories.ExpirationDuration.Info",
       "value": "Встановлюйте власний строк показу історії — наприклад, 6 або 48 годин."
     },
@@ -28878,7 +29770,7 @@
     {
       "_": "types.LangPackString",
       "key": "RecentCalls.Empty",
-      "value": "Нещодавні виклики зʼявлятимуться тут"
+      "value": "Недавні виклики зʼявлятимуться тут"
     },
     {
       "_": "types.LangPackString",
@@ -29177,6 +30069,446 @@
       "_": "types.LangPackString",
       "key": "RequestJoin.Sent",
       "value": "Запит на приєднання надіслано"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.AddToPage",
+      "value": "Додати до повідомлення"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.ErrorEmpty",
+      "value": "Повідомлення не повинно бути порожнім."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.ErrorTooLong",
+      "value": "Повідомлення задовге."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.Generate",
+      "value": "Згенерувати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.PromptPlaceholder",
+      "value": "Згенеруй текст, формулу, таблицю..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.Result",
+      "value": "Результат"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.Title",
+      "value": "Генерація тексту"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AddMedia",
+      "value": "Додати фото або відео"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignCenter",
+      "value": "По центру"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignLeft",
+      "value": "По лівому краю"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignRight",
+      "value": "По правому краю"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Apply",
+      "value": "Застосувати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AttachTitle",
+      "value": "Стаття"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Body",
+      "value": "Текст"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.BulletList",
+      "value": "Маркований список"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Checklist",
+      "value": "Список задач"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Copy",
+      "value": "Копіювати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Cut",
+      "value": "Вирізати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DecreaseIndent",
+      "value": "Зменшити відступ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Delete",
+      "value": "Видалити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DeleteColumn",
+      "value": "Видалити стовпчик"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DeleteRow",
+      "value": "Видалити рядок"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Edit",
+      "value": "Змінити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.EditFormula",
+      "value": "Змінити формулу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Format",
+      "value": "Форматування"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Formula",
+      "value": "Формула"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.FormulaPreviewPlaceholder",
+      "value": "Формула зʼявиться тут"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Heading",
+      "value": "Заголовок"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Highlight",
+      "value": "Виділити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.IncreaseIndent",
+      "value": "Збільшити відступ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertAbove",
+      "value": "Вставити вище"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertBelow",
+      "value": "Вставити нижче"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertLeft",
+      "value": "Вставити зліва"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertRight",
+      "value": "Вставити справа"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertTable",
+      "value": "Таблиця"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InvalidFormula",
+      "value": "Некоректна формула"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.LatexSection",
+      "value": "LATEX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Link",
+      "value": "Посилання"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ListNone",
+      "value": "Без списку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.MakeCollage",
+      "value": "Колаж"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Bold",
+      "value": "Жирний"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Copy",
+      "value": "Копіювати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Cut",
+      "value": "Вирізати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Format",
+      "value": "Форматувати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Italic",
+      "value": "Курсив"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.LookUp",
+      "value": "Тлумачити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Paste",
+      "value": "Вставити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.SelectAll",
+      "value": "Вибрати все"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Share",
+      "value": "Поділитися..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Underline",
+      "value": "Підкреслений"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.More",
+      "value": "Більше"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.NumberedList",
+      "value": "Нумерований список"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Paste",
+      "value": "Вставити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Placeholder.AddAuthor",
+      "value": "Автор"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Placeholder.AddCaption",
+      "value": "Опис..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Placeholder.TypeSomething",
+      "value": "Введіть щось..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.RemoveHighlight",
+      "value": "Прибрати виділення"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Replace",
+      "value": "Замінити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ResultSection",
+      "value": "РЕЗУЛЬТАТ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.SelectAll",
+      "value": "Вибрати всі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ShowAsCollage",
+      "value": "Показувати як колаж"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ShowAsSlider",
+      "value": "Показувати як слайдшоу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddColumnLeft",
+      "value": "Додати стовпець зліва"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddColumnRight",
+      "value": "Додати стовпець справа"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddRowAbove",
+      "value": "Додати рядок вище"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddRowBelow",
+      "value": "Додати рядок нижче"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignCenter",
+      "value": "По центру"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignLeft",
+      "value": "По лівому краю"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignRight",
+      "value": "По правому краю"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteColumn",
+      "value": "Видалити стовпець"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteColumns",
+      "value": "Видалити стовпці"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteRow",
+      "value": "Видалити рядок"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteRows",
+      "value": "Видалити рядки"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Text",
+      "value": "Текст"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.AiPremiumRequired",
+      "value": "Інструменти ШІ у редакторі тексту доступні тільки з Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.CodeBlock",
+      "value": "Код"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.CodeLanguage",
+      "value": "Мова програмування"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.Edit",
+      "value": "Змінити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.EditWithoutFormatting",
+      "value": "Змінити без форматування?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.EmptyMessage",
+      "value": "Не можна надіслати порожнє повідомлення."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PremiumToastEdit",
+      "value": "Таке форматування доступне тільки з [Telegram Premium](premium)."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PremiumToastSend",
+      "value": "Таке форматування доступне тільки з [Telegram Premium](premium)."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PullQuote",
+      "value": "Витяг"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.RemoveFormatting",
+      "value": "Прибрати форматування"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.RichFormattingRequiresPremium",
+      "value": "Таке форматування доступне тільки з Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.Send",
+      "value": "Надіслати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.SendWithoutFormatting",
+      "value": "Надіслати без форматування?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.SetLanguage",
+      "value": "Мова…"
     },
     {
       "_": "types.LangPackString",
@@ -34140,6 +35472,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarGiftNft.ResaleMinPriceInfo",
+      "value": "Ця можливість доступна тільки для подарунків вартістю понад %1$@."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarList.Ton",
       "value": "Gram"
     },
@@ -34842,7 +36179,7 @@
     {
       "_": "types.LangPackString",
       "key": "Stats.GroupTopAdminsTitle",
-      "value": "АДМІНІСТРАТОРИ"
+      "value": "АДМІНИ"
     },
     {
       "_": "types.LangPackString",
@@ -37420,6 +38757,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextUtils.AddedToCommunity",
+      "value": "Додано до спільноти %1$@"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextUtils.ManagedBotCreated",
       "value": "%1$@ створює %2$@"
     },
@@ -37432,6 +38774,11 @@
       "_": "types.LangPackString",
       "key": "TextUtils.PollOptionDeleted",
       "value": "%1$@ видаляє варіант %2$@ з опитування"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextUtils.RemovedFromCommunity",
+      "value": "Чат видалено зі спільноти"
     },
     {
       "_": "types.LangPackString",
@@ -38619,6 +39966,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TranslateModal.PromptPlaceholder",
+      "value": "Опишіть, як переписати цей текст..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TranslateModal.PromptStyle",
+      "value": "Інструкції"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TranslateModal.ShareStyle",
       "value": "Поділитися стилем"
     },
@@ -39029,8 +40386,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UserInfo.AddBotToCommunity",
+      "value": "Додати бота до спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.AddBotToCommunityInfo",
+      "value": "Зробіть свого бота частиною спільноти з кількома повʼязаними чатами"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UserInfo.ManagedBotCreatedBy",
       "value": "Створено й керується "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.RemoveBotFromCommunity",
+      "value": "Ви впевнені, що хочете вилучити цього бота зі спільноти?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.RemoveBotFromCommunityButton",
+      "value": "Вилучити бота зі спільноти"
     },
     {
       "_": "types.LangPackString",
@@ -41290,5 +42667,5 @@
       "value": "Показувати заміни"
     }
   ],
-  "version": 2228484
+  "version": 2234167
 }
