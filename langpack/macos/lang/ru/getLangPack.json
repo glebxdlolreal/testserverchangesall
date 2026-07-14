@@ -4034,6 +4034,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersEnable",
+      "value": "Включить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersHeader",
+      "value": "Заявки на вступление"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersInfo",
+      "value": "Теперь новые участники группы смогут отправлять сообщения только после подтверждения ботом %1$@."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Channel.Admin.CantEdit",
       "value": "Вы не можете изменять права этого администратора."
     },
@@ -4046,6 +4061,16 @@
       "_": "types.LangPackString",
       "key": "Channel.Admin.Dismiss",
       "value": "Разжаловать"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ProcessJoinRequests",
+      "value": "Обработка заявок на вступление"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ProcessJoinRequestsInfo",
+      "value": "Вы можете разрешить этому боту принимать заявки на вступление с использованием собственных интерфейсов (например, капчи) для проверки."
     },
     {
       "_": "types.LangPackString",
@@ -11649,6 +11674,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatInputAccessory.HideSenderPremium",
+      "value": "Скрыть имя отправителя в сообщениях, сгенерированных ИИ, можно с подпиской Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatLink.Unavailable",
       "value": "Похоже, такой ссылки не существует."
     },
@@ -11664,6 +11694,11 @@
       "_": "types.LangPackString",
       "key": "ChatList.ActiveAuction.Title_ZeroValueHolder",
       "value": "Активный аукцион"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.ActiveAuction.Title_countable",
+      "value": "%d активных аукционов"
     },
     {
       "_": "types.LangPackString",
@@ -14382,8 +14417,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAdd.Confirm",
+      "value": "Добавить в сообщество"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorAdminRequired",
+      "value": "Чаты могут добавлять только администраторы сообщества."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAdd.ErrorGeneric",
       "value": "Что-то пошло не так."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorLimitReached",
+      "value": "В этом сообществе уже максимальное количество чатов."
     },
     {
       "_": "types.LangPackString",
@@ -14425,8 +14475,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAdmin.AddAdmin",
+      "value": "Добавить администратора"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.BanMembers",
+      "value": "Блокировка участников"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.Dismiss",
+      "value": "Разжаловать"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.DismissConfirm",
+      "value": "Вы точно хотите разжаловать этого администратора?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAdmin.EditGroupList",
       "value": "Изменение списка чатов"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.EditName",
+      "value": "Изменение названия"
     },
     {
       "_": "types.LangPackString",
@@ -14435,8 +14510,179 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAdmin.PermissionsHeader",
+      "value": "ВОЗМОЖНОСТИ АДМИНИСТРАТОРА:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.Save",
+      "value": "Сохранить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.AddAdmin",
+      "value": "Добавить администратора"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.Header",
+      "value": "АДМИНИСТРАТОРЫ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.Loading",
+      "value": "Загрузка…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.StatusAdmin",
+      "value": "админ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.StatusCreator",
+      "value": "владелец"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.StatusPromotedBy",
+      "value": "назначил(а) %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.Title",
+      "value": "Администраторы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AddAChatToCommunity",
+      "value": "Добавить чат в сообщество"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AddChatToCommunity",
+      "value": "Добавить чат в сообщество"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Administrators",
+      "value": "Администраторы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AllMembers",
+      "value": "Все участники"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AllMembersDescription",
+      "value": "Участники могут добавлять в сообщество свои группы и каналы."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.ChangePhoto",
+      "value": "Изменить фотографию"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d ЧАТА",
+      "key": "CommunityEdit.ChatsCount",
+      "many_value": "%d ЧАТОВ",
+      "one_value": "%d ЧАТ",
+      "other_value": "%d ЧАТОВ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.CommunityName",
+      "value": "Название сообщества"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Delete",
+      "value": "Удалить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.DeleteCommunity",
+      "value": "Удалить сообщество"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.DeleteCommunityConfirm",
+      "value": "Вы точно хотите удалить сообщество? Это действие нельзя будет отменить."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Hidden",
+      "value": "Скрытый"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d участника",
+      "key": "CommunityEdit.MembersCount",
+      "many_value": "%d участников",
+      "one_value": "%d участник",
+      "other_value": "%d участников"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.OnlyAdmins",
+      "value": "Только администраторы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.OnlyAdminsDescription",
+      "value": "Чаты, предложенные участниками, добавляются после подтверждения администратором."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.PendingRequests",
+      "value": "Непроверенные заявки"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Remove",
+      "value": "Удалить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemoveChatConfirm",
+      "value": "Удалить этот чат из сообщества?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemoveFromCommunity",
+      "value": "Удалить из сообщества"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemovedUsers",
+      "value": "Чёрный список"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.SetPhoto",
+      "value": "Добавить фотографию"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityEdit.SomethingWentWrong",
       "value": "Что-то пошло не так."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Title",
+      "value": "Изменение сообщества"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.UpdatingPhoto",
+      "value": "Обновление фотографии..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.WhoCanAddChats",
+      "value": "КТО МОЖЕТ ДОБАВЛЯТЬ ЧАТЫ"
     },
     {
       "_": "types.LangPackString",
@@ -14458,6 +14704,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityList.AddChatToCommunity",
+      "value": "Добавить чат в сообщество"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.DefaultTitle",
+      "value": "Сообщество"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityList.EditCommunity",
       "value": "Настроить сообщество"
     },
@@ -14467,9 +14723,42 @@
       "value": "Что-то пошло не так."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d участника",
+      "key": "CommunityList.Members",
+      "many_value": "%1$d участников",
+      "one_value": "%1$d участник",
+      "other_value": "%1$d участников"
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityList.PendingRequests",
       "value": "Непроверенные заявки"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.Remove",
+      "value": "Удалить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.RemoveChatConfirm",
+      "value": "Удалить этот чат из сообщества?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.SectionJoined",
+      "value": "Чаты, в которых Вы состоите"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.SectionRequestable",
+      "value": "Чаты с заявками на вступление"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.SectionVisible",
+      "value": "Чаты, доступные для просмотра"
     },
     {
       "_": "types.LangPackString",
@@ -14478,8 +14767,74 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityRequests.Add",
+      "value": "Добавить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.AddAll",
+      "value": "Добавить все"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.AddAllConfirm",
+      "value": "Добавить все предложенные чаты  сообщество?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.ApprovalInfo",
+      "value": "Чаты добавляются в сообщество только после подтверждения администратором. [Изменить настройки](settings)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Decline",
+      "value": "Отклонить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.DeclineAll",
+      "value": "Отклонить все"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.DeclineAllConfirm",
+      "value": "Отклонить все предложенные чаты?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityRequests.Empty",
       "value": "Нет заявок"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Loading",
+      "value": "Загрузка…"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d участника",
+      "key": "CommunityRequests.MembersCount",
+      "many_value": "%d участников",
+      "one_value": "%d участник",
+      "other_value": "%d участников"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.PendingRequests",
+      "value": "Непроверенные заявки"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Someone",
+      "value": "Пользователь"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d ПРЕДЛОЖЕННЫХ ЧАТА",
+      "key": "CommunityRequests.SuggestedHeader",
+      "many_value": "%d ПРЕДЛОЖЕННЫХ ЧАТОВ",
+      "one_value": "%d ПРЕДЛОЖЕННЫЙ ЧАТ",
+      "other_value": "%d ПРЕДЛОЖЕННЫХ ЧАТОВ"
     },
     {
       "_": "types.LangPackString",
@@ -14490,6 +14845,21 @@
       "_": "types.LangPackString",
       "key": "CommunityRequests.SuggestsGroupSuffix",
       "value": " предложил(а) чат:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Unknown",
+      "value": "Неизвестный"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.VisibleOnlyToMembers",
+      "value": "видят только участники"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.VisibleOnlyToMembersSuffix",
+      "value": " · видят только участники"
     },
     {
       "_": "types.LangPackString",
@@ -19052,6 +19422,11 @@
       "many_value": "осталось %d",
       "one_value": "остался %d",
       "other_value": "осталось %d"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Gifting.StarGift.Badge.Remaining_countable",
+      "value": "осталось %d"
     },
     {
       "_": "types.LangPackString",
@@ -29732,6 +30107,171 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.AddMedia",
+      "value": "Добавить фото или видео"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignCenter",
+      "value": "По центру"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignLeft",
+      "value": "По левому краю"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignRight",
+      "value": "По правому краю"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Apply",
+      "value": "Применить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AttachTitle",
+      "value": "Статья"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Body",
+      "value": "Текст"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.BulletList",
+      "value": "Маркированный список"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Checklist",
+      "value": "Чек-лист"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Copy",
+      "value": "Копировать"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Cut",
+      "value": "Вырезать"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DecreaseIndent",
+      "value": "Уменьшить отступ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Delete",
+      "value": "Удалить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DeleteColumn",
+      "value": "Удалить столбец"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DeleteRow",
+      "value": "Удалить строку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Edit",
+      "value": "Изменить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.EditFormula",
+      "value": "Изменить формулу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Format",
+      "value": "Форматирование"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Formula",
+      "value": "Формула"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.FormulaPreviewPlaceholder",
+      "value": "Здесь будет формула..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Heading",
+      "value": "Заголовок"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Highlight",
+      "value": "Залить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.IncreaseIndent",
+      "value": "Увеличить отступ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertAbove",
+      "value": "Вставить сверху"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertBelow",
+      "value": "Вставить снизу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertLeft",
+      "value": "Вставить слева"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertRight",
+      "value": "Вставить справа"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertTable",
+      "value": "Таблица"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InvalidFormula",
+      "value": "Некорректная формула"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.LatexSection",
+      "value": "LATEX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Link",
+      "value": "Ссылка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ListNone",
+      "value": "Без списка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.MakeCollage",
+      "value": "Сделать коллаж"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.Menu.Bold",
       "value": "Жирный"
     },
@@ -29782,6 +30322,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.More",
+      "value": "Ещё"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.NumberedList",
+      "value": "Нумерованный список"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Paste",
+      "value": "Вставить"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.Placeholder.AddAuthor",
       "value": "Автор"
     },
@@ -29794,6 +30349,41 @@
       "_": "types.LangPackString",
       "key": "RichTextEditor.Placeholder.TypeSomething",
       "value": "Ваш текст..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Remove",
+      "value": "Убрать"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.RemoveHighlight",
+      "value": "Убрать заливку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Replace",
+      "value": "Заменить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ResultSection",
+      "value": "ВИД В ТЕКСТЕ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.SelectAll",
+      "value": "Выбрать всё"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ShowAsCollage",
+      "value": "Объединить в коллаж"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ShowAsSlider",
+      "value": "Объединить в слайд-шоу"
     },
     {
       "_": "types.LangPackString",
@@ -29849,6 +30439,11 @@
       "_": "types.LangPackString",
       "key": "RichTextEditor.Table.DeleteRows",
       "value": "Удалить строки"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Text",
+      "value": "Текст"
     },
     {
       "_": "types.LangPackString",
@@ -33087,6 +33682,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Star.Auction.Acquired.ItemsBought_countable",
+      "value": "Куплено %d подарков"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Star.Auction.Acquired.Recipient",
       "value": "Получатель"
     },
@@ -33297,12 +33897,22 @@
       "other_value": "%d подарка куплено"
     },
     {
+      "_": "types.LangPackString",
+      "key": "Star.Auction.ItemsBought_countable",
+      "value": "%d подарков куплено"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "%d активных аукциона",
       "key": "Star.Auction.List.ActiveAuctions",
       "many_value": "%d активных аукционов",
       "one_value": "%d активный аукцион",
       "other_value": "%d активных аукционов"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Star.Auction.List.ActiveAuctions_countable",
+      "value": "%d активный аукцион"
     },
     {
       "_": "types.LangPackString",
@@ -33390,6 +34000,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Star.Auction.Preview.Bidders_countable",
+      "value": "%d участникам"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Star.Auction.Preview.CurrentRound",
       "value": "Текущий раунд"
     },
@@ -33415,6 +34030,11 @@
       "many_value": "На аукцион с разными интервалами выставляется по %1$d подарков. В каждом раунде выигрывают %2$@ с наибольшими ставками.",
       "one_value": "На аукцион с разными интервалами выставляется %1$d подарок. В каждом раунде выигрывает %2$@ с наибольшей ставкой.",
       "other_value": "На аукцион с разными интервалами выставляется по %1$d подарков. В каждом раунде выигрывают %2$@ с наибольшими ставками."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Star.Auction.Preview.GiftsDroppedInfo_countable",
+      "value": "На аукцион с разными интервалами выставляется по %1$d подарков. В каждом раунде выигрывают %2$@ с наибольшими ставками."
     },
     {
       "_": "types.LangPackString",
@@ -33486,6 +34106,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Star.Auction.Preview.TopBidders_countable",
+      "value": "%d участников"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Star.Auction.Preview.ViewVariants",
       "value": "Возможные варианты: %1$@ >"
     },
@@ -33503,12 +34128,22 @@
       "other_value": "Осталось %d"
     },
     {
+      "_": "types.LangPackString",
+      "key": "Star.Auction.SendPreview.Left_countable",
+      "value": "Осталось %d"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "Продано %d",
       "key": "Star.Auction.SendPreview.Sold",
       "many_value": "Продано %d",
       "one_value": "Продан %d",
       "other_value": "Продано %d"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Star.Auction.SendPreview.Sold_countable",
+      "value": "Продано %d"
     },
     {
       "_": "types.LangPackString",
@@ -33736,6 +34371,11 @@
       "many_value": "%d предложений",
       "one_value": "%d предложение",
       "other_value": "%d предложения"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Star.Marketplace.ResaleAvailable_countable",
+      "value": "%d в продаже"
     },
     {
       "_": "types.LangPackString",
@@ -34559,6 +35199,11 @@
       "many_value": "В этой коллекции %d уникальных моделей.",
       "one_value": "В этой коллекции %d уникальная модель.",
       "other_value": "В этой коллекции %d уникальных моделей."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarGift.ModelBuilder.CollectionFeatures_countable",
+      "value": "В этой коллекции %d уникальных моделей."
     },
     {
       "_": "types.LangPackString",
@@ -36456,6 +37101,11 @@
       "many_value": "%d зрителей",
       "one_value": "%d зритель",
       "other_value": "%d зрителя"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Story.Controls.LiveStream.Watching_countable",
+      "value": "%d зрителей"
     },
     {
       "_": "types.LangPackString",
@@ -42022,5 +42672,5 @@
       "value": "Показать автозамены"
     }
   ],
-  "version": 2232684
+  "version": 2233684
 }
