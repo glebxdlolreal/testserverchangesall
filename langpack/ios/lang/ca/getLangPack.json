@@ -1955,6 +1955,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Attachment.Article",
+      "value": "Article"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Attachment.Audio",
       "value": "Àudio"
     },
@@ -3206,6 +3211,11 @@
       "_": "types.LangPackString",
       "key": "AvatarEditor.SetChannelPhoto",
       "value": "Estableix com a foto del canal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AvatarEditor.SetCommunityPhoto",
+      "value": "Estableix com a foto de la comunitat"
     },
     {
       "_": "types.LangPackString",
@@ -14496,6 +14506,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Remove",
+      "value": "Elimina"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.RemoveFolder",
       "value": "Elimina"
     },
@@ -16506,6 +16521,97 @@
       "_": "types.LangPackString",
       "key": "Common.of",
       "value": "de"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.ActionAddToCommunity",
+      "value": "Afegeix a la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHiddenInfo",
+      "value": "Només els membres convidats i l'administració de la comunitat veuran el xat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat.Description",
+      "value": "Seleccioneu un xat per afegir a la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat.Title",
+      "value": "Afegiu un xat"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.AdminActions.WarningChatCount",
+      "one_value": "%@ xat",
+      "other_value": "%@ xats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningText",
+      "value": "En bandejar **%@** també eliminareu **%@** que va crear per a la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Chat.JoinToView",
+      "value": "Cal que us uniu al grup per a veure els missatges."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.CommunityAdded.View",
+      "value": "Mostra"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleBot",
+      "value": "Feu que el bot formi part d'una comunitat amb molts altres xats relacionats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleChannel",
+      "value": "Feu que el canal formi part d'una comunitat amb molts altres xats relacionats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.Info",
+      "value": "El grup és restringit.\nNomés els membres el poden veure."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.MessageOwner",
+      "value": "Escriu al propietari del grup"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovalInfo",
+      "value": "Cal que l'administració aprovi els xats abans d'afegir-los a la comunitat. [Canvia la configuració >](settings)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovedToast",
+      "value": "Heu afegit el xat a la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclinedToast",
+      "value": "Heu declinat afegir el xat a la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsGroup",
+      "value": "%@ suggereix aquest xat:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.HiddenChatToast",
+      "value": "No podeu veure ni unir-vos al xat fins que l'administració us convidi."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestDeclinedToast",
+      "value": "Heu declinat afegir el xat a la comunitat."
     },
     {
       "_": "types.LangPackString",
@@ -33990,6 +34096,46 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedBot",
+      "value": "S'ha afegit el bot %1$@ a la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedChannel",
+      "value": "El canal s'ha afegit a la comunitat %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroup",
+      "value": "%1$@ ha afegit el grup a la comunitat %2$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroupYou",
+      "value": "Heu afegit el grup a la comunitat %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedBot",
+      "value": "S'ha eliminat el bot de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedChannel",
+      "value": "El canal s'ha eliminat de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroup",
+      "value": "%1$@ ha eliminat el grup de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroupYou",
+      "value": "Heu eliminat el grup de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Notification.CopyProtection.Disabled",
       "value": "%1$@ ha activat poder compartir"
     },
@@ -40049,6 +40195,12 @@
       "value": "Esborra els missatges"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "PeerInfo.Community",
+      "one_value": "Comunitat amb %@ xat",
+      "other_value": "Comunitat amb %@ xats"
+    },
+    {
       "_": "types.LangPackString",
       "key": "PeerInfo.CustomizeNotifications",
       "value": "Personalitza"
@@ -42194,6 +42346,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Premium.Limits.Messages",
+      "value": "Missatges"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.Limits.MessagesInfo",
+      "value": "Expresseu-vos amb misatges més llargs"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Premium.Limits.PinnedChats",
       "value": "Xats fixats"
     },
@@ -42675,6 +42837,16 @@
       "_": "types.LangPackString",
       "key": "Premium.Restore.Success",
       "value": "Fet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.RichText",
+      "value": "Eines de format"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.RichTextInfo",
+      "value": "Afegiu capçaleres, taules, llistes, IA i fitxers integrats als missatges."
     },
     {
       "_": "types.LangPackString",
@@ -43408,6 +43580,11 @@
       "_": "types.LangPackString",
       "key": "Privacy.GroupsAndChannels.InviteToChannelMultipleError",
       "value": "No podeu crear un grup amb aquests usuaris a causa de la seva configuració de privadesa."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Privacy.GroupsAndChannels.InviteToCommunityError",
+      "value": "No podeu afegir %@ a la comunitat a causa de la configuració de privadesa de %@."
     },
     {
       "_": "types.LangPackString",
@@ -45441,6 +45618,156 @@
       "_": "types.LangPackString",
       "key": "Resolve.GiftErrorNotFound",
       "value": "Sembla que el regal no existeix."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.AddMediaTitle",
+      "value": "Afegiu fitxers"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaAdd",
+      "value": "Afegeix una fòrmula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaEdit",
+      "value": "Edita la fòrmula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionResultTitle",
+      "value": "RESULTAT"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionSourceTitle",
+      "value": "LATEX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkRemove",
+      "value": "Elimina"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkSet",
+      "value": "Estableix"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkText",
+      "value": "Estableix un URL per al text seleccionat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkTitle",
+      "value": "Enllaç"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Bullet",
+      "value": "Llista amb pics"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Checklist",
+      "value": "Llista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.None",
+      "value": "Cap"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Numbered",
+      "value": "Llista numerada"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.ConvertToText",
+      "value": "Converteix a text"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Copy",
+      "value": "Copia la taula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Delete",
+      "value": "Elimina la taula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuCode",
+      "value": "Codi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuFormula",
+      "value": "Fòrmula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuHeading",
+      "value": "Capçalera"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuHeadingItem",
+      "value": "Capçalera %@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuPullquote",
+      "value": "Cita destacada"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuQuote",
+      "value": "Cita"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuText",
+      "value": "Text"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.PremiumToastText",
+      "value": "Cal el [Telegram Premium]() per a enviar un missatge amb aquest format."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingText",
+      "value": "El missatge utilitza format enriquit, que requereix el Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingTitle",
+      "value": "Voleu eliminar el format?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.SendWithoutFormatting",
+      "value": "Envia sense format"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.SubscribeToPremium",
+      "value": "Subscriviu-vos al Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TableMenu.Alignment",
+      "value": "Alineació"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TitleArticle",
+      "value": "Text"
     },
     {
       "_": "types.LangPackString",
@@ -53247,6 +53574,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.ActionAddToPage",
+      "value": "Afegeix a la pàgina"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ActionApply",
       "value": "Aplica"
     },
@@ -53254,6 +53586,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.ActionClose",
       "value": "Tanca"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.ActionGenerate",
+      "value": "Genera"
     },
     {
       "_": "types.LangPackString",
@@ -53362,6 +53699,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.PromptPlaceholder",
+      "value": "Genereu text, fòrmules, taules…"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ResultBadge",
       "value": "Resultat"
     },
@@ -53395,6 +53737,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.StyleList.Add",
       "value": "Crea"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.StyleList.Prompt",
+      "value": "Indicació"
     },
     {
       "_": "types.LangPackString",
@@ -53475,6 +53822,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.TextExpand",
       "value": "més"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.TitleAICompose",
+      "value": "Creeu amb IA"
     },
     {
       "_": "types.LangPackString",
@@ -59317,5 +59669,5 @@
       "value": "Heu introduït un codi de seguretat no vàlid."
     }
   ],
-  "version": 21422444
+  "version": 21518079
 }
