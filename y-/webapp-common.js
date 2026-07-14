@@ -1,7 +1,12 @@
 window.WebApp = window.Telegram && window.Telegram.WebApp || null;
 
 var TWebApp = {
-  init() {
+  init(basePath = '') {
+    if (basePath) {
+      var hash = Aj.apiUrl.split('hash=')[1] || '';
+      Aj.apiUrl = basePath + '/api?hash=' + hash;
+      window.basePath = basePath;
+    }
     TWebApp.initOnce();
     Aj.viewTransition = true;
 
@@ -19,7 +24,7 @@ var TWebApp = {
       WebApp.showPopup({
         message: message,
         buttons: [
-          {type: 'destructive', id: 'ok', text: confirm_btn || 'OK'},
+          {type: 'destructive', id: 'ok', text: confirm_btn || 'Leave'},
           {type: 'cancel'}
         ]
       }, button_id => button_id == 'ok' ? onConfirm?.() : onCancel?.());
@@ -27,6 +32,7 @@ var TWebApp = {
     window.showToast = TWebApp.showSuccessToast;
     window.showAlert = TWebApp.showErrorToast;
     WebApp.MainButton.enable();
+    WebApp.MainButton.onClick(TWebApp.eMainButton);
 
     $('body').on('keydown', function(e) {
         if (e.key === 'Enter' && e.target.matches('input[enterkeyhint=next]')) {
@@ -63,7 +69,7 @@ var TWebApp = {
 
     $(document).on('popup:open popup:close', TBackButton.update);
 
-    $(document).on('click', '.tm-nav-anchor', () => {
+    $(document).on('click', '.tm-nav-anchor, .tm-bot-anchor', () => {
       WebApp.HapticFeedback.impactOccurred('soft');
     });
 
@@ -72,17 +78,34 @@ var TWebApp = {
       var $menu = $('.dropdown-menu', event.target);
       var rect = $menu[0].getBoundingClientRect();
       var needsInvert = document.body.clientHeight - rect.bottom < -4;
+      var needsInvertHorizontal = rect.left < 2;
       $menu.toggleClass('dropdown-menu-top', needsInvert);
+      $menu.toggleClass('dropdown-menu-right', needsInvertHorizontal);
     });
 
     $(document).on('hidden.bs.dropdown', (event) => {
       var $menu = $('.dropdown-menu', event.target);
-      $menu.toggleClass('dropdown-menu-top', false);
+      $menu.removeClass('dropdown-menu-top dropdown-menu-right');
     });
 
     $(document).on('change', 'input[type=checkbox]', () => {
       WebApp.HapticFeedback.selectionChanged();
     })
+
+    $(document).on('sortchange', () => {
+      WebApp.HapticFeedback.impactOccurred('soft');
+    });
+    $(document).on('sortstart', () => { window._sortInProgress = true; });
+    $(document).on('sortstop', () => { window._sortInProgress = false; });
+
+    $(document).on('click', '.js-form-clear', function () {
+      $(this).closest('form')[0].reset();
+    });
+
+    var ua = navigator.userAgent.toLowerCase();
+    window.isSafari = (!(/chrome/i.test(ua)) && /webkit|safari|khtml/i.test(ua));
+
+    window._localCache = {};
   },
   checkAuth() {
     var authPage = Aj.state.authPage === true;
@@ -120,6 +143,21 @@ var TWebApp = {
     });
     WebApp.MainButton.show();
   },
+  eMainButton() {
+    if (Aj.layerState && Aj.layerState.onMainButton) {
+      return Aj.layerState.onMainButton();
+    }
+    if (Aj.state.onMainButton) {
+      return Aj.state.onMainButton();
+    }
+  },
+  scrollToEl(elem, offset = 0, smooth = false) {
+    window.scrollTo({
+      top: $(elem).offset().top - WebApp.safeAreaInset.top - WebApp.contentSafeAreaInset.top + offset,
+      left: 0,
+      behaviour: smooth ? 'smooth' : 'auto',
+    });
+  },
   showToast(text, options = {}) {
     if (!window.$_toastContainer) {
       window.$_toastContainer = $('<div class="tm-toast-container">').appendTo('body');
@@ -141,6 +179,10 @@ var TWebApp = {
   showErrorToast(html) {
     TWebApp.showToast(html || 'Error.', { class: 'tm-toast-error' });
     WebApp.HapticFeedback.notificationOccurred('error');
+  },
+  showWarningToast(text) {
+    TWebApp.showToast(text || 'Warning.', { class: 'tm-toast-warning' });
+    WebApp.HapticFeedback.notificationOccurred('warning');
   },
   showSuccessToast(html, time = 2000) {
     TWebApp.showToast(html || 'Success.', { class: 'tm-toast-success', duration: time });
@@ -213,16 +255,22 @@ var TBackButton = {
     var notified = false;
     var feedbackDelay = false;
 
+    var isRtl = document.documentElement.classList.contains('lang_rtl');
+
     zone.addEventListener('touchstart', function(event) {
         touchstartX = event.touches[0].screenX;
         touchstartY = event.touches[0].screenY;
+        window._canvasInteraction = (event.target.tagName == 'CANVAS');
     });
 
     zone.addEventListener('touchmove', function(event) {
         touchendX = event.changedTouches[0].screenX;
         touchendY = event.changedTouches[0].screenY;
 
-        deltaX = touchendX - touchstartX;
+        if (window._sortInProgress) return;
+        if (window._canvasInteraction) return;
+
+        deltaX = (touchendX - touchstartX) * (isRtl ? -1 : 1);
         deltaY = touchendY - touchstartY;
 
         const isHorizontal = Math.abs(deltaX) > 30 &&
@@ -242,14 +290,15 @@ var TBackButton = {
           setTimeout(() => feedbackDelay = false, 80);
           WebApp.HapticFeedback.impactOccurred('soft');;
         }
-        var translateX = (touchendX - touchstartX) / 1.2;
-        translateX = asymptoticInterp((touchendX - touchstartX) / 1.2 / 120, 0, 130, 1);
+        var translateX = deltaX / 1.2;
+        translateX = asymptoticInterp(deltaX / 1.2 / 120, 0, 130, 1);
         translateX -= 40;
-        $('.tm-swipe-back')[0].style.left = translateX - 52 + 'px';
+        $('.tm-swipe-back')[0].style.insetInlineStart = translateX - 52 + 'px';
     }, {passive: false})
 
     zone.addEventListener('touchend', function(event) {
-      if (type == 'h' && touchendX - touchstartX > threshold) {
+      var finalDeltaX = (touchendX - touchstartX) * (isRtl ? -1 : 1);
+      if (type == 'h' && finalDeltaX > threshold) {
         if (!feedbackDelay) {
           WebApp.HapticFeedback.impactOccurred('light');
         }
@@ -259,7 +308,7 @@ var TBackButton = {
       type = null;
       touchendX = event.changedTouches[0].screenX;
       touchendY = event.changedTouches[0].screenY;
-      $('.tm-swipe-back')[0].style.left = '-52px';
+      $('.tm-swipe-back')[0].style.insetInlineStart = '-52px';
     }, false);
 
     function asymptoticInterp(t, start, end, rate = 5) {
