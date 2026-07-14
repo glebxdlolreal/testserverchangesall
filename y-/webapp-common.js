@@ -32,6 +32,7 @@ var TWebApp = {
     window.showToast = TWebApp.showSuccessToast;
     window.showAlert = TWebApp.showErrorToast;
     WebApp.MainButton.enable();
+    WebApp.MainButton.hide();
     WebApp.MainButton.onClick(TWebApp.eMainButton);
 
     $('body').on('keydown', function(e) {
@@ -99,7 +100,7 @@ var TWebApp = {
     $(document).on('sortstop', () => { window._sortInProgress = false; });
 
     $(document).on('click', '.js-form-clear', function () {
-      $(this).closest('form')[0].reset();
+      $('input', this.closest('.tm-field')).val('').trigger('input');
     });
 
     var ua = navigator.userAgent.toLowerCase();
@@ -118,9 +119,12 @@ var TWebApp = {
         if (authPage) {
           var loc = window.location;
           if (Aj.state.redirect) {
-            Aj.location(Aj.state.redirect);  
+            Aj.location(Aj.state.redirect);
           } else if (loc.pathname.endsWith('/auth')) {
-            Aj.location('/');  
+            var basePath = window.basePath || '';
+            var startParam = WebApp.initDataUnsafe.start_param;
+            var query = startParam ? '?tgWebAppStartParam=' + startParam : '';
+            Aj.location(basePath + query || '/');
           } else {
             Aj.location(loc.href);
           }
@@ -128,7 +132,7 @@ var TWebApp = {
       } else {
         Aj.unauth = true;
         if (!authPage) {
-          Aj.location(Aj.state.authHref || '/auth');
+          Aj.location(Aj.state.authHref || (window.basePath || '') + '/auth');
         } else {
           TWebApp.showExpired();
         }
@@ -308,7 +312,7 @@ var TBackButton = {
       type = null;
       touchendX = event.changedTouches[0].screenX;
       touchendY = event.changedTouches[0].screenY;
-      $('.tm-swipe-back')[0].style.insetInlineStart = '-52px';
+      $('.tm-swipe-back')[0].style.insetInlineStart = '-92px';
     }, false);
 
     function asymptoticInterp(t, start, end, rate = 5) {

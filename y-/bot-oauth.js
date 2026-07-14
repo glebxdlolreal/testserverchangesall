@@ -1,5 +1,3 @@
-var WebApp = window.Telegram && window.Telegram.WebApp || null;
-
 var MainPage = {
   init() {
     Aj.state.allowMsg = true;

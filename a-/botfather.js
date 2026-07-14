@@ -3048,7 +3048,6 @@ var BotConsole = {
     if (type === 'error' || type === 'err') return 'err';
     if (type === 'wrn') return 'wrn';
     if (type === 'inf') return 'inf';
-    if (type === 'spin') return 'spin';
     if (type === 'log' || type === 'dbg') return 'log';
     return 'in';
   },
@@ -3060,7 +3059,6 @@ var BotConsole = {
     if (type === 'wrn') return '!';
     if (type === 'dbg') return '·';
     if (type === 'inf') return 'i';
-    if (type === 'spin') return '';
     if (type === 'log' || type === 'dbg') return '';
     return '>';
   },

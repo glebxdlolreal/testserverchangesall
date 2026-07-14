@@ -420,7 +420,7 @@ var BotCommandEdit = {
         Aj.onUnload(() => TWebApp.showSuccessToast(res.msg));
         setTimeout(() => {
           WebApp.MainButton.hideProgress();
-          _backButton();
+          TBackButton.onClick();
         }, 1000); // temp hack
       }
     });
@@ -2196,7 +2196,7 @@ var BotCodeEditor = {
         } else {
           BotCodeEditor.savedCode = code;
           Aj.onUnload(function() { TWebApp.showSuccessToast(l(BotCodeEditor.savedLangKey)); });
-          _backButton();
+          TBackButton.onClick();
         }
       } else {
         TWebApp.showErrorToast(res.error || l(BotCodeEditor.saveErrorLangKey));
@@ -2252,7 +2252,7 @@ var BotLibrary = {
           Aj.apiRequest('deleteCloudLibraryFile', { bid: Aj.state.botId, name: Aj.state.libraryPath }, function(res) {
             if (res.ok) {
               Aj.onUnload(function() { TWebApp.showSuccessToast(l('WEB_LIBRARY_FILE_DELETED')); });
-              _backButton();
+              TBackButton.onClick();
             } else {
               TWebApp.showErrorToast(res.error);
             }
@@ -2286,7 +2286,7 @@ var BotLibrary = {
       if (res.ok) {
         BotCodeEditor.savedCode = code;
         Aj.onUnload(function() { TWebApp.showSuccessToast(l('WEB_LIBRARY_FILE_SAVED')); });
-        _backButton();
+        TBackButton.onClick();
       } else {
         TWebApp.showErrorToast(res.error || l('WEB_LIBRARY_FILE_SAVE_ERROR'));
       }
@@ -2508,7 +2508,7 @@ var BotHandler = {
           Aj.apiRequest('deleteCloudHandler', { bid: Aj.state.botId, type: Aj.state.handlerType }, function(res) {
             if (res.ok) {
               Aj.onUnload(function() { TWebApp.showSuccessToast(l('WEB_HANDLER_DELETED')); });
-              _backButton();
+              TBackButton.onClick();
             } else {
               TWebApp.showErrorToast(res.error);
             }
@@ -2654,6 +2654,7 @@ var BotConsole = {
 
     BotConsole.addHistoryLine();
     BotConsole.guarded.setEditable('');
+    $('#console-spin-line').removeClass('hide');
 
     var argsObj = null;
     if (editable) {
@@ -2669,7 +2670,7 @@ var BotConsole = {
 
     var code = BotCodeEditor.cm.getValue();
     BotConsole.isRunning = true;
-    $('#console-input-line').hide();
+    $('#console-input-line').addClass('hide');
 
     var params = {
       bid: Aj.state.botId,
@@ -2698,14 +2699,18 @@ var BotConsole = {
           BotConsole.addLine(entry._, str, '+' + BotConsole.formatDuration(delta));
         }
       }
+      $('#console-spin-line').addClass('hide');
       if (res.error) {
         BotConsole.addLine('error', res.error, BotConsole.formatDuration(res.time));
       } else {
         let content = res.result;
+        if (res.format == 'json') {
+          content = JSON.parse(content);
+        }
         try { content = JSON5.stringify(content); } catch(e) {}
         BotConsole.addLine('output', content, BotConsole.formatDuration(res.time));
       }
-      $('#console-input-line').show();
+      $('#console-input-line').removeClass('hide');
       BotConsole.cm.refresh();
       BotConsole.cm.focus();
     });
