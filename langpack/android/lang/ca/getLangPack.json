@@ -4430,6 +4430,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleCommandToggle",
+      "value": "Commuta"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleDateByAuthor",
       "value": "%2$s • %1$s"
     },
@@ -13838,6 +13843,12 @@
       "other_value": "L'usuari s'eliminarà dels **%1$d xats >**"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityBanWarningMessage",
+      "one_value": "En bandejar **%2$s** també eliminareu de la comunitat **%1$d** xat que va crear.",
+      "other_value": "En bandejar **%2$s** també eliminareu de la comunitat **%1$d** xats que va crear."
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityBanWarningTitle",
       "value": "Atenció"
@@ -13880,8 +13891,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyChannelMessageOwner",
+      "value": "Escriu al propietari del canal"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityInviteOnlyGroupInfo",
       "value": "El xat és restringit. \nNomés els membres el poden veure."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuRemoveBotFromCommunityConfirm",
+      "value": "Segur que voleu eliminar aquest bot de la comunitat?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuRemoveChannelFromCommunityConfirm",
+      "value": "Segur que voleu eliminar aquest canal de la comunitat?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuRemoveGroupFromCommunityConfirm",
+      "value": "Segur que voleu eliminar aquest grup de la comunitat?"
     },
     {
       "_": "types.LangPackString",
@@ -13991,8 +14022,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotRemoved",
+      "value": "**%1$s** ha eliminat el bot de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityServiceMessageBotRemovedUnknown",
       "value": "S'ha eliminat el bot de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotYouRemoved",
+      "value": "**Heu** eliminat el bot de la comunitat"
     },
     {
       "_": "types.LangPackString",
@@ -14001,8 +14042,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelRemoved",
+      "value": "**%1$s** ha eliminat el canal de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityServiceMessageChannelRemovedUnknown",
       "value": "S'ha eliminat el canal de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelYouRemoved",
+      "value": "**Heu** eliminat el canal de la comunitat"
     },
     {
       "_": "types.LangPackString",
@@ -14011,8 +14062,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupRemoved",
+      "value": "**%1$s** ha eliminat el grup de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupRemovedUnknown",
+      "value": "S'ha eliminat el grup de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityServiceMessageGroupYouAdded",
       "value": "**Heu** afegit el grup a la comunitat **%1$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupYouRemoved",
+      "value": "**Heu** eliminat el grup de la comunitat"
     },
     {
       "_": "types.LangPackString",
@@ -14058,6 +14124,11 @@
       "_": "types.LangPackString",
       "key": "CommunityWhoCanAddChatsOnlyAdminsInfo",
       "value": "Cal que l'administració aprovi els xats suggerits pels membres de la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminMessage",
+      "value": "Ja podeu editar la informació de **%1$s** i usar altres eines administratives."
     },
     {
       "_": "types.LangPackString",
@@ -55901,5 +55972,5 @@
       "value": "Telegram Passport"
     }
   ],
-  "version": 59928150
+  "version": 59930818
 }
