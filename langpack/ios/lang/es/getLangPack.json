@@ -16544,6 +16544,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.Add",
+      "value": "Añadir"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextBot",
+      "value": "Si este bot es aprobado por un admin. de la comunidad, los miembros de la comunidad podrán verlo y usarlo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextChannel",
+      "value": "Si este canal es aprobado por un admin. de la comunidad, sus suscriptores podrán unirse o solicitar unirse a otros chats en la comunidad."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextGroup",
+      "value": "Si este grupo es aprobado por un admin. de la comunidad, sus miembros podrán unirse o solicitar unirse a otros chats en la comunidad."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Add.Title",
       "value": "Añadir chat"
     },
@@ -16603,6 +16623,11 @@
       "key": "Community.AdminActions.WarningChatCount",
       "one_value": "%@ chat",
       "other_value": "%@ chats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningText",
+      "value": "Al expulsar a **%@** también se quitarán **%@** de sus chats de la comunidad."
     },
     {
       "_": "types.LangPackString",
@@ -16875,6 +16900,16 @@
       "_": "types.LangPackString",
       "key": "Community.Request.PrivateStatus",
       "value": "visible sólo para sus miembros"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsBot",
+      "value": "%@ sugiere este bot:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsChannel",
+      "value": "%@ sugiere este canal:"
     },
     {
       "_": "types.LangPackString",
@@ -34467,6 +34502,11 @@
       "_": "types.LangPackString",
       "key": "Notification.CommunityAddedGroup",
       "value": "%1$@ añadió este grupo a la comunidad %2$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroupUnknown",
+      "value": "Este grupo fue añadido a la comunidad %1$@"
     },
     {
       "_": "types.LangPackString",
@@ -60088,5 +60128,5 @@
       "value": "Pusiste un código de seguridad inválido."
     }
   ],
-  "version": 21519756
+  "version": 21535849
 }
