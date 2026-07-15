@@ -176,7 +176,17 @@
     {
       "_": "types.LangPackString",
       "key": "AIEditorStyleSharedTo",
-      "value": "تم إرسال رابط نمط الذكاء الاصطناعي إلى **⁨%s⁩**."
+      "value": "تم إرسال رابط نمط AI إلى **⁨%s⁩**."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "تم إرسال رابط نمط AI إلى **⁨%1$d⁩ محادثات**",
+      "key": "AIEditorStyleSharedToManyChats",
+      "many_value": "تم إرسال رابط نمط AI إلى **⁨%1$d⁩ محادثة**",
+      "one_value": "تم إرسال رابط نمط AI إلى **محادثة واحدة**",
+      "other_value": "تم إرسال رابط نمط AI إلى **⁨%1$d⁩ محادثة**",
+      "two_value": "تم إرسال رابط نمط AI إلى **محادثتين**",
+      "zero_value": "لم يتم إرسال رابط نمط AI إلى **أي محادثة**"
     },
     {
       "_": "types.LangPackString",
@@ -10021,7 +10031,7 @@
     {
       "_": "types.LangPackString",
       "key": "BrowserSettingsEnable",
-      "value": "تمكين المتصفح داخل التطبيق"
+      "value": "تمكين المتصفح الداخلي"
     },
     {
       "_": "types.LangPackString",
@@ -22396,7 +22406,7 @@
     {
       "_": "types.LangPackString",
       "key": "Gift2BuyPriceTextTON",
-      "value": "شراء **⁨%2$s⁩** مقابل **⁨%1$s⁩ TON** وإهدائها إلى **⁨%3$s⁩**؟"
+      "value": "شراء **⁨%2$s⁩** مقابل **⁨%1$s⁩ جرام** وإهداؤها إلى **⁨%3$s⁩**؟"
     },
     {
       "_": "types.LangPackString",
@@ -24771,12 +24781,12 @@
     {
       "_": "types.LangPackString",
       "key": "GiftOfferDurationInfoStars",
-      "value": "تحديد المدة التي يجب أن يقبل فيها **⁨%s⁩** عرضك. عند انتهاء الصلاحية، سيتم رد **نجومك** إليك."
+      "value": "تحديد المدة التي يجب أن يقبل فيها **⁨%s⁩** عرضك. عند انتهاءها؛ سيُعاد رصيد **النجوم** إليك."
     },
     {
       "_": "types.LangPackString",
       "key": "GiftOfferDurationInfoTON",
-      "value": "تحديد المدة التي يجب أن يقبل فيها **⁨%s⁩** عرضك. عند انتهاء صلاحيته، سيتم استرداد عملة **TON** الخاص بك."
+      "value": "تحديد المدة التي يجب أن يقبل فيها **⁨%s⁩** عرضك. عند انتهاءها؛ سيُعاد رصيد **جرام** إليك."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -24966,7 +24976,7 @@
     {
       "_": "types.LangPackString",
       "key": "GiftOfferTONToOffer",
-      "value": "TON للعرض"
+      "value": "جرام"
     },
     {
       "_": "types.LangPackString",
@@ -47020,6 +47030,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarGiftReasonOfferRefund",
+      "value": "استرداد عرض هدية"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarGiftReasonPurchase",
       "value": "شراء هدية"
     },
@@ -47052,6 +47067,11 @@
       "_": "types.LangPackString",
       "key": "StarGiftTransactionGiftOffer",
       "value": "عرض لشراء هدية"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarGiftTransactionGiftOfferRefund",
+      "value": "عرض هدية مستردة"
     },
     {
       "_": "types.LangPackString",
@@ -57571,7 +57591,7 @@
     {
       "_": "types.LangPackString",
       "key": "WebBrowserShowCloseButtonInfo",
-      "value": "إضافة زر «إغلاق» عند عرض صفحات الويب."
+      "value": "فتح المتصفح الخارجي داخل تيليجرام"
     },
     {
       "_": "types.LangPackString",
@@ -58429,5 +58449,5 @@
       "value": "جواز تيليجرام"
     }
   ],
-  "version": 59904300
+  "version": 59947529
 }
