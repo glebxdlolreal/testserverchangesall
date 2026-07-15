@@ -3669,6 +3669,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_insert_details",
+      "value": "Падрабязней"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_insert_divider",
       "value": "Падзяляльнік"
     },
@@ -7882,8 +7887,56 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_add_chat",
+      "value": "Дадаць чат у супольнасць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_confirm",
+      "value": "Калі гэтая суполка будзе ўхвалена кіраўніком супольнасці, яе ўдзельнікі змогуць далучацца або падаць запыт на далучэнне да іншых чатаў у супольнасці."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_confirm_channel",
+      "value": "Калі гэты канал будзе ўхвалены кіраўніком супольнасці, яго падпісчыкі змогуць далучацца або падаць запыт на далучэнне да іншых чатаў у супольнасці."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_admin_about",
       "value": "Цяпер вы можаце рэдагаваць інфармацыю {community} і карыстацца іншымі інструментамі кіраўніка."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_continue",
+      "value": "Працягнуць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_decline",
+      "value": "Не, дзякуй"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_promote",
+      "value": "Павысіць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_promote_title",
+      "value": "Зрабіць кіраўніком супольнасці"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_title",
+      "value": "Вы кіраўнік супольнасці"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Карыстальнік будзе выдалены з {count} чатаў.",
+      "key": "lng_community_ban_about",
+      "many_value": "Карыстальнік будзе выдалены з {count} чатаў.",
+      "one_value": "Карыстальнік будзе выдалены з {count} чата.",
+      "other_value": "Карыстальнік будзе выдалены з {count} чата."
     },
     {
       "_": "types.LangPackString",
@@ -7912,6 +7965,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_chats_requestable",
+      "value": "Схаваныя чаты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_chat_about",
+      "value": "Толькі запрошаныя ўдзельнікі і кіраўнікі супольнасці змогуць бачыць гэты чат."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_hidden_chat_title",
       "value": "Схаваны чат"
     },
@@ -7937,8 +8000,110 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_request_add",
+      "value": "Дадаць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_decline",
+      "value": "Адхіліць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only",
+      "value": "Гэта прыватная суполка. Яе могуць праглядаць толькі ўдзельнікі."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only_channel",
+      "value": "Гэта прыватны канал. Яго могуць праглядаць толькі падпісчыкі.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_message_owner",
+      "value": "Напісаць уладальніку суполкі"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_request_message_owner_channel",
       "value": "Напісаць уладальніку канала"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_only_members",
+      "value": "Бачна толькі ўдзельнікам"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_suggested_bot",
+      "value": "{user} прапанаваў(-ла) гэтага бота"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_suggested_channel",
+      "value": "{user} прапанаваў(-ла) гэты канал"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_suggested_group",
+      "value": "{user} прапанаваў(-ла) гэтую суполку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_about",
+      "value": "Чаты патрабуюць ухвалення кіраўніка перад даданнем у супольнасць. {link}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_add_all",
+      "value": "Дадаць усе"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Хочаце дадаць {count} чаты ў супольнасць?",
+      "key": "lng_community_requests_add_all_sure",
+      "many_value": "Хочаце дадаць {count} чатаў у супольнасць?",
+      "one_value": "Хочаце дадаць {count} чат у супольнасць?",
+      "other_value": "Хочаце дадаць {count} чата ў супольнасць?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_add_all_title",
+      "value": "Дадаць усе чаты"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "{count} запыты",
+      "key": "lng_community_requests_button",
+      "many_value": "{count} запытаў",
+      "one_value": "{count} запыт",
+      "other_value": "{count} запыта"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "{count} чаты прапанаваны для гэтай супольнасці",
+      "key": "lng_community_requests_count",
+      "many_value": "{count} чатаў прапанаваны для гэтай супольнасці",
+      "one_value": "{count} чат прапанаваны для гэтай супольнасці",
+      "other_value": "{count} чата прапанаваны для гэтай супольнасці"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_decline_all",
+      "value": "Адхіліць усе"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Хочаце адхіліць усе {count} запыты на далучэнне да супольнасці?",
+      "key": "lng_community_requests_decline_all_sure",
+      "many_value": "Хочаце адхіліць усе {count} запытаў на далучэнне да супольнасці?",
+      "one_value": "Хочаце адхіліць усе {count} запыт на далучэнне да супольнасці?",
+      "other_value": "Хочаце адхіліць усе {count} запыту на далучэнне да супольнасці?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_title",
+      "value": "Запыты"
     },
     {
       "_": "types.LangPackString",
@@ -7959,6 +8124,16 @@
       "_": "types.LangPackString",
       "key": "lng_community_view",
       "value": "Праглядзець"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_note",
+      "value": "Вы не зможаце змяніць гэта пазней."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_visible_about",
+      "value": "Кожны ў супольнасці зможа бачыць гэты чат."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -34539,5 +34714,5 @@
       "other_value": "Вы заплацілі {count} зоркі."
     }
   ],
-  "version": 5726308
+  "version": 5727388
 }

@@ -4585,6 +4585,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleCommandToggle",
+      "value": "Пераключ."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleCommandVideo",
       "value": "Відэа"
     },
@@ -4852,6 +4857,11 @@
       "_": "types.LangPackString",
       "key": "ArticleText",
       "value": "Тэкст"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleToggleBlock",
+      "value": "Згортваемы блок"
     },
     {
       "_": "types.LangPackString",
@@ -14506,13 +14516,56 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAddAChatToCommunity",
+      "value": "Дадаць чат у супольнасць\n"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Хочаце дадаць **%1$d** чаты ў супольнасць?",
+      "key": "CommunityAddAllChatsMessage",
+      "many_value": "Хочаце дадаць **%1$d** чатаў у супольнасць?",
+      "one_value": "Хочаце дадаць **%1$d** чат у супольнасць?",
+      "other_value": "Хочаце дадаць **%1$d** чата ў супольнасць?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAllChatsTitle",
+      "value": "Дадаць усе чаты\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotTitle",
+      "value": "Дадаць бота"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChatTitle",
+      "value": "Дадаць чат"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAddToCommunityButton",
       "value": "Дадаць у супольнасць"
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityChannelMessage",
+      "value": "Калі гэты канал будзе ўхвалены кіраўніком супольнасці, яго падпісчыкі змогуць далучацца або падаць запыт на далучэнне да іншых чатаў у супольнасці."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityGroupMessage",
+      "value": "Калі гэтая суполка будзе ўхвалена кіраўніком супольнасці, яе ўдзельнікі змогуць далучацца або падаць запыт на далучэнне да іншых чатаў у супольнасці."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAddToCommunityRequestButton",
       "value": "Адправіць запыт на далучэнне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityTitle",
+      "value": "Дадаць у супольнасць"
     },
     {
       "_": "types.LangPackString",
@@ -14523,6 +14576,14 @@
       "_": "types.LangPackString",
       "key": "CommunityBanFromCommunity",
       "value": "Заблакіраваць у супольнасці"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Карыстальнік будзе выдалены з **%1$d чатаў >**",
+      "key": "CommunityBanFromCommunityInfo",
+      "many_value": "Карыстальнік будзе выдалены з **%1$d чатаў >**",
+      "one_value": "Карыстальнік будзе выдалены з **%1$d чата >**",
+      "other_value": "Карыстальнік будзе выдалены з **%1$d чата >**"
     },
     {
       "_": "types.LangPackString",
@@ -14543,6 +14604,54 @@
       "value": "Папярэджанне"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "**%2$s** будзе выдалены з **%1$d** чатаў супольнасці.",
+      "key": "CommunityBanWillRemoveFromChats",
+      "many_value": "**%2$s** будзе выдалены з **%1$d** чатаў супольнасці.",
+      "one_value": "**%2$s** будзе выдалены з **%1$d** чата супольнасці.",
+      "other_value": "**%2$s** будзе выдалены з **%1$d** чата супольнасці."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityCannotChange",
+      "value": "Вы не зможаце змяніць гэта пазней."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHidden",
+      "value": "Схавана"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHiddenBotInfo",
+      "value": "Толькі запрошаныя ўдзельнікі і кіраўнікі супольнасці змогуць бачыць гэтага бота."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHiddenInfo",
+      "value": "Толькі запрошаныя ўдзельнікі і кіраўнікі супольнасці змогуць бачыць гэты чат."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilitySection",
+      "value": "Бачнасць чата"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisible",
+      "value": "Бачны"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisibleBotInfo",
+      "value": "Кожны ў супольнасці зможа бачыць гэтага бота."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisibleInfo",
+      "value": "Кожны ў супольнасці зможа бачыць гэты чат."
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityCommunityJoinedChannel",
       "value": "Вы дадалі гэты канал у супольнасць!"
@@ -14551,6 +14660,19 @@
       "_": "types.LangPackString",
       "key": "CommunityCommunityJoinedGroup",
       "value": "Вы дадалі гэтую суполку ў супольнасць!"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Хочаце адхіліць усе **%1$d** запыты на далучэнне да супольнасці?",
+      "key": "CommunityDeclineAllMessage",
+      "many_value": "Хочаце адхіліць усе **%1$d** запытаў на далучэнне да супольнасці?",
+      "one_value": "Хочаце адхіліць усе **%1$d** запыт на далучэнне да супольнасці?",
+      "other_value": "Хочаце адхіліць усе **%1$d** запыту на далучэнне да супольнасці?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDeclineAllTitle",
+      "value": "Адхіліць усе\n"
     },
     {
       "_": "types.LangPackString",
@@ -14579,8 +14701,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyChannelInfo",
+      "value": "Гэта прыватны канал.\nЯго могуць праглядаць толькі падпісчыкі."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityInviteOnlyChannelMessageOwner",
       "value": "Напісаць уладальніку канала"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyGroupInfo",
+      "value": "Гэта прыватная суполка.\nЯе могуць праглядаць толькі ўдзельнікі."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyGroupMessageOwner",
+      "value": "Напісаць уладальніку суполкі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminMessage",
+      "value": "**%1$s** зможа рэдагаваць інфармацыю супольнасці і выкарыстоўваць іншыя інструменты кіраўніка.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminPromote",
+      "value": "Павысіць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminTitle",
+      "value": "Зрабіць кіраўніком супольнасці\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuAddChat",
+      "value": "Дадаць чат у супольнасць\n"
     },
     {
       "_": "types.LangPackString",
@@ -14604,6 +14761,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityMenuSettings",
+      "value": "Налады"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuShowAsOneChat",
+      "value": "Паказваць як адзін чат\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuShowAsSeparateChats",
+      "value": "Паказваць як асобныя чаты\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityMenuViewBot",
       "value": "Праглядзець бота"
     },
@@ -14619,6 +14791,82 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityPendingRequest",
+      "value": "Запыт"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestAdd",
+      "value": "Дадаць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestAddAll",
+      "value": "Дадаць усе\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestDecline",
+      "value": "Адхіліць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestDeclineAll",
+      "value": "Адхіліць усе\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestOnlyVisibleToMembers",
+      "value": "Бачна толькі ўдзельнікам\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedBot",
+      "value": "**%s** прапанаваў(-ла) гэтага бота"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedChannel",
+      "value": "**%s** прапанаваў(-ла) гэты канал\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedGroup",
+      "value": "**%s** прапанаваў(-ла) гэтую суполку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfo",
+      "value": "Чаты патрабуюць ухвалення кіраўніка перад даданнем у супольнасць. **Змяніць налады >**\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfoNoChange",
+      "value": "Чаты патрабуюць ухвалення кіраўніка перад даданнем у супольнасць.\n"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d запыты",
+      "key": "CommunityPendingRequestsRow",
+      "many_value": "%1$d запытаў",
+      "one_value": "%1$d запыт",
+      "other_value": "%1$d запыта"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d чаты прапанаваны для гэтай супольнасці",
+      "key": "CommunityPendingRequestsSuggestedHeader",
+      "many_value": "%1$d чатаў прапанаваны для гэтай супольнасці",
+      "one_value": "%1$d чат прапанаваны для гэтай супольнасці",
+      "other_value": "%1$d чата прапанаваны для гэтай супольнасці"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsTitle",
+      "value": "Запыты"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityRequestApprovedToast",
       "value": "Вы ўхвалілі запыт на даданне **%1$s** у супольнасць."
     },
@@ -14626,6 +14874,26 @@
       "_": "types.LangPackString",
       "key": "CommunityRequestDeclinedToast",
       "value": "Вы адхілілі запыт на даданне **%1$s** у супольнасць."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanJoin",
+      "value": "Чаты, куды можна далучыцца\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanRequestToJoin",
+      "value": "Чаты, куды можна падаць запыт на далучэнне\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanView",
+      "value": "Чаты, якія можна праглядаць\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionHiddenChats",
+      "value": "Схаваныя чаты\n"
     },
     {
       "_": "types.LangPackString",
@@ -14739,8 +15007,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminContinue",
+      "value": "Працягнуць"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityYouAreAdminMessage",
       "value": "Цяпер вы можаце рэдагаваць інфармацыю **%1$s** і карыстацца іншымі інструментамі кіраўніка."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminNoThanks",
+      "value": "Не, дзякуй\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminTitle",
+      "value": "Вы кіраўнік супольнасці\n"
     },
     {
       "_": "types.LangPackString",
@@ -30348,7 +30631,7 @@
     {
       "_": "types.LangPackString",
       "key": "MessageSeenTooltipMessage",
-      "value": "Каб абараніць прыватнасць карыстальнікаў, гэтыя прагляды захоўваюцца на працягу **7 дзён**."
+      "value": "Для абароны прыватнасці гісторыя праглядаў захоўваецца толькі **7 дзён**."
     },
     {
       "_": "types.LangPackString",
@@ -57566,5 +57849,5 @@
       "value": "Telegram Passport"
     }
   ],
-  "version": 59942745
+  "version": 59948571
 }
