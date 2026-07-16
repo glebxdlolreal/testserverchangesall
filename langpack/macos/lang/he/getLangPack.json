@@ -1887,6 +1887,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Description",
+      "value": "נא להכניס את כתובת הדוא\"ל שלך כדי לשמור על הגישה לחשבון שלך."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.ErrorEmailNotAllowed",
+      "value": "מצטערים, לא ניתן להשתמש בכתובת דוא\"ל זו."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.ErrorInvalidEmail",
+      "value": "נא להכנס כתובת דוא\"ל חוקית."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Placeholder",
+      "value": "הכנס את כתובת הדוא\"ל שלך"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Title",
+      "value": "הוסף כתובת דוא\"ל"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AuthSessions.MessageApp",
       "value": "הרשית לבוט זה לשלוח לך הודעות כשפתחת את ⁨%@⁩."
     },
@@ -4009,6 +4034,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersEnable",
+      "value": "הפעל"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersHeader",
+      "value": "אישור חברים חדשים"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersInfo",
+      "value": "חברים חדשים יצטרכו מעכשיו אישור מ⁨%1$@⁩ לפני שהם יוכלו לשלוח הודעות בקבוצה."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Channel.Admin.CantEdit",
       "value": "אינך יכול לערוך את ההרשאות של מנהל זה."
     },
@@ -4021,6 +4061,16 @@
       "_": "types.LangPackString",
       "key": "Channel.Admin.Dismiss",
       "value": "הסר הרשאות ניהול"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ProcessJoinRequests",
+      "value": "לעבד בקשות הצטרפות"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ProcessJoinRequestsInfo",
+      "value": "אפשר לבוט זה לאשר חברים חדשים באמצעות ממשקים משלו, כגון captcha."
     },
     {
       "_": "types.LangPackString",
@@ -4531,7 +4581,7 @@
     {
       "_": "types.LangPackString",
       "key": "Channel.EditAdmin.Permission.ManageDirect",
-      "value": "ניהול הודעות ישירות"
+      "value": "לנהל הודעות ישירות"
     },
     {
       "_": "types.LangPackString",
@@ -5457,6 +5507,11 @@
       "_": "types.LangPackString",
       "key": "ChannelBlacklist.Restricted",
       "value": "הוגבלו"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChannelBlocklist.CommunityEmptyDescription",
+      "value": "משתמשים חסומים מוסרים מהקהילה ויכולים לחזור רק אם מנהל יוסיף אותם. קישורי הזמנה אינם פועלים עבורם."
     },
     {
       "_": "types.LangPackString",
@@ -7866,6 +7921,11 @@
       "_": "types.LangPackString",
       "key": "Chat.EmptyChat.Info",
       "value": "שלח הודעה או לחץ על הברכה למטה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.EmptyMessageError",
+      "value": "לא ניתן לשלוח הודעה ריקה."
     },
     {
       "_": "types.LangPackString",
@@ -11594,6 +11654,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatInput.EmptyMessageError",
+      "value": "לא ניתן לשלוח הודעה ריקה."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatInput.OpenChat",
       "value": "פתח צ'אט"
     },
@@ -12646,6 +12711,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.RemoveFromCommunity",
+      "value": "הסר מהקהילה"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.RevealAction.Collapse",
       "value": "צמצם"
     },
@@ -12937,6 +13007,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Ungroup",
+      "value": "בטל קיבוץ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupChats",
+      "value": "לבטל את קיבוץ הצ'אטים?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupChatsInfo",
+      "value": "צ'אטים מקהילה זו יופיעו בנפרד ברשימת הצ'אטים שלך."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.UnhideMuted",
       "value": "בטל הסתרת צ'אטים מושתקים"
     },
@@ -13118,6 +13203,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatMessageMenu.SentAt",
+      "value": "שלח ⁨%1$@⁩"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatMessageMenuItems.AndJoiner",
       "value": " ו"
     },
@@ -13219,6 +13309,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatRow.Edited",
+      "value": "נערך ב⁨%1$@⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.AddedGroup",
+      "value": "⁨%1$@⁩ הוסיף/ה את הקבוצה לקהילה ⁨%2$@⁩."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.BotAddedToCommunity",
+      "value": "הבוט נוסף לקהילה ⁨%1$@⁩."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatService.ChangedToSameWallpaper",
       "value": "⁨%1$@⁩ השתמש/ה בטפט שלך בצ'אט זה"
     },
@@ -13226,6 +13331,11 @@
       "_": "types.LangPackString",
       "key": "ChatService.ChangedWallpaper",
       "value": "⁨%1$@⁩ הגדיר/ה טפט חדש לצ'אט"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.ChannelAddedToCommunity",
+      "value": "הערוץ נוסף לקהילה ⁨%1$@⁩."
     },
     {
       "_": "types.LangPackString",
@@ -13545,6 +13655,11 @@
       "_": "types.LangPackString",
       "key": "ChatService.ViewBackground",
       "value": "הצג טפט"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.YouAddedGroup",
+      "value": "הוספת את הקבוצה לקהילה ⁨%1$@⁩."
     },
     {
       "_": "types.LangPackString",
@@ -14135,6 +14250,694 @@
       "_": "types.LangPackString",
       "key": "Common.Restart",
       "value": "אתחל"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.AddToExisting",
+      "value": "הוסף לקהילה קיימת"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.AdminRequired",
+      "value": "רק המנהלים בצ'אט זה יכולים ליצור קהילה עבורו."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.CantChangeLater",
+      "value": "לא תוכל לשנות את זה מאוחר יותר."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Communities.Chats",
+      "many_value": "⁨%1$d⁩ צ'אטים",
+      "one_value": "צ'אט ⁨%1$d⁩",
+      "other_value": "⁨%1$d⁩ צ'אטים",
+      "two_value": "⁨%1$d⁩ צ'אטים"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.CommunityName",
+      "value": "שם הקהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Create",
+      "value": "צור"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.CreateCommunity",
+      "value": "צור קהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Hidden",
+      "value": "מוסתר"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.HiddenInfo",
+      "value": "רק חברים שהוזמנו ומנהלי קהילה יוכלו לראות צ'אט זה."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Communities.Members",
+      "many_value": "⁨%1$d⁩ חברים",
+      "one_value": "חבר ⁨%1$d⁩",
+      "other_value": "⁨%1$d⁩ חברים",
+      "two_value": "⁨%1$d⁩ חברים"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.NewCommunity",
+      "value": "קהילה חדשה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SomethingWentWrong",
+      "value": "קרתה תקלה."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SubtitleBot",
+      "value": "הפוך את הבוט שלך לחלק מקהילה עם מספר צ'אטים קשורים."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SubtitleChannel",
+      "value": "הפוך את הערוץ שלך לחלק מקהילה עם מספר צ'אטים קשורים."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SubtitleGroup",
+      "value": "הפוך את הקבוצה שלך לחלק מקהילה עם מספר צ'אטים קשורים."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Title",
+      "value": "קהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Visible",
+      "value": "גלוי"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.VisibleInfo",
+      "value": "כולם בקהילה יוכלו לראות צ'אט זה."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Continue",
+      "value": "המשך"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DismissAdminHeader",
+      "value": "בטל את עצמך ממנהל קהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DismissAdminInfo",
+      "value": "אתה תאבד גישה לכלי ניהול קהילה, אבל תשמור על הרשאות ניהול הקבוצה."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Group",
+      "value": "קבוצה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.InviteOnlyInfo",
+      "value": "צ'אט זה הוא בהזמנה בלבד.\nרק החברים בו יכולים לצפות בו."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.Members",
+      "many_value": "⁨%1$d⁩ חברים",
+      "one_value": "חבר ⁨%1$d⁩",
+      "other_value": "⁨%1$d⁩ חברים",
+      "two_value": "⁨%1$d⁩ חברים"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.MessageGroupOwner",
+      "value": "שלח הודעה לבעלי הקבוצה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoThanks",
+      "value": "לא, תודה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.YouAreAdmin",
+      "value": "הינך מנהל קהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.YouAreAdminInfo",
+      "value": "באפשרותך לערוך כעת את הפרטים של ⁨%1$@⁩ וכלי ניהול אחרים."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Confirm",
+      "value": "הוסף לקהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorAdminRequired",
+      "value": "רק מנהלי הקהילה יכולים להוסיף צ'אטים."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorGeneric",
+      "value": "קרתה תקלה."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorLimitReached",
+      "value": "קהילה זו הגיעה לכמות המקסימלית של צ'אטים."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Hidden",
+      "value": "מוסתר"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.HiddenInfo",
+      "value": "רק חברים מוזמנים ומנהלי קהילה יראו את הצ'אט הזה."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityAdd.Members",
+      "many_value": "⁨%1$d⁩ חברים",
+      "one_value": "חבר ⁨%1$d⁩",
+      "other_value": "⁨%1$d⁩ חברים",
+      "two_value": "⁨%1$d⁩ חברים"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Title",
+      "value": "הוסף צ'אט"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.VisibilityFooter",
+      "value": "לא תוכל לשנות את זה מאוחר יותר."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Visible",
+      "value": "גלוי"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.VisibleInfo",
+      "value": "כולם בקהילה יוכלו לראות את הצ'אט הזה."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.AddAdmin",
+      "value": "הוסף מנהל"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.BanMembers",
+      "value": "לחסום חברים"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.Dismiss",
+      "value": "בטל מנהל"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.DismissConfirm",
+      "value": "לבטל מנהל זה?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.EditGroupList",
+      "value": "לערוך את רשימת הצ'אטים"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.EditName",
+      "value": "לערוך את שם הקהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.ErrorGeneric",
+      "value": "קרתה תקלה."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.PermissionsHeader",
+      "value": "מה מנהל זה יכול לעשות?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.Save",
+      "value": "שמור"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.AddAdmin",
+      "value": "הוסף מנהל"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.Header",
+      "value": "מנהלים"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.Loading",
+      "value": "טוען..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.StatusAdmin",
+      "value": "מנהל"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.StatusCreator",
+      "value": "יוצר"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.StatusPromotedBy",
+      "value": "קודם/ה על ידי ⁨%1$@⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.Title",
+      "value": "מנהלים"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AddAChatToCommunity",
+      "value": "הוסף צ'אט לקהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AddChatToCommunity",
+      "value": "הוסף צ'אט לקהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Administrators",
+      "value": "מנהלים"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AllMembers",
+      "value": "כל החברים"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AllMembersDescription",
+      "value": "אפשר לחברים להוסיף את הקבוצות והערוצים שלהם לקהילה."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.ChangePhoto",
+      "value": "שנה תמונה"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityEdit.ChatsCount",
+      "many_value": "⁨%d⁩ צ'אטים",
+      "one_value": "צ'אט ⁨%d⁩",
+      "other_value": "⁨%d⁩ צ'אטים",
+      "two_value": "⁨%d⁩ צ'אטים"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.CommunityName",
+      "value": "שם הקהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Delete",
+      "value": "מחק"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.DeleteCommunity",
+      "value": "מחק קהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.DeleteCommunityConfirm",
+      "value": "למחוק את הקהילה? לא ניתן לבטל פעולה זו."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Hidden",
+      "value": "מוסתר"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityEdit.MembersCount",
+      "many_value": "⁨%d⁩ חברים",
+      "one_value": "חבר ⁨%d⁩ ",
+      "other_value": "⁨%d⁩ חברים",
+      "two_value": "⁨%d⁩ חברים"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.OnlyAdmins",
+      "value": "מנהלים בלבד"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.OnlyAdminsDescription",
+      "value": "צ'אטים המוצעים על ידי חברי קהילה דורשים אישור מנהל."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.PendingRequests",
+      "value": "בקשות ממתינות"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Remove",
+      "value": "הסר"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemoveChatConfirm",
+      "value": "להסיר את הצ'אט מהקהילה?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemoveFromCommunity",
+      "value": "הסר מהקהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemovedUsers",
+      "value": "משתמשים שהוסרו"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.SetPhoto",
+      "value": "הגדר תמונה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.SomethingWentWrong",
+      "value": "קרתה תקלה."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Title",
+      "value": "ערוך קהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.UpdatingPhoto",
+      "value": "מעדכן תמונה..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.WhoCanAddChats",
+      "value": "מי יכול להוסיף צ'אטים"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInfo.Community",
+      "value": "קהילה"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityInfo.CommunityWithChats",
+      "many_value": "קהילה עם ⁨%1$d⁩ צ'אטים",
+      "one_value": "קהילה עם צ'אט ⁨%1$d⁩",
+      "other_value": "קהילה עם ⁨%1$d⁩ צ'אטים",
+      "two_value": "קהילה עם ⁨%1$d⁩ צ'אטים"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.AddChat",
+      "value": "הוסף צ'אט"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.AddChatToCommunity",
+      "value": "הוסף צ'אט לקהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.DefaultTitle",
+      "value": "קהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.EditCommunity",
+      "value": "ערוך קהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.ErrorGeneric",
+      "value": "קרתה תקלה."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityList.Members",
+      "many_value": "⁨%1$d⁩ חברים",
+      "one_value": "חבר ⁨%1$d⁩",
+      "other_value": "⁨%1$d⁩ חברים",
+      "two_value": "⁨%1$d⁩ חברים"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.PendingRequests",
+      "value": "בקשות ממתינות"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.Remove",
+      "value": "הסר"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.RemoveChatConfirm",
+      "value": "להסיר את הצ'אט מהקהילה?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.SectionJoined",
+      "value": "צ'אטים שהינך נמצא בהם"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.SectionRequestable",
+      "value": "צ'אטים שבאפשרותך לבקש להצטרף אליהם"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.SectionVisible",
+      "value": "צ'אטים שבאפשרותך לצפות בהם"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.ShowAsOneChat",
+      "value": "הצג כצ'אט אחד"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Add",
+      "value": "הוסף"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.AddAll",
+      "value": "הוסף הכל"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.AddAllConfirm",
+      "value": "להוסיף את כל הצ'אטים שהוצעו?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.ApprovalInfo",
+      "value": "צ'אטים דורשים אישור מנהל לפני שהם נוספים לקהילה. [שינוי הגדרות](settings)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Decline",
+      "value": "סרב"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.DeclineAll",
+      "value": "סרב להכל"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.DeclineAllConfirm",
+      "value": "לסרב לכל הצ'אטים שהוצעו?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Empty",
+      "value": "אין בקשות ממתינות."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Loading",
+      "value": "טוען..."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityRequests.MembersCount",
+      "many_value": "⁨%d⁩ חברים",
+      "one_value": "חבר ⁨%d⁩",
+      "other_value": "⁨%d⁩ חברים",
+      "two_value": "⁨%d⁩ חברים"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.PendingRequests",
+      "value": "בקשות ממתינות"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Someone",
+      "value": "מישהו"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityRequests.SuggestedHeader",
+      "many_value": "⁨%d⁩ צ'אטים הוצעו לקהילה",
+      "one_value": "צ'אט ⁨%d⁩ הוצע לקהילה",
+      "other_value": "⁨%d⁩ צ'אטים הוצעו לקהילה",
+      "two_value": "⁨%d⁩ צ'אטים הוצעו לקהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.SuggestsGroup",
+      "value": "⁨%1$@⁩ הציע/ה צ'אט זה:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.SuggestsGroupSuffix",
+      "value": "הציע/ה צ/אט זה:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Unknown",
+      "value": "לא ידוע"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.VisibleOnlyToMembers",
+      "value": "גלויה רק לחברים בה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.VisibleOnlyToMembersSuffix",
+      "value": " · גלויה רק לחברים בה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.AddChatToCommunity",
+      "value": "הוסף צ'אט לקהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.EditCommunity",
+      "value": "ערוך קהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.HideChat",
+      "value": "הסתר"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityView.Members",
+      "many_value": "⁨%1$d⁩ חברים",
+      "one_value": "חבר ⁨%1$d⁩",
+      "other_value": "⁨%1$d⁩ חברים",
+      "two_value": "⁨%1$d⁩ חברים"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Mute",
+      "value": "השתק"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.PendingRequests",
+      "value": "בקשות ממתינות"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Remove",
+      "value": "הסר"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.RemoveChatConfirm",
+      "value": "להסיר את הצ'אט מהקהילה?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.RemoveFromCommunity",
+      "value": "הסר מהקהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SectionChatsYouAreIn",
+      "value": "צ'אטים שהינך נמצא בהם"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SectionChatsYouCanJoin",
+      "value": "צ'אטים שבאפשרותך להצטרף אליהם"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SectionChatsYouCanRequestToJoin",
+      "value": "צ'אטים שבאפשרותך לבקש להצטרף אליהם"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowAsOneChat",
+      "value": "הצג כצ'אט אחד"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowAsOneChatInfo",
+      "value": "קבץ את כל צ'אטי הקהילה לפריט אחד ברשימת הצ'אטים."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowChat",
+      "value": "הצג"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SomethingWentWrong",
+      "value": "קרתה תקלה."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Title",
+      "value": "קהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Unmute",
+      "value": "בטל השתקה"
     },
     {
       "_": "types.LangPackString",
@@ -15100,6 +15903,24 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DeleteGroupMessages.Ban",
+      "value": "חסום"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteGroupMessages.BanFromCommunity",
+      "value": "חסום מהקהילה"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "DeleteGroupMessages.CommunityBanWarning",
+      "many_value": "חסימת ⁨%2$@⁩ תסיר גם ⁨%1$d⁩ צ'אטים שלו מהקהילה.",
+      "one_value": "חסימת ⁨%2$@⁩ תסיר גם צ'אט ⁨%1$d⁩ שלו מהקהילה.",
+      "other_value": "חסימת ⁨%2$@⁩ תסיר גם ⁨%1$d⁩ צ'אטים שלו מהקהילה.",
+      "two_value": "חסימת ⁨%2$@⁩ תסיר גם ⁨%1$d⁩ צ'אטים שלו מהקהילה."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DeleteGroupMessages.DeleteAllFromPeer",
       "value": "מחק הכל מ⁨%1$@⁩"
     },
@@ -15114,9 +15935,30 @@
       "value": "מחק רגשון"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "DeleteGroupMessages.MemberCount",
+      "many_value": "⁨%1$d⁩ חברים",
+      "one_value": "חבר ⁨%1$d⁩",
+      "other_value": "⁨%1$d⁩ חברים",
+      "two_value": "⁨%1$d⁩ חברים"
+    },
+    {
       "_": "types.LangPackString",
       "key": "DeleteGroupMessages.ReactionTitle",
       "value": "מחק רגשון 1"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "DeleteGroupMessages.RemovedFromChatsCount",
+      "many_value": "המשתמש יוסר מ⁨%1$d⁩ צ'אטים.",
+      "one_value": "המשתמש יוסר מצ'אט ⁨%1$d⁩.",
+      "other_value": "המשתמש יוסר מ⁨%1$d⁩ צ'אטים.",
+      "two_value": "המשתמש יוסר מ⁨%1$d⁩ צ'אטים."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteGroupMessages.WarningTitle",
+      "value": "אזהרה"
     },
     {
       "_": "types.LangPackString",
@@ -19454,6 +20296,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupInfo.AddGroupToCommunity",
+      "value": "הוסף קבוצה לקהילה"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupInfo.AddUserLeftError",
       "value": "מצטערים, אם משתמש עוזב קבוצה, רק איש קשר הדדי יכול יכול להחזיר אותו (הוא צריך להיות שמור אצלך, ואתה צריך להיות שמור אצלו)."
     },
@@ -19514,8 +20361,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupInfo.Remove",
+      "value": "הסר"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.RemoveGroupFromCommunity",
+      "value": "הסר קבוצה מהקהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.RemoveGroupFromCommunityConfirm",
+      "value": "להסיר את הקבוצה מהקהילה?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupInfo.ScamWarning",
       "value": "⚠️ אזהרה: משתמשים רבים דיווחו על קבוצה זו כהונאה או כחשבון פיקטיבי. יש להיזהר, במיוחד אם הוא מבקש כסף."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.SomethingWentWrong",
+      "value": "קרתה תקלה."
     },
     {
       "_": "types.LangPackString",
@@ -24916,7 +25783,7 @@
     {
       "_": "types.LangPackString",
       "key": "PeerInfo.BotEdit.TonBalance",
-      "value": "יתרת TON"
+      "value": "יתרת Gram"
     },
     {
       "_": "types.LangPackString",
@@ -27355,6 +28222,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumBoarding.RichFormattingInfo",
+      "value": "הוסף כותרות, טבלאות, מדיה מוטמעת ותוכן AI להודעות."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PremiumBoarding.RichFormattingTitle",
+      "value": "כלי עיצוב"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumBoarding.Stories.ExpirationDuration.Info",
       "value": "הגדר זמנים מותאמים אישית, כגון 6 או 48 שעות עבור הסטוריז שלך."
     },
@@ -29177,6 +30054,411 @@
       "_": "types.LangPackString",
       "key": "RequestJoin.Sent",
       "value": "בקשת ההצטרפות נשלחה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.AddToPage",
+      "value": "הוסף לעמוד"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.ErrorEmpty",
+      "value": "לא ניתן לעבד הודעה ריקה."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.ErrorTooLong",
+      "value": "ההודעה ארוכה מדי."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.Generate",
+      "value": "צור"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.PromptPlaceholder",
+      "value": "צור טקסט, נוסחאות או טבלאות..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.Result",
+      "value": "תוצאה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.Title",
+      "value": "צור עם AI"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AddMedia",
+      "value": "הוסף תמונה או סרטון"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignCenter",
+      "value": "יישר למרכז"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignLeft",
+      "value": "יישר לשמאל"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignRight",
+      "value": "יישר לימין"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Apply",
+      "value": "החל"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AttachTitle",
+      "value": "כתבה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Body",
+      "value": "גוף"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.BulletList",
+      "value": "רשימת נקודות"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Checklist",
+      "value": "רשימת משימות"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Copy",
+      "value": "העתק"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Cut",
+      "value": "חתוך"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Delete",
+      "value": "מחק"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DeleteColumn",
+      "value": "מחק עמודה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DeleteRow",
+      "value": "מחק שורה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Edit",
+      "value": "ערוך"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.EditFormula",
+      "value": "ערוך נוסחה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Format",
+      "value": "עיצוב"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Formula",
+      "value": "נוסחה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.FormulaPreviewPlaceholder",
+      "value": "התצוגה המקדימה תופיע כאן"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Highlight",
+      "value": "הדגש"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertAbove",
+      "value": "הכנס מעל"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertBelow",
+      "value": "הכנס מתחת"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertLeft",
+      "value": "הכנס משמאל"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertRight",
+      "value": "הכנס מימין"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertTable",
+      "value": "הכנס טבלה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InvalidFormula",
+      "value": "נוסחה לא תקינה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.LatexSection",
+      "value": "LATEX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Link",
+      "value": "קישור"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ListNone",
+      "value": "ללא"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.MakeCollage",
+      "value": "הפוך לקולאז'"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Bold",
+      "value": "מודגש"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Copy",
+      "value": "העתק"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Cut",
+      "value": "חתוך"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Format",
+      "value": "עיצוב"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Italic",
+      "value": "נטוי"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.LookUp",
+      "value": "חפש"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Paste",
+      "value": "הדבק"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.SelectAll",
+      "value": "בחר הכל"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Share",
+      "value": "שתף..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Underline",
+      "value": "קו תחתון"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.More",
+      "value": "עוד"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.NumberedList",
+      "value": "רשימה ממוספרת"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Paste",
+      "value": "הדבק"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Placeholder.AddAuthor",
+      "value": "הוסף מחבר"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Placeholder.AddCaption",
+      "value": "הוסף כותרת..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Placeholder.TypeSomething",
+      "value": "הקלד משהו..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Remove",
+      "value": "הסר"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.RemoveHighlight",
+      "value": "הסר הדגשה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Replace",
+      "value": "החלף"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ResultSection",
+      "value": "תוצאה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.SelectAll",
+      "value": "בחר הכל"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddColumnLeft",
+      "value": "הוסף עמודה משמאל"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddColumnRight",
+      "value": "הוסף עמודה ימין"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddRowAbove",
+      "value": "הוסף שורה מעל"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddRowBelow",
+      "value": "הוסף שורה מתחת"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignCenter",
+      "value": "יישר למרכז"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignLeft",
+      "value": "יישר לשמאל"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignRight",
+      "value": "יישר לימין"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteColumn",
+      "value": "מחק עמודה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteColumns",
+      "value": "מחק עמודות"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteRow",
+      "value": "מחק שורה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteRows",
+      "value": "מחק שורות"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Text",
+      "value": "טקסט"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.CodeBlock",
+      "value": "בלוק קוד"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.CodeLanguage",
+      "value": "שפת הקוד"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.Edit",
+      "value": "ערוך"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.EditWithoutFormatting",
+      "value": "לשלוח ללא עיצוב?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.EmptyMessage",
+      "value": "לא ניתן לשלוח הודעה ריקה."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PullQuote",
+      "value": "משפט מפתח"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.RemoveFormatting",
+      "value": "הסר עיצוב"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.RichFormattingRequiresPremium",
+      "value": "הודעה זו משתמשת בעיצוב עשיר, שדורש מינוי Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.Send",
+      "value": "שלח"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.SendWithoutFormatting",
+      "value": "לשלוח ללא עיצוב?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.SetLanguage",
+      "value": "הגדר שפה..."
     },
     {
       "_": "types.LangPackString",
@@ -34140,6 +35422,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarGiftNft.ResaleMinPriceInfo",
+      "value": "אפשרות זו זמינה רק עבור מתנות שמחירן מעל ⁨%1$@⁩."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarList.Ton",
       "value": "Gram"
     },
@@ -37420,6 +38707,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextUtils.AddedToCommunity",
+      "value": "נוסף לקהילה \"⁨%1$@⁩\""
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextUtils.ManagedBotCreated",
       "value": "⁨%1$@⁩ יצר את ⁨%2$@⁩"
     },
@@ -37432,6 +38724,11 @@
       "_": "types.LangPackString",
       "key": "TextUtils.PollOptionDeleted",
       "value": "⁨%1$@⁩ מחק/ה את האפשרות: ⁨%2$@⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextUtils.RemovedFromCommunity",
+      "value": "הוסר מהקהילה"
     },
     {
       "_": "types.LangPackString",
@@ -38619,6 +39916,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TranslateModal.PromptPlaceholder",
+      "value": "תאר איך לכתוב מחדש את הטקסט..."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TranslateModal.ShareStyle",
       "value": "שתף סגנון"
     },
@@ -39029,8 +40331,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UserInfo.AddBotToCommunity",
+      "value": "הוסף בוט לקהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.AddBotToCommunityInfo",
+      "value": "הפוך את הבוט שלך לחלק מקהילה עם מספר צ'אטים קשורים"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UserInfo.ManagedBotCreatedBy",
       "value": "נוצר ומנוהל על ידי "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.RemoveBotFromCommunity",
+      "value": "להסיר את הבוט מהקהילה?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.RemoveBotFromCommunityButton",
+      "value": "הסר בוט מהקהילה"
     },
     {
       "_": "types.LangPackString",
@@ -41290,5 +42612,5 @@
       "value": "הצג החלפות"
     }
   ],
-  "version": 2226267
+  "version": 2235585
 }
