@@ -170,6 +170,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AIEditorStylePrompt",
+      "value": "פרומפט"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AIEditorStylePromptHint",
       "value": "הוראות (לדוגמא, \"כתוב כמו שודד ים אמיתי. השתמש במילים כמו 'אהוי, חבר', ודבר על אוצרות ועל הים\")"
     },
@@ -4530,6 +4535,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleAIPrompt",
+      "value": "כתוב פרומפט..."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleAlignment",
       "value": "יישור"
     },
@@ -4655,6 +4665,46 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleFooter",
+      "value": "כותרת תחתונה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading",
+      "value": "כותרת"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading1",
+      "value": "כותרת 1"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading2",
+      "value": "כותרת 2"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading3",
+      "value": "כותרת 3"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading4",
+      "value": "כותרת 4"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading5",
+      "value": "כותרת 5"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading6",
+      "value": "כותרת 6"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleHighlightCell",
       "value": "הדגש תא"
     },
@@ -4702,6 +4752,11 @@
       "_": "types.LangPackString",
       "key": "ArticleHintTitle",
       "value": "כותרת"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleIndent",
+      "value": "הזח פנימה"
     },
     {
       "_": "types.LangPackString",
@@ -4772,6 +4827,16 @@
       "_": "types.LangPackString",
       "key": "ArticleNone",
       "value": "ללא"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleOutdent",
+      "value": "הזח החוצה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticlePullquote",
+      "value": "בלוק ציטוט"
     },
     {
       "_": "types.LangPackString",
@@ -14475,6 +14540,14 @@
       "value": "הוסף מנהל"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityAddAllChatsMessage",
+      "many_value": "להוסיף **⁨%1$d⁩** צ'אטים לקהילה?",
+      "one_value": "להוסיף צ'אט **⁨%1$d⁩** לקהילה?",
+      "other_value": "להוסיף **⁨%1$d⁩** צ'אטים לקהילה?",
+      "two_value": "להוסיף **⁨%1$d⁩** צ'אטים לקהילה?"
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityAddAllChatsTitle",
       "value": "הוסף את כל הצ'אטים"
@@ -14532,7 +14605,7 @@
     {
       "_": "types.LangPackString",
       "key": "CommunityAddToCommunityGroupMessage",
-      "value": "אם קבוצה זו מאושרת על ידי מנהל קהילה, חבריה יוכלו להצטרף או לבקש להצטרף לצ'אטים אחרים בקהילה."
+      "value": "אם קבוצה זו תאושר על ידי מנהל קהילה, חבריה יוכלו להצטרף או לבקש להצטרף לצ'אטים אחרים בקהילה."
     },
     {
       "_": "types.LangPackString",
@@ -14580,6 +14653,14 @@
       "value": "חסום מהקהילה"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityBanFromCommunityInfo",
+      "many_value": "המשתמש יוסר מ**⁨%1$d⁩ צ'אטים <**",
+      "one_value": "המשתמש יוסר מ**צ'אט ⁨%1$d⁩ <**",
+      "other_value": "המשתמש יוסר מ**⁨%1$d⁩ צ'אטים <**",
+      "two_value": "המשתמש יוסר מ**⁨%1$d⁩ צ'אטים <**"
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityBanUserTitle",
       "value": "חסום משתמש"
@@ -14596,6 +14677,14 @@
       "_": "types.LangPackString",
       "key": "CommunityBanWarningTitle",
       "value": "אזהרה"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityBanWillRemoveFromChats",
+      "many_value": "**⁨%2$s⁩** יוסר מ**⁨%1$d⁩** צ'אטי קהילה.",
+      "one_value": "**⁨%2$s⁩** יוסר מצ'אט קהילה **⁨%1$d⁩**.",
+      "other_value": "**⁨%2$s⁩** יוסר מ**⁨%1$d⁩** צ'אטי קהילה.",
+      "two_value": "**⁨%2$s⁩** יוסר מ**⁨%1$d⁩** צ'אטי קהילה."
     },
     {
       "_": "types.LangPackString",
@@ -14619,8 +14708,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityChatVisibilitySection",
+      "value": "נראות הצ'אט"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityChatVisibilityVisible",
       "value": "גלוי"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisibleBotInfo",
+      "value": "כולם בקהילה יוכלו לראות את הבוט."
     },
     {
       "_": "types.LangPackString",
@@ -14644,8 +14743,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityCommunityPending",
+      "value": "הבקשה שלך להצטרף לקהילה נשלחה למנהלים"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityCreateCommunity",
       "value": "צור קהילה"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityDeclineAllMessage",
+      "many_value": "לסרב לכל **⁨%1$d⁩** הבקשות להצטרף לקהילה?",
+      "one_value": "לסרב לבקשה **⁨%1$d⁩** להצטרף לקהילה?",
+      "other_value": "לסרב לכל **⁨%1$d⁩** הבקשות להצטרף לקהילה?",
+      "two_value": "לסרב לכל **⁨%1$d⁩** הבקשות להצטרף לקהילה?"
     },
     {
       "_": "types.LangPackString",
@@ -14676,6 +14788,11 @@
       "_": "types.LangPackString",
       "key": "CommunityHiddenChannelUnavailable",
       "value": "אין באפשרותך להצטרף או לצפות בערוץ זה עד שמנהל יזמין אותך."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenChatTooltipMessage",
+      "value": "רק חברים שהוזמנו ומנהלי קהילה יוכלו לראות צ'אט זה."
     },
     {
       "_": "types.LangPackString",
@@ -14711,6 +14828,11 @@
       "_": "types.LangPackString",
       "key": "CommunityInviteOnlyGroupMessageOwner",
       "value": "שלח הודעה לבעלי הקבוצה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminMessage",
+      "value": "**⁨%1$s⁩** יוכל לערוך את פרטי הקהילה ולהשתמש בכלי ניהול אחרים."
     },
     {
       "_": "types.LangPackString",
@@ -14853,6 +14975,22 @@
       "value": "צ'אטים דורשים אישור מנהל לפני שהם נוספים לקהילה."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityPendingRequestsRow",
+      "many_value": "⁨%1$d⁩ בקשות ממתינות",
+      "one_value": "בקשה ממתינה ⁨%1$d⁩",
+      "other_value": "⁨%1$d⁩ בקשות ממתינות",
+      "two_value": "⁨%1$d⁩ בקשות ממתינות"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityPendingRequestsSuggestedHeader",
+      "many_value": "⁨%1$d⁩ צ'אטים הוצעו לקהילה",
+      "one_value": "צ'אט ⁨%1$d⁩ הוצע לקהילה",
+      "other_value": "⁨%1$d⁩ צ'אטים הוצעו לקהילה",
+      "two_value": "⁨%1$d⁩ צ'אטים הוצעו לקהילה"
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityPendingRequestsTitle",
       "value": "בקשות ממתינות"
@@ -14881,6 +15019,16 @@
       "_": "types.LangPackString",
       "key": "CommunityRemovedUsers",
       "value": "משתמשים שהוסרו"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequestApprovedToast",
+      "value": "אישרת את הבקשה להוסיף את **⁨%1$s⁩** לקהילה."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequestDeclinedToast",
+      "value": "סירבת לבקשה להוסיף את **⁨%1$s⁩** לקהילה."
     },
     {
       "_": "types.LangPackString",
@@ -14919,6 +15067,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotAdded",
+      "value": "**⁨%1$s⁩** הוסיף/ה את הבוט לקהילה **⁨%2$s⁩**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotAddedUnknown",
+      "value": "הבוט נוסף לקהילה **⁨%1$s⁩**."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityServiceMessageBotRemoved",
       "value": "**⁨%1$s⁩** הסיר/ה את הבוט מהקהילה"
     },
@@ -14929,8 +15087,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotYouAdded",
+      "value": "הוספת את הבוט לקהילה **⁨%1$s⁩**."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityServiceMessageBotYouRemoved",
       "value": "הסרת את הבוט מהקהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelAdded",
+      "value": "**⁨%1$s⁩** הוסיף/ה את הערוץ לקהילה **⁨%2$s⁩**."
     },
     {
       "_": "types.LangPackString",
@@ -14949,8 +15117,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelYouAdded",
+      "value": "הוספת את הערוץ לקהילה **⁨%1$s⁩**."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityServiceMessageChannelYouRemoved",
       "value": "הסרת את הערוץ מהקהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupAdded",
+      "value": "**⁨%1$s⁩** הוסיף/ה את הקבוצה לקהילה **⁨%2$s⁩**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupAddedUnknown",
+      "value": "קבוצה זו נוספה לקהילה **⁨%1$s⁩**."
     },
     {
       "_": "types.LangPackString",
@@ -14961,6 +15144,11 @@
       "_": "types.LangPackString",
       "key": "CommunityServiceMessageGroupRemovedUnknown",
       "value": "קבוצה זו הוסרה מהקהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupYouAdded",
+      "value": "הוספת את הקבוצה לקהילה **⁨%1$s⁩**."
     },
     {
       "_": "types.LangPackString",
@@ -15036,6 +15224,14 @@
       "_": "types.LangPackString",
       "key": "CommunityWhoCanAddChatsOnlyAdminsInfo",
       "value": "צ'אטים המוצעים על ידי חברי קהילה דורשים אישור מנהל."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityWithChats",
+      "many_value": "קהילה עם ⁨%1$d⁩ צ'אטים",
+      "one_value": "קהילה עם צ'אט ⁨%1$d⁩",
+      "other_value": "קהילה עם ⁨%1$d⁩ צ'אטים",
+      "two_value": "קהילה עם ⁨%1$d⁩ צ'אטים"
     },
     {
       "_": "types.LangPackString",
@@ -31981,6 +32177,11 @@
       "_": "types.LangPackString",
       "key": "NoCommunityJoinRequests",
       "value": "אין בקשות הצטרפות"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NoCommunityJoinRequestsDescription",
+      "value": "אין בקשות ממתינות\nלהצטרף לקהילה שלך."
     },
     {
       "_": "types.LangPackString",
@@ -57070,12 +57271,12 @@
     {
       "_": "types.LangPackString",
       "key": "WebBrowserShowCloseButton",
-      "value": "הצג את כפתור הסגירה"
+      "value": "מצב חלון"
     },
     {
       "_": "types.LangPackString",
       "key": "WebBrowserShowCloseButtonInfo",
-      "value": "הצג כפתור סגירה בהצגת אתרים."
+      "value": "פתח דפדפן חיצוני בתוך טלגרם."
     },
     {
       "_": "types.LangPackString",
@@ -57921,5 +58122,5 @@
       "value": "דרכון טלגרם"
     }
   ],
-  "version": 59965943
+  "version": 59966306
 }
