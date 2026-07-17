@@ -170,6 +170,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AIEditorStylePrompt",
+      "value": "الأمر"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AIEditorStylePromptHint",
       "value": "تعليمات مثل: (\"اكتب بأسلوب القراصنة. استخدم كلمات مثل: قائد، خريطة، جزيرة وكلمات تعبر عن الكنز والبحر\")"
     },
@@ -662,6 +667,11 @@
       "_": "types.LangPackString",
       "key": "AccDescrIVFooter",
       "value": "تذييل الصفحة"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AccDescrIVFormula",
+      "value": "معادلة"
     },
     {
       "_": "types.LangPackString",
@@ -14590,6 +14600,466 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community",
+      "value": "المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAChatToCommunity",
+      "value": "إضافة محادثة إلى المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAdmin",
+      "value": "إضافة مشرف"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "هل تريد إضافة ⁨%1$d⁩ محادثات إلى المجتمع؟",
+      "key": "CommunityAddAllChatsMessage",
+      "many_value": "هل تريد إضافة ⁨%1$d⁩ محادثة إلى المجتمع؟",
+      "one_value": "هل تريد إضافة المحادثة إلى المجتمع؟",
+      "other_value": "هل تريد إضافة ⁨%1$d⁩ محادثة إلى المجتمع؟",
+      "two_value": "هل تريد إضافة المحادثتين إلى المجتمع؟",
+      "zero_value": ""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotToCommunity",
+      "value": "إضافة البوت إلى مجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotToCommunityInfo",
+      "value": "اجعل البوت الخاص بك جزءًا من مجتمع يضم محادثات أخرى ذات صلة."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChannelToCommunity",
+      "value": "إضافة القناة إلى مجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddGroupToCommunity",
+      "value": "إضافة المجموعة إلى مجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddGroupToCommunityInfo",
+      "value": "اجعل مجموعتك جزءًا من مجتمع يضم محادثات أخرى ذات صلة."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityButton",
+      "value": "إضافة إلى المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToExistingCommunity",
+      "value": "إضافة إلى مجتمع موجود"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdminRightBanMembers",
+      "value": "حظر الأعضاء"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdminRightEditCommunityName",
+      "value": "تحرير اسم المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdministrators",
+      "value": "المشرفون"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdministratorsTitle",
+      "value": "المشرفون"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityBanUserTitle",
+      "value": "حظر المستخدم"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityCreated",
+      "value": "تم إنشاء المجتمع!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityPending",
+      "value": "تم إرسال طلب انضمامك إلى المجتمع إلى المشرفين"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCreateCommunity",
+      "value": "إنشاء مجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDelete",
+      "value": "حذف المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionChannel",
+      "value": "اجعل قناتك جزءًا من مجتمع يضم محادثات أخرى ذات صلة."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionGroup",
+      "value": "اجعل مجموعتك جزءًا من مجتمع يضم محادثات أخرى ذات صلة."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenChatTooltipMessage",
+      "value": "الأعضاء المضافون ومشرفو المجتمع هم من يرون هذه المحادثة."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyChannelInfo",
+      "value": "هذه القناة للمضافين فقط.\nلا يستطيع أحد رؤيتها غير أعضاءها."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyGroupInfo",
+      "value": "هذه المجموعة للمضافين فقط.\nلا يستطيع أحد رؤيتها غير أعضاءها."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminMessage",
+      "value": "سيكون **⁨%1$s⁩** قادرًا على تحرير معلومات المجتمع واستخدام أدوات الإشراف الأخرى."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminPromote",
+      "value": "ترقية"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminTitle",
+      "value": "تعيين كمشرف للمجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuAddChat",
+      "value": "إضافة المحادثة إلى المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuSettings",
+      "value": "الإعدادات"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuShowAsOneChat",
+      "value": "إظهار كمحادثة واحدة"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuShowAsSeparateChats",
+      "value": "إظهار كمحادثات منفصلة"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNewCommunityNameHint",
+      "value": "اسم المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNewCommunityTitle",
+      "value": "مجتمع جديد"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNoChatsToAdd",
+      "value": "ليست لديك محادثات لإضافتها إلى المجتمع."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequest",
+      "value": "طلب قيد الانتظار"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestAdd",
+      "value": "إضافة"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestDecline",
+      "value": "رفض"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestOnlyVisibleToMembers",
+      "value": "مرئية فقط لأعضائها"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedBot",
+      "value": "بوت مقترح من **⁨%s⁩**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedChannel",
+      "value": "قناة مقترحة من **⁨%s⁩**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedGroup",
+      "value": "مجموعة مقترحة من **⁨%s⁩**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequests",
+      "value": "طلبات قيد الانتظار"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfo",
+      "value": "تتطلب المحادثات موافقة المشرف قبل إضافتها إلى المجتمع. **تغيير الإعدادات**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfoNoChange",
+      "value": "تتطلب المحادثات موافقة المشرف قبل إضافتها إلى المجتمع."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "⁨%1$d⁩ طلبات قيد الانتظار",
+      "key": "CommunityPendingRequestsRow",
+      "many_value": "⁨%1$d⁩ طلبًا قيد الانتظار",
+      "one_value": "طلب واحد قيد الانتظار",
+      "other_value": "⁨%1$d⁩ طلب قيد الانتظار",
+      "two_value": "طلبان قيد الانتظار",
+      "zero_value": "⁨%1$d⁩ طلبات قيد الانتظار"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "⁨%1$d⁩ محادثات مقترحة على هذا المجتمع",
+      "key": "CommunityPendingRequestsSuggestedHeader",
+      "many_value": "⁨%1$d⁩ محادثة مقترحة على هذا المجتمع",
+      "one_value": "محادثة واحدة مقترحة على هذا المجتمع",
+      "other_value": "⁨%1$d⁩ محادثة مقترحة على هذا المجتمع",
+      "two_value": "محادثتان مقترحتان على هذا المجتمع",
+      "zero_value": ""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsTitle",
+      "value": "طلبات قيد الانتظار"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveBotFromCommunity",
+      "value": "إزالة البوت من المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveChannelFromCommunity",
+      "value": "إزالة القناة من المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveGroupFromCommunity",
+      "value": "إزالة المجموعة من المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemovedUsers",
+      "value": "مستخدمون مزالون"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequestApprovedToast",
+      "value": "لقد وافقت أنت على طلب إضافة **⁨%1$s⁩** إلى المجتمع."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequestDeclinedToast",
+      "value": "لقد رفضت أنت طلب إضافة **⁨%1$s⁩** إلى المجتمع."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouAreIn",
+      "value": "محادثات أنت فيها"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanJoin",
+      "value": "محادثات يمكنك الانضمام لها"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanRequestToJoin",
+      "value": "محادثات يمكنك طلب الانضمام إليها"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanView",
+      "value": "محادثات يمكنك رؤيتها"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionCommunityName",
+      "value": "اسم المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionHiddenChats",
+      "value": "محادثات مخفية"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionWhoCanAddChats",
+      "value": "من يمكنه إضافة محادثات؟"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotAdded",
+      "value": "أضاف **⁨%1$s⁩** هذا البوت إلى مجتمع **⁨%2$s⁩**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotAddedUnknown",
+      "value": "أُضيف هذا البوت إلى مجتمع **⁨%1$s⁩**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotYouAdded",
+      "value": "**أنت** أضفت هذا البوت إلى مجتمع **⁨%1$s⁩**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelAdded",
+      "value": "أضاف **⁨%1$s⁩** هذه القناة إلى مجتمع **⁨%2$s⁩**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelAddedUnknown",
+      "value": "أُضيفت هذه القناة إلى مجتمع **⁨%1$s⁩**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelYouAdded",
+      "value": "**أنت** أضفت هذه القناة إلى مجتمع **⁨%1$s⁩**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupAdded",
+      "value": "أضاف **⁨%1$s⁩** هذه المجموعة إلى مجتمع **⁨%2$s⁩**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupAddedUnknown",
+      "value": "أُضيفت هذه المجموعة إلى مجتمع **⁨%1$s⁩**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupYouAdded",
+      "value": "**أنت** أضفت هذه المجموعة إلى مجتمع **⁨%1$s⁩**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageView",
+      "value": "عرض"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsChangePhoto",
+      "value": "تغيير صورة المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsSetPhoto",
+      "value": "تعيين صورة للمجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsTitle",
+      "value": "المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChat",
+      "value": "إظهار كمحادثة واحدة"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChatInfo",
+      "value": "تجميع كل محادثات المجتمع داخل عنصر واحد في قائمة المحادثات."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityTitle",
+      "value": "المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityUngroupChats",
+      "value": "فك تجميع المحادثات"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityUngroupChatsButton",
+      "value": "فك التجميع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityUngroupChatsText",
+      "value": "ستظهر المحادثات من هذا المجتمع منفصلة في قائمة المحادثات لديك."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsAllMembers",
+      "value": "كل الأعضاء"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsAllMembersInfo",
+      "value": "السماح للأعضاء بإضافة مجموعاتهم وقنواتهم إلى المجتمع."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsOnlyAdmins",
+      "value": "المشرفون فقط"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsOnlyAdminsInfo",
+      "value": "المحادثات التي يقترحها أعضاء المجتمع تتطلب موافقة المشرف."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "مجتمع بـ ⁨%1$d⁩ محادثات",
+      "key": "CommunityWithChats",
+      "many_value": "مجتمع بـ ⁨%1$d⁩ محادثة",
+      "one_value": "مجتمع بمحادثة واحدة",
+      "other_value": "مجتمع بـ ⁨%1$d⁩ محادثة",
+      "two_value": "مجتمع بمحادثتين",
+      "zero_value": "مجتمع بـ ⁨%1$d⁩ محادثات"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminContinue",
+      "value": "متابعة"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminNoThanks",
+      "value": "لا، شكرًا"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminTitle",
+      "value": "أنت الآن مشرف في المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CompatibilityChat",
       "value": "يستخدم ⁨%1$s⁩ إصدارًا قديمًا من تيليجرام، لذلك ستظهر الصور السرية في الوضع التوافقي.\n\nعندما يقوم ⁨%2$s⁩ بتحديث تيليجرام فإن الصور التي بها عداد تدمير خلال دقيقة أو أقل ستعمل بطريقة «الضغط باستمرار للمشاهدة»، وسيتم إخبارك عندما يلتقط الطرف الآخر صورة للشاشة."
     },
@@ -18287,6 +18757,21 @@
       "_": "types.LangPackString",
       "key": "EnterYourTelegramPasscode",
       "value": "يرجى إدخال رمز قفلك في تيليجرام"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageMenuHint",
+      "value": "أنت فقط من يرى هذه الرسالة. ستختفي بعد تسجيل الدخول مرة أخرى."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageVisibleToOther",
+      "value": "مرئية فقط لـ ⁨%s⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageVisibleToYou",
+      "value": "مرئية لك فقط"
     },
     {
       "_": "types.LangPackString",
@@ -25011,7 +25496,7 @@
     {
       "_": "types.LangPackString",
       "key": "GiftOfferTransferInfoTextSellTON",
-      "value": "هل ترغب في بيع **⁨%3$s⁩** إلى **⁨%2$s⁩** مقابل **⁨%1$s⁩ TON**؟\n\nستحصل على **⁨%4$s⁩ TON** بعد خصم الرسوم."
+      "value": "هل تريد بيع **⁨%3$s⁩** على **⁨%2$s⁩** مقابل **⁨%1$s⁩ جرام**؟\n\nسوف تحصل على **⁨%4$s⁩ جرام** بعد خصم الرسوم."
     },
     {
       "_": "types.LangPackString",
@@ -26282,6 +26767,11 @@
       "_": "types.LangPackString",
       "key": "GroupProfileInfo",
       "value": "اختيار لون وشعار لملف المجموعة."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupPublicSettingsJoinRequestInfoManagedBy",
+      "value": "يجب على المشرف قبول المستخدمين الذين يريدون إرسال رسائل في المجموعة. تُدار بواسطة **⁨%s⁩**"
     },
     {
       "_": "types.LangPackString",
@@ -32042,6 +32532,11 @@
       "_": "types.LangPackString",
       "key": "NoComments",
       "value": "لا توجد تعليقات بعد..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NoCommunityJoinRequestsDescription",
+      "value": "لا توجد طلبات قيد الانتظار\nللانضمام إلى مجتمعك."
     },
     {
       "_": "types.LangPackString",
@@ -40781,7 +41276,7 @@
     {
       "_": "types.LangPackString",
       "key": "QuestionDescriptionHint",
-      "value": "أضف وصفًا (اختياري)"
+      "value": "إضافة وصف (اختياري)"
     },
     {
       "_": "types.LangPackString",
@@ -42912,6 +43407,11 @@
       "_": "types.LangPackString",
       "key": "RevokedLinks",
       "value": "الروابط المعطّلة"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorDraftSaved",
+      "value": "مسودة محفوظة."
     },
     {
       "_": "types.LangPackString",
@@ -45072,6 +45572,11 @@
       "_": "types.LangPackString",
       "key": "SetColorAsBackground",
       "value": "تعيين اللون كخلفية"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SetCommunityPhoto",
+      "value": "تعيين صورة للمجتمع"
     },
     {
       "_": "types.LangPackString",
@@ -51422,6 +51927,11 @@
       "_": "types.LangPackString",
       "key": "SwipeToReplyHintMessage",
       "value": "يمكنك الرد على أي رسالة بسحبها لليسار."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SwipeUngroupCommunity",
+      "value": "فك التجميع"
     },
     {
       "_": "types.LangPackString",
@@ -58449,5 +58959,5 @@
       "value": "جواز تيليجرام"
     }
   ],
-  "version": 59954744
+  "version": 59980919
 }

@@ -1883,6 +1883,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Description",
+      "value": "Te rugăm adaugă-ți adresa de e-mail pt. a-ți păstra accesul la cont."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.ErrorEmailNotAllowed",
+      "value": "Acest e-mail nu poate fi folosit."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AuthEmailSetup.ErrorInvalidEmail",
       "value": "Introdu o adresă de e-mail validă."
     },
@@ -4011,6 +4021,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersEnable",
+      "value": "Activează"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersHeader",
+      "value": "Aprobă membrii noi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersInfo",
+      "value": "Membrii noi vor necesita acum aprobare de la %1$@ înainte de a putea trimite mesaje în acest grup"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Channel.Admin.CantEdit",
       "value": "Nu îți este permis să editezi drepturile acestui admin."
     },
@@ -4023,6 +4048,16 @@
       "_": "types.LangPackString",
       "key": "Channel.Admin.Dismiss",
       "value": "Demite admin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ProcessJoinRequests",
+      "value": "Procesează cereri alăturare"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ProcessJoinRequestsInfo",
+      "value": "Permite acestui robot să aprobe membrii noi prin interfețe proprii, precum captcha."
     },
     {
       "_": "types.LangPackString",
@@ -5457,6 +5492,11 @@
       "_": "types.LangPackString",
       "key": "ChannelBlacklist.Restricted",
       "value": "RESTRICȚIONAȚI"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChannelBlocklist.CommunityEmptyDescription",
+      "value": "Utilizatorii interziși din comunitate se pot întoarce doar dacă sunt adăugați de un admin. Linkurile de invitație nu funcționează pentru ei."
     },
     {
       "_": "types.LangPackString",
@@ -7838,6 +7878,11 @@
       "_": "types.LangPackString",
       "key": "Chat.EmptyChat.Info",
       "value": "Trimite un mesaj sau fă clic pe salutul de mai jos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.EmptyMessageError",
+      "value": "Nu poți trimite un mesaj gol."
     },
     {
       "_": "types.LangPackString",
@@ -11506,6 +11551,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatInput.EmptyMessageError",
+      "value": "Nu poți trimite un mesaj gol."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatInput.OpenChat",
       "value": "Deschide conversația"
     },
@@ -11518,6 +11568,11 @@
       "_": "types.LangPackString",
       "key": "ChatInput.ShowNext",
       "value": "Afișează următorul"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatInputAccessory.HideSenderPremium",
+      "value": "Ascunderea numelui autorului pentru mesajele compuse cu AI este disponibilă cu Telegram Premium."
     },
     {
       "_": "types.LangPackString",
@@ -12853,6 +12908,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.UngroupChatsInfo",
+      "value": "Conversațiile din această comunitate vor apărea separate în lista ta de conversații."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.UnhideMuted",
       "value": "Afișează cele fără sunet"
     },
@@ -14067,8 +14127,149 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Communities.AddToExisting",
+      "value": "ADAUGĂ ÎNTR-O COMUNITATE EXISTENTĂ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.AdminRequired",
+      "value": "Doar adminii acestei conversații pot crea o comunitate pentru ea."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.CantChangeLater",
+      "value": "Nu vei putea să o modifici mai târziu."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.ChatVisibility",
+      "value": "VIZIBILITATE CONVERSAȚIE"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d conversații",
+      "key": "Communities.Chats",
+      "one_value": "%1$d conversație",
+      "other_value": "%1$d de conversații"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.CommunityName",
+      "value": "Nume comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Create",
+      "value": "Creează"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.CreateCommunity",
+      "value": "Creează comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Hidden",
+      "value": "Ascunsă"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.HiddenInfo",
+      "value": "Doar membrii invitați și adminii comunității vor vedea conversația."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d membri",
+      "key": "Communities.Members",
+      "one_value": "%1$d membru",
+      "other_value": "%1$d de membri"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.NewCommunity",
+      "value": "Comunitate nouă"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SomethingWentWrong",
+      "value": "Ceva nu a mers bine."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SubtitleBot",
+      "value": "Fă-ți robotul parte a unei comunități cu multiple conversații asociate."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SubtitleChannel",
+      "value": "Fă-ți canalul parte a unei comunități cu multiple conversații asociate."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SubtitleGroup",
+      "value": "Fă-ți grupul parte a unei comunități cu multiple conversații asociate."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Title",
+      "value": "Comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Visible",
+      "value": "Vizibilă"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.VisibleInfo",
+      "value": "Oricine în comunitate va putea vedea această conversație."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Continue",
+      "value": "Continuă"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DismissAdminHeader",
+      "value": "Demite-te ca admin al comunității"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DismissAdminInfo",
+      "value": "Îți vei pierde accesul la uneltele de admin al comunității, dar îți vei păstra drepturile de admin al grupului."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Group",
+      "value": "Grup"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.InviteOnlyInfo",
       "value": "Conversație cu invitație.\nDoar membrii o pot vizualiza."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d membri",
+      "key": "Community.Members",
+      "one_value": "%1$d membru",
+      "other_value": "%1$d de membri"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.MessageGroupOwner",
+      "value": "Trimite mesaj proprietarului"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoThanks",
+      "value": "Nu, mulțumesc"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.YouAreAdmin",
+      "value": "Ești admin al comunității"
     },
     {
       "_": "types.LangPackString",
@@ -14077,8 +14278,274 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAdd.ChatVisibility",
+      "value": "VIZIBILITATE CONVERSAȚIE"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Confirm",
+      "value": "Adaugă în comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorAdminRequired",
+      "value": "Doar adminii pot adăuga conversații."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorGeneric",
+      "value": "Ceva nu a mers bine."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorLimitReached",
+      "value": "Această comunitate a atins limita de conversații."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Hidden",
+      "value": "Ascunsă"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.HiddenInfo",
+      "value": "Doar membrii invitați și adminii comunității vor vedea conversația."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d membri",
+      "key": "CommunityAdd.Members",
+      "one_value": "%1$d membru",
+      "other_value": "%1$d de membri"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Title",
+      "value": "Adăugare conversație"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.VisibilityFooter",
+      "value": "Nu vei putea să o modifici mai târziu."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Visible",
+      "value": "Vizibilă"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.VisibleInfo",
+      "value": "Oricine în comunitate va putea vedea această conversație."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.AddAdmin",
+      "value": "Adaugă admin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.BanMembers",
+      "value": "Interzice membri"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.Dismiss",
+      "value": "Demite admin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.DismissConfirm",
+      "value": "Sigur vrei să demiți acest admin?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAdmin.EditGroupList",
       "value": "Editează lista conversațiilor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.EditName",
+      "value": "Editează numele comunității"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.ErrorGeneric",
+      "value": "Ceva nu a mers bine."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.PermissionsHeader",
+      "value": "CE POATE FACE ACEST ADMIN"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.Save",
+      "value": "Salvează"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.AddAdmin",
+      "value": "Adaugă admin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.Header",
+      "value": "ADMINI"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.Loading",
+      "value": "Încărcare…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.StatusAdmin",
+      "value": "admin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.StatusCreator",
+      "value": "creator"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.StatusPromotedBy",
+      "value": "promovat de %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.Title",
+      "value": "Administratori"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AddAChatToCommunity",
+      "value": "Adaugă o conversație"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AddChatToCommunity",
+      "value": "Adaugă conversație în comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Administrators",
+      "value": "Administratori"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AllMembers",
+      "value": "Toți membrii"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AllMembersDescription",
+      "value": "Permite membrilor să își adauge grupurile și canalele în comunitate."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.ChangePhoto",
+      "value": "Schimbă poza"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d CONVERSAȚII",
+      "key": "CommunityEdit.ChatsCount",
+      "one_value": "%d CONVERSAȚIE",
+      "other_value": "%d DE CONVERSAȚII"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.CommunityName",
+      "value": "Nume comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Delete",
+      "value": "Șterge"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.DeleteCommunity",
+      "value": "Șterge comunitatea"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.DeleteCommunityConfirm",
+      "value": "Sigur vrei să ștergi această comunitate? Acțiunea este ireversibilă."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Hidden",
+      "value": "Ascunsă"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d membri",
+      "key": "CommunityEdit.MembersCount",
+      "one_value": "%d membru",
+      "other_value": "%d de membri"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.OnlyAdmins",
+      "value": "Doar adminii"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.OnlyAdminsDescription",
+      "value": "Conversațiile sugerate de membrii comunității necesită aprobarea adminilor."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.PendingRequests",
+      "value": "Cereri în așteptare"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Remove",
+      "value": "Elimină"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemoveChatConfirm",
+      "value": "Elimini conversația din comunitate?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemoveFromCommunity",
+      "value": "Elimină din comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemovedUsers",
+      "value": "Utilizatori eliminați"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.SetPhoto",
+      "value": "Setează poză"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.SomethingWentWrong",
+      "value": "Ceva nu a mers bine."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Title",
+      "value": "Editare comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.UpdatingPhoto",
+      "value": "Încărcare poză..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.WhoCanAddChats",
+      "value": "CINE POATE ADĂUGA CONVERSAȚII"
     },
     {
       "_": "types.LangPackString",
@@ -14110,7 +14577,19 @@
     {
       "_": "types.LangPackString",
       "key": "CommunityList.EditCommunity",
-      "value": "Editează comunitate"
+      "value": "Editează comunitatea"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.ErrorGeneric",
+      "value": "Ceva nu a mers bine."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d membri",
+      "key": "CommunityList.Members",
+      "one_value": "%1$d membru",
+      "other_value": "%1$d de membri"
     },
     {
       "_": "types.LangPackString",
@@ -14119,13 +14598,102 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityList.Remove",
+      "value": "Elimină"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.RemoveChatConfirm",
+      "value": "Elimini conversația din comunitate?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.SectionJoined",
+      "value": "Conversații în care ești"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.SectionRequestable",
+      "value": "Conversații în care poți cere să te alături"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.SectionVisible",
+      "value": "Conversații pe care le poți vedea"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityList.ShowAsOneChat",
       "value": "Arată ca o conversație"
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityRequests.Add",
+      "value": "Adaugă"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.AddAll",
+      "value": "Adaugă toate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.AddAllConfirm",
+      "value": "Adaugi toate conversațiile sugerate în comunitate?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityRequests.ApprovalInfo",
       "value": "Conversațiile necesită aprobarea adminilor înainte de a fi adăugate în comunitate. [Modifică Configurările](settings)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Decline",
+      "value": "Respinge"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.DeclineAll",
+      "value": "Respinge toate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.DeclineAllConfirm",
+      "value": "Respingi toate conversațiile sugerate?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Empty",
+      "value": "Nicio cerere în așteptare."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Loading",
+      "value": "Încărcare…"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d membri",
+      "key": "CommunityRequests.MembersCount",
+      "one_value": "%d membru",
+      "other_value": "%d de membri"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.PendingRequests",
+      "value": "Cereri în așteptare"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Someone",
+      "value": "Cineva"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d CONVERSAȚII SUGERATE PENTRU COMUNITATE",
+      "key": "CommunityRequests.SuggestedHeader",
+      "one_value": "%d CONVERSAȚIE SUGERATĂ PENTRU COMUNITATE",
+      "other_value": "%d DE CONVERSAȚII SUGERATE PENTRU COMUNITATE"
     },
     {
       "_": "types.LangPackString",
@@ -14139,8 +14707,85 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityRequests.Unknown",
+      "value": "Necunoscută"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.VisibleOnlyToMembers",
+      "value": "vizibil doar membrilor săi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.VisibleOnlyToMembersSuffix",
+      "value": " · vizibil doar membrilor săi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.AddChatToCommunity",
+      "value": "Adaugă o conversație"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.EditCommunity",
+      "value": "Editează comunitatea"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityView.HideChat",
       "value": "Ascunde"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d membri",
+      "key": "CommunityView.Members",
+      "one_value": "%1$d membru",
+      "other_value": "%1$d de membri"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Mute",
+      "value": "Oprește sunet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.PendingRequests",
+      "value": "Cereri în așteptare"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Remove",
+      "value": "Elimină"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.RemoveChatConfirm",
+      "value": "Elimini conversația din comunitate?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.RemoveFromCommunity",
+      "value": "Elimină din comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SectionChatsYouAreIn",
+      "value": "CONVERSAȚII ÎN CARE EȘTI"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SectionChatsYouCanJoin",
+      "value": "CONVERSAȚII ÎN CARE TE POȚI ALĂTURA"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SectionChatsYouCanRequestToJoin",
+      "value": "CONVERSAȚII ÎN CARE POȚI CERE SĂ TE ALĂTURI"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowAsOneChat",
+      "value": "Afișează ca o conversație"
     },
     {
       "_": "types.LangPackString",
@@ -14151,6 +14796,21 @@
       "_": "types.LangPackString",
       "key": "CommunityView.ShowChat",
       "value": "Afișează"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SomethingWentWrong",
+      "value": "Ceva nu a mers bine."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Title",
+      "value": "Comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Unmute",
+      "value": "Pornește sunet"
     },
     {
       "_": "types.LangPackString",
@@ -15121,6 +15781,13 @@
       "value": "Interzice din comunitate"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Interzicerea lui %2$@ va elimina și %1$d conversații ale sale din comunitate.",
+      "key": "DeleteGroupMessages.CommunityBanWarning",
+      "one_value": "Interzicerea lui %2$@ va elimina și %1$d conversație a sa din comunitate.",
+      "other_value": "Interzicerea lui %2$@ va elimina și %1$d de conversații ale sale din comunitate."
+    },
+    {
       "_": "types.LangPackString",
       "key": "DeleteGroupMessages.DeleteAllFromPeer",
       "value": "Șterge tot de la %1$@"
@@ -15146,6 +15813,13 @@
       "_": "types.LangPackString",
       "key": "DeleteGroupMessages.ReactionTitle",
       "value": "Șterge 1 reacție"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Utilizatorul va fi eliminat din %1$d conversații",
+      "key": "DeleteGroupMessages.RemovedFromChatsCount",
+      "one_value": "Utilizatorul va fi eliminat din %1$d conversație",
+      "other_value": "Utilizatorul va fi eliminat din %1$d de conversații"
     },
     {
       "_": "types.LangPackString",
@@ -29159,6 +29833,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextAiCompose.ErrorEmpty",
+      "value": "Nu poți procesa un mesaj gol."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextAiCompose.ErrorTooLong",
       "value": "Mesajul este prea lung."
     },
@@ -29169,8 +29848,183 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextAiCompose.PromptPlaceholder",
+      "value": "Generează text, formule, sau tabele..."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextAiCompose.Result",
       "value": "Rezultat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.Title",
+      "value": "Creează cu AI"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AddMedia",
+      "value": "Adaugă poză sau video"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignCenter",
+      "value": "Aliniază centru"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignLeft",
+      "value": "Aliniază stânga"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignRight",
+      "value": "Aliniază dreapta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Apply",
+      "value": "Aplică"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AttachTitle",
+      "value": "Articol"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Body",
+      "value": "Conținut"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.BulletList",
+      "value": "Listă cu marcatori"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Checklist",
+      "value": "Listă de sarcini"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Copy",
+      "value": "Copiază"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Cut",
+      "value": "Taie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DecreaseIndent",
+      "value": "Micșorare indentare"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Delete",
+      "value": "Șterge"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DeleteColumn",
+      "value": "Șterge coloană"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DeleteRow",
+      "value": "Șterge rând"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Edit",
+      "value": "Editează"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.EditFormula",
+      "value": "Editează formula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Format",
+      "value": "Formatare"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Formula",
+      "value": "Formulă"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.FormulaPreviewPlaceholder",
+      "value": "Previzualizarea va apărea aici"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Heading",
+      "value": "Titlu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Highlight",
+      "value": "Evidențiere"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.IncreaseIndent",
+      "value": "Mărire indentare"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertAbove",
+      "value": "Inserează deasupra"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertBelow",
+      "value": "Inserează dedesubt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertLeft",
+      "value": "Inserează la stânga"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertRight",
+      "value": "Inserează la dreapta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertTable",
+      "value": "Inserează tabel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InvalidFormula",
+      "value": "Formulă invalidă"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.LatexSection",
+      "value": "LATEX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Link",
+      "value": "Link"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ListNone",
+      "value": "Niciuna"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.MakeCollage",
+      "value": "Fă colaj"
     },
     {
       "_": "types.LangPackString",
@@ -29224,6 +30078,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.More",
+      "value": "Mai multe"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.NumberedList",
+      "value": "Listă numerotată"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Paste",
+      "value": "Lipește"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.Placeholder.AddAuthor",
       "value": "Adaugă autor"
     },
@@ -29236,6 +30105,41 @@
       "_": "types.LangPackString",
       "key": "RichTextEditor.Placeholder.TypeSomething",
       "value": "Tastează ceva..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Remove",
+      "value": "Elimină"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.RemoveHighlight",
+      "value": "Elimină evidențiere"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Replace",
+      "value": "Înlocuiește"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ResultSection",
+      "value": "REZULTAT"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.SelectAll",
+      "value": "Selectează tot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ShowAsCollage",
+      "value": "Arată ca, colaj"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ShowAsSlider",
+      "value": "Arată ca glisor"
     },
     {
       "_": "types.LangPackString",
@@ -29294,8 +30198,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.Text",
+      "value": "Text"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.AiPremiumRequired",
+      "value": "Uneltele AI in editorul avansat sunt disponibile cu Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditorWindow.CodeBlock",
       "value": "Bloc cod"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.CodeLanguage",
+      "value": "Limbaj cod"
     },
     {
       "_": "types.LangPackString",
@@ -29311,6 +30230,11 @@
       "_": "types.LangPackString",
       "key": "RichTextEditorWindow.EmptyMessage",
       "value": "Nu poți trimite un mesaj gol."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PremiumToastEdit",
+      "value": "Editarea unui mesaj cu această formatare necesită [Telegram Premium](premium)."
     },
     {
       "_": "types.LangPackString",
@@ -29341,6 +30265,11 @@
       "_": "types.LangPackString",
       "key": "RichTextEditorWindow.SendWithoutFormatting",
       "value": "Trimiți fără fomatare?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.SetLanguage",
+      "value": "Setează llimbaj…"
     },
     {
       "_": "types.LangPackString",
@@ -34254,6 +35183,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarGiftNft.ResaleMinPriceInfo",
+      "value": "Opțiunea este disponibilă doar pentru cadouri mai scumpe de %1$@."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarList.Ton",
       "value": "Gram"
     },
@@ -38700,6 +39634,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TranslateModal.PromptPlaceholder",
+      "value": "Descrie cum va fi scris textul…"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TranslateModal.PromptStyle",
       "value": "Prompt"
     },
@@ -41392,5 +42331,5 @@
       "value": "Afișează înlocuirile"
     }
   ],
-  "version": 2235915
+  "version": 2236890
 }
