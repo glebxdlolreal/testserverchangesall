@@ -4490,6 +4490,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_editor_title_editing",
+      "value": "Редактор"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_insert_blockquote",
       "value": "Цитата"
     },
@@ -4740,13 +4745,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_table_add_cells",
+      "value": "Додати рядки"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_table_add_column",
       "value": "Додати стовпчик"
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_table_add_column_left",
+      "value": "Додати стовпець зліва"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_add_column_right",
+      "value": "Додати стовпець справа"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_table_add_row",
       "value": "Додати рядок"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_add_row_above",
+      "value": "Додати рядок вище"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_add_row_below",
+      "value": "Додати рядок нижче"
     },
     {
       "_": "types.LangPackString",
@@ -4780,6 +4810,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_table_alignment",
+      "value": "Вирівнювання"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_table_borderless",
       "value": "Без меж"
     },
@@ -4787,6 +4822,11 @@
       "_": "types.LangPackString",
       "key": "lng_article_table_change",
       "value": "Змінити таблицю"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_cells",
+      "value": "Видалити клітинки"
     },
     {
       "_": "types.LangPackString",
@@ -4816,6 +4856,16 @@
     {
       "_": "types.LangPackString",
       "key": "lng_article_table_header",
+      "value": "Заголовок"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_header_cell",
+      "value": "Заголовок"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_header_cells",
       "value": "Заголовок"
     },
     {
@@ -6676,7 +6726,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_bot_as_admin_check",
-      "value": "Права адміністратора"
+      "value": "Права адміна"
     },
     {
       "_": "types.LangPackString",
@@ -7085,12 +7135,12 @@
     {
       "_": "types.LangPackString",
       "key": "lng_bot_sure_add_text_channel",
-      "value": "Ви дійсно хочете зробити цього бота адміністратором каналу {group}? Він отримає доступ до списку адміністраторів та підписників каналу."
+      "value": "Ви впевнені, що хочете зробити цього бота адміном у {group}? Він отримає доступ до списку адмінів і підписників."
     },
     {
       "_": "types.LangPackString",
       "key": "lng_bot_sure_add_text_group",
-      "value": "Ви дійсно хочете зробити цього бота адміністратором групи {group}? Він отримає доступ до списку анонімних адміністраторів."
+      "value": "Ви впевнені, що хочете зробити цього бота адміном у {group}? Він отримає доступ до списку анонімних адмінів."
     },
     {
       "_": "types.LangPackString",
@@ -21363,7 +21413,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_group_invite_other_list",
-      "value": "Посилання від цього адміністратора"
+      "value": "Посилання від цього адміна"
     },
     {
       "_": "types.LangPackString",
@@ -25589,12 +25639,12 @@
     {
       "_": "types.LangPackString",
       "key": "lng_new_contact_from_request_channel",
-      "value": "{user} — адміністратор каналу {name}, до якого ви подавали запит."
+      "value": "{user} — адмін каналу {name}, до якого ви подавали запит."
     },
     {
       "_": "types.LangPackString",
       "key": "lng_new_contact_from_request_group",
-      "value": "{user} — адміністратор групи {name}, до якої ви подавали запит."
+      "value": "{user} — адмін групи {name}, до якої ви подавали запит."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -30036,7 +30086,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_profile_add_bot_as_admin_about",
-      "value": "Цей бот може керувати групами й каналами."
+      "value": "Цей бот може керувати групами та каналами."
     },
     {
       "_": "types.LangPackString",
@@ -30068,11 +30118,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "{count} адміністратори",
+      "few_value": "{count} адміни",
       "key": "lng_profile_administrators",
-      "many_value": "{count} адміністраторів",
-      "one_value": "{count} адміністратор",
-      "other_value": "{count} адміністраторів"
+      "many_value": "{count} адмінів",
+      "one_value": "{count} адмін",
+      "other_value": "{count} адмінів"
     },
     {
       "_": "types.LangPackString",
@@ -31926,7 +31976,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_report_please_select_messages",
-      "value": "Виберіть повідомлення з порушеннями."
+      "value": "Виберіть повідомлення для скарги."
     },
     {
       "_": "types.LangPackString",
@@ -32296,7 +32346,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_request_peer_rights",
-      "value": "Ви повинні володіти такими правами адміністратора: {rights}"
+      "value": "Ви повинні володіти такими правами адміна: {rights}"
     },
     {
       "_": "types.LangPackString",
@@ -32407,7 +32457,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_files",
-      "value": "Адміністратори цієї групи заборонили вам надсилати сюди файли."
+      "value": "Адміни групи заборонили вам надсилати файли."
     },
     {
       "_": "types.LangPackString",
@@ -32417,12 +32467,12 @@
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_files_until",
-      "value": "Адміністратори цієї групи заборонили вам надсилати сюди файли до {date} {time}."
+      "value": "Адміни групи заборонили вам надсилати файли до {date}, {time}."
     },
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_gifs",
-      "value": "Адміністратори цієї групи заборонили вам надсилати сюди GIF."
+      "value": "Адміни групи заборонили вам надсилати GIF."
     },
     {
       "_": "types.LangPackString",
@@ -32432,12 +32482,12 @@
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_gifs_until",
-      "value": "Адміністратори цієї групи заборонили вам надсилати сюди GIF до {date}, {time}."
+      "value": "Адміни групи заборонили вам надсилати GIF до {date}, {time}."
     },
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_inline",
-      "value": "Адміністратори цієї групи заборонили вам користуватися вбудованими ботами."
+      "value": "Адміни групи заборонили вам надсилати повідомлення за допомогою вбудованих ботів."
     },
     {
       "_": "types.LangPackString",
@@ -32447,12 +32497,12 @@
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_inline_until",
-      "value": "Адміністратори цієї групи заборонили вам користуватися вбудованими ботами до {date}, {time}."
+      "value": "Адміни групи заборонили вам надсилати повідомлення за допомогою вбудованих ботів до {date}, {time}."
     },
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_media",
-      "value": "Адміністратори цієї групи заборонили вам надсилати сюди медіа."
+      "value": "Адміни групи заборонили вам надсилати медіа."
     },
     {
       "_": "types.LangPackString",
@@ -32462,12 +32512,12 @@
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_media_until",
-      "value": "Адміністратори цієї групи заборонили вам надсилати сюди медіа до {date}, {time}."
+      "value": "Адміни групи заборонили вам надсилати медіа до {date}, {time}."
     },
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_message",
-      "value": "Адміністратори цієї групи заборонили вам надсилати повідомлення."
+      "value": "Адміни групи заборонили вам надсилати повідомлення."
     },
     {
       "_": "types.LangPackString",
@@ -32477,12 +32527,12 @@
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_message_until",
-      "value": "Адміністратори цієї групи заборонили вам надсилати повідомлення до {date}, {time}."
+      "value": "Адміни групи заборонили вам надсилати повідомлення до {date}, {time}."
     },
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_music",
-      "value": "Адміністратори цієї групи заборонили вам надсилати сюди музику."
+      "value": "Адміни групи заборонили вам надсилати музику."
     },
     {
       "_": "types.LangPackString",
@@ -32492,7 +32542,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_music_until",
-      "value": "Адміністратори цієї групи заборонили вам надсилати сюди музику до {date} {time}."
+      "value": "Адміни групи заборонили вам надсилати музику до {date}, {time}."
     },
     {
       "_": "types.LangPackString",
@@ -32512,7 +32562,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_photos",
-      "value": "Адміністратори цієї групи заборонили вам надсилати сюди фото."
+      "value": "Адміни групи заборонили вам надсилати фото."
     },
     {
       "_": "types.LangPackString",
@@ -32522,12 +32572,12 @@
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_photos_until",
-      "value": "Адміністратори цієї групи заборонили вам надсилати сюди фото до {date} {time}."
+      "value": "Адміни групи заборонили вам надсилати фото до {date}, {time}."
     },
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_polls",
-      "value": "Адміністратори цієї групи заборонили вам надсилати сюди опитування."
+      "value": "Адміни групи заборонили вам надсилати опитування."
     },
     {
       "_": "types.LangPackString",
@@ -32537,7 +32587,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_polls_until",
-      "value": "Адміністратори цієї групи заборонили вам надсилати сюди опитування до {date}, {time}."
+      "value": "Адміни групи заборонили вам надсилати опитування до {date}, {time}."
     },
     {
       "_": "types.LangPackString",
@@ -32552,7 +32602,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_stickers",
-      "value": "Адміністратори цієї групи заборонили вам надсилати сюди наліпки."
+      "value": "Адміни групи заборонили вам надсилати наліпки."
     },
     {
       "_": "types.LangPackString",
@@ -32562,7 +32612,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_stickers_until",
-      "value": "Адміністратори цієї групи заборонили вам надсилати сюди наліпки до {date}, {time}."
+      "value": "Адміни групи заборонили вам надсилати наліпки до {date}, {time}."
     },
     {
       "_": "types.LangPackString",
@@ -32582,17 +32632,17 @@
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_video_messages_group",
-      "value": "Адміністратори цієї групи заборонили вам надсилати сюди відеоповідомлення."
+      "value": "Адміни групи заборонили вам надсилати відеоповідомлення."
     },
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_video_messages_until",
-      "value": "Адміністратори цієї групи заборонили вам надсилати сюди відеоповідомлення до {date} {time}."
+      "value": "Адміни групи заборонили вам надсилати відеоповідомлення до {date}, {time}."
     },
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_videos",
-      "value": "Адміністратори цієї групи заборонили вам надсилати сюди відео."
+      "value": "Адміни групи заборонили вам надсилати відео."
     },
     {
       "_": "types.LangPackString",
@@ -32602,7 +32652,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_videos_until",
-      "value": "Адміністратори цієї групи заборонили вам надсилати сюди відео до {date} {time}."
+      "value": "Адміни групи заборонили вам надсилати відео до {date}, {time}."
     },
     {
       "_": "types.LangPackString",
@@ -32617,12 +32667,12 @@
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_voice_messages_group",
-      "value": "Адміністратори цієї групи заборонили вам надсилати сюди голосові повідомлення."
+      "value": "Адміни групи заборонили вам надсилати голосові повідомлення."
     },
     {
       "_": "types.LangPackString",
       "key": "lng_restricted_send_voice_messages_until",
-      "value": "Адміністратори цієї групи заборонили вам надсилати сюди голосові повідомлення до {date} {time}."
+      "value": "Адміни групи заборонили вам надсилати голосові повідомлення до {date}, {time}."
     },
     {
       "_": "types.LangPackString",
@@ -32637,7 +32687,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_rights_about_admin_cant_edit",
-      "value": "Ви не можете змінювати права цього адміністратора."
+      "value": "Ви не можете змінювати права цього адміна."
     },
     {
       "_": "types.LangPackString",
@@ -32898,7 +32948,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_rights_edit_admin",
-      "value": "Права адміністратора"
+      "value": "Права адміна"
     },
     {
       "_": "types.LangPackString",
@@ -33549,8 +33599,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_search_filter_from_archive",
+      "value": "З архіву"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_search_filter_group",
       "value": "Групові чати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_search_filter_non_archived",
+      "value": "Не з архіву"
     },
     {
       "_": "types.LangPackString",
@@ -42418,5 +42478,5 @@
       "other_value": "Ви заплатили {count} зірок."
     }
   ],
-  "version": 5727918
+  "version": 5735115
 }

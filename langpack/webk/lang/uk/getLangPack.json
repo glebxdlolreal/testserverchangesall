@@ -3509,6 +3509,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BotAddAsAdminChannelConfirm",
+      "value": "Ви впевнені, що хочете зробити цього бота адміном у **%1$s**? Він отримає доступ до списку адмінів і підписників."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddAsAdminGroupConfirm",
+      "value": "Ви впевнені, що хочете зробити цього бота адміном у **%1$s**? Він отримає доступ до списку анонімних адмінів."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToChannelAbout",
+      "value": "Цей бот може керувати каналами."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupAbout",
+      "value": "Цей бот може керувати групами."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannel",
+      "value": "Додати до групи або каналу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannelAbout",
+      "value": "Цей бот може керувати групами та каналами."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BotAllowAccessTo",
       "value": "Надати дозвіл до"
     },
@@ -7225,7 +7255,7 @@
     {
       "_": "types.LangPackString",
       "key": "EditAdmin",
-      "value": "Права адміністратора"
+      "value": "Права адміна"
     },
     {
       "_": "types.LangPackString",
@@ -7245,7 +7275,7 @@
     {
       "_": "types.LangPackString",
       "key": "EditAdminCantEdit",
-      "value": "Ви не можете змінювати права цього адміністратора."
+      "value": "Ви не можете змінювати права цього адміна."
     },
     {
       "_": "types.LangPackString",
@@ -7501,6 +7531,16 @@
       "_": "types.LangPackString",
       "key": "EditedMessage",
       "value": "змінено"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.At",
+      "value": "змінено %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.On",
+      "value": "змінено %1$s, %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -8908,7 +8948,7 @@
     {
       "_": "types.LangPackString",
       "key": "GlobalAttachPlainRestricted",
-      "value": "У цій групі не дозволено надсилати текстові повідомлення."
+      "value": "У цій групі не дозволено надсилати текст."
     },
     {
       "_": "types.LangPackString",
@@ -10537,7 +10577,7 @@
     {
       "_": "types.LangPackString",
       "key": "LinksCreatedByThisAdmin",
-      "value": "Посилання від цього адміністратора"
+      "value": "Посилання від цього адміна"
     },
     {
       "_": "types.LangPackString",
@@ -15244,6 +15284,19 @@
       "_": "types.LangPackString",
       "key": "Report2CommentOptional",
       "value": "Додати коментар (необовʼязково)"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Поскаржитися на %1$d повідомлення",
+      "key": "Report2MessagesCount",
+      "many_value": "Поскаржитися на %1$d повідомлень",
+      "one_value": "Поскаржитися на %1$d повідомлення",
+      "other_value": "Поскаржитися на %1$d повідомлень"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Report2SelectMessages",
+      "value": "Виберіть повідомлення для скарги."
     },
     {
       "_": "types.LangPackString",
@@ -21273,5 +21326,5 @@
       "other_value": "%1$d повідомлень"
     }
   ],
-  "version": 300638
+  "version": 300903
 }
