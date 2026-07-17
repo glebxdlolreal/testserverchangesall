@@ -2594,6 +2594,7 @@ function checkFrameSize() {
         addEvent(ge('.js-poll_option', this), 'click', TWidgetPost.eSelectPollOption);
         addEvent(ge('.js-poll_vote_btn', this), 'click', TWidgetPost.eSendVotes);
       });
+      gec('.js-poll_timer', TWidgetPost.initPollTimer);
       initWidgetFrame({
         auto_height: true,
         onVisible: function() {
@@ -2617,6 +2618,32 @@ function checkFrameSize() {
           removeClass(document.body, 'no_transitions');
         }, 100);
       }
+    },
+    initPollTimer: function(timerEl) {
+      if (timerEl._timerInited) return;
+      timerEl._timerInited = true;
+      var closeDate = parseInt(timerEl.getAttribute('data-close-date'));
+      var timeEl = ge1('.js-poll_timer_time', timerEl);
+      function tick() {
+        var now = Math.floor(Date.now() / 1000);
+        var remaining = closeDate - now;
+        if (remaining <= 0) {
+          timeEl.textContent = '00:00:00';
+          if (timerEl._interval) {
+            clearInterval(timerEl._interval);
+            timerEl._interval = null;
+          }
+          return;
+        }
+        var hours = Math.floor(remaining / 3600);
+        var minutes = Math.floor((remaining % 3600) / 60);
+        var seconds = remaining % 60;
+        timeEl.textContent = (hours < 10 ? '0' : '') + hours + ':' +
+                             (minutes < 10 ? '0' : '') + minutes + ':' +
+                             (seconds < 10 ? '0' : '') + seconds;
+      }
+      tick();
+      timerEl._interval = setInterval(tick, 1000);
     },
     eSelectPollOption: function(e) {
       e.preventDefault();
@@ -2679,6 +2706,7 @@ function checkFrameSize() {
           setHtml(poll_el, media_html);
           addEvent(ge('.js-poll_option', poll_el), 'click', TWidgetPost.eSelectPollOption);
           addEvent(ge('.js-poll_vote_btn', poll_el), 'click', TWidgetPost.eSendVotes);
+          gec('.js-poll_timer', TWidgetPost.initPollTimer, poll_el);
         }
         toggleClass(poll_el, 'selected', ge('.js-poll_option.selected', poll_el).length > 0);
       });
