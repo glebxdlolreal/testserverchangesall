@@ -170,8 +170,13 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AIEditorStylePrompt",
+      "value": "Instruks"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AIEditorStylePromptHint",
-      "value": "Instruksjoner (f.eks. \"Skriv som en tøff pirat. Bruk arr, sjøulk, hiv o'hoi, og snakk om skatter og havet\")"
+      "value": "Instrukser (f.eks. \"Skriv som en tøff pirat. Bruk arr, sjøulk, hiv o'hoi, og snakk om skatter og havet\")"
     },
     {
       "_": "types.LangPackString",
@@ -654,6 +659,11 @@
       "_": "types.LangPackString",
       "key": "AccDescrIVFooter",
       "value": "Bunntekst"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AccDescrIVFormula",
+      "value": "Formel"
     },
     {
       "_": "types.LangPackString",
@@ -4420,13 +4430,358 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleAIAddToPage",
+      "value": "Legg til side"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleAICreate",
+      "value": "Lag med AI"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleAIGenerate",
+      "value": "Generer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleAIPrompt",
+      "value": "Skriv en instruks..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleAlignment",
+      "value": "Justering"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleByAuthor",
       "value": "av %1$s"
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleCode",
+      "value": "Kode"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandAudio",
+      "value": "Lyd"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandDivider",
+      "value": "Avdeler"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandImage",
+      "value": "Bilde"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandList",
+      "value": "Liste"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandMap",
+      "value": "Kart"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandMath",
+      "value": "Matematikk"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandOrderedList",
+      "value": "Sortert liste"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandTable",
+      "value": "Tabell"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandToggle",
+      "value": "Veksle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandVideo",
+      "value": "Video"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleConversionSendPlain",
+      "value": "Send uten formatering"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleConversionSubscribe",
+      "value": "Abonner på Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleConversionText",
+      "value": "Denne meldingen bruker rik formatering, som krever **Telegram Premium**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleConversionTitle",
+      "value": "Fjern formatering"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleDateByAuthor",
       "value": "%1$s av %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteColumn",
+      "value": "Slett kolonne"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteDraft",
+      "value": "Slett utkast"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteDraftMessage",
+      "value": "Du vil miste det du har skrevet."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteDraftTitle",
+      "value": "Vil du slette dette utkastet?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteRow",
+      "value": "Slett rad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteTable",
+      "value": "Slett tabell"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleEditor",
+      "value": "Rik tekstredigering"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleFooter",
+      "value": "Bunntekst"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading",
+      "value": "Overskrift"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading1",
+      "value": "Overskrift 1"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading2",
+      "value": "Overskrift 2"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading3",
+      "value": "Overskrift 3"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading4",
+      "value": "Overskrift 4"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading5",
+      "value": "Overskrift 5"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading6",
+      "value": "Overskrift 6"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHighlightCell",
+      "value": "Uthev celle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHighlightColumn",
+      "value": "Uthev kolonne"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHighlightRow",
+      "value": "Uthev rad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintAuthor",
+      "value": "Forfatter"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintCode",
+      "value": "Skriv kode her..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintDetailsTitle",
+      "value": "Tittel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintLanguage",
+      "value": "Språk"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintQuote",
+      "value": "Skriv inn sitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintText",
+      "value": "Skriv noe..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintTitle",
+      "value": "Tittel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleIndent",
+      "value": "Innrykk"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleInsertAbove",
+      "value": "Sett inn over"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleInsertBelow",
+      "value": "Sett inn under"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleInsertLeft",
+      "value": "Sett inn til venstre"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleInsertRight",
+      "value": "Sett inn til høyre"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleLatexEquation",
+      "value": "LaTeX likning"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleLatexError",
+      "value": "Feil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleListBulleted",
+      "value": "Kulepunkt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleListBulletedList",
+      "value": "Kulepunktliste"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleListChecklist",
+      "value": "Sjekkliste"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleListNumbered",
+      "value": "Nummerert"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleListNumberedList",
+      "value": "Nummerert liste"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleListTodo",
+      "value": "Gjøremål"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleMergeCells",
+      "value": "Slå sammen celler"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleNone",
+      "value": "None"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleOutdent",
+      "value": "Utrykk"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticlePullquote",
+      "value": "Trekksitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleQuote",
+      "value": "Sitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleRemoveHighlight",
+      "value": "Fjern utheving"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleSaveDraftMessage",
+      "value": "Du kan lagre skrevet tekst i et utkast før du lukker."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleSaveDraftTitle",
+      "value": "Vil du lagre dette utkastet?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleSplitCells",
+      "value": "Del celler"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleText",
+      "value": "Tekst"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleToggleBlock",
+      "value": "Veksle blokk"
     },
     {
       "_": "types.LangPackString",
@@ -4442,6 +4797,11 @@
       "_": "types.LangPackString",
       "key": "AskButton",
       "value": "Spør en frivillig"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AttachArticle",
+      "value": "Artikkel"
     },
     {
       "_": "types.LangPackString",
@@ -9596,7 +9956,7 @@
     {
       "_": "types.LangPackString",
       "key": "BusinessBotNotSupportedMessage",
-      "value": "Denne roboten støtter ikke **Telegram Business** ennå."
+      "value": "Denne roboten støtter ikke **Sekretærmodus** ennå."
     },
     {
       "_": "types.LangPackString",
@@ -11697,12 +12057,12 @@
     {
       "_": "types.LangPackString",
       "key": "ChannelJoinRequest",
-      "value": "Spør om å få bli med i gruppen"
+      "value": "Be om å få bli med i gruppen"
     },
     {
       "_": "types.LangPackString",
       "key": "ChannelJoinRequestNoCaps",
-      "value": "Spør om å få bli med i kanalen"
+      "value": "Be om å få bli med i kanalen"
     },
     {
       "_": "types.LangPackString",
@@ -13754,6 +14114,719 @@
       "key": "CommonGroups",
       "one_value": "%1$d gruppe til felles",
       "other_value": "%1$d grupper til felles"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community",
+      "value": "Samfunn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAChatToCommunity",
+      "value": "Legg til en samtale i samfunnet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAdmin",
+      "value": "Legg til administrator"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityAddAllChatsMessage",
+      "one_value": "Vil du legge til **%1$d** samtale i samfunnet?",
+      "other_value": "Vil du legge til **%1$d** samtaler i samfunnet?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAllChatsTitle",
+      "value": "Legg til alle samtalene"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotTitle",
+      "value": "Legg til robot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotToCommunity",
+      "value": "Legg til roboten i et samfunn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotToCommunityInfo",
+      "value": "Gjør roboten din til en del av et samfunn med flere relaterte samtaler."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChannelToCommunity",
+      "value": "Legg til kanalen i et samfunn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChannelToCommunityInfo",
+      "value": "Gjør kanalen din til en del av et samfunn med flere relaterte samtaler."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChatTitle",
+      "value": "Legg til samtale"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddGroupToCommunity",
+      "value": "Legg til gruppen i et samfunn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddGroupToCommunityInfo",
+      "value": "Gjør gruppen din til en del av et samfunn med flere relaterte samtaler."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityButton",
+      "value": "Legg til i samfunn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityChannelMessage",
+      "value": "Hvis denne kanalen er godkjent av en samfunnsadministrator, vil abonnentene kunne bli med eller be om å bli med i andre samtaler i fellesskapet."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityGroupMessage",
+      "value": "Hvis denne gruppen er godkjent av en samfunnsadministrator, vil medlemmene kunne bli med eller be om å bli med i andre samtaler i fellesskapet."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityRequestButton",
+      "value": "Send medlemsforespørsel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityTitle",
+      "value": "Legg til i samfunn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToExistingCommunity",
+      "value": "Legg til et eksisterende samfunn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdminRightBanMembers",
+      "value": "Utesteng medlemmer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdminRightEditCommunityName",
+      "value": "Endre samfunnsnavn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdminRightEditGroupList",
+      "value": "Rediger samtaleliste"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdministrators",
+      "value": "Administratorer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdministratorsTitle",
+      "value": "Administratorer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityBanFromCommunity",
+      "value": "Utesteng fra samfunnet"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityBanFromCommunityInfo",
+      "one_value": "Brukeren vil bli fjernet fra **%1$d samtale >**",
+      "other_value": "Brukeren vil bli fjernet fra **%1$d samtaler >**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityBanUserTitle",
+      "value": "Utesteng bruker"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityBanWarningMessage",
+      "one_value": "Å utestenge **%2$s** vil også fjerne deres **ene** samtale fra samfunnet.",
+      "other_value": "Å utestenge **%2$s** vil også fjerne deres **%1$d** samtaler fra samfunnet."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityBanWarningTitle",
+      "value": "Advarsel"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityBanWillRemoveFromChats",
+      "one_value": "**%2$s** vil bli fjernet fra **%1$d** fellesskapssamtale.",
+      "other_value": "**%2$s** vil bli fjernet fra **%1$d** fellesskapssamtaler."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityCannotChange",
+      "value": "Du vil ikke kunne endre dette senere."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHidden",
+      "value": "Skjult"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHiddenBotInfo",
+      "value": "Bare inviterte medlemmer og samfunnsadministratorer vil se denne roboten."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHiddenInfo",
+      "value": "Bare inviterte medlemmer og samfunnsadministratorer vil se denne samtalen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilitySection",
+      "value": "Synlighet for samtalen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisible",
+      "value": "Synlig"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisibleBotInfo",
+      "value": "Alle i samfunnet vil kunne se denne roboten."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisibleInfo",
+      "value": "Alle i samfunnet vil kunne se denne samtalen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityCreated",
+      "value": "Samfunn opprettet!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityJoinedChannel",
+      "value": "Du la til denne kanalen i et samfunn!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityJoinedGroup",
+      "value": "Du la til denne gruppen i et samfunn!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityPending",
+      "value": "Din forespørsel om å bli med i samfunnet er sendt til administratorene"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCreateCommunity",
+      "value": "Opprett samfunn"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityDeclineAllMessage",
+      "one_value": "Vil du avslå forespørselen om å få bli med i samfunnet?",
+      "other_value": "Vil du avslå alle **%1$d** forespørsler om å få bli med i samfunnet?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDeclineAllTitle",
+      "value": "Avslå alle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDelete",
+      "value": "Slett samfunn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionBot",
+      "value": "Gjør roboten din til en del av et samfunn med flere relaterte samtaler."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionChannel",
+      "value": "Gjør kanalen din til en del av et samfunn med flere relaterte samtaler."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionGroup",
+      "value": "Gjør gruppen din til en del av et samfunn med flere relaterte samtaler."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenChannelUnavailable",
+      "value": "Du kan ikke bli med i eller se denne kanalen før en administrator inviterer deg."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenChatTooltipMessage",
+      "value": "Bare inviterte medlemmer og fellesskapsadministratorer vil se denne samtalen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenChatTooltipTitle",
+      "value": "Skjult samtale"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenGroupUnavailable",
+      "value": "Du kan ikke bli med i eller se denne gruppen før en administrator inviterer deg."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenStatus",
+      "value": "Skjult"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyChannelInfo",
+      "value": "Denne kanalen er kun for inviterte.\nBare medlemmene kan se den."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyChannelMessageOwner",
+      "value": "Send melding til kanaleier"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyGroupInfo",
+      "value": "Denne gruppen er kun for inviterte.\nBare medlemmene kan se den."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyGroupMessageOwner",
+      "value": "Meldingsgruppeeier"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminMessage",
+      "value": "**%1$s** vil kunne redigere samfunnets informasjon og bruke andre administrasjonsverktøy."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminPromote",
+      "value": "Forfrem"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminTitle",
+      "value": "Gjør til samfunnsadministrator"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuAddChat",
+      "value": "Legg til samtale i samfunn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuRemoveBotFromCommunityConfirm",
+      "value": "Er du sikker på at du vil fjerne denne roboten fra samfunnet?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuRemoveChannelFromCommunityConfirm",
+      "value": "Er du sikker på at du vil fjerne denne kanalen fra samfunnet?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuRemoveFromCommunity",
+      "value": "Fjern fra samfunnet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuRemoveGroupFromCommunityConfirm",
+      "value": "Er du sikker på at du vil fjerne denne gruppen fra samfunnet?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuSettings",
+      "value": "Innstillinger"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuShowAsOneChat",
+      "value": "Vis som en samtale"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuShowAsSeparateChats",
+      "value": "Vis som separate samtaler"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuViewBot",
+      "value": "Se robot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuViewChannel",
+      "value": "Se kanal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuViewGroup",
+      "value": "Se gruppe"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNewCommunityNameHint",
+      "value": "Samfunnsnavn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNewCommunityTitle",
+      "value": "Nytt samfunn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNoChatsToAdd",
+      "value": "Du har ingen samtaler å legge til i samfunn."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequest",
+      "value": "Ventende forespørsel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestAdd",
+      "value": "Legg til"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestAddAll",
+      "value": "Legg til alle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestDecline",
+      "value": "Avslå"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestDeclineAll",
+      "value": "Avslå alle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestOnlyVisibleToMembers",
+      "value": "Bare synlig for medlemmene"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedBot",
+      "value": "**%s** foreslo denne roboten"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedChannel",
+      "value": "**%s** foreslo denne kanalen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedGroup",
+      "value": "**%s** foreslo denne gruppen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequests",
+      "value": "Ventende forespørsler"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfo",
+      "value": "Samtaler krever administratorgodkjenning før de legges til i samfunnet. **Endre innstillinger >**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfoNoChange",
+      "value": "Samtaler krever administratorgodkjenning før de legges til i samfunnet."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityPendingRequestsRow",
+      "one_value": "%1$d ventende forespørsel",
+      "other_value": "%1$d ventende forespørsler"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityPendingRequestsSuggestedHeader",
+      "one_value": "%1$d samtale foreslått for dette samfunnet",
+      "other_value": "%1$d samtaler foreslått for dette samfunnet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsTitle",
+      "value": "Ventende forespørsler"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPermissionsHeader",
+      "value": "Hva kan medlemmer av dette samfunnet gjøre?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveBotFromCommunity",
+      "value": "Fjern robot fra samfunn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveChannelFromCommunity",
+      "value": "Fjern kanal fra samfunn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveGroupFromCommunity",
+      "value": "Fjern gruppe fra samfunn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemovedUsers",
+      "value": "Fjernede brukere"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequestApprovedToast",
+      "value": "Du godkjente forespørselen om å legge til **%1$s** i samfunnet."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequestDeclinedToast",
+      "value": "Du avslo forespørselen om å legge til **%1$s** i samfunnet."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouAreIn",
+      "value": "Samtaler du er i"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanJoin",
+      "value": "Samtaler du kan bli med i"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanRequestToJoin",
+      "value": "Samtaler du kan be om å få bli med i"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanView",
+      "value": "Samtaler du kan se"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionCommunityName",
+      "value": "Samfunnsnavn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionHiddenChats",
+      "value": "Skjulte samtaler"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionWhoCanAddChats",
+      "value": "Hvem kan legge til samtaler"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotAdded",
+      "value": "**%1$s** la til denne roboten i samfunnet **%2$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotAddedUnknown",
+      "value": "Denne roboten ble lagt til i samfunnet **%1$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotRemoved",
+      "value": "**%1$s** fjernet denne roboten fra samfunnet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotRemovedUnknown",
+      "value": "Denne roboten ble fjernet fra samfunnet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotYouAdded",
+      "value": "**Du** la til denne roboten i samfunnet **%1$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotYouRemoved",
+      "value": "**Du** fjernet denne roboten fra samfunnet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelAdded",
+      "value": "**%1$s** la til denne kanalen i samfunnet **%2$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelAddedUnknown",
+      "value": "Denne kanalen ble lagt til i samfunnet **%1$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelRemoved",
+      "value": "**%1$s** fjernet denne kanalen fra samfunnet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelRemovedUnknown",
+      "value": "Denne kanalen ble fjernet fra samfunnet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelYouAdded",
+      "value": "**Du** la til denne kanalen i samfunnet **%1$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelYouRemoved",
+      "value": "**Du** fjernet denne kanalen fra samfunnet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupAdded",
+      "value": "**%1$s** la til denne gruppen i samfunnet **%2$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupAddedUnknown",
+      "value": "Denne gruppen ble lagt til i samfunnet **%1$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupRemoved",
+      "value": "**%1$s** fjernet denne gruppen fra samfunnet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupRemovedUnknown",
+      "value": "Denne gruppen ble fjernet fra samfunnet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupYouAdded",
+      "value": "**Du** la til denne gruppen i samfunnet **%1$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupYouRemoved",
+      "value": "**Du** fjernet denne gruppen fra samfunnet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageView",
+      "value": "Se"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsChangePhoto",
+      "value": "Endre samfunnsbildet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsSetPhoto",
+      "value": "Angi samfunnsbilde"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsTitle",
+      "value": "Samfunn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChat",
+      "value": "Vis som en samtale"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChatInfo",
+      "value": "Grupper alle samfunnssamtaler i ett element i samtalelisten."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityTitle",
+      "value": "Samfunn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityUngroupChats",
+      "value": "Opphev samtalegruppering"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityUngroupChatsButton",
+      "value": "Opphev gruppering"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityUngroupChatsText",
+      "value": "Samtaler fra dette fellesskapet vil vises separat i samtalelisten din."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsAllMembers",
+      "value": "Alle medlemmer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsAllMembersInfo",
+      "value": "Tillat medlemmer å legge til gruppene og kanalene sine i samfunnet."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsOnlyAdmins",
+      "value": "Bare administratorer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsOnlyAdminsInfo",
+      "value": "Samtaler foreslått av samfunnsmedlemmer krever administratorgodkjenning."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityWithChats",
+      "one_value": "Samfunn med %1$d samtale",
+      "other_value": "Samfunn med %1$d samtaler"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminContinue",
+      "value": "Fortsett"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminMessage",
+      "value": "Du kan nå redigere informasjonen til **%1$s** og bruke andre administrasjonsverktøy."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminNoThanks",
+      "value": "Nei takk"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminTitle",
+      "value": "Du er en samfunnsadministrator"
     },
     {
       "_": "types.LangPackString",
@@ -17358,6 +18431,21 @@
       "_": "types.LangPackString",
       "key": "EnterYourTelegramPasscode",
       "value": "Oppgi din Telegram tilgangskode"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageMenuHint",
+      "value": "Bare du kan se denne meldingen. Den forsvinner etter at du logger på igjen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageVisibleToOther",
+      "value": "Bare synlig for @%s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageVisibleToYou",
+      "value": "Bare synlig for deg"
     },
     {
       "_": "types.LangPackString",
@@ -24551,12 +25639,12 @@
     {
       "_": "types.LangPackString",
       "key": "GroupJoinRequest",
-      "value": "SPØR OM Å FÅ BLI MED I GRUPPEN"
+      "value": "BE OM Å FÅ BLI MED I GRUPPEN"
     },
     {
       "_": "types.LangPackString",
       "key": "GroupJoinRequestNoCaps",
-      "value": "Spør om å få bli med i gruppen"
+      "value": "Be om å få bli med i gruppen"
     },
     {
       "_": "types.LangPackString",
@@ -25951,6 +27039,11 @@
       "_": "types.LangPackString",
       "key": "InviteToChannelError",
       "value": "Beklager, du kan ikke legge denne brukeren til i kanaler på grunn av vedkommendes personverninnstillinger."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "InviteToCommunityError",
+      "value": "Beklager, du kan ikke legge denne brukeren til i samfunnet på grunn av brukerens personverninnstillinger."
     },
     {
       "_": "types.LangPackString",
@@ -30102,6 +31195,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NoBlockedCommunity2",
+      "value": "Brukere fjernet fra samfunnet av administratorene kan ikke bli med på nytt via invitasjonslenker."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NoBlockedGroup",
       "value": "Utestengte brukere blir fjernet fra gruppen og kan bare bli med hvis de blir lagt til av en administrator. Invitasjonslenker vil ikke fungere for disse."
     },
@@ -30169,6 +31267,16 @@
       "_": "types.LangPackString",
       "key": "NoComments",
       "value": "Ingen kommentarer her ennå…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NoCommunityJoinRequests",
+      "value": "Ingen medlemsforespørsler"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NoCommunityJoinRequestsDescription",
+      "value": "Du har ingen ventende forespørsler\nfor å bli med i samfunnet ditt."
     },
     {
       "_": "types.LangPackString",
@@ -36388,6 +37496,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumPreviewRichEditor",
+      "value": "Formateringsverktøy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PremiumPreviewRichEditorDescription",
+      "value": "Legg til overskrifter, tabeller, innebygde medier og AI-innhold i meldinger."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumPreviewSharingDisable",
       "value": "Deaktiver deling"
     },
@@ -39919,7 +41037,7 @@
     {
       "_": "types.LangPackString",
       "key": "RequestToJoinChannel",
-      "value": "Spør om å få bli med i kanalen"
+      "value": "Be om å få bli med i kanalen"
     },
     {
       "_": "types.LangPackString",
@@ -39939,7 +41057,7 @@
     {
       "_": "types.LangPackString",
       "key": "RequestToJoinGroup",
-      "value": "Spør om å få bli med i gruppen"
+      "value": "Be om å få bli med i gruppen"
     },
     {
       "_": "types.LangPackString",
@@ -40667,6 +41785,11 @@
       "_": "types.LangPackString",
       "key": "RevokedLinks",
       "value": "Annulerte lenker"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorDraftSaved",
+      "value": "Utkast lagret."
     },
     {
       "_": "types.LangPackString",
@@ -42776,6 +43899,11 @@
       "_": "types.LangPackString",
       "key": "SetColorAsBackground",
       "value": "Velg en farge som bakgrunn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SetCommunityPhoto",
+      "value": "Angi samfunnsbilde"
     },
     {
       "_": "types.LangPackString",
@@ -48743,6 +49871,11 @@
       "_": "types.LangPackString",
       "key": "SwipeToReplyHintMessage",
       "value": "Sveip en hvilken som helst melding til venstre for å svare på den."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SwipeUngroupCommunity",
+      "value": "Opphev gruppering"
     },
     {
       "_": "types.LangPackString",
@@ -54743,12 +55876,12 @@
     {
       "_": "types.LangPackString",
       "key": "WebBrowserShowCloseButton",
-      "value": "Vis lukkeknapp"
+      "value": "Vindusmodus"
     },
     {
       "_": "types.LangPackString",
       "key": "WebBrowserShowCloseButtonInfo",
-      "value": "Legg til en lukkeknapp når du ser på nettsteder."
+      "value": "Åpne ekstern nettleser inne i Telegram."
     },
     {
       "_": "types.LangPackString",
@@ -55582,5 +56715,5 @@
       "value": "Telegram Passport"
     }
   ],
-  "version": 59688884
+  "version": 59977190
 }
