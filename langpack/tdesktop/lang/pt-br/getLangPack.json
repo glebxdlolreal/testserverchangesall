@@ -4440,6 +4440,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_insert_footer",
+      "value": "Rodapé"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_insert_heading",
       "value": "Título"
     },
@@ -4501,7 +4506,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_article_insert_task_list",
-      "value": "Lista de Tarefas"
+      "value": "Lista"
     },
     {
       "_": "types.LangPackString",
@@ -9534,7 +9539,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_community_admin_dismiss_title",
-      "value": "Demita-se do cargo de admin da comunidade"
+      "value": "Remova seu cargo de admin na comunidade"
     },
     {
       "_": "types.LangPackString",
@@ -9580,8 +9585,8 @@
     {
       "_": "types.LangPackStringPluralized",
       "key": "lng_community_ban_warning",
-      "one_value": "Banir {user} também removerá o chat dele da comunidade.",
-      "other_value": "Banir {user} também removerá {count} chats dele da comunidade."
+      "one_value": "Banir {user} também removerá o chat da pessoa da comunidade.",
+      "other_value": "Banir {user} também removerá {count} chats da pessoa da comunidade."
     },
     {
       "_": "types.LangPackString",
@@ -9748,7 +9753,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_community_manage_all_members_about",
-      "value": "Permitir que os membros adicionem grupos e canais à comunidade."
+      "value": "Permite que membros adicionem grupos e canais à comunidade."
     },
     {
       "_": "types.LangPackString",
@@ -12388,6 +12393,11 @@
       "value": "{emoji} Recarregar Saldo"
     },
     {
+      "_": "types.LangPackString",
+      "key": "lng_credits_topup_disabled",
+      "value": "Desculpe, você não tem Estrelas do Telegram suficientes no seu saldo."
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "lng_custom_emoji_count",
       "one_value": "{count} emoji",
@@ -14383,7 +14393,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_ephemeral_cant_schedule",
-      "value": "Mensagens temporárias não podem ser agendadas."
+      "value": "Mensagens efêmeras não podem ser agendadas."
     },
     {
       "_": "types.LangPackString",
@@ -23681,6 +23691,12 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "key": "lng_media_selected_media",
+      "one_value": "{count} Mídia",
+      "other_value": "{count} Mídias"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "key": "lng_media_selected_message",
       "one_value": "{count} mensagem",
       "other_value": "{count} mensagens"
@@ -23758,6 +23774,11 @@
       "_": "types.LangPackString",
       "key": "lng_media_type_links",
       "value": "Links"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_media_type_media",
+      "value": "Mídia"
     },
     {
       "_": "types.LangPackString",
@@ -29454,6 +29475,12 @@
       "value": "Gerenciar usuários restritos"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_profile_media",
+      "one_value": "{count} mídia",
+      "other_value": "{count} mídias"
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_profile_migrate_body",
       "value": "Para adicionar mais membros você pode converter seu grupo em supergrupo."
@@ -29748,6 +29775,11 @@
       "_": "types.LangPackString",
       "key": "lng_profile_sure_remove_admin",
       "value": "Remover {user} dos administradores?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_profile_tab_set_as_main",
+      "value": "Usar como Guia Principal"
     },
     {
       "_": "types.LangPackString",
@@ -41155,5 +41187,5 @@
       "other_value": "Você pagou {count} Estrelas."
     }
   ],
-  "version": 5716802
+  "version": 5729597
 }

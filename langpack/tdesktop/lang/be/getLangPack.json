@@ -885,12 +885,12 @@
     {
       "_": "types.LangPackString",
       "key": "lng_action_changed_photo",
-      "value": "{from} абнавіў(-ла) аватар суполкі"
+      "value": "{from} абнавіў(-ла) фота суполкі"
     },
     {
       "_": "types.LangPackString",
       "key": "lng_action_changed_photo_channel",
-      "value": "Аватар канала абноўлены"
+      "value": "Фота канала абноўлена"
     },
     {
       "_": "types.LangPackString",
@@ -1668,12 +1668,12 @@
     {
       "_": "types.LangPackString",
       "key": "lng_action_removed_photo",
-      "value": "{from} выдаліў(-ла) аватар суполкі"
+      "value": "{from} выдаліў(-ла) фота суполкі"
     },
     {
       "_": "types.LangPackString",
       "key": "lng_action_removed_photo_channel",
-      "value": "Аватар канала выдалены"
+      "value": "Фота канала выдалена"
     },
     {
       "_": "types.LangPackString",
@@ -1836,7 +1836,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_action_suggested_photo_button",
-      "value": "Праглядзець аватар"
+      "value": "Праглядзець фота"
     },
     {
       "_": "types.LangPackString",
@@ -2454,12 +2454,12 @@
     {
       "_": "types.LangPackString",
       "key": "lng_admin_log_changed_photo_channel",
-      "value": "{from} змяніў(-ла) аватар канала"
+      "value": "{from} змяніў(-ла) фота канала"
     },
     {
       "_": "types.LangPackString",
       "key": "lng_admin_log_changed_photo_group",
-      "value": "{from} змяніў(-ла) аватар суполкі"
+      "value": "{from} змяніў(-ла) фота суполкі"
     },
     {
       "_": "types.LangPackString",
@@ -2993,13 +2993,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_admin_log_removed_own_rank",
+      "value": "{from} выдаліў(-ла) свой тэг (было «{previous}»)"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_admin_log_removed_photo_channel",
-      "value": "{from} выдаліў(-ла) аватар канала"
+      "value": "{from} выдаліў(-ла) фота канала"
     },
     {
       "_": "types.LangPackString",
       "key": "lng_admin_log_removed_photo_group",
-      "value": "{from} выдаліў(-ла) аватар суполкі"
+      "value": "{from} выдаліў(-ла) фота суполкі"
     },
     {
       "_": "types.LangPackString",
@@ -3286,6 +3291,11 @@
       "_": "types.LangPackString",
       "key": "lng_ai_compose_bind_use_hotkey",
       "value": "\"Прымяніць\" па {keys}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ai_compose_create_placeholder",
+      "value": "Увядзіце, што трэба згенераваць...\n"
     },
     {
       "_": "types.LangPackString",
@@ -3659,6 +3669,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_insert_blockquote",
+      "value": "Цытата"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_insert_bullet_list",
       "value": "Маркіраваны спіс"
     },
@@ -3741,6 +3756,11 @@
       "_": "types.LangPackString",
       "key": "lng_article_insert_task_list",
       "value": "Кантрольны спіс"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_menu_item",
+      "value": "Артыкул"
     },
     {
       "_": "types.LangPackString",
@@ -7342,7 +7362,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_chatbots_edit_userpic",
-      "value": "Змяняць аватар профілю"
+      "value": "Змяняць фота профілю"
     },
     {
       "_": "types.LangPackString",
@@ -7417,7 +7437,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_chatbots_not_supported",
-      "value": "Гэты бот пакуль што не падтрымлівае **Telegram для бізнесу**."
+      "value": "Гэты бот яшчэ не падтрымлівае рэжым сакратара."
     },
     {
       "_": "types.LangPackString",
@@ -7887,6 +7907,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_add_about",
+      "value": "Зрабіце вашу суполку часткай супольнасці з некалькімі звязанымі чатамі."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_about_bot",
+      "value": "Зрабіце вашага бота часткай супольнасці з некалькімі звязанымі чатамі."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_about_channel",
+      "value": "Зрабіце ваш канал часткай супольнасці з некалькімі звязанымі чатамі."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_button",
+      "value": "Дадаць суполку ў супольнасць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_button_bot",
+      "value": "Дадаць бота ў супольнасць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_button_channel",
+      "value": "Дадаць канал у супольнасць"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_add_chat",
       "value": "Дадаць чат у супольнасць"
     },
@@ -7897,8 +7947,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_add_confirm_bot",
+      "value": "Калі гэты бот будзе ўхвалены кіраўніком супольнасці, удзельнікі супольнасці змогуць яго бачыць і выкарыстоўваць."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_add_confirm_channel",
       "value": "Калі гэты канал будзе ўхвалены кіраўніком супольнасці, яго падпісчыкі змогуць далучацца або падаць запыт на далучэнне да іншых чатаў у супольнасці."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_to",
+      "value": "Дадаць у супольнасць"
     },
     {
       "_": "types.LangPackString",
@@ -7964,9 +8024,62 @@
       "value": "Праглядзець суполку"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "{count} чаты",
+      "key": "lng_community_chats",
+      "many_value": "{count} чатаў",
+      "one_value": "{count} чат",
+      "other_value": "{count} чата"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chats_joined",
+      "value": "Чаты, у якіх вы ўдзельнічаеце"
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_community_chats_requestable",
       "value": "Схаваныя чаты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chats_viewable",
+      "value": "Чаты, якія можна праглядаць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_create",
+      "value": "Стварыць супольнасць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_create_name",
+      "value": "Назва супольнасці"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_create_title",
+      "value": "Новая супольнасць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_created",
+      "value": "Супольнасць створана."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_delete",
+      "value": "Выдаліць супольнасць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_delete_sure",
+      "value": "Вы ўпэўнены, што хочаце выдаліць гэтую супольнасць? Гэта адвяжа ўсе яе чаты."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_existing",
+      "value": "Дадаць у існуючую супольнасць"
     },
     {
       "_": "types.LangPackString",
@@ -7992,6 +8105,59 @@
       "_": "types.LangPackString",
       "key": "lng_community_hidden_status",
       "value": "Схавана"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_all_members",
+      "value": "Усе ўдзельнікі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_all_members_about",
+      "value": "Дазволіць удзельнікам дадаваць свае суполкі і каналы ў супольнасць."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_name",
+      "value": "Назва супольнасці"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_only_admins",
+      "value": "Толькі кіраўнікі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_only_admins_about",
+      "value": "Чаты, прапанаваныя ўдзельнікамі супольнасці, патрабуюць ухвалення кіраўніка."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_who_add",
+      "value": "Хто можа дадаваць чаты"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Супольнасць з {count} чатамі",
+      "key": "lng_community_profile_status",
+      "many_value": "Супольнасць з {count} чатамі",
+      "one_value": "Супольнасць з {count} чатам",
+      "other_value": "Супольнасць з {count} чата"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_remove_button",
+      "value": "Выдаліць суполку з супольнасці"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_remove_button_bot",
+      "value": "Выдаліць бота з супольнасці"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_remove_button_channel",
+      "value": "Выдаліць канал з супольнасці"
     },
     {
       "_": "types.LangPackString",
@@ -8107,6 +8273,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_show_as_one",
+      "value": "Паказваць як адзін чат"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_show_as_one_about",
+      "value": "Згрупаваць усе чаты супольнасці ў адзін элемент у спісе чатаў."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_status",
+      "value": "Супольнасць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_title",
+      "value": "Супольнасць"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_ungroup",
       "value": "Разгрупаваць"
     },
@@ -8129,6 +8315,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_visibility_note",
       "value": "Вы не зможаце змяніць гэта пазней."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_title",
+      "value": "Бачнасць чата"
     },
     {
       "_": "types.LangPackString",
@@ -10802,6 +10993,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_edit_channel_personal_channel",
+      "value": "Задаць як асабісты канал"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_edit_channel_status",
       "value": "Эмодзі-статус канала"
     },
@@ -11517,7 +11713,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_edit_privacy_profile_photo_header",
-      "value": "Хто можа бачыць мой аватар профілю"
+      "value": "Хто можа бачыць мае фота профілю"
     },
     {
       "_": "types.LangPackString",
@@ -11537,12 +11733,12 @@
     {
       "_": "types.LangPackString",
       "key": "lng_edit_privacy_profile_photo_public_remove",
-      "value": "Выдаліць публічны аватар"
+      "value": "Выдаліць публічнае фота"
     },
     {
       "_": "types.LangPackString",
       "key": "lng_edit_privacy_profile_photo_public_set",
-      "value": "Задаць публічны аватар"
+      "value": "Задаць публічнае фота "
     },
     {
       "_": "types.LangPackString",
@@ -11552,12 +11748,12 @@
     {
       "_": "types.LangPackString",
       "key": "lng_edit_privacy_profile_photo_public_update",
-      "value": "Змяніць публічны аватар"
+      "value": "Змяніць публічнае фота "
     },
     {
       "_": "types.LangPackString",
       "key": "lng_edit_privacy_profile_photo_title",
-      "value": "Прыватнасць аватара профілю"
+      "value": "Фота профілю"
     },
     {
       "_": "types.LangPackString",
@@ -11898,6 +12094,21 @@
       "_": "types.LangPackString",
       "key": "lng_enter_contact_data",
       "value": "Новы кантакт"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_about",
+      "value": "Толькі вы бачыце гэта паведамленне. Яно знікне пасля перазапуску праграмы."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_visible_to",
+      "value": "Бачна толькі {user}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_visible_you",
+      "value": "Бачна толькі вам"
     },
     {
       "_": "types.LangPackString",
@@ -12343,7 +12554,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_export_state_userpics",
-      "value": "Аватар профілю"
+      "value": "Фота профілю"
     },
     {
       "_": "types.LangPackString",
@@ -12552,6 +12763,24 @@
       "many_value": "{count} колераў для вокладкі канала",
       "one_value": "{count} колер для вокладкі канала",
       "other_value": "{count} колеру для вокладкі канала"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "**{count}** колеры для вокладкі суполкі",
+      "key": "lng_feature_profile_color_group",
+      "many_value": "**{count}** колераў для вокладкі суполкі",
+      "one_value": "**{count}** колер для вокладкі суполкі",
+      "other_value": "**{count}** колеру для вокладкі суполкі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_feature_profile_icon_channel",
+      "value": "Уласны лагатып для вокладкі суполкі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_feature_profile_icon_group",
+      "value": "Уласны лагатып для вокладкі суполкі"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -13442,6 +13671,21 @@
       "_": "types.LangPackString",
       "key": "lng_formatting_link_url",
       "value": "URL-адрас"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_edit_title",
+      "value": "Рэдагаваць формулу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_result_label",
+      "value": "Вынік"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_source",
+      "value": "Формула"
     },
     {
       "_": "types.LangPackString",
@@ -18659,6 +18903,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_leave_next_owner_box_about_admin",
+      "value": "Калі вы выйдзеце, **{user}** стане новым кіраўніком **{chat}** праз **1 тыдзень**."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_leave_next_owner_box_about_legacy",
       "value": "Калі вы пакінеце, {user} неадкладна стане ўладальнікам {chat}."
     },
@@ -18804,6 +19053,11 @@
       "value": "Трансляцыя"
     },
     {
+      "_": "types.LangPackString",
+      "key": "lng_live_location_date_time",
+      "value": "абноўлена {date} а {time}"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "абноўлена {count} гадзіны таму",
       "key": "lng_live_location_hours",
@@ -18823,6 +19077,16 @@
       "_": "types.LangPackString",
       "key": "lng_live_location_now",
       "value": "абноўлена толькі што"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_live_location_today",
+      "value": "абноўлена сёння а {time}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_live_location_yesterday",
+      "value": "абноўлена ўчора а {time}"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -20173,6 +20437,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_media_type_gifts",
+      "value": "Падарункі"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_media_type_links",
       "value": "Абагуленыя спасылкі"
     },
@@ -20229,7 +20498,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_mediaview_channel_photo",
-      "value": "Аватар канала"
+      "value": "Фота канала"
     },
     {
       "_": "types.LangPackString",
@@ -20284,7 +20553,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_mediaview_group_photo",
-      "value": "Аватар суполкі"
+      "value": "Фота суполкі"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -20335,17 +20604,17 @@
     {
       "_": "types.LangPackString",
       "key": "lng_mediaview_profile_photo",
-      "value": "Аватар профілю"
+      "value": "Фота профілю"
     },
     {
       "_": "types.LangPackString",
       "key": "lng_mediaview_profile_photo_by_you",
-      "value": "аватар зададзены вамі"
+      "value": "фота зададзена вамі"
     },
     {
       "_": "types.LangPackString",
       "key": "lng_mediaview_profile_public_photo",
-      "value": "Публічны аватар"
+      "value": "Публічнае фота"
     },
     {
       "_": "types.LangPackString",
@@ -23016,6 +23285,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_peer_gifts_title",
+      "value": "Падарункі"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_peer_gifts_view_all",
       "value": "Праглядзець усе"
     },
@@ -25085,12 +25359,12 @@
     {
       "_": "types.LangPackString",
       "key": "lng_profile_drop_area_subtitle",
-      "value": "каб задаць яго як аватар суполкі"
+      "value": "каб задаць яго як фота суполкі"
     },
     {
       "_": "types.LangPackString",
       "key": "lng_profile_drop_area_subtitle_channel",
-      "value": "каб задаць яго як аватар канала"
+      "value": "каб задаць яго як фота канала"
     },
     {
       "_": "types.LangPackString",
@@ -25121,6 +25395,11 @@
       "_": "types.LangPackString",
       "key": "lng_profile_export_chat",
       "value": "Экспартаваць гісторыю"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_profile_export_topic",
+      "value": "Экспартаваць гісторыю тэмы\n"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -25312,7 +25591,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_profile_photo_by_you",
-      "value": "аватар зададзены вамі"
+      "value": "фота зададзена вамі"
     },
     {
       "_": "types.LangPackString",
@@ -25343,7 +25622,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_profile_public_photo",
-      "value": "публічны аватар"
+      "value": "публічнае фота\n"
     },
     {
       "_": "types.LangPackString",
@@ -25399,7 +25678,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_profile_set_group_photo",
-      "value": "Задаць аватар суполкі"
+      "value": "Задаць фота суполкі"
     },
     {
       "_": "types.LangPackString",
@@ -25409,27 +25688,27 @@
     {
       "_": "types.LangPackString",
       "key": "lng_profile_set_photo_button",
-      "value": "Задаць аватар"
+      "value": "Задаць фота"
     },
     {
       "_": "types.LangPackString",
       "key": "lng_profile_set_photo_for",
-      "value": "Задаць аватар"
+      "value": "Задаць фота профілю"
     },
     {
       "_": "types.LangPackString",
       "key": "lng_profile_set_photo_for_channel",
-      "value": "Задаць аватар канала"
+      "value": "Задаць фота канала"
     },
     {
       "_": "types.LangPackString",
       "key": "lng_profile_set_photo_for_group",
-      "value": "Задаць аватар суполкі"
+      "value": "Задаць фота суполкі"
     },
     {
       "_": "types.LangPackString",
       "key": "lng_profile_set_video_button",
-      "value": "Задаць аватар"
+      "value": "Задаць фота"
     },
     {
       "_": "types.LangPackString",
@@ -25493,7 +25772,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_profile_suggest_photo",
-      "value": "Прапанаваць аватар"
+      "value": "Прапанаваць фота профілю"
     },
     {
       "_": "types.LangPackString",
@@ -26316,7 +26595,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_report_profile_photo_title",
-      "value": "Паскардзіцца на аватар профілю"
+      "value": "Паскардзіцца на фота профілю"
     },
     {
       "_": "types.LangPackString",
@@ -27214,6 +27493,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_rights_community_ban",
+      "value": "Блакіроўка ўдзельнікаў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_rights_community_info",
+      "value": "Рэдагаваць назву супольнасці"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_rights_community_linked",
       "value": "Рэдагаванне спіса суполак"
     },
@@ -27905,8 +28194,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_select_next_owner_box",
+      "value": "Прызначыць іншага ўладальніка\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_select_next_owner_box_confirm",
       "value": "Прызначыць і выйсці з суполкі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_select_next_owner_box_status_promoted",
+      "value": "прызначаны {date}"
     },
     {
       "_": "types.LangPackString",
@@ -28456,7 +28755,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_set_photo_for_user",
-      "value": "Задаць аватар для {user}"
+      "value": "Задаць фота для {user}"
     },
     {
       "_": "types.LangPackString",
@@ -29113,6 +29412,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_settings_color_choose_channel",
+      "value": "Выберыце колер і лагатып для старонкі вашага канала."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_settings_color_choose_group",
+      "value": "Выберыце колер і лагатып для профілю суполкі."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_settings_color_emoji",
       "value": "Дадаць значкі на адказы"
     },
@@ -29367,7 +29676,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_settings_drop_area_subtitle",
-      "value": "каб задаць яго як ваш аватар профілю"
+      "value": "каб задаць яго як ваша фота профілю"
     },
     {
       "_": "types.LangPackString",
@@ -29975,7 +30284,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_settings_profile_photo_privacy",
-      "value": "Аватар профілю"
+      "value": "Фота профілю"
     },
     {
       "_": "types.LangPackString",
@@ -30511,7 +30820,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_settings_upload",
-      "value": "Задаць аватар профілю"
+      "value": "Задаць фота профілю"
     },
     {
       "_": "types.LangPackString",
@@ -32890,6 +33199,11 @@
       "other_value": "Вы атрымаеце {count} Gram ({percent}) за публікацыю гэтага допіса."
     },
     {
+      "_": "types.LangPackString",
+      "key": "lng_suggest_photo_for",
+      "value": "Прапанаваць фота для {user}"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "{count} зоркі",
       "key": "lng_suggest_stars_amount",
@@ -34714,5 +35028,5 @@
       "other_value": "Вы заплацілі {count} зоркі."
     }
   ],
-  "version": 5727388
+  "version": 5729033
 }

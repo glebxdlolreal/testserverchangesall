@@ -16857,6 +16857,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.Add",
+      "value": "Добавить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextBot",
+      "value": "Если администратор сообщества добавит этого бота, участники сообщества смогут видеть бота и взаимодействовать с ним."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextChannel",
+      "value": "Если администратор сообщества добавит этот канал, его подписчики смогут вступать или отправлять заявки на вступление в другие чаты сообщества."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextGroup",
+      "value": "Если администратор сообщества добавит эту группу, её участники смогут вступать или отправлять заявки на вступление в другие чаты сообщества."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Add.Title",
       "value": "Добавление чата"
     },
@@ -17204,8 +17224,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsBot",
+      "value": "%@ предложил(а) бота:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsChannel",
+      "value": "%@ предложил(а) канал:"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Request.RequesterSuggestsGroup",
-      "value": "%@ предложил(а) чат:"
+      "value": "%@ предложил(а) группу:"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -35277,6 +35307,11 @@
       "_": "types.LangPackString",
       "key": "Notification.CommunityAddedGroup",
       "value": "%1$@ добавил(а) эту группу в сообщество %2$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroupUnknown",
+      "value": "Группа добавлена в сообщество %1$@"
     },
     {
       "_": "types.LangPackString",
@@ -61518,5 +61553,5 @@
       "value": "Вы ввели неверный код безопасности."
     }
   ],
-  "version": 21511261
+  "version": 21552838
 }

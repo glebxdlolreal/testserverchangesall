@@ -76,7 +76,7 @@
     {
       "_": "types.LangPackString",
       "key": "AIStyleModal.DeleteStyleConfirm",
-      "value": "Tem certeza de que deseja remover este estilo?"
+      "value": "Tem certeza de que deseja remover esse estilo?"
     },
     {
       "_": "types.LangPackString",
@@ -1876,6 +1876,31 @@
       "_": "types.LangPackString",
       "key": "Auth.LoginWithPasskey",
       "value": "Entrar com Chave de Acesso"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Description",
+      "value": "Por favor, adicione seu e-mail para manter o acesso à sua conta."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.ErrorEmailNotAllowed",
+      "value": "Desculpe, este e-mail não pode ser usado."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.ErrorInvalidEmail",
+      "value": "Por favor, insira um e-mail válido."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Placeholder",
+      "value": "Digite seu e-mail"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Title",
+      "value": "Adicionar E-mail"
     },
     {
       "_": "types.LangPackString",
@@ -3983,6 +4008,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersEnable",
+      "value": "Ativar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersHeader",
+      "value": "Aprovar Novos Membros"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersInfo",
+      "value": "Novos membros agora precisarão da aprovação de %1$@ antes de enviar mensagens neste grupo."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Channel.Admin.CantEdit",
       "value": "Você não tem permissão para editar os direitos desse admin."
     },
@@ -3995,6 +4035,16 @@
       "_": "types.LangPackString",
       "key": "Channel.Admin.Dismiss",
       "value": "Dispensar Admin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ProcessJoinRequests",
+      "value": "Processar Pedidos de Entrada"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ProcessJoinRequestsInfo",
+      "value": "Permite que este bot aprove novos membros usando interfaces próprias, como captchas."
     },
     {
       "_": "types.LangPackString",
@@ -5427,6 +5477,11 @@
       "_": "types.LangPackString",
       "key": "ChannelBlacklist.Restricted",
       "value": "RESTRITOS"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChannelBlocklist.CommunityEmptyDescription",
+      "value": "Usuários banidos são removidos da comunidade e só podem retornar se forem adicionados por um admin. Links de convite não funcionam para eles."
     },
     {
       "_": "types.LangPackString",
@@ -7780,6 +7835,11 @@
       "_": "types.LangPackString",
       "key": "Chat.EmptyChat.Info",
       "value": "Envie uma mensagem ou clique no aceno abaixo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.EmptyMessageError",
+      "value": "Não é possível enviar uma mensagem vazia."
     },
     {
       "_": "types.LangPackString",
@@ -11388,6 +11448,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatInput.EmptyMessageError",
+      "value": "Não é possível enviar uma mensagem vazia."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatInput.OpenChat",
       "value": "Abrir Chat"
     },
@@ -11400,6 +11465,11 @@
       "_": "types.LangPackString",
       "key": "ChatInput.ShowNext",
       "value": "Mostrar Próximo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatInputAccessory.HideSenderPremium",
+      "value": "Ocultar o nome do remetente para mensagens criadas por IA está disponível no Telegram Premium."
     },
     {
       "_": "types.LangPackString",
@@ -12422,6 +12492,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.RemoveFromCommunity",
+      "value": "Remover da Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.RevealAction.Collapse",
       "value": "Recolher"
     },
@@ -12709,6 +12784,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Ungroup",
+      "value": "Desagrupar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupChats",
+      "value": "Desagrupar Chats?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupChatsInfo",
+      "value": "Os chats desta comunidade aparecerão separadamente na sua lista de chats."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.UnhideMuted",
       "value": "Mostrar Silenciados"
     },
@@ -12876,6 +12966,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatMessageMenu.SentAt",
+      "value": "Enviada às %1$@"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatMessageMenuItems.AndJoiner",
       "value": " e "
     },
@@ -12973,6 +13068,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatRow.Edited",
+      "value": "editado %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.AddedGroup",
+      "value": "%1$@ adicionou este grupo à comunidade %2$@."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.BotAddedToCommunity",
+      "value": "Este bot foi adicionado à comunidade %1$@."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatService.ChangedToSameWallpaper",
       "value": "%1$@ também aplicou o seu papel de parede para este chat"
     },
@@ -12980,6 +13090,11 @@
       "_": "types.LangPackString",
       "key": "ChatService.ChangedWallpaper",
       "value": "%1$@ aplicou um novo papel de parede para este chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.ChannelAddedToCommunity",
+      "value": "Este canal foi adicionado à comunidade %1$@."
     },
     {
       "_": "types.LangPackString",
@@ -13283,6 +13398,11 @@
       "_": "types.LangPackString",
       "key": "ChatService.ViewBackground",
       "value": "Ver Papel de Parede"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.YouAddedGroup",
+      "value": "Você adicionou este grupo à comunidade %1$@."
     },
     {
       "_": "types.LangPackString",
@@ -13873,6 +13993,682 @@
       "_": "types.LangPackString",
       "key": "Common.Restart",
       "value": "Reiniciar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.AddToExisting",
+      "value": "ADICIONAR À COMUNIDADE EXISTENTE"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.AdminRequired",
+      "value": "Só admins deste chat podem criar uma comunidade para ele."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.CantChangeLater",
+      "value": "Você não poderá alterar isso mais tarde."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.ChatVisibility",
+      "value": "VISIBILIDADE DO CHAT"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Communities.Chats",
+      "one_value": "%1$d chat",
+      "other_value": "%1$d chats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.CommunityName",
+      "value": "Nome da Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Create",
+      "value": "Criar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.CreateCommunity",
+      "value": "Criar Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Hidden",
+      "value": "Oculto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.HiddenInfo",
+      "value": "Só membros convidados e admins da comunidade podem ver o chat."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Communities.Members",
+      "one_value": "%1$d membro",
+      "other_value": "%1$d membros"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.NewCommunity",
+      "value": "Nova Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SomethingWentWrong",
+      "value": "Algo deu errado."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SubtitleBot",
+      "value": "Integre seu bot a uma comunidade com vários chats relacionados."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SubtitleChannel",
+      "value": "Integre seu canal a uma comunidade com vários chats relacionados."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SubtitleGroup",
+      "value": "Integre seu grupo a uma comunidade com vários chats relacionados."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Title",
+      "value": "Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Visible",
+      "value": "Visível"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.VisibleInfo",
+      "value": "Qualquer pessoa da comunidade poderá ver este chat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Continue",
+      "value": "Continuar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DismissAdminHeader",
+      "value": "Remova seu cargo de admin na comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DismissAdminInfo",
+      "value": "Você perderá o acesso às ferramentas de admin da comunidade, mas manterá seus direitos de admin do grupo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Group",
+      "value": "Grupo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.InviteOnlyInfo",
+      "value": "O chat é só para convidados.\nSó os membros podem vê-lo."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.Members",
+      "one_value": "%1$d membro",
+      "other_value": "%1$d membros"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.MessageGroupOwner",
+      "value": "Contatar Dono do Grupo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoThanks",
+      "value": "Não, obrigado"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.YouAreAdmin",
+      "value": "Você é admin da comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.YouAreAdminInfo",
+      "value": "Agora você pode editar os dados de %1$@ e usar outras ferramentas de admin."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ChatVisibility",
+      "value": "VISIBILIDADE DO CHAT"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Confirm",
+      "value": "Adicionar à Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorAdminRequired",
+      "value": "Só admins da comunidade podem adicionar chats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorGeneric",
+      "value": "Algo deu errado."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorLimitReached",
+      "value": "Esta comunidade atingiu o número máximo de chats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Hidden",
+      "value": "Oculto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.HiddenInfo",
+      "value": "Só membros convidados e admins da comunidade podem ver o chat."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityAdd.Members",
+      "one_value": "%1$d membro",
+      "other_value": "%1$d membros"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Title",
+      "value": "Adicionar Chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.VisibilityFooter",
+      "value": "Você não poderá alterar isso mais tarde."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Visible",
+      "value": "Visível"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.VisibleInfo",
+      "value": "Todos da comunidade poderão ver o chat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.AddAdmin",
+      "value": "Adicionar Admin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.BanMembers",
+      "value": "Banir Membros"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.Dismiss",
+      "value": "Dispensar Admin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.DismissConfirm",
+      "value": "Deseja realmente dispensar este admin?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.EditGroupList",
+      "value": "Editar Lista de Chats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.EditName",
+      "value": "Editar Nome da Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.ErrorGeneric",
+      "value": "Algo deu errado."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.PermissionsHeader",
+      "value": "O QUE ESSE ADMIN PODE FAZER"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.Save",
+      "value": "Salvar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.AddAdmin",
+      "value": "Adicionar Admin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.Header",
+      "value": "ADMINS"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.Loading",
+      "value": "Carregando…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.StatusAdmin",
+      "value": "admin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.StatusCreator",
+      "value": "criou o chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.StatusPromotedBy",
+      "value": "promovido por %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmins.Title",
+      "value": "Admins"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AddAChatToCommunity",
+      "value": "Adicionar Chat à Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AddChatToCommunity",
+      "value": "Adicionar Chat à Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Administrators",
+      "value": "Admins"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AllMembers",
+      "value": "Todos os Membros"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AllMembersDescription",
+      "value": "Permite que membros adicionem grupos e canais à comunidade."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.ChangePhoto",
+      "value": "Trocar Foto"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityEdit.ChatsCount",
+      "one_value": "%d CHAT",
+      "other_value": "%d CHATS"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.CommunityName",
+      "value": "Nome da Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Delete",
+      "value": "Apagar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.DeleteCommunity",
+      "value": "Apagar Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.DeleteCommunityConfirm",
+      "value": "Deseja realmente apagar esta comunidade? Isto não pode ser desfeito."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Hidden",
+      "value": "Oculto"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityEdit.MembersCount",
+      "one_value": "%d membro",
+      "other_value": "%d membros"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.OnlyAdmins",
+      "value": "Só Admins"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.OnlyAdminsDescription",
+      "value": "Chats sugeridos por membros da comunidade exigem aprovação de admin."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.PendingRequests",
+      "value": "Solicitações Pendentes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Remove",
+      "value": "Remover"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemoveChatConfirm",
+      "value": "Remover chat da comunidade?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemoveFromCommunity",
+      "value": "Remover da Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemovedUsers",
+      "value": "Usuários Removidos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.SetPhoto",
+      "value": "Definir Foto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.SomethingWentWrong",
+      "value": "Algo deu errado."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Title",
+      "value": "Editar Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.UpdatingPhoto",
+      "value": "Atualizando Foto..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.WhoCanAddChats",
+      "value": "QUEM PODE ADICIONAR CHATS"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInfo.Community",
+      "value": "Comunidade"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityInfo.CommunityWithChats",
+      "one_value": "Comunidade com %1$d chat",
+      "other_value": "Comunidade com %1$d chats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.AddChat",
+      "value": "Adicionar Chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.AddChatToCommunity",
+      "value": "Adicionar Chat à Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.DefaultTitle",
+      "value": "Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.EditCommunity",
+      "value": "Editar Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.ErrorGeneric",
+      "value": "Algo deu errado."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityList.Members",
+      "one_value": "%1$d membro",
+      "other_value": "%1$d membros"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.PendingRequests",
+      "value": "Solicitações Pendentes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.Remove",
+      "value": "Remover"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.RemoveChatConfirm",
+      "value": "Remover esse chat da comunidade?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.SectionJoined",
+      "value": "Chats Em Que Você Está"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.SectionRequestable",
+      "value": "Chats Que Você Pode Pedir Para Entrar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.SectionVisible",
+      "value": "Chats Que Você Pode Ver"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.ShowAsOneChat",
+      "value": "Mostrar Como Um Chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Add",
+      "value": "Adicionar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.AddAll",
+      "value": "Adicionar Todos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.AddAllConfirm",
+      "value": "Adicionar todos os chats sugeridos à comunidade?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.ApprovalInfo",
+      "value": "Chats exigem aprovação de admin antes de serem adicionados à comunidade. [Alterar Configurações](settings)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Decline",
+      "value": "Rejeitar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.DeclineAll",
+      "value": "Recusar Todos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.DeclineAllConfirm",
+      "value": "Rejeitar todos os chats sugeridos?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Empty",
+      "value": "Nenhuma solicitação de entrada."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Loading",
+      "value": "Carregando…"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityRequests.MembersCount",
+      "one_value": "%d membro",
+      "other_value": "%d membros"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.PendingRequests",
+      "value": "Solicitações Pendentes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Someone",
+      "value": "Alguém"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityRequests.SuggestedHeader",
+      "one_value": "%d CHAT SUGERIDO PARA ESTA COMUNIDADE",
+      "other_value": "%d CHATS SUGERIDOS PARA ESTA COMUNIDADE"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.SuggestsGroup",
+      "value": "%1$@ sugere este chat:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.SuggestsGroupSuffix",
+      "value": " sugere este chat:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Unknown",
+      "value": "Desconhecido"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.VisibleOnlyToMembers",
+      "value": "visível só aos membros"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.VisibleOnlyToMembersSuffix",
+      "value": " · visível só para os membros"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.AddChatToCommunity",
+      "value": "Adicionar Chat à Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.EditCommunity",
+      "value": "Editar Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.HideChat",
+      "value": "Ocultar"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityView.Members",
+      "one_value": "%1$d membro",
+      "other_value": "%1$d membros"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Mute",
+      "value": "Mudo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.PendingRequests",
+      "value": "Solicitações Pendentes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Remove",
+      "value": "Remover"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.RemoveChatConfirm",
+      "value": "Remover chat da comunidade?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.RemoveFromCommunity",
+      "value": "Remover da Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SectionChatsYouAreIn",
+      "value": "CHATS EM QUE VOCÊ ESTÁ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SectionChatsYouCanJoin",
+      "value": "CHATS QUE VOCÊ PODE ENTRAR"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SectionChatsYouCanRequestToJoin",
+      "value": "CHATS QUE VOCÊ PODE PEDIR PARA ENTRAR"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowAsOneChat",
+      "value": "Mostrar Como Um Chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowAsOneChatInfo",
+      "value": "Agrupa todos os chats da comunidade em um único item na lista de chats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowChat",
+      "value": "Mostrar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SomethingWentWrong",
+      "value": "Algo deu errado."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Title",
+      "value": "Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Unmute",
+      "value": "Ativar som"
     },
     {
       "_": "types.LangPackString",
@@ -14830,6 +15626,22 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DeleteGroupMessages.Ban",
+      "value": "Banir"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteGroupMessages.BanFromCommunity",
+      "value": "Banir da Comunidade"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "DeleteGroupMessages.CommunityBanWarning",
+      "one_value": "Banir %2$@ também removerá %1$d chat da pessoa da comunidade.",
+      "other_value": "Banir %2$@ também removerá %1$d chats da pessoa da comunidade."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DeleteGroupMessages.DeleteAllFromPeer",
       "value": "Apagar todas de %1$@"
     },
@@ -14844,9 +15656,26 @@
       "value": "Apagar Reação"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "DeleteGroupMessages.MemberCount",
+      "one_value": "1 membro",
+      "other_value": "%1$d membros"
+    },
+    {
       "_": "types.LangPackString",
       "key": "DeleteGroupMessages.ReactionTitle",
       "value": "Apagar 1 Reação"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "DeleteGroupMessages.RemovedFromChatsCount",
+      "one_value": "O usuário será removido de %1$d chat.",
+      "other_value": "O usuário será removido de %1$d chats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteGroupMessages.WarningTitle",
+      "value": "Aviso"
     },
     {
       "_": "types.LangPackString",
@@ -19118,6 +19947,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupInfo.AddGroupToCommunity",
+      "value": "Adicionar Grupo à Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupInfo.AddUserLeftError",
       "value": "Se uma pessoa saiu do grupo no passado, você precisa estar nos contatos do Telegram dela para adicionar novamente.\n\nEla ainda pode participar por meio de um link de convite, desde que não esteja na lista de Usuários Removidos."
     },
@@ -19178,8 +20012,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupInfo.Remove",
+      "value": "Remover"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.RemoveGroupFromCommunity",
+      "value": "Remover Grupo da Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.RemoveGroupFromCommunityConfirm",
+      "value": "Deseja realmente remover esse grupo da comunidade?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupInfo.ScamWarning",
       "value": "⚠️ Aviso: muitos usuários denunciaram este grupo como falso ou usado para aplicar golpes. Por favor, tenha cuidado, especialmente se lhe pedirem dinheiro."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.SomethingWentWrong",
+      "value": "Algo deu errado."
     },
     {
       "_": "types.LangPackString",
@@ -20033,7 +20887,7 @@
     {
       "_": "types.LangPackString",
       "key": "Language.RemovePack",
-      "value": "Tem certeza de que deseja remover este pacote de idioma?"
+      "value": "Tem certeza de que deseja remover esse pacote de idioma?"
     },
     {
       "_": "types.LangPackString",
@@ -26915,6 +27769,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumBoarding.RichFormattingTitle",
+      "value": "Ferramentas de Formatação"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumBoarding.Stories.ExpirationDuration.Info",
       "value": "Use durações personalizadas, como de 6 ou 48 horas, para seus stories."
     },
@@ -28720,8 +29579,448 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextAiCompose.AddToPage",
+      "value": "Adicionar à Pagina"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.ErrorEmpty",
+      "value": "Não é possível processar uma mensagem vazia."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.ErrorTooLong",
+      "value": "A mensagem é muito longa."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.Generate",
+      "value": "Gerar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.PromptPlaceholder",
+      "value": "Gere texto, fórmulas ou tabelas..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.Result",
+      "value": "Resultado"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.Title",
+      "value": "Criar com IA"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AddMedia",
+      "value": "Adicionar Foto ou Vídeo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignCenter",
+      "value": "Centralizar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignLeft",
+      "value": "Alinhar à Esquerda"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignRight",
+      "value": "Alinhar à Direita"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Apply",
+      "value": "Aplicar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AttachTitle",
+      "value": "Artigo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Body",
+      "value": "Corpo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.BulletList",
+      "value": "Lista com Marcadores"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Checklist",
+      "value": "Lista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Copy",
+      "value": "Copiar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Cut",
+      "value": "Recortar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DecreaseIndent",
+      "value": "Diminuir Recuo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Delete",
+      "value": "Apagar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DeleteColumn",
+      "value": "Apagar Coluna"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DeleteRow",
+      "value": "Apagar Linha"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Edit",
+      "value": "Editar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.EditFormula",
+      "value": "Editar Fórmula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Format",
+      "value": "Formatar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Formula",
+      "value": "Fórmula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.FormulaPreviewPlaceholder",
+      "value": "A prévia aparecerá aqui"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.Heading",
       "value": "Título"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Highlight",
+      "value": "Destaque"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.IncreaseIndent",
+      "value": "Aumentar Recuo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertAbove",
+      "value": "Inserir Acima"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertBelow",
+      "value": "Inserir Abaixo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertLeft",
+      "value": "Inserir à Esquerda"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertRight",
+      "value": "Inserir à Direita"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertTable",
+      "value": "Inserir Tabela"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InvalidFormula",
+      "value": "Fórmula inválida"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.LatexSection",
+      "value": "LATEX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Link",
+      "value": "Link"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ListNone",
+      "value": "Nenhum"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.MakeCollage",
+      "value": "Criar Colagem"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Bold",
+      "value": "Negrito"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Copy",
+      "value": "Copiar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Cut",
+      "value": "Cortar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Format",
+      "value": "Formatar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Italic",
+      "value": "Itálico"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.LookUp",
+      "value": "Consultar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Paste",
+      "value": "Colar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.SelectAll",
+      "value": "Selecionar Tudo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Share",
+      "value": "Compartilhar..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Underline",
+      "value": "Sublinhado"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.More",
+      "value": "Mais"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.NumberedList",
+      "value": "Lista Numerada"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Paste",
+      "value": "Colar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Placeholder.AddAuthor",
+      "value": "Adicionar Autor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Placeholder.AddCaption",
+      "value": "Adicionar legenda..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Placeholder.TypeSomething",
+      "value": "Digite algo..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Remove",
+      "value": "Remover"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.RemoveHighlight",
+      "value": "Remover Destaque"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Replace",
+      "value": "Substituir"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ResultSection",
+      "value": "RESULTADO"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.SelectAll",
+      "value": "Selecionar Tudo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ShowAsCollage",
+      "value": "Mostrar como Colagem"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ShowAsSlider",
+      "value": "Mostrar como Slider"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddColumnLeft",
+      "value": "Adicionar Coluna à Esquerda"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddColumnRight",
+      "value": "Adicionar Coluna à Direita"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddRowAbove",
+      "value": "Adicionar Linha Acima"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddRowBelow",
+      "value": "Adicionar Linha Abaixo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignCenter",
+      "value": "Centralizar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignLeft",
+      "value": "Alinhar à Esquerda"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignRight",
+      "value": "Alinhar à Direita"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteColumn",
+      "value": "Apagar Coluna"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteColumns",
+      "value": "Apagar Colunas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteRow",
+      "value": "Apagar Linha"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteRows",
+      "value": "Apagar Linhas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Text",
+      "value": "Texto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.AiPremiumRequired",
+      "value": "As ferramentas de IA no editor de texto avançado estão disponíveis no Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.CodeBlock",
+      "value": "Código"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.CodeLanguage",
+      "value": "Linguagem do Código"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.Edit",
+      "value": "Editar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.EditWithoutFormatting",
+      "value": "Editar Sem Formatação?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.EmptyMessage",
+      "value": "Não é possível enviar uma mensagem vazia."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PremiumToastEdit",
+      "value": "Editar uma mensagem com esta formatação requer o [Telegram Premium](premium)."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PremiumToastSend",
+      "value": "Enviar uma mensagem com esta formatação requer o [Telegram Premium](premium)."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PullQuote",
+      "value": "Citação Destacada"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.RemoveFormatting",
+      "value": "Remover Formatação"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.RichFormattingRequiresPremium",
+      "value": "Esta mensagem usa formatação avançada, que requer o Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.Send",
+      "value": "Enviar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.SendWithoutFormatting",
+      "value": "Enviar Sem Formatação?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.SetLanguage",
+      "value": "Definir Idioma…"
     },
     {
       "_": "types.LangPackString",
@@ -33585,6 +34884,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarGiftNft.ResaleMinPriceInfo",
+      "value": "Esta opção só está disponível para presentes com preço superior a %1$@."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarList.Ton",
       "value": "Grams"
     },
@@ -36795,6 +38099,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextUtils.AddedToCommunity",
+      "value": "Adicionado à comunidade \"%1$@\""
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextUtils.ManagedBotCreated",
       "value": "%1$@ criou %2$@"
     },
@@ -36807,6 +38116,11 @@
       "_": "types.LangPackString",
       "key": "TextUtils.PollOptionDeleted",
       "value": "%1$@ apagou uma opção: %2$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextUtils.RemovedFromCommunity",
+      "value": "Removido de uma comunidade"
     },
     {
       "_": "types.LangPackString",
@@ -37978,6 +39292,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TranslateModal.PromptPlaceholder",
+      "value": "Descreva como reescrever o texto…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TranslateModal.PromptStyle",
+      "value": "Prompt"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TranslateModal.ShareStyle",
       "value": "Compartilhar Estilo"
     },
@@ -38388,8 +39712,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UserInfo.AddBotToCommunity",
+      "value": "Adicionar Bot à Comunidade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.AddBotToCommunityInfo",
+      "value": "Integre seu bot a uma comunidade com vários chats relacionados."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UserInfo.ManagedBotCreatedBy",
       "value": "Criado e gerenciado por "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.RemoveBotFromCommunity",
+      "value": "Remover esse bot da comunidade?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.RemoveBotFromCommunityButton",
+      "value": "Remover Bot da Comunidade"
     },
     {
       "_": "types.LangPackString",
@@ -40641,5 +41985,5 @@
       "value": "Mostrar Substituições"
     }
   ],
-  "version": 2233055
+  "version": 2236262
 }

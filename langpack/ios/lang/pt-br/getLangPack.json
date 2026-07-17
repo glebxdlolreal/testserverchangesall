@@ -16549,6 +16549,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.Add",
+      "value": "Adicionar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextBot",
+      "value": "Se este bot for aprovado por um admin da comunidade, os membros da comunidade poderão vê-lo e usá-lo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextChannel",
+      "value": "Se este canal for aprovado por um admin da comunidade, os inscritos poderão entrar ou pedir para entrar em outros chats da comunidade."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextGroup",
+      "value": "Se este grupo for aprovado por um admin da comunidade, os membros poderão entrar ou pedir para entrar em outros chats da comunidade."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Add.Title",
       "value": "Adicionar Chat"
     },
@@ -16612,7 +16632,7 @@
     {
       "_": "types.LangPackString",
       "key": "Community.AdminActions.WarningText",
-      "value": "Banir **%@** também removerá **%@** que eles criaram na comunidade."
+      "value": "Banir **%@** também removerá **%@** da pessoa da comunidade."
     },
     {
       "_": "types.LangPackString",
@@ -16718,7 +16738,7 @@
     {
       "_": "types.LangPackString",
       "key": "Community.Edit.PermissionAllMembersInfo",
-      "value": "Permitir que os membros adicionem grupos e canais à comunidade."
+      "value": "Permite que membros adicionem grupos e canais à comunidade."
     },
     {
       "_": "types.LangPackString",
@@ -16885,6 +16905,16 @@
       "_": "types.LangPackString",
       "key": "Community.Request.PrivateStatus",
       "value": "visível só aos membros"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsBot",
+      "value": "%@ sugere este bot:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsChannel",
+      "value": "%@ sugere este canal:"
     },
     {
       "_": "types.LangPackString",
@@ -21934,8 +21964,8 @@
     {
       "_": "types.LangPackStringPluralized",
       "key": "DownloadList.RemoveFileAlertText",
-      "one_value": "Deseja remover esse item dos Downloads?\nEle será apagado do seu dispositivo, mas permanecerá acessível na nuvem.",
-      "other_value": "Deseja remover esses %@ itens dos Downloads?\nEles serão apagados do seu dispositivo, mas permanecerão acessíveis na nuvem."
+      "one_value": "Deseja remover isso dos Downloads?\nSerá apagado do seu dispositivo,\nmas permanecerá acessível na nuvem.",
+      "other_value": "Deseja remover %@ itens dos Downloads?\nSerá apagado do seu dispositivo,\nmas permanecerá acessível na nuvem."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -34472,6 +34502,11 @@
       "_": "types.LangPackString",
       "key": "Notification.CommunityAddedGroup",
       "value": "%1$@ adicionou este grupo à comunidade %2$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroupUnknown",
+      "value": "Este grupo foi adicionado à comunidade %1$@"
     },
     {
       "_": "types.LangPackString",
@@ -60093,5 +60128,5 @@
       "value": "Você inseriu um código de segurança inválido."
     }
   ],
-  "version": 21517239
+  "version": 21552845
 }

@@ -170,6 +170,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AIEditorStylePrompt",
+      "value": "Prompt"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AIEditorStylePromptHint",
       "value": "Pokyny (například: \"Pište jako dobrodružný pirát. Používejte slova jako hej, jo, kámo a pište o pokladech a moři\")"
     },
@@ -658,6 +663,11 @@
       "_": "types.LangPackString",
       "key": "AccDescrIVFooter",
       "value": "Zápatí"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AccDescrIVFormula",
+      "value": "Vzorec"
     },
     {
       "_": "types.LangPackString",
@@ -4725,6 +4735,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleHintQuote",
+      "value": "Zadejte citaci"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleHintText",
       "value": "Něco napište..."
     },
@@ -4867,6 +4882,11 @@
       "_": "types.LangPackString",
       "key": "AskButton",
       "value": "Zeptat se dobrovolníka"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AttachArticle",
+      "value": "Článek"
     },
     {
       "_": "types.LangPackString",
@@ -14506,8 +14526,126 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community",
+      "value": "Komunita"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAChatToCommunity",
+      "value": "Přidat chat do komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAdmin",
+      "value": "Přidat správce"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Chcete přidat **%1$d** chaty do komunity?",
+      "key": "CommunityAddAllChatsMessage",
+      "many_value": "Chcete přidat **%1$d** chatů do komunity?",
+      "one_value": "Chcete přidat **%1$d** chat do komunity?",
+      "other_value": "Chcete přidat **%1$d** chatů do komunity?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAllChatsTitle",
+      "value": "Přidat všechny chaty"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotTitle",
+      "value": "Přidat bota"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotToCommunity",
+      "value": "Přidat bota do komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotToCommunityInfo",
+      "value": "Začleňte svého bota do komunity s několika souvisejícími chaty."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChannelToCommunity",
+      "value": "Přidat kanál do komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChannelToCommunityInfo",
+      "value": "Začleňte svůj kanál do komunity s několika souvisejícími chaty."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChatTitle",
+      "value": "Přidat chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddGroupToCommunity",
+      "value": "Přidat skupinu do komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddGroupToCommunityInfo",
+      "value": "Začleňte svou skupinu do komunity s několika souvisejícími chaty."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityButton",
+      "value": "Přidat do komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityChannelMessage",
+      "value": "Pokud tento kanál schválí správce komunity, budou jeho odběratelé moci vstoupit do jiných chatů v rámci komunity nebo o to požádat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityGroupMessage",
+      "value": "Pokud tuto skupinu schválí správce komunity, budou její členové moci vstoupit do jiných chatů v rámci komunity nebo o to požádat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityRequestButton",
+      "value": "Poslat žádost k připojení"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityTitle",
+      "value": "Přidat do komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToExistingCommunity",
+      "value": "Přidat do existující komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdminRightBanMembers",
+      "value": "Blokovaní členové"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdminRightEditCommunityName",
+      "value": "Upravit název komunity"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAdminRightEditGroupList",
       "value": "Upravit seznam chatu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdministrators",
+      "value": "Správci"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdministratorsTitle",
+      "value": "Správci"
     },
     {
       "_": "types.LangPackString",
@@ -14542,6 +14680,51 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityCannotChange",
+      "value": "Toto již později nebudete moci změnit."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHidden",
+      "value": "Skrytý"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHiddenBotInfo",
+      "value": "Tohoto bota uvidí pouze pozvaní členové a správci komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHiddenInfo",
+      "value": "Tento chat uvidí pouze pozvaní členové a správci komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilitySection",
+      "value": "Viditelnost chatu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisible",
+      "value": "Viditelný"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisibleBotInfo",
+      "value": "Tento bot bude viditelný pro všechny členy komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisibleInfo",
+      "value": "Tento chat bude viditelný pro všechny členy komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityCreated",
+      "value": "Komunita vytvořena!"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityCommunityJoinedChannel",
       "value": "Přidal/a jste tento kanál do komunity!"
     },
@@ -14552,8 +14735,61 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityCommunityPending",
+      "value": "Vaše žádost o připojení do komunity byla odeslána správcům"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCreateCommunity",
+      "value": "Vytvořit komunitu"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Chcete odmítnout  **%1$d** žádosti o připojení do komunity?",
+      "key": "CommunityDeclineAllMessage",
+      "many_value": "Chcete odmítnout  všech **%1$d** žádostí o připojení do komunity?",
+      "one_value": "Chcete odmítnout  **%1$d** žádost o připojení do komunity?",
+      "other_value": "Chcete odmítnout  všech **%1$d** žádostí o připojení do komunity?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDeclineAllTitle",
+      "value": "Odmítnout vše"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDelete",
+      "value": "Smazat komunitu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionBot",
+      "value": "Začleňte svého bota do komunity s několika souvisejícími chaty."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionChannel",
+      "value": "Začleňte svůj kanál do komunity s několika souvisejícími chaty."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionGroup",
+      "value": "Začleňte svou skupinu do komunity s několika souvisejícími chaty."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityHiddenChannelUnavailable",
       "value": "Tento kanál nemůžete sledovat ani se k němu připojit, dokud vás nepozve správce."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenChatTooltipMessage",
+      "value": "Tento chat uvidí pouze pozvaní členové a správci komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenChatTooltipTitle",
+      "value": "Skrytý chat"
     },
     {
       "_": "types.LangPackString",
@@ -14562,8 +14798,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityHiddenStatus",
+      "value": "Skrytý"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyChannelInfo",
+      "value": "Tento kanál je přístupný pouze na pozvání.\nZobrazit ho mohou pouze jeho členové."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityInviteOnlyGroupInfo",
       "value": "Tato skupina je jen pro pozvané.\nZobrazit ji mohou pouze její členové."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminMessage",
+      "value": "**%1$s** bude moci upravovat informace o komunitě a využívat další nástroje pro správce."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminPromote",
+      "value": "Povýšit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminTitle",
+      "value": "Jmenovat správce komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuAddChat",
+      "value": "Přidat chat do komunity"
     },
     {
       "_": "types.LangPackString",
@@ -14577,8 +14843,209 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityMenuRemoveFromCommunity",
+      "value": "Odebrat z komunity"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityMenuRemoveGroupFromCommunityConfirm",
       "value": "Opravdu chcete tuto skupinu odebrat z komunity?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuSettings",
+      "value": "Nastavení"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuShowAsOneChat",
+      "value": "Zobrazit jako 1 chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuShowAsSeparateChats",
+      "value": "Zobrazit jako samostatné chaty"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuViewBot",
+      "value": "Zobrazit bota"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuViewChannel",
+      "value": "Zobrazit kanál"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuViewGroup",
+      "value": "Zobrazit skupinu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNewCommunityNameHint",
+      "value": "Název komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNewCommunityTitle",
+      "value": "Nová komunita"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNoChatsToAdd",
+      "value": "Nemáte žádné chaty pro přidání do komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequest",
+      "value": "Nevyřízená žádost"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestAdd",
+      "value": "Přidat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestAddAll",
+      "value": "Přidat vše"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestDecline",
+      "value": "Odmítnout"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestDeclineAll",
+      "value": "Odmítnout vše"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestOnlyVisibleToMembers",
+      "value": "Viditelné pouze pro členy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedBot",
+      "value": "**%s** navrhl/a tohoto bota"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedChannel",
+      "value": "**%s** navrhl/a tento kanál"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedGroup",
+      "value": "**%s** navrhl/a tuto skupinu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequests",
+      "value": "Nevyřízené žádosti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfo",
+      "value": "Chaty musí nejprve schválit správce, než budou přidány do komunity. **Změnit nastavení >**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfoNoChange",
+      "value": "Chaty musí nejprve schválit správce, než budou přidány do komunity."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d nevyřízené žádosti",
+      "key": "CommunityPendingRequestsRow",
+      "many_value": "%1$d nevyřízených žádostí",
+      "one_value": "%1$d nevyřízená žádost",
+      "other_value": "%1$d nevyřízených žádostí"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d navrhované chaty pro tuto komunitu",
+      "key": "CommunityPendingRequestsSuggestedHeader",
+      "many_value": "%1$d navrhovaných chatů pro tuto komunitu",
+      "one_value": "%1$d navrhovaný chat pro tuto komunitu",
+      "other_value": "%1$d navrhovaných chatů pro tuto komunitu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsTitle",
+      "value": "Nevyřízené žádosti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPermissionsHeader",
+      "value": "Co mohou členové této komunity dělat?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveBotFromCommunity",
+      "value": "Odebrat bota z komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveChannelFromCommunity",
+      "value": "Odebrat kanál z komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveGroupFromCommunity",
+      "value": "Odebrat skupinu z komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemovedUsers",
+      "value": "Odebraní uživatelé"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequestApprovedToast",
+      "value": "Schválil/a jste žádost o přidání **%1$s** do komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequestDeclinedToast",
+      "value": "Odmítl/a jste žádost o přidání **%1$s** do komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouAreIn",
+      "value": "Chaty, ve kterých jste"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanJoin",
+      "value": "Chaty, ke kterým se můžete připojit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanRequestToJoin",
+      "value": "Chaty, do kterých můžete požádat o připojení"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanView",
+      "value": "Chaty, které můžete zobrazit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionCommunityName",
+      "value": "Název komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionHiddenChats",
+      "value": "Skryté chaty"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionWhoCanAddChats",
+      "value": "Kdo může přidávat chaty"
     },
     {
       "_": "types.LangPackString",
@@ -14642,6 +15109,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupAdded",
+      "value": "**%1$s** přidal/a tuto skupinu do komunity **%2$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupAddedUnknown",
+      "value": "Tato skupina byla přidána do komunity **%1$s**."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityServiceMessageGroupRemoved",
       "value": "**%1$s** odebral/a tuto skupinu z komunity"
     },
@@ -14652,6 +15129,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupYouAdded",
+      "value": "**Přidal/a jste** tuto skupinu do komunity %1$s."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityServiceMessageGroupYouRemoved",
       "value": "**Odebral/a jste** tuto skupinu z komunity"
     },
@@ -14659,6 +15141,36 @@
       "_": "types.LangPackString",
       "key": "CommunityServiceMessageView",
       "value": "Zobrazit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsChangePhoto",
+      "value": "Změnit fotku komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsSetPhoto",
+      "value": "Nastavit fotku komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsTitle",
+      "value": "Komunita"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChat",
+      "value": "Zobrazit jako 1 chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChatInfo",
+      "value": "Seskupit všechny komunitní chaty do jedné položky v seznamu chatů."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityTitle",
+      "value": "Komunita"
     },
     {
       "_": "types.LangPackString",
@@ -14677,8 +15189,51 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsAllMembers",
+      "value": "Všichni členové"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsAllMembersInfo",
+      "value": "Umožnit členům přidávat do komunity své skupiny a kanály."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsOnlyAdmins",
+      "value": "Pouze správci"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsOnlyAdminsInfo",
+      "value": "Chaty navržené členy komunity podléhají schválení správcem."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Komunita se %1$d chaty",
+      "key": "CommunityWithChats",
+      "many_value": "Komunita s %1$d chaty",
+      "one_value": "Komunita s %1$d chatem",
+      "other_value": "Komunita s %1$d chaty"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminContinue",
+      "value": "Pokračovat"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityYouAreAdminMessage",
       "value": "Nyní můžete upravit info o **%1$s** a použít další nástroje správce."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminNoThanks",
+      "value": "Ne, děkuji"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminTitle",
+      "value": "Jste správce komunity"
     },
     {
       "_": "types.LangPackString",
@@ -18331,6 +18886,21 @@
       "_": "types.LangPackString",
       "key": "EnterYourTelegramPasscode",
       "value": "Zadejte své Telegram heslo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageMenuHint",
+      "value": "Tuto zprávu vidíte pouze vy. Po dalším přihlášení zmizí."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageVisibleToOther",
+      "value": "Viditelné pouze pro @%s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageVisibleToYou",
+      "value": "Viditelné pouze pro vás"
     },
     {
       "_": "types.LangPackString",
@@ -31512,6 +32082,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NoBlockedCommunity2",
+      "value": "Uživatelé odebraní správci komunity se do ní nemohou znovu připojit skrze odkazy s pozvánkou."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NoBlockedGroup",
       "value": "Blokovaní uživatelé jsou ze skupiny odebráni a mohou se vrátit pouze v případě, že jsou pozváni správcem. Pozvánky přes odkaz jim nefungují."
     },
@@ -31579,6 +32154,16 @@
       "_": "types.LangPackString",
       "key": "NoComments",
       "value": "Zatím žádné komentáře..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NoCommunityJoinRequests",
+      "value": "Žádné žádosti k připojení"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NoCommunityJoinRequestsDescription",
+      "value": "Nemáte žádné nevyřízené žádosti\no vstup do vaší komunity."
     },
     {
       "_": "types.LangPackString",
@@ -42276,6 +42861,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorDraftSaved",
+      "value": "Uložený koncept."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RightNow",
       "value": "Právě teď"
     },
@@ -44410,6 +45000,11 @@
       "_": "types.LangPackString",
       "key": "SetColorAsBackground",
       "value": "Nastavit barvu jako tapetu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SetCommunityPhoto",
+      "value": "Nastavit fotku komunity"
     },
     {
       "_": "types.LangPackString",
@@ -50571,6 +51166,11 @@
       "_": "types.LangPackString",
       "key": "SwipeToReplyHintMessage",
       "value": "Přejeďte vlevo na jakékoli zprávě pro odpověď."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SwipeUngroupCommunity",
+      "value": "Zrušit seskupení"
     },
     {
       "_": "types.LangPackString",
@@ -57504,5 +58104,5 @@
       "value": "Telegram Passport"
     }
   ],
-  "version": 59930924
+  "version": 59969803
 }
