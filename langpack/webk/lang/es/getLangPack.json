@@ -3413,6 +3413,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BotAddAsAdminChannelConfirm",
+      "value": "¿Quieres añadir a este bot como admin. en **%1$s**? Tendrá acceso a la lista de admins. y suscriptores del canal."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddAsAdminGroupConfirm",
+      "value": "¿Quieres añadir a este bot como admin. en **%1$s**? Tendrá acceso a la lista de admins. anónimos."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToChannelAbout",
+      "value": "Este bot puede gestionar un canal."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupAbout",
+      "value": "Este bot puede gestionar un grupo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannel",
+      "value": "Añadir a un grupo o canal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannelAbout",
+      "value": "Este bot puede gestionar un grupo o canal."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BotAllowAccessTo",
       "value": "Permitir acceso a"
     },
@@ -3455,6 +3485,11 @@
       "_": "types.LangPackString",
       "key": "BotCantReadChatTooltip",
       "value": "Este bot no puede leer el chat, sólo el mensaje donde fue mencionado."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotChooseGroup",
+      "value": "Elige un grupo"
     },
     {
       "_": "types.LangPackString",
@@ -7325,6 +7360,16 @@
       "_": "types.LangPackString",
       "key": "EditedMessage",
       "value": "editado"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.At",
+      "value": "editado a las %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.On",
+      "value": "editado el %1$s a las %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -14858,6 +14903,17 @@
       "value": "Añade un comentario (opcional)"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "Report2MessagesCount",
+      "one_value": "Reportar %1$d mensaje",
+      "other_value": "Reportar %1$d mensajes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Report2SelectMessages",
+      "value": "Selecciona los mensajes que quieres reportar."
+    },
+    {
       "_": "types.LangPackString",
       "key": "Report2Send",
       "value": "Enviar reporte"
@@ -20747,5 +20803,5 @@
       "other_value": "%1$d mensajes"
     }
   ],
-  "version": 300308
+  "version": 300875
 }
