@@ -9478,6 +9478,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_add_confirm_add",
+      "value": "Afegeix"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_add_confirm_bot",
       "value": "Si l'administració de la comunitat aprova el bot, els membres podran veure'l i usar-lo."
     },
@@ -9485,6 +9490,26 @@
       "_": "types.LangPackString",
       "key": "lng_community_add_confirm_channel",
       "value": "Si l'administració de la comunitat aprova el canal, els seus subscriptors podran sol·licitar unir-se a altres xats de la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_done",
+      "value": "S'ha afegit el grup a la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_done_bot",
+      "value": "S'ha afegit el bot a la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_done_channel",
+      "value": "S'ha afegit el canal a la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_to",
+      "value": "Afegeix a la comunitat"
     },
     {
       "_": "types.LangPackString",
@@ -9500,6 +9525,16 @@
       "_": "types.LangPackString",
       "key": "lng_community_admin_decline",
       "value": "No, gràcies"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_dismiss_text",
+      "value": "Perdreu l'accés a les eines d'administració de la comunitat, però no a les del grup."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_dismiss_title",
+      "value": "Cesseu-vos com a administrador de la comunitat"
     },
     {
       "_": "types.LangPackString",
@@ -9526,6 +9561,16 @@
       "key": "lng_community_ban_about",
       "one_value": "L'usuari s'eliminarà d'{count} xat.",
       "other_value": "L'usuari s'eliminarà dels {count} xats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_button",
+      "value": "Bandeja"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_done",
+      "value": "{user} s'ha bandejat de la comunitat."
     },
     {
       "_": "types.LangPackString",
@@ -9612,6 +9657,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_create_hidden",
+      "value": "Grup ocult"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_create_hidden_bot",
       "value": "Bot ocult"
     },
@@ -9682,6 +9732,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_join_sure",
+      "value": "Us voleu unir a {group}?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage",
+      "value": "Gestiona la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_manage_all_members",
       "value": "Tots els membres"
     },
@@ -9739,6 +9799,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_remove_done",
+      "value": "S'ha eliminat de la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_remove_sure",
       "value": "Voleu eliminar {group} de la comunitat?"
     },
@@ -9753,14 +9818,41 @@
       "value": "Afegeix"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_request_added_toast",
+      "one_value": "El xat s'ha afegit a la comunitat.",
+      "other_value": "Els {count} xats s'han afegit a la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_added_toast_undo",
+      "value": "Heu aprovat la sol·licitud d'afegir {chat} a la comunitat."
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_community_request_decline",
       "value": "Declina"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_request_declined_toast",
+      "one_value": "La sol·licitud d'afegir el xat s'ha declinat.",
+      "other_value": "Les {count} sol·licituds d'afegir els xats s'han declinat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_declined_toast_undo",
+      "value": "Heu declinat la sol·licitud d'afegir {chat} a la comunitat."
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_community_request_invite_only",
       "value": "El xat és restringit. Només els membres el poden veure."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only_bot",
+      "value": "El bot és restringit. Només els membres convidats el poden usar."
     },
     {
       "_": "types.LangPackString",
@@ -9774,6 +9866,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_request_message_owner_bot",
+      "value": "Escriu al propietari del bot"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_request_message_owner_channel",
       "value": "Escriu al propietari del canal"
     },
@@ -9781,6 +9878,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_request_only_members",
       "value": "Visible només per als membres"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_sent",
+      "value": "S'ha enviat la vostra sol·licitud a l'administració."
     },
     {
       "_": "types.LangPackString",
@@ -9801,6 +9903,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_requests_about",
       "value": "Cal que l'administració aprovi els xats abans d'afegir-los a la comunitat. {link}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_about_link",
+      "value": "Canvieu la configuració."
     },
     {
       "_": "types.LangPackString",
@@ -9890,6 +9997,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_view",
       "value": "Mostra"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_visibility_hidden",
+      "value": "Ocult"
     },
     {
       "_": "types.LangPackString",
@@ -14000,6 +14112,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_emoji_adapt_no_video",
+      "value": "Els adhesius de vídeo encara no són compatibles."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_adapt_sticker",
+      "value": "Adapta d'un adhesiu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_add_existing",
+      "value": "Afegeix un emoji existent"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_emoji_add_to_set",
       "value": "Afegeix al paquet"
     },
@@ -14072,6 +14199,21 @@
       "_": "types.LangPackString",
       "key": "lng_emoji_copy",
       "value": "Copia l'emoji"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_create_emoji_about",
+      "value": "Trieu els emojis que coincideixin amb el vostre"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_create_image_title",
+      "value": "Emoji nou"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_create_new",
+      "value": "Crea un emoji"
     },
     {
       "_": "types.LangPackString",
@@ -14242,6 +14384,21 @@
       "_": "types.LangPackString",
       "key": "lng_ephemeral_cant_schedule",
       "value": "Els missatges efímers no es poden programar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_command_tooltip",
+      "value": "Altres membres no veuran el missatge"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_reply_single_message",
+      "value": "Només podeu enviar un missatge en resposta a aquest missatge."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_reply_text_only",
+      "value": "No es pot enviar aquest tipus de missatge en resposta a aquest missatge."
     },
     {
       "_": "types.LangPackString",
@@ -21553,8 +21710,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_iv_editor_close_now",
+      "value": "Tanca"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_discard_draft_sure",
+      "value": "Segur que voleu descartar el missatge? Això no es pot desfer."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_iv_editor_media_invalid_file",
       "value": "Només hi podeu afegir fotos, vídeos i fitxers d'àudio."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_save_draft_failed",
+      "value": "No s'ha pogut desar l'esborrany."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_save_draft_failed_error",
+      "value": "No s'ha pogut desar l'esborrany.\n\nError: {error}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_saving_draft",
+      "value": "S'està desant l'esborrany..."
     },
     {
       "_": "types.LangPackString",
@@ -22434,6 +22616,11 @@
       "_": "types.LangPackString",
       "key": "lng_manage_channel_title",
       "value": "Gestiona el canal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_manage_community_title",
+      "value": "Gestioneu la comunitat"
     },
     {
       "_": "types.LangPackString",
@@ -23647,6 +23834,16 @@
       "_": "types.LangPackString",
       "key": "lng_media_video_title",
       "value": "Vídeos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_media_zoom_in",
+      "value": "Apropa"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_media_zoom_out",
+      "value": "Allunya"
     },
     {
       "_": "types.LangPackString",
@@ -28863,6 +29060,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_profile_action_short_video_chat",
+      "value": "Xat de vídeo"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_profile_actions_section",
       "value": "Accions"
     },
@@ -29908,6 +30110,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_pull_next_channel",
+      "value": "Llisqueu per a anar al canal següent"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_pull_no_unread_channels",
+      "value": "No teniu cap canal per llegir"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_qr_box_font_size",
       "value": "Mida de la lletra"
     },
@@ -30331,6 +30543,11 @@
       "_": "types.LangPackString",
       "key": "lng_record_voice_tip",
       "value": "Feu clic una vegada per a canviar a vídeo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_release_next_channel",
+      "value": "Amolleu per a anar al pròxim canal per llegir"
     },
     {
       "_": "types.LangPackString",
@@ -34750,6 +34967,11 @@
       "_": "types.LangPackString",
       "key": "lng_settings_profile_photo_privacy",
       "value": "Fotos de perfil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_settings_pull_to_next_channel",
+      "value": "Llisqueu cap al canal següent"
     },
     {
       "_": "types.LangPackString",
@@ -40950,5 +41172,5 @@
       "other_value": "Heu pagat {count} estrelles."
     }
   ],
-  "version": 5728930
+  "version": 5730268
 }
