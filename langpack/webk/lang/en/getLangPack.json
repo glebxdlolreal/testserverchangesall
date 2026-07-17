@@ -3413,6 +3413,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BotAddAsAdminChannelConfirm",
+      "value": "Are you sure you want to add this bot as an admin in **%1$s**? It will have access to lists of channel admins and subscribers."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddAsAdminGroupConfirm",
+      "value": "Are you sure you want to add this bot as an admin in **%1$s**? It will have access to the list of anonymous admins."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToChannelAbout",
+      "value": "This bot is able to manage a channel."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupAbout",
+      "value": "This bot is able to manage a group."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannel",
+      "value": "Add to Group or Channel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannelAbout",
+      "value": "This bot is able to manage a group or channel."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BotAllowAccessTo",
       "value": "Allow access to"
     },
@@ -3455,6 +3485,11 @@
       "_": "types.LangPackString",
       "key": "BotCantReadChatTooltip",
       "value": "This bot can't read the chat — only the message where it was mentioned."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotChooseGroup",
+      "value": "Select a Group"
     },
     {
       "_": "types.LangPackString",
@@ -7325,6 +7360,16 @@
       "_": "types.LangPackString",
       "key": "EditedMessage",
       "value": "edited"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.At",
+      "value": "edited at %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.On",
+      "value": "edited on %1$s at %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -11792,7 +11837,7 @@
     {
       "_": "types.LangPackString",
       "key": "NotificationsStoriesImportantInfo",
-      "value": "Always on for top 5 contacts."
+      "value": "Always on for top 5 users."
     },
     {
       "_": "types.LangPackString",
@@ -14856,6 +14901,17 @@
       "_": "types.LangPackString",
       "key": "Report2CommentOptional",
       "value": "Add Comment (Optional)"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Report2MessagesCount",
+      "one_value": "Report %1$d Message",
+      "other_value": "Report %1$d Messages"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Report2SelectMessages",
+      "value": "Please select messages to report."
     },
     {
       "_": "types.LangPackString",
@@ -20747,5 +20803,5 @@
       "other_value": "%1$d messages"
     }
   ],
-  "version": 299487
+  "version": 300801
 }

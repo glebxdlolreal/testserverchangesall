@@ -2593,8 +2593,10 @@ function checkFrameSize() {
         TPost.init(this, {tgs_workers_limit: 1});
         addEvent(ge('.js-poll_option', this), 'click', TWidgetPost.eSelectPollOption);
         addEvent(ge('.js-poll_vote_btn', this), 'click', TWidgetPost.eSendVotes);
+        gec('.js-poll_timer', function() {
+          TWidgetPost.initPollTimer(this);
+        }, this);
       });
-      gec('.js-poll_timer', TWidgetPost.initPollTimer);
       initWidgetFrame({
         auto_height: true,
         onVisible: function() {
@@ -2620,10 +2622,11 @@ function checkFrameSize() {
       }
     },
     initPollTimer: function(timerEl) {
-      if (timerEl._timerInited) return;
+      if (!timerEl || timerEl._timerInited) return;
       timerEl._timerInited = true;
       var closeDate = parseInt(timerEl.getAttribute('data-close-date'));
-      var timeEl = ge1('.js-poll_timer_time', timerEl);
+      var timeEl = timerEl.querySelector('.js-poll_timer_time');
+      if (!timeEl || !closeDate) return;
       function tick() {
         var now = Math.floor(Date.now() / 1000);
         var remaining = closeDate - now;
