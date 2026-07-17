@@ -3509,6 +3509,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BotAddAsAdminChannelConfirm",
+      "value": "Opravdu chcete přidat tohoto bota jako správce kanálu **%1$s**? Bude mít přístup k seznamům správců a odběratelů kanálů."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddAsAdminGroupConfirm",
+      "value": "Opravdu chcete přidat tohoto bota jako správce do skupiny **%1$s**? Bude mít přístup k seznamu anonymních správců."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToChannelAbout",
+      "value": "Tento bot může kanál spravovat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupAbout",
+      "value": "Tento bot může skupinu spravovat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannel",
+      "value": "Přidat do skupiny nebo kanálu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannelAbout",
+      "value": "Tento bot může spravovat skupinu nebo kanál."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BotAllowAccessTo",
       "value": "Povolit přístup k"
     },
@@ -3551,6 +3581,11 @@
       "_": "types.LangPackString",
       "key": "BotCantReadChatTooltip",
       "value": "Tento bot nemůže číst celou konverzaci — pouze zprávu, ve které byl zmíněn."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotChooseGroup",
+      "value": "Vyberte skupinu"
     },
     {
       "_": "types.LangPackString",
@@ -7501,6 +7536,16 @@
       "_": "types.LangPackString",
       "key": "EditedMessage",
       "value": "upraveno"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.At",
+      "value": "upraveno %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.On",
+      "value": "upraveno %1$s v %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -15246,6 +15291,19 @@
       "value": "Přidat komentář (volitelné)"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Nahlásit %1$d zprávy",
+      "key": "Report2MessagesCount",
+      "many_value": "Nahlásit %1$d zpráv",
+      "one_value": "Nahlásit %1$d zprávu",
+      "other_value": "Nahlásit %1$d zpráv"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Report2SelectMessages",
+      "value": "Vyberte prosím zprávy k nahlášení."
+    },
+    {
       "_": "types.LangPackString",
       "key": "Report2Send",
       "value": "Odeslat hlášení"
@@ -21273,5 +21331,5 @@
       "other_value": "%1$d zpráv"
     }
   ],
-  "version": 300082
+  "version": 300889
 }
