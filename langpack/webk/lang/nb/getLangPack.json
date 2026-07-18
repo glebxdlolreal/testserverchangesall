@@ -3413,8 +3413,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BotAddAsAdminChannelConfirm",
+      "value": "Vil du legge til denne roboten som administrator i kanalen **%1$s**? Den vil ha tilgang til listen over kanalens administratorer og abonnenter."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddAsAdminGroupConfirm",
+      "value": "Er du sikker på at du vil legge denne roboten som en administrator i gruppen **%1$s**? Den vil få tilgang til listen over anonyme administratorer."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToChannelAbout",
+      "value": "Denne roboten kan administrere en kanal."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupAbout",
+      "value": "Denne roboten er i stand til å administrere en gruppe."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannel",
+      "value": "Legg til i gruppe eller kanal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannelAbout",
+      "value": "Denne roboten kan administrere en gruppe eller kanal."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BotAllowAccessTo",
-      "value": "Tillat tilgang til"
+      "value": "Gi tilgang til"
     },
     {
       "_": "types.LangPackString",
@@ -3455,6 +3485,11 @@
       "_": "types.LangPackString",
       "key": "BotCantReadChatTooltip",
       "value": "Denne roboten kan ikke lese samtalen — kun meldinger hvor den er nevnt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotChooseGroup",
+      "value": "Velg en gruppe"
     },
     {
       "_": "types.LangPackString",
@@ -6804,7 +6839,7 @@
     {
       "_": "types.LangPackString",
       "key": "DiscardVoiceMessageDescription",
-      "value": "Er du sikker på at du vil stoppe opptaket og forkaste talemeldingen din?"
+      "value": "Er du sikker på at du vil stoppe innspillingen og forkaste talemeldingen din?"
     },
     {
       "_": "types.LangPackString",
@@ -7325,6 +7360,16 @@
       "_": "types.LangPackString",
       "key": "EditedMessage",
       "value": "redigert"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.At",
+      "value": "redigert kl. %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.On",
+      "value": "redigert %1$s kl. %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -11585,7 +11630,7 @@
     {
       "_": "types.LangPackString",
       "key": "NoMicrophoneAccess",
-      "value": "Vennligst tillat tilgang til mikrofonen din"
+      "value": "Vennligst gi tilgang til mikrofonen din"
     },
     {
       "_": "types.LangPackString",
@@ -14856,6 +14901,17 @@
       "_": "types.LangPackString",
       "key": "Report2CommentOptional",
       "value": "Legg til en kommentar (valgfritt)"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Report2MessagesCount",
+      "one_value": "Rapporter %1$d melding",
+      "other_value": "Rapporter %1$d meldinger"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Report2SelectMessages",
+      "value": "Vennligst velg meldinger som skal rapporteres."
     },
     {
       "_": "types.LangPackString",
@@ -20747,5 +20803,5 @@
       "other_value": "%1$d meldinger"
     }
   ],
-  "version": 300726
+  "version": 300981
 }
