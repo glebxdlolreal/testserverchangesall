@@ -87,6 +87,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedPollOption",
+      "value": "%1$s додао/ла „%2$s” у анкету"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOptionMsg",
+      "value": "%1$s додао/ла „%2$s” у анкету „%3$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOption",
+      "value": "Додали сте „%1$s” у анкету"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOptionMsg",
+      "value": "Додали сте „%1$s” у анкету „%2$s”"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChannelChangedPhoto",
       "value": "Слика канала промењена"
     },
@@ -107,13 +127,68 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunity",
+      "value": "Ово ћаскање је додато у заједницу „%1$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunityUnknown",
+      "value": "Ово ћаскање је додато у заједницу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatRemovedFromCommunity",
+      "value": "Ово ћаскање је уклоњено из заједнице"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAdd",
+      "value": "%1$s додао/ла %2$s на листу задатака"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddMsg",
+      "value": "%1$s додао/ла %2$s на листу задатака „%3$s”"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChecklistAddOut",
       "value": "Додали сте %1$s на листу задатака"
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChecklistAddOutMsg",
+      "value": "Додали сте %1$s на листу задатака „%3$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMark",
+      "value": "%1$s означио/ла %2$s као завршено, а %3$s као незавршено"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDone",
+      "value": "%1$s означио/ла %2$s као завршено"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDoneOut",
+      "value": "Означили сте %1$s као завршено"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDone",
+      "value": "%1$s означио/ла %2$s као незавршено"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChecklistMarkNotDoneOut",
       "value": "Означили сте %1$s као незавршено"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkOut",
+      "value": "Означили сте %1$s као завршено, а %2$s као незавршено"
     },
     {
       "_": "types.LangPackString",
@@ -124,6 +199,26 @@
       "_": "types.LangPackString",
       "key": "ActionCreatedManagedBot",
       "value": "Направили сте бота %1$s којим управља %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOption",
+      "value": "%1$s уклонио/ла „%2$s” из анкете"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOptionMsg",
+      "value": "%1$s уклонио/ла „%2$s” из анкете „%3$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOption",
+      "value": "Уклонили сте „%1$s” из анкете"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOptionMsg",
+      "value": "Уклонили сте „%1$s” из анкете „%2$s”"
     },
     {
       "_": "types.LangPackString",
@@ -298,6 +393,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionSharingEnabled",
+      "value": "%1$s омогућио/ла дељење у овом ћаскању"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionSharingEnabledOut",
       "value": "Омогућили сте дељење у овом ћаскању"
     },
@@ -305,6 +405,11 @@
       "_": "types.LangPackString",
       "key": "ActionSharingRequest",
       "value": "%1$s жели да омогући дељење у овом ћаскању"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestExpired",
+      "value": "Захтев за омогућавање дељења је истекао"
     },
     {
       "_": "types.LangPackString",
@@ -7237,6 +7342,16 @@
       "_": "types.LangPackString",
       "key": "EventLogSlowModeDisabledYou",
       "value": "%1$s онемогућио/ла спори режим"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagRemovedYour",
+      "value": "%2$s уклонио/ла вашу ознаку „%1$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSetYour",
+      "value": "%2$s подесио/ла вашу ознаку „%1$s”"
     },
     {
       "_": "types.LangPackString",
@@ -21806,6 +21921,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistItem",
+      "value": "„%1$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparator",
+      "value": ", "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparatorLast",
+      "value": " и "
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• %1$s\n• %2$s\n• %3$s\n• %4$s"
     },
@@ -24453,5 +24583,5 @@
       "other_value": "%1$s година"
     }
   ],
-  "version": 1624218
+  "version": 1624306
 }
