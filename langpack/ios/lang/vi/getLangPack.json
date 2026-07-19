@@ -2400,6 +2400,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AuthConfirmation.UnverifiedApp",
+      "value": "App chưa xác thực"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AuthSessions.AddDevice",
       "value": "Quét mã QR"
     },
@@ -2506,7 +2511,7 @@
     {
       "_": "types.LangPackString",
       "key": "AuthSessions.LinkDesktopDevice",
-      "value": "Kết nối với máy tính"
+      "value": "Thêm thiết bị"
     },
     {
       "_": "types.LangPackString",
@@ -3236,12 +3241,12 @@
     {
       "_": "types.LangPackString",
       "key": "BalanceNeeded.FragmentSubtitle",
-      "value": "Bạn có thể nạp thêm TON vào số dư qua nền tảng bên thứ ba là Fragment."
+      "value": "Bạn có thể nạp thêm Gram vào số dư qua nền tảng bên thứ ba là Fragment."
     },
     {
       "_": "types.LangPackString",
       "key": "BalanceNeeded.FragmentTitle",
-      "value": "Cần %@ TON"
+      "value": "Cần %@ Gram"
     },
     {
       "_": "types.LangPackString",
@@ -8240,6 +8245,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Channel.EditAdmin.GuardBotEnable",
+      "value": "Bật"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.EditAdmin.GuardBotReplaceKeep",
+      "value": "Giữ %@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.EditAdmin.GuardBotReplaceTitle",
+      "value": "Thay thế Bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.EditAdmin.GuardBotReplaceUse",
+      "value": "Dùng %@"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Channel.EditAdmin.PermissinAddAdminOff",
       "value": "Admin này sẽ không thể thêm admin mới."
     },
@@ -8347,6 +8372,11 @@
       "_": "types.LangPackString",
       "key": "Channel.EditAdmin.PermissionPostStories",
       "value": "Đăng tin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.EditAdmin.PermissionProcessJoinRequests",
+      "value": "Xử lý yêu cầu tham gia"
     },
     {
       "_": "types.LangPackString",
@@ -10215,6 +10245,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.ContextMenu.OpenInApp",
+      "value": "Mở trong app"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.ContextMenu.OpenInBrowser",
+      "value": "Mở trình duyệt"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.ContextMenu.RemoveAd",
       "value": "Tắt quảng cáo"
     },
@@ -11092,6 +11132,11 @@
       "_": "types.LangPackString",
       "key": "Chat.ManagedBot.CreatedText",
       "value": "Bấm **Bắt đầu** để thử chatbot mới của bạn. Hành vi của nó do **%@** định hình."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.ManagedBot.CreatedTitle",
+      "value": "**%@** đã sẵn sàng!"
     },
     {
       "_": "types.LangPackString",
@@ -12056,7 +12101,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.PostSuggestion.Suggest.OfferTon",
-      "value": "Đề xuất TON"
+      "value": "Đề xuất Gram"
     },
     {
       "_": "types.LangPackString",
@@ -12207,6 +12252,11 @@
       "_": "types.LangPackString",
       "key": "Chat.PrivateMessageSeenTimestamp.YesterdayAt",
       "value": "đã đọc hôm qua lúc %@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.PrivateMessageSentTimestamp.Date",
+      "value": "đã gửi %@"
     },
     {
       "_": "types.LangPackString",
@@ -13367,6 +13417,16 @@
       "_": "types.LangPackString",
       "key": "ChatList.BirthdaySingleTitle",
       "value": "Hôm nay là **sinh nhật** %@! 🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.BotConnectionReview.PanelText",
+      "value": "%1$@ kết nối tài khoản của bạn từ %2$@ (%3$@). Có phải bạn không?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.BotConnectionReview.PanelTitle",
+      "value": "Một bot được truy cập tin nhắn của bạn!"
     },
     {
       "_": "types.LangPackString",
@@ -15131,7 +15191,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChatbotSetup.BotSearchPlaceholder",
-      "value": "Tên bot"
+      "value": "Tên người dùng/link bot"
     },
     {
       "_": "types.LangPackString",
@@ -15371,7 +15431,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChatbotSetup.TitleItem",
-      "value": "Chatbot"
+      "value": "Chat tự động hóa"
     },
     {
       "_": "types.LangPackString",
@@ -16296,7 +16356,7 @@
     {
       "_": "types.LangPackString",
       "key": "Contacts.GlobalSearch",
-      "value": "Tìm mọi nơi"
+      "value": "Tìm toàn bộ"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -19650,8 +19710,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CreateBot.NamePlaceholder",
+      "value": "Tên"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CreateBot.SectionName",
+      "value": "TÊN BOT "
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CreateBot.Text",
       "value": "[%@]() muốn tạo và quản lý chatbot bằng tên của bạn."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CreateBot.Title",
+      "value": "Tạo Bot"
     },
     {
       "_": "types.LangPackString",
@@ -19872,6 +19947,11 @@
       "_": "types.LangPackString",
       "key": "CreatePoll.LimitDurationInfo",
       "value": "Tự động đóng bình chọn sau thời gian đã đặt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CreatePoll.Link.Description",
+      "value": "Thêm link vào tùy chọn này."
     },
     {
       "_": "types.LangPackString",
@@ -20611,7 +20691,7 @@
     {
       "_": "types.LangPackString",
       "key": "DialogList.SearchSectionGlobal",
-      "value": "Tìm mọi nơi"
+      "value": "Tìm toàn bộ"
     },
     {
       "_": "types.LangPackString",
@@ -23166,7 +23246,7 @@
     {
       "_": "types.LangPackString",
       "key": "Gift.Buy.Confirm.BuyForTon",
-      "value": "Mua với %@ TON"
+      "value": "Mua với %@ Gram"
     },
     {
       "_": "types.LangPackString",
@@ -23231,7 +23311,7 @@
     {
       "_": "types.LangPackString",
       "key": "Gift.Buy.PayInTon.Tooltip",
-      "value": "Trả bằng TON để không phải chờ 21 ngày trước khi được chuyển quà lần nữa."
+      "value": "Trả bằng Gram để không phải chờ 21 ngày trước khi được chuyển quà lần nữa."
     },
     {
       "_": "types.LangPackString",
@@ -23601,7 +23681,7 @@
     {
       "_": "types.LangPackString",
       "key": "Gift.Offer.PriceDescriptionTon",
-      "value": "Nhập số lượng TON bạn muốn trả để đề nghị mua lại **%@**."
+      "value": "Nhập số Gram bạn muốn dùng để đề nghị mua lại **%@**."
     },
     {
       "_": "types.LangPackString",
@@ -23616,7 +23696,7 @@
     {
       "_": "types.LangPackString",
       "key": "Gift.Offer.PriceSectionTon",
-      "value": "SỐ TON ĐỀ NGHỊ"
+      "value": "SỐ GRAM ĐỀ NGHỊ"
     },
     {
       "_": "types.LangPackString",
@@ -26025,6 +26105,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Group.Setup.ApproveNewMembersApplyToExistingInviteLinksTitle",
+      "value": "Áp dụng cho các link mời hiện có"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Group.Setup.ApproveNewMembersInfo",
       "value": "Bật lên nếu bạn muốn người dùng chỉ nhắn tin sau khi được admin chấp nhận."
     },
@@ -27605,6 +27690,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "InviteLink.ApprovalRequired",
+      "value": "cần được phê duyệt"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "InviteLink.CallLinkTitle",
       "value": "Link gọi"
     },
@@ -27702,6 +27792,11 @@
       "_": "types.LangPackString",
       "key": "InviteLink.Create.RequestApprovalFeeUnavailable",
       "value": "Không thể bật tính năng admin duyệt cho link yêu cầu phí hàng tháng."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "InviteLink.Create.RequestApprovalInfo",
+      "value": "Admin cần phê duyệt người tham gia qua đường link này."
     },
     {
       "_": "types.LangPackString",
@@ -31831,7 +31926,7 @@
     {
       "_": "types.LangPackString",
       "key": "Monetization.Intro.Info.Text",
-      "value": "TON là nền tảng blockchain và tiền mã hóa mà Telegram dùng vì tốc độ cao và phí giao dịch thấp. [Xem thêm >]()"
+      "value": "Gram là tiền mã hóa của nền tảng blockchain TON mà Telegram sử dụng vì tốc độ cao và hoa hồng giao dịch thấp. [Xem thêm >]()"
     },
     {
       "_": "types.LangPackString",
@@ -31846,7 +31941,7 @@
     {
       "_": "types.LangPackString",
       "key": "Monetization.Intro.Split.Text",
-      "value": "Bạn có thể nhận 50% doanh thu QC ở dạng thưởng bằng TON."
+      "value": "Bạn nhận 50% doanh thu QC ở dạng thưởng bằng Gram."
     },
     {
       "_": "types.LangPackString",
@@ -31866,7 +31961,7 @@
     {
       "_": "types.LangPackString",
       "key": "Monetization.Intro.Withdrawal.Text",
-      "value": "Bạn có thể nhận đồng TON mọi lúc."
+      "value": "Bạn có thể nhận Gram mọi lúc."
     },
     {
       "_": "types.LangPackString",
@@ -31901,12 +31996,12 @@
     {
       "_": "types.LangPackString",
       "key": "Monetization.Proceeds.Ton.Info",
-      "value": "TON từ tổng số dư có thể dùng để chạy quảng cáo hoặc rút ở dạng thưởng sau 3 ngày kể từ khi nhận được. Bạn không thể rút ít hơn 10 TON."
+      "value": "Gram từ tổng số dư có thể dùng để chạy quảng cáo hoặc rút ở dạng thưởng sau 3 ngày kể từ khi nhận được. Bạn không thể rút ít hơn 10 Gram."
     },
     {
       "_": "types.LangPackString",
       "key": "Monetization.Proceeds.TonAndStars.Info",
-      "value": "Sao và TON từ tổng số dư có thể được dùng để chạy quảng cáo hoặc rút ở dạng thưởng sau 21 và 3 ngày tương ứng kể từ khi nhận được."
+      "value": "Sao và Gram từ tổng số dư có thể được dùng để chạy quảng cáo hoặc rút ở dạng thưởng sau 21 và 3 ngày tương ứng kể từ khi nhận được."
     },
     {
       "_": "types.LangPackString",
@@ -31966,7 +32061,7 @@
     {
       "_": "types.LangPackString",
       "key": "Monetization.TonTransactions",
-      "value": "Giao dịch TON"
+      "value": "Giao dịch Gram"
     },
     {
       "_": "types.LangPackString",
@@ -38571,7 +38666,7 @@
     {
       "_": "types.LangPackString",
       "key": "PeerInfo.AllowedReactions.StarReactionsFooter",
-      "value": "Bật lên để người đăng ký có thể biểu cảm vào bài viết bằng Sao Telegram, rồi sau đó bạn có thể rút về thành TON. [Tìm hiểu thêm >](https://telegram.org/tos/content-creator-rewards#2-3-subscriber-donations)"
+      "value": "Bật lên để người đăng ký có thể biểu cảm vào bài viết bằng Sao Telegram, rồi sau đó bạn có thể rút về thành Gram. [Tìm hiểu thêm >](https://telegram.org/tos/content-creator-rewards#2-3-subscriber-donations)"
     },
     {
       "_": "types.LangPackString",
@@ -43635,6 +43730,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RecentSession.ConnectedBot.ConnectedFrom",
+      "value": "KẾT NỐI TỪ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RecentSession.ConnectedBot.Date",
+      "value": "Ngày"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RecentSession.ConnectedBot.Device",
+      "value": "Thiết bị"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RecentSession.ConnectedBot.Subtitle",
+      "value": "Bot chat tự động hóa"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RecentSessions.ConnectedBot.ConnectedTime",
+      "value": "đã kết nối %@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RecentSessions.ConnectedBot.TerminateCheckbox",
+      "value": "Cũng đăng xuất %@"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Reminders.DeleteRepeatingActionMultiple",
       "value": "Xóa mọi nhắc nhở tương lai"
     },
@@ -45236,7 +45361,7 @@
     {
       "_": "types.LangPackString",
       "key": "Settings.MyTon",
-      "value": "TON của tôi"
+      "value": "Gram của tôi"
     },
     {
       "_": "types.LangPackString",
@@ -46680,6 +46805,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SocksProxySetup.QrCode.TMeLink",
+      "value": "Link t.me"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SocksProxySetup.QrCode.TgLink",
+      "value": "Link tg://"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SocksProxySetup.RequiredCredentials",
       "value": "DANH TÍNH"
     },
@@ -47496,7 +47631,7 @@
     {
       "_": "types.LangPackString",
       "key": "Stars.SellGift.OnlyTonInfo",
-      "value": "Nếu người mua trả bằng TON, sẽ không cần lo về hoàn tiền như khi trả bằng Sao."
+      "value": "Nếu người mua trả bằng Gram, sẽ không cần lo về hoàn tiền như khi trả bằng Sao."
     },
     {
       "_": "types.LangPackString",
@@ -47601,7 +47736,7 @@
     {
       "_": "types.LangPackString",
       "key": "Stars.Ton.Description",
-      "value": "Dùng TON để mua quà và đề xuất bài viết ở các kênh."
+      "value": "Dùng Gram để mua quà và đề xuất bài viết đến các kênh."
     },
     {
       "_": "types.LangPackString",
@@ -48841,7 +48976,7 @@
     {
       "_": "types.LangPackString",
       "key": "Stats.TonBotRevenue.Title",
-      "value": "Số dư TON"
+      "value": "Số dư Gram"
     },
     {
       "_": "types.LangPackString",
@@ -56221,7 +56356,7 @@
     {
       "_": "types.LangPackString",
       "key": "Watch.MessageView.ViewOnPhone",
-      "value": "Xem trên điện thoại"
+      "value": "Mở điện thoại"
     },
     {
       "_": "types.LangPackString",
@@ -57304,5 +57439,5 @@
       "value": "Bạn đã nhập sai mã bảo mật."
     }
   ],
-  "version": 21202542
+  "version": 21571767
 }
