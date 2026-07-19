@@ -3285,6 +3285,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AvatarEditor.SetCommunityPhoto",
+      "value": "تعيين كصورة للمجتمع"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AvatarEditor.SetGroupPhoto",
       "value": "تعيين كصورة للمجموعة"
     },
@@ -12251,7 +12256,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.PanelHidePinnedMessages",
-      "value": "لا تعرض الرسائل المثبّتة"
+      "value": "إخفاء الرسائل المثبتة"
     },
     {
       "_": "types.LangPackString",
@@ -12701,7 +12706,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.PostSuggestion.ApproveTime.AdminConfirmationPriceTon",
-      "value": "سوف تحصل على ⁨%1$@⁩ TON (⁨%2$@⁩%) مقابل نشر هذه التدوينة."
+      "value": "سوف تحصل على ⁨%1$@⁩ جرام (⁨%2$@⁩%) مقابل نشر هذا المنشور."
     },
     {
       "_": "types.LangPackString",
@@ -13012,6 +13017,11 @@
       "_": "types.LangPackString",
       "key": "Chat.PrivateMessageSentTimestamp.Date",
       "value": "أُرسلت ⁨%@⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.PrivateMessageSentTimestamp.TodayAt",
+      "value": "أُرسلت اليوم في ⁨%@⁩"
     },
     {
       "_": "types.LangPackString",
@@ -15080,6 +15090,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Remove",
+      "value": "إزالة"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.RemoveFolder",
       "value": "إزالة"
     },
@@ -15532,6 +15547,11 @@
       "_": "types.LangPackString",
       "key": "ChatList.UndoArchiveTitle",
       "value": "تمت أرشفة المحادثة."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Action",
+      "value": "فك التجميع"
     },
     {
       "_": "types.LangPackString",
@@ -16585,6 +16605,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Checkout.PaymentMethod.Proceed",
+      "value": "متابعة"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Checkout.PaymentMethod.Title",
       "value": "وسيلة الدفع"
     },
@@ -16622,6 +16647,11 @@
       "_": "types.LangPackString",
       "key": "Checkout.ShippingMethod",
       "value": "طريقة الشحن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Checkout.ShippingMethod.Proceed",
+      "value": "متابعة"
     },
     {
       "_": "types.LangPackString",
@@ -17125,8 +17155,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Add.ActionAddToCommunity",
+      "value": "إضافة إلى المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.Add",
+      "value": "إضافة"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextBot",
+      "value": "إذا تمت الموافقة على هذا البوت من قبل أحد مشرفي المجتمع فسيتمكن أعضاء المجتمع من رؤيته واستخدامه."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Add.Confirm.TextChannel",
       "value": "إذا وافق أحد مشرفي المجتمع على هذه القناة فسيتمكن مشتركوها من الانضمام أو طلب الانضمام إلى محادثات أخرى في المجتمع."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextGroup",
+      "value": "إذا وافق أحد مشرفي المجتمع على هذه المجموعة فسيتمكن أعضاؤها من الانضمام أو طلب الانضمام إلى محادثات أخرى في المجتمع."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Title",
+      "value": "إضافة محادثة"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHeader",
+      "value": "ظهور المحادثة"
     },
     {
       "_": "types.LangPackString",
@@ -17141,7 +17201,22 @@
     {
       "_": "types.LangPackString",
       "key": "Community.Add.VisibilityInfo",
-      "value": "لا يمكنك تغيير هذا الإعداد لاحقًا."
+      "value": "لا يمكنك تغيير هذا الإعداد لاحقًا!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityVisible",
+      "value": "مرئية"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityVisibleInfo",
+      "value": "سيتمكن أي شخص في المجتمع من رؤية هذه المحادثة."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat.Description",
+      "value": "اختر محادثة لإضافتها إلى هذا المجتمع"
     },
     {
       "_": "types.LangPackString",
@@ -17154,9 +17229,49 @@
       "value": "حظر من المجتمع"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "ستتم إزالة المستخدم من [⁨%@⁩ محادثات](community)",
+      "key": "Community.AdminActions.Footer",
+      "many_value": "ستتم إزالة المستخدم من [⁨%@⁩ محادثة](community)",
+      "one_value": "ستتم إزالة المستخدم من [محادثة واحدة](community)",
+      "other_value": "ستتم إزالة المستخدم من [⁨%@⁩ محادثة](community)",
+      "two_value": "ستتم إزالة المستخدم من [محادثتين](community)",
+      "zero_value": "ستتم إزالة المستخدم من [⁨%@⁩ محادثة](community)"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "⁨%@⁩ محادثات",
+      "key": "Community.AdminActions.WarningChatCount",
+      "many_value": "⁨%@⁩ محادثة",
+      "one_value": "محادثة واحدة",
+      "other_value": "⁨%@⁩ محادثة",
+      "two_value": "محادثتان",
+      "zero_value": "⁨%@⁩ محادثات"
+    },
+    {
       "_": "types.LangPackString",
       "key": "Community.AdminActions.WarningTitle",
       "value": "تحذير"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.AddAdmin",
+      "value": "إضافة مشرف"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.Info",
+      "value": "يمكنك إضافة مشرفين لمساعدتك في إدارة مجتمعك."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.SectionTitle",
+      "value": "مشرفو المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.Title",
+      "value": "المشرفون"
     },
     {
       "_": "types.LangPackString",
@@ -17165,13 +17280,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Blacklist.RemoveUser",
+      "value": "إزالة مستخدم"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.Title",
+      "value": "مستخدمون مزالون"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Blacklist.UsersSectionTitle",
       "value": "مستخدمون مزالون"
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Chat.JoinToView",
+      "value": "تحتاج إلى الانضمام لهذه المجموعة لرؤية رسائلها."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.CommunityAdded.View",
+      "value": "عرض"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.AddChat",
+      "value": "إضافة المحادثة إلى المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Edit.Administrators",
       "value": "المشرفون"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.ChatsLimitReached",
+      "value": "عذرًا، لقد وصل هذا المجتمع إلى الحد الأقصى من عدد المحادثات."
     },
     {
       "_": "types.LangPackString",
@@ -17182,6 +17327,16 @@
       "_": "types.LangPackString",
       "key": "Community.Edit.DeleteCommunity",
       "value": "حذف المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.DeleteConfirmationText",
+      "value": "هل تريد فعلًا حذف هذا المجتمع؟"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PendingRequests",
+      "value": "طلبات قيد الانتظار"
     },
     {
       "_": "types.LangPackString",
@@ -17201,7 +17356,12 @@
     {
       "_": "types.LangPackString",
       "key": "Community.Edit.PermissionOnlyAdminsInfo",
-      "value": "المحادثات التي يقترحها أعضاء المجتمع تتطلب موافقة المشرف."
+      "value": "طلب موافقة المشرف على المحادثات التي يقترحها أعضاء المجتمع."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.RemovedUsers",
+      "value": "مستخدمون مزالون"
     },
     {
       "_": "types.LangPackString",
@@ -17210,8 +17370,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionAddAdmins",
+      "value": "إضافة مشرفين للمجتمع"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.EditAdmin.PermissionBanUsers",
       "value": "حظر الأعضاء"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionChangeInfo",
+      "value": "تحرير معلومات المجتمع"
     },
     {
       "_": "types.LangPackString",
@@ -17255,6 +17425,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.PrivateChat.MessageOwner",
+      "value": "مراسلة مالك المحادثة"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Remove",
+      "value": "إزالة"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Text",
+      "value": "ستتم إزالة هذه المحادثة من المجتمع."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Title",
+      "value": "إزالة المحادثة من المجتمع؟"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Request.Add",
       "value": "إضافة"
     },
@@ -17280,6 +17470,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Request.ApprovedToast",
+      "value": "لقد أضفت أنت المحادثة إلى المجتمع."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Request.Decline",
       "value": "رفض"
     },
@@ -17287,6 +17482,21 @@
       "_": "types.LangPackString",
       "key": "Community.Request.DeclineAll",
       "value": "رفض الكل"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAllConfirmation",
+      "value": "رفض كل طلبات الانضمام (⁨%@⁩) إلى المجتمع؟"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclinedToast",
+      "value": "لقد رفضت أنت إضافة المحادثة إلى المجتمع."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.EmptyText",
+      "value": "لا توجد محادثات أخرى مقترحة لهذا المجتمع."
     },
     {
       "_": "types.LangPackString",
@@ -17300,6 +17510,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsBot",
+      "value": "يقترح ⁨%@⁩ هذا البوت:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsChannel",
+      "value": "يقترح ⁨%@⁩ هذه القناة:"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Request.RequesterSuggestsGroup",
       "value": "يقترح ⁨%@⁩ هذه المجموعة:"
     },
@@ -17310,8 +17530,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Request.UnknownRequester",
+      "value": "مجهول"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.View.AddChatButton",
       "value": "إضافة محادثة إلى المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ChatsLimitReached",
+      "value": "عذرًا، لقد وصل هذا المجتمع إلى الحد الأقصى من عدد المحادثات."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.HiddenChatToast",
+      "value": "لا يمكنك الانضمام أو رؤية هذه المحادثة إلا بعد أن يضيفك أحد المشرفين."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestApprovedToast",
+      "value": "لقد أضفت أنت المجموعة إلى المجتمع."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestDeclinedToast",
+      "value": "لقد رفضت أنت إضافة المحادثة إلى المجتمع."
     },
     {
       "_": "types.LangPackString",
@@ -17327,6 +17572,11 @@
       "_": "types.LangPackString",
       "key": "Community.View.SectionHidden",
       "value": "محادثات مخفية"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionJoined",
+      "value": "محادثات أنت فيها"
     },
     {
       "_": "types.LangPackString",
@@ -21719,6 +21969,16 @@
       "value": "إذا كان الموضوع «عام» مخفيًّا؛ يمكن لأعضاء المجموعة سحب قائمة الموضوعات إلى أسفل لعرضه."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "⁨%@⁩ جرام",
+      "key": "Currency.Grams",
+      "many_value": "⁨%@⁩ جرام",
+      "one_value": "⁨%@⁩ جرام",
+      "other_value": "⁨%@⁩ جرام",
+      "two_value": "⁨%@⁩ جرام",
+      "zero_value": "⁨%@⁩ جرام"
+    },
+    {
       "_": "types.LangPackString",
       "key": "DataUpgrade.Running",
       "value": "يتم التحديث..."
@@ -25074,6 +25334,16 @@
       "zero_value": ""
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "الشراء مقابل ⁨%@⁩ جرام",
+      "key": "Gift.Buy.Confirm.BuyForGrams",
+      "many_value": "الشراء مقابل ⁨%@⁩ جرام",
+      "one_value": "الشراء مقابل ⁨%@⁩ جرام",
+      "other_value": "الشراء مقابل ⁨%@⁩ جرام",
+      "two_value": "الشراء مقابل ⁨%@⁩ جرام",
+      "zero_value": "الشراء مقابل ⁨%@⁩ جرام"
+    },
+    {
       "_": "types.LangPackString",
       "key": "Gift.Buy.Confirm.BuyForTon",
       "value": "الشراء مقابل ⁨%@⁩ جرام"
@@ -25822,6 +26092,16 @@
       "other_value": "إدراجها بسعر ⁨%@⁩ نجمة",
       "two_value": "إدراجها بسعر نجمتين",
       "zero_value": "إدراجها بسعر ⁨%@⁩ نجمة"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "إدراجها مقابل ⁨%@⁩ جرام",
+      "key": "Gift.Sell.Confirm.ListForGrams",
+      "many_value": "إدراجها مقابل ⁨%@⁩ جرام",
+      "one_value": "إدراجها مقابل ⁨%@⁩ جرام",
+      "other_value": "إدراجها مقابل ⁨%@⁩ جرام",
+      "two_value": "إدراجها مقابل ⁨%@⁩ جرام",
+      "zero_value": "إدراجها مقابل ⁨%@⁩ جرام"
     },
     {
       "_": "types.LangPackString",
@@ -28207,6 +28487,11 @@
       "_": "types.LangPackString",
       "key": "Group.Setup.ApproveNewMembersInfo",
       "value": "إذا قمت بتشغيل هذا لن يتمكن المستخدمون من إرسال الرسائل إلا بعد الموافقة عليهم من مشرف."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Group.Setup.ApproveNewMembersManagedBy",
+      "value": "تدار بواسطة ⁨%@⁩"
     },
     {
       "_": "types.LangPackString",
@@ -33245,6 +33530,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "MediaPicker.SetNewCommunityPhoto",
+      "value": "تعيين صورة جديدة للمجتمع"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "MediaPicker.SetNewGroupPhoto",
       "value": "تعيين صورة جديدة للمجموعة"
     },
@@ -33637,6 +33927,16 @@
       "_": "types.LangPackString",
       "key": "Message.Contact",
       "value": "جهة اتصال"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Message.EditFullDateFormat",
+      "value": "عُدّلت في ⁨%1$@⁩، ⁨%2$@⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Message.EditTodayFullDateFormat",
+      "value": "عُدّلت في ⁨%1$@⁩"
     },
     {
       "_": "types.LangPackString",
@@ -35725,6 +36025,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroupUnknown",
+      "value": "أُضيفت هذه المجموعة إلى مجتمع ⁨%1$@⁩"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Notification.CommunityAddedGroupYou",
       "value": "**أنت** أضفت هذه المجموعة إلى مجتمع ⁨%1$@⁩."
     },
@@ -35732,6 +36037,21 @@
       "_": "types.LangPackString",
       "key": "Notification.CommunityRemovedBot",
       "value": "هذا البوت أُزيل من المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedChannel",
+      "value": "أُزيلت هذه القناة من المجتمع"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroup",
+      "value": "أُزيلت هذه المجموعة من المجتمع بواسطة ⁨%1$@⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroupYou",
+      "value": "لقد أزلت أنت هذه المجموعة من المجتمع"
     },
     {
       "_": "types.LangPackString",
@@ -37561,12 +37881,12 @@
     {
       "_": "types.LangPackString",
       "key": "Notification.Ton.Subtitle",
-      "value": "يمكنك استخدم TON لشراء الهدايا واقتراح منشورات للقنوات."
+      "value": "يمكنك استخدام جرام لشراء الهدايا واقتراح منشورات للقنوات."
     },
     {
       "_": "types.LangPackString",
       "key": "Notification.Ton.SubtitleYou",
-      "value": "مع رصيد TON، سيتمكن ⁨%@⁩ من اقتراح منشورات على القنوات."
+      "value": "برصيد جرام؛ سيتمكن ⁨%@⁩ من اقتراح منشورات على القنوات."
     },
     {
       "_": "types.LangPackString",
@@ -41851,7 +42171,7 @@
     {
       "_": "types.LangPackString",
       "key": "PeerInfo.AllowedReactions.StarReactionsFooter",
-      "value": "يمكنك تشغيل هذه الخاصية للسماح لمشتركي القناة بالتفاعل مع منشوراتك بنجوم تيليجرام، والتي يمكنك سحبها لاحقًا على هيئة TON.[معرفة المزيد >](https://telegram.org/tos/content-creator-rewards#2-3-subscriber-donations)"
+      "value": "يمكنك تشغيل هذه الخاصية للسماح للمشتركين بالتفاعل مع منشوراتك بنجوم تيليجرام، والتي يمكنك سحبها على هيئة رصيد جرام..[معرفة المزيد](https://telegram.org/tos/content-creator-rewards#2-3-subscriber-donations)"
     },
     {
       "_": "types.LangPackString",
@@ -42612,6 +42932,11 @@
       "_": "types.LangPackString",
       "key": "PeerInfo.GroupAboutItem",
       "value": "حول"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.HiddenCommunityStatus",
+      "value": "مخفية • ⁨%@⁩"
     },
     {
       "_": "types.LangPackString",
@@ -44427,6 +44752,11 @@
       "_": "types.LangPackString",
       "key": "Premium.Limits.GroupsAndChannelsInfo",
       "value": "الانضمام إلى ما يصل إلى ١٠٠٠ قناة ومجموعة"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.Limits.Messages",
+      "value": "الرسائل"
     },
     {
       "_": "types.LangPackString",
@@ -47795,13 +48125,53 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.AddMediaTitle",
+      "value": "إضافة وسائط"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionResultTitle",
+      "value": "النتيجة"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionSourceTitle",
+      "value": "LaTeX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkRemove",
+      "value": "إزالة"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkSet",
+      "value": "تعيين"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkText",
+      "value": "إضافة رابط للنص المحدد"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkTitle",
+      "value": "رابط"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Bullet",
+      "value": "قائمة منقطة"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichText.Menu.List.Checklist",
       "value": "قائمة تحقق"
     },
     {
       "_": "types.LangPackString",
       "key": "RichText.Menu.List.None",
-      "value": "لا شيء"
+      "value": "بدون"
     },
     {
       "_": "types.LangPackString",
@@ -47811,7 +48181,7 @@
     {
       "_": "types.LangPackString",
       "key": "RichText.Menu.Table.ConvertToText",
-      "value": "التحويل إلى نص"
+      "value": "تحويل الجدول لنص"
     },
     {
       "_": "types.LangPackString",
@@ -47835,8 +48205,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.MenuHeading",
+      "value": "العنوان"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichText.MenuHeadingItem",
       "value": "العنوان ⁨%@⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuPullquote",
+      "value": "اقتباس مميز"
     },
     {
       "_": "types.LangPackString",
@@ -47847,6 +48227,11 @@
       "_": "types.LangPackString",
       "key": "RichText.MenuText",
       "value": "نص"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.PremiumToastText",
+      "value": "إرسال رسالة بهذا التنسيق يتطلب [تيليجرام المميز]()."
     },
     {
       "_": "types.LangPackString",
@@ -47877,6 +48262,16 @@
       "_": "types.LangPackString",
       "key": "RichText.TitleArticle",
       "value": "العنوان"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextPreview.Music",
+      "value": "صوت"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextPreview.Table",
+      "value": "[جدول]"
     },
     {
       "_": "types.LangPackString",
@@ -48905,6 +49300,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Settings.ChangePhoto",
+      "value": "تغيير الصورة"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Settings.ChangeProfilePhoto",
       "value": "تغيير صورة الملف الشخصي"
     },
@@ -49367,6 +49767,11 @@
       "_": "types.LangPackString",
       "key": "Settings.SetNewProfilePhotoOrVideo",
       "value": "تعيين صورة جديدة"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Settings.SetPhoto",
+      "value": "تعيين صورة"
     },
     {
       "_": "types.LangPackString",
@@ -50896,7 +51301,7 @@
     {
       "_": "types.LangPackString",
       "key": "Stars.Gift.Ton.Text",
-      "value": "يمكنك استخدم TON لشراء الهدايا واقتراح منشورات للقنوات."
+      "value": "يمكنك استخدام جرام لشراء الهدايا واقتراح منشورات للقنوات."
     },
     {
       "_": "types.LangPackString",
@@ -56275,6 +56680,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.AlertTooManyStyles.Title",
+      "value": "لديك أنماط كثيرة"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.EditStyle.ActionCreate",
       "value": "إنشاء"
     },
@@ -56347,6 +56757,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.ResultBadge",
       "value": "النتيجة"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.StyleFooterAuthor",
+      "value": "النمط من [⁨%@⁩]()"
     },
     {
       "_": "types.LangPackString",
@@ -61670,6 +62085,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WebApp.GuardDisclaimerText",
+      "value": "يستخدم **⁨%1$@⁩** **⁨%2$@⁩** للترحيب بالأعضاء الجدد. يجب عليك الموافقة على شروط استخدام التطبيقات المصغرة للمتابعة."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "WebApp.ImportData.AccountHeader",
       "value": "حساب لاستيراد البيانات منه"
     },
@@ -62070,6 +62490,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WebBrowser.ExceptionAdded.Title",
+      "value": "تمت إضافة الاستثناء"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "WebBrowser.Exceptions.AddException",
       "value": "إضافة موقع إلكتروني"
     },
@@ -62454,5 +62879,5 @@
       "value": "لقد قمت بإدخال رمز أمان غير صحيح."
     }
   ],
-  "version": 21554106
+  "version": 21573438
 }
