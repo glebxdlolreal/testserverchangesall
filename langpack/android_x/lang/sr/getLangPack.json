@@ -176,6 +176,20 @@
       "value": "Означили сте %1$s као завршено"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s означио/ла %1$s задатка као завршене",
+      "key": "ActionChecklistMarkDoneTasks",
+      "one_value": "%2$s означио/ла %1$s задатак као завршен",
+      "other_value": "%2$s означио/ла %1$s задатака као завршене"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Означили сте %1$s задатка као завршене",
+      "key": "ActionChecklistMarkDoneTasksOut",
+      "one_value": "Означили сте %1$s задатак као завршен",
+      "other_value": "Означили сте %1$s задатака као завршене"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionChecklistMarkNotDone",
       "value": "%1$s означио/ла %2$s као незавршено"
@@ -184,6 +198,20 @@
       "_": "types.LangPackString",
       "key": "ActionChecklistMarkNotDoneOut",
       "value": "Означили сте %1$s као незавршено"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s означио/ла %1$s задатка као незавршене",
+      "key": "ActionChecklistMarkNotDoneTasks",
+      "one_value": "%2$s означио/ла %1$s задатак као незавршен",
+      "other_value": "%2$s означио/ла %1$s задатака као незавршене"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Означили сте %1$s задатка за незавршене",
+      "key": "ActionChecklistMarkNotDoneTasksOut",
+      "one_value": "Означили сте %1$s задатак као незавршен",
+      "other_value": "Означили сте %1$s задатака као незавршене"
     },
     {
       "_": "types.LangPackString",
@@ -18602,7 +18630,7 @@
     {
       "_": "types.LangPackString",
       "key": "SyncHintTitle",
-      "value": "Пронађи контакте"
+      "value": "Пронађите контакте"
     },
     {
       "_": "types.LangPackString",
@@ -21936,6 +21964,44 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasks",
+      "value": "%1$s означио/ла %2$s и %3$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s задатка као завршене",
+      "key": "format_ActionChecklistMarkTasksDone",
+      "one_value": "%1$s задатак као завршен",
+      "other_value": "%1$s задатака као завршене"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s задатка као незавршене",
+      "key": "format_ActionChecklistMarkTasksNotDone",
+      "one_value": "%1$s задатак као незавршен",
+      "other_value": "%1$s задатака као незавршене"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasksOut",
+      "value": "Означили сте %1$s и %2$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s задатка као завршене",
+      "key": "format_ActionChecklistMarkTasksOutDone",
+      "one_value": "%1$s задатак као завршен",
+      "other_value": "%1$s задатака као завршене"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s задатка као незавршене",
+      "key": "format_ActionChecklistMarkTasksOutNotDone",
+      "one_value": "%1$s задатак као незавршен",
+      "other_value": "%1$s задатака као незавршене"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• %1$s\n• %2$s\n• %3$s\n• %4$s"
     },
@@ -24583,5 +24649,5 @@
       "other_value": "%1$s година"
     }
   ],
-  "version": 1624306
+  "version": 1624353
 }

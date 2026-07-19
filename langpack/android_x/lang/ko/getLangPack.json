@@ -85,6 +85,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedPollOption",
+      "value": "%1$s님이 투표에 “%2$s” 옵션을 추가했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOptionMsg",
+      "value": "%1$s님이 “%3$s” 투표에 “%2$s” 옵션을 추가했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOption",
+      "value": "투표에 “%1$s” 옵션을 추가했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOptionMsg",
+      "value": "“%2$s” 투표에 “%1$s” 옵션을 추가했습니다"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChannelChangedPhoto",
       "value": "채널 사진이 바뀌었습니다"
     },
@@ -105,8 +125,118 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunity",
+      "value": "이 대화가 \"%1$s\" 커뮤니티에 추가되었습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunityUnknown",
+      "value": "이 대화가 커뮤니티에 추가되었습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatRemovedFromCommunity",
+      "value": "이 대화가 커뮤니티에서 삭제되었습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAdd",
+      "value": "%1$s님이 체크리스트에 %2$s 항목을 추가했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddMsg",
+      "value": "%1$s님이 “%3$s” 체크리스트에 %2$s 항목을 추가했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOut",
+      "value": "체크리스트에 %1$s 항목을 추가했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOutMsg",
+      "value": "“%3$s” 체크리스트에 %1$s 항목을 추가했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMark",
+      "value": "%1$s님이 %2$s을(를) 완료로 표시하고 %3$s을(를) 미완료로 표시했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDone",
+      "value": "%1$s님이 %2$s을(를) 완료로 표시했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDoneOut",
+      "value": "%1$s을(를) 완료로 표시했습니다"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkDoneTasks",
+      "other_value": "%2$s님이 작업 %1$s개를 완료로 표시했습니다"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkDoneTasksOut",
+      "other_value": "작업 %1$s개를 완료로 표시했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDone",
+      "value": "%1$s님이 %2$s을(를) 미완료로 표시했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDoneOut",
+      "value": "%1$s을(를) 미완료로 표시했습니다"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkNotDoneTasks",
+      "other_value": "%2$s님이 작업 %1$s개를 미완료로 표시했습니다"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkNotDoneTasksOut",
+      "other_value": "작업 %1$s개를 미완료로 표시했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkOut",
+      "value": "%1$s을(를) 완료로 표시하고 %2$s을(를) 미완료로 표시했습니다"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "채널 생성됨"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionCreatedManagedBot",
+      "value": "%2$s님이 관리할 %1$s 봇을 만들었습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOption",
+      "value": "%1$s님이 투표에서 “%2$s” 옵션을 제거했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOptionMsg",
+      "value": "%1$s님이 “%3$s” 투표에서 “%2$s” 옵션을 제거했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOption",
+      "value": "투표에서 “%1$s” 옵션을 제거했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOptionMsg",
+      "value": "“%2$s” 투표에서 “%1$s” 옵션을 제거했습니다"
     },
     {
       "_": "types.LangPackString",
@@ -262,6 +392,51 @@
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "읽음으로 표시"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabled",
+      "value": "%1$s님이 이 대화에서 공유를 비활성화했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabledOut",
+      "value": "이 대화에서 공유를 비활성화했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabled",
+      "value": "%1$s님이 이 대화에서 공유를 활성화했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabledOut",
+      "value": "이 대화에서 공유를 활성화했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequest",
+      "value": "%1$s님이 이 대화에서 공유를 활성화하려고 합니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestExpired",
+      "value": "공유 요청이 만료되었습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestOut",
+      "value": "이 대화에서 공유 활성화를 제안했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillDisabled",
+      "value": "이 대화에서는 공유가 아직 비활성화되어 있습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillEnabled",
+      "value": "이 대화에서는 공유가 아직 활성화되어 있습니다"
     },
     {
       "_": "types.LangPackString",
@@ -6485,6 +6660,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPermissionEditTag",
+      "value": "내 태그 수정"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPermissionPinMessages",
       "value": "메시지 고정"
     },
@@ -6740,6 +6920,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPromotedManageTags",
+      "value": "멤버 태그 편집"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPromotedManageTopics",
       "value": "주제 관리"
     },
@@ -6865,6 +7050,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogRestrictedEditTag",
+      "value": "내 태그 수정"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogRestrictedNew",
       "value": "%1$s님을 제한했습니다\n\n기간: %2$s"
     },
@@ -6975,6 +7165,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogTagRemoved",
+      "value": "%2$s님이 %3$s님의 태그를 제거했습니다(기존: \"%1$s\")"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagRemovedYour",
+      "value": "%2$s님이 회원님의 태그를 제거했습니다(기존: \"%1$s\")"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSet",
+      "value": "%2$s님이 %3$s님의 태그를 \"%1$s\"로 설정했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSetYour",
+      "value": "%2$s님이 회원님의 태그를 \"%1$s\"로 설정했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouRemoved",
+      "value": "%2$s님의 태그를 제거했습니다(기존: \"%1$s\")"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouSet",
+      "value": "%2$s님의 태그를 \"%1$s\"로 설정했습니다"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogToggledInvitesOff",
       "value": "%1$s님이 그룹 초대 기능을 껐습니다"
     },
@@ -7017,6 +7237,26 @@
       "_": "types.LangPackString",
       "key": "EventLogTransferredOwnership",
       "value": "%1$s님에게 소유권을 넘겼습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOff",
+      "value": "%1$s님이 자동 번역을 비활성화했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOffYou",
+      "value": "자동 번역을 비활성화했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOn",
+      "value": "%1$s님이 자동 번역을 활성화했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOnYou",
+      "value": "자동 번역을 활성화했습니다"
     },
     {
       "_": "types.LangPackString",
@@ -21075,6 +21315,51 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistItem",
+      "value": "“%1$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparator",
+      "value": ","
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparatorLast",
+      "value": "및"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasks",
+      "value": "%1$s님이 %2$s하고 %3$s했습니다"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksDone",
+      "other_value": "작업 %1$s개를 완료로 표시"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksNotDone",
+      "other_value": "작업 %1$s개를 미완료로 표시"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasksOut",
+      "value": "%1$s하고 %2$s했습니다"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksOutDone",
+      "other_value": "작업 %1$s개를 완료로 표시"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksOutNotDone",
+      "other_value": "작업 %1$s개를 미완료로 표시"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• %1$s\n• %2$s\n• %3$s\n• %4$s"
     },
@@ -23384,5 +23669,5 @@
       "other_value": "%1$s년"
     }
   ],
-  "version": 1621784
+  "version": 1624316
 }

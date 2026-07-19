@@ -3365,6 +3365,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BotAddAsAdminChannelConfirm",
+      "value": "이 봇을 **%1$s** 채널에 관리자로 추가하시겠습니까? 채널 관리자 및 구독자 목록에 접근할 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddAsAdminGroupConfirm",
+      "value": "이 봇을 **%1$s** 그룹에 관리자로 추가하시겠습니까? 익명 관리자 목록에 접근할 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToChannelAbout",
+      "value": "이 봇은 채널을 관리할 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupAbout",
+      "value": "이 봇은 그룹을 관리할 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannel",
+      "value": "그룹 또는 채널에 추가"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannelAbout",
+      "value": "이 봇은 그룹 혹은 채널을 관리할 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BotAllowAccessTo",
       "value": "접근 허용 대상"
     },
@@ -3407,6 +3437,11 @@
       "_": "types.LangPackString",
       "key": "BotCantReadChatTooltip",
       "value": "이 봇은 대화 전체를 읽을 수 없으며, 봇이 언급된 메시지만 읽을 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotChooseGroup",
+      "value": "그룹 선택"
     },
     {
       "_": "types.LangPackString",
@@ -7237,6 +7272,16 @@
       "_": "types.LangPackString",
       "key": "EditedMessage",
       "value": "수정됨"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.At",
+      "value": "%1$s에 수정됨"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.On",
+      "value": "%1$s %2$s에 수정됨"
     },
     {
       "_": "types.LangPackString",
@@ -14664,6 +14709,16 @@
       "value": "설명 추가(선택 사항)"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "Report2MessagesCount",
+      "other_value": "메시지 %1$d개 신고"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Report2SelectMessages",
+      "value": "신고할 메시지를 선택해 주세요."
+    },
+    {
       "_": "types.LangPackString",
       "key": "Report2Send",
       "value": "신고하기"
@@ -20484,5 +20539,5 @@
       "other_value": "메시지 %1$d개"
     }
   ],
-  "version": 300615
+  "version": 301137
 }
