@@ -86,6 +86,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedPollOption",
+      "value": "%1$s ha aggiunto \"%2$s\" al sondaggio"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOptionMsg",
+      "value": "%1$s ha aggiunto \"%2$s\" al sondaggio \"%3$s\""
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionAddedPollOutOption",
       "value": "Hai aggiunto \"%1$s\" al sondaggio"
     },
@@ -116,6 +126,51 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunityUnknown",
+      "value": "Questa chat è stata aggiunta alla community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatRemovedFromCommunity",
+      "value": "Questa chat è stata rimossa dalla community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAdd",
+      "value": "%1$s ha aggiunto %2$s all'elenco"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddMsg",
+      "value": "%1$s ha aggiunto %2$s all'elenco \"%3$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOut",
+      "value": "Hai aggiunto %1$s all'elenco"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOutMsg",
+      "value": "Hai aggiunto %1$s all'elenco \"%3$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDone",
+      "value": "%1$s ha segnato %2$s come completa"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDoneOut",
+      "value": "Hai segnato %1$s come completa"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDone",
+      "value": "%1$s ha segnato %2$s come non completa"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChecklistMarkNotDoneOut",
       "value": "Hai segnato %1$s come non completa"
     },
@@ -123,6 +178,21 @@
       "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "Canale creato"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionCreatedManagedBot",
+      "value": "Hai creato il bot %1$s affinché %2$s lo gestisca"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOption",
+      "value": "%1$s ha rimosso \"%2$s\" dal sondaggio"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOptionMsg",
+      "value": "%1$s ha rimosso \"%2$s\" dal sondaggio \"%3$s\""
     },
     {
       "_": "types.LangPackString",
@@ -319,8 +389,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionSharingRequestExpired",
+      "value": "La richiesta di condivisione è scaduta"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionSharingRequestOut",
       "value": "Hai suggerito di attivare la condivisione in questa chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillDisabled",
+      "value": "La condivisione in questa chat è ancora disattivata"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillEnabled",
+      "value": "La condivisione in questa chat è ancora attiva"
     },
     {
       "_": "types.LangPackString",
@@ -6640,6 +6725,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPermissionEditTag",
+      "value": "Modificare i propri tag"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPermissionPinMessages",
       "value": "Fissare i messaggi"
     },
@@ -6895,6 +6985,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPromotedManageTags",
+      "value": "Modificare i tag dei membri"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPromotedManageTopics",
       "value": "Gestire i topic"
     },
@@ -7020,6 +7115,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogRestrictedEditTag",
+      "value": "Modificare i propri tag"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogRestrictedNew",
       "value": "ha limitato %1$s\n\nDurata: %2$s"
     },
@@ -7127,6 +7227,11 @@
       "_": "types.LangPackString",
       "key": "EventLogSlowModeDisabledYou",
       "value": "%1$s ha disattivato la modalità lenta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagRemovedYour",
+      "value": "%2$s ha rimosso il tuo tag \"%1$s\""
     },
     {
       "_": "types.LangPackString",
@@ -21488,6 +21593,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasksOut",
+      "value": "Hai segnato %1$s e %2$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• %1$s\n• %2$s\n• %3$s\n• %4$s"
     },
@@ -23966,5 +24076,5 @@
       "other_value": "%1$s anni"
     }
   ],
-  "version": 1624049
+  "version": 1624136
 }
