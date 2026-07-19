@@ -106,8 +106,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunity",
+      "value": "Este chat fue añadido a la comunidad “%1$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunityUnknown",
+      "value": "Este chat fue añadido a la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatRemovedFromCommunity",
+      "value": "Este chat fue quitado de la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "Canal creado"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionCreatedManagedBot",
+      "value": "Creaste el bot %1$s para que lo gestione %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -266,6 +286,36 @@
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "Marcar como leído "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabled",
+      "value": "%1$s desactivó compartir en este chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabledOut",
+      "value": "Desactivaste compartir en este chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabled",
+      "value": "%1$s activó compartir en este chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabledOut",
+      "value": "Activaste compartir en este chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillDisabled",
+      "value": "En este chat aún está desactivado compartir"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillEnabled",
+      "value": "En este chat aún está activado compartir"
     },
     {
       "_": "types.LangPackString",
@@ -6840,6 +6890,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPromotedManageTags",
+      "value": "Editar etiquetas de miembros"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPromotedManageTopics",
       "value": "Gestionar temas"
     },
@@ -7117,6 +7172,26 @@
       "_": "types.LangPackString",
       "key": "EventLogTransferredOwnership",
       "value": "transfirió la propiedad a %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOff",
+      "value": "%1$s desactivó la traducción automática"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOffYou",
+      "value": "Desactivaste la traducción automática"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOn",
+      "value": "%1$s activó la traducción automática"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOnYou",
+      "value": "Activaste la traducción automática"
     },
     {
       "_": "types.LangPackString",
@@ -21388,6 +21463,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistItem",
+      "value": "“%1$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparator",
+      "value": ", "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparatorLast",
+      "value": " y "
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• %1$s\n• %2$s\n• %3$s\n• %4$s"
     },
@@ -23866,5 +23956,5 @@
       "other_value": "%1$s años"
     }
   ],
-  "version": 1621303
+  "version": 1624171
 }
