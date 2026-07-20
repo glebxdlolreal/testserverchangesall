@@ -2355,7 +2355,7 @@
     {
       "_": "types.LangPackString",
       "key": "AuthConfirmation.Description",
-      "value": "این وبسایت، **نام**، **نام کاربری** و\n**عکس پروفایل** شما را دریافت خواهد کرد."
+      "value": "این سایت، **نام**، **نام کاربری** و\n**عکس پروفایل** شما را دریافت خواهد کرد."
     },
     {
       "_": "types.LangPackString",
@@ -12012,7 +12012,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.PostApproval.Message.AdminAgreementPriceTon",
-      "value": "💰 کاربر ⁨%1$@⁩ پرداخت کرد.\n\n⌛ **⁨%2$@⁩**، 24 ساعت پس از انتشار پست، Gram را دریافت خواهد کرد.\n\n🔄 در صورتی که مدیران، پست را پیش از 24 ساعت از انتشار آن حذف کنند، Gram کاربر بازپرداخت خواهند شد."
+      "value": "💰 کاربر ⁨%1$@⁩ پرداخت کرد.\n\n⌛ **⁨%2$@⁩**، 24 ساعت پس از انتشار پست، Gram‌ها را دریافت خواهد کرد.\n\n🔄 در صورتی که مدیران، پست را پیش از 24 ساعت از انتشار آن حذف کنند، Gram‌های کاربر بازپرداخت خواهند شد."
     },
     {
       "_": "types.LangPackString",
@@ -12072,7 +12072,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.PostApproval.Message.UserAgreementPriceTon",
-      "value": "💰 شما ⁨%1$@⁩ پرداخت کردید.\n\n⌛ **⁨%2$@⁩**، 24 ساعت پس از انتشار پست، Gram را دریافت خواهد کرد.\n\n🔄 در صورتی که مدیران، پست را پیش از 24 ساعت از انتشار آن حذف کنند، Gram شما بازپرداخت خواهد شد."
+      "value": "💰 شما ⁨%1$@⁩ پرداخت کردید.\n\n⌛ **⁨%2$@⁩**، 24 ساعت پس از انتشار پست، Gram‌ها را دریافت خواهد کرد.\n\n🔄 در صورتی که مدیران، پست را پیش از 24 ساعت از انتشار آن حذف کنند، Gram‌های شما بازپرداخت خواهد شد."
     },
     {
       "_": "types.LangPackString",
@@ -12453,6 +12453,16 @@
       "_": "types.LangPackString",
       "key": "Chat.PrivateMessageSeenTimestamp.YesterdayAt",
       "value": "خوانده شده دیروز در ⁨%@⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.PrivateMessageSentTimestamp.Date",
+      "value": "ارسال شده در ⁨%@⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.PrivateMessageSentTimestamp.YesterdayAt",
+      "value": "ارسال شده دیروز ساعت ⁨%@⁩"
     },
     {
       "_": "types.LangPackString",
@@ -14644,7 +14654,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChatList.SessionReview.ConfirmToastTitle",
-      "value": "اجازه ورود جدید به حساب کاربری داده شد"
+      "value": "ورود جدید مجاز شد"
     },
     {
       "_": "types.LangPackString",
@@ -16371,6 +16381,46 @@
       "_": "types.LangPackString",
       "key": "Common.of",
       "value": "از"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat.Title",
+      "value": "افزودن گفتگو"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningTitle",
+      "value": "هشدار"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionManageLinkedPeers",
+      "value": "ویرایش لیست گفتگوها"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.Add",
+      "value": "افزودن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAll",
+      "value": "افزودن همه"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.AddAllChats",
+      "value": "افزودن تمامی گفتگوها"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.Decline",
+      "value": "رد کردن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionHidden",
+      "value": "گفتگوهای پنهان"
     },
     {
       "_": "types.LangPackString",
@@ -20279,7 +20329,7 @@
     {
       "_": "types.LangPackString",
       "key": "CreatePoll.Link.Description",
-      "value": "افزودن لینک به این گزینه"
+      "value": "یک لینک به این گزینه اضافه کنید."
     },
     {
       "_": "types.LangPackString",
@@ -32501,12 +32551,12 @@
     {
       "_": "types.LangPackString",
       "key": "Monetization.Balance.StarsInfo",
-      "value": "شما می‌توانید پاداش‌های ستاره را با استفاده از Fragment جمع‌آوری نموده، یا از ستاره‌ها برای تبلیغ کانال خود استفاده کنید. نمی‌توانید کمتر از 1000 ستاره برداشت کنید. [بیشتر بدانید >]()"
+      "value": "شما می‌توانید پاداش‌های ستاره را با استفاده از Fragment برداشت نموده، یا از ستاره‌ها برای تبلیغ کانال خود استفاده کنید. نمی‌توانید کمتر از 1000 ستاره برداشت کنید. [بیشتر بدانید >]()"
     },
     {
       "_": "types.LangPackString",
       "key": "Monetization.Balance.StarsInfoGroup",
-      "value": "شما می‌توانید پاداش‌های ستاره را با استفاده از Fragment جمع‌آوری کنید. نمی‌توانید کمتر از 1000 ستاره برداشت کنید. [بیشتر بدانید >]()"
+      "value": "شما می‌توانید پاداش‌های ستاره را با استفاده از Fragment برداشت کنید. نمی‌توانید کمتر از 1000 ستاره برداشت کنید. [بیشتر بدانید >]()"
     },
     {
       "_": "types.LangPackString",
@@ -32546,7 +32596,7 @@
     {
       "_": "types.LangPackString",
       "key": "Monetization.BalanceWithdraw",
-      "value": "جمع‌آوری از طریق Fragment"
+      "value": "برداشت از طریق Fragment"
     },
     {
       "_": "types.LangPackString",
@@ -32616,7 +32666,7 @@
     {
       "_": "types.LangPackString",
       "key": "Monetization.Intro.Split.Text",
-      "value": "شما 50% درآمد حاصل از تبلیغات را به عنوان پاداش به Gram دریافت می‌کنید."
+      "value": "شما 50% درآمد حاصل از تبلیغات را به عنوان پاداش در واحد Gram دریافت می‌کنید."
     },
     {
       "_": "types.LangPackString",
@@ -32636,7 +32686,7 @@
     {
       "_": "types.LangPackString",
       "key": "Monetization.Intro.Withdrawal.Text",
-      "value": "می‌توانید هر زمان که خواستید Gram خود را دریافت کنید."
+      "value": "می‌توانید هر زمان که خواستید، Gram‌های خود را برداشت کنید."
     },
     {
       "_": "types.LangPackString",
@@ -32646,12 +32696,12 @@
     {
       "_": "types.LangPackString",
       "key": "Monetization.Overview.Available",
-      "value": "پاداش قابل جمع‌آوری"
+      "value": "پاداش قابل برداشت"
     },
     {
       "_": "types.LangPackString",
       "key": "Monetization.Overview.Current",
-      "value": "پاداش از زمان آخرین جمع‌آوری"
+      "value": "پاداش از زمان آخرین برداشت"
     },
     {
       "_": "types.LangPackString",
@@ -32767,7 +32817,7 @@
     {
       "_": "types.LangPackString",
       "key": "Monetization.Transaction.Withdrawal",
-      "value": "جمع‌آوری از طریق ⁨%@⁩"
+      "value": "برداشت از طریق ⁨%@⁩"
     },
     {
       "_": "types.LangPackString",
@@ -32797,7 +32847,7 @@
     {
       "_": "types.LangPackString",
       "key": "Monetization.TransactionInfo.Withdrawal",
-      "value": "در حال جمع‌آوری پاداش از طریق ⁨%@⁩"
+      "value": "برداشت پاداش از طریق ⁨%@⁩"
     },
     {
       "_": "types.LangPackString",
@@ -32832,7 +32882,7 @@
     {
       "_": "types.LangPackString",
       "key": "Monetization.Withdraw.SecurityRequirements",
-      "value": "شما فقط در صورتی می‌توانید پاداش را جمع‌آوری کنید که:\n\n• تأیید دو مرحله‌ای بیش از **7 روز** پیش برای حساب کاربری شما فعال شده باشد.\n\n• بیش از **24 ساعت** پیش در این دستگاه وارد حساب کاربری خود شده باشید."
+      "value": "شما فقط در صورتی می‌توانید پاداش را برداشت کنید که:\n\n• تأیید دو مرحله‌ای بیش از **7 روز** پیش برای حساب کاربری شما فعال شده باشد.\n\n• بیش از **24 ساعت** پیش در این دستگاه وارد حساب کاربری خود شده باشید."
     },
     {
       "_": "types.LangPackString",
@@ -44553,6 +44603,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RecentSession.ConnectedBot.ConnectedFrom",
+      "value": "متصل شده از"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RecentSession.ConnectedBot.Date",
+      "value": "تاریخ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RecentSession.ConnectedBot.Device",
+      "value": "دستگاه"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RecentSession.ConnectedBot.Subtitle",
       "value": "ربات خودکارسازی گفتگو"
     },
@@ -45101,6 +45166,46 @@
       "_": "types.LangPackString",
       "key": "Resolve.GiftErrorNotFound",
       "value": "متأسفانه به نظر می‌رسد که این هدیه وجود ندارد."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Checklist",
+      "value": "چک‌لیست"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.None",
+      "value": "هیچ‌کدام"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuCode",
+      "value": "کد"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuHeadingItem",
+      "value": "تیتر ⁨%@⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuPullquote",
+      "value": "نقل قول برجسته"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuQuote",
+      "value": "نقل قول"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuText",
+      "value": "متن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TitleArticle",
+      "value": "متن"
     },
     {
       "_": "types.LangPackString",
@@ -46550,7 +46655,7 @@
     {
       "_": "types.LangPackString",
       "key": "Settings.Ton.Description",
-      "value": "برای خریداری هدیه و پیشنهاد پست به کانال‌ها، از Gram استفاده کنید."
+      "value": "از Gram برای خریداری هدیه و پیشنهاد پست به کانال‌ها استفاده کنید."
     },
     {
       "_": "types.LangPackString",
@@ -47817,7 +47922,7 @@
     {
       "_": "types.LangPackString",
       "key": "Stars.AccountRevenue.Withdraw.Info",
-      "value": "شما می‌توانید پاداش‌های ستاره را با استفاده از Fragment جمع‌آوری کنید. نمی‌توانید کمتر از 1000 ستاره برداشت کنید. [بیشتر بدانید >]()"
+      "value": "شما می‌توانید پاداش‌های ستاره را با استفاده از Fragment برداشت کنید. نمی‌توانید کمتر از 1000 ستاره برداشت کنید. [بیشتر بدانید >]()"
     },
     {
       "_": "types.LangPackString",
@@ -47872,7 +47977,7 @@
     {
       "_": "types.LangPackString",
       "key": "Stars.BotRevenue.Withdraw.Info",
-      "value": "شما می‌توانید پاداش‌های ستاره را با استفاده از Fragment جمع‌آوری نموده، یا از ستاره‌ها برای تبلیغ ربات خود استفاده کنید. نمی‌توانید کمتر از 1000 ستاره برداشت کنید. [بیشتر بدانید >]()"
+      "value": "شما می‌توانید پاداش‌های ستاره را با استفاده از Fragment برداشت نموده، یا از ستاره‌ها برای تبلیغ ربات خود استفاده کنید. نمی‌توانید کمتر از 1000 ستاره برداشت کنید. [بیشتر بدانید >]()"
     },
     {
       "_": "types.LangPackString",
@@ -48586,7 +48691,7 @@
     {
       "_": "types.LangPackString",
       "key": "Stars.Ton.Description",
-      "value": "جهت خرید هدیه و پیشنهاد پست به کانال‌ها، از Gram استفاده کنید."
+      "value": "از Gram برای خریداری هدیه و پیشنهاد پست به کانال‌ها استفاده کنید."
     },
     {
       "_": "types.LangPackString",
@@ -52842,6 +52947,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.ActionAddToPage",
+      "value": "افزودن به صفحه"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ActionApply",
       "value": "اعمال"
     },
@@ -52849,6 +52959,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.ActionClose",
       "value": "بستن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.ActionGenerate",
+      "value": "تولید"
     },
     {
       "_": "types.LangPackString",
@@ -53441,7 +53556,7 @@
     {
       "_": "types.LangPackString",
       "key": "Ton.WithdrawViaFragment.Info",
-      "value": "Gram خود را با استفاده از Fragment جمع‌آوری کنید. [بیشتر بدانید >](telegram.org)"
+      "value": "Gram خود را با استفاده از Fragment برداشت کنید. [بیشتر بدانید >](telegram.org)"
     },
     {
       "_": "types.LangPackString",
@@ -57361,7 +57476,7 @@
     {
       "_": "types.LangPackString",
       "key": "Watch.MessageView.ViewOnPhone",
-      "value": "مشاهده بر روی تلفن همراه"
+      "value": "مشاهده در تلفن همراه"
     },
     {
       "_": "types.LangPackString",
@@ -58093,6 +58208,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WebBrowser.Exception.OpenInApp",
+      "value": "این سایت همیشه به صورت درون‌برنامه باز شود"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "WebBrowser.Exception.OpenInBrowser",
+      "value": "این سایت همیشه در مرورگر باز شود"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "WebBrowser.ExceptionAdded.Text",
+      "value": "این سایت همیشه به صورت درون‌برنامه باز خواهد شد."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "WebBrowser.Exceptions.AddException",
       "value": "افزودن وبسایت"
     },
@@ -58467,5 +58597,5 @@
       "value": "شما کد امنیتی نامعتبری را وارد کرده‌اید."
     }
   ],
-  "version": 21515079
+  "version": 21582101
 }
