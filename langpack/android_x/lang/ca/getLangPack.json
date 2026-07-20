@@ -86,6 +86,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedPollOption",
+      "value": "%1$s ha afegit «%2$s» a l'enquesta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOptionMsg",
+      "value": "%1$s ha afegit «%2$s» a l'enquesta «%3$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOption",
+      "value": "Heu afegit «%1$s» a l'enquesta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOptionMsg",
+      "value": "Heu afegit «%1$s» a l'enquesta «%2$s»"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChannelChangedPhoto",
       "value": "S'ha canviat la foto del canal"
     },
@@ -106,13 +126,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunity",
+      "value": "El xat s'ha afegit a la comunitat «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunityUnknown",
+      "value": "S'ha afegit el xat a la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatRemovedFromCommunity",
+      "value": "El xat s'ha eliminat de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChecklistAdd",
       "value": "%1$s ha afegit %2$s a la llista"
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChecklistAddMsg",
+      "value": "%1$s ha afegit %2$s a la llista «%3$s»"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChecklistAddOut",
       "value": "Heu afegit %1$s a la llista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOutMsg",
+      "value": "Heu afegit %1$s a la llista «%3$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMark",
+      "value": "%1$s ha marcat %2$s com a feta, i %3$s com a no feta"
     },
     {
       "_": "types.LangPackString",
@@ -125,6 +175,18 @@
       "value": "Heu marcat %1$s com a feta"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkDoneTasks",
+      "one_value": "%2$s ha marcat %1$s tasca com a feta",
+      "other_value": "%2$s ha marcat %1$s tasques com a fetes"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkDoneTasksOut",
+      "one_value": "Heu marcat %1$s tasca com a feta",
+      "other_value": "Heu marcat %1$s tasques com a fetes"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionChecklistMarkNotDone",
       "value": "%1$s ha marcat %2$s com a no feta"
@@ -135,6 +197,23 @@
       "value": "Heu marcat %1$s com a no feta"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkNotDoneTasks",
+      "one_value": "%2$s ha marcat %1$s tasca com a no feta",
+      "other_value": "%2$s ha marcat %1$s tasques com a no fetes"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkNotDoneTasksOut",
+      "one_value": "Heu marcat %1$s tasca com a no feta",
+      "other_value": "Heu marcat %1$s tasques com a no fetes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkOut",
+      "value": "Heu marcat %1$s com a feta, i %2$s com a no feta"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "S'ha creat el canal"
@@ -143,6 +222,26 @@
       "_": "types.LangPackString",
       "key": "ActionCreatedManagedBot",
       "value": "Heu creat el bot %1$s, que el %2$s gestionarà"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOption",
+      "value": "%1$s ha eliminat «%2$s» de l'enquesta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOptionMsg",
+      "value": "%1$s ha eliminat «%2$s» de l'enquesta «%3$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOption",
+      "value": "Heu eliminat «%1$s» de l'enquesta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOptionMsg",
+      "value": "Heu eliminat «%1$s» de l'enquesta «%2$s»"
     },
     {
       "_": "types.LangPackString",
@@ -326,6 +425,11 @@
       "_": "types.LangPackString",
       "key": "ActionSharingRequest",
       "value": "%1$s vol activar poder compartir"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestExpired",
+      "value": "La sol·licitud per a compartir ha caducat"
     },
     {
       "_": "types.LangPackString",
@@ -6660,6 +6764,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPermissionEditTag",
+      "value": "Editar la pròpia etiqueta"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPermissionPinMessages",
       "value": "Fixar missatges"
     },
@@ -6915,6 +7024,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPromotedManageTags",
+      "value": "Editar etiquetes de membres"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPromotedManageTopics",
       "value": "Gestionar els temes"
     },
@@ -7040,6 +7154,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogRestrictedEditTag",
+      "value": "Editar la pròpia etiqueta"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogRestrictedNew",
       "value": "ha restringit %1$s\n\nDurada: %2$s"
     },
@@ -7150,6 +7269,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogTagRemoved",
+      "value": "%2$s ha eliminat l'etiqueta per a %3$s «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagRemovedYour",
+      "value": "%2$s ha eliminat la vostra etiqueta «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSet",
+      "value": "%2$s ha definit una etiqueta per a %3$s «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSetYour",
+      "value": "%2$s ha definit la vostra etiqueta «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouRemoved",
+      "value": "Heu eliminat l'etiqueta per a %2$s «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouSet",
+      "value": "Heu definit una etiqueta per a %2$s «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogToggledInvitesOff",
       "value": "%1$s ha desactivat les invitacions de grup"
     },
@@ -7192,6 +7341,26 @@
       "_": "types.LangPackString",
       "key": "EventLogTransferredOwnership",
       "value": "ha transferit la propietat a %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOff",
+      "value": "%1$s ha desactivat la traducció automàtica"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOffYou",
+      "value": "Heu desactivat la traducció automàtica"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOn",
+      "value": "%1$s ha activat la traducció automàtica"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOnYou",
+      "value": "Heu activat la traducció automàtica"
     },
     {
       "_": "types.LangPackString",
@@ -21473,6 +21642,55 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistItem",
+      "value": "«%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparator",
+      "value": ", "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparatorLast",
+      "value": " i "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasks",
+      "value": "%1$s ha marcat %2$s i %3$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksDone",
+      "one_value": "%1$s com a feta",
+      "other_value": "%1$s com a fetes"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksNotDone",
+      "one_value": "%1$s com a no feta",
+      "other_value": "%1$s com a no fetes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasksOut",
+      "value": "Heu marcat %1$s i %2$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksOutDone",
+      "one_value": "%1$s com a feta",
+      "other_value": "%1$s com a fetes"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksOutNotDone",
+      "one_value": "%1$s com a no feta",
+      "other_value": "%1$s com a no fetes"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• %1$s\n• %2$s\n• %3$s\n• %4$s"
     },
@@ -23951,5 +24169,5 @@
       "other_value": "%1$s anys"
     }
   ],
-  "version": 1624483
+  "version": 1624758
 }
