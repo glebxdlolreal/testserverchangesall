@@ -86,6 +86,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedPollOption",
+      "value": "%1$s añadió “%2$s” a la encuesta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOptionMsg",
+      "value": "%1$s añadió “%2$s” a la encuesta “%3$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOption",
+      "value": "Añadiste “%1$s” a la encuesta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOptionMsg",
+      "value": "Añadiste “%1$s” a la encuesta “%2$s”"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChannelChangedPhoto",
       "value": "Foto del canal cambiada"
     },
@@ -121,6 +141,80 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChecklistAdd",
+      "value": "%1$s añadió %2$s a la lista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddMsg",
+      "value": "%1$s añadió %2$s a la lista de verificación “%3$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOut",
+      "value": "Añadiste %1$s a la lista de verificación"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOutMsg",
+      "value": "Añadiste %1$s a la lista de verificación “%3$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMark",
+      "value": "%1$s marcó %2$s como hecho, y %3$s como no hecho"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDone",
+      "value": "%1$s marcó %2$s como hecho"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDoneOut",
+      "value": "Marcaste %1$s como hecho"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkDoneTasks",
+      "one_value": "%2$s marcó %1$s tarea como hecha",
+      "other_value": "%2$s marcó %1$s tareas como hechas"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkDoneTasksOut",
+      "one_value": "Marcaste %1$s tarea como hecha",
+      "other_value": "Marcaste %1$s tareas como hechas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDone",
+      "value": "%1$s marcó %2$s como no hecho"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDoneOut",
+      "value": "Marcaste %1$s como no hecho"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkNotDoneTasks",
+      "one_value": "%2$s marcó %1$s tarea como no hecha",
+      "other_value": "%2$s marcó %1$s tareas como no hechas"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkNotDoneTasksOut",
+      "one_value": "Marcaste %1$s tarea como no hecha",
+      "other_value": "Marcaste %1$s tareas como no hechas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkOut",
+      "value": "Marcaste %1$s como hecho, y %2$s como no hecho"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "Canal creado"
     },
@@ -128,6 +222,26 @@
       "_": "types.LangPackString",
       "key": "ActionCreatedManagedBot",
       "value": "Creaste el bot %1$s para que lo gestione %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOption",
+      "value": "%1$s quitó “%2$s” de la encuesta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOptionMsg",
+      "value": "%1$s quitó “%2$s” de la encuesta “%3$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOption",
+      "value": "Quitaste “%1$s” de la encuesta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOptionMsg",
+      "value": "Quitaste “%1$s” de la encuesta “%2$s”"
     },
     {
       "_": "types.LangPackString",
@@ -306,6 +420,21 @@
       "_": "types.LangPackString",
       "key": "ActionSharingEnabledOut",
       "value": "Activaste compartir en este chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequest",
+      "value": "%1$s quiere activar compartir en este chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestExpired",
+      "value": "La solicitud para compartir expiró"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestOut",
+      "value": "Sugeriste activar compartir en este chat"
     },
     {
       "_": "types.LangPackString",
@@ -6635,6 +6764,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPermissionEditTag",
+      "value": "Editar etiqueta propia"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPermissionPinMessages",
       "value": "Fijar mensajes"
     },
@@ -7020,6 +7154,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogRestrictedEditTag",
+      "value": "Editar etiqueta propia"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogRestrictedNew",
       "value": "restringió a %1$s\n\nDuración: %2$s"
     },
@@ -7127,6 +7266,36 @@
       "_": "types.LangPackString",
       "key": "EventLogSlowModeDisabledYou",
       "value": "%1$s desactivó el modo lento"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagRemoved",
+      "value": "%2$s quitó la etiqueta “%1$s” para %3$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagRemovedYour",
+      "value": "%2$s quitó tu etiqueta “%1$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSet",
+      "value": "%2$s estableció la etiqueta “%1$s” para %3$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSetYour",
+      "value": "%2$s estableció tu etiqueta “%1$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouRemoved",
+      "value": "Quitaste la etiqueta “%1$s” de %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouSet",
+      "value": "Estableciste la etiqueta “%1$s” para %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -21478,6 +21647,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasks",
+      "value": "%1$s marcó %2$s y %3$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksDone",
+      "one_value": "%1$s tarea como hecha",
+      "other_value": "%1$s tareas como hechas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasksOut",
+      "value": "Marcaste %1$s y %2$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksOutDone",
+      "one_value": "%1$s tarea como hecha",
+      "other_value": "%1$s tareas como hechas"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• %1$s\n• %2$s\n• %3$s\n• %4$s"
     },
@@ -23956,5 +24147,5 @@
       "other_value": "%1$s años"
     }
   ],
-  "version": 1624171
+  "version": 1624396
 }
