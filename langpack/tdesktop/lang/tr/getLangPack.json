@@ -1228,6 +1228,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_community_added",
+      "value": "{from} bu grubu {community} topluluğuna ekledi."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_community_added_channel",
       "value": "Bu kanal, {community} topluluğuna eklendi."
     },
@@ -1238,6 +1243,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown",
+      "value": "{from} bu grubu bir topluluğa ekledi."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_community_added_unknown_channel",
       "value": "Bu kanal, topluluktan kaldırıldı."
     },
@@ -1245,6 +1255,11 @@
       "_": "types.LangPackString",
       "key": "lng_action_community_added_unknown_chat",
       "value": "Bu sohbet bir topluluğa eklendi."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_removed",
+      "value": "{from} bu grubu topluluktan çıkardı."
     },
     {
       "_": "types.LangPackString",
@@ -9482,10 +9497,102 @@
       "value": "Artık {community} bilgilerini düzenleyebilir ve diğer yönetici araçlarını kullanabilirsiniz."
     },
     {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_continue",
+      "value": "Devam Et"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_decline",
+      "value": "Hayır, teşekkürler"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_dismiss_text",
+      "value": "Topluluk yönetici araçlarına erişiminizi kaybedeceksiniz, ancak grup yöneticisi haklarınızı koruyacaksınız."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_dismiss_title",
+      "value": "Kendinizi topluluk yöneticiliğinden alın"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_title",
+      "value": "Siz bir topluluk yöneticisisiniz"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_ban_about",
+      "one_value": "Kullanıcı, {count} sohbetten çıkarılacaktır.",
+      "other_value": "Kullanıcı, {count} sohbetten çıkarılacaktır."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_button",
+      "value": "Yasakla"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_done",
+      "value": "{user} topluluktan yasaklandı."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_toggle",
+      "value": "Topluluktan Yasakla"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "lng_community_ban_warning",
       "one_value": "{user} yasaklanırsa, {count} sohbeti de topluluktan kaldırılır.",
       "other_value": "{user} yasaklanırsa, {count} sohbeti de topluluktan kaldırılır."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_warning_title",
+      "value": "Uyarı"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_bot_peers_limit",
+      "one_value": "{count} bot sınırı aşıldı.",
+      "other_value": "{count} bot sınırı aşıldı."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_loading",
+      "value": "Yükleniyor..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_remove_bot",
+      "value": "Botu Kaldır"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_remove_channel",
+      "value": "Kanalı Kaldır"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_remove_group",
+      "value": "Grubu Kaldır"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_view_bot",
+      "value": "Botu Görüntüle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_view_channel",
+      "value": "Kanalı Görüntüle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_view_group",
+      "value": "Grubu Görüntüle"
     },
     {
       "_": "types.LangPackString",
@@ -9509,6 +9616,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_hidden_chat_title",
+      "value": "Gizli Sohbet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_not_accessible",
+      "value": "Bir yönetici sizi davet edene kadar bu gruba katılamaz veya grubu görüntüleyemezsiniz."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_hidden_not_accessible_bot",
       "value": "Bir yönetici sizi davet edene kadar bu botu kullanamazsınız."
     },
@@ -9516,6 +9633,16 @@
       "_": "types.LangPackString",
       "key": "lng_community_hidden_not_accessible_channel",
       "value": "Bir yönetici sizi davet edene kadar bu kanala katılamaz veya kanalı görüntüleyemezsiniz."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_status",
+      "value": "Gizli"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_join_sure",
+      "value": "{group} grubuna katılmak ister misiniz?"
     },
     {
       "_": "types.LangPackString",
@@ -9533,9 +9660,46 @@
       "value": "Topluluk üyeleri tarafından önerilen sohbetler, yönetici onayı gerektirir."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_peers_limit",
+      "one_value": "{count} sohbet sınırına ulaşıldı.",
+      "other_value": "{count} sohbet sınırına ulaşıldı."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_profile_status",
+      "one_value": "{count} sohbeti olan topluluk",
+      "other_value": "{count} sohbeti olan topluluk"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_removed_list_about",
+      "value": "Topluluktan çıkarılan kullanıcılar burada gösterilecektir."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_add",
+      "value": "Ekle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_decline",
+      "value": "Reddet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_declined_toast_undo",
+      "value": "{chat} öğesini topluluğa ekleme isteğini reddettiniz."
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_community_request_invite_only",
       "value": "Bu grup davetle katılınabilen bir gruptur. Yalnızca üyeleri bu grubu görüntüleyebilir."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only_bot",
+      "value": "Bu bot sadece davetle kullanılabilir. Yalnızca davet edilen üyeler onu kullanabilir."
     },
     {
       "_": "types.LangPackString",
@@ -9544,8 +9708,76 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_request_message_owner",
+      "value": "Grup Sahibine Mesaj Gönder"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_message_owner_bot",
+      "value": "Bot Sahibine Mesaj Gönder"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_request_message_owner_channel",
       "value": "Mesaj Kanalı Sahibi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_only_members",
+      "value": "Yalnızca üyelerine görünür"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_suggested_bot",
+      "value": "{user} bu botu önerdi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_suggested_channel",
+      "value": "{user} bu kanalı önerdi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_suggested_group",
+      "value": "{user} bu grubu önerdi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_add_all",
+      "value": "Tümünü Ekle"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_add_all_sure",
+      "one_value": "{count} sohbeti topluluğa eklemek ister misiniz?",
+      "other_value": "{count} sohbeti topluluğa eklemek ister misiniz?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_add_all_title",
+      "value": "Tüm Sohbetleri Ekle"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_button",
+      "one_value": "{count} Bekleyen İstek",
+      "other_value": "{count} Bekleyen İstek"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_count",
+      "one_value": "Bu topluluk için önerilen {count} sohbet",
+      "other_value": "Bu topluluk için önerilen {count} sohbet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_decline_all",
+      "value": "Hepsini Reddet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_decline_all_title",
+      "value": "Hepsini Reddet"
     },
     {
       "_": "types.LangPackString",
@@ -10252,6 +10484,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_context_copy_in_reply_to",
+      "value": "{name} için cevap"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_context_copy_link",
       "value": "Bağlantıyı Kopyala"
     },
@@ -10894,6 +11131,11 @@
       "_": "types.LangPackString",
       "key": "lng_context_view_channel",
       "value": "Kanal bilgisini görüntüle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_context_view_community",
+      "value": "Topluluk bilgilerini görüntüle"
     },
     {
       "_": "types.LangPackString",
@@ -13581,8 +13823,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_edited_at",
+      "value": "düzenlendi: {time}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_edited_date",
       "value": "Düzenlendi: {date}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_edited_on",
+      "value": "düzenlendi: {date} {time}"
     },
     {
       "_": "types.LangPackString",
@@ -13613,6 +13865,21 @@
       "_": "types.LangPackString",
       "key": "lng_effect_stickers_title",
       "value": "Çıkartmalardan gelen efektler"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_adapt_no_video",
+      "value": "Video çıkartmaları henüz desteklenmiyor."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_adapt_sticker",
+      "value": "Bir Çıkartmadan Uyarla"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_add_existing",
+      "value": "Mevcut Bir İfadeyi Ekle"
     },
     {
       "_": "types.LangPackString",
@@ -13691,8 +13958,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_emoji_create_emoji_about",
+      "value": "İfadenize uygun ifadeleri seçin."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_create_image_title",
+      "value": "Yeni İfade"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_create_new",
+      "value": "Yeni Bir İfade Oluştur"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_emoji_featured_unlock",
       "value": "Kilidini Aç"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_group_badge",
+      "value": "Grup İfadesi"
     },
     {
       "_": "types.LangPackString",
@@ -13846,8 +14133,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_ephemeral_about",
+      "value": "Bu mesajı yalnızca siz görebilirsiniz. Tekrar oturum açtıktan sonra bu mesaj kaybolacaktır."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_ephemeral_cant_schedule",
       "value": "Geçici mesajlar zamanlanamaz."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_command_tooltip",
+      "value": "Diğer üyeler bu mesajı görmeyecek."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_reply_single_message",
+      "value": "Bu mesaja yalnızca bir yanıt mesajı gönderebilirsiniz."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_reply_text_only",
+      "value": "Bu mesaja yanıt olarak bu tür bir mesaj gönderilemez."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_visible_to",
+      "value": "Yalnızca {user} görebilir"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_visible_you",
+      "value": "Sadece siz görebilirsiniz"
     },
     {
       "_": "types.LangPackString",
@@ -20715,6 +21032,11 @@
       "_": "types.LangPackString",
       "key": "lng_in_dlg_story_expired",
       "value": "Süresi dolmuş hikaye"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_in_dlg_table",
+      "value": "Tablo"
     },
     {
       "_": "types.LangPackString",
@@ -32525,6 +32847,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_sent_on",
+      "value": "gönderildi: {date} {time}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_sessions_about_apps",
       "value": "Resmi Telegram uygulaması Android, iPhone, iPad, Windows, macOS ve Linux'da kullanılabilir."
     },
@@ -40536,5 +40863,5 @@
       "other_value": "{count} yıldız ödediniz."
     }
   ],
-  "version": 5743570
+  "version": 5743913
 }
