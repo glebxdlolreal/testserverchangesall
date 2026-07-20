@@ -85,6 +85,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOption",
+      "value": "您新增了投票選項「%1$s」"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChannelChangedPhoto",
       "value": "頻道大頭貼已變更"
     },
@@ -105,8 +110,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunity",
+      "value": "此頻道已加入到「%1$s」社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunityUnknown",
+      "value": "此聊天室已加入到社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatRemovedFromCommunity",
+      "value": "此聊天室已從社群中移除"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOut",
+      "value": "您已將 %1$s 新增至核對清單"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDoneOut",
+      "value": "您將「%1$s」標記為未完成"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "頻道已建立"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionCreatedManagedBot",
+      "value": "您已建立 %1$s 機器人供 %2$s 管理"
     },
     {
       "_": "types.LangPackString",
@@ -262,6 +297,46 @@
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "標示為已讀"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabled",
+      "value": "%1$s 已停用此聊天中的分享功能"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabledOut",
+      "value": "您已停用此聊天中的分享功能"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabledOut",
+      "value": "您已啟用此聊天中的分享功能"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequest",
+      "value": "%1$s 希望在此聊天中啟用分享功能"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestExpired",
+      "value": "分享請求已失效"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestOut",
+      "value": "您建議啟用此聊天中的分享功能"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillDisabled",
+      "value": "此聊天室仍停用分享功能"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillEnabled",
+      "value": "此聊天室仍啟用分享功能"
     },
     {
       "_": "types.LangPackString",
@@ -6975,6 +7050,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogTagRemoved",
+      "value": "%2$s 移除了 %3$s 的「%1$s」標籤"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSet",
+      "value": "%2$s 將 %3$s 的標籤設定為「%1$s」"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogToggledInvitesOff",
       "value": "%1$s 停用了群組邀請"
     },
@@ -7017,6 +7102,16 @@
       "_": "types.LangPackString",
       "key": "EventLogTransferredOwnership",
       "value": "轉讓了擁有權給 %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOff",
+      "value": "%1$s 已停用自動翻譯"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOn",
+      "value": "%1$s 已啟用自動翻譯"
     },
     {
       "_": "types.LangPackString",
@@ -23384,5 +23479,5 @@
       "other_value": "%1$s 年"
     }
   ],
-  "version": 1622408
+  "version": 1624903
 }
