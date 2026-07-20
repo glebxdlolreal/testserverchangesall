@@ -106,8 +106,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunity",
+      "value": "Бұл чат «%1$s» бірлестігіне қосылды"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunityUnknown",
+      "value": "Бұл чат бірлестікке қосылды"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatRemovedFromCommunity",
+      "value": "Бұл чат бірлестіктен жойылды"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChecklistAddOut",
       "value": "Тізімге «%1$s» қостыңыз"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDone",
+      "value": "%1$s «%2$s» орындалды деп білгіледі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDoneOut",
+      "value": "«%1$s» орындалды деп білгіледіңіз"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDone",
+      "value": "%1$s «%2$s» орындалмады деп білгіледі"
     },
     {
       "_": "types.LangPackString",
@@ -301,6 +331,11 @@
       "_": "types.LangPackString",
       "key": "ActionSharingRequest",
       "value": "%1$s осы чатта жөнелтуді қосуды ұсынды"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestExpired",
+      "value": "Жөнелту өтінішінің мерзімі аяқталды"
     },
     {
       "_": "types.LangPackString",
@@ -21497,6 +21532,18 @@
       "value": " және "
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksDone",
+      "one_value": "«%1$s» орындалды",
+      "other_value": "«%1$s» орындалды"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksNotDone",
+      "one_value": "«%1$s» орындалмады",
+      "other_value": "«%1$s» орындалмады"
+    },
+    {
       "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• %1$s\n• %2$s\n• %3$s\n• %4$s"
@@ -23976,5 +24023,5 @@
       "other_value": "%1$s жыл"
     }
   ],
-  "version": 1624509
+  "version": 1624519
 }
