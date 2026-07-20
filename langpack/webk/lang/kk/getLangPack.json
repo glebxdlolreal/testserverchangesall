@@ -3413,6 +3413,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BotAddAsAdminChannelConfirm",
+      "value": "Ботты **%1$s** арнасының әкімшісі деп қосасыз ба? Әкімші мен жазылушы тізімінін көре алатын болады."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddAsAdminGroupConfirm",
+      "value": "Ботты **%1$s** тобының әкімшісі қып қосасыз ба? Аноним әкімші тізімінін көре алатын болады."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToChannelAbout",
+      "value": "Бот арнаны басқара алады."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BotAddToGroupAbout",
       "value": "Бот арна не топты басқара алады."
     },
@@ -3420,6 +3435,11 @@
       "_": "types.LangPackString",
       "key": "BotAddToGroupOrChannel",
       "value": "Арна не топқа қосу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannelAbout",
+      "value": "Бот арна не топты басқара алады."
     },
     {
       "_": "types.LangPackString",
@@ -3465,6 +3485,11 @@
       "_": "types.LangPackString",
       "key": "BotCantReadChatTooltip",
       "value": "Бұл бот чатты оқи алмайды, тек ол атап өтілген хатты оқи алады."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotChooseGroup",
+      "value": "Топты таңдау"
     },
     {
       "_": "types.LangPackString",
@@ -7335,6 +7360,16 @@
       "_": "types.LangPackString",
       "key": "EditedMessage",
       "value": "өңделген"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.At",
+      "value": "%1$s өңделді"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.On",
+      "value": "%1$s %2$s өңделді"
     },
     {
       "_": "types.LangPackString",
@@ -14868,6 +14903,12 @@
       "value": "Пікір қосу (міндетті емес)"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "Report2MessagesCount",
+      "one_value": "%1$d хатқа шағыну",
+      "other_value": "%1$d хатқа шағыну"
+    },
+    {
       "_": "types.LangPackString",
       "key": "Report2SelectMessages",
       "value": "Шағыну үшін хатты таңдаңыз."
@@ -20762,5 +20803,5 @@
       "other_value": "%1$d хат"
     }
   ],
-  "version": 300815
+  "version": 301162
 }
