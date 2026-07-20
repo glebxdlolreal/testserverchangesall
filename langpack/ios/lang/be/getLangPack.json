@@ -2398,7 +2398,7 @@
     {
       "_": "types.LangPackString",
       "key": "AuthConfirmation.Description",
-      "value": "Гэты сайт атрымае ваша\n**імя**, **імя карыстальніка**\nі **аватар профілю**."
+      "value": "Гэты сайт атрымае ваша\n**імя**, **імя карыстальніка**\nі **фота профілю**."
     },
     {
       "_": "types.LangPackString",
@@ -3293,7 +3293,7 @@
     {
       "_": "types.LangPackString",
       "key": "AvatarUpload.StatusUploading",
-      "value": "Аватар вашага профілю запампоўваецца..."
+      "value": "Фота вашага профілю запампоўваецца..."
     },
     {
       "_": "types.LangPackString",
@@ -5102,7 +5102,7 @@
     {
       "_": "types.LangPackString",
       "key": "BusinessMessageSetup.ErrorNoRecipients.Text",
-      "value": "Не абраныя атрымальнікі. Скінуць?"
+      "value": "Атрымальнікі не выбраны. Скінуць?\n"
     },
     {
       "_": "types.LangPackString",
@@ -5727,7 +5727,7 @@
     {
       "_": "types.LangPackString",
       "key": "CHAT_PHOTO_EDITED",
-      "value": "%1$@ адрэдагаваў(-ла) аватар суполкі %2$@"
+      "value": "%1$@ адрэдагаваў(-ла) фота суполкі %2$@"
     },
     {
       "_": "types.LangPackString",
@@ -5812,7 +5812,7 @@
     {
       "_": "types.LangPackString",
       "key": "Cache.Help",
-      "value": "Фота, відэа і іншыя файлы з воблачных чатаў, у якія вы **не заходзілі** апошнім часам, будуць выдалены з гэтай прылады, каб захаваць месца на дыску.\n\nУсе файлы застануцца на воблаку Telegram, і, калі вам будзе патрэбна, іх можна будзе спампаваць зноў."
+      "value": "Фота, відэа і іншыя файлы з воблачных чатаў, у якія вы **не заходзілі** апошнім часам, будуць выдалены з гэтай прылады, каб захаваць месца на дыску.\n\nУсе файлы застануцца ў воблаку Telegram, і, калі вам будзе патрэбна, іх можна будзе спампаваць зноў."
     },
     {
       "_": "types.LangPackString",
@@ -5842,7 +5842,7 @@
     {
       "_": "types.LangPackString",
       "key": "Cache.MaximumCacheSizeHelp",
-      "value": "Калі ваш памер кэшу перавысіць гэта абмежаванне, то самыя даўнія медыяфайлы будуць выдалены.\n\nУсе медыяфайлы застаюцца на воблаку Telegram і могуць быць спампаваны нанава, калі вам гэта спатрэбіцца."
+      "value": "Калі ваш памер кэшу перавысіць гэта абмежаванне, то самыя даўнія медыяфайлы будуць выдалены.\n\nУсе медыяфайлы застануцца ў воблаку Telegram, і іх можна будзе спампаваць зноў, калі яны спатрэбяцца."
     },
     {
       "_": "types.LangPackString",
@@ -13611,12 +13611,12 @@
     {
       "_": "types.LangPackString",
       "key": "ChatAdmins.AllMembersAreAdminsOffHelp",
-      "value": "Толькі кіраўнікі могуць дадаваць і выдаляць удзельнікаў, рэдагаваць назву і аватар суполкі."
+      "value": "Толькі кіраўнікі могуць дадаваць і выдаляць удзельнікаў, рэдагаваць назву і фота суполкі."
     },
     {
       "_": "types.LangPackString",
       "key": "ChatAdmins.AllMembersAreAdminsOnHelp",
-      "value": "Усе ўдзельнікі могуць запрашаць іншых карыстальнікаў, рэдагаваць назву і аватар суполкі."
+      "value": "Усе ўдзельнікі могуць запрашаць іншых карыстальнікаў, рэдагаваць назву і фота суполкі."
     },
     {
       "_": "types.LangPackString",
@@ -15240,7 +15240,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChatList.UndoArchiveTitle",
-      "value": "Чат пераведзены ў архіў."
+      "value": "Чат архіваваны."
     },
     {
       "_": "types.LangPackString",
@@ -17656,11 +17656,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "%@ абраныя",
+      "few_value": "%@ выбраныя",
       "key": "Contacts.SelectedContacts",
-      "many_value": "%@ абраных",
-      "one_value": "%@ абраны",
-      "other_value": "%@ абранага"
+      "many_value": "%@ выбраных",
+      "one_value": "%@ выбрана",
+      "other_value": "%@ выбранага"
     },
     {
       "_": "types.LangPackString",
@@ -20364,12 +20364,12 @@
     {
       "_": "types.LangPackString",
       "key": "Conversation.SuggestedPhotoText",
-      "value": "%@ прапануе гэта фота для вашага профілю ў Telegram."
+      "value": "%@ прапануе вам фота для вашага профілю."
     },
     {
       "_": "types.LangPackString",
       "key": "Conversation.SuggestedPhotoTextExpanded",
-      "value": "%@ прапануе вам аватар для вашага профілю."
+      "value": "%@ прапануе вам фота для вашага профілю."
     },
     {
       "_": "types.LangPackString",
@@ -20399,17 +20399,17 @@
     {
       "_": "types.LangPackString",
       "key": "Conversation.SuggestedVideoText",
-      "value": "**%@** прапануе вам аватар для вашага профілю."
+      "value": "**%@** прапануе вам фота для вашага профілю."
     },
     {
       "_": "types.LangPackString",
       "key": "Conversation.SuggestedVideoTextExpanded",
-      "value": "%@ прапануе вам гэты аватар для вашага профілю Telegram."
+      "value": "%@ прапануе вам гэта фота для вашага профілю Telegram."
     },
     {
       "_": "types.LangPackString",
       "key": "Conversation.SuggestedVideoTextYou",
-      "value": "Вы прапанавалі для **%@** аватар профілю."
+      "value": "Вы прапанавалі гэта фота для профілю **%@**."
     },
     {
       "_": "types.LangPackString",
@@ -22383,7 +22383,7 @@
     {
       "_": "types.LangPackString",
       "key": "EditProfile.NameAndPhotoHelp",
-      "value": "Увядзіце ваша імя і дадайце аватар профілю."
+      "value": "Увядзіце ваша імя і дадайце фота профілю."
     },
     {
       "_": "types.LangPackString",
@@ -31197,7 +31197,7 @@
     {
       "_": "types.LangPackString",
       "key": "Login.EnterNewEmailTitle",
-      "value": "Увядзіце новую электронную пошту"
+      "value": "Увядзіце новую эл. пошту"
     },
     {
       "_": "types.LangPackString",
@@ -31363,7 +31363,7 @@
     {
       "_": "types.LangPackString",
       "key": "Login.InfoHelp",
-      "value": "Увядзіце ваша імя і дадайце аватар профілю."
+      "value": "Увядзіце ваша імя і дадайце фота профілю."
     },
     {
       "_": "types.LangPackString",
@@ -31788,7 +31788,7 @@
     {
       "_": "types.LangPackString",
       "key": "LogoutOptions.ClearCacheText",
-      "value": "Вызваліць месца на дыску вашай прылады; вашы медыя застануцца на воблаку."
+      "value": "Вызваліць месца на дыску вашай прылады; вашы медыя застануцца ў воблаку."
     },
     {
       "_": "types.LangPackString",
@@ -33680,11 +33680,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "Вы ўпэўнены, што хочаце выдаліць усе паведамленні за %@ абраныя дні?",
+      "few_value": "Вы ўпэўнены, што хочаце выдаліць усе паведамленні за %@ выбраныя дні?",
       "key": "MessageCalendar.DeleteAlertText",
-      "many_value": "Вы ўпэўнены, што хочаце выдаліць усе паведамленні за %@ абраных дзён?",
-      "one_value": "Вы ўпэўнены, што хочаце выдаліць усе паведамленні за абраны дзень?",
-      "other_value": "Вы ўпэўнены, што хочаце выдаліць усе паведамленні за %@ абранага дня?"
+      "many_value": "Вы ўпэўнены, што хочаце выдаліць усе паведамленні за %@ выбраных дзён?",
+      "one_value": "Вы ўпэўнены, што хочаце выдаліць усе паведамленні за %@ выбраны дзень?",
+      "other_value": "Вы ўпэўнены, што хочаце выдаліць усе паведамленні за %@ выбранага дня?"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -33795,11 +33795,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "%@ голаса >",
+      "few_value": "%@ галасы >",
       "key": "MessagePoll.ViewVote",
-      "many_value": "%@ голасоў >",
+      "many_value": "%@ галасоў >",
       "one_value": "%@ голас >",
-      "other_value": "%@ голаса >"
+      "other_value": "%@ голасу >"
     },
     {
       "_": "types.LangPackString",
@@ -38887,7 +38887,7 @@
     {
       "_": "types.LangPackString",
       "key": "PUSH_CHAT_PHOTO_EDITED",
-      "value": "%2$@|%1$@ адрэдагаваў(-ла) аватар суполкі"
+      "value": "%2$@|%1$@ адрэдагаваў(-ла) фота суполкі"
     },
     {
       "_": "types.LangPackString",
@@ -44578,7 +44578,7 @@
     {
       "_": "types.LangPackString",
       "key": "Premium.WallpapersInfo",
-      "value": "Выбірайце свой фон чата для сябе і вашага суразмоўца."
+      "value": "Задавайце ўласныя фоны для сябе і вашага суразмоўца."
     },
     {
       "_": "types.LangPackString",
@@ -44841,12 +44841,12 @@
     {
       "_": "types.LangPackString",
       "key": "Privacy.DeleteDrafts",
-      "value": "Выдаліць чарнавікі на воблаку"
+      "value": "Выдаліць чарнавікі ў воблаку"
     },
     {
       "_": "types.LangPackString",
       "key": "Privacy.DeleteDrafts.DraftsDeleted",
-      "value": "Усе чарнавікі на воблаку выдалены."
+      "value": "Усе чарнавікі ў воблаку выдалены."
     },
     {
       "_": "types.LangPackString",
@@ -45237,12 +45237,12 @@
     {
       "_": "types.LangPackString",
       "key": "Privacy.ProfilePhoto.CustomHelp",
-      "value": "Вы можаце вызначыць, хто будзе мець магчымасць бачыць ваш аватар профілю."
+      "value": "Вы можаце вызначыць, хто будзе мець магчымасць бачыць ваша фота профілю."
     },
     {
       "_": "types.LangPackString",
       "key": "Privacy.ProfilePhoto.CustomOverrideAddInfo",
-      "value": "Дадавайце карыстальнікаў або суполкі, для якіх ваш аватар будзе бачны."
+      "value": "Дадавайце карыстальнікаў або суполкі, для якіх ваша фота будзе бачна."
     },
     {
       "_": "types.LangPackString",
@@ -45252,7 +45252,7 @@
     {
       "_": "types.LangPackString",
       "key": "Privacy.ProfilePhoto.CustomOverrideInfo",
-      "value": "Вы можаце дадаваць карыстальнікаў або цэлыя суполкі, якія не будуць бачыць ваш аватар."
+      "value": "Вы можаце дадаваць карыстальнікаў або цэлыя суполкі, якія не будуць бачыць ваша фота."
     },
     {
       "_": "types.LangPackString",
@@ -45262,17 +45262,17 @@
     {
       "_": "types.LangPackString",
       "key": "Privacy.ProfilePhoto.PublicPhotoInfo",
-      "value": "Вы можаце задаць публічны аватар для тых, каму забаронена бачыць сапраўдны аватар вашага профілю."
+      "value": "Вы можаце задаць публічнае фота для тых, каму забаронена бачыць сапраўднае фота вашага профілю."
     },
     {
       "_": "types.LangPackString",
       "key": "Privacy.ProfilePhoto.PublicPhotoSuccess",
-      "value": "Гэты аватар будзе паказвацца тым, каму забаронена бачыць ваш асноўны аватар."
+      "value": "Гэта фота будзе паказвацца тым, каму забаронена бачыць ваша сапраўднае фота."
     },
     {
       "_": "types.LangPackString",
       "key": "Privacy.ProfilePhoto.PublicVideoSuccess",
-      "value": "Гэты аватар будуць бачыць тыя, каму забаронена бачыць сапраўдны аватар вашага профілю."
+      "value": "Гэта фота будуць бачыць тыя, каму забаронена бачыць сапраўднае фота вашага профілю."
     },
     {
       "_": "types.LangPackString",
@@ -45615,7 +45615,7 @@
     {
       "_": "types.LangPackString",
       "key": "PrivacyPolicy.DeclineLastWarning",
-      "value": "Увага! Гэта дзеянне незваротна выдаліць увесь ваш уліковы запіс Telegram з тымі звесткамі, што захоўваюцца на воблаку.\n\nВажна: зараз вы можаце адмовіцца і, каб не страціць вашы звесткі, экспартаваць іх, перш чым выдаляць уліковы запіс. (Каб зрабіць гэта, адкрыйце актуальную версію Telegram Desktop і перайдзіце ў «Налады > Пашыраныя налады > Экспартаваць даныя Telegram».)"
+      "value": "Увага! Гэта дзеянне незваротна выдаліць увесь ваш уліковы запіс Telegram з тымі звесткамі, што захоўваюцца ў воблаку.\n\nВажна: зараз вы можаце адмовіцца і, каб не страціць вашы звесткі, экспартаваць іх, перш чым выдаляць уліковы запіс. (Каб зрабіць гэта, адкрыйце актуальную версію Telegram Desktop і перайдзіце ў «Налады > Пашыраныя налады > Экспартаваць даныя Telegram.)"
     },
     {
       "_": "types.LangPackString",
@@ -45675,7 +45675,7 @@
     {
       "_": "types.LangPackString",
       "key": "PrivacySettings.DataSettingsHelp",
-      "value": "Вызначыце, якія даныя будуць захоўвацца на воблаку і выкарыстоўвацца Telegram для некаторых пашыраных функцый."
+      "value": "Вызначыце, якія даныя будуць захоўвацца ў воблаку і выкарыстоўвацца Telegram для некаторых пашыраных функцый."
     },
     {
       "_": "types.LangPackString",
@@ -46376,11 +46376,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "%d абраныя",
+      "few_value": "%d выбраныя",
       "key": "QuickReply.SelectedTitle",
-      "many_value": "%d абраных",
-      "one_value": "%d абраны",
-      "other_value": "%d абранага"
+      "many_value": "%d выбраных",
+      "one_value": "%d выбрана",
+      "other_value": "%d выбранага"
     },
     {
       "_": "types.LangPackString",
@@ -48483,7 +48483,7 @@
     {
       "_": "types.LangPackString",
       "key": "Settings.PersonalChannelRemovedToast",
-      "value": "Персанальны канал выдалены"
+      "value": "Асабісты канал выдалены"
     },
     {
       "_": "types.LangPackString",
@@ -52972,7 +52972,7 @@
     {
       "_": "types.LangPackString",
       "key": "StorageManagement.ClearConfirmationText",
-      "value": "Медыяфайлы і дакументы застануцца на воблаку і могуць быць спампаваны нанава, калі яны вам спатрэбяцца."
+      "value": "Медыяфайлы і дакументы застануцца ў воблаку і могуць быць спампаваны нанава, калі яны вам спатрэбяцца."
     },
     {
       "_": "types.LangPackString",
@@ -53092,7 +53092,7 @@
     {
       "_": "types.LangPackString",
       "key": "StorageManagement.SectionsDescription",
-      "value": "Усе медыяфайлы застануцца на воблаку Telegram і могуць быць спампаваны нанава, калі вам гэта спатрэбіцца."
+      "value": "Усе медыяфайлы застануцца ў воблаку Telegram, і іх можна будзе спампаваць зноў, калі яны спатрэбяцца."
     },
     {
       "_": "types.LangPackString",
@@ -57653,7 +57653,7 @@
     {
       "_": "types.LangPackString",
       "key": "UserInfo.CustomPhotoInfo",
-      "value": "Вы можаце замяніць аватар %@ на іншы, які будзеце бачыць толькі вы."
+      "value": "Вы можаце замяніць фота %@ на іншае, якое будзе бачна толькі вам.\n"
     },
     {
       "_": "types.LangPackString",
@@ -57808,7 +57808,7 @@
     {
       "_": "types.LangPackString",
       "key": "UserInfo.ResetToOriginalAlertText",
-      "value": "Сапраўды хочаце вярнуць арыгінальны аватар %@?"
+      "value": "Сапраўды хочаце вярнуць арыгінальнае фота %@?"
     },
     {
       "_": "types.LangPackString",
@@ -57833,7 +57833,7 @@
     {
       "_": "types.LangPackString",
       "key": "UserInfo.SetCustomPhoto.AlertPhotoText",
-      "value": "Задаць аватар для %@? Гэты відарыс будзе заўсёды паказвацца замест аватара ад %@, але бачыць яго будзеце толькі вы."
+      "value": "Вы хочаце задаць гэта фота для %@? Яно заменіць любое фота, якое задаў %@, але толькі вы будзеце яго бачыць."
     },
     {
       "_": "types.LangPackString",
@@ -57843,12 +57843,12 @@
     {
       "_": "types.LangPackString",
       "key": "UserInfo.SetCustomPhoto.AlertVideoText",
-      "value": "Хочаце задаць для %@ гэтае відэа? Гэта заменіць аватар, які задаў %@, але толькі для вас."
+      "value": "Хочаце задаць для %@ гэтае відэа? Гэта заменіць фота, якое задаў %@, але толькі для вас."
     },
     {
       "_": "types.LangPackString",
       "key": "UserInfo.SetCustomPhoto.SuccessPhotoText",
-      "value": "Вы заўсёды будзеце бачыць гэты відарыс як аватар **%@**."
+      "value": "Вы заўсёды будзеце бачыць гэты відарыс як фота **%@**."
     },
     {
       "_": "types.LangPackString",
@@ -57858,7 +57858,7 @@
     {
       "_": "types.LangPackString",
       "key": "UserInfo.SetCustomPhotoTitle",
-      "value": "Хочаце прызначыць уласны аватар для %@?"
+      "value": "Хочаце прызначыць уласнае фота для %@?"
     },
     {
       "_": "types.LangPackString",
@@ -57903,7 +57903,7 @@
     {
       "_": "types.LangPackString",
       "key": "UserInfo.SuggestPhoto.AlertPhotoText",
-      "value": "Хочаце прапанаваць на аватар для %@ гэты відарыс?"
+      "value": "Хочаце прапанаваць на фота для %@ гэты відарыс?"
     },
     {
       "_": "types.LangPackString",
@@ -57913,7 +57913,7 @@
     {
       "_": "types.LangPackString",
       "key": "UserInfo.SuggestPhoto.AlertVideoText",
-      "value": "Хочаце прапанаваць гэтае фота для %@ на аватар профілю?"
+      "value": "Хочаце прапанаваць гэтае фота для %@ на фота профілю?"
     },
     {
       "_": "types.LangPackString",
@@ -61533,5 +61533,5 @@
       "value": "Вы ўвялі памылковы код бяспекі."
     }
   ],
-  "version": 21547555
+  "version": 21580889
 }

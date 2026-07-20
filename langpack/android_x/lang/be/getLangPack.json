@@ -559,7 +559,7 @@
     {
       "_": "types.LangPackString",
       "key": "ArchiveChat",
-      "value": "Перавесці чат у архіў"
+      "value": "Архіваваць чат"
     },
     {
       "_": "types.LangPackString",
@@ -778,7 +778,7 @@
     {
       "_": "types.LangPackString",
       "key": "AreYouSureClearDrafts",
-      "value": "Вы ўпэўнены, што хочаце выдаліць чарнавікі, захаваныя на воблаку?"
+      "value": "Вы ўпэўнены, што хочаце выдаліць чарнавікі, захаваныя ў воблаку?"
     },
     {
       "_": "types.LangPackString",
@@ -1846,6 +1846,11 @@
       "_": "types.LangPackString",
       "key": "ChangeEmailInfo",
       "value": "Цяпер вы будзеце атрымліваць коды для ўваходу ў\nTelegram праз электронную пошту, а не SMS. Увядзіце\nадрас электроннай пошты, да якога маеце доступ."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChangeEmailPromptButton",
+      "value": "Змяніць адрас"
     },
     {
       "_": "types.LangPackString",
@@ -3912,6 +3917,14 @@
       "value": "Краіна"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Вы можаце выбраць не больш за %1$s краіны.",
+      "key": "CountryLimit",
+      "many_value": "Вы можаце выбраць не больш за %1$s краін.",
+      "one_value": "Вы можаце выбраць не больш за %1$s краіну.",
+      "other_value": "Вы можаце выбраць не больш за %1$s краіны."
+    },
+    {
       "_": "types.LangPackString",
       "key": "CreateAHintForYourPassword",
       "value": "Стварыце падказку для свайго пароля"
@@ -4474,7 +4487,7 @@
     {
       "_": "types.LangPackString",
       "key": "DeletingPhotoWait",
-      "value": "Выдаленне аватара профілю, пачакайце…"
+      "value": "Выдаленне фота профілю, пачакайце…"
     },
     {
       "_": "types.LangPackString",
@@ -6583,6 +6596,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GiftLinkShareDesc",
+      "value": "Вы таксама можаце %1$s сябру як падарунак."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GiftTo",
       "value": "Для"
     },
@@ -7680,7 +7698,7 @@
     {
       "_": "types.LangPackString",
       "key": "KeepMediaInfo",
-      "value": "Фота, відэа і іншыя файлы з воблачных чатаў, у якія вы **не заходзілі** апошнім часам, будуць выдалены з гэтай прылады, каб захаваць месца на дыску.\n\nУсе файлы застануцца на воблаку Telegram, і, калі вам будзе патрэбна, іх можна будзе спампаваць зноў."
+      "value": "Фота, відэа і іншыя файлы з воблачных чатаў, у якія вы **не заходзілі** апошнім часам, будуць выдалены з гэтай прылады, каб захаваць месца на дыску.\n\nУсе файлы застануцца ў воблаку Telegram, і, калі вам будзе патрэбна, іх можна будзе спампаваць зноў."
     },
     {
       "_": "types.LangPackString",
@@ -8660,6 +8678,11 @@
       "_": "types.LangPackString",
       "key": "LogOut",
       "value": "Выйсці"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "LoginEmail",
+      "value": "Уваход праз эл. пошту"
     },
     {
       "_": "types.LangPackString",
@@ -11200,6 +11223,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingCountriesOn",
+      "value": "Галасаваць могуць толькі карыстальнікі з абраных краін"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembers",
+      "value": "Толькі падпісчыкі"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingMultiple",
       "value": "Некалькі варыянтаў адказу"
     },
@@ -11484,7 +11517,7 @@
     {
       "_": "types.LangPackString",
       "key": "PrivacyDeleteCloudDrafts",
-      "value": "Выдаліць чарнавікі на воблаку"
+      "value": "Выдаліць чарнавікі ў воблаку"
     },
     {
       "_": "types.LangPackString",
@@ -11654,12 +11687,12 @@
     {
       "_": "types.LangPackString",
       "key": "PrivacyPhotoContacts",
-      "value": "Толькі кантакты могуць бачыць ваш аватар профілю"
+      "value": "Толькі кантакты могуць бачыць ваша фота профілю"
     },
     {
       "_": "types.LangPackString",
       "key": "PrivacyPhotoContactsExcept",
-      "value": "Толькі кантакты (%1$s) могуць бачыць ваш аватар профілю"
+      "value": "Толькі кантакты (%1$s) могуць бачыць ваша фота профілю"
     },
     {
       "_": "types.LangPackString",
@@ -11669,7 +11702,7 @@
     {
       "_": "types.LangPackString",
       "key": "PrivacyPhotoEverybodyExcept",
-      "value": "Усе (%1$s) могуць бачыць ваш аватар профілю"
+      "value": "Усе (%1$s) могуць бачыць ваша фота профілю"
     },
     {
       "_": "types.LangPackString",
@@ -11689,12 +11722,12 @@
     {
       "_": "types.LangPackString",
       "key": "PrivacyPhotoNobody",
-      "value": "Ніхто не можа бачыць ваш аватар профілю"
+      "value": "Ніхто не можа бачыць ваша фота профілю"
     },
     {
       "_": "types.LangPackString",
       "key": "PrivacyPhotoNobodyExcept",
-      "value": "Ніхто (%1$s) не можа бачыць ваш аватар профілю"
+      "value": "Ніхто (%1$s) не можа бачыць ваша фота профілю"
     },
     {
       "_": "types.LangPackString",
@@ -12212,7 +12245,7 @@
     {
       "_": "types.LangPackString",
       "key": "PublicPhotoHint",
-      "value": "Гэты аватар будуць бачыць тыя, каму забаронена бачыць сапраўдны аватар вашага профілю."
+      "value": "Гэта фота будуць бачыць тыя, каму забаронена бачыць сапраўднае фота вашага профілю."
     },
     {
       "_": "types.LangPackString",
@@ -14996,7 +15029,7 @@
     {
       "_": "types.LangPackString",
       "key": "SignOutAltClearCacheHint",
-      "value": "Вызваліць месца на дыску вашай прылады; вашы медыя застануцца на воблаку."
+      "value": "Вызваліць месца на дыску вашай прылады; вашы медыя застануцца ў воблаку."
     },
     {
       "_": "types.LangPackString",
@@ -16966,7 +16999,7 @@
     {
       "_": "types.LangPackString",
       "key": "UploadingPhotoWait",
-      "value": "Запампоўванне аватара профілю, пачакайце…"
+      "value": "Запампоўванне фота профілю, пачакайце…"
     },
     {
       "_": "types.LangPackString",
@@ -17753,7 +17786,7 @@
     {
       "_": "types.LangPackString",
       "key": "WhoCanSeePhotoInfo",
-      "value": "Вы можаце вызначыць, хто будзе мець магчымасць бачыць ваш аватар профілю."
+      "value": "Вы можаце вызначыць, хто будзе мець магчымасць бачыць ваша фота профілю."
     },
     {
       "_": "types.LangPackString",
@@ -21018,5 +21051,5 @@
       "other_value": "%1$s гадоў"
     }
   ],
-  "version": 1623843
+  "version": 1624706
 }

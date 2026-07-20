@@ -1455,7 +1455,7 @@
     {
       "_": "types.LangPackString",
       "key": "Archive.Tooltip.JustArchive.Title",
-      "value": "Чат пераведзены ў архіў."
+      "value": "Чат архіваваны."
     },
     {
       "_": "types.LangPackString",
@@ -2510,6 +2510,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Business.Intro.Empty.Text",
+      "value": "Адпраўце паведамленне або націсніце на прывітанне ніжэй."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Business.Intro.Info",
       "value": "ДАПАСУЙЦЕ СВАЮ ПАЧАТКОВУЮ СТАРОНКУ"
     },
@@ -2738,6 +2743,16 @@
       "_": "types.LangPackString",
       "key": "Business.ScheduleStart",
       "value": "Пачатак"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Business.SwitchAd",
+      "value": "Не хаваць рэкламу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Business.SwitchAd.Info",
+      "value": "Як падпісчык Premium, вы не бачыце рэкламы ў Telegram, але можаце вярнуць яе, напрыклад, каб бачыць сваю ўласную рэкламу, якую вы стварылі на [платформе рэкламы Telegram >](telegram.org)"
     },
     {
       "_": "types.LangPackString",
@@ -4738,6 +4753,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChannelBoost.BoostChannel",
+      "value": "Падтрымаць канал"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChannelBoost.BoostGroup",
       "value": "Падтрымаць суполку"
     },
@@ -4783,6 +4803,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChannelBoost.EnableStoriesForChannel",
+      "value": "Уключыць гісторыі для канала"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChannelBoost.EnableStoriesForOtherChannel",
       "value": "Уключыць гісторыі для канала"
     },
@@ -4795,6 +4820,11 @@
       "_": "types.LangPackString",
       "key": "ChannelBoost.EnableWallpapers",
       "value": "Фон"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChannelBoost.EnabledStoriesForChannelText",
+      "value": "Гэты канал дасягнуў **узроўню 1** і цяпер можа размяшчаць гісторыі."
     },
     {
       "_": "types.LangPackString",
@@ -4815,6 +4845,11 @@
       "_": "types.LangPackString",
       "key": "ChannelBoost.Error.GiftedPremiumNotAllowedTitle",
       "value": "Немагчыма падтрымаць з падоранай падпіскай Premium!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChannelBoost.Error.PremiumNeededText",
+      "value": "Толькі падпісчыкі **Telegram Premium** могуць падтрымліваць каналы. Хочаце падпісацца на **Telegram Premium?**"
     },
     {
       "_": "types.LangPackString",
@@ -4853,6 +4888,19 @@
       "_": "types.LangPackString",
       "key": "ChannelBoost.Replace",
       "value": "Замяніць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChannelBoost.ReplaceBoost",
+      "value": "На дадзены момант вы падтрымліваеце **%1$@**. Вы ўпэўнены, што хочаце замест гэтага канала падтрымліваць **%2$@**?"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "**%d** гісторыі на дзень",
+      "key": "ChannelBoost.StoriesPerDay",
+      "many_value": "**%d** гісторый на дзень",
+      "one_value": "**%d** гісторыю на дзень",
+      "other_value": "**%d** гісторыі на дзень"
     },
     {
       "_": "types.LangPackString",
@@ -5156,6 +5204,11 @@
       "_": "types.LangPackString",
       "key": "ChannelParticipant.AddTag",
       "value": "Дадаць тэг"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChannelParticipant.PromoteToAdmin",
+      "value": "Прызначыць кіраўніком"
     },
     {
       "_": "types.LangPackString",
@@ -6165,6 +6218,11 @@
       "_": "types.LangPackString",
       "key": "Chat.Context.Peer.SendMessage",
       "value": "Адправіць паведамленне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Context.Phone.NotTelegram",
+      "value": "Гэтага нумара няма ў Telegram"
     },
     {
       "_": "types.LangPackString",
@@ -7581,6 +7639,14 @@
       "value": "Спонсар проксі-сервера"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Можна стварыць не больш за %d паведамленні.",
+      "key": "Chat.QuickReplyMessageLimitReachedText",
+      "many_value": "Можна стварыць не больш за %d паведамленняў.",
+      "one_value": "Можна стварыць не больш за %d паведамленне.",
+      "other_value": "Можна стварыць не больш за %d паведамлення."
+    },
+    {
       "_": "types.LangPackString",
       "key": "Chat.Quiz.Stop",
       "value": "Спыніць віктарыну"
@@ -8489,7 +8555,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.Service.SuggestPhoto.Info",
-      "value": "%@ прапануе вам аватар для вашага профілю."
+      "value": "%@ прапануе вам фота для вашага профілю."
     },
     {
       "_": "types.LangPackString",
@@ -10444,7 +10510,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChatList.Swiping.Read",
-      "value": "Прачытана"
+      "value": "У прачытанае"
     },
     {
       "_": "types.LangPackString",
@@ -10820,7 +10886,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChatService.Suggest.Success",
-      "value": "Вы паспяхова абнавілі свой аватар профілю"
+      "value": "Вы паспяхова абнавілі сваё фота профілю"
     },
     {
       "_": "types.LangPackString",
@@ -12863,7 +12929,7 @@
     {
       "_": "types.LangPackString",
       "key": "EditAccount.NameDesc",
-      "value": "Увядзіце ваша імя і дадайце аватар профілю."
+      "value": "Увядзіце ваша імя і дадайце фота профілю."
     },
     {
       "_": "types.LangPackString",
@@ -14306,7 +14372,7 @@
     {
       "_": "types.LangPackString",
       "key": "Gallery.Contact.PhotoByYou",
-      "value": "Гэтае фота можаце бачыць толькі вы."
+      "value": "Гэта фота можаце бачыць толькі вы."
     },
     {
       "_": "types.LangPackString",
@@ -14665,7 +14731,7 @@
     {
       "_": "types.LangPackString",
       "key": "GeneralSettings.Shortcuts",
-      "value": "Спалучэнні клавіш клавіятуры"
+      "value": "Спалучэнні клавіш"
     },
     {
       "_": "types.LangPackString",
@@ -15313,6 +15379,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GiftLink.Info.NotUsed.Info",
+      "value": "Вы таксама можаце адправіць гэтую [спасылку](абагуліць) сябру як падарунак."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GiftLink.Info.Used",
       "value": "Гэтая спасылка была выкарыстана для актывацыі падпіскі **Telegram Premium**."
     },
@@ -15476,6 +15547,11 @@
       "_": "types.LangPackString",
       "key": "Giveaway.Date.Ends",
       "value": "Сканчаецца"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Giveaway.Date.Info",
+      "value": "Выберыце, калі выпадковыя падпісчыкі вашага канала атрымаюць Telegram Premium."
     },
     {
       "_": "types.LangPackString",
@@ -15755,6 +15831,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Group.AppointAnotherAdmin",
+      "value": "Прызначыць іншага кіраўніка\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Group.AppointAnotherOwner",
       "value": "Прызначыць уладальніка"
     },
@@ -15896,12 +15977,12 @@
     {
       "_": "types.LangPackString",
       "key": "GroupAdmins.Desc.AdminInvites",
-      "value": "Толькі кіраўнікі могуць дадаваць і выдаляць удзельнікаў, замацоўваць паведамленні, рэдагаваць назву і аватар суполкі."
+      "value": "Толькі кіраўнікі могуць дадаваць і выдаляць удзельнікаў, замацоўваць паведамленні, рэдагаваць назву і фота суполкі."
     },
     {
       "_": "types.LangPackString",
       "key": "GroupAdmins.Desc.AllInvites",
-      "value": "Удзельнікі суполкі могуць дадаваць іншых карыстальнікаў, рэдагаваць назву і аватар суполкі."
+      "value": "Удзельнікі суполкі могуць дадаваць іншых карыстальнікаў, рэдагаваць назву і фота суполкі."
     },
     {
       "_": "types.LangPackString",
@@ -16285,6 +16366,11 @@
       "_": "types.LangPackString",
       "key": "InAppLinks.AuthFailed",
       "value": "Не ўдалося аўтарызавацца."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "InAppLinks.BotManagementDisabled",
+      "value": "%1$@ не мае ўключанага рэжыму кіравання ботамі."
     },
     {
       "_": "types.LangPackString",
@@ -17115,6 +17201,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Location.Set.Location",
+      "value": "Задаць гэтае месцазнаходжанне"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Login.ConnectionError.Header",
       "value": "Не ўдалося злучыцца з серверам"
     },
@@ -17142,6 +17233,21 @@
       "_": "types.LangPackString",
       "key": "Login.EnterCodeFromApp",
       "value": "Увядзіце код, які вы атрымалі ў вашай праграме Telegram на іншай прыладзе."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Login.EnterCodeNewEmailText",
+      "value": "Увядзіце код, які мы адправілі на вашу новую электронную пошту %@."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Login.EnterCodeNewEmailTitle",
+      "value": "Праверце вашу новую эл. пошту"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Login.EnterNewEmailTitle",
+      "value": "Увядзіце новую эл. пошту"
     },
     {
       "_": "types.LangPackString",
@@ -17326,7 +17432,7 @@
     {
       "_": "types.LangPackString",
       "key": "Login.New.Register.Info",
-      "value": "Увядзіце ваша імя і дадайце аватар профілю."
+      "value": "Увядзіце ваша імя і дадайце фота профілю."
     },
     {
       "_": "types.LangPackString",
@@ -17476,7 +17582,7 @@
     {
       "_": "types.LangPackString",
       "key": "Login.Register.Desc",
-      "value": "Увядзіце ваша імя і дадайце аватар профілю."
+      "value": "Увядзіце ваша імя і дадайце фота профілю."
     },
     {
       "_": "types.LangPackString",
@@ -17575,6 +17681,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "LoginEmail.Description",
+      "value": "Калі ласка, дадайце ваш адрас электроннай пошты, каб захаваць доступ да вашага ўліковага запісу."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "LoginEmail.Success.Title",
       "value": "Электронная пошта дададзена"
     },
@@ -17621,7 +17732,7 @@
     {
       "_": "types.LangPackString",
       "key": "LoginWidget.PermissionInfo",
-      "value": "Гэты сайт атрымае ваша **імя**, **імя карыстальніка** і **аватар профілю**."
+      "value": "Гэты сайт атрымае ваша **імя**, **імя карыстальніка** і **фота профілю**."
     },
     {
       "_": "types.LangPackString",
@@ -17666,7 +17777,7 @@
     {
       "_": "types.LangPackString",
       "key": "LogoutOptions.ClearCacheText",
-      "value": "Вызваліць месца на дыску вашай прылады; вашы медыя застануцца на воблаку."
+      "value": "Вызваліць месца на дыску вашай прылады; вашы медыя застануцца ў воблаку."
     },
     {
       "_": "types.LangPackString",
@@ -18042,6 +18153,11 @@
       "_": "types.LangPackString",
       "key": "Message.Placeholder.Edit",
       "value": "Рэдагаваць паведамленне..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Message.Placeholder.ReplyToTopic",
+      "value": "Адказаць %@…"
     },
     {
       "_": "types.LangPackString",
@@ -18826,6 +18942,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountryDesc",
+      "value": "Галасаваць могуць толькі карыстальнікі з абраных краін"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.LimitDuration",
       "value": "Абмежаваць тэрмін"
     },
@@ -18929,6 +19050,11 @@
       "_": "types.LangPackString",
       "key": "NewPoll.QuizTooltip",
       "value": "Націсніце, каб выбраць правільны адказ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribers",
+      "value": "Толькі падпісчыкі"
     },
     {
       "_": "types.LangPackString",
@@ -20813,6 +20939,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PeerInfo.Business.Hours.Opens24Hours",
+      "value": "кругласутачна"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PeerInfo.Business.Hours.local",
       "value": "мясцовы час"
     },
@@ -21582,6 +21713,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PeerMedia.Gifts.Collection.Context.Delete.Confirm",
+      "value": "Вы ўпэўнены, што хочаце выдаліць **%@**?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PeerMedia.Gifts.Collection.Context.NewCollection",
       "value": "Новая калекцыя"
     },
@@ -21609,6 +21745,11 @@
       "_": "types.LangPackString",
       "key": "PeerMedia.Gifts.Collection.New.Info",
       "value": "Дайце назву вашай калекцыі і дадайце ў яе падарункі."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerMedia.Gifts.Collection.New.Ok",
+      "value": "Стварыць"
     },
     {
       "_": "types.LangPackString",
@@ -21818,6 +21959,16 @@
       "_": "types.LangPackString",
       "key": "PersonalChannel.Info",
       "value": "выберыце свой канал"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannel.Title",
+      "value": "Асабісты канал"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannel.Tooltip.Updated",
+      "value": "Асабісты канал абноўлены"
     },
     {
       "_": "types.LangPackString",
@@ -22325,7 +22476,7 @@
     {
       "_": "types.LangPackString",
       "key": "Premium.Boarding.Wallpapers.Info",
-      "value": "Выбірайце свой фон чата для сябе і вашага суразмоўца."
+      "value": "Задавайце ўласныя фоны для сябе і вашага суразмоўца."
     },
     {
       "_": "types.LangPackString",
@@ -22351,6 +22502,16 @@
       "_": "types.LangPackString",
       "key": "Premium.Gift.ReceiveBoost",
       "value": "Колькасць «маланак», якія вы атрымаеце: %@."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.Gift.Sent.Multiple.OneToThree",
+      "value": "**%1$@** апавешчаны(-а) аб купленым вамі падарунку.\n\nЦяпер гэты карыстальнік мае доступ да дадатковых магчымасцяў."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.Gift.Sent.Multiple.Title",
+      "value": "Падарункі адпраўленыя!"
     },
     {
       "_": "types.LangPackString",
@@ -23116,7 +23277,7 @@
     {
       "_": "types.LangPackString",
       "key": "Privacy.ResetPhoto.Confirm",
-      "value": "Сапраўды хочаце выдаліць ваш публічны аватар?"
+      "value": "Сапраўды хочаце выдаліць ваш публічнае фота?"
     },
     {
       "_": "types.LangPackString",
@@ -23141,7 +23302,7 @@
     {
       "_": "types.LangPackString",
       "key": "PrivacyAndSecurity.ClearCloudDrafts",
-      "value": "Выдаліць чарнавікі на воблаку"
+      "value": "Выдаліць чарнавікі ў воблаку"
     },
     {
       "_": "types.LangPackString",
@@ -23151,7 +23312,7 @@
     {
       "_": "types.LangPackString",
       "key": "PrivacyAndSecurity.Confirm.ClearCloudDrafts",
-      "value": "Вы ўпэўнены, што хочаце выдаліць чарнавікі, захаваныя на воблаку?"
+      "value": "Вы ўпэўнены, што хочаце выдаліць чарнавікі, захаваныя ў воблаку?"
     },
     {
       "_": "types.LangPackString",
@@ -23330,6 +23491,16 @@
       "_": "types.LangPackString",
       "key": "PrivacySettings.LastSeenNobodyPlus",
       "value": "Ніхто (+%@)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PrivacySettings.LoginEmail",
+      "value": "Уваход праз эл. пошту"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PrivacySettings.LoginEmailAlertChange",
+      "value": "Змяніць адрас"
     },
     {
       "_": "types.LangPackString",
@@ -23654,7 +23825,7 @@
     {
       "_": "types.LangPackString",
       "key": "PrivacySettingsController.ProfilePhoto.CustomHelp",
-      "value": "Вы можаце вызначыць, хто будзе мець магчымасць бачыць ваш аватар профілю."
+      "value": "Вы можаце вызначыць, хто будзе мець магчымасць бачыць ваша фота профілю."
     },
     {
       "_": "types.LangPackString",
@@ -23704,7 +23875,7 @@
     {
       "_": "types.LangPackString",
       "key": "PrivacySettingsController.SetPublicPhoto.Info",
-      "value": "Вы можаце задаць публічны аватар для тых, каму забаронена бачыць сапраўдны аватар вашага профілю."
+      "value": "Вы можаце задаць публічнае фота для тых, каму забаронена бачыць сапраўднае фота вашага профілю."
     },
     {
       "_": "types.LangPackString",
@@ -23828,6 +23999,16 @@
       "_": "types.LangPackString",
       "key": "Proxy.ForceEnable.Text.Username",
       "value": "Імя карыстальніка: %@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Proxy.Port",
+      "value": "Порт"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Proxy.Server",
+      "value": "Сервер"
     },
     {
       "_": "types.LangPackString",
@@ -24541,6 +24722,11 @@
       "_": "types.LangPackString",
       "key": "RichTextEditorWindow.CodeBlock",
       "value": "Блок кода"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.CodeLanguage",
+      "value": "Мова праграмавання"
     },
     {
       "_": "types.LangPackString",
@@ -27578,6 +27764,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Star.Transaction.From",
+      "value": "Ад"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Star.Transaction.Gift",
       "value": "Падарунак"
     },
@@ -28462,6 +28653,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Stats.Boosts.BoostersInfo",
+      "value": "Ваш канал падтрымліваюць гэтыя карыстальнікі."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Stats.Boosts.BoostersInfo.Group",
       "value": "Цяпер ваша суполка падтрымана гэтымі карыстальнікамі."
     },
@@ -29144,7 +29340,7 @@
     {
       "_": "types.LangPackString",
       "key": "StorageUsage.CategoryText",
-      "value": "Усе медыяфайлы застануцца на воблаку Telegram, і, калі вам будзе патрэбна, іх можна спампаваць зноў."
+      "value": "Усе медыяфайлы застануцца ў воблаку Telegram, і, калі вам будзе патрэбна, іх можна спампаваць зноў."
     },
     {
       "_": "types.LangPackString",
@@ -29164,7 +29360,7 @@
     {
       "_": "types.LangPackString",
       "key": "StorageUsage.Clear.Confirm.Info",
-      "value": "Медыяфайлы і дакументы застануцца на воблаку і могуць быць спампаваны нанава, калі яны вам спатрэбяцца."
+      "value": "Медыяфайлы і дакументы застануцца ў воблаку і могуць быць спампаваны нанава, калі яны вам спатрэбяцца."
     },
     {
       "_": "types.LangPackString",
@@ -29229,7 +29425,7 @@
     {
       "_": "types.LangPackString",
       "key": "StorageUsage.KeepMedia.Description",
-      "value": "Фота, відэа і іншыя файлы з воблачных чатаў, у якія вы **не заходзілі** апошнім часам, будуць выдалены з гэтай прылады, каб захаваць месца на дыску.\n\nУсе файлы застануцца на воблаку Telegram, і, калі вам будзе патрэбна, іх можна будзе спампаваць зноў."
+      "value": "Фота, відэа і іншыя файлы з воблачных чатаў, у якія вы **не заходзілі** апошнім часам, будуць выдалены з гэтай прылады, каб захаваць месца на дыску.\n\nУсе файлы застануцца ў воблаку Telegram, і, калі вам будзе патрэбна, іх можна будзе спампаваць зноў."
     },
     {
       "_": "types.LangPackString",
@@ -29272,7 +29468,7 @@
     {
       "_": "types.LangPackString",
       "key": "StorageUsage.Limit.Desc",
-      "value": "Калі ваш памер кэшу перавысіць гэта абмежаванне, то самыя даўнія медыяфайлы будуць выдалены."
+      "value": "Калі ваш памер кэшу перавысіць гэта абмежаванне, то самыя даўнія медыяфайлы будуць выдалены.\n\nУсе медыяфайлы застануцца ў воблаку Telegram, і іх можна будзе спампаваць зноў, калі яны спатрэбяцца."
     },
     {
       "_": "types.LangPackString",
@@ -29802,6 +29998,22 @@
       "value": "Няма апублікаваных гісторый"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Гісторыі замацаваныя",
+      "key": "StoryMedia.Tooltip.Pinned",
+      "many_value": "Гісторыі замацаваныя",
+      "one_value": "Гісторыя замацавана",
+      "other_value": "Гісторыі замацаваныя"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Гісторыі адмацаваныя.",
+      "key": "StoryMedia.Tooltip.Unpinned",
+      "many_value": "Гісторыі адмацаваныя.",
+      "one_value": "Гісторыя адмацавана",
+      "other_value": "Гісторыі адмацаваныя."
+    },
+    {
       "_": "types.LangPackString",
       "key": "StoryPrivacy.Contacts",
       "value": "Кантакты"
@@ -30324,7 +30536,7 @@
     {
       "_": "types.LangPackString",
       "key": "TermsOfService.Disagree.Text.Last",
-      "value": "Увага! Гэта дзеянне незваротна выдаліць увесь ваш уліковы запіс Telegram з тымі звесткамі, што захоўваюцца на воблаку.\n\nВажна: зараз вы можаце адмовіцца і, каб не страціць вашы звесткі, экспартаваць іх, перш чым выдаляць уліковы запіс. (Каб зрабіць гэта, адкрыйце актуальную версію Telegram Desktop і перайдзіце ў «Налады > Пашыраныя налады > Экспартаваць даныя Telegram».)"
+      "value": "Увага! Гэта дзеянне незваротна выдаліць увесь ваш уліковы запіс Telegram з тымі звесткамі, што захоўваюцца ў воблаку.\n\nВажна: зараз вы можаце адмовіцца і, каб не страціць вашы звесткі, экспартаваць іх, перш чым выдаляць уліковы запіс. (Каб зрабіць гэта, адкрыйце актуальную версію Telegram Desktop і перайдзіце ў «Налады > Пашыраныя налады > Экспартаваць даныя Telegram.)"
     },
     {
       "_": "types.LangPackString",
@@ -31973,7 +32185,7 @@
     {
       "_": "types.LangPackString",
       "key": "UserInfo.ResetPhoto.Confirm",
-      "value": "Сапраўды хочаце вярнуць арыгінальны аватар %@?"
+      "value": "Сапраўды хочаце вярнуць арыгінальнае фота %@?"
     },
     {
       "_": "types.LangPackString",
@@ -31993,12 +32205,12 @@
     {
       "_": "types.LangPackString",
       "key": "UserInfo.SetPhoto.BlockInfo",
-      "value": "Вы можаце замяніць аватар %@ на іншы, які будзеце бачыць толькі вы."
+      "value": "Вы можаце замяніць фота %@ на іншае, якое будзеце бачыць толькі вы."
     },
     {
       "_": "types.LangPackString",
       "key": "UserInfo.SetPhoto.Confirm",
-      "value": "Задаць аватар для %@? Гэты відарыс будзе заўсёды паказвацца замест аватара ад %@, але бачыць яго будзеце толькі вы."
+      "value": "Вы хочаце задаць гэта фота для %@? Яно заменіць любое фота, якое задаў %@, але толькі вы будзеце яго бачыць."
     },
     {
       "_": "types.LangPackString",
@@ -32018,12 +32230,12 @@
     {
       "_": "types.LangPackString",
       "key": "UserInfo.SetPhoto.Tooltip",
-      "value": "Вы заўсёды будзеце бачыць гэты відарыс як аватар %@."
+      "value": "Вы заўсёды будзеце бачыць гэты відарыс як фота %@."
     },
     {
       "_": "types.LangPackString",
       "key": "UserInfo.Suggest.Confirm",
-      "value": "Хочаце прапанаваць на аватар для %@ гэты відарыс?"
+      "value": "Хочаце прапанаваць на фота для %@ гэты відарыс?"
     },
     {
       "_": "types.LangPackString",
@@ -32038,7 +32250,7 @@
     {
       "_": "types.LangPackString",
       "key": "UserInfo.Suggest.Tooltip",
-      "value": "Вы прапанавалі новы аватар для профілю %@"
+      "value": "Вы прапанавалі новае фота для профілю %@"
     },
     {
       "_": "types.LangPackString",
@@ -33624,6 +33836,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Weekday.Friday",
+      "value": "Пятніца"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Weekday.Monday",
+      "value": "Панядзелак"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Weekday.Saturday",
+      "value": "Субота"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Weekday.ShortFriday",
       "value": "Пт"
     },
@@ -33656,6 +33883,26 @@
       "_": "types.LangPackString",
       "key": "Weekday.ShortWednesday",
       "value": "Ср"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Weekday.Sunday",
+      "value": "Нядзеля"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Weekday.Thursday",
+      "value": "Чацвер"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Weekday.Tuesday",
+      "value": "Аўторак"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Weekday.Wednesday",
+      "value": "Серада"
     },
     {
       "_": "types.LangPackString",
@@ -34023,5 +34270,5 @@
       "value": "Паказаць замены"
     }
   ],
-  "version": 2235886
+  "version": 2238462
 }
