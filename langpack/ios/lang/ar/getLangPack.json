@@ -12631,7 +12631,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.PostApproval.Message.UserAgreementPriceTon",
-      "value": "💰 تم تحصيل ⁨%1$@⁩ منك.\n\n⌛ ستحصل قناة **⁨%2$@⁩** على رصيد TON بعد نشر الرسالة لمدة ٢٤ ساعة.\n\n🔄 إذا قام المشرفون بإزالة المنشور قبل أن يكون معروضًا لمدة ٢٤ ساعة؛ فستتم إعادة رصيد TON لك."
+      "value": "💰 تم تحصيل ⁨%1$@⁩ منك.\n\n⌛ ستحصل قناة **⁨%2$@⁩** على رصيد جرام بعد نشر الرسالة لمدة ٢٤ ساعة.\n\n🔄 إذا قام المشرفون بإزالة المنشور قبل أن يكون معروضًا لمدة ٢٤ ساعة؛ فسيُعاد رصيد جرام إليك."
     },
     {
       "_": "types.LangPackString",
@@ -17250,6 +17250,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningText",
+      "value": "حظر **⁨%@⁩** سيؤدي إلى إزالة **⁨%@⁩** لهذا العضو من المجتمع."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.AdminActions.WarningTitle",
       "value": "تحذير"
     },
@@ -17312,6 +17317,16 @@
       "_": "types.LangPackString",
       "key": "Community.Edit.Administrators",
       "value": "المشرفون"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "⁨%@⁩ محادثات",
+      "key": "Community.Edit.ChatsHeader",
+      "many_value": "⁨%@⁩ محادثة",
+      "one_value": "محادثة واحدة",
+      "other_value": "⁨%@⁩ محادثة",
+      "two_value": "محادثتان",
+      "zero_value": "⁨%@⁩ محادثات"
     },
     {
       "_": "types.LangPackString",
@@ -17392,6 +17407,16 @@
       "_": "types.LangPackString",
       "key": "Community.List.AddToExistingHeader",
       "value": "إضافة إلى مجتمع موجود"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "⁨%@⁩ محادثات",
+      "key": "Community.List.ChatCount",
+      "many_value": "⁨%@⁩ محادثة",
+      "one_value": "محادثة واحدة",
+      "other_value": "⁨%@⁩ محادثة",
+      "two_value": "محادثتان",
+      "zero_value": "⁨%@⁩ محادثات"
     },
     {
       "_": "types.LangPackString",
@@ -17522,6 +17547,16 @@
       "_": "types.LangPackString",
       "key": "Community.Request.RequesterSuggestsGroup",
       "value": "يقترح ⁨%@⁩ هذه المجموعة:"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "⁨%@⁩ محادثات مقترحة على هذا المجتمع",
+      "key": "Community.Request.SectionTitle",
+      "many_value": "⁨%@⁩ محادثة مقترحة على هذا المجتمع",
+      "one_value": "محادثة واحدة مقترحة على هذا المجتمع",
+      "other_value": "⁨%@⁩ محادثة مقترحة على هذا المجتمع",
+      "two_value": "محادثتان مقترحتان على هذا المجتمع",
+      "zero_value": "⁨%@⁩ محادثة مقترحة على هذا المجتمع"
     },
     {
       "_": "types.LangPackString",
@@ -44760,6 +44795,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Premium.Limits.MessagesInfo",
+      "value": "زيادة طول الرسائل"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Premium.Limits.PinnedChats",
       "value": "المحادثات المثبتة"
     },
@@ -48262,6 +48302,11 @@
       "_": "types.LangPackString",
       "key": "RichText.TitleArticle",
       "value": "العنوان"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextPreview.Formula",
+      "value": "[معادلة]"
     },
     {
       "_": "types.LangPackString",
@@ -52056,7 +52101,7 @@
     {
       "_": "types.LangPackString",
       "key": "Stars.Transaction.FragmentTopUpTon.Title",
-      "value": "شراء TON"
+      "value": "شحن جرام"
     },
     {
       "_": "types.LangPackString",
@@ -62879,5 +62924,5 @@
       "value": "لقد قمت بإدخال رمز أمان غير صحيح."
     }
   ],
-  "version": 21573438
+  "version": 21577789
 }
