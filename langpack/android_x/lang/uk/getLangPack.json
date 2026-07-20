@@ -108,8 +108,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChecklistAddOut",
+      "value": "Ви додаєте «%1$s» до списку"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "Канал створено"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionCreatedManagedBot",
+      "value": "Ви створили бота %1$s, яким керує %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -274,6 +284,46 @@
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "Прочитати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabled",
+      "value": "%1$s вимикає копіювання в цьому чаті"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabledOut",
+      "value": "Ви вимикаєте копіювання в цьому чаті"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabled",
+      "value": "%1$s вмикає копіювання у цьому чаті"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabledOut",
+      "value": "Ви вмикаєте копіювання в цьому чаті"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequest",
+      "value": "%1$s пропонує ввімкнути копіювання у цьому чаті "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestOut",
+      "value": "Ви пропонуєте ввімкнути копіювання у цьому чаті"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillDisabled",
+      "value": "Копіювання в цьому чаті все ще заборонене"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillEnabled",
+      "value": "Копіювання в цьому чаті все ще заборонене"
     },
     {
       "_": "types.LangPackString",
@@ -6785,6 +6835,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPermissionEditTag",
+      "value": "Змінювати свій тег"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPermissionPinMessages",
       "value": "Прикріплювати повідомлення"
     },
@@ -7040,6 +7095,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPromotedManageTags",
+      "value": "Змінювати теги учасників"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPromotedManageTopics",
       "value": "Керувати гілками"
     },
@@ -7165,6 +7225,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogRestrictedEditTag",
+      "value": "Змінювати свій тег"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogRestrictedNew",
       "value": "встановлює обмеження для %1$s\n\nСтрок: %2$s"
     },
@@ -7275,6 +7340,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogTagRemoved",
+      "value": "%2$s прибирає для %3$s тег «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagRemovedYour",
+      "value": "%2$s прибирає ваш тег «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSet",
+      "value": "%2$s додає для %3$s тег «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSetYour",
+      "value": "%2$s додає для вас тег «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouRemoved",
+      "value": "Ви прибираєте для %2$s тег «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouSet",
+      "value": "Ви додаєте для %2$s тег «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogToggledInvitesOff",
       "value": "%1$s вимикає запрошення до групи"
     },
@@ -7317,6 +7412,26 @@
       "_": "types.LangPackString",
       "key": "EventLogTransferredOwnership",
       "value": "передає права користувачу %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOff",
+      "value": "%1$s вимикає автопереклад"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOffYou",
+      "value": "Ви вимикаєте автопереклад"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOn",
+      "value": "%1$s вмикає автопереклад"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOnYou",
+      "value": "Ви вмикаєте автопереклад"
     },
     {
       "_": "types.LangPackString",
@@ -22044,6 +22159,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistItem",
+      "value": "«%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparator",
+      "value": ", "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparatorLast",
+      "value": " та "
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• %1$s\n• %2$s\n• %3$s\n• %4$s"
     },
@@ -24860,5 +24990,5 @@
       "other_value": "%1$s років"
     }
   ],
-  "version": 1624791
+  "version": 1624825
 }
