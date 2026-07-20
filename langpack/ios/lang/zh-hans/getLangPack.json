@@ -11691,7 +11691,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.PanelHidePinnedMessages",
-      "value": "不显示置顶消息"
+      "value": "隐藏置顶消息"
     },
     {
       "_": "types.LangPackString",
@@ -13765,6 +13765,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Context.Ungroup",
+      "value": "分开显示"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.Context.UnhideArchive",
       "value": "在聊天列表中置顶"
     },
@@ -14802,6 +14807,21 @@
       "_": "types.LangPackString",
       "key": "ChatList.UndoArchiveTitle",
       "value": "聊天已归档。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Action",
+      "value": "分开显示"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Text",
+      "value": "来自该社群的聊天记录将在您的聊天列表中单独显示。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Title",
+      "value": "分开显示聊天？"
     },
     {
       "_": "types.LangPackString",
@@ -16380,6 +16400,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextBot",
+      "value": "如果该机器人获得社群管理员批准，社群成员将能够看到并使用它。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextChannel",
+      "value": "如果该频道获得社群管理员批准，其订阅者将能够加入或申请加入社群中的其他聊天。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextGroup",
+      "value": "如果该群组获得社群管理员批准，其成员将能够加入或申请加入社群中的其他聊天。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Add.Title",
       "value": "添加聊天"
     },
@@ -16392,6 +16427,11 @@
       "_": "types.LangPackString",
       "key": "Community.Add.VisibilityHidden",
       "value": "已隐藏"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHiddenInfo",
+      "value": "只有受邀成员和社群管理员才能看到此聊天记录。"
     },
     {
       "_": "types.LangPackString",
@@ -16419,9 +16459,24 @@
       "value": "添加聊天"
     },
     {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.BanFromCommunity",
+      "value": "被社群封禁"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.AdminActions.Footer",
+      "other_value": "用户将被移出 [%@ 个聊天](community)"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "Community.AdminActions.WarningChatCount",
       "other_value": "%@ 个聊天"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningText",
+      "value": "封禁 **%@** 也会将其从社群中的 **%@** 个聊天中移出。"
     },
     {
       "_": "types.LangPackString",
@@ -16450,6 +16505,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Blacklist.Info",
+      "value": "被管理员从社群移出社群的用户无法通过邀请链接重新加入。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Blacklist.RemoveUser",
       "value": "移除用户"
     },
@@ -16462,6 +16522,11 @@
       "_": "types.LangPackString",
       "key": "Community.Blacklist.UsersSectionTitle",
       "value": "已移除用户"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Chat.JoinToView",
+      "value": "您需要加入此群组才能查看其消息。"
     },
     {
       "_": "types.LangPackString",
@@ -16525,6 +16590,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionOnlyAdminsInfo",
+      "value": "由社群成员推荐的聊天需经管理员批准。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Edit.RemovedUsers",
       "value": "被移除的用户"
     },
@@ -16570,6 +16640,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.List.SubtitleBot",
+      "value": "让你的机器人成为拥有多个相关群组的社群的一部分。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleChannel",
+      "value": "让您的频道成为拥有多个相关聊天的社群的一部分。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.List.SubtitleGroup",
       "value": "让您的群组成为拥有多个相关聊天的社群一部分。"
     },
@@ -16580,6 +16660,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.PrivateChat.Info",
+      "value": "该聊天只能受邀请者加入。\n只有其成员才能查看聊天记录。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.PrivateChat.MessageOwner",
       "value": "私信聊天拥有着"
     },
@@ -16587,6 +16672,16 @@
       "_": "types.LangPackString",
       "key": "Community.RemoveChat.Remove",
       "value": "移除"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Text",
+      "value": "此聊天记录将从社群中移除。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Title",
+      "value": "从社群中移除聊天功能？"
     },
     {
       "_": "types.LangPackString",
@@ -16605,6 +16700,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Request.AddAllConfirmation",
+      "value": "您想要将 %@ 个聊天添加到社群吗？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovalInfo",
+      "value": "聊天功能需要管理员审核才能添加到社群。[更改设置 >](设置)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovedToast",
+      "value": "您已将聊天添加到社群。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Request.Decline",
       "value": "拒绝"
     },
@@ -16612,6 +16722,21 @@
       "_": "types.LangPackString",
       "key": "Community.Request.DeclineAll",
       "value": "全部拒绝"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAllConfirmation",
+      "value": "您是否要全部拒绝 %@个加入社群的申请？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclinedToast",
+      "value": "你已拒绝将聊天添加到社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.EmptyText",
+      "value": "此社群已无其他聊天推荐。"
     },
     {
       "_": "types.LangPackString",
@@ -16639,6 +16764,11 @@
       "value": "%@ 推荐此群组:"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.Request.SectionTitle",
+      "other_value": "%@ 个聊天已推荐给此社群"
+    },
+    {
       "_": "types.LangPackString",
       "key": "Community.Request.Title",
       "value": "待处理申请"
@@ -16652,6 +16782,26 @@
       "_": "types.LangPackString",
       "key": "Community.View.AddChatButton",
       "value": "将聊天添加到社群中"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ChatsLimitReached",
+      "value": "抱歉，本社群聊天数量已达上限。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.HiddenChatToast",
+      "value": "只需管员邀请您，您就可以加入或查看此聊天。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestApprovedToast",
+      "value": "您已将该群组添加到社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestDeclinedToast",
+      "value": "你已拒绝将聊天添加到社群。"
     },
     {
       "_": "types.LangPackString",
@@ -16687,6 +16837,11 @@
       "_": "types.LangPackString",
       "key": "Community.View.ShowAsOneChat",
       "value": "以单一聊天显示"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ShowAsOneChatInfo",
+      "value": "将所有社群聊天汇总为聊天列表中的单个项目。"
     },
     {
       "_": "types.LangPackString",
@@ -33940,6 +34095,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedBot",
+      "value": "此机器人已添加到 %1$@ 社群中。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedChannel",
+      "value": "该频道已添加到社群 %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroup",
+      "value": "%1$@ 已将此群组添加到 %2$@ 社群中。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Notification.CommunityAddedGroupUnknown",
       "value": "该群组已添加到社群 %1$@"
     },
@@ -33947,6 +34117,16 @@
       "_": "types.LangPackString",
       "key": "Notification.CommunityAddedGroupYou",
       "value": "您已将此群组添加到 %1$@ 社群中。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedBot",
+      "value": "此机器人已从社群中移除"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedChannel",
+      "value": "此频道已从社群中移除"
     },
     {
       "_": "types.LangPackString",
@@ -39924,6 +40104,11 @@
       "value": "清除消息"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "PeerInfo.Community",
+      "other_value": "包含 %@ 个聊天的社群"
+    },
+    {
       "_": "types.LangPackString",
       "key": "PeerInfo.Community.AddBot",
       "value": "将机器人添加到社群"
@@ -39940,13 +40125,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PeerInfo.Community.BotInfo",
+      "value": "让你的机器人成为拥有多个相关聊天的社群的一部分。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PeerInfo.Community.ChannelInfo",
       "value": "让您的频道成为拥有多个相关聊天室的社群的一部分"
     },
     {
       "_": "types.LangPackString",
+      "key": "PeerInfo.Community.GroupInfo",
+      "value": "让你的群组成为拥有多个相关聊天群的社群的一部分"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PeerInfo.Community.RemoveBot",
       "value": "从社群中移除机器人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveChannel",
+      "value": "从频道中移除机器人"
     },
     {
       "_": "types.LangPackString",
@@ -42582,6 +42782,11 @@
       "_": "types.LangPackString",
       "key": "Premium.RichText",
       "value": "格式化工具"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.RichTextInfo",
+      "value": "在消息中添加标题、表格、内嵌媒体和 AI 内容。"
     },
     {
       "_": "types.LangPackString",
@@ -45370,6 +45575,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.LinkText",
+      "value": "为选定的文本设置 URL"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichText.LinkTitle",
       "value": "链接"
     },
@@ -45380,6 +45590,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Checklist",
+      "value": "核对清单"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichText.Menu.List.None",
       "value": "无"
     },
@@ -45387,6 +45602,21 @@
       "_": "types.LangPackString",
       "key": "RichText.Menu.List.Numbered",
       "value": "数字清单"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.ConvertToText",
+      "value": "转换为文本"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Copy",
+      "value": "复制表格"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Delete",
+      "value": "删除表格"
     },
     {
       "_": "types.LangPackString",
@@ -45422,6 +45652,11 @@
       "_": "types.LangPackString",
       "key": "RichText.MenuText",
       "value": "文本"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingText",
+      "value": "此消息包含进皆格式，需要 Telegram 高级版才能使用。"
     },
     {
       "_": "types.LangPackString",
@@ -53125,6 +53360,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.ActionAddToPage",
+      "value": "添加到页面"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ActionApply",
       "value": "应用"
     },
@@ -53132,6 +53372,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.ActionClose",
       "value": "关闭"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.ActionGenerate",
+      "value": "生成"
     },
     {
       "_": "types.LangPackString",
@@ -53237,6 +53482,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.OriginalStyleBadge",
       "value": "原始"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.PromptPlaceholder",
+      "value": "生成文本、公式或表格……"
     },
     {
       "_": "types.LangPackString",
@@ -53357,6 +53607,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.TextExpand",
       "value": "更多"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.TitleAICompose",
+      "value": "AI 生成"
     },
     {
       "_": "types.LangPackString",
@@ -59159,5 +59414,5 @@
       "value": "您输入的安全码无效。"
     }
   ],
-  "version": 21577620
+  "version": 21577713
 }
