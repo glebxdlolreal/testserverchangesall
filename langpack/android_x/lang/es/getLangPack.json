@@ -136,6 +136,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatOwnerChanged",
+      "value": "%1$s es el nuevo propietario de este chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeft",
+      "value": "El propietario del chat salió"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeftTo",
+      "value": "El propietario del chat salió. Si no regresa al chat, %1$s será el nuevo propietario"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChatRemovedFromCommunity",
       "value": "Este chat fue quitado de la comunidad"
     },
@@ -245,6 +260,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosed",
+      "value": "%1$s cerró el tema General"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosedOut",
+      "value": "Cerraste el tema General"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopened",
+      "value": "%1$s reabrió el tema General"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopenedOut",
+      "value": "Reabriste el tema General"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionMute",
       "value": "Silenciar"
     },
@@ -257,6 +292,18 @@
       "_": "types.LangPackString",
       "key": "ActionMutePerson",
       "value": "Silenciar a %1$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPaidMessagesRefunded",
+      "one_value": "%2$s reembolsó %3$s por %1$s mensaje",
+      "other_value": "%2$s reembolsó %3$s por %1$s mensajes"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPaidMessagesRefundedOut",
+      "one_value": "Reembolsaste %2$s por %1$s mensaje",
+      "other_value": "Reembolsaste %2$s por %1$s mensajes"
     },
     {
       "_": "types.LangPackString",
@@ -397,6 +444,18 @@
       "other_value": "%2$s fijó **%1$s videos de pago**"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPriceChanged",
+      "one_value": "%2$s cambió el precio a %1$s estrella por mensaje",
+      "other_value": "%2$s cambió el precio a %1$s estrellas por mensaje"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPriceChangedOut",
+      "one_value": "Cambiaste el precio a %1$s estrella por mensaje",
+      "other_value": "Cambiaste el precio a %1$s estrellas por mensaje"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "Marcar como leído "
@@ -445,6 +504,126 @@
       "_": "types.LangPackString",
       "key": "ActionSharingStillEnabled",
       "value": "En este chat aún está activado compartir"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIcon",
+      "value": "%2$s cambió el ícono del tema a %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconName",
+      "value": "%3$s cambió el nombre e ícono del tema a %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconNameOut",
+      "value": "Cambiaste el nombre e ícono del tema a %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconOut",
+      "value": "Cambiaste el ícono del tema a %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosed",
+      "value": "%3$s cerró %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosedOut",
+      "value": "Cerraste %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreate",
+      "value": "%2$s creó el tema %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIcon",
+      "value": "%3$s creó el tema %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIconOut",
+      "value": "Creaste el tema %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateOut",
+      "value": "Creaste el tema %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreated",
+      "value": "El tema %1$s fue creado"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreatedIcon",
+      "value": "El tema %1$s %2$s fue creado"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHidden",
+      "value": "%1$s ocultó el tema General"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHiddenOut",
+      "value": "Ocultaste el tema General"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamed",
+      "value": "%2$s renombró el tema a %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamedOut",
+      "value": "Renombraste el tema a %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopened",
+      "value": "%3$s reabrió %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopenedOut",
+      "value": "Reabriste %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhidden",
+      "value": "%1$s reveló el tema General"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhiddenOut",
+      "value": "Revelaste el tema General"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosed",
+      "value": "%1$s cerró el tema"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosedOut",
+      "value": "Cerraste el tema"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopened",
+      "value": "%1$s reabrió el tema"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopenedOut",
+      "value": "Reabriste el tema"
     },
     {
       "_": "types.LangPackString",
@@ -22040,6 +22219,12 @@
       "value": "+premium"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_refundedStars",
+      "one_value": "%1$s estrella",
+      "other_value": "%1$s estrellas"
+    },
+    {
       "_": "types.LangPackString",
       "key": "format_sessionsAndWebsites",
       "value": "%1$s, %2$s"
@@ -24159,5 +24344,5 @@
       "other_value": "%1$s años"
     }
   ],
-  "version": 1624824
+  "version": 1624942
 }
