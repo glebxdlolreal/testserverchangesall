@@ -1612,6 +1612,9 @@ function checkFrameSize() {
           effectEl.style.visibility = 'hidden';
         });
       }, postEl);
+      gec('.tgme_widget_message_inline_button_icon', function() {
+        TEmoji.init(this);
+      }, postEl);
       gec('.js-videosticker', function() {
         TVideoSticker.init(this, function() {
           addClass(postEl, 'media_not_supported');
