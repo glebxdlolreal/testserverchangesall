@@ -4879,6 +4879,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.Poll.AttachLink",
+      "value": "Add Link"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.Poll.CopyOption",
       "value": "Copy Option"
     },
@@ -6514,6 +6519,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DeleteAllMessages",
+      "value": "Delete all messages"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteAllReactions",
+      "value": "Delete all reactions"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DeleteAllRevokedLinks",
       "value": "Delete All Revoked Links"
     },
@@ -6617,6 +6632,11 @@
       "_": "types.LangPackString",
       "key": "DeleteProceedBtn",
       "value": "Proceed"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteReaction",
+      "value": "Delete Reaction"
     },
     {
       "_": "types.LangPackString",
@@ -8383,6 +8403,11 @@
       "_": "types.LangPackString",
       "key": "GiftPremiumUseGiftBtn",
       "value": "Use Gift"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GiftRecipientDoesNotAccept",
+      "value": "This user doesn’t accept gifts."
     },
     {
       "_": "types.LangPackString",
@@ -11448,13 +11473,29 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.AllowedCountries",
+      "value": "Allowed Countries"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.Anonymous",
       "value": "Anonymous Voting"
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.ChooseCountry",
+      "value": "Please choose at least one country."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.CouldNotCreate",
       "value": "Could not create poll"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "NewPoll.CountriesCount",
+      "one_value": "%d country",
+      "other_value": "%d countries"
     },
     {
       "_": "types.LangPackString",
@@ -11480,6 +11521,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.HideResultsSubtitle",
       "value": "Results will not be visible until the polls ends"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountry",
+      "value": "Limit by Country"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountrySubtitle",
+      "value": "Only users from selected countries can vote."
     },
     {
       "_": "types.LangPackString",
@@ -11536,6 +11587,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.Quiz",
       "value": "Quiz Mode"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribers",
+      "value": "Restrict to Subscribers"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribersSubtitle",
+      "value": "Only subscribers who joined 24+ hours ago can vote."
     },
     {
       "_": "types.LangPackString",
@@ -13235,6 +13296,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Countries",
+      "value": "Only users from selected countries can vote."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.CountriesList",
+      "value": "Only users from %s can vote."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Subscribers",
+      "value": "Only subscribers can vote."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersChannel",
+      "value": "Only subscribers of %s can vote."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersRecent",
+      "value": "Only subscribers who joined more than 24 hours ago can vote."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollOptions",
       "value": "Poll options"
     },
@@ -13253,6 +13339,26 @@
       "_": "types.LangPackString",
       "key": "PollResults.Title.Quiz",
       "value": "Quiz Results"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.NoVotes",
+      "value": "No votes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Title",
+      "value": "Poll Stats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.View",
+      "value": "View Stats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Votes",
+      "value": "Poll votes"
     },
     {
       "_": "types.LangPackString",
@@ -16358,6 +16464,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ShowAllReactions",
+      "value": "Show All Reactions"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ShowMessage",
       "value": "Show Message"
     },
@@ -19136,6 +19247,42 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Dismissed",
+      "value": "You can send a Gift later in Settings."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Suggestion.BirthdayContacts.Multiple",
+      "one_value": "%d contact has a birthday today! 🎂",
+      "other_value": "%d contacts have birthdays today! 🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Single",
+      "value": "It’s %s's birthday today! 🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Subtitle",
+      "value": "Send them a Gift."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Today",
+      "value": "Birthday today"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Tomorrow",
+      "value": "Birthday tomorrow"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Yesterday",
+      "value": "Birthday yesterday"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Suggestion.BirthdaySetup",
       "value": "Add your birthday! %s"
     },
@@ -19208,6 +19355,11 @@
       "_": "types.LangPackString",
       "key": "SupportStatus",
       "value": "support"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TapAndHoldToDeleteReaction",
+      "value": "Tap and hold to delete reaction."
     },
     {
       "_": "types.LangPackString",
@@ -19734,6 +19886,57 @@
       "_": "types.LangPackString",
       "key": "Unblock",
       "value": "Unblock"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirm",
+      "value": "Yes, it’s me"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirmed",
+      "value": "New Login Allowed"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirmedMessage",
+      "value": "You can check the list of your active logins in %s."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedButton",
+      "value": "Got it"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedMessageSingle",
+      "value": "We have terminated the login attempt from %s."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "UnconfirmedAuthDeniedTitle",
+      "one_value": "New Login Prevented",
+      "other_value": "New Logins Prevented"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedWarning",
+      "value": "Never send your login code to anyone or you can lose your Telegram account!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeny",
+      "value": "No, it’s not me!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthSingle",
+      "value": "We detected a new login to your account from %s. Is it you?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthTitle",
+      "value": "Someone just got access to your messages!"
     },
     {
       "_": "types.LangPackString",
@@ -20803,5 +21006,5 @@
       "other_value": "%1$d messages"
     }
   ],
-  "version": 300801
+  "version": 301336
 }
