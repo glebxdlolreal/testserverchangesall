@@ -11483,8 +11483,19 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.ChooseCountry",
+      "value": "Per favore scegli almeno un Paese."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.CouldNotCreate",
       "value": "Impossibile creare il sondaggio"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "NewPoll.CountriesCount",
+      "one_value": "%d Paese",
+      "other_value": "%d Paesi"
     },
     {
       "_": "types.LangPackString",
@@ -11510,6 +11521,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.HideResultsSubtitle",
       "value": "I risultati non saranno visibili fino al termine del sondaggio"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountry",
+      "value": "Limita per Paese"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountrySubtitle",
+      "value": "Solo gli utenti dai Paesi selezionati possono votare."
     },
     {
       "_": "types.LangPackString",
@@ -13290,6 +13311,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersChannel",
+      "value": "Solo gli iscritti di %s possono votare."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Poll.VoteRestricted.SubscribersRecent",
       "value": "Solo gli iscritti che si sono uniti da più di 24 ore possono votare."
     },
@@ -13316,8 +13342,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollStats.NoVotes",
+      "value": "Nessun voto"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollStats.Title",
       "value": "Statistiche sondaggio"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.View",
+      "value": "Apri statistiche"
     },
     {
       "_": "types.LangPackString",
@@ -16423,6 +16459,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ShowAllReactions",
+      "value": "Mostra tutte le reazioni"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ShowMessage",
       "value": "Mostra messaggio"
     },
@@ -19205,6 +19246,17 @@
       "value": "Puoi inviare regali più tardi dalle Impostazioni."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "Suggestion.BirthdayContacts.Multiple",
+      "one_value": "Oggi è il compleanno di %d contatto! 🎂",
+      "other_value": "Oggi è il compleanno di %d contatti! 🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Single",
+      "value": "Oggi è il compleanno di %s! 🎂"
+    },
+    {
       "_": "types.LangPackString",
       "key": "Suggestion.BirthdayContacts.Subtitle",
       "value": "Invia un regalo."
@@ -19846,10 +19898,20 @@
       "value": "Capito"
     },
     {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedMessageSingle",
+      "value": "Abbiamo terminato il tentativo di accesso da %s."
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "UnconfirmedAuthDeniedTitle",
       "one_value": "Nuovo accesso impedito",
       "other_value": "Nuovi accessi impediti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedWarning",
+      "value": "Non inviare mai il tuo codice di accesso a nessuno o potresti perdere il tuo account Telegram!"
     },
     {
       "_": "types.LangPackString",
@@ -20934,5 +20996,5 @@
       "other_value": "%1$d messaggi"
     }
   ],
-  "version": 301409
+  "version": 301880
 }

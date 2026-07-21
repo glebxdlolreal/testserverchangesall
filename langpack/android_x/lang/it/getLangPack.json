@@ -136,6 +136,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatOwnerChanged",
+      "value": "%1$s è il nuovo proprietario di questa chat"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChatRemovedFromCommunity",
       "value": "Questa chat è stata rimossa dalla community"
     },
@@ -383,6 +388,18 @@
       "other_value": "%2$s ha fissato **%1$s video a pagamento**"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPriceChanged",
+      "one_value": "%2$s ha cambiato il prezzo in %1$s stella per messaggio",
+      "other_value": "%2$s ha cambiato il prezzo in %1$s stella per messaggio"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPriceChangedOut",
+      "one_value": "Hai cambiato il prezzo in %1$s stella per messaggio",
+      "other_value": "Hai cambiato il prezzo in %1$s stelle per messaggio"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "Segna come letto"
@@ -434,6 +451,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionTopicChangedIcon",
+      "value": "%2$s ha cambiato l'icona del topic in %1$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionTopicClosed",
       "value": "%3$s hai chiuso %1$s %2$s"
     },
@@ -444,6 +466,56 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionTopicCreate",
+      "value": "%2$s ha creato il topic %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIcon",
+      "value": "%3$s ha creato il topic %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIconOut",
+      "value": "Hai creato il topic %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateOut",
+      "value": "Hai creato il topic %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreated",
+      "value": "Il topic %1$s è stato creato"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreatedIcon",
+      "value": "Il topic %1$s %2$s è stato creato"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHidden",
+      "value": "%1$s ha nascosto il topic generale"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHiddenOut",
+      "value": "Hai nascosto il topic generale"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamed",
+      "value": "%2$s ha rinominato il topic in %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamedOut",
+      "value": "Hai rinominato il topic in %1$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionTopicReopened",
       "value": "%3$s ha riaperto %1$s %2$s"
     },
@@ -451,6 +523,16 @@
       "_": "types.LangPackString",
       "key": "ActionTopicReopenedOut",
       "value": "Hai riaperto %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhidden",
+      "value": "%1$s ha reso visibile il topic generale"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhiddenOut",
+      "value": "Hai reso visibile il topic generale"
     },
     {
       "_": "types.LangPackString",
@@ -22047,6 +22129,12 @@
       "value": "+premium"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_refundedStars",
+      "one_value": "%1$s stella",
+      "other_value": "%1$s stelle"
+    },
+    {
       "_": "types.LangPackString",
       "key": "format_sessionsAndWebsites",
       "value": "%1$s, %2$s"
@@ -24166,5 +24254,5 @@
       "other_value": "%1$s anni"
     }
   ],
-  "version": 1625550
+  "version": 1626943
 }
