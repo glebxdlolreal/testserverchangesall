@@ -142,6 +142,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeft",
+      "value": "Власник је напустио ћаскање"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeftTo",
+      "value": "Власник је напустио ћаскање. Ако се не врати, %1$s ће постати нови власник."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChatRemovedFromCommunity",
       "value": "Ово ћаскање је уклоњено из заједнице"
     },
@@ -255,6 +265,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosed",
+      "value": "%1$s затворио/ла општу тему"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosedOut",
+      "value": "Затворили сте општу тему"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopened",
+      "value": "%1$s поново отворио/ла општу тему"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopenedOut",
+      "value": "Поново сте отворили општу тему"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionMute",
       "value": "Искључи"
     },
@@ -267,6 +297,20 @@
       "_": "types.LangPackString",
       "key": "ActionMutePerson",
       "value": "Искључи %1$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Кориснику %2$s враћене %3$s за %1$s поруке",
+      "key": "ActionPaidMessagesRefunded",
+      "one_value": "Кориснику %2$s враћена %3$s за %1$s поруку",
+      "other_value": "Кориснику %2$s враћено %3$s за %1$s порука"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Враћене су вам %2$s за %1$s поруке",
+      "key": "ActionPaidMessagesRefundedOut",
+      "one_value": "Враћена вам је %2$s за %1$s поруку",
+      "other_value": "Враћено вам је %2$s за %1$s порука"
     },
     {
       "_": "types.LangPackString",
@@ -410,6 +454,20 @@
       "other_value": "%2$s закачио/ла **%1$s плаћених видео-снимака**"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s променио/ла цену на %1$s звездице по поруци",
+      "key": "ActionPriceChanged",
+      "one_value": "%2$s променио/ла цену на %1$s звездицу по поруци",
+      "other_value": "%2$s променио/ла цену на %1$s звездица по поруци"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Променили сте цену на %1$s звездице по поруци",
+      "key": "ActionPriceChangedOut",
+      "one_value": "Променили сте цену на %1$s звездицу по поруци",
+      "other_value": "Променили сте цену на %1$s звездица по поруци"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "Означи као прочитано"
@@ -458,6 +516,126 @@
       "_": "types.LangPackString",
       "key": "ActionSharingStillEnabled",
       "value": "Дељење у овом ћаскању је и даље омогућено"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIcon",
+      "value": "%2$s променио/ла икону теме у %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconName",
+      "value": "%3$s променио/ла назив теме и икону у %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconNameOut",
+      "value": "Променили сте назив теме и икону у %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconOut",
+      "value": "Променили сте икону теме у %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosed",
+      "value": "%3$s затворио/ла %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosedOut",
+      "value": "Затворили сте %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreate",
+      "value": "%2$s отворио/ла тему %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIcon",
+      "value": "%3$s отворио/ла тему %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIconOut",
+      "value": "Отворили сте тему %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateOut",
+      "value": "Отворили сте тему %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreated",
+      "value": "Тема %1$s отворена"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreatedIcon",
+      "value": "Тема %1$s %2$s отворена"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHidden",
+      "value": "%1$s сакрио/ла општу тему"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHiddenOut",
+      "value": "Сакрили сте општу тему"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamed",
+      "value": "%2$s преименовао/ла тему у %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamedOut",
+      "value": "Преименовали сте тему у %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopened",
+      "value": "%3$s поново отворио/ла %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopenedOut",
+      "value": "Поново сте отворили %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhidden",
+      "value": "%1$s вратио/ла општу тему"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhiddenOut",
+      "value": "Вратили сте општу тему"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosed",
+      "value": "%1$s затворио/ла тему"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosedOut",
+      "value": "Затворили сте тему"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopened",
+      "value": "%1$s поново отворио/ла тему"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopenedOut",
+      "value": "Поново сте отворили тему"
     },
     {
       "_": "types.LangPackString",
@@ -22386,6 +22564,13 @@
       "value": "+premium"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s звездице",
+      "key": "format_refundedStars",
+      "one_value": "%1$s звездица",
+      "other_value": "%1$s звездица"
+    },
+    {
       "_": "types.LangPackString",
       "key": "format_sessionsAndWebsites",
       "value": "%1$s, %2$s"
@@ -24674,5 +24859,5 @@
       "other_value": "%1$s година"
     }
   ],
-  "version": 1624961
+  "version": 1625115
 }
