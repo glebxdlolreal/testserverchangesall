@@ -1663,12 +1663,16 @@ function checkFrameSize() {
       });
     },
     wrapTextNodes: function(el) {
+      var skipTags = {TABLE: 1, TBODY: 1, THEAD: 1, TFOOT: 1, TR: 1};
       gec(el.childNodes, function() {
         if (this.nodeType == this.TEXT_NODE) {
+          if (skipTags[this.parentNode.tagName]) {
+            return;
+          }
           var text = newEl('span', 'd-text');
           this.parentNode.insertBefore(text, this);
           text.appendChild(this);
-        } else if (!this.classList.contains('tg-spoiler') && this.childNodes) {
+        } else if (!this.classList.contains('tg-spoiler') && this.childNodes && !skipTags[this.tagName]) {
           TPost.wrapTextNodes(this);
         }
       });
