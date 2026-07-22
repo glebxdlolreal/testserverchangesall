@@ -162,17 +162,17 @@
     {
       "_": "types.LangPackString",
       "key": "ActionChecklistAddMsg",
-      "value": "%1$s añadió %2$s a la lista de verificación “%3$s”"
+      "value": "%1$s añadió %2$s a la lista “%3$s”"
     },
     {
       "_": "types.LangPackString",
       "key": "ActionChecklistAddOut",
-      "value": "Añadiste %1$s a la lista de verificación"
+      "value": "Añadiste %1$s a la lista"
     },
     {
       "_": "types.LangPackString",
       "key": "ActionChecklistAddOutMsg",
-      "value": "Añadiste %1$s a la lista de verificación “%2$s”"
+      "value": "Añadiste %1$s a la lista “%2$s”"
     },
     {
       "_": "types.LangPackString",
@@ -18521,6 +18521,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncBtn",
+      "value": "Sincronizar"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncContacts",
       "value": "Sincronizar contactos"
     },
@@ -18556,8 +18561,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncHint2",
+      "value": "Los contactos en tu dispositivo se subirán a los servidores de Telegram para que puedas encontrarlos en la sección **Contactos** de **%1$s**.\n\nSi eliminas un contacto de tu dispositivo mientras la sincronización está activada, también se eliminará de tu lista de contactos en los servidores de **Telegram**.\n\nSiempre puedes desactivar la sincronización o borrar los datos en los servidores de Telegram en **Ajustes > Privacidad y seguridad > Eliminar contactos sincronizados**.\n\nPara activar la sincronización, también tienes que permitir el acceso a tus contactos en el dispositivo a **%1$s**."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncHintRetry",
       "value": "Para ayudarte a contactar con amigos y familiares en Telegram, permite el acceso a tus contactos.\n\nToca Ajustes > Permisos, y activa Contactos."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintRetry2",
+      "value": "Para activar la sincronización de contactos y subirlos a Telegram, permite el acceso a tus contactos.\n\nToca **Ajustes** > **Permisos**, y activa **Contactos**."
     },
     {
       "_": "types.LangPackString",
@@ -18566,8 +18581,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncHintTitle2",
+      "value": "¿Sincronizar contactos con Telegram?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncHintUnavailable",
       "value": "Toca Ajustes > Permisos, y activa Contactos para permitir a Telegram acceder a tus contactos."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintUnavailable2",
+      "value": "Toca Ajustes > Permisos, y activa Contactos para permitir a **%1$s** acceder a tus contactos para encontrarlos en Telegram."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncLearnMore",
+      "value": "Política de privacidad"
     },
     {
       "_": "types.LangPackString",
@@ -22160,6 +22190,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_notificationTitleSecret",
+      "value": "🔒️ %1$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_notificationTitleShort",
       "value": "%1$s (%2$s)"
     },
@@ -23567,6 +23602,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "url_contactsPrivacy",
+      "value": "https://telegram.org/privacy#3-4-phone-number-and-contacts"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "url_faq",
       "value": "https://telegram.org/faq/es#preguntas-generales"
     },
@@ -24344,5 +24384,5 @@
       "other_value": "%1$s años"
     }
   ],
-  "version": 1625552
+  "version": 1633477
 }
