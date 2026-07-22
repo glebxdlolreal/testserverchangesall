@@ -4810,6 +4810,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.Poll.AttachLink",
+      "value": "Tambah Link"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.Poll.CopyOption",
       "value": "Salin Opsyen"
     },
@@ -6430,6 +6435,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DeleteAllMessages",
+      "value": "Hapus semua mesej"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteAllReactions",
+      "value": "Hapus semua reaksi"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DeleteAllRevokedLinks",
       "value": "Hapus Semua Link Dibatal"
     },
@@ -6532,6 +6547,11 @@
       "_": "types.LangPackString",
       "key": "DeleteProceedBtn",
       "value": "Teruskan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteReaction",
+      "value": "Hapus Reaksi"
     },
     {
       "_": "types.LangPackString",
@@ -8272,6 +8292,11 @@
       "_": "types.LangPackString",
       "key": "GiftPremiumUseGiftBtn",
       "value": "Guna Hadiah"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GiftRecipientDoesNotAccept",
+      "value": "Pengguna ini tak sudi terima hadiah."
     },
     {
       "_": "types.LangPackString",
@@ -11295,13 +11320,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.AllowedCountries",
+      "value": "Negara Dibenarkan"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.Anonymous",
       "value": "Undian Sulit"
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.ChooseCountry",
+      "value": "Sila pilih minimum satu negara."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.CouldNotCreate",
       "value": "Tak boleh cipta undian"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "NewPoll.CountriesCount",
+      "other_value": "%d negara"
     },
     {
       "_": "types.LangPackString",
@@ -11327,6 +11367,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.HideResultsSubtitle",
       "value": "Keputusan akan hanya terpapar selepas undian tutup"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountry",
+      "value": "Had ikut Negara"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountrySubtitle",
+      "value": "Hanya pengguna dari negara terpilih boleh undi."
     },
     {
       "_": "types.LangPackString",
@@ -11382,6 +11432,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.Quiz",
       "value": "Mod Kuiz"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribers",
+      "value": "Hanya untuk Pelanggan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribersSubtitle",
+      "value": "Hanya pelanggan yang sertai 24+ jam lalu boleh undi."
     },
     {
       "_": "types.LangPackString",
@@ -13055,6 +13115,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Countries",
+      "value": "Hanya pengguna dari negara terpilih boleh undi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.CountriesList",
+      "value": "Hanya pengguna dari %s boleh undi."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Subscribers",
+      "value": "Hanya pelanggan boleh undi."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersChannel",
+      "value": "Hanya pelanggan %s boleh undi."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersRecent",
+      "value": "Hanya pelanggan yang sertai lebih dari **24 jam** lalu boleh undi."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollOptions",
       "value": "Opsyen undian"
     },
@@ -13072,6 +13157,26 @@
       "_": "types.LangPackString",
       "key": "PollResults.Title.Quiz",
       "value": "Keputusan Kuiz"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.NoVotes",
+      "value": "Tiada undi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Title",
+      "value": "Statistik Undian"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.View",
+      "value": "Lihat Statistik"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Votes",
+      "value": "Undian"
     },
     {
       "_": "types.LangPackString",
@@ -16155,6 +16260,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ShowAllReactions",
+      "value": "Pamir Semua Reaksi"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ShowMessage",
       "value": "Tunjuk Mesej"
     },
@@ -18885,8 +18995,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Dismissed",
+      "value": "Anda boleh kirim hadiah nanti dari Tetapan."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Suggestion.BirthdayContacts.Multiple",
+      "other_value": "%d kenalan rayakan **hari lahir**! 🎂"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Suggestion.BirthdayContacts.Single",
       "value": "Hari lahir %s, hari ini! 🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Subtitle",
+      "value": "Kirim mereka Hadiah."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Today",
+      "value": "Hari Lahir hari ini"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Tomorrow",
+      "value": "Hari lahir besok"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Yesterday",
+      "value": "Hari lahir kelmarin"
     },
     {
       "_": "types.LangPackString",
@@ -18962,6 +19102,11 @@
       "_": "types.LangPackString",
       "key": "SupportStatus",
       "value": "bantuan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TapAndHoldToDeleteReaction",
+      "value": "Tekan lama untuk hapus reaksi."
     },
     {
       "_": "types.LangPackString",
@@ -19487,6 +19632,56 @@
       "_": "types.LangPackString",
       "key": "Unblock",
       "value": "Bebaskan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirm",
+      "value": "Ya, ini saya"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirmed",
+      "value": "Log Masuk Baru Dibenarkan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirmedMessage",
+      "value": "Anda boleh semak senarai log masuk aktif anda di %s."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedButton",
+      "value": "Faham"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedMessageSingle",
+      "value": "Kami telah tamatkan percubaan log masuk dari %s."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "UnconfirmedAuthDeniedTitle",
+      "other_value": "Log Masuk Baru Disekat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedWarning",
+      "value": "Jangan kirim kod log masuk anda kepada sesiapa atau akaun Telegram anda boleh hilang!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeny",
+      "value": "Tidak, bukan saya!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthSingle",
+      "value": "Kami kesan log masuk baru ke akaun anda dari %s. Ini anda?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthTitle",
+      "value": "Seseorang baru dapat akses ke mesej anda!"
     },
     {
       "_": "types.LangPackString",
@@ -20544,5 +20739,5 @@
       "other_value": "%1$d mesej"
     }
   ],
-  "version": 309270
+  "version": 309310
 }
