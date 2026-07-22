@@ -4490,6 +4490,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_insert_media",
+      "value": "Media bijvoegen"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_insert_ordered_list",
       "value": "Gesorteerde lijst"
     },
@@ -4585,8 +4590,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_media_collage",
+      "value": "Collage"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_media_slideshow",
       "value": "Diavoorstelling"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_media_ungroup",
+      "value": "Apart weergeven"
     },
     {
       "_": "types.LangPackString",
@@ -9498,6 +9513,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_add_chat",
+      "value": "Voeg een chat toe aan de gemeenschap"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_add_confirm",
       "value": "Als deze groep wordt goedgekeurd door een beheerder van de gemeenschap, kunnen de leden ook lid worden of een verzoek doen om lid te worden van andere chats in de gemeenschap."
     },
@@ -9611,6 +9631,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_chats_joined",
+      "value": "Chats waarin je zit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chats_requestable",
+      "value": "Verborgen chats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chats_viewable",
+      "value": "Chats die je kunt bekijken"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_create_hidden_bot",
       "value": "Verborgen bot"
     },
@@ -9702,6 +9737,11 @@
       "value": "Hier verschijnen gebruikers die uit de gemeenschap zijn verwijderd."
     },
     {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_add",
+      "value": "Toevoegen"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "lng_community_request_added_toast",
       "one_value": "De chat is toegevoegd aan de gemeenschap.",
@@ -9711,6 +9751,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_request_added_toast_undo",
       "value": "Je bent ermee akkoord gegaan om {chat} aan de gemeenschap toe te voegen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_decline",
+      "value": "Afwijzen"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -9730,13 +9775,91 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only_bot",
+      "value": "Deze bot is alleen op uitnodiging toegankelijk. Alleen uitgenodigde leden kunnen het gebruiken."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_request_invite_only_channel",
       "value": "Dit kanaal is alleen op uitnodiging toegankelijk. Het is uitsluitend voor leden zichtbaar."
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_request_message_owner",
+      "value": "Eigenaar van groep een bericht sturen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_message_owner_bot",
+      "value": "Eigenaar van bot een bericht sturen"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_request_message_owner_channel",
       "value": "Eigenaar van kanaal een bericht sturen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_only_members",
+      "value": "Alleen zichtbaar voor leden"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_suggested_bot",
+      "value": "{user} heeft deze bot voorgesteld"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_suggested_channel",
+      "value": "{user} heeft dit kanaal voorgesteld"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_suggested_group",
+      "value": "{user} heeft deze groep voorgesteld"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_about",
+      "value": "Chats worden pas aan de gemeenschap toegevoegd wanneer ze zijn goedgekeurd door een beheerder. {link}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_about_link",
+      "value": "Instellingen wijzigen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_add_all",
+      "value": "Allemaal toevoegen"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_add_all_sure",
+      "one_value": "Wil je {count} chat aan de gemeenschap toevoegen?",
+      "other_value": "Wil je {count} chats aan de gemeenschap toevoegen?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_add_all_title",
+      "value": "Alle chats toevoegen"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_button",
+      "one_value": "{count} openstaand verzoek",
+      "other_value": "{count} openstaande verzoeken"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_count",
+      "one_value": "{count} chat voorgesteld voor deze gemeenschap",
+      "other_value": "{count} chats voorgesteld voor deze gemeenschap"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_decline_all",
+      "value": "Allemaal afwijzen"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -9748,6 +9871,16 @@
       "_": "types.LangPackString",
       "key": "lng_community_requests_decline_all_title",
       "value": "Allemaal afwijzen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_title",
+      "value": "Openstaande verzoeken"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ungroup",
+      "value": "Apart weergeven"
     },
     {
       "_": "types.LangPackString",
@@ -40853,5 +40986,5 @@
       "other_value": "Je hebt {count} sterren betaald."
     }
   ],
-  "version": 5747521
+  "version": 5747621
 }
