@@ -6425,6 +6425,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DeleteAllMessages",
+      "value": "刪除所有訊息"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteAllReactions",
+      "value": "刪除所有反應"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DeleteAllRevokedLinks",
       "value": "刪除所有已撤銷的連結"
     },
@@ -6527,6 +6537,11 @@
       "_": "types.LangPackString",
       "key": "DeleteProceedBtn",
       "value": "繼續"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteReaction",
+      "value": "刪除反應"
     },
     {
       "_": "types.LangPackString",
@@ -11265,8 +11280,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.AllowedCountries",
+      "value": "允許的國家"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.Anonymous",
       "value": "匿名投票"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.ChooseCountry",
+      "value": "請至少選擇一個國家。"
     },
     {
       "_": "types.LangPackString",
@@ -11297,6 +11322,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.HideResultsSubtitle",
       "value": "投票結果將在投票結束後才會顯示"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountry",
+      "value": "依國家限制"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountrySubtitle",
+      "value": "只有選定國家的用戶才能投票。"
     },
     {
       "_": "types.LangPackString",
@@ -11352,6 +11387,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.Quiz",
       "value": "測驗模式"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribers",
+      "value": "僅限訂閱者"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribersSubtitle",
+      "value": "只有在 24 小時前加入的訂閱者才能投票。"
     },
     {
       "_": "types.LangPackString",
@@ -13025,6 +13070,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Countries",
+      "value": "只有選定國家的用戶才能投票。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.CountriesList",
+      "value": "只有來自%s的用戶才能投票。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Subscribers",
+      "value": "只有訂閱者可以投票。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersChannel",
+      "value": "只有「%s」的訂閱者可以投票。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersRecent",
+      "value": "只有加入超過 24 小時的訂閱者才能投票。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollOptions",
       "value": "投票選項"
     },
@@ -13042,6 +13112,21 @@
       "_": "types.LangPackString",
       "key": "PollResults.Title.Quiz",
       "value": "測驗結果"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.NoVotes",
+      "value": "沒人投票"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Title",
+      "value": "投票統計資料"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.View",
+      "value": "查看統計數據"
     },
     {
       "_": "types.LangPackString",
@@ -16120,6 +16205,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ShowAllReactions",
+      "value": "顯示所有反應"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ShowMessage",
       "value": "顯示訊息"
     },
@@ -18850,6 +18940,41 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Dismissed",
+      "value": "您可以稍後在「設定」中贈送禮物給朋友。"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Suggestion.BirthdayContacts.Multiple",
+      "other_value": "今天是 %d 個聯絡人的生日！🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Single",
+      "value": "今天是 %s 的生日！🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Subtitle",
+      "value": "贈送禮物給他們。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Today",
+      "value": "今天生日"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Tomorrow",
+      "value": "明天生日"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Yesterday",
+      "value": "昨天生日"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Suggestion.BirthdaySetup",
       "value": "加入您的生日！ %s"
     },
@@ -19447,6 +19572,46 @@
       "_": "types.LangPackString",
       "key": "Unblock",
       "value": "解除封鎖"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirm",
+      "value": "是的，是我本人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirmed",
+      "value": "已允許新的登入"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedMessageSingle",
+      "value": "我們已終止來自 %s 的登入嘗試。"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "UnconfirmedAuthDeniedTitle",
+      "other_value": "已阻止新的登入"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedWarning",
+      "value": "切勿將您的登入驗證碼傳送給任何人，否則您可能會失去您的 Telegram 帳號！"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeny",
+      "value": "不，那不是我！"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthSingle",
+      "value": "我們偵測到來自 %s 的新登入，是您本人嗎？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthTitle",
+      "value": "有人剛剛存取了您的訊息！"
     },
     {
       "_": "types.LangPackString",
@@ -20504,5 +20669,5 @@
       "other_value": "%1$d 則訊息"
     }
   ],
-  "version": 300965
+  "version": 309005
 }
