@@ -1879,6 +1879,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Description",
+      "value": "Please add your email address to keep access to your account."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.ErrorEmailNotAllowed",
+      "value": "Sorry, this email can't be used."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.ErrorInvalidEmail",
+      "value": "Please enter a valid email address."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Placeholder",
+      "value": "Enter your email"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Title",
+      "value": "Add Email"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AuthSessions.MessageApp",
       "value": "You allowed this bot to message you when you opened %@."
     },
@@ -5430,6 +5455,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChannelBlocklist.CommunityEmptyDescription",
+      "value": "Banned users are removed from the community and can only come back if added by an admin. Invite links don't work for them."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChannelBoost.AdditionalFeatures.Text",
       "value": "By gaining boosts, your group reaches higher levels and unlocks more features."
     },
@@ -7780,6 +7810,11 @@
       "_": "types.LangPackString",
       "key": "Chat.EmptyChat.Info",
       "value": "Send a message or click on the greeting below"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.EmptyMessageError",
+      "value": "You can't send an empty message."
     },
     {
       "_": "types.LangPackString",
@@ -11393,6 +11428,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatInput.EmptyMessageError",
+      "value": "You can't send an empty message."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatInput.OpenChat",
       "value": "Open Chat"
     },
@@ -12427,6 +12467,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.RemoveFromCommunity",
+      "value": "Remove from Community"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.RevealAction.Collapse",
       "value": "Collapse"
     },
@@ -12714,6 +12759,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Ungroup",
+      "value": "Ungroup"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupChats",
+      "value": "Ungroup Chats?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupChatsInfo",
+      "value": "Chats from this community will appear separately in your chat list."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.UnhideMuted",
       "value": "Unhide Muted"
     },
@@ -12881,6 +12941,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatMessageMenu.SentAt",
+      "value": "Sent %1$@"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatMessageMenuItems.AndJoiner",
       "value": " and "
     },
@@ -12978,6 +13043,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatRow.Edited",
+      "value": "edited %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.AddedGroup",
+      "value": "%1$@ added this group to the community %2$@."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.BotAddedToCommunity",
+      "value": "The bot was added to the community %1$@."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatService.ChangedToSameWallpaper",
       "value": "%1$@ set the same wallpaper for this chat"
     },
@@ -12985,6 +13065,11 @@
       "_": "types.LangPackString",
       "key": "ChatService.ChangedWallpaper",
       "value": "%1$@ set a new wallpaper for this chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.ChannelAddedToCommunity",
+      "value": "The channel was added to the community %1$@."
     },
     {
       "_": "types.LangPackString",
@@ -13288,6 +13373,11 @@
       "_": "types.LangPackString",
       "key": "ChatService.ViewBackground",
       "value": "View Wallpaper"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.YouAddedGroup",
+      "value": "You added this group to the community %1$@."
     },
     {
       "_": "types.LangPackString",
@@ -13878,6 +13968,77 @@
       "_": "types.LangPackString",
       "key": "Common.Restart",
       "value": "Restart"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.InviteOnlyInfo",
+      "value": "This chat is invite-only.\nOnly its members can view it."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.YouAreAdminInfo",
+      "value": "You can now edit the info of %1$@ and use other admin tools."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.EditGroupList",
+      "value": "Edit Chat List"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInfo.Community",
+      "value": "Community"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityInfo.CommunityWithChats",
+      "one_value": "",
+      "other_value": "Community with %1$d chats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.AddChat",
+      "value": "Add a Chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.EditCommunity",
+      "value": "Edit Community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.PendingRequests",
+      "value": "Pending Requests"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.ShowAsOneChat",
+      "value": "Show as One Chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.ApprovalInfo",
+      "value": "Chats require admin approval before they're added to the community. [Change Settings](settings)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.SuggestsGroup",
+      "value": "%1$@ suggests this chat:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.SuggestsGroupSuffix",
+      "value": " suggests this chat:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.HideChat",
+      "value": "Hide"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowChat",
+      "value": "Show"
     },
     {
       "_": "types.LangPackString",
@@ -14835,6 +14996,22 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DeleteGroupMessages.Ban",
+      "value": "Ban"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteGroupMessages.BanFromCommunity",
+      "value": "Ban from the Community"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "DeleteGroupMessages.CommunityBanWarning",
+      "one_value": "",
+      "other_value": "Banning %2$@ will also remove %1$d of their chats from the community."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DeleteGroupMessages.DeleteAllFromPeer",
       "value": "Delete all from %1$@"
     },
@@ -14849,9 +15026,26 @@
       "value": "Delete Reaction"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "DeleteGroupMessages.MemberCount",
+      "one_value": "",
+      "other_value": "%1$d members"
+    },
+    {
       "_": "types.LangPackString",
       "key": "DeleteGroupMessages.ReactionTitle",
       "value": "Delete 1 Reaction"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "DeleteGroupMessages.RemovedFromChatsCount",
+      "one_value": "",
+      "other_value": "The user will be removed from %1$d chats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteGroupMessages.WarningTitle",
+      "value": "Warning"
     },
     {
       "_": "types.LangPackString",
@@ -19123,6 +19317,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupInfo.AddGroupToCommunity",
+      "value": "Add Group to a Community"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupInfo.AddUserLeftError",
       "value": "If a person has left the group in the past, you need to be in their Telegram contacts to add them back.\n\nThey can still join via an invite link as long as they are not on the Removed Users list."
     },
@@ -19183,8 +19382,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupInfo.Remove",
+      "value": "Remove"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.RemoveGroupFromCommunity",
+      "value": "Remove Group From Community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.RemoveGroupFromCommunityConfirm",
+      "value": "Are you sure you want to remove this group from the community?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupInfo.ScamWarning",
       "value": "⚠️ Warning: Many users reported this group as a scam or a fake account. Please be careful, especially if it asks you for money."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.SomethingWentWrong",
+      "value": "Something went wrong."
     },
     {
       "_": "types.LangPackString",
@@ -26920,6 +27139,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumBoarding.RichFormattingInfo",
+      "value": "Add headers, tables, inline media and AI content to messages."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PremiumBoarding.RichFormattingTitle",
+      "value": "Formatting Tools"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumBoarding.Stories.ExpirationDuration.Info",
       "value": "Set custom durations like 6 or 48 hours for your stories."
     },
@@ -28722,6 +28951,236 @@
       "_": "types.LangPackString",
       "key": "RequestJoin.Sent",
       "value": "Join request sent"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.AddToPage",
+      "value": "Add to Page"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.ErrorEmpty",
+      "value": "You can't process an empty message."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.ErrorTooLong",
+      "value": "The message is too long."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.Generate",
+      "value": "Generate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.PromptPlaceholder",
+      "value": "Generate text, formulas, or tables…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.Result",
+      "value": "Result"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.Title",
+      "value": "Create with AI"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Bold",
+      "value": "Bold"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Copy",
+      "value": "Copy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Cut",
+      "value": "Cut"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Format",
+      "value": "Format"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Italic",
+      "value": "Italic"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.LookUp",
+      "value": "Look Up"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Paste",
+      "value": "Paste"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.SelectAll",
+      "value": "Select All"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Share",
+      "value": "Share…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Underline",
+      "value": "Underline"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Placeholder.AddAuthor",
+      "value": "Add author"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Placeholder.AddCaption",
+      "value": "Add caption…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Placeholder.TypeSomething",
+      "value": "Type something…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ShowAsSlider",
+      "value": "Show as Slideshow"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddColumnLeft",
+      "value": "Add Column Left"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddColumnRight",
+      "value": "Add Column Right"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddRowAbove",
+      "value": "Add Row Above"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddRowBelow",
+      "value": "Add Row Below"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignCenter",
+      "value": "Align Center"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignLeft",
+      "value": "Align Left"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignRight",
+      "value": "Align Right"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteColumn",
+      "value": "Delete Column"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteColumns",
+      "value": "Delete Columns"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteRow",
+      "value": "Delete Row"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteRows",
+      "value": "Delete Rows"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.AiPremiumRequired",
+      "value": "AI tools in the rich text editor are available with Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.CodeBlock",
+      "value": "Code Block"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.CodeLanguage",
+      "value": "Code Language"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.Edit",
+      "value": "Edit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.EditWithoutFormatting",
+      "value": "Edit Without Formatting?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.EmptyMessage",
+      "value": "You can't send an empty message."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PremiumToastEdit",
+      "value": "Editing a message with this formatting requires [Telegram Premium](premium)."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PremiumToastSend",
+      "value": "Sending a message with this formatting requires [Telegram Premium](premium)."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PullQuote",
+      "value": "Pull Quote"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.RemoveFormatting",
+      "value": "Remove Formatting"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.RichFormattingRequiresPremium",
+      "value": "This message uses rich formatting, which requires Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.Send",
+      "value": "Send"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.SendWithoutFormatting",
+      "value": "Send Without Formatting?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.SetLanguage",
+      "value": "Set Language…"
     },
     {
       "_": "types.LangPackString",
@@ -33585,6 +34044,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarGiftNft.ResaleMinPriceInfo",
+      "value": "This option is available only for gifts priced above %1$@."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarList.Ton",
       "value": "Grams"
     },
@@ -36795,6 +37259,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextUtils.AddedToCommunity",
+      "value": "Added to \"%1$@\" community"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextUtils.ManagedBotCreated",
       "value": "%1$@ created %2$@"
     },
@@ -36807,6 +37276,11 @@
       "_": "types.LangPackString",
       "key": "TextUtils.PollOptionDeleted",
       "value": "%1$@ deleted an option: %2$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextUtils.RemovedFromCommunity",
+      "value": "Removed from a community"
     },
     {
       "_": "types.LangPackString",
@@ -37978,6 +38452,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TranslateModal.PromptPlaceholder",
+      "value": "Describe how to rewrite the text…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TranslateModal.PromptStyle",
+      "value": "Prompt"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TranslateModal.ShareStyle",
       "value": "Share Style"
     },
@@ -38388,8 +38872,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UserInfo.AddBotToCommunity",
+      "value": "Add Bot to a Community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.AddBotToCommunityInfo",
+      "value": "Make your bot part of a community with multiple related chats"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UserInfo.ManagedBotCreatedBy",
       "value": "Created and managed by "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.RemoveBotFromCommunity",
+      "value": "Remove this bot from the community?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.RemoveBotFromCommunityButton",
+      "value": "Remove Bot from Community"
     },
     {
       "_": "types.LangPackString",
@@ -40641,5 +41145,5 @@
       "value": "Show Substitutions"
     }
   ],
-  "version": 2224214
+  "version": 2243904
 }
