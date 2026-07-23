@@ -88,6 +88,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedPollOption",
+      "value": "%1$s добавил(а) в опрос «%2$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOptionMsg",
+      "value": "%1$s добавил(а) «%2$s» в опрос «%3$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOption",
+      "value": "Вы добавили в опрос «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOptionMsg",
+      "value": "Вы добавили «%1$s» в опрос «%2$s»"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChannelChangedPhoto",
       "value": "Фотография канала изменена"
     },
@@ -108,8 +128,165 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunity",
+      "value": "Чат добавлен в сообщество «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunityUnknown",
+      "value": "Чат добавлен в сообщество"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerChanged",
+      "value": "%1$s стал(а) новым владельцем этого чата"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeft",
+      "value": "Владелец покинул чат"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeftTo",
+      "value": "Владелец покинул чат. Если он(а) не вернётся, новым владельцем станет %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatRemovedFromCommunity",
+      "value": "Чат удалён из сообщества"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAdd",
+      "value": "%1$s добавил(а) в список %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddMsg",
+      "value": "%1$s добавил(а) %2$s в список «%3$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOut",
+      "value": "Вы добавили в список %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOutMsg",
+      "value": "Вы добавили %1$s в список «%2$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMark",
+      "value": "%1$s отметил(а) %2$s как выполненное, а %3$s — как невыполненное"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDone",
+      "value": "%1$s отметил(а) %2$s как выполненное"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDoneOut",
+      "value": "Вы отметили %1$s как выполненное"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s отметил(а) %1$s задачи как выполненные",
+      "key": "ActionChecklistMarkDoneTasks",
+      "many_value": "%2$s отметил(а) %1$s задач как выполненные",
+      "one_value": "%2$s отметил(а) %1$s задачу как выполненную",
+      "other_value": "%2$s отметил(а) %1$s задач как выполненные"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Вы отметили %1$s задачи как выполненные",
+      "key": "ActionChecklistMarkDoneTasksOut",
+      "many_value": "Вы отметили %1$s задач как выполненные",
+      "one_value": "Вы отметили %1$s задачу как выполненную",
+      "other_value": "Вы отметили %1$s задач как выполненные"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDone",
+      "value": "%1$s отметил(а) %2$s как невыполненное"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDoneOut",
+      "value": "Вы отметили %1$s как невыполненное"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s отметил(а) %1$s задачи как невыполненные",
+      "key": "ActionChecklistMarkNotDoneTasks",
+      "many_value": "%2$s отметил(а) %1$s задач как невыполненные",
+      "one_value": "%2$s отметил(а) %1$s задачу как невыполненную",
+      "other_value": "%2$s отметил(а) %1$s задач как невыполненные"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Вы отметили %1$s задачи как невыполненные",
+      "key": "ActionChecklistMarkNotDoneTasksOut",
+      "many_value": "Вы отметили %1$s задач как невыполненные",
+      "one_value": "Вы отметили %1$s задачу как невыполненную",
+      "other_value": "Вы отметили %1$s задач как невыполненные"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkOut",
+      "value": "Вы отметили %1$s как выполненное, а %2$s — как невыполненное"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "Канал создан"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionCreatedManagedBot",
+      "value": "Вы создали бота %1$s под управлением %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOption",
+      "value": "%1$s удалил(а) из опроса «%2$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOptionMsg",
+      "value": "%1$s удалил(а) «%2$s» из опроса «%3$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOption",
+      "value": "Вы удалили из опроса «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOptionMsg",
+      "value": "Вы удалили «%1$s» из опроса «%2$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosed",
+      "value": "%1$s закрыл(а) тему для общих вопросов"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosedOut",
+      "value": "Вы закрыли тему для общих вопросов"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopened",
+      "value": "%1$s возобновил(а) тему для общих вопросов"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopenedOut",
+      "value": "Вы возобновили тему для общих вопросов"
     },
     {
       "_": "types.LangPackString",
@@ -125,6 +302,22 @@
       "_": "types.LangPackString",
       "key": "ActionMutePerson",
       "value": "Выкл. звук для %1$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s вернул(а) %3$s за %1$s сообщения",
+      "key": "ActionPaidMessagesRefunded",
+      "many_value": "%2$s вернул(а) %3$s за %1$s сообщений",
+      "one_value": "%2$s вернул(а) %3$s за %1$s сообщение",
+      "other_value": "%2$s вернул(а) %3$s за %1$s сообщений"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Вы вернули %2$s за %1$s сообщения",
+      "key": "ActionPaidMessagesRefundedOut",
+      "many_value": "Вы вернули %2$s за %1$s сообщений",
+      "one_value": "Вы вернули %2$s за %1$s сообщение",
+      "other_value": "Вы вернули %2$s за %1$s сообщений"
     },
     {
       "_": "types.LangPackString",
@@ -271,9 +464,190 @@
       "other_value": "%2$s закрепил(а) **%1$s платных видео**"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s изменил(а) стоимость сообщения; теперь каждое сообщение стоит %1$s звезды",
+      "key": "ActionPriceChanged",
+      "many_value": "%2$s изменил(а) стоимость сообщения; теперь каждое сообщение стоит %1$s звёзд",
+      "one_value": "%2$s изменил(а) стоимость сообщения; теперь каждое сообщение стоит %1$s звезду",
+      "other_value": "%2$s изменил(а) стоимость сообщения; теперь каждое сообщение стоит %1$s звёзд"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Вы изменили стоимость сообщения; теперь каждое сообщение стоит %1$s звездыу",
+      "key": "ActionPriceChangedOut",
+      "many_value": "Вы изменили стоимость сообщения; теперь каждое сообщение стоит %1$s звёзд",
+      "one_value": "Вы изменили стоимость сообщения; теперь каждое сообщение стоит %1$s звезду",
+      "other_value": "Вы изменили стоимость сообщения; теперь каждое сообщение стоит %1$s звёзд"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "Прочитано"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabled",
+      "value": "%1$s отключил(а) копирование в этом чате"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabledOut",
+      "value": "Вы отключили копирование в этом чате"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabled",
+      "value": "%1$s включил(а) копирование в этом чате"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabledOut",
+      "value": "Вы включили копирование в этом чате"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequest",
+      "value": "%1$s предлагает включить копирование в этом чате"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestExpired",
+      "value": "Срок действия запроса о запрете копирования истёк"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestOut",
+      "value": "Вы предложили включить копирование в этом чате"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillDisabled",
+      "value": "Копирование в этом чате не было включено"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillEnabled",
+      "value": "Копирование в этом чате не было отключено"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIcon",
+      "value": "%2$s изменил(а) значок темы на %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconName",
+      "value": "%3$s изменил(а) название и значок темы на %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconNameOut",
+      "value": "Вы изменили название и значок темы на %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconOut",
+      "value": "Вы изменили значок темы на %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosed",
+      "value": "%3$s закрыл(а) %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosedOut",
+      "value": "Вы закрыли %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreate",
+      "value": "%2$s создал(а) тему %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIcon",
+      "value": "%3$s создал(а) тему %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIconOut",
+      "value": "Вы создали тему %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateOut",
+      "value": "Вы создали тему %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreated",
+      "value": "Тема %1$s создана"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreatedIcon",
+      "value": "Тема %1$s %2$s создана"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHidden",
+      "value": "%1$s скрыл(а) тему для общих вопросов"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHiddenOut",
+      "value": "Вы скрыли тему для общих вопросов"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamed",
+      "value": "%2$s изменил(а) название темы на %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamedOut",
+      "value": "Вы изменили название темы на %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopened",
+      "value": "%3$s возобновил(а) %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopenedOut",
+      "value": "Вы возобновили %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhidden",
+      "value": "%1$s вернул(а) тему для общих вопросов в список"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhiddenOut",
+      "value": "Вы вернули тему для общих вопросов в список"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosed",
+      "value": "%1$s закрыл(а) тему"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosedOut",
+      "value": "Вы закрыли тему"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopened",
+      "value": "%1$s возобновил(а) тему"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopenedOut",
+      "value": "Вы возобновили тему"
     },
     {
       "_": "types.LangPackString",
@@ -6785,6 +7159,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPermissionEditTag",
+      "value": "Изменять свой тег"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPermissionPinMessages",
       "value": "Закреплять сообщения"
     },
@@ -7040,6 +7419,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPromotedManageTags",
+      "value": "Изменение тегов участников"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPromotedManageTopics",
       "value": "Управление темами"
     },
@@ -7165,6 +7549,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogRestrictedEditTag",
+      "value": "Изменять свой тег"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogRestrictedNew",
       "value": "ограничения для %1$s\n\nСрок: %2$s"
     },
@@ -7275,6 +7664,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogTagRemoved",
+      "value": "%2$s удалил(а) тег %3$s («%1$s»)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagRemovedYour",
+      "value": "%2$s удалил(а) Ваш тег «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSet",
+      "value": "%2$s добавил(а) для %3$s тег «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSetYour",
+      "value": "%2$s добавил(а) Вам тег «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouRemoved",
+      "value": "Вы удалили тег %2$s («%1$s»)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouSet",
+      "value": "Вы добавили %2$s тег «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogToggledInvitesOff",
       "value": "%1$s отключил(а) приглашения в группу"
     },
@@ -7317,6 +7736,26 @@
       "_": "types.LangPackString",
       "key": "EventLogTransferredOwnership",
       "value": "права переданы %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOff",
+      "value": "%1$s отключил(а) автоперевод"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOffYou",
+      "value": "Вы отключили автоперевод"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOn",
+      "value": "%1$s включил(а) автоперевод"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOnYou",
+      "value": "Вы включили автоперевод"
     },
     {
       "_": "types.LangPackString",
@@ -22044,6 +22483,63 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistItem",
+      "value": "«%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparator",
+      "value": ", "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparatorLast",
+      "value": " и "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasks",
+      "value": "%1$s отметил(а) %2$s и %3$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s задачи как выполненные",
+      "key": "format_ActionChecklistMarkTasksDone",
+      "many_value": "%1$s задач как выполненные",
+      "one_value": "%1$s задачу как выполненную",
+      "other_value": "%1$s задач как выполненные"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s задачи как невыполненные",
+      "key": "format_ActionChecklistMarkTasksNotDone",
+      "many_value": "%1$s задач как невыполненные",
+      "one_value": "%1$s задачу как невыполенную",
+      "other_value": "%1$s задач как невыполненные"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasksOut",
+      "value": "Вы отметили %1$s и %2$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s задачи как выполненные",
+      "key": "format_ActionChecklistMarkTasksOutDone",
+      "many_value": "%1$s задач как выполненные",
+      "one_value": "%1$s задачу как выполненную",
+      "other_value": "%1$s задач как выполненные"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s задачи как невыполненные",
+      "key": "format_ActionChecklistMarkTasksOutNotDone",
+      "many_value": "%1$s задач как невыполненные",
+      "one_value": "%1$s задачу как невыполненную",
+      "other_value": "%1$s задач как невыполненные"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• %1$s\n• %2$s\n• %3$s\n• %4$s"
     },
@@ -22344,6 +22840,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_notificationTitleSecret",
+      "value": "🔒️ %1$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_notificationTitleShort",
       "value": "%1$s (%2$s)"
     },
@@ -22401,6 +22902,14 @@
       "_": "types.LangPackString",
       "key": "format_plusPremium",
       "value": "+Premium"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s звезды",
+      "key": "format_refundedStars",
+      "many_value": "%1$s звёзд",
+      "one_value": "%1$s звезду",
+      "other_value": "%1$s звёзд"
     },
     {
       "_": "types.LangPackString",
@@ -23847,6 +24356,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "url_contactsPrivacy",
+      "value": "https://telegram.org/privacy#3-4-phone-number-and-contacts"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "url_faq",
       "value": "https://telegram.org/faq#general-questions"
     },
@@ -24860,5 +25374,5 @@
       "other_value": "%1$s лет"
     }
   ],
-  "version": 1620897
+  "version": 1633536
 }

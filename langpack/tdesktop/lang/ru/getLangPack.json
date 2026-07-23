@@ -4485,6 +4485,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_editor_title_editing",
+      "value": "Изменение"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_insert_blockquote",
       "value": "Цитата"
     },
@@ -4735,13 +4740,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_table_add_cells",
+      "value": "Добавить ячейки"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_table_add_column",
       "value": "Добавить столбец"
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_table_add_column_left",
+      "value": "Добавить столбец слева"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_add_column_right",
+      "value": "Добавить столбец справа"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_table_add_row",
       "value": "Добавить строку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_add_row_above",
+      "value": "Добавить столбец сверху"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_add_row_below",
+      "value": "Добавить строку снизу"
     },
     {
       "_": "types.LangPackString",
@@ -4775,6 +4805,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_table_alignment",
+      "value": "Выровнять"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_table_borderless",
       "value": "Прозрачная граница"
     },
@@ -4782,6 +4817,11 @@
       "_": "types.LangPackString",
       "key": "lng_article_table_change",
       "value": "Изменить таблицу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_cells",
+      "value": "Удалить ячейки"
     },
     {
       "_": "types.LangPackString",
@@ -4811,7 +4851,17 @@
     {
       "_": "types.LangPackString",
       "key": "lng_article_table_header",
-      "value": "Строка заголовка"
+      "value": "Заголовок"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_header_cell",
+      "value": "Ячейка-заголовок"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_header_cells",
+      "value": "Ячейки-заголовки"
     },
     {
       "_": "types.LangPackString",
@@ -7080,12 +7130,12 @@
     {
       "_": "types.LangPackString",
       "key": "lng_bot_sure_add_text_channel",
-      "value": "Вы действительно хотите назначить этого бота администратором канала {group}? Он получит доступ к спискам администраторов и подписчиков канала."
+      "value": "Назначить этого бота администратором канала {group}? Он получит доступ к спискам администраторов и подписчиков канала."
     },
     {
       "_": "types.LangPackString",
       "key": "lng_bot_sure_add_text_group",
-      "value": "Вы точно хотите назначить этого бота администратором группы {group}? Он получит доступ к списку анонимных администраторов."
+      "value": "Назначить этого бота администратором группы {group}? Он получит доступ к списку анонимных администраторов."
     },
     {
       "_": "types.LangPackString",
@@ -10007,7 +10057,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_community_manage_all_members_about",
-      "value": "Участники могут добавлять в сообщество свои группы и каналы."
+      "value": "Участники могут добавлять в сообщество свои чаты."
     },
     {
       "_": "types.LangPackString",
@@ -10022,7 +10072,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_community_manage_only_admins_about",
-      "value": "Чаты, предложенные участниками, добавляются после подтверждения администратором."
+      "value": "Предложенные чаты добавляются после подтверждения администратором."
     },
     {
       "_": "types.LangPackString",
@@ -16525,7 +16575,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_formatting_math_create_title",
-      "value": "Добавление формулы"
+      "value": "Новая формула"
     },
     {
       "_": "types.LangPackString",
@@ -33544,8 +33594,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_search_filter_from_archive",
+      "value": "Из архива"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_search_filter_group",
       "value": "Группы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_search_filter_non_archived",
+      "value": "Чаты не в архиве"
     },
     {
       "_": "types.LangPackString",
@@ -42408,5 +42468,5 @@
       "other_value": "Вы заплатили {count} звезды."
     }
   ],
-  "version": 5729594
+  "version": 5748493
 }

@@ -3413,6 +3413,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BotAddAsAdminChannelConfirm",
+      "value": "Haluatko varmasti lisätä botin valvojaksi kanavalle **%1$s**? Se pääsee näkemään kanavan valvojat ja tilaajat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddAsAdminGroupConfirm",
+      "value": "Haluatko varmasti lisätä botin valvojaksi ryhmään **%1$s**? Se pääsee näkemään ryhmän nimettömien valvojien nimet."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToChannelAbout",
+      "value": "Tämä botti kykenee hallinnoimaan kanavaa."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupAbout",
+      "value": "Tämä botti kykenee hallinnoimaan ryhmää."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannel",
+      "value": "Lisää ryhmään tai kanavalle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannelAbout",
+      "value": "Tämä botti voi hallinnoida ryhmää tai kanavaa."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BotAllowAccessTo",
       "value": "Pääsyoikeudet"
     },
@@ -3455,6 +3485,11 @@
       "_": "types.LangPackString",
       "key": "BotCantReadChatTooltip",
       "value": "Botti ei voi lukea koko keskustelua, vaan ainoastaan ne viestit, joissa se mainitaan."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotChooseGroup",
+      "value": "Valitse ryhmä"
     },
     {
       "_": "types.LangPackString",
@@ -4841,6 +4876,11 @@
       "_": "types.LangPackString",
       "key": "Chat.Poll.AddAnOption",
       "value": "Lisää vaihtoehto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Poll.AttachLink",
+      "value": "Lisää linkki"
     },
     {
       "_": "types.LangPackString",
@@ -6479,6 +6519,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DeleteAllMessages",
+      "value": "Poista kaikki viestit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteAllReactions",
+      "value": "Poista kaikki reaktiot"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DeleteAllRevokedLinks",
       "value": "Poista kaikki mitätöidyt linkit"
     },
@@ -6582,6 +6632,11 @@
       "_": "types.LangPackString",
       "key": "DeleteProceedBtn",
       "value": "Jatka"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteReaction",
+      "value": "Poista reaktio"
     },
     {
       "_": "types.LangPackString",
@@ -7325,6 +7380,16 @@
       "_": "types.LangPackString",
       "key": "EditedMessage",
       "value": "muokattu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.At",
+      "value": "muokattu klo %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.On",
+      "value": "muokattu %1$s klo %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -8338,6 +8403,11 @@
       "_": "types.LangPackString",
       "key": "GiftPremiumUseGiftBtn",
       "value": "Käytä lahjaa"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GiftRecipientDoesNotAccept",
+      "value": "Tämä käyttäjä ei ota lahjoja vastaan."
     },
     {
       "_": "types.LangPackString",
@@ -11403,13 +11473,29 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.AllowedCountries",
+      "value": "Sallitut maat"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.Anonymous",
       "value": "Anonyymit äänet"
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.ChooseCountry",
+      "value": "Valitse ainakin yksi maa."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.CouldNotCreate",
       "value": "Kyselyä ei voitu luoda"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "NewPoll.CountriesCount",
+      "one_value": "%d maa",
+      "other_value": "%d maata"
     },
     {
       "_": "types.LangPackString",
@@ -11435,6 +11521,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.HideResultsSubtitle",
       "value": "Kun tämä on käytössä, tulokset näkyvät vasta, kun kysely suljetaan."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountry",
+      "value": "Rajoita maittain"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountrySubtitle",
+      "value": "Vain käyttäjät valituista maista saavat äänestää."
     },
     {
       "_": "types.LangPackString",
@@ -11491,6 +11587,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.Quiz",
       "value": "Visatila"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribers",
+      "value": "Rajoita tilaajiin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribersSubtitle",
+      "value": "Vain kanavan yli 24 tuntia sitten tilanneet saavat äänestää."
     },
     {
       "_": "types.LangPackString",
@@ -13190,6 +13296,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Countries",
+      "value": "Vain käyttäjät valituista maista saavat äänestää."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.CountriesList",
+      "value": "Vain käyttäjät maista %s saavat äänestää."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Subscribers",
+      "value": "Vain tilaajat saavat äänestää."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersChannel",
+      "value": "Vain tilaajat maasta %s saavat äänestää."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersRecent",
+      "value": "Vain kanavan yli 24 tuntia sitten tilanneet saavat äänestää."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollOptions",
       "value": "Vastausvaihtoehdot"
     },
@@ -13208,6 +13339,26 @@
       "_": "types.LangPackString",
       "key": "PollResults.Title.Quiz",
       "value": "Visan tulokset"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.NoVotes",
+      "value": "Ei ääniä"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Title",
+      "value": "Kyselytilastot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.View",
+      "value": "Näytä tilastot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Votes",
+      "value": "Kyselyn äänet"
     },
     {
       "_": "types.LangPackString",
@@ -14858,6 +15009,17 @@
       "value": "Lisää kommentti (valinnainen)"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "Report2MessagesCount",
+      "one_value": "Ilmianna %1$d viesti",
+      "other_value": "Ilmianna %1$d viestiä"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Report2SelectMessages",
+      "value": "Valitse ilmiannettavat viestit."
+    },
+    {
       "_": "types.LangPackString",
       "key": "Report2Send",
       "value": "Lähetä ilmianto"
@@ -16299,6 +16461,11 @@
       "_": "types.LangPackString",
       "key": "Show",
       "value": "Näytä"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ShowAllReactions",
+      "value": "Näytä kaikki reaktiot"
     },
     {
       "_": "types.LangPackString",
@@ -19080,6 +19247,42 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Dismissed",
+      "value": "Voit lähettää lahjoja kavereille myöhemmin asetuksista."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Suggestion.BirthdayContacts.Multiple",
+      "one_value": "%d yhteystiedolla **syntymäpäivä**! 🎂",
+      "other_value": "%d yhteystiedolla **syntymäpäivä**! 🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Single",
+      "value": "Onnea %s, **syntymäpäiväsankari**! 🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Subtitle",
+      "value": "Lähetä hänelle lahja."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Today",
+      "value": "Syntymäpäivä tänään"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Tomorrow",
+      "value": "Syntymäpäivä huomenna"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Yesterday",
+      "value": "Syntymäpäivä eilen"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Suggestion.BirthdaySetup",
       "value": "Lisää syntymäpäiväsi! %s"
     },
@@ -19152,6 +19355,11 @@
       "_": "types.LangPackString",
       "key": "SupportStatus",
       "value": "tuki"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TapAndHoldToDeleteReaction",
+      "value": "Paina pitkään poistaaksesi reaktion."
     },
     {
       "_": "types.LangPackString",
@@ -19678,6 +19886,57 @@
       "_": "types.LangPackString",
       "key": "Unblock",
       "value": "Poista esto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirm",
+      "value": "Se olen minä"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirmed",
+      "value": "Kirjautuminen sallittiin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirmedMessage",
+      "value": "Voit tarkistaa istunnot täältä: %s."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedButton",
+      "value": "Ymmärrän"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedMessageSingle",
+      "value": "Estimme kirjautumisyrityksen (%s)."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "UnconfirmedAuthDeniedTitle",
+      "one_value": "Kirjautumisyritys estettiin",
+      "other_value": "Kirjautumisyrityksiä estettiin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedWarning",
+      "value": "Älä koskaan anna kirjautumiskoodia kenellekään muulle, sillä voit menettää Telegram-tilisi!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeny",
+      "value": "Se en ole minä!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthSingle",
+      "value": "Uusi kirjautumisyritys tilillesi: %s. Oletko se sinä?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthTitle",
+      "value": "Joku pääsi juuri tilillesi!"
     },
     {
       "_": "types.LangPackString",
@@ -20747,5 +21006,5 @@
       "other_value": "%1$d viestiä"
     }
   ],
-  "version": 300323
+  "version": 309359
 }

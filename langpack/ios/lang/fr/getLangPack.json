@@ -16549,6 +16549,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.Add",
+      "value": "Ajouter"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextBot",
+      "value": "Si ce bot est validé par un administrateur de la communauté, les membres de la communauté pourront le voir et l'utiliser."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextChannel",
+      "value": "Si ce canal est approuvé par un administrateur de la communauté, ses abonnés pourront rejoindre ou demander à rejoindre d'autres échanges de la communauté."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextGroup",
+      "value": "Si ce groupe est validé par un administrateur de la communauté, ses membres pourront rejoindre ou demander à rejoindre d'autres échanges au sein de la communauté."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Add.Title",
       "value": "Ajouter un échange"
     },
@@ -16888,8 +16908,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsBot",
+      "value": "%@ suggère ce bot :"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsChannel",
+      "value": "%@ suggère ce canal :"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Request.RequesterSuggestsGroup",
-      "value": "%@ suggère cet échange :"
+      "value": "%@ suggère ce groupe :"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -34480,6 +34510,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroupUnknown",
+      "value": "Ce groupe a été ajouté à la communauté %1$@"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Notification.CommunityAddedGroupYou",
       "value": "Vous avez ajouté ce groupe à la communauté %1$@"
     },
@@ -43265,7 +43300,7 @@
     {
       "_": "types.LangPackString",
       "key": "Premium.RichTextInfo",
-      "value": "Ajouter des titres, tableaux, listes, images et médias intégrés aux messages."
+      "value": "Ajoutez des titres, tableaux, médias intégrés et du contenu généré par l'IA à vos messages."
     },
     {
       "_": "types.LangPackString",
@@ -46120,6 +46155,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.HighlightOff",
+      "value": "Supprimer la mise en évidence"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.HighlightOn",
+      "value": "Mettre en évidence"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichText.MenuCode",
       "value": "Code"
     },
@@ -46140,6 +46185,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.MenuPullquote",
+      "value": "Citation en exergue"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichText.MenuQuote",
       "value": "Citation"
     },
@@ -46147,6 +46197,21 @@
       "_": "types.LangPackString",
       "key": "RichText.MenuText",
       "value": "Texte"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.PlaceholderBody",
+      "value": "Tapez quelque chose..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.PlaceholderCode",
+      "value": "Saisissez le code ici"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.PlaceholderQuote",
+      "value": "Saisissez une citation ici"
     },
     {
       "_": "types.LangPackString",
@@ -60093,5 +60158,5 @@
       "value": "Vous avez entré un code de sécurité invalide."
     }
   ],
-  "version": 21511263
+  "version": 21604145
 }

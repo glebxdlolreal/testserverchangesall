@@ -3509,6 +3509,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BotAddAsAdminChannelConfirm",
+      "value": "Назначить этого бота администратором в канале **%1$s**? Он получит доступ к спискам администраторов и подписчиков канала."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddAsAdminGroupConfirm",
+      "value": "Назначить этого бота администратором группы **%1$s**? Он получит доступ к списку анонимных администраторов."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToChannelAbout",
+      "value": "Бот может управлять каналом."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupAbout",
+      "value": "Бот может управлять группой."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannel",
+      "value": "Добавить в группу или канал"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannelAbout",
+      "value": "Бот может управлять группой или каналом."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BotAllowAccessTo",
       "value": "Разрешения на доступ"
     },
@@ -3551,6 +3581,11 @@
       "_": "types.LangPackString",
       "key": "BotCantReadChatTooltip",
       "value": "У бота нет доступа ко всему чату — только к сообщениям, в которых он упомянут."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotChooseGroup",
+      "value": "Выбрать группу"
     },
     {
       "_": "types.LangPackString",
@@ -4209,7 +4244,7 @@
     {
       "_": "types.LangPackString",
       "key": "CancelPollAlertText",
-      "value": "Вы уверены, что хотите удалить этот опрос?"
+      "value": "Вы точно хотите сбросить все изменения и удалить опрос?"
     },
     {
       "_": "types.LangPackString",
@@ -4979,6 +5014,11 @@
       "_": "types.LangPackString",
       "key": "Chat.Poll.AddAnOption",
       "value": "Добавить ответ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Poll.AttachLink",
+      "value": "Прикрепить ссылку"
     },
     {
       "_": "types.LangPackString",
@@ -6647,6 +6687,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DeleteAllMessages",
+      "value": "Удалить все сообщения"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteAllReactions",
+      "value": "Удалить все реакции"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DeleteAllRevokedLinks",
       "value": "Удалить все неактивные ссылки"
     },
@@ -6752,6 +6802,11 @@
       "_": "types.LangPackString",
       "key": "DeleteProceedBtn",
       "value": "Продолжить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteReaction",
+      "value": "Удалить реакцию"
     },
     {
       "_": "types.LangPackString",
@@ -7501,6 +7556,16 @@
       "_": "types.LangPackString",
       "key": "EditedMessage",
       "value": "изменено"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.At",
+      "value": "изменено в %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.On",
+      "value": "изменено %1$s в %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -8560,6 +8625,11 @@
       "_": "types.LangPackString",
       "key": "GiftPremiumUseGiftBtn",
       "value": "Активировать"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GiftRecipientDoesNotAccept",
+      "value": "Пользователь не принимает подарки."
     },
     {
       "_": "types.LangPackString",
@@ -11709,13 +11779,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.AllowedCountries",
+      "value": "Выбранные страны"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.Anonymous",
       "value": "Анонимное голосование"
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.ChooseCountry",
+      "value": "Выберите хотя бы одну страну."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.CouldNotCreate",
       "value": "Не удалось создать опрос"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d страны",
+      "key": "NewPoll.CountriesCount",
+      "many_value": "%d стран",
+      "one_value": "%d страна",
+      "other_value": "%d стран"
     },
     {
       "_": "types.LangPackString",
@@ -11741,6 +11829,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.HideResultsSubtitle",
       "value": "Если включено, результаты будут скрыты до завершения опроса."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountry",
+      "value": "Ограничение географии"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountrySubtitle",
+      "value": "Голосовать могут только пользователи из выбранных стран."
     },
     {
       "_": "types.LangPackString",
@@ -11799,6 +11897,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.Quiz",
       "value": "Режим викторины"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribers",
+      "value": "Только подписчики"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribersSubtitle",
+      "value": "Голосовать могут только подписавшиеся 24+ часа назад."
     },
     {
       "_": "types.LangPackString",
@@ -13545,6 +13653,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Countries",
+      "value": "Голосовать могут только пользователи из выбранных стран."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.CountriesList",
+      "value": "Голосовать могут только пользователи из выбранных стран (%s)."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Subscribers",
+      "value": "Голосовать могут только подписчики."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersChannel",
+      "value": "Голосовать могут только подписчики %s."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersRecent",
+      "value": "Голосовать могут только подписавшиеся более 24 часов назад."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollOptions",
       "value": "Варианты ответа"
     },
@@ -13565,6 +13698,26 @@
       "_": "types.LangPackString",
       "key": "PollResults.Title.Quiz",
       "value": "Результаты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.NoVotes",
+      "value": "Нет голосов"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Title",
+      "value": "Статистика опроса"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.View",
+      "value": "Открыть статистику"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Votes",
+      "value": "Голоса"
     },
     {
       "_": "types.LangPackString",
@@ -15241,6 +15394,19 @@
       "value": "Комментарий (необязательно)"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Пожаловаться на %1$d сообщения",
+      "key": "Report2MessagesCount",
+      "many_value": "Пожаловаться на %1$d сообщений",
+      "one_value": "Пожаловаться на %1$d сообщение",
+      "other_value": "Пожаловаться на %1$d сообщений"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Report2SelectMessages",
+      "value": "Выберите сообщения для жалобы."
+    },
+    {
       "_": "types.LangPackString",
       "key": "Report2Send",
       "value": "Отправить жалобу"
@@ -16698,6 +16864,11 @@
       "_": "types.LangPackString",
       "key": "Show",
       "value": "Показать"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ShowAllReactions",
+      "value": "Все реакции"
     },
     {
       "_": "types.LangPackString",
@@ -19575,6 +19746,44 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Dismissed",
+      "value": "Вы можете отправить подарок позже из меню «Настройки»"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "У %d контактов день рождения! 🎂",
+      "key": "Suggestion.BirthdayContacts.Multiple",
+      "many_value": "У %d контактов день рождения! 🎂",
+      "one_value": "У %d контакта день рождения! 🎂",
+      "other_value": "У %d контактов день рождения! 🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Single",
+      "value": "%s празднует день рождения! 🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Subtitle",
+      "value": "Отправить подарок"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Today",
+      "value": "День рождения сегодня"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Tomorrow",
+      "value": "День рождения завтра"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Yesterday",
+      "value": "День рождения вчера"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Suggestion.BirthdaySetup",
       "value": "Укажите свой день рождения! %s"
     },
@@ -19647,6 +19856,11 @@
       "_": "types.LangPackString",
       "key": "SupportStatus",
       "value": "поддержка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TapAndHoldToDeleteReaction",
+      "value": "Удалить реакцию — удерживайте."
     },
     {
       "_": "types.LangPackString",
@@ -20175,6 +20389,59 @@
       "_": "types.LangPackString",
       "key": "Unblock",
       "value": "Разблокировать"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirm",
+      "value": "Да, это я"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirmed",
+      "value": "Вход разрешён"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirmedMessage",
+      "value": "Список активных сеансов доступен в разделе %s."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedButton",
+      "value": "ОК"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedMessageSingle",
+      "value": "Мы заблокировали попытку входа в аккаунт с %s."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Попытки входа заблокированы",
+      "key": "UnconfirmedAuthDeniedTitle",
+      "many_value": "Попытки входа заблокированы",
+      "one_value": "Попытка входа заблокирована",
+      "other_value": "Попытки входа заблокированы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedWarning",
+      "value": "Никому не сообщайте проверочный код, иначе Вы можете потерять свой аккаунт в Telegram!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeny",
+      "value": "Нет, не я!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthSingle",
+      "value": "Обнаружен вход в Ваш аккаунт с %s. Это были Вы?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthTitle",
+      "value": "Кто-то получил доступ к Вашим чатам!"
     },
     {
       "_": "types.LangPackString",
@@ -21268,5 +21535,5 @@
       "other_value": "%1$d сообщений"
     }
   ],
-  "version": 300410
+  "version": 309358
 }
