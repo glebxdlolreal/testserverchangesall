@@ -3584,6 +3584,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BotChooseGroup",
+      "value": "Виберіть групу"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BotDownloadAccept",
       "value": "Завантажити"
     },
@@ -5009,6 +5014,11 @@
       "_": "types.LangPackString",
       "key": "Chat.Poll.AddAnOption",
       "value": "Додати варіант"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Poll.AttachLink",
+      "value": "Додати посилання"
     },
     {
       "_": "types.LangPackString",
@@ -6677,6 +6687,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DeleteAllMessages",
+      "value": "Видалити всі повідомлення"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteAllReactions",
+      "value": "Видалити всі реакції"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DeleteAllRevokedLinks",
       "value": "Видалити всі відкликані посилання"
     },
@@ -6782,6 +6802,11 @@
       "_": "types.LangPackString",
       "key": "DeleteProceedBtn",
       "value": "Продовжити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteReaction",
+      "value": "Видалити реакцію"
     },
     {
       "_": "types.LangPackString",
@@ -8600,6 +8625,11 @@
       "_": "types.LangPackString",
       "key": "GiftPremiumUseGiftBtn",
       "value": "Активувати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GiftRecipientDoesNotAccept",
+      "value": "Цей користувач не приймає подарунків."
     },
     {
       "_": "types.LangPackString",
@@ -11749,13 +11779,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.AllowedCountries",
+      "value": "Дозволені країни"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.Anonymous",
       "value": "Анонімне голосування"
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.ChooseCountry",
+      "value": "Потрібно вибрати принаймні одну країну."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.CouldNotCreate",
       "value": "Не вдалося створити опитування"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d країни",
+      "key": "NewPoll.CountriesCount",
+      "many_value": "%d країн",
+      "one_value": "%d країна",
+      "other_value": "%d країн"
     },
     {
       "_": "types.LangPackString",
@@ -11781,6 +11829,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.HideResultsSubtitle",
       "value": "Якщо увімкнено, результати буде приховано до закриття опитування."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountry",
+      "value": "Обмеження за країною"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountrySubtitle",
+      "value": "Голосувати можуть тільки користувачі з вибраних країн."
     },
     {
       "_": "types.LangPackString",
@@ -11839,6 +11897,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.Quiz",
       "value": "Режим вікторини"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribers",
+      "value": "Обмеження за підпискою"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribersSubtitle",
+      "value": "Голосувати зможуть тільки ті, хто підписався 24+ год тому."
     },
     {
       "_": "types.LangPackString",
@@ -13590,6 +13658,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Countries",
+      "value": "Голосувати зможуть тільки користувачі з вибраних країн."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.CountriesList",
+      "value": "Голосувати можуть тільки користувачі з певних країн: %s."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Subscribers",
+      "value": "Голосувати можуть тільки підписники."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersChannel",
+      "value": "Голосувати можуть тільки підписники %s."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersRecent",
+      "value": "Голосувати можуть тільки ті, хто підписався 24+ год тому."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollOptions",
       "value": "Варіанти відповіді"
     },
@@ -13610,6 +13703,26 @@
       "_": "types.LangPackString",
       "key": "PollResults.Title.Quiz",
       "value": "Результати вікторини"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.NoVotes",
+      "value": "Немає голосів"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Title",
+      "value": "Статистика опитування"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.View",
+      "value": "Статистика опитування"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Votes",
+      "value": "Голоси"
     },
     {
       "_": "types.LangPackString",
@@ -16759,6 +16872,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ShowAllReactions",
+      "value": "Показати всі реакції"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ShowMessage",
       "value": "Показати повідомлення"
     },
@@ -19633,6 +19751,44 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Dismissed",
+      "value": "Зробити подарунок можна пізніше в Налаштуваннях."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "У %d контактів день народження! 🎂",
+      "key": "Suggestion.BirthdayContacts.Multiple",
+      "many_value": "У %d контактів день народження! 🎂",
+      "one_value": "У %d контакту день народження! 🎂",
+      "other_value": "У %d контактів день народження! 🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Single",
+      "value": "У %s день народження! 🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Subtitle",
+      "value": "Ви можете надіслати подарунок."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Today",
+      "value": "День народження сьогодні"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Tomorrow",
+      "value": "День народження завтра"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Yesterday",
+      "value": "День народження вчора"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Suggestion.BirthdaySetup",
       "value": "Додайте свій день народження! %s"
     },
@@ -19705,6 +19861,11 @@
       "_": "types.LangPackString",
       "key": "SupportStatus",
       "value": "підтримка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TapAndHoldToDeleteReaction",
+      "value": "Утримуйте, щоб видалити."
     },
     {
       "_": "types.LangPackString",
@@ -20233,6 +20394,59 @@
       "_": "types.LangPackString",
       "key": "Unblock",
       "value": "Розблокувати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirm",
+      "value": "Так, це я"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirmed",
+      "value": "Вхід дозволено"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirmedMessage",
+      "value": "Список активних сеансів доступний у розділі %s."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedButton",
+      "value": "Зрозуміло"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedMessageSingle",
+      "value": "Ми зупинили спробу входу з %s."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Спроби входу зупинено",
+      "key": "UnconfirmedAuthDeniedTitle",
+      "many_value": "Спроби входу зупинено",
+      "one_value": "Спробу входу зупинено",
+      "other_value": "Спроби входу зупинено"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedWarning",
+      "value": "Ніколи не діліться кодом для входу з іншими, інакше ви можете втратити свій акаунт Telegram!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeny",
+      "value": "Ні, це не я!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthSingle",
+      "value": "Ми виявили вхід до вашого акаунта з %s. Це були ви?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthTitle",
+      "value": "Хтось отримав доступ до повідомлень!"
     },
     {
       "_": "types.LangPackString",
@@ -21326,5 +21540,5 @@
       "other_value": "%1$d повідомлень"
     }
   ],
-  "version": 301225
+  "version": 309357
 }
