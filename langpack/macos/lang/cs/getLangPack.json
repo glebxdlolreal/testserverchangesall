@@ -4034,6 +4034,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersEnable",
+      "value": "Povolit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersHeader",
+      "value": "Schválit nové členy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersInfo",
+      "value": "Noví členové budou nyní potřebovat souhlas od %1$@, než budou moci v této skupině odesílat zprávy."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Channel.Admin.CantEdit",
       "value": "Nemáte oprávnění měnit práva tohoto správce."
     },
@@ -4046,6 +4061,16 @@
       "_": "types.LangPackString",
       "key": "Channel.Admin.Dismiss",
       "value": "Zrušit práva správce"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ProcessJoinRequests",
+      "value": "Zpracovat žádosti o připojení"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ProcessJoinRequestsInfo",
+      "value": "Povolte tomuto botovi schvalovat nové členy pomocí vlastních rozhraní, jako jsou například CAPTCHA."
     },
     {
       "_": "types.LangPackString",
@@ -11649,6 +11674,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatInputAccessory.HideSenderPremium",
+      "value": "Skrytí jména odesílatele u zpráv vytvořených AI je dostupné v rámci Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatLink.Unavailable",
       "value": "Je nám líto, ale tento odkaz zřejmě neexistuje."
     },
@@ -13284,6 +13314,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatRow.Edited",
+      "value": "upraveno %1$@"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatService.AddedGroup",
       "value": "%1$@ přidal/a tuto skupinu do komunity %2$@."
     },
@@ -14223,8 +14258,136 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Communities.AddToExisting",
+      "value": "PŘIDAT DO EXISTUJÍCÍ KOMUNITY"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.AdminRequired",
+      "value": "Komunitu pro tento chat mohou vytvořit pouze jeho správci."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.CantChangeLater",
+      "value": "Toto již později nebudete moci změnit."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.ChatVisibility",
+      "value": "VIDITELNOST CHATU"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d chaty",
+      "key": "Communities.Chats",
+      "many_value": "%1$d chatů",
+      "one_value": "%1$d chat",
+      "other_value": "%1$d chatů"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.CommunityName",
+      "value": "Název komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Create",
+      "value": "Vytvořit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.CreateCommunity",
+      "value": "Vytvořit komunitu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Hidden",
+      "value": "Skrytý"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.HiddenInfo",
+      "value": "Tento chat uvidí pouze pozvaní členové a správci komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.NewCommunity",
+      "value": "Nová komunita"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SomethingWentWrong",
+      "value": "Něco se nepovedlo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SubtitleBot",
+      "value": "Začleňte svého bota do komunity s několika souvisejícími chaty."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SubtitleChannel",
+      "value": "Začleňte svůj kanál do komunity s několika souvisejícími chaty."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.SubtitleGroup",
+      "value": "Začleňte svou skupinu do komunity s několika souvisejícími chaty."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Title",
+      "value": "Komunita"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.Visible",
+      "value": "Viditelný"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Communities.VisibleInfo",
+      "value": "Tento chat bude viditelný pro všechny členy komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Continue",
+      "value": "Pokračovat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DismissAdminHeader",
+      "value": "Odebrat si práva správce komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DismissAdminInfo",
+      "value": "Ztratíte přístup k nástrojům pro správu komunity, ale zachováte si práva správce skupiny."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Group",
+      "value": "Skupina"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.InviteOnlyInfo",
       "value": "Tento chat je jen pro pozvané.\nZobrazit ho mohou pouze jeho členové."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.MessageGroupOwner",
+      "value": "Napsat vlastníkovi skupiny"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoThanks",
+      "value": "Ne, děkuji"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.YouAreAdmin",
+      "value": "Jste správce komunity"
     },
     {
       "_": "types.LangPackString",
@@ -14233,13 +14396,58 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAdd.ChatVisibility",
+      "value": "VIDITELNOST CHATU"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAdd.Confirm",
       "value": "Přidat do komunity"
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorAdminRequired",
+      "value": "Chaty mohou přidávat pouze správci komunity."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAdd.ErrorGeneric",
       "value": "Něco se nepovedlo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.ErrorLimitReached",
+      "value": "V této komunitě byl dosažen maximální počet chatů."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Hidden",
+      "value": "Skrytý"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.HiddenInfo",
+      "value": "Tento chat uvidí pouze pozvaní členové a správci komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Title",
+      "value": "Přidat chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.VisibilityFooter",
+      "value": "Toto nastavení již nebude možné později změnit."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.Visible",
+      "value": "Viditelný"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdd.VisibleInfo",
+      "value": "Tento chat bude viditelný pro všechny členy komunity."
     },
     {
       "_": "types.LangPackString",
@@ -14249,7 +14457,17 @@
     {
       "_": "types.LangPackString",
       "key": "CommunityAdmin.BanMembers",
-      "value": "Blokovaní členové"
+      "value": "Blokovat členy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.Dismiss",
+      "value": "Odebrat práva správce"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.DismissConfirm",
+      "value": "Opravdu chcete tomuto správci odebrat práva?"
     },
     {
       "_": "types.LangPackString",
@@ -14310,6 +14528,129 @@
       "_": "types.LangPackString",
       "key": "CommunityAdmins.Title",
       "value": "Správci"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AddAChatToCommunity",
+      "value": "Přidat chat do komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AddChatToCommunity",
+      "value": "Přidat chat do komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Administrators",
+      "value": "Správci"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AllMembers",
+      "value": "Všichni členové"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.AllMembersDescription",
+      "value": "Umožnit členům přidávat do komunity své skupiny a kanály."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.ChangePhoto",
+      "value": "Změnit fotku"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d CHATY",
+      "key": "CommunityEdit.ChatsCount",
+      "many_value": "%d CHATŮ",
+      "one_value": "%d CHAT",
+      "other_value": "%d CHATŮ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.CommunityName",
+      "value": "Název komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Delete",
+      "value": "Smazat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.DeleteCommunity",
+      "value": "Smazat komunitu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.DeleteCommunityConfirm",
+      "value": "Opravdu chcete tuto komunitu smazat? Tuto akci nelze vzít zpět."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Hidden",
+      "value": "Skrytý"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.OnlyAdmins",
+      "value": "Pouze správci"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.OnlyAdminsDescription",
+      "value": "Chaty navržené členy komunity podléhají schválení správcem."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.PendingRequests",
+      "value": "Nevyřízené žádosti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Remove",
+      "value": "Odebrat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemoveChatConfirm",
+      "value": "Odebrat tento chat z komunity?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemoveFromCommunity",
+      "value": "Odebrat z komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemovedUsers",
+      "value": "Odebraní uživatelé"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.SetPhoto",
+      "value": "Nastavit fotku"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.SomethingWentWrong",
+      "value": "Něco se nepovedlo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Title",
+      "value": "Upravit komunitu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.UpdatingPhoto",
+      "value": "Aktualizace fotky..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.WhoCanAddChats",
+      "value": "KDO MŮŽE PŘIDÁVAT CHATY"
     },
     {
       "_": "types.LangPackString",
@@ -14386,8 +14727,66 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityRequests.Add",
+      "value": "Přidat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.AddAll",
+      "value": "Přidat vše"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.AddAllConfirm",
+      "value": "Přidat všechny navrhované chaty do komunity?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityRequests.ApprovalInfo",
       "value": "Chaty musí nejprve schválit správce, než budou přidány do komunity. [Změnit nastavení](settings)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Decline",
+      "value": "Odmítnout"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.DeclineAll",
+      "value": "Odmítnout vše"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.DeclineAllConfirm",
+      "value": "Odmítnout všechny navrhované chaty?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Empty",
+      "value": "Žádné nevyřízené žádosti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Loading",
+      "value": "Načítání..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.PendingRequests",
+      "value": "Nevyřízené žádosti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Someone",
+      "value": "Někdo"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d NAVRHOVANÝ CHATY PRO TUTO KOMUNITU",
+      "key": "CommunityRequests.SuggestedHeader",
+      "many_value": "%d NAVRHOVANÝCH CHATŮ PRO TUTO KOMUNITU",
+      "one_value": "%d NAVRHOVANÝ CHAT PRO TUTO KOMUNITU",
+      "other_value": "%d NAVRHOVANÝCH CHATŮ PRO TUTO KOMUNITU"
     },
     {
       "_": "types.LangPackString",
@@ -14401,13 +14800,103 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityRequests.Unknown",
+      "value": "Neznámý"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.VisibleOnlyToMembers",
+      "value": "viditelné pouze pro členy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.VisibleOnlyToMembersSuffix",
+      "value": " · viditelné pouze pro členy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.AddChatToCommunity",
+      "value": "Přidat chat do komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.EditCommunity",
+      "value": "Upravit komunitu"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityView.HideChat",
       "value": "Skrýt"
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityView.Mute",
+      "value": "Ztlumit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.PendingRequests",
+      "value": "Nevyřízené žádosti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Remove",
+      "value": "Odebrat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.RemoveChatConfirm",
+      "value": "Odebrat tento chat z komunity?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.RemoveFromCommunity",
+      "value": "Odebrat z komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SectionChatsYouAreIn",
+      "value": "CHATY, VE KTERÝCH JSTE"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SectionChatsYouCanJoin",
+      "value": "CHATY, KE KTERÝM SE MŮŽETE PŘIPOJIT"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SectionChatsYouCanRequestToJoin",
+      "value": "CHATY, DO KTERÝCH MŮŽETE POŽÁDAT O PŘIJETÍ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowAsOneChat",
+      "value": "Zobrazit jako 1 chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowAsOneChatInfo",
+      "value": "Seskupit všechny komunitní chaty do jedné položky v seznamu chatů."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityView.ShowChat",
       "value": "Zobrazit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SomethingWentWrong",
+      "value": "Něco se nepovedlo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Title",
+      "value": "Komunita"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Unmute",
+      "value": "Zapnout zvuk"
     },
     {
       "_": "types.LangPackString",
@@ -15380,6 +15869,14 @@
       "_": "types.LangPackString",
       "key": "DeleteGroupMessages.BanFromCommunity",
       "value": "Vyloučit z komunity"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Zablokování %2$@ způsobí také odstranění %1$d, které tento uživatel v komunitě vytvořil.",
+      "key": "DeleteGroupMessages.CommunityBanWarning",
+      "many_value": "Zablokování %2$@ způsobí také odstranění %1$d, které tento uživatel v komunitě vytvořil.",
+      "one_value": "Zablokování %2$@ způsobí také odstranění %1$d, který tento uživatel v komunitě vytvořil.",
+      "other_value": "Zablokování %2$@ způsobí také odstranění %1$d, které tento uživatel v komunitě vytvořil."
     },
     {
       "_": "types.LangPackString",
@@ -29546,6 +30043,171 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.AddMedia",
+      "value": "Přidat fotku nebo video"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignCenter",
+      "value": "Zarovnat na střed"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignLeft",
+      "value": "Zarovnat vlevo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignRight",
+      "value": "Zarovnat vpravo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Apply",
+      "value": "Použít"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AttachTitle",
+      "value": "Článek"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Body",
+      "value": "Tělo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.BulletList",
+      "value": "Odrážkový seznam"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Checklist",
+      "value": "Kontrolní seznam"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Copy",
+      "value": "Kopírovat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Cut",
+      "value": "Vyjmout"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DecreaseIndent",
+      "value": "Zmenšit odsazení "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Delete",
+      "value": "Smazat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DeleteColumn",
+      "value": "Smazat sloupec"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DeleteRow",
+      "value": "Smazat řádek"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Edit",
+      "value": "Upravit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.EditFormula",
+      "value": "Upravit vzorec"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Format",
+      "value": "Formát"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Formula",
+      "value": "Vzorec"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.FormulaPreviewPlaceholder",
+      "value": "Zde se zobrazí náhled"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Heading",
+      "value": "Nadpis"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Highlight",
+      "value": "Zvýraznění"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.IncreaseIndent",
+      "value": "Zvětšit odsazení"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertAbove",
+      "value": "Vložit nahoru"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertBelow",
+      "value": "Vložit dolů"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertLeft",
+      "value": "Vložit vlevo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertRight",
+      "value": "Vložit vpravo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertTable",
+      "value": "Vložit tabulku"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InvalidFormula",
+      "value": "Neplatný vzorec"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.LatexSection",
+      "value": "LATEX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Link",
+      "value": "Odkaz"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ListNone",
+      "value": "Nic"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.MakeCollage",
+      "value": "Vytvořit koláž"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.Menu.Bold",
       "value": "Tučně"
     },
@@ -29596,6 +30258,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.More",
+      "value": "Více"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.NumberedList",
+      "value": "Číslovaný seznam"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Paste",
+      "value": "Vložit"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.Placeholder.AddAuthor",
       "value": "Přidat autora"
     },
@@ -29608,6 +30285,41 @@
       "_": "types.LangPackString",
       "key": "RichTextEditor.Placeholder.TypeSomething",
       "value": "Něco napište..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Remove",
+      "value": "Odebrat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.RemoveHighlight",
+      "value": "Odebrat zvýraznění"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Replace",
+      "value": "Nahradit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ResultSection",
+      "value": "VÝSLEDEK"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.SelectAll",
+      "value": "Vybrat vše"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ShowAsCollage",
+      "value": "Zobrazit jako koláž"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ShowAsSlider",
+      "value": "Zobrazit jako prezentaci"
     },
     {
       "_": "types.LangPackString",
@@ -29663,6 +30375,11 @@
       "_": "types.LangPackString",
       "key": "RichTextEditor.Table.DeleteRows",
       "value": "Smazat řádky"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Text",
+      "value": "Text"
     },
     {
       "_": "types.LangPackString",
@@ -41891,5 +42608,5 @@
       "value": "Zobrazit záměny"
     }
   ],
-  "version": 2238866
+  "version": 2244055
 }

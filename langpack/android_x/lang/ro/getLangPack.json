@@ -87,6 +87,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedPollOptionMsg",
+      "value": "%1$s a adăugat \"%2$s\" la sondajul \"%3$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOption",
+      "value": "Ai adăugat \"%1$s\" la sondaj"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOptionMsg",
+      "value": "Ai adăugat \"%1$s\" la sondajul \"%2$s\""
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChannelChangedPhoto",
       "value": "Poza canalului a fost schimbată"
     },
@@ -107,8 +122,81 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatRemovedFromCommunity",
+      "value": "Conversația a fost eliminată din comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDone",
+      "value": "%1$s a marcat %2$s ca finalizată"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDoneOut",
+      "value": "Ai marcat %1$s ca finalizată"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s a marcat %1$s sarcini ca finalizate",
+      "key": "ActionChecklistMarkDoneTasks",
+      "one_value": "%2$s a marcat %1$s sarcină ca finalizată",
+      "other_value": "%2$s a marcat %1$s de sarcini ca finalizate"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Ai marcat %1$s sarcini ca finalizate",
+      "key": "ActionChecklistMarkDoneTasksOut",
+      "one_value": "Ai marcat %1$s sarcină ca finalizată",
+      "other_value": "Ai marcat %1$s de sarcini ca finalizate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDone",
+      "value": "%1$s a marcat %2$s ca nefinalizată"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDoneOut",
+      "value": "Ai marcat %1$s ca nefinalizată"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s a marcat %1$s sarcini ca nefinalizate",
+      "key": "ActionChecklistMarkNotDoneTasks",
+      "one_value": "%2$s a marcat %1$s sarcină ca nefinalizată",
+      "other_value": "%2$s a marcat %1$s de sarcini ca nefinalizate"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Ai marcat %1$s sarcini ca nefinalizate",
+      "key": "ActionChecklistMarkNotDoneTasksOut",
+      "one_value": "Ai marcat %1$s sarcină ca nefinalizată",
+      "other_value": "Ai marcat %1$s de sarcini ca nefinalizate"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "Canalul a fost creat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOption",
+      "value": "%1$s a eliminat \"%2$s\" din sondaj"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOptionMsg",
+      "value": "%1$s a eliminat \"%2$s\" din sondaj \"%3$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOption",
+      "value": "Ai eliminat \"%1$s\" din sondaj"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOptionMsg",
+      "value": "Ai eliminat \"%1$s\" din sondajul \"%2$s\""
     },
     {
       "_": "types.LangPackString",
@@ -270,6 +358,16 @@
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "L-am citit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestExpired",
+      "value": "Solicitarea de partajare a expirat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestOut",
+      "value": "Ai sugerat activarea partajării în această conversație"
     },
     {
       "_": "types.LangPackString",
@@ -21721,6 +21819,49 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistItem",
+      "value": "\"%1$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasks",
+      "value": "%1$s a marcat %2$s și %3$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s sarcini ca finalizate",
+      "key": "format_ActionChecklistMarkTasksDone",
+      "one_value": "%1$s sarcină ca finalizată",
+      "other_value": "%1$s de sarcini ca finalizate"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s sarcini ca nefinalizate",
+      "key": "format_ActionChecklistMarkTasksNotDone",
+      "one_value": "%1$s sarcină ca nefinalizată",
+      "other_value": "%1$s de sarcini ca nefinalizate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasksOut",
+      "value": "Ai marcat %1$s și %2$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s sarcini ca finalizate",
+      "key": "format_ActionChecklistMarkTasksOutDone",
+      "one_value": "%1$s sarcină ca finalizată",
+      "other_value": "%1$s de sarcini ca finalizate"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s sarcini ca nefinalizate",
+      "key": "format_ActionChecklistMarkTasksOutNotDone",
+      "one_value": "%1$s sarcină ca nefinalizată",
+      "other_value": "%1$s de sarcini ca nefinalizate"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• %1$s\n• %2$s\n• %3$s\n• %4$s"
     },
@@ -24368,5 +24509,5 @@
       "other_value": "%1$s de ani"
     }
   ],
-  "version": 1621247
+  "version": 1633682
 }

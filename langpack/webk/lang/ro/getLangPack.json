@@ -4948,6 +4948,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.Poll.AttachLink",
+      "value": "Adăugare Link"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.Poll.CopyOption",
       "value": "Copiază Opțiunea"
     },
@@ -6598,6 +6603,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DeleteAllMessages",
+      "value": "Șterge toate mesajele"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteAllReactions",
+      "value": "Șterge toate reacțiile"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DeleteAllRevokedLinks",
       "value": "Șterge Toate Linkurile Revocate"
     },
@@ -6702,6 +6717,11 @@
       "_": "types.LangPackString",
       "key": "DeleteProceedBtn",
       "value": "Continuă"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteReaction",
+      "value": "Șterge Reacție"
     },
     {
       "_": "types.LangPackString",
@@ -8494,6 +8514,11 @@
       "_": "types.LangPackString",
       "key": "GiftPremiumUseGiftBtn",
       "value": "Folosește Cadou"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GiftRecipientDoesNotAccept",
+      "value": "Acest utilizator nu acceptă cadouri."
     },
     {
       "_": "types.LangPackString",
@@ -11601,13 +11626,30 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.AllowedCountries",
+      "value": "Țări Eligibile"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.Anonymous",
       "value": "Votare Anonimă"
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.ChooseCountry",
+      "value": "Te rugăm alege cel puțin o țară."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.CouldNotCreate",
       "value": "Sondajul nu a putu fi creat"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d țări",
+      "key": "NewPoll.CountriesCount",
+      "one_value": "%d țară",
+      "other_value": "%d de țări"
     },
     {
       "_": "types.LangPackString",
@@ -11633,6 +11675,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.HideResultsSubtitle",
       "value": "Rezultatele nu vor fi vizibile înainte ca sondajul să fie încheiat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountry",
+      "value": "Limitează după Țară"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountrySubtitle",
+      "value": "Doar utilizatorii din țările selectate pot vota."
     },
     {
       "_": "types.LangPackString",
@@ -11690,6 +11742,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.Quiz",
       "value": "Mod Chestionar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribers",
+      "value": "Restricționează la Abonați"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribersSubtitle",
+      "value": "Doar abonații care s-au alăturat acum +24 de ore pot vota."
     },
     {
       "_": "types.LangPackString",
@@ -13415,6 +13477,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Countries",
+      "value": "Doar utilizatorii din țările selectate pot vota."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.CountriesList",
+      "value": "Doar utilizatorii din %s pot vota."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Subscribers",
+      "value": "Doar abonații pot vota."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersChannel",
+      "value": "Doar abonații %s pot vota."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersRecent",
+      "value": "Doar abonații care s-au alăturat acum mai bine de 24 de ore pot vota."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollOptions",
       "value": "Opțiuni sondaj"
     },
@@ -13434,6 +13521,26 @@
       "_": "types.LangPackString",
       "key": "PollResults.Title.Quiz",
       "value": "Rezultate chestionar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.NoVotes",
+      "value": "Fără voturi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Title",
+      "value": "Statistici Sondaj"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.View",
+      "value": "Vezi Statistici"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Votes",
+      "value": "Voturi sondaj"
     },
     {
       "_": "types.LangPackString",
@@ -16561,6 +16668,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ShowAllReactions",
+      "value": "Afișează toate reacțiile"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ShowMessage",
       "value": "Arată Mesajul"
     },
@@ -19387,6 +19499,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Dismissed",
+      "value": "Poți trimite un Cadou mai târziu în Setări."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d contacte au ziua de naștere! 🎂",
+      "key": "Suggestion.BirthdayContacts.Multiple",
+      "one_value": "%d contact are ziua de naștere! 🎂",
+      "other_value": "%d de contacte au ziua de naștere! 🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Single",
+      "value": "%s are azi ziua de naștere! 🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Subtitle",
+      "value": "Trimite-i un Cadou."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Today",
+      "value": "Zi de naștere astăzi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Tomorrow",
+      "value": "Zi de naștere mâine"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Yesterday",
+      "value": "Zi de naștere ieri"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Suggestion.BirthdaySetup",
       "value": "Adaugă ziua ta de naștere! %s"
     },
@@ -19459,6 +19608,11 @@
       "_": "types.LangPackString",
       "key": "SupportStatus",
       "value": "asistență"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TapAndHoldToDeleteReaction",
+      "value": "Ține apăsat pentru a șterge reacția."
     },
     {
       "_": "types.LangPackString",
@@ -19986,6 +20140,58 @@
       "_": "types.LangPackString",
       "key": "Unblock",
       "value": "Deblochează"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirm",
+      "value": "Da, eu sunt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirmed",
+      "value": "Conectare Nouă Permisă"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirmedMessage",
+      "value": "Poți verifica lista conexiunilor tale active în %s."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedButton",
+      "value": "Am înțeles"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedMessageSingle",
+      "value": "Am blocat încercarea de conectare de pe %s."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Conectări Noi Prevenite",
+      "key": "UnconfirmedAuthDeniedTitle",
+      "one_value": "Conectare Nouă Prevenită",
+      "other_value": "Conectări Noi Prevenite"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedWarning",
+      "value": "Nu trimite niciodată codul de conectare altcuiva sau îți poți pierde accesul la contul de Telegram!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeny",
+      "value": "Nu, nu sunt eu!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthSingle",
+      "value": "Am detectat o nouă conectare la contul tău din %s. Tu ești?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthTitle",
+      "value": "Cineva a primit acces la mesajele tale!"
     },
     {
       "_": "types.LangPackString",
@@ -21067,5 +21273,5 @@
       "other_value": "%1$d de mesaje"
     }
   ],
-  "version": 301208
+  "version": 309505
 }
