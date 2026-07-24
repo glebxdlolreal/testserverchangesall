@@ -4003,6 +4003,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_ai_compose_in_language",
+      "value": "Jezik: {language}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_ai_compose_increase_limit",
       "value": "Povećaj limit"
     },
@@ -4575,6 +4580,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_list_change",
+      "value": "Promijeni popis"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_list_insert",
       "value": "Umetni popis"
     },
@@ -4585,6 +4595,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_list_lowercase_letters",
+      "value": "Mala slova"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_lowercase_roman",
+      "value": "Mali rimski brojevi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_numbers",
+      "value": "Brojevi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_reversed",
+      "value": "Obrnuti redoslijed"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_uppercase_letters",
+      "value": "Velika slova"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_uppercase_roman",
+      "value": "Veliki rimski brojevi"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_media_collage",
       "value": "Kolaž"
     },
@@ -4592,6 +4632,11 @@
       "_": "types.LangPackString",
       "key": "lng_article_media_slideshow",
       "value": "Prezentacija"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_media_ungroup",
+      "value": "Razgrupiraj"
     },
     {
       "_": "types.LangPackString",
@@ -9606,6 +9651,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_add_confirm_add",
+      "value": "Dodaj"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_add_confirm_bot",
       "value": "Ako ovaj bot odobri administrator zajednice, članovi zajednice će ga moći vidjeti i koristiti."
     },
@@ -9889,8 +9939,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_remove_done",
+      "value": "Uklonjeno iz zajednice."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_remove_sure",
       "value": "Ukloniti {group} iz zajednice?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_removed_list_about",
+      "value": "Ovdje će biti prikazani korisnici koji su uklonjeni iz zajednice."
     },
     {
       "_": "types.LangPackString",
@@ -9898,14 +9958,43 @@
       "value": "Dodaj"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "{count} razgovora su dodana u zajednicu.",
+      "key": "lng_community_request_added_toast",
+      "one_value": "{count} razgovor je dodan u zajednicu.",
+      "other_value": "{count} razgovora je dodano u zajednicu."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_added_toast_undo",
+      "value": "Odobrili ste zahtjev za dodavanje {chat} u zajednicu."
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_community_request_decline",
       "value": "Odbij"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Zahtjev za dodavanje {count} razgovora je odbijen.",
+      "key": "lng_community_request_declined_toast",
+      "one_value": "Zahtjev za dodavanje {count} razgovora je odbijen.",
+      "other_value": "Zahtjev za dodavanje {count} razgovora je odbijen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_declined_toast_undo",
+      "value": "Odbili ste zahtjev za dodavanje {chat} u zajednicu."
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_community_request_invite_only",
       "value": "Ova grupa je dostupna samo uz pozivnicu. Mogu je vidjeti samo njeni članovi."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only_bot",
+      "value": "Za ovaj bot je potrebna pozivnica. Mogu ga koristiti samo pozvani članovi."
     },
     {
       "_": "types.LangPackString",
@@ -9956,6 +10045,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_requests_about",
       "value": "Razgovori zahtijevaju odobrenje administratora prije nego što se dodaju u zajednicu. {link}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_requests_about_link",
+      "value": "Promjeni postavke"
     },
     {
       "_": "types.LangPackString",
@@ -14226,6 +14320,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_emoji_adapt_sticker",
+      "value": "Uzmi iz naljepnica"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_add_existing",
+      "value": "Dodaj postojeći emoji"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_emoji_add_to_set",
       "value": "Dodaj u paket emojija"
     },
@@ -14483,6 +14587,11 @@
       "_": "types.LangPackString",
       "key": "lng_ephemeral_cant_schedule",
       "value": "Kratkoročne poruke se ne mogu zakazati."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_command_tooltip",
+      "value": "Drugi članovi neće vidjeti ovu poruku"
     },
     {
       "_": "types.LangPackString",
@@ -15988,6 +16097,26 @@
       "_": "types.LangPackString",
       "key": "lng_filters_subtitle",
       "value": "Moje mape razgovora"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_filters_tabs_icons",
+      "value": "Samo ikone"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_filters_tabs_subtitle",
+      "value": "Izgled kartica"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_filters_tabs_text",
+      "value": "Samo tekst"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_filters_tabs_text_icons",
+      "value": "Tekst i ikone"
     },
     {
       "_": "types.LangPackString",
@@ -24046,6 +24175,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_media_type_similar",
+      "value": "Slični"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_media_type_songs",
       "value": "Audiozapisi"
     },
@@ -24098,6 +24232,11 @@
       "_": "types.LangPackString",
       "key": "lng_mediaview_channel_photo",
       "value": "Slika kanala"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_mediaview_community_photo",
+      "value": "Slika zajednice"
     },
     {
       "_": "types.LangPackString",
@@ -32898,8 +33037,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_search_filter_from_archive",
+      "value": "Iz arhive"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_search_filter_group",
       "value": "Grupe"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_search_filter_non_archived",
+      "value": "Nije arhivirano"
     },
     {
       "_": "types.LangPackString",
@@ -41662,5 +41811,5 @@
       "other_value": "Platili ste {count} zvjezdica."
     }
   ],
-  "version": 5746053
+  "version": 5751251
 }
