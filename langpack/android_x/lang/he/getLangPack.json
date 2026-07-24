@@ -108,8 +108,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeftTo",
+      "value": "הבעלים של הצ'אט עזב. אם הוא לא יחזור, ⁨%1$s⁩ יהיה הבעלים החדש"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOutMsg",
+      "value": "הוספת ⁨%1$s⁩ לרשימת המשימות \"⁨%2$s⁩\""
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "הערוץ נוצר"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosed",
+      "value": "⁨%1$s⁩ סגר/ה את הנושא general"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosedOut",
+      "value": "סגרת את הנושא"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopened",
+      "value": "⁨%1$s⁩ פתח/ה מחדש את הנושא general"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopenedOut",
+      "value": "פתחת מחדש את הנושא general"
     },
     {
       "_": "types.LangPackString",
@@ -274,6 +304,106 @@
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "סמן כנקרא"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIcon",
+      "value": "⁨%1$s⁩ שינה/תה את סמל הנושא ל⁨%2$s⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconName",
+      "value": "⁨%3$s⁩ שינה/תה את שם וסמל הנושא ל⁨%1$s⁩ ⁨%2$s⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconNameOut",
+      "value": "שינית את שם וסמל הנושא ל⁨%1$s⁩ ⁨%2$s⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconOut",
+      "value": "שונית את סמל הנושא ל⁨%1$s⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosed",
+      "value": "⁨%3$s⁩ סגר/ה את ⁨%1$s⁩ ⁨%2$s⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosedOut",
+      "value": "סגרת את ⁨%1$s⁩ ⁨%2$s⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIconOut",
+      "value": "יצרת את הנושא ⁨%1$s⁩ ⁨%2$s⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateOut",
+      "value": "יצרת את הנושא ⁨%1$s⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHidden",
+      "value": "⁨%1$s⁩ הסתיר/ה את הנושא general"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHiddenOut",
+      "value": "הסתרת את הנושא general"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamed",
+      "value": "⁨%2$s⁩ שינה/תה את שם הנושא ל⁨%1$s⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamedOut",
+      "value": "שינית את שם הנושא ל⁨%1$s⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopened",
+      "value": "⁨%3$s⁩ פתח/ה מחדש את ⁨%1$s⁩ ⁨%2$s⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopenedOut",
+      "value": "פתחת מחדש את ⁨%1$s⁩ ⁨%2$s⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhidden",
+      "value": "⁨%1$s⁩ ביטל/ה את הסתרת הנושא general"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhiddenOut",
+      "value": "ביטלת את הסתרת הנושא general"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosed",
+      "value": "⁨%1$s⁩ סגר/ה נושא"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosedOut",
+      "value": "סגרת נושא"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopened",
+      "value": "⁨%1$s⁩ פתח/ה מחדש נושא"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopenedOut",
+      "value": "פתחת מחדש נושא"
     },
     {
       "_": "types.LangPackString",
@@ -7317,6 +7447,26 @@
       "_": "types.LangPackString",
       "key": "EventLogTransferredOwnership",
       "value": "העביר בעלות אל ⁨%1$s⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOff",
+      "value": "⁨%1$s⁩ השבית/ה תרגום אוטומטי"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOffYou",
+      "value": "השבתת תרגום אוטומטי"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOn",
+      "value": "⁨%1$s⁩ הפעיל/ה תרגום אוטומטי"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOnYou",
+      "value": "הפעלת תרגום אוטומטי"
     },
     {
       "_": "types.LangPackString",
@@ -18645,7 +18795,7 @@
     {
       "_": "types.LangPackString",
       "key": "SyncHint",
-      "value": "כדי לעזור לך ליצור קשר עם חברים ובני משפחה, תן ל⁨%1$s⁩ גישה לאנשי הקשר שלך."
+      "value": "Contacts on your device\n (phone numbers, first and last names)\n will be seamlessly uploaded to Telegram servers so you could find them in Contacts section of Telegram X, or receive a notification once they join.\n\nWhen you delete a contact on your device while sync is on, it will also be deleted from your contacts list on Telegram servers.\n\nYou can always turn sync off or clear data on Telegram servers via Settings > Privacy and Security > Delete Synced Contacts.\n\nTo turn sync on, you also have to allow Telegram X to access contacts on your device."
     },
     {
       "_": "types.LangPackString",
@@ -24860,5 +25010,5 @@
       "two_value": "שנתיים"
     }
   ],
-  "version": 1633830
+  "version": 1633900
 }

@@ -106,6 +106,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunity",
+      "value": "این گفتگو به انجمن «⁨%1$s⁩» اضافه شد"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunityUnknown",
+      "value": "این گفتگو به انجمن اضافه شد"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatRemovedFromCommunity",
+      "value": "این گفتگو از انجمن حذف شد."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "کانال ایجاد شد"
     },
@@ -11004,7 +11019,7 @@
     {
       "_": "types.LangPackString",
       "key": "NoLinksToShowInChannel",
-      "value": "لینک‌ها و مقالات ارسالی\nدر اینجا نمایش داده خواهند شد."
+      "value": "لینک‌ها و مقاله‌های ارسالی\nدر اینجا نمایش داده خواهند شد."
     },
     {
       "_": "types.LangPackString",
@@ -13291,22 +13306,22 @@
     {
       "_": "types.LangPackString",
       "key": "PrivacyGiftsContacts",
-      "value": "فقط مخاطبین می‌توانند بدون نیاز به تأیید، هدیه‌هایی نمایش دهند"
+      "value": "فقط مخاطبین می‌توانند بدون نیاز به تأیید، هدیه‌ها را نمایش دهند"
     },
     {
       "_": "types.LangPackString",
       "key": "PrivacyGiftsContactsExcept",
-      "value": "فقط مخاطبین (⁨%1$s⁩) می‌توانند بدون نیاز به تأیید، هدیه‌هایی نمایش دهند"
+      "value": "فقط مخاطبین (⁨%1$s⁩) می‌توانند بدون نیاز به تأیید، هدیه‌ها را نمایش دهند"
     },
     {
       "_": "types.LangPackString",
       "key": "PrivacyGiftsEverybody",
-      "value": "همه می‌توانند بدون نیاز به تأیید، هدیه‌هایی نمایش دهند"
+      "value": "همه می‌توانند بدون نیاز به تأیید، هدیه‌ها را نمایش دهند"
     },
     {
       "_": "types.LangPackString",
       "key": "PrivacyGiftsEverybodyExcept",
-      "value": "همه (⁨%1$s⁩) می‌توانند بدون نیاز به تأیید، هدیه‌هایی نمایش دهند"
+      "value": "همه (⁨%1$s⁩) می‌توانند بدون نیاز به تأیید، هدیه‌ها را نمایش دهند"
     },
     {
       "_": "types.LangPackString",
@@ -13326,12 +13341,12 @@
     {
       "_": "types.LangPackString",
       "key": "PrivacyGiftsNobody",
-      "value": "هیچ‌کس نمی‌تواند بدون نیاز به تأیید، هدیه‌هایی نمایش دهد"
+      "value": "هیچ‌کس نمی‌تواند بدون نیاز به تأیید، هدیه‌ها را نمایش دهد"
     },
     {
       "_": "types.LangPackString",
       "key": "PrivacyGiftsNobodyExcept",
-      "value": "هیچ‌کس (⁨%1$s⁩) نمی‌تواند بدون نیاز به تأیید، هدیه‌هایی نمایش دهد"
+      "value": "هیچ‌کس (⁨%1$s⁩) نمی‌تواند بدون تأیید، هدیه‌ها را نمایش دهد"
     },
     {
       "_": "types.LangPackString",
@@ -17913,7 +17928,7 @@
     {
       "_": "types.LangPackString",
       "key": "SyncHint",
-      "value": "برای کمک به شما جهت برقراری ارتباط با دوستان و خانواده، به ⁨%1$s⁩ اجازه دسترسی به مخاطبین خود را بدهید."
+      "value": "Contacts on your device\n (phone numbers, first and last names)\n will be seamlessly uploaded to Telegram servers so you could find them in Contacts section of Telegram X, or receive a notification once they join.\n\nWhen you delete a contact on your device while sync is on, it will also be deleted from your contacts list on Telegram servers.\n\nYou can always turn sync off or clear data on Telegram servers via Settings > Privacy and Security > Delete Synced Contacts.\n\nTo turn sync on, you also have to allow Telegram X to access contacts on your device."
     },
     {
       "_": "types.LangPackString",
@@ -23635,5 +23650,5 @@
       "other_value": "⁨%1$s⁩ سال"
     }
   ],
-  "version": 1633830
+  "version": 1633891
 }

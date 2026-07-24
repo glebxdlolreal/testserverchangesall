@@ -477,6 +477,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionSharingEnabledOut",
+      "value": "Sallit jakamisen tässä keskustelussa"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionSharingRequest",
       "value": "%1$s ehdotti jakamisen sallimista tässä keskustelussa"
     },
@@ -18562,12 +18567,17 @@
     {
       "_": "types.LangPackString",
       "key": "SyncHint",
-      "value": "Salli %1$s:lle pääsy yhteystietoihisi helpottaaksesi yhteydenottoa tuttuihisi."
+      "value": "Laitteesi yhteystiedot (koko nimet ja puhelinnumerot) ladataan saumattomasti Telegramin palvelimille, jotta ne löytyvät Telegram X -sovelluksen Yhteystiedot-osiosta.\n\nJos poistat yhteystiedon laitteeltasi synkronoinnin ollessa päällä, se poistetaan myös Telegramin palvelimilta.\n\nVoit poistaa synkronoinnin käytöstä tai tyhjentää Telegramin palvelimilla olevat tiedot koska vain asetuksista > Yksityisyys ja tietoturva > Poista synkronoidut yhteystiedot.\n\nTelegram X tarvitsee pääsyn laitteesi yhteystietoihin, jotta voit ottaa synkronoinnin käyttöön."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHint3",
+      "value": "Laitteesi yhteystiedot (koko nimet ja puhelinnumerot) ladataan saumattomasti Telegramin palvelimille, jotta ne löytyvät **%1$s** -sovelluksen Yhteystiedot-osiosta ja että saat ilmoituksen, kun he liittyvät palveluun.\n\nJos poistat yhteystiedon laitteeltasi synkronoinnin ollessa päällä, se poistetaan myös **Telegramin** palvelimilta.\n\nVoit poistaa synkronoinnin käytöstä tai tyhjentää Telegramin palvelimilla olevat tiedot koska vain **asetuksista > Yksityisyys ja tietoturva > Poista synkronoidut yhteystiedot**.\n\n**%1$s** tarvitsee pääsyn laitteesi yhteystietoihin, jotta voit ottaa synkronoinnin käyttöön."
     },
     {
       "_": "types.LangPackString",
       "key": "SyncHintRetry",
-      "value": "Salli Telegramin pääsy yhteystietoihisi, jotta voisit keskustella kavereiden ja perheenjäsenten kanssa helpommin.\n\nSiirry asetuksiin > Käyttöluvat ja kytke Yhteystiedot päälle."
+      "value": "Salli pääsy yhteystietoihisi, jotta voit synkronoida yhteystietosi ja ladata ne saumattomasti Telegramiin.\n\nSiirry asetuksiin > Käyttöluvat ja kytke Yhteystiedot päälle."
     },
     {
       "_": "types.LangPackString",
@@ -18577,7 +18587,7 @@
     {
       "_": "types.LangPackString",
       "key": "SyncHintTitle",
-      "value": "Löydä yhteystietoja"
+      "value": "Synkronoidaanko yhteystiedot Telegramiin?"
     },
     {
       "_": "types.LangPackString",
@@ -18587,7 +18597,7 @@
     {
       "_": "types.LangPackString",
       "key": "SyncHintUnavailable",
-      "value": "Napauta Asetukset > Käyttöluvat ja kytke Yhteystiedot päälle salliaksesi Telegramin pääsyn niihin."
+      "value": "Napauta Asetukset > Käyttöluvat ja kytke Yhteystiedot päälle salliaksesi Telegram X:n pääsyn niihin."
     },
     {
       "_": "types.LangPackString",
@@ -24384,5 +24394,5 @@
       "other_value": "%1$s vuotta"
     }
   ],
-  "version": 1633830
+  "version": 1633886
 }

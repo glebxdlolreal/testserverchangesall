@@ -86,6 +86,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedPollOption",
+      "value": "%1$s a ajouté « %2$s » au sondage"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOptionMsg",
+      "value": "%1$s a ajouté « %2$s » au sondage « %3$s »"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOption",
+      "value": "Vous avez ajouté « %1$s » au sondage"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOptionMsg",
+      "value": "Vous avez ajouté « %1$s » au sondage « %2$s »"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChannelChangedPhoto",
       "value": "Photo du canal changée"
     },
@@ -106,8 +126,157 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunity",
+      "value": "Cet échange a été ajouté à la communauté \"%1$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunityUnknown",
+      "value": "Cet échange a été ajouté à la communauté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerChanged",
+      "value": "%1$s est le nouveau propriétaire de cet échange"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeft",
+      "value": "Le propriétaire de l'échange est parti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeftTo",
+      "value": "Le propriétaire de l'échange est parti. À moins qu'il ne revienne, %1$s deviendra le nouveau propriétaire."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatRemovedFromCommunity",
+      "value": "Cet échange a été supprimé de la communauté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAdd",
+      "value": "%1$s a ajouté %2$s à la liste"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddMsg",
+      "value": "%1$s a ajouté %2$s à la liste \"%3$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOut",
+      "value": "Vous avez ajouté \"%1$s\" à la liste"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOutMsg",
+      "value": "Vous avez ajouté %1$s à la liste \"%2$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMark",
+      "value": "%1$s a marqué %2$s comme terminé et %3$s comme non terminé"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDone",
+      "value": "%1$s a marqué %2$s comme terminé"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDoneOut",
+      "value": "Vous avez marqué %1$s comme terminé"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkDoneTasks",
+      "one_value": "%2$s a marqué la tâche %1$s comme terminée",
+      "other_value": "%2$s a marqué %1$s tâches comme terminées"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkDoneTasksOut",
+      "one_value": "Vous avez marqué la tâche %1$s comme terminée",
+      "other_value": "Vous avez marqué %1$s tâches comme terminées"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDone",
+      "value": "%1$s a marqué %2$s comme non terminé"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDoneOut",
+      "value": "Vous avez marqué %1$s comme non terminé"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkNotDoneTasks",
+      "one_value": "%2$s a marqué la tâche %1$s comme non terminée",
+      "other_value": "%2$s a marqué %1$s tâches comme non terminées"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkNotDoneTasksOut",
+      "one_value": "Vous avez marqué la tâche %1$s comme non terminée",
+      "other_value": "Vous avez marqué %1$s tâches comme non terminées"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkOut",
+      "value": "Vous avez marqué %1$s comme terminé et %2$s comme non terminé."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "Le canal a été créé"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionCreatedManagedBot",
+      "value": "Vous avez créé le bot %1$s pour que %2$s le gère."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOption",
+      "value": "%1$s a supprimé « %2$s » du sondage"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOptionMsg",
+      "value": "%1$s a supprimé « %2$s » du sondage « %3$s »"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOption",
+      "value": "Vous avez supprimé « %1$s » du sondage"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOptionMsg",
+      "value": "Vous avez supprimé « %1$s » du sondage « %2$s »"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosed",
+      "value": "%1$s a fermé le sujet général"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosedOut",
+      "value": "Vous avez fermé le sujet général"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopened",
+      "value": "%1$s a rouvert le sujet général"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopenedOut",
+      "value": "Vous avez rouvert le sujet général"
     },
     {
       "_": "types.LangPackString",
@@ -123,6 +292,18 @@
       "_": "types.LangPackString",
       "key": "ActionMutePerson",
       "value": "Désactiver les notifications de %1$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPaidMessagesRefunded",
+      "one_value": "%2$s a remboursé %3$s pour %1$s message",
+      "other_value": "%2$s a remboursé %3$s pour %1$s messages"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPaidMessagesRefundedOut",
+      "one_value": "Vous avez remboursé %2$s pour %1$s message",
+      "other_value": "Vous avez remboursé %2$s pour %1$s messages"
     },
     {
       "_": "types.LangPackString",
@@ -263,9 +444,186 @@
       "other_value": "%2$s à épinglé **%1$s vidéos payantes**"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPriceChanged",
+      "one_value": "%2$s a modifié le prix à %1$s étoile par message",
+      "other_value": "%2$s a modifié le prix à %1$s étoiles par message"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPriceChangedOut",
+      "one_value": "Vous avez modifié le prix à %1$s étoile par message",
+      "other_value": "Vous avez modifié le prix à %1$s étoiles par message"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "Marquer comme lu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabled",
+      "value": "%1$s a désactivé le partage dans cet échange"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabledOut",
+      "value": "Vous avez désactivé le partage dans cet échange"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabled",
+      "value": "%1$s a activé le partage dans cet échange"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabledOut",
+      "value": "Vous avez activé le partage dans cet échange"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequest",
+      "value": "%1$s souhaite activer le partage dans cet échange."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestExpired",
+      "value": "La demande de partage a expiré"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestOut",
+      "value": "Vous avez suggéré d'activer le partage dans cet échange"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillDisabled",
+      "value": "Le partage dans cet échange est désactivé"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillEnabled",
+      "value": "Le partage dans cet échange est actif"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIcon",
+      "value": "%2$s a changé l'icône du sujet en %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconName",
+      "value": "%3$s a modifié le nom et l'icône du sujet en %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconNameOut",
+      "value": "Vous avez modifié le nom et l'icône du sujet en %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconOut",
+      "value": "Vous avez modifié l'icône du sujet en %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosed",
+      "value": "%3$s a fermé %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosedOut",
+      "value": "Vous avez fermé %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreate",
+      "value": "%2$s a créé le sujet %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIcon",
+      "value": "%3$s a créé le sujet %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIconOut",
+      "value": "Vous avez créé le sujet %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateOut",
+      "value": "Vous avez créé le sujet %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreated",
+      "value": "Le sujet %1$s a été créé"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreatedIcon",
+      "value": "Le sujet %1$s %2$s a été créé"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHidden",
+      "value": "%1$s a caché le sujet Général"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHiddenOut",
+      "value": "Vous avez caché le sujet général"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamed",
+      "value": "%2$s a renommé le sujet en %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamedOut",
+      "value": "Vous avez renommé le sujet en %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopened",
+      "value": "%3$s a rouvert %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopenedOut",
+      "value": "Vous avez rouvert %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhidden",
+      "value": "%1$s a réaffiché le sujet Général"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhiddenOut",
+      "value": "Vous avez réaffiché le sujet général"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosed",
+      "value": "%1$s a fermé le sujet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosedOut",
+      "value": "Vous avez fermé le sujet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopened",
+      "value": "%1$s a rouvert le sujet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopenedOut",
+      "value": "Vous avez réouvert le sujet"
     },
     {
       "_": "types.LangPackString",
@@ -6585,6 +6943,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPermissionEditTag",
+      "value": "Modifier votre titre"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPermissionPinMessages",
       "value": "Épingler des messages"
     },
@@ -6840,6 +7203,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPromotedManageTags",
+      "value": "Modifier les titres des membres"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPromotedManageTopics",
       "value": "Gérer les sujets"
     },
@@ -6965,6 +7333,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogRestrictedEditTag",
+      "value": "Modifier votre titre"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogRestrictedNew",
       "value": "a restreint %1$s\n\nDurée : %2$s"
     },
@@ -7075,6 +7448,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogTagRemoved",
+      "value": "%2$s a supprimé le titre de %3$s \"%1$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagRemovedYour",
+      "value": "%2$s a supprimé votre titre \"%1$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSet",
+      "value": "%2$s a défini un titre pour %3$s \"%1$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSetYour",
+      "value": "%2$s vous donné le titre \"%1$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouRemoved",
+      "value": "Vous avez supprimé le titre %2$s \"%1$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouSet",
+      "value": "Vous avez défini le titre %2$s \"%1$s\""
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogToggledInvitesOff",
       "value": "%1$s a désactivé les invitations au groupe"
     },
@@ -7117,6 +7520,26 @@
       "_": "types.LangPackString",
       "key": "EventLogTransferredOwnership",
       "value": "a transféré la propriété à %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOff",
+      "value": "%1$s a désactivé l'auto-traduction"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOffYou",
+      "value": "Vous avez désactivé l'auto-traduction"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOn",
+      "value": "%1$s a activé l'auto-traduction"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOnYou",
+      "value": "Vous avez activé l'auto-traduction"
     },
     {
       "_": "types.LangPackString",
@@ -18108,6 +18531,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncBtn",
+      "value": "Synchroniser"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncContacts",
       "value": "Synchroniser les contacts"
     },
@@ -18139,22 +18567,42 @@
     {
       "_": "types.LangPackString",
       "key": "SyncHint",
-      "value": "Pour vous aider à joindre vos proches, autorisez %1$s à accéder à vos contacts."
+      "value": "Les contacts de votre appareil \n(numéros de téléphone, prénom et nom de famille)\nseront automatiquement synchronisés avec les serveurs de Telegram afin que vous puissiez les retrouver dans la section « Contacts » de Telegram X.\n\nSi vous supprimez un contact de votre appareil alors que la synchronisation est activée, celui-ci sera également supprimé de votre liste de contacts sur les serveurs de Telegram.\n\nVous pouvez à tout moment désactiver la synchronisation ou effacer les données stockées sur les serveurs de Telegram via Paramètres > Confidentialité et sécurité > Supprimer les contacts synchronisés.\n\nPour activer la synchronisation, vous devez également autoriser Telegram X à accéder aux contacts de votre appareil."
     },
     {
       "_": "types.LangPackString",
       "key": "SyncHintRetry",
-      "value": "Pour vous aider à contacter vos proches sur Telegram, autorisez l'accès à contacts.\n\nAllez dans Paramètres > Permissions et activez Contacts."
+      "value": "Pour activer la synchronisation des contacts et les importer en toute simplicité sur Telegram, autorisez l'accès à vos contacts.\n\nAppuyez sur Paramètres > Autorisations, puis activez l'option Contacts."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintRetry2",
+      "value": "Pour activer la synchronisation des contacts et les importer en toute simplicité sur Telegram, autorisez l'accès à vos contacts.\n\nAppuyez sur **Paramètres** > **Autorisations**, puis activez l'option **Contacts**."
     },
     {
       "_": "types.LangPackString",
       "key": "SyncHintTitle",
-      "value": "Trouver vos contacts"
+      "value": "Synchroniser les contacts avec Telegram ?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintTitle2",
+      "value": "Synchroniser les contacts avec Telegram ?"
     },
     {
       "_": "types.LangPackString",
       "key": "SyncHintUnavailable",
-      "value": "Allez dans Paramètres > Permissions, et activez Contacts pour autoriser Telegram à accéder à vos contacts."
+      "value": "Allez dans Paramètres > Permissions, et activez Contacts pour autoriser Telegram X à accéder à vos contacts."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintUnavailable2",
+      "value": "Appuyez sur Paramètres > Autorisations, puis activez l'option Contacts pour permettre à **%1$s** d'accéder à vos contacts afin de les retrouver sur Telegram."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncLearnMore",
+      "value": "Politique de confidentialité"
     },
     {
       "_": "types.LangPackString",
@@ -21398,6 +21846,55 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistItem",
+      "value": "\"%1$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparator",
+      "value": ", "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparatorLast",
+      "value": " et "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasks",
+      "value": "%1$s a marqué %2$s et %3$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksDone",
+      "one_value": "%1$s tâche terminée",
+      "other_value": "%1$s tâches terminées"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksNotDone",
+      "one_value": "%1$s non terminé",
+      "other_value": "%1$s non terminés"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasksOut",
+      "value": "Vous avez marqué %1$s et %2$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksOutDone",
+      "one_value": "%1$s tâche terminée",
+      "other_value": "%1$s tâche terminées"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksOutNotDone",
+      "one_value": "%1$s non terminé",
+      "other_value": "%1$s non terminés"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• %1$s\n• %2$s\n• %3$s\n• %4$s"
     },
@@ -21698,6 +22195,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_notificationTitleSecret",
+      "value": "🔒️ %1$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_notificationTitleShort",
       "value": "%1$s (%2$s)"
     },
@@ -21755,6 +22257,12 @@
       "_": "types.LangPackString",
       "key": "format_plusPremium",
       "value": "+premium"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_refundedStars",
+      "one_value": "%1$s étoile",
+      "other_value": "%1$s étoiles"
     },
     {
       "_": "types.LangPackString",
@@ -23099,6 +23607,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "url_contactsPrivacy",
+      "value": "https://telegram.org/privacy#3-4-phone-number-and-contacts"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "url_faq",
       "value": "https://telegram.org/faq/fr#questions-generales"
     },
@@ -23876,5 +24389,5 @@
       "other_value": "%1$s ans"
     }
   ],
-  "version": 1633830
+  "version": 1633918
 }
