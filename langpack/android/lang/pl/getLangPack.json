@@ -170,6 +170,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AIEditorStylePrompt",
+      "value": "Polecenie"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AIEditorStylePromptHint",
       "value": "Instrukcje (np.: „Pisz jak piracki awanturnik. Używaj aha, ty, kumplu i mów o skarbach i morzu”)"
     },
@@ -4495,6 +4500,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleAIPrompt",
+      "value": "Wpisz polecenie…"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleByAuthor",
       "value": "autorstwa %1$s"
     },
@@ -4502,6 +4512,26 @@
       "_": "types.LangPackString",
       "key": "ArticleDateByAuthor",
       "value": "%1$s autorstwa %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteDraft",
+      "value": "Usuń szkic"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteDraftTitle",
+      "value": "Usunąć ten szkic?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleSaveDraftMessage",
+      "value": "Przed zamknięciem możesz zapisać napisany tekst w wersji roboczej."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleSaveDraftTitle",
+      "value": "Zapisa ten szkic?"
     },
     {
       "_": "types.LangPackString",
@@ -4517,6 +4547,11 @@
       "_": "types.LangPackString",
       "key": "AskButton",
       "value": "Zapytaj wolontariusza"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AttachArticle",
+      "value": "Artykuł"
     },
     {
       "_": "types.LangPackString",
@@ -14151,6 +14186,725 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community",
+      "value": "Społeczność"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAChatToCommunity",
+      "value": "Dodaj czat do społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAdmin",
+      "value": "Dodaj administratora"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Chcesz dodać **%1$d** czaty do społeczności?",
+      "key": "CommunityAddAllChatsMessage",
+      "many_value": "Chcesz dodać **%1$d** czatów do społeczności?",
+      "one_value": "Chcesz dodać **%1$d** czat do społeczności?",
+      "other_value": "Chcesz dodać **%1$d** czatu do społeczności?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAllChatsTitle",
+      "value": "Dodaj wszystkie czaty"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotTitle",
+      "value": "Dodaj bota"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotToCommunity",
+      "value": "Dodaj bota do społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotToCommunityInfo",
+      "value": "Uczyń swojego bota częścią społeczności dzięki licznym powiązanym czatom."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChannelToCommunity",
+      "value": "Dodaj kanał do społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChannelToCommunityInfo",
+      "value": "Uczyń swój kanał częścią społeczności dzięki licznym powiązanym czatom."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChatTitle",
+      "value": "Dodaj czat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddGroupToCommunity",
+      "value": "Dodaj grupę do społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddGroupToCommunityInfo",
+      "value": "Uczyń swoją grupę częścią społeczności dzięki licznym powiązanym czatom."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityButton",
+      "value": "Dodaj do społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityChannelMessage",
+      "value": "Jeśli administrator społeczności zatwierdzi ten kanał, jego subskrybenci będą mogli dołączyć lub poprosić o dołączenie do innych czatów społeczności."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityGroupMessage",
+      "value": "Jeśli administrator społeczności zatwierdzi tę grupę, jej członkowie będą mogli dołączyć lub poprosić o dołączenie do innych czatów społeczności."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityRequestButton",
+      "value": "Wyślij prośbę o dołączenie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityTitle",
+      "value": "Dodaj do społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToExistingCommunity",
+      "value": "Dodaj do istniejącej społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdminRightBanMembers",
+      "value": "Blokować członków"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdminRightEditCommunityName",
+      "value": "Edytować nazwę społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdminRightEditGroupList",
+      "value": "Edytować listę czatów"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdministrators",
+      "value": "Administratorzy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdministratorsTitle",
+      "value": "Administratorzy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityBanFromCommunity",
+      "value": "Zablokuj w społeczności"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Użytkownik zostanie usunięty z **%1$d czatów »**",
+      "key": "CommunityBanFromCommunityInfo",
+      "many_value": "Użytkownik zostanie usunięty z **%1$d czatów »**",
+      "one_value": "Użytkownik zostanie usunięty z **%1$d czatu »**",
+      "other_value": "Użytkownik zostanie usunięty z **%1$d czatu »**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityBanUserTitle",
+      "value": "Zablokuj użytkownika"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Zablokowanie użytkownika **%2$s** spowoduje również usunięcie jego **%1$d** czatów ze społeczności.",
+      "key": "CommunityBanWarningMessage",
+      "many_value": "Zablokowanie użytkownika **%2$s** spowoduje również usunięcie jego **%1$d** czatów ze społeczności.",
+      "one_value": "Zablokowanie użytkownika **%2$s** spowoduje również usunięcie jego **%1$d** czatu ze społeczności.",
+      "other_value": "Zablokowanie użytkownika **%2$s** spowoduje również usunięcie jego **%1$d** czatu ze społeczności."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityBanWarningTitle",
+      "value": "Ostrzeżenie"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Użytkownik **%2$s** zostanie usunięty z **%1$d** czatów społeczności.",
+      "key": "CommunityBanWillRemoveFromChats",
+      "many_value": "Użytkownik **%2$s** zostanie usunięty z **%1$d** czatów społeczności.",
+      "one_value": "Użytkownik **%2$s** zostanie usunięty z **%1$d** czatu społeczności.",
+      "other_value": "Użytkownik **%2$s** zostanie usunięty z **%1$d** czatu społeczności."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityCannotChange",
+      "value": "Nie będzie można tego później zmienić."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHidden",
+      "value": "Ukryty"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHiddenBotInfo",
+      "value": "Tego bota będą widzieć tylko zaproszeni członkowie i administratorzy społeczności."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHiddenInfo",
+      "value": "Ten czat będą widzieć tylko zaproszeni członkowie i administratorzy społeczności."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilitySection",
+      "value": "Widoczność czatu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisible",
+      "value": "Widoczny"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisibleBotInfo",
+      "value": "Tego bota będzie mógł zobaczyć każdy członek społeczności."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisibleInfo",
+      "value": "Ten czat będzie mógł zobaczyć każdy członek społeczności."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityCreated",
+      "value": "Społeczność utworzona!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityJoinedChannel",
+      "value": "Dodano ten kanał do społeczności!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityJoinedGroup",
+      "value": "Dodano tę grupę do społeczności!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityPending",
+      "value": "Twoja prośba o dołączenie do społeczności została wysłana do administratorów"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCreateCommunity",
+      "value": "Utwórz społeczność"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Chcesz odrzucić wszystkie **%1$d** prośby o dołączenie do społeczności?",
+      "key": "CommunityDeclineAllMessage",
+      "many_value": "Chcesz odrzucić wszystkie **%1$d** próśb o dołączenie do społeczności?",
+      "one_value": "Chcesz odrzucić **%1$d** prośbę o dołączenie do społeczności?",
+      "other_value": "Chcesz odrzucić wszystkie **%1$d** prośby o dołączenie do społeczności?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDeclineAllTitle",
+      "value": "Odrzuć wszystkie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDelete",
+      "value": "Usuń społeczność"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionBot",
+      "value": "Uczyń swojego bota częścią społeczności dzięki licznym powiązanym czatom."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionChannel",
+      "value": "Uczyń swój kanał częścią społeczności dzięki licznym powiązanym czatom."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionGroup",
+      "value": "Uczyń swoją grupę częścią społeczności dzięki licznym powiązanym czatom."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenChannelUnavailable",
+      "value": "Nie można dołączyć ani przeglądać tego kanału, dopóki administrator nie zaprosi cię do niego."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenChatTooltipMessage",
+      "value": "Ten czat będą widzieć tylko zaproszeni członkowie i administratorzy społeczności."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenChatTooltipTitle",
+      "value": "Ukryty czat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenGroupUnavailable",
+      "value": "Nie można dołączyć ani przeglądać tej grupy, dopóki administrator nie zaprosi cię do niej."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenStatus",
+      "value": "Ukryty"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyChannelInfo",
+      "value": "Ten kanał jest tylko dla zaproszonych osób.\nTylko jego członkowie mogą go przeglądać."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyChannelMessageOwner",
+      "value": "Napisz do właściciela kanału"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyGroupInfo",
+      "value": "Ta grupa jest tylko dla zaproszonych osób.\nTylko jej członkowie mogą ją przeglądać."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyGroupMessageOwner",
+      "value": "Napisz do właściciela grupy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminMessage",
+      "value": "Użytkownik **%1$s** będzie mógł edytować informacje o społeczności i korzystać z innych narzędzi administracyjnych."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminPromote",
+      "value": "Awansuj"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminTitle",
+      "value": "Uczyń adminem społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuAddChat",
+      "value": "Dodaj czat do społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuRemoveBotFromCommunityConfirm",
+      "value": "Na pewno chcesz usunąć tego bota ze społeczności?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuRemoveChannelFromCommunityConfirm",
+      "value": "Na pewno chcesz usunąć ten kanał ze społeczności?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuRemoveFromCommunity",
+      "value": "Usuń ze społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuRemoveGroupFromCommunityConfirm",
+      "value": "Na pewno chcesz usunąć tę grupę ze społeczności?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuSettings",
+      "value": "Ustawienia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuShowAsOneChat",
+      "value": "Pokaż jako jeden czat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuShowAsSeparateChats",
+      "value": "Pokaż jako osobne czaty"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuViewBot",
+      "value": "Pokaż bota"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuViewChannel",
+      "value": "Pokaż kanał"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuViewGroup",
+      "value": "Pokaż grupę"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNewCommunityNameHint",
+      "value": "Nazwa społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNewCommunityTitle",
+      "value": "Nowa społeczność"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNoChatsToAdd",
+      "value": "Nie masz czatów, które można dodać do społeczności."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequest",
+      "value": "Oczekująca prośba"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestAdd",
+      "value": "Dodaj"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestAddAll",
+      "value": "Dodaj wszystkie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestDecline",
+      "value": "Odrzuć"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestDeclineAll",
+      "value": "Odrzuć wszystkie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestOnlyVisibleToMembers",
+      "value": "Widoczne tylko dla członków"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedBot",
+      "value": "**%s** proponuje tego bota"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedChannel",
+      "value": "**%s** proponuje ten kanał"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedGroup",
+      "value": "**%s** proponuje tę grupę"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequests",
+      "value": "Oczekujące prośby"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfo",
+      "value": "Czaty wymagają zatwierdzenia przez administratora przed dodaniem ich do społeczności. **Zmień ustawienia »**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfoNoChange",
+      "value": "Czaty wymagają zatwierdzenia przez administratora przed dodaniem ich do społeczności."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d oczekujące prośby",
+      "key": "CommunityPendingRequestsRow",
+      "many_value": "%1$d oczekujących próśb",
+      "one_value": "%1$d oczekująca prośba",
+      "other_value": "%1$d oczekującej prośby"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d czaty proponowane dla tej społeczności",
+      "key": "CommunityPendingRequestsSuggestedHeader",
+      "many_value": "%1$d czatów proponowanych dla tej społeczności",
+      "one_value": "%1$d czat proponowany dla tej społeczności",
+      "other_value": "%1$d czatu proponowanego dla tej społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsTitle",
+      "value": "Oczekujące prośby"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveBotFromCommunity",
+      "value": "Usuń bota ze społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveChannelFromCommunity",
+      "value": "Usuń kanał ze społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveGroupFromCommunity",
+      "value": "Usuń grupę ze społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemovedUsers",
+      "value": "Usunięci użytkownicy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequestApprovedToast",
+      "value": "Zatwierdzono prośbę o dodanie **%1$s** do społeczności."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequestDeclinedToast",
+      "value": "Odrzucono prośbę o dodanie **%1$s** do społeczności."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouAreIn",
+      "value": "Czaty, w których jesteś"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanJoin",
+      "value": "Czaty, do których możesz dołączyć"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanRequestToJoin",
+      "value": "Czaty, do których możesz poprosić o dołączenie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanView",
+      "value": "Czaty, które możesz przeglądać"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionCommunityName",
+      "value": "Nazwa społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionHiddenChats",
+      "value": "Ukryte czaty"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionWhoCanAddChats",
+      "value": "Kto może dodawać czaty"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotAdded",
+      "value": "Użytkownik **%1$s** dodał tego bota do społeczności **%2$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotAddedUnknown",
+      "value": "Ten bot został dodany do społeczności **%1$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotRemoved",
+      "value": "Użytkownik **%1$s** usunął tego bota ze społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotRemovedUnknown",
+      "value": "Ten bot został usunięty ze społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotYouAdded",
+      "value": "Dodano tego bota do społeczności **%1$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotYouRemoved",
+      "value": "Usunięto tego bota ze społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelAdded",
+      "value": "Użytkownik **%1$s** dodał ten kanał do społeczności **%2$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelAddedUnknown",
+      "value": "Ten kanał został dodany do społeczności **%1$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelRemoved",
+      "value": "Użytkownik **%1$s** usunął ten kanał ze społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelRemovedUnknown",
+      "value": "Ten kanał został usunięty ze społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelYouAdded",
+      "value": "Dodano ten kanał do społeczności **%1$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelYouRemoved",
+      "value": "Usunięto ten kanał ze społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupAdded",
+      "value": "Użytkownik **%1$s** dodał tę grupę do społeczności **%2$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupAddedUnknown",
+      "value": "Ta grupa została dodana do społeczności **%1$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupRemoved",
+      "value": "Użytkownik **%1$s** usunął tę grupę ze społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupRemovedUnknown",
+      "value": "Ta grupa została usunięta ze społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupYouAdded",
+      "value": "Dodano tę grupę do społeczności **%1$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupYouRemoved",
+      "value": "Usunięto tę grupę ze społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsChangePhoto",
+      "value": "Zmień zdjęcie społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsSetPhoto",
+      "value": "Ustaw zdjęcie społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsTitle",
+      "value": "Społeczność"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChat",
+      "value": "Pokaż jako jeden czat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChatInfo",
+      "value": "Zgrupuj wszystkie czaty społeczności w jednym elemencie na liście czatów."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityTitle",
+      "value": "Społeczność"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityUngroupChats",
+      "value": "Rozgrupuj czaty"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityUngroupChatsButton",
+      "value": "Rozgrupuj"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityUngroupChatsText",
+      "value": "Czaty z tej społeczności będą wyświetlane osobno na twojej liście czatów."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsAllMembers",
+      "value": "Wszyscy członkowie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsAllMembersInfo",
+      "value": "Pozwól członkom dodawać swoje grupy i kanały do ​​społeczności."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsOnlyAdmins",
+      "value": "Tylko administratorzy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsOnlyAdminsInfo",
+      "value": "Czaty proponowane przez członków społeczności wymagają zatwierdzenia przez administratora."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Społeczność z %1$d czatami",
+      "key": "CommunityWithChats",
+      "many_value": "Społeczność z %1$d czatami",
+      "one_value": "Społeczność z %1$d czatem",
+      "other_value": "Społeczność z %1$d czatem"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminContinue",
+      "value": "Kontynuuj"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminMessage",
+      "value": "Możesz teraz edytować informacje o **%1$s** i korzystać z innych narzędzi administracyjnych."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminNoThanks",
+      "value": "Nie, dziękuję"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminTitle",
+      "value": "Jesteś administratorem społeczności"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CompatibilityChat",
       "value": "Użytkownik %1$s używa starszej wersji Telegrama, zatem tajne zdjęcia będą wyświetlane w trybie zgodności.\n\nGdy użytkownik %2$s zaktualizuje Telegram, zdjęcia z czasem wyświetlania poniżej jednej minuty będą wyświetlane w trybie „Naciśnij i przytrzymaj, aby wyświetlić” i otrzymasz powiadomienie, gdy ktoś wykona zrzut ekranu."
     },
@@ -17795,6 +18549,21 @@
       "_": "types.LangPackString",
       "key": "EnterYourTelegramPasscode",
       "value": "Wprowadź swój kod dostępu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageMenuHint",
+      "value": "Tylko ty widzisz tę wiadomość. Zniknie ona po ponownym uruchomieniu aplikacji."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageVisibleToOther",
+      "value": "Widoczna tylko dla @%s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageVisibleToYou",
+      "value": "Widoczna tylko dla ciebie"
     },
     {
       "_": "types.LangPackString",
@@ -26677,6 +27446,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "InviteToCommunityError",
+      "value": "Nie możesz dodać tego użytkownika do społeczności ze względu na jego ustawienia prywatności."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "InviteToGroupByLink",
       "value": "Zaproś do grupy poprzez link"
     },
@@ -30941,6 +31715,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NoBlockedCommunity2",
+      "value": "Użytkownicy usunięci ze społeczności przez administratorów nie mogą ponownie dołączyć za pomocą linków zaproszenia."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NoBlockedGroup",
       "value": "Zablokowani użytkownicy zostali usunięci z grupy i mogą do niej powrócić tylko po dodaniu przez administratora. Zaproszenia w formie linku nie działają dla nich."
     },
@@ -31008,6 +31787,16 @@
       "_": "types.LangPackString",
       "key": "NoComments",
       "value": "Tu jeszcze nie ma komentarzy…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NoCommunityJoinRequests",
+      "value": "Brak próśb o dołączenie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NoCommunityJoinRequestsDescription",
+      "value": "Nie masz żadnych oczekujących próśb\no dołączenie do twojej społeczności."
     },
     {
       "_": "types.LangPackString",
@@ -41680,6 +42469,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorDraftSaved",
+      "value": "Zaisano szkic."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RightNow",
       "value": "Teraz"
     },
@@ -41721,7 +42515,7 @@
     {
       "_": "types.LangPackString",
       "key": "SMSFee3Text",
-      "value": "Zamów tygodniową subskrypcję Telegram Premium, aby pokryć koszty SMS-ów."
+      "value": "Zamów 1 tydzień Telegram Premium, aby pokryć koszty SMS-ów."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -43814,6 +44608,11 @@
       "_": "types.LangPackString",
       "key": "SetColorAsBackground",
       "value": "Ustaw kolor jako tapetę"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SetCommunityPhoto",
+      "value": "Ustaw zdjęcie społeczności"
     },
     {
       "_": "types.LangPackString",
@@ -49975,6 +50774,11 @@
       "_": "types.LangPackString",
       "key": "SwipeToReplyHintMessage",
       "value": "Przesuń palcem w lewo po dowolnej wiadomości, aby na nią odpowiedzieć."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SwipeUngroupCommunity",
+      "value": "Rozgrupuj"
     },
     {
       "_": "types.LangPackString",
@@ -56903,5 +57707,5 @@
       "value": "Paszport Telegrama"
     }
   ],
-  "version": 60024596
+  "version": 60075806
 }
