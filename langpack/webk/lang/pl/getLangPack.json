@@ -3504,6 +3504,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BotAddAsAdminChannelConfirm",
+      "value": "Czy na pewno chcesz dodać tego bota jako administratora do kanału **%1$s**? Będzie miał dostęp do list administratorów kanału i subskrybentów."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddAsAdminGroupConfirm",
+      "value": "Czy na pewno chcesz dodać tego bota jako administratora do grupy **%1$s**? Będzie miał dostęp do listy anonimowych administratorów."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToChannelAbout",
+      "value": "Ten bot potrafi zarządzać kanałem."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupAbout",
+      "value": "Ten bot potrafi zarządzać grupą."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannel",
+      "value": "Dodaj do grupy lub kanału"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannelAbout",
+      "value": "Ten bot potrafi zarządzać grupą lub kanałem."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BotAllowAccessTo",
       "value": "Zezwól na dostęp do"
     },
@@ -3546,6 +3576,11 @@
       "_": "types.LangPackString",
       "key": "BotCantReadChatTooltip",
       "value": "Ten bot nie potrafi odczytać czatu — jedynie wiadomość, w której został wspomniany."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotChooseGroup",
+      "value": "Wybierz grupę"
     },
     {
       "_": "types.LangPackString",
@@ -4974,6 +5009,11 @@
       "_": "types.LangPackString",
       "key": "Chat.Poll.AddAnOption",
       "value": "Dodaj opcję"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Poll.AttachLink",
+      "value": "Dodaj link"
     },
     {
       "_": "types.LangPackString",
@@ -6637,6 +6677,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DeleteAllMessages",
+      "value": "Usuń wszystkie wiadomości"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteAllReactions",
+      "value": "Usuń wszystkie reakcje"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DeleteAllRevokedLinks",
       "value": "Usuń wszystkie unieważnione linki"
     },
@@ -6742,6 +6792,11 @@
       "_": "types.LangPackString",
       "key": "DeleteProceedBtn",
       "value": "Kontynuuj"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteReaction",
+      "value": "Usuń reakcję"
     },
     {
       "_": "types.LangPackString",
@@ -7486,6 +7541,16 @@
       "_": "types.LangPackString",
       "key": "EditedMessage",
       "value": "edytowano"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.At",
+      "value": "edytowana o %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.On",
+      "value": "edytowana %1$s o %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -8515,6 +8580,11 @@
       "_": "types.LangPackString",
       "key": "GiftPremiumUseGiftBtn",
       "value": "Użyj prezentu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GiftRecipientDoesNotAccept",
+      "value": "Ten użytkownik nie przyjmuje prezentów."
     },
     {
       "_": "types.LangPackString",
@@ -11664,13 +11734,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.AllowedCountries",
+      "value": "Dozwolone kraje"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.Anonymous",
       "value": "Anonimowe głosowanie"
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.ChooseCountry",
+      "value": "Wybierz co najmniej jeden kraj."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.CouldNotCreate",
       "value": "Nie można utworzyć ankiety"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d kraje",
+      "key": "NewPoll.CountriesCount",
+      "many_value": "%d krajów",
+      "one_value": "%d kraj",
+      "other_value": "%d kraju"
     },
     {
       "_": "types.LangPackString",
@@ -11696,6 +11784,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.HideResultsSubtitle",
       "value": "Po włączeniu wyniki nie będą widoczne do momentu zamknięcia ankiety"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountry",
+      "value": "Ogranicz według kraju"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountrySubtitle",
+      "value": "Głosować mogą tylko użytkownicy z wybranych krajów."
     },
     {
       "_": "types.LangPackString",
@@ -11754,6 +11852,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.Quiz",
       "value": "Tryb quizu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribers",
+      "value": "Ogranicz do subskrybentów"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribersSubtitle",
+      "value": "Głosować mogą tylko subskrybenci, którzy dołączyli ponad 24 godziny temu."
     },
     {
       "_": "types.LangPackString",
@@ -13505,6 +13613,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Countries",
+      "value": "Głosować mogą tylko użytkownicy z wybranych krajów."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.CountriesList",
+      "value": "Tylko użytkownicy z %s mogą głosować."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Subscribers",
+      "value": "Tylko subskrybenci mogą głosować."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersChannel",
+      "value": "Tylko subskrybenci %s mogą głosować."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersRecent",
+      "value": "Głosować mogą tylko subskrybenci, którzy dołączyli ponad 24 godziny temu."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollOptions",
       "value": "Opcje ankiety"
     },
@@ -13525,6 +13658,26 @@
       "_": "types.LangPackString",
       "key": "PollResults.Title.Quiz",
       "value": "Wyniki quizu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.NoVotes",
+      "value": "Brak głosów"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Title",
+      "value": "Statystyki ankiety"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.View",
+      "value": "Pokaż statystyki"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Votes",
+      "value": "Głosy w ankiecie"
     },
     {
       "_": "types.LangPackString",
@@ -15201,6 +15354,19 @@
       "value": "Dodaj komentarz (opcjonalnie)"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Zgłoś %1$d wiadomości",
+      "key": "Report2MessagesCount",
+      "many_value": "Zgłoś %1$d wiadomości",
+      "one_value": "Zgłoś %1$d wiadomość",
+      "other_value": "Zgłoś %1$d wiadomości"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Report2SelectMessages",
+      "value": "Wybierz wiadomości do zgłoszenia."
+    },
+    {
       "_": "types.LangPackString",
       "key": "Report2Send",
       "value": "Wyślij zgłoszenie"
@@ -16658,6 +16824,11 @@
       "_": "types.LangPackString",
       "key": "Show",
       "value": "Pokaż"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ShowAllReactions",
+      "value": "Pokaż wszystkie reakcje"
     },
     {
       "_": "types.LangPackString",
@@ -19535,6 +19706,44 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Dismissed",
+      "value": "Możesz wysłać prezenty znajomym później z Ustawień."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d kontakty mają dzisiaj urodziny! 🎂",
+      "key": "Suggestion.BirthdayContacts.Multiple",
+      "many_value": "%d kontaktów ma dzisiaj urodziny! 🎂",
+      "one_value": "%d kontakt ma dzisiaj urodziny! 🎂",
+      "other_value": "%d kontaktu ma dzisiaj urodziny! 🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Single",
+      "value": "Dzisiaj %s ma urodziny! 🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Subtitle",
+      "value": "Wyślij prezent."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Today",
+      "value": "Dzisiaj ma urodziny"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Tomorrow",
+      "value": "Jutrzejsze urodziny"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Yesterday",
+      "value": "Wczorajsze urodziny"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Suggestion.BirthdaySetup",
       "value": "Dodaj swoją datę urodzenia! %s"
     },
@@ -19607,6 +19816,11 @@
       "_": "types.LangPackString",
       "key": "SupportStatus",
       "value": "wsparcie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TapAndHoldToDeleteReaction",
+      "value": "Przytrzymaj, aby usunąć reakcję."
     },
     {
       "_": "types.LangPackString",
@@ -20135,6 +20349,59 @@
       "_": "types.LangPackString",
       "key": "Unblock",
       "value": "Odblokuj"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirm",
+      "value": "Tak, to ja"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirmed",
+      "value": "Zezwolono na nowe logowanie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirmedMessage",
+      "value": "Listę aktywnych logowań możesz sprawdzić w %s."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedButton",
+      "value": "Rozumiem"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedMessageSingle",
+      "value": "Zakończyliśmy próbę logowania z %s."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Zablokowano nowe logowania",
+      "key": "UnconfirmedAuthDeniedTitle",
+      "many_value": "Zablokowano nowe logowania",
+      "one_value": "Zablokowano nowe logowanie",
+      "other_value": "Zablokowano nowe logowania"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedWarning",
+      "value": "Nigdy nikomu nie wysyłaj swojego kodu logowania, bo możesz stracić swoje konto Telegrama!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeny",
+      "value": "Nie, to nie ja!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthSingle",
+      "value": "Wykryliśmy nowe logowanie na twoje konto z %s. Czy to ty?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthTitle",
+      "value": "Ktoś właśnie uzyskał dostęp do twoich wiadomości!"
     },
     {
       "_": "types.LangPackString",
@@ -21228,5 +21495,5 @@
       "other_value": "%1$d wiadomości"
     }
   ],
-  "version": 300025
+  "version": 309660
 }

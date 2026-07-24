@@ -88,6 +88,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedPollOption",
+      "value": "Użytkownik %1$s dodał „%2$s” do ankiety"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOptionMsg",
+      "value": "Użytkownik %1$s dodał „%2$s” do ankiety „%3$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOption",
+      "value": "Dodano „%1$s” do ankiety"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOptionMsg",
+      "value": "Dodano „%1$s” do ankiety „%2$s”"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChannelChangedPhoto",
       "value": "Zmieniono zdjęcie kanału"
     },
@@ -118,13 +138,135 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatOwnerChanged",
+      "value": "%1$s jest nowym właścicielem tego czatu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeft",
+      "value": "Właściciel czatu odszedł"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeftTo",
+      "value": "Właściciel czatu odszedł. Jeśli nie wróci, nowym właścicielem zostanie %1$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChatRemovedFromCommunity",
       "value": "Ten czat został usunięty ze społeczności"
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChecklistAdd",
+      "value": "Użytkownik %1$s dodał %2$s do listy zadań"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddMsg",
+      "value": "Użytkownik %1$s dodał %2$s do listy zadań „%3$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOut",
+      "value": "Dodano %1$s do listy zadań"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOutMsg",
+      "value": "Dodano %1$s do listy zadań „%2$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMark",
+      "value": "Użytkownik %1$s oznaczył %2$s jako wykonane i %3$s jako niewykonane"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDone",
+      "value": "Użytkownik %1$s oznaczył %2$s jako wykonane"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDoneOut",
+      "value": "Oznaczono %1$s jako wykonane"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Użytkownik %2$s oznaczył %1$s zadania jako wykonane",
+      "key": "ActionChecklistMarkDoneTasks",
+      "many_value": "Użytkownik %2$s oznaczył %1$s zadań jako wykonane",
+      "one_value": "Użytkownik %2$s oznaczył %1$s zadanie jako wykonane",
+      "other_value": "Użytkownik %2$s oznaczył %1$s zadania jako wykonane"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Oznaczono %1$s zadania jako wykonane",
+      "key": "ActionChecklistMarkDoneTasksOut",
+      "many_value": "Oznaczono %1$s zadań jako wykonane",
+      "one_value": "Oznaczono %1$s zadanie jako wykonane",
+      "other_value": "Oznaczono %1$s zadania jako wykonane"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDone",
+      "value": "Użytkownik %1$s oznaczył %2$s jako niewykonane"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDoneOut",
+      "value": "Oznaczono %1$s jako niewykonane"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Użytkownik %2$s oznaczył %1$s zadania jako niewykonane",
+      "key": "ActionChecklistMarkNotDoneTasks",
+      "many_value": "Użytkownik %2$s oznaczył %1$s zadań jako niewykonane",
+      "one_value": "Użytkownik %2$s oznaczył %1$s zadanie jako niewykonane",
+      "other_value": "Użytkownik %2$s oznaczył %1$s zadania jako niewykonane"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Oznaczono %1$s zadania jako niewykonane",
+      "key": "ActionChecklistMarkNotDoneTasksOut",
+      "many_value": "Oznaczono %1$s zadań jako niewykonane",
+      "one_value": "Oznaczono %1$s zadanie jako niewykonane",
+      "other_value": "Oznaczono %1$s zadania jako niewykonane"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkOut",
+      "value": "Oznaczono %1$s jako wykonane i %2$s jako niewykonane"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "Kanał został utworzony"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionCreatedManagedBot",
+      "value": "Utworzono bota %1$s zarządzanego przez %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOption",
+      "value": "Użytkownik %1$s usunął „%2$s” z ankiety"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOptionMsg",
+      "value": "Użytkownik %1$s usunął „%2$s” z ankiety „%3$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOption",
+      "value": "Usunięto „%1$s” z ankiety"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOptionMsg",
+      "value": "Usunięto „%1$s” z ankiety „%2$s”"
     },
     {
       "_": "types.LangPackString",
@@ -140,6 +282,22 @@
       "_": "types.LangPackString",
       "key": "ActionMutePerson",
       "value": "Wycisz %1$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Użytkownik %2$s zwrócił %3$s za %1$s wiadomości",
+      "key": "ActionPaidMessagesRefunded",
+      "many_value": "Użytkownik %2$s zwrócił %3$s za %1$s wiadomości",
+      "one_value": "Użytkownik %2$s zwrócił %3$s za %1$s wiadomość",
+      "other_value": "Użytkownik %2$s zwrócił %3$s za %1$s wiadomości"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Zwrócono %2$s za %1$s wiadomości",
+      "key": "ActionPaidMessagesRefundedOut",
+      "many_value": "Zwrócono %2$s za %1$s wiadomości",
+      "one_value": "Zwrócono %2$s za %1$s wiadomość",
+      "other_value": "Zwrócono %2$s za %1$s wiadomości"
     },
     {
       "_": "types.LangPackString",
@@ -242,9 +400,70 @@
       "value": "Użytkownik %1$s przypiął **wiadomość głosową**"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "W %2$s zmieniono cenę na %1$s Gwiazdki za wiadomość",
+      "key": "ActionPriceChanged",
+      "many_value": "W %2$s zmieniono cenę na %1$s Gwiazdek za wiadomość",
+      "one_value": "W %2$s zmieniono cenę na %1$s Gwiazdkę za wiadomość",
+      "other_value": "W %2$s zmieniono cenę na %1$s Gwiazdki za wiadomość"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Zmieniono cenę na %1$s Gwiazdki za wiadomość",
+      "key": "ActionPriceChangedOut",
+      "many_value": "Zmieniono cenę na %1$s Gwiazdek za wiadomość",
+      "one_value": "Zmieniono cenę na %1$s Gwiazdkę za wiadomość",
+      "other_value": "Zmieniono cenę na %1$s Gwiazdki za wiadomość"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "Przeczytane"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabled",
+      "value": "Użytkownik %1$s wyłączył udostępnianie w tym czacie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabledOut",
+      "value": "Wyłączono udostępnianie w tym czacie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabled",
+      "value": "Użytkownik %1$s włączył udostępnianie w tym czacie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabledOut",
+      "value": "Włączono udostępnianie w tym czacie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequest",
+      "value": "Użytkownik %1$s chciałby włączyć udostępnianie w tym czacie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestExpired",
+      "value": "Prośba o udostępnianie wygasła"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestOut",
+      "value": "Proponujesz włączenie udostępniania w tym czacie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillDisabled",
+      "value": "Udostępnianie w tym czacie jest nadal wyłączone"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillEnabled",
+      "value": "Udostępnianie w tym czacie jest nadal włączone"
     },
     {
       "_": "types.LangPackString",
@@ -4266,6 +4485,19 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CountryCode",
+      "value": "Kod kraju"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Możesz wybrać do %1$s krajów",
+      "key": "CountryLimit",
+      "many_value": "Możesz wybrać do %1$s krajów",
+      "one_value": "Możesz wybrać do %1$s kraju",
+      "other_value": "Możesz wybrać do %1$s kraju"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CreateAHintForYourPassword",
       "value": "Utwórz podpowiedź dla hasła"
     },
@@ -5714,6 +5946,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EndsInDuration",
+      "value": "koniec za %1$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Enhance",
       "value": "Ulepszenie"
     },
@@ -6302,6 +6539,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPermissionEditTag",
+      "value": "Edytowanie własnej etykiety"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPermissionPinMessages",
       "value": "Przypinanie wiadomości"
     },
@@ -6557,6 +6799,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPromotedManageTags",
+      "value": "Edytowanie etykiet członków"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPromotedManageTopics",
       "value": "Zarządzanie tematami"
     },
@@ -6682,6 +6929,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogRestrictedEditTag",
+      "value": "Edytowanie własnej etykiety"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogRestrictedNew",
       "value": "ograniczono użytkownika %1$s\n\nCzas trwania: %2$s"
     },
@@ -6792,6 +7044,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogTagRemoved",
+      "value": "Administrator %2$s usunął etykietę użytkownika %3$s „%1$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagRemovedYour",
+      "value": "Administrator %2$s usunął twoją etykietę „%1$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSet",
+      "value": "Administrator %2$s ustawił etykietę użytkownika %3$s na „%1$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSetYour",
+      "value": "Administrator %2$s ustawił twoją etykietę na „%1$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouRemoved",
+      "value": "Usunięto etykietę dla %2$s „%1$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouSet",
+      "value": "Ustawiono etykietę dla %2$s na „%1$s”"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogToggledInvitesOff",
       "value": "Użytkownik %1$s wyłączył zaproszenia do grupy"
     },
@@ -6824,6 +7106,26 @@
       "_": "types.LangPackString",
       "key": "EventLogTransferredOwnership",
       "value": "przeniesiono własność na %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOff",
+      "value": "Użytkownik %1$s wyłączył automatyczne tłumaczenie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOffYou",
+      "value": "Wyłączono automatyczne tłumaczenie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOn",
+      "value": "Użytkownik %1$s włączył automatyczne tłumaczenie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOnYou",
+      "value": "Włączono automatyczne tłumaczenie"
     },
     {
       "_": "types.LangPackString",
@@ -12245,6 +12547,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollDescription",
+      "value": "Opis (opcjonalny)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollDescriptionEmpty",
+      "value": "Dodaj opis"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollDescriptionInfo",
+      "value": "Opis będzie wyświetlany nad tytułem ankiety."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDiscard",
       "value": "Odrzuć ankietę"
     },
@@ -12313,13 +12630,103 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingAdding",
+      "value": "Zezwól na dodawanie opcji"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingAddingOff",
+      "value": "Uczestnicy nie mogą proponować nowych opcji"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingAddingOn",
+      "value": "Uczestnicy mogą proponować nowe opcje"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingAnonymous",
       "value": "Anonimowe głosowanie"
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingCountries",
+      "value": "Ogranicz według kraju"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOff",
+      "value": "Głosować mogą użytkownicy ze wszystkich krajów"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOn",
+      "value": "Głosować mogą tylko użytkownicy z wybranych krajów"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOnSpecific",
+      "value": "Tylko użytkownicy z %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDuration",
+      "value": "Ogranicz czas trwania"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDurationOff",
+      "value": "Automatycznie zamknij ankietę o ustawionej godzinie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDurationOn",
+      "value": "Głosowanie kończy się o %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResults",
+      "value": "Ukryj wyniki"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResultsOff",
+      "value": "Wyniki są wyświetlane po głosowaniu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResultsOn",
+      "value": "Wyniki zostaną wyświetlone po zamknięciu głosowania"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembers",
+      "value": "Ogranicz do subskrybentów"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembersOff",
+      "value": "Użytkownicy bez subskrypcji mogą głosować"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembersOn",
+      "value": "Głosować mogą tylko subskrybenci, którzy dołączyli ponad 24 godziny temu"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingMultiple",
       "value": "Wielokrotny wybór"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMultipleOff",
+      "value": "Można wybrać tylko jedną opcję"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMultipleOn",
+      "value": "Można wybrać więcej niż jedną opcję"
     },
     {
       "_": "types.LangPackString",
@@ -12330,6 +12737,61 @@
       "_": "types.LangPackString",
       "key": "PollSettingQuizInfo",
       "value": "Ankiety w trybie quizu mają jedną poprawną odpowiedź. Użytkownicy nie mogą odwołać swoich odpowiedzi."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingQuizOff",
+      "value": "Włącz, aby ustawić prawidłową odpowiedź"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingQuizOn",
+      "value": "Wybierz jedyną poprawną odpowiedź"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevoting",
+      "value": "Ponowne głosowanie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevotingOff",
+      "value": "Głosujący mogą głosować tylko raz"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevotingOn",
+      "value": "Głosujący mogą zmieniać swój głos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVoters",
+      "value": "Pokaż, kto głosował"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVotersOff",
+      "value": "Głosujący są anonimowi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVotersOn",
+      "value": "Wyświetla nazwę głosującego przy każdej opcji"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffle",
+      "value": "Losowa kolejność"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffleOff",
+      "value": "Głosujący widzą opcje w tej samej kolejności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffleOn",
+      "value": "Odpowiedzi pojawiają się w losowej kolejności dla każdego głosującego"
     },
     {
       "_": "types.LangPackString",
@@ -13702,6 +14164,11 @@
       "_": "types.LangPackString",
       "key": "QuizAnonymous",
       "value": "Anonimowy quiz"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "QuizDescriptionInfo",
+      "value": "Opis będzie wyświetlany nad tytułem quizu."
     },
     {
       "_": "types.LangPackString",
@@ -15213,6 +15680,11 @@
       "many_value": "~%1$s wyników",
       "one_value": "~%1$s wynik",
       "other_value": "~%1$s wyniku"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SearchCountry",
+      "value": "Szukaj…"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -17287,17 +17759,17 @@
     {
       "_": "types.LangPackString",
       "key": "SyncHintRetry",
-      "value": "Aby ułatwić ci wysyłanie wiadomości do znajomych i rodziny za pomocą Telegrama, należy zezwolić na dostęp do kontaktów.\n\nDotknij kolejno: Ustawienia » Prywatność i bezpieczeństwo i włącz Synchronizuj kontakty."
+      "value": "Aby włączyć synchronizację kontaktów i bezproblemowo przesyłać je do Telegrama, zezwól na dostęp do kontaktów.\n\nDotknij kolejno: Ustawienia » Prywatność i bezpieczeństwo i włącz Synchronizuj kontakty."
     },
     {
       "_": "types.LangPackString",
       "key": "SyncHintTitle",
-      "value": "Znajdź kontakty"
+      "value": "Synchronizować kontakty z Telegramem?"
     },
     {
       "_": "types.LangPackString",
       "key": "SyncHintUnavailable",
-      "value": "Dotknij kolejno: Ustawienia » Prywatność i bezpieczeństwo i włącz Synchronizuj kontakty, aby umożliwić Telegramowi dostęp do twoich kontaktów."
+      "value": "Dotknij kolejno: Ustawienia » Prywatność i bezpieczeństwo i włącz Synchronizacja kontaktów, aby umożliwić Telegramowi X dostęp do twoich kontaktów."
     },
     {
       "_": "types.LangPackString",
@@ -19267,6 +19739,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WaitingResultsPoll",
+      "value": "Wyniki zostaną ogłoszone po zakończeniu głosowania"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "WaitingResultsQuiz",
+      "value": "Wyniki zostaną ogłoszone po zakończeniu quizu"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Wallpaper",
       "value": "Tapeta"
     },
@@ -20514,6 +20996,63 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistItem",
+      "value": "„%1$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparator",
+      "value": ", "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparatorLast",
+      "value": " i "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasks",
+      "value": "Użytkownik %1$s oznaczył %2$s i %3$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s zadania jako wykonane",
+      "key": "format_ActionChecklistMarkTasksDone",
+      "many_value": "%1$s zadań jako wykonane",
+      "one_value": "%1$s zadanie jako wykonane",
+      "other_value": "%1$s zadania jako wykonane"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s jako niewykonane",
+      "key": "format_ActionChecklistMarkTasksNotDone",
+      "many_value": "%1$s jako niewykonane",
+      "one_value": "%1$s jako niewykonane",
+      "other_value": "%1$s jako niewykonane"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasksOut",
+      "value": "Oznaczono %1$s i %2$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s zadania jako wykonane",
+      "key": "format_ActionChecklistMarkTasksOutDone",
+      "many_value": "%1$s zadań jako wykonane",
+      "one_value": "%1$s zadanie jako wykonane",
+      "other_value": "%1$s zadania jako wykonane"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s zadania jako niewykonane",
+      "key": "format_ActionChecklistMarkTasksOutNotDone",
+      "many_value": "%1$s zadań jako niewykonane",
+      "one_value": "%1$s zadanie jako niewykonane",
+      "other_value": "%1$s zadania jako niewykonane"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• %1$s\n• %2$s\n• %3$s\n• %4$s"
     },
@@ -20814,6 +21353,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_notificationTitleSecret",
+      "value": "🔒️ %1$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_notificationTitleShort",
       "value": "%1$s (%2$s)"
     },
@@ -20871,6 +21415,14 @@
       "_": "types.LangPackString",
       "key": "format_plusPremium",
       "value": "+premium"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s Gwiazdki",
+      "key": "format_refundedStars",
+      "many_value": "%1$s Gwiazdek",
+      "one_value": "%1$s Gwiazdkę",
+      "other_value": "%1$s Gwiazdki"
     },
     {
       "_": "types.LangPackString",
@@ -23267,5 +23819,5 @@
       "other_value": "%1$s roku"
     }
   ],
-  "version": 1633887
+  "version": 1634105
 }
