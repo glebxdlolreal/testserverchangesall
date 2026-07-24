@@ -157,7 +157,7 @@
     {
       "_": "types.LangPackString",
       "key": "ActionChecklistAddOutMsg",
-      "value": "Heu afegit %1$s a la llista «%3$s»"
+      "value": "Heu afegit %1$s a la llista «%2$s»"
     },
     {
       "_": "types.LangPackString",
@@ -397,6 +397,12 @@
       "other_value": "%2$s ha fixat **%1$s vídeos de pagament**"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPriceChangedOut",
+      "one_value": "Heu canviat el preu a %1$s estrella per missatge",
+      "other_value": "Heu canviat el preu a %1$s estrelles per missatge"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "Marca-ho com a llegit"
@@ -445,6 +451,21 @@
       "_": "types.LangPackString",
       "key": "ActionSharingStillEnabled",
       "value": "Encara està activat poder compartir"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIcon",
+      "value": "%2$s ha canviat la icona del tema a %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHidden",
+      "value": "%1$s ha amagat el tema general"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhidden",
+      "value": "%1$s ha fet visible el tema general"
     },
     {
       "_": "types.LangPackString",
@@ -18393,12 +18414,12 @@
     {
       "_": "types.LangPackString",
       "key": "SyncHintTitle",
-      "value": "Trobeu contactes"
+      "value": "Voleu sincronitzar els contactes amb Telegram?"
     },
     {
       "_": "types.LangPackString",
       "key": "SyncHintUnavailable",
-      "value": "Aneu a Configuració > Permisos, i activeu Contactes perquè el Telegram tingui accés als vostres contactes."
+      "value": "Aneu a Configuració > Permisos, i activeu Contactes perquè el Telegram X tingui accés als vostres contactes."
     },
     {
       "_": "types.LangPackString",
@@ -24169,5 +24190,5 @@
       "other_value": "%1$s anys"
     }
   ],
-  "version": 1633898
+  "version": 1633931
 }
