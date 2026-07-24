@@ -71,8 +71,8 @@ html.bt-theme-switching body * {
 
 /* Light -> dark reveals the new snapshot on top. The reverse direction keeps
    the old snapshot on top so it can collapse into the same button origin. */
-html.bt-theme-reveal ::view-transition-old(root) { z-index: 1; }
-html.bt-theme-reveal ::view-transition-new(root) {
+:root.bt-theme-reveal::view-transition-old(root) { z-index: 1; }
+:root.bt-theme-reveal::view-transition-new(root) {
   z-index: 9999;
   will-change: clip-path;
   transform: translateZ(0);
