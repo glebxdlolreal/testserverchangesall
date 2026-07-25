@@ -141,8 +141,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChecklistAdd",
+      "value": "%1$s тапсырма тізіміне %2$s қосты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddMsg",
+      "value": "%1$s «%3$s» тапсырма тізіміне %2$s қосты"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChecklistAddOut",
       "value": "Тізімге «%1$s» қостыңыз"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMark",
+      "value": "%1$s %2$s орындалды, %3$s орындалмады деп белгіледі"
     },
     {
       "_": "types.LangPackString",
@@ -187,6 +202,11 @@
       "key": "ActionChecklistMarkNotDoneTasksOut",
       "one_value": "%1$s тапсырма орындалмады деп белгіледіңіз",
       "other_value": "%1$s тапсырма орындалмады деп белгіледіңіз"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkOut",
+      "value": "%1$s орындалды, %2$s орындалмады деп белгіледіңіз"
     },
     {
       "_": "types.LangPackString",
@@ -7317,8 +7337,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogTagRemovedYour",
+      "value": "«%1$s» белгіңізді %2$s жойды"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogTagSet",
       "value": "%2$s «%1$s» белгісін «%3$s» орнатты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSetYour",
+      "value": "Сізге «%1$s» белгісін %2$s орнатты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouRemoved",
+      "value": "%2$s «%1$s» белгісін жойдыңыз"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouSet",
+      "value": "«%1$s» белгісін %2$s қостыңыз"
     },
     {
       "_": "types.LangPackString",
@@ -24203,5 +24243,5 @@
       "other_value": "%1$s жыл"
     }
   ],
-  "version": 1634430
+  "version": 1634443
 }
