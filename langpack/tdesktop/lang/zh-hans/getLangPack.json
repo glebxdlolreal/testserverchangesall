@@ -1225,7 +1225,17 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_community_added",
+      "value": "{from} 已将此群组添加到 {community} 社群中。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_community_added_channel",
+      "value": "此频道已加入到 {community} 社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_chat",
       "value": "此频道已加入到 {community} 社群。"
     },
     {
@@ -9390,6 +9400,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_chat_loading",
+      "value": "加载中……"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_chat_remove_bot",
       "value": "移除机器人"
     },
@@ -9687,6 +9702,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_requests_decline_all",
       "value": "全部拒绝"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_requests_decline_all_sure",
+      "other_value": "您是否要全部拒绝 {count} 个加入社群的申请？"
     },
     {
       "_": "types.LangPackString",
@@ -40334,5 +40354,5 @@
       "other_value": "您支付了 {count} 颗星星。"
     }
   ],
-  "version": 5754004
+  "version": 5754010
 }
