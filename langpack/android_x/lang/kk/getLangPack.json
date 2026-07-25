@@ -136,6 +136,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatOwnerChanged",
+      "value": "%1$s осы чаттың жаңа иесі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeft",
+      "value": "Чат иесі шығып кетті"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeftTo",
+      "value": "Чат иесі шығып кетті. Қайтып оралмаса, %1$s жаңа иесі болады"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChatRemovedFromCommunity",
       "value": "Бұл чат бірлестіктен жойылды"
     },
@@ -153,6 +168,11 @@
       "_": "types.LangPackString",
       "key": "ActionChecklistAddOut",
       "value": "Тізімге «%1$s» қостыңыз"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOutMsg",
+      "value": "«%2$s» тапсырма тізімне %1$s қостыңыз"
     },
     {
       "_": "types.LangPackString",
@@ -425,6 +445,12 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "key": "ActionPriceChanged",
+      "one_value": "%2$s хат құнын %1$s жұлдызға өзгертті",
+      "other_value": "%2$s хат құнын %1$s жұлдызға өзгертті"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "key": "ActionPriceChangedOut",
       "one_value": "Бір хаттың құнын %1$s жұлдызға өзгерттіңіз",
       "other_value": "Бір хаттың құнын %1$s жұлдызға өзгерттіңіз"
@@ -486,8 +512,93 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconName",
+      "value": "%3$s тақырып атауы мен таңбасын %1$s %2$s деп өзгертті"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionTopicChangedIconOut",
       "value": "Тақырып таңбасын өзгерттіңіз: %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosed",
+      "value": "%3$s %1$s %2$s жапты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosedOut",
+      "value": "%1$s %2$s жаптыңыз"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreate",
+      "value": "%2$s %1$s тақырыбын құрды"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIcon",
+      "value": "%3$s %1$s %2$s тақырыбын құрды"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIconOut",
+      "value": "%1$s %2$s тақырыбын құрдыңыз"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateOut",
+      "value": "%1$s тақырыбын құрдыңыз"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreated",
+      "value": "%1$s тақырыбы құрылды"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreatedIcon",
+      "value": "%1$s %2$s тақырыбы құрылды"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHidden",
+      "value": "%1$s бас тақырыпты жасырды"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHiddenOut",
+      "value": "Бас тақырыпты жасырдыңыз"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamed",
+      "value": "%1$s тақырып атын «%2$s» өзгертті"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamedOut",
+      "value": "Тақырып атын «%1$s» өзгертті"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopened",
+      "value": "%3$s %1$s %2$s қайта ашты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopenedOut",
+      "value": "%1$s %2$s қайта аштыңыз"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhidden",
+      "value": "%1$s бас тақырыпты ашты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhiddenOut",
+      "value": "Бас тақырыпты аштыңыз"
     },
     {
       "_": "types.LangPackString",
@@ -23466,6 +23577,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "url_contactsPrivacy",
+      "value": "https://telegram.org/privacy/kk#3-4-telefon-nomiri-men-kontaktiler"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "url_faq",
       "value": "https://telegram.org/faq/kk#zhalpi-suraqtar"
     },
@@ -24243,5 +24359,5 @@
       "other_value": "%1$s жыл"
     }
   ],
-  "version": 1634443
+  "version": 1634656
 }
