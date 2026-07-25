@@ -16549,6 +16549,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.Add",
+      "value": "Lägg till"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextBot",
+      "value": "Om den här boten godkänns av en communityadministratör kommer medlemmarna att kunna se och använda den."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextChannel",
+      "value": "Om den här kanalen godkänns av en communityadministratör kommer dess prenumeranter att kunna gå med i eller ansöka om att få gå med i andra chattar i communityt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextGroup",
+      "value": "Om den här gruppen godkänns av en communityadministratör kommer dess medlemmar att kunna gå med i eller ansöka om att få gå med i andra chattar inom communityt."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Add.Title",
       "value": "Lägg till chatt"
     },
@@ -16672,7 +16692,7 @@
     {
       "_": "types.LangPackString",
       "key": "Community.Edit.AddChat",
-      "value": "Lägg till chatt i community"
+      "value": "Lägg till chatt i communityt"
     },
     {
       "_": "types.LangPackString",
@@ -16888,8 +16908,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsBot",
+      "value": "%@ föreslog den här boten:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsChannel",
+      "value": "%@ föreslog den här kanalen:"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Request.RequesterSuggestsGroup",
-      "value": "%@ föreslår följande chatt:"
+      "value": "%@ föreslår denna grupp:"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -30626,7 +30656,7 @@
     {
       "_": "types.LangPackString",
       "key": "Login.Fee.Support.Text",
-      "value": "Registrera dig för ett 1-veckas premiumabonnemang för att täcka SMS-kostnaderna."
+      "value": "Registrera dig för 1 vecka av Telegram Premium för att täcka SMS-kostnaderna."
     },
     {
       "_": "types.LangPackString",
@@ -34480,6 +34510,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroupUnknown",
+      "value": "Den här gruppen har lagts till i communityt %1$@"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Notification.CommunityAddedGroupYou",
       "value": "Du har lagt till den här gruppen i communityt %1$@"
     },
@@ -34511,7 +34546,7 @@
     {
       "_": "types.LangPackString",
       "key": "Notification.CopyProtection.DisabledYou",
-      "value": "Du tillät delning i denna chatt"
+      "value": "Du aktiverade delning i denna chatt"
     },
     {
       "_": "types.LangPackString",
@@ -46120,6 +46155,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.HighlightOff",
+      "value": "Ta bort markering"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.HighlightOn",
+      "value": "Markera"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichText.MenuCode",
       "value": "Kod"
     },
@@ -46152,6 +46197,21 @@
       "_": "types.LangPackString",
       "key": "RichText.MenuText",
       "value": "Text"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.PlaceholderBody",
+      "value": "Skriv något..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.PlaceholderCode",
+      "value": "Skriv kod här"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.PlaceholderQuote",
+      "value": "Skriv ett citat här"
     },
     {
       "_": "types.LangPackString",
@@ -60098,5 +60158,5 @@
       "value": "Du har angett en felaktig säkerhetskod."
     }
   ],
-  "version": 21514892
+  "version": 21622313
 }

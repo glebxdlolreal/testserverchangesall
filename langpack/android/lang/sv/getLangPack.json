@@ -14131,6 +14131,12 @@
       "value": "Lägg till admin"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityAddAllChatsMessage",
+      "one_value": "Vill du lägga till **%1$d** chatt i communityt?",
+      "other_value": "Vill du lägga till **%1$d** chattar i communityt?"
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityAddAllChatsTitle",
       "value": "Lägg till alla chattar"
@@ -14172,8 +14178,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityAddGroupToCommunityInfo",
+      "value": "Gör din grupp till en del av ett community med flera relaterade chattar"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAddToCommunityButton",
       "value": "Lägg till i communityt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityChannelMessage",
+      "value": "Om den här kanalen godkänns av en communityadministratör kommer dess prenumeranter att kunna gå med i eller ansöka om att få gå med i andra chattar i communityt."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityGroupMessage",
+      "value": "Om den här gruppen godkänns av en communityadministratör kommer dess medlemmar att kunna gå med i eller ansöka om att få gå med i andra chattar inom communityt."
     },
     {
       "_": "types.LangPackString",
@@ -14222,6 +14243,17 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "key": "CommunityBanFromCommunityInfo",
+      "one_value": "Användaren kommer att tas bort från **%1$d chatt >**",
+      "other_value": "Användaren kommer att tas bort från **%1$d chattar >**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityBanUserTitle",
+      "value": "Blockera användare"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "key": "CommunityBanWarningMessage",
       "one_value": "Om **%2$s** blockeras kommer även **%1$d** chatt som de har skapat att tas bort från communityt.",
       "other_value": "Om **%2$s** blockeras kommer även **%1$d** chattar som de har skapat att tas bort från communityt."
@@ -14230,6 +14262,12 @@
       "_": "types.LangPackString",
       "key": "CommunityBanWarningTitle",
       "value": "Varning"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityBanWillRemoveFromChats",
+      "one_value": "**%2$s** kommer att tas bort från **%1$d** communitychatt.",
+      "other_value": "**%2$s** kommer att tas bort från **%1$d** communitychattar."
     },
     {
       "_": "types.LangPackString",
@@ -14389,6 +14427,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityMenuAddChat",
+      "value": "Lägg till chatt i communityt"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityMenuRemoveBotFromCommunityConfirm",
       "value": "Är du säker på att du vill ta bort den här boten från communityt?"
     },
@@ -14506,6 +14549,23 @@
       "_": "types.LangPackString",
       "key": "CommunityPendingRequestsInfo",
       "value": "Chattar måste godkännas av en administratör innan de läggs till i communityt. **Ändra inställningar >**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfoNoChange",
+      "value": "Chattar måste godkännas av en administratör innan de läggs till i communityt."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityPendingRequestsRow",
+      "one_value": "%1$d väntande förfrågan",
+      "other_value": "%1$d väntande förfrågningar"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityPendingRequestsSuggestedHeader",
+      "one_value": "%1$d chatt föreslås för detta community",
+      "other_value": "%1$d chattar föreslås för detta community"
     },
     {
       "_": "types.LangPackString",
@@ -14741,6 +14801,12 @@
       "_": "types.LangPackString",
       "key": "CommunityWhoCanAddChatsOnlyAdminsInfo",
       "value": "Chattar som föreslås av medlemmar i communityn måste godkännas av en administratör."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityWithChats",
+      "one_value": "Community med %1$d chatt",
+      "other_value": "Community med %1$d chattar"
     },
     {
       "_": "types.LangPackString",
@@ -18164,7 +18230,7 @@
     {
       "_": "types.LangPackString",
       "key": "EnableSharingActionYou",
-      "value": "Du tillät delning i denna chatt"
+      "value": "Du aktiverade delning i denna chatt"
     },
     {
       "_": "types.LangPackString",
@@ -18365,6 +18431,11 @@
       "_": "types.LangPackString",
       "key": "EnterYourTelegramPasscode",
       "value": "Ange din åtkomstkod till Telegram "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageMenuHint",
+      "value": "Det är bara du som ser det här meddelandet. Det försvinner när du loggar in igen."
     },
     {
       "_": "types.LangPackString",
@@ -31204,6 +31275,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NoCommunityJoinRequestsDescription",
+      "value": "Du har inga väntande ansökningar\nom att gå med i ditt community."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NoContacts",
       "value": "Inga kontakter än"
     },
@@ -41758,7 +41834,7 @@
     {
       "_": "types.LangPackString",
       "key": "SMSFee3Text",
-      "value": "Registrera dig för ett 1-veckas premiumabonnemang för att täcka SMS-kostnaderna."
+      "value": "Registrera dig för 1 vecka av Telegram Premium för att täcka SMS-kostnaderna."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -50867,7 +50943,7 @@
     {
       "_": "types.LangPackString",
       "key": "TodoAddedOneTaskOut",
-      "value": "Du lade till \"%1$s\" till checklistan"
+      "value": "Du lade till \"%1$s\" i checklistan"
     },
     {
       "_": "types.LangPackString",
@@ -56639,5 +56715,5 @@
       "value": "Telegram Passport"
     }
   ],
-  "version": 59950998
+  "version": 60096202
 }
