@@ -138,6 +138,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatOwnerChanged",
+      "value": "%1$s є новим власником цього чату"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChatOwnerLeft",
       "value": "Власник покинув чат"
     },
@@ -169,7 +174,7 @@
     {
       "_": "types.LangPackString",
       "key": "ActionChecklistAddOutMsg",
-      "value": "Ви додаєте %1$s до «%3$s»"
+      "value": "Ви додаєте %1$s до списку «%2$s»"
     },
     {
       "_": "types.LangPackString",
@@ -265,6 +270,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosed",
+      "value": "%1$s закриває загальну гілку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosedOut",
+      "value": "Ви закриваєте загальну гілку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopened",
+      "value": "%1$s перевідкриває загальну гілку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopenedOut",
+      "value": "Ви перевідкриваєте загальну гілку"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionMute",
       "value": "Вимкнути сповіщення"
     },
@@ -277,6 +302,22 @@
       "_": "types.LangPackString",
       "key": "ActionMutePerson",
       "value": "Вимкнути у %1$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s повертає %3$s за %1$s повідомлення",
+      "key": "ActionPaidMessagesRefunded",
+      "many_value": "%2$s повертає %3$s за %1$s повідомлень",
+      "one_value": "%2$s повертає %3$s за %1$s повідомлення",
+      "other_value": "%2$s повертає %3$s за %1$s повідомлень"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Ви повертаєте %2$s за %1$s повідомлення",
+      "key": "ActionPaidMessagesRefundedOut",
+      "many_value": "Ви повертаєте %2$s за %1$s повідомлень",
+      "one_value": "Ви повертаєте %2$s за %1$s повідомлення",
+      "other_value": "Ви повертаєте %2$s за %1$s повідомлень"
     },
     {
       "_": "types.LangPackString",
@@ -423,6 +464,22 @@
       "other_value": "%2$s прикріплює **%1$s платних відео**"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s тепер приймає повідомлення за %1$s зірки",
+      "key": "ActionPriceChanged",
+      "many_value": "%2$s тепер приймає повідомлення за %1$s зірок",
+      "one_value": "%2$s тепер приймає повідомлення за %1$s зірку",
+      "other_value": "%2$s тепер приймає повідомлення за %1$s зірок"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Ви змінюєте ціну на %1$s зірки за повідомлення",
+      "key": "ActionPriceChangedOut",
+      "many_value": "Ви змінюєте ціну на %1$s зірок за повідомлення",
+      "one_value": "Ви змінюєте ціну на %1$s зірку за повідомлення",
+      "other_value": "Ви змінюєте ціну на %1$s зірок за повідомлення"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "Прочитати"
@@ -471,6 +528,126 @@
       "_": "types.LangPackString",
       "key": "ActionSharingStillEnabled",
       "value": "Копіювання в цьому чаті все ще заборонене"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIcon",
+      "value": "%2$s змінює іконку гілки %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconName",
+      "value": "%3$s змінює назву гілки та іконку на %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconNameOut",
+      "value": "Ви змінюєте назву та іконку гілки на %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconOut",
+      "value": "Ви змінюєте іконку гілки на %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosed",
+      "value": "%3$s закриває %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosedOut",
+      "value": "Ви закриваєте %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreate",
+      "value": "%2$s створює гілку %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIcon",
+      "value": "%3$s створює гілку %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIconOut",
+      "value": "Ви створюєте гілку %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateOut",
+      "value": "Ви створюєте гілку %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreated",
+      "value": "Створено гілку %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreatedIcon",
+      "value": "Створено гілку %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHidden",
+      "value": "%1$s приховує загальну гілку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHiddenOut",
+      "value": "Ви повертаєте загальну гілку до списку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamed",
+      "value": "%2$s перейменовує гілку на %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamedOut",
+      "value": "Ви перейменовуєте гілку на %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopened",
+      "value": "%3$s перевідкриває %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopenedOut",
+      "value": "Ви перевідкриваєте %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhidden",
+      "value": "%1$s повертає загальну гілку до списку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhiddenOut",
+      "value": "Ви повертаєте загальну гілку до списку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosed",
+      "value": "%1$s закриває гілку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosedOut",
+      "value": "Ви закриваєте гілку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopened",
+      "value": "%1$s перевідкриває гілку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopenedOut",
+      "value": "Ви перевідкриваєте гілку"
     },
     {
       "_": "types.LangPackString",
@@ -18876,6 +19053,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncBtn",
+      "value": "Синхронізувати"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncContacts",
       "value": "Синхронізувати контакти"
     },
@@ -18911,18 +19093,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncHint3",
+      "value": "Контакти з вашого пристрою (номери телефонів, імена та прізвища) будуть автоматично завантажені на сервери Telegram, щоб ви могли знайти їх у розділі **Контакти** у **%1$s** або отримати сповіщення, коли вони зареєструються.\n\nЯкщо ви видалите контакт на своєму пристрої та синхронізація буде ввімкнена, він також видалиться зі списку контактів на серверах **Telegram**.\n\nВи завжди можете вимкнути синхронізацію або очистити дані на серверах Telegram у меню **Налаштування > Приватність і безпека > Видалити синхронізовані контакти**.\n\nЩоб увімкнути синхронізацію, вам також потрібно надати **%1$s** доступ до контактів на вашому пристрої."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncHintRetry",
-      "value": "Щоб зробити спілкування з друзями та родичами в Telegram зручнішим, надайте доступ до своїх контактів.\n\nНатисніть Налаштування > Дозволи та ввімкніть Контакти"
+      "value": "Щоб увімкнути синхронізацію контактів у Telegram, надайте доступ до своїх контактів.\n\nНатисніть Налаштування > Дозволи та ввімкніть Контакти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintRetry2",
+      "value": "Щоб ввімкнути синхрозіацію контактів, надайте Telegram доступ до них.\n\nНатисніть **Налаштування** > **Дозволи** та ввімкніть **Контакти**.\n"
     },
     {
       "_": "types.LangPackString",
       "key": "SyncHintTitle",
-      "value": "Знайдіть контакти"
+      "value": "Синхронізувати контакти з Telegram?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintTitle2",
+      "value": "Синхронізувати контакти з Telegram?"
     },
     {
       "_": "types.LangPackString",
       "key": "SyncHintUnavailable",
-      "value": "Натисніть Налаштування > Дозволи та ввімкніть Контакти, щоб надати Telegram доступ до ваших контактів."
+      "value": "Натисніть Налаштування > Дозволи та ввімкніть Контакти, щоб надати Telegram X доступ до ваших контактів."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintUnavailable2",
+      "value": "Щоб знаходити ваші контакти у Telegram, натисніть Налаштування > Дозволи та ввімкніть Контакти, щоб дозволити **%1$s** отримувати до них доступ."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncLearnMore",
+      "value": "Політика конфіденційності"
     },
     {
       "_": "types.LangPackString",
@@ -22663,6 +22870,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_notificationTitleSecret",
+      "value": "🔒️ %1$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_notificationTitleShort",
       "value": "%1$s (%2$s)"
     },
@@ -22720,6 +22932,14 @@
       "_": "types.LangPackString",
       "key": "format_plusPremium",
       "value": "+Premium"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s зірки",
+      "key": "format_refundedStars",
+      "many_value": "%1$s зірок",
+      "one_value": "%1$s зірку",
+      "other_value": "%1$s зірок"
     },
     {
       "_": "types.LangPackString",
@@ -24166,6 +24386,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "url_contactsPrivacy",
+      "value": "https://telegram.org/privacy/ua#3-4-nomer-telefonu-ta-spisok-kontaktv"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "url_faq",
       "value": "https://telegram.org/faq/uk#zagalni-zapitannya"
     },
@@ -25179,5 +25404,5 @@
       "other_value": "%1$s років"
     }
   ],
-  "version": 1633890
+  "version": 1634160
 }
