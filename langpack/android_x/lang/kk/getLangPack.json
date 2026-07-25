@@ -101,6 +101,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOptionMsg",
+      "value": "«%2$s» сауалнамасына «%1$s» қостыңыз"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChannelChangedPhoto",
       "value": "Арнаның суреті өзгерді"
     },
@@ -150,6 +155,12 @@
       "value": "«%1$s» орындалды деп білгіледіңіз"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkDoneTasksOut",
+      "one_value": "%1$s тапсырма дайын деп белгіледіңіз",
+      "other_value": "%1$s тапсырма дайын деп белгіледіңіз"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionChecklistMarkNotDone",
       "value": "%1$s «%2$s» орындалмады деп білгіледі"
@@ -160,6 +171,12 @@
       "value": "«%1$s» дайын емес деп белгіледіңіз"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkNotDoneTasksOut",
+      "one_value": "%1$s тапсырма дайын емес деп белгіледіңіз",
+      "other_value": "%1$s тапсырма дайын емес деп белгіледіңіз"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "Арна құрылды"
@@ -168,6 +185,21 @@
       "_": "types.LangPackString",
       "key": "ActionCreatedManagedBot",
       "value": "%2$s басқаратын %1$s ботын жасадыңыз"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOption",
+      "value": "%1$s сауалнамадан «%2$s» жойды"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOptionMsg",
+      "value": "%1$s «%3$s» сауалнамасынан «%2$s» жойды"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOption",
+      "value": "Сауалнамадан «%1$s» жойдыңыз"
     },
     {
       "_": "types.LangPackString",
@@ -208,6 +240,18 @@
       "_": "types.LangPackString",
       "key": "ActionMutePerson",
       "value": "%1$s үнсіз қылу"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPaidMessagesRefunded",
+      "one_value": "%2$s %1$s хаты үшін %3$s қайтарды",
+      "other_value": "%2$s %1$s хаты үшін %3$s қайтарды"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPaidMessagesRefundedOut",
+      "one_value": "%1$s хаты үшін %2$s қайтардыңыз",
+      "other_value": "%1$s хаты үшін %2$s қайтардыңыз"
     },
     {
       "_": "types.LangPackString",
@@ -346,6 +390,12 @@
       "key": "ActionPinnedXPaidVideos",
       "one_value": "%2$s **%1$s ақылы бейне** бекітті",
       "other_value": "%2$s **%1$s ақылы бейне** бекітті"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPriceChangedOut",
+      "one_value": "Бір хаттың құнын %1$s жұлдызға өзгерттіңіз",
+      "other_value": "Бір хаттың құнын %1$s жұлдызға өзгерттіңіз"
     },
     {
       "_": "types.LangPackString",
@@ -18313,6 +18363,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncBtn",
+      "value": "Үйлестіру"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncContacts",
       "value": "Контакт үйлестіру"
     },
@@ -18360,6 +18415,11 @@
       "_": "types.LangPackString",
       "key": "SyncHintUnavailable",
       "value": "Баптау > Рұқсат бөліміне өтіп, Telegram үшін контактілерге кіруге рұқсат етіңіз."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncLearnMore",
+      "value": "Құпиялық саясаты"
     },
     {
       "_": "types.LangPackString",
@@ -21629,6 +21689,18 @@
       "other_value": "«%1$s» орындалмады"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksOutDone",
+      "one_value": "%1$s тапсырма дайын",
+      "other_value": "%1$s тапсырма дайын"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksOutNotDone",
+      "one_value": "%1$s тапсырма дайын емес",
+      "other_value": "%1$s тапсырма дайын емес"
+    },
+    {
       "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• %1$s\n• %2$s\n• %3$s\n• %4$s"
@@ -21930,6 +22002,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_notificationTitleSecret",
+      "value": "🔒️ %1$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_notificationTitleShort",
       "value": "%1$s (%2$s)"
     },
@@ -21987,6 +22064,12 @@
       "_": "types.LangPackString",
       "key": "format_plusPremium",
       "value": "+premium"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_refundedStars",
+      "one_value": "%1$s жұлдыз",
+      "other_value": "%1$s жұлдыз"
     },
     {
       "_": "types.LangPackString",
@@ -24108,5 +24191,5 @@
       "other_value": "%1$s жыл"
     }
   ],
-  "version": 1633899
+  "version": 1634402
 }
