@@ -7166,8 +7166,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GuardManagedByDescription",
+      "value": "⁨{approvalInfo}⁩ ⁨{managedBy}⁩"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GuardProcessJoinRequests",
       "value": "پردازش درخواست‌های عضویت"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequestsDisableChannel",
+      "value": "مشترکین جدید برای پیوستن به این کانال، دیگر نیازمند موافقت ⁨{bot}⁩ نخواهند بود."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequestsDisableGroup",
+      "value": "اعضای جدید برای ارسال پیام در این گروه، دیگر نیازمند موافقت ⁨{bot}⁩ نخواهند بود."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequestsEnableChannel",
+      "value": "از این پس، مشترکین جدید پیش از پیوستن به این کانال، نیازمند موافقت ⁨{bot}⁩ هستند."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequestsEnableGroup",
+      "value": "از این پس، اعضای جدید پیش از امکان ارسال پیام در این گروه، نیازمند موافقت ⁨{bot}⁩ خواهند بود."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardProcessJoinRequestsInfo",
+      "value": "به این ربات اجازه دهید اعضای جدید را با استفاده از رابط‌های اختصاصی خود، مانند کپچاها، تأیید کند."
     },
     {
       "_": "types.LangPackString",
@@ -7179,6 +7209,11 @@
       "key": "HeaderDescriptionResaleGifts",
       "one_value": "⁨{count}⁩ مورد لیست شده",
       "other_value": "⁨{count}⁩ مورد لیست شده"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "HeaderMenuViewProfile",
+      "value": "مشاهده پروفایل"
     },
     {
       "_": "types.LangPackString",
@@ -7328,6 +7363,11 @@
       "_": "types.LangPackString",
       "key": "InviteLink",
       "value": "لینک دعوت"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "InviteLinkApprovalRequired",
+      "value": "نیازمند موافقت"
     },
     {
       "_": "types.LangPackString",
@@ -8215,6 +8255,16 @@
       "_": "types.LangPackString",
       "key": "MessageMetaEdited",
       "value": "ویرایش شده"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MessageMetaEditedAtTime",
+      "value": "ویرایش شده در ⁨{time}⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MessageMetaEditedOnDateAtTime",
+      "value": "ویرایش شده در ⁨{date}⁩ ساعت ⁨{time}⁩"
     },
     {
       "_": "types.LangPackString",
@@ -9502,6 +9552,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollLimitByCountry",
+      "value": "محدود کردن بر اساس کشور"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollMultiple",
       "value": "چندگزینه‌ای"
     },
@@ -9509,6 +9564,11 @@
       "_": "types.LangPackString",
       "key": "PollQuiz",
       "value": "حالت آزمون"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollRestrictToSubscribers",
+      "value": "محدود کردن به مشترکین"
     },
     {
       "_": "types.LangPackString",
@@ -10674,6 +10734,21 @@
       "_": "types.LangPackString",
       "key": "RevokedLinks",
       "value": "لینک‌های باطل شده"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichMessageMore",
+      "value": "نمایش بیشتر"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextMapPreview",
+      "value": "[نقشه]"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextMathPreview",
+      "value": "[فرمول]"
     },
     {
       "_": "types.LangPackString",
@@ -13760,5 +13835,5 @@
       "value": "نام شما"
     }
   ],
-  "version": 273526
+  "version": 273782
 }

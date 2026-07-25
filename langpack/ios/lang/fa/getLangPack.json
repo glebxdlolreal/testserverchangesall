@@ -1955,6 +1955,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Attachment.Article",
+      "value": "مقاله"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Attachment.Audio",
       "value": "صدا"
     },
@@ -3201,6 +3206,11 @@
       "_": "types.LangPackString",
       "key": "AvatarEditor.SetChannelPhoto",
       "value": "تنظیم به عنوان عکس کانال"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AvatarEditor.SetCommunityPhoto",
+      "value": "تنظیم به عنوان عکس انجمن"
     },
     {
       "_": "types.LangPackString",
@@ -4813,7 +4823,7 @@
     {
       "_": "types.LangPackString",
       "key": "Business.QuickRepliesInfo",
-      "value": "میان‌برهایی را با متن غنی و رسانه تنظیم کنید تا سریع‌تر به پیام‌ها پاسخ دهید."
+      "value": "میان‌برهایی با قالب‌بندی متن پیشرفته و رسانه تنظیم کنید تا سریع‌تر به پیام‌ها پاسخ دهید."
     },
     {
       "_": "types.LangPackString",
@@ -5924,7 +5934,7 @@
     {
       "_": "types.LangPackString",
       "key": "Call.CallInProgressTitle",
-      "value": "در حال تماس"
+      "value": "تماس در حال انجام"
     },
     {
       "_": "types.LangPackString",
@@ -7656,6 +7666,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Channel.AdminLog.SendReactions",
+      "value": "ارسال واکنش"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Channel.AdminLog.SetSlowmode",
       "value": "⁨%1$@⁩ زمان‌سنج حالت آرام را بر روی ⁨%2$@⁩ تنظیم کرد"
     },
@@ -8338,7 +8353,12 @@
     {
       "_": "types.LangPackString",
       "key": "Channel.EditAdmin.GuardBotEnableMembersText",
-      "value": "از این پس، اعضای جدید پیش از این که قادر به ارسال پیام در این گروه باشند، نیازمند موافقت **⁨%@⁩** هستند."
+      "value": "از این پس، اعضای جدید پیش از امکان ارسال پیام در این گروه، نیازمند موافقت **⁨%@⁩** خواهند بود"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.EditAdmin.GuardBotEnableSubscribersText",
+      "value": "از این پس، مشترکین جدید پیش از پیوستن به این کانال، نیازمند موافقت **⁨%@⁩** هستند"
     },
     {
       "_": "types.LangPackString",
@@ -8469,6 +8489,11 @@
       "_": "types.LangPackString",
       "key": "Channel.EditAdmin.PermissionProcessJoinRequests",
       "value": "پردازش درخواست‌های عضویت"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.EditAdmin.PermissionProcessJoinRequestsInfo",
+      "value": "به این ربات اجازه دهید اعضای جدید را با استفاده از رابط‌های اختصاصی خود، مانند کپچاها، تأیید کند."
     },
     {
       "_": "types.LangPackString",
@@ -9882,6 +9907,16 @@
       "value": "واکنش‌ها حذف شدند."
     },
     {
+      "_": "types.LangPackString",
+      "key": "Chat.AdminAction.ToastReactionsDeletedTextSingle",
+      "value": "واکنش حذف شد."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.AdminAction.ToastReactionsDeletedTitleSingle",
+      "value": "واکنش حذف شد"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "Chat.AdminAction.ToastReportedSpamText",
       "one_value": "**1** کاربر برای هرزنامه گزارش شد.",
@@ -10775,7 +10810,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.Giveaway.Info.EndedMany",
-      "value": "در تاریخ **⁨%1$@⁩**، تلگرام به صورت خودکار ⁨%2$@⁩ از **⁨%3$@⁩** و گروه‌ها و کانال‌های لیست شده دیگر را انتخاب کرد."
+      "value": "در تاریخ **⁨%1$@⁩**، تلگرام به صورت خودکار ⁨%2$@⁩ از **⁨%3$@⁩** و انجمن‌های لیست شده دیگر را انتخاب کرد."
     },
     {
       "_": "types.LangPackString",
@@ -11730,7 +11765,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.PanelHidePinnedMessages",
-      "value": "پیام‌های سنجاق شده را نمایش نده"
+      "value": "پیام‌های سنجاق شده را پنهان کن"
     },
     {
       "_": "types.LangPackString",
@@ -11901,6 +11936,16 @@
       "_": "types.LangPackString",
       "key": "Chat.Poll.Restriction.Country",
       "value": "فقط کاربران ⁨%@⁩ می‌توانند رأی دهند."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Poll.Restriction.Country.CountriesDelimiter",
+      "value": "، "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Poll.Restriction.Country.CountriesLastDelimiter",
+      "value": " و "
     },
     {
       "_": "types.LangPackString",
@@ -12471,6 +12516,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.PrivateMessageSentTimestamp.TodayAt",
+      "value": "ارسال شده امروز در ⁨%@⁩"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.PrivateMessageSentTimestamp.YesterdayAt",
       "value": "ارسال شده دیروز ساعت ⁨%@⁩"
     },
@@ -12630,6 +12680,11 @@
       "_": "types.LangPackString",
       "key": "Chat.ReplyStoryPrivateChannel",
       "value": "استوری خصوصی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.RichText.ShowMore",
+      "value": "نمایش بیشتر"
     },
     {
       "_": "types.LangPackString",
@@ -13090,6 +13145,11 @@
       "_": "types.LangPackString",
       "key": "Chat.ToastVideoPublished.Title",
       "value": "ویدیو منتشر شد"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.ToastVoiceMessageDeviceMuted",
+      "value": "دستگاه روی حالت بی‌صدا است."
     },
     {
       "_": "types.LangPackString",
@@ -13687,6 +13747,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.ClearSearchHistory.Confirm",
+      "value": "پاک کردن "
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.CloseAction",
       "value": "بستن"
     },
@@ -13784,6 +13849,11 @@
       "_": "types.LangPackString",
       "key": "ChatList.Context.Unarchive",
       "value": "خروج از بایگانی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.Context.Ungroup",
+      "value": "لغو گروه‌بندی"
     },
     {
       "_": "types.LangPackString",
@@ -14396,6 +14466,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Remove",
+      "value": "حذف"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.RemoveFolder",
       "value": "حذف"
     },
@@ -14831,6 +14906,21 @@
       "_": "types.LangPackString",
       "key": "ChatList.UndoArchiveTitle",
       "value": "گفتگو بایگانی شد."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Action",
+      "value": "لغو گروه‌بندی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Text",
+      "value": "گفتگوهای این انجمن به صورت جداگانه در لیست گفتگوهای شما نمایش داده می‌شود."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Title",
+      "value": "گروه‌بندی گفتگوها لغو شود؟"
     },
     {
       "_": "types.LangPackString",
@@ -15854,6 +15944,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Checkout.PaymentMethod.Proceed",
+      "value": "ادامه"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Checkout.PaymentMethod.Title",
       "value": "روش پرداخت"
     },
@@ -15891,6 +15986,11 @@
       "_": "types.LangPackString",
       "key": "Checkout.ShippingMethod",
       "value": "روش ارسال"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Checkout.ShippingMethod.Proceed",
+      "value": "ادامه"
     },
     {
       "_": "types.LangPackString",
@@ -16394,8 +16494,95 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Add.ActionAddToCommunity",
+      "value": "افزودن به انجمن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.Add",
+      "value": "افزودن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextBot",
+      "value": "در صورتی که این ربات توسط یکی از مدیران انجمن تأیید شود، اعضای انجمن قادر به مشاهده و استفاده از آن خواهند بود."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextChannel",
+      "value": "در صورت تأیید شدن این کانال توسط یکی از مدیران انجمن، مشترکین آن می‌توانند در سایر گفتگوهای درون انجمن عضو شده یا برای آن‌ها درخواست عضویت ارسال کنند."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextGroup",
+      "value": "در صورت تأیید شدن این گروه توسط یکی از مدیران انجمن، اعضای آن می‌توانند در سایر گفتگوهای درون انجمن عضو شده یا برای آن‌ها درخواست عضویت ارسال کنند."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Title",
+      "value": "افزودن گفتگو"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHeader",
+      "value": "امکان مشاهده گفتگو"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHidden",
+      "value": "پنهان"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHiddenInfo",
+      "value": "فقط اعضای دعوت شده و مدیران انجمن این گفتگو را مشاهده خواهند کرد."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityInfo",
+      "value": "نمی‌توانید بعداً این را تغییر دهید."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityVisible",
+      "value": "قابل مشاهده"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityVisibleInfo",
+      "value": "هر کسی در انجمن قادر به مشاهده این گفتگو خواهد بود."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat.Description",
+      "value": "گفتگویی را برای اضافه کردن به این انجمن انتخاب کنید"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.AddChat.Title",
       "value": "افزودن گفتگو"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.BanFromCommunity",
+      "value": "محروم کردن از انجمن"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.AdminActions.Footer",
+      "one_value": "کاربر از [⁨%@⁩ گفتگو >](community) حذف خواهد شد",
+      "other_value": "کاربر از [⁨%@⁩ گفتگو >](community) حذف خواهد شد"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.AdminActions.WarningChatCount",
+      "one_value": "⁨%@⁩ گفتگوی",
+      "other_value": "⁨%@⁩ گفتگوی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminActions.WarningText",
+      "value": "با محروم کردن **⁨%@⁩**، **⁨%@⁩** ایجاد شده توسط او نیز از انجمن حذف خواهد شد."
     },
     {
       "_": "types.LangPackString",
@@ -16404,8 +16591,205 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Admins.AddAdmin",
+      "value": "افزودن مدیر"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.Info",
+      "value": "می‌توانید مدیرانی اضافه کنید که به مدیریت انجمن شما کمک کنند."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.SectionTitle",
+      "value": "مدیران انجمن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Admins.Title",
+      "value": "مدیران"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.Info",
+      "value": "کاربرانی که توسط مدیران از انجمن حذف شده‌اند، نمی‌توانند از طریق لینک دعوت مجدداً به آن بپیوندند."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.RemoveUser",
+      "value": "حذف کاربر"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.Title",
+      "value": "کاربران حذف شده"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Blacklist.UsersSectionTitle",
+      "value": "کاربران حذف شده"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Chat.JoinToView",
+      "value": "شما برای مشاهده پیام‌های این گروه، باید به آن بپیوندید."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.CommunityAdded.View",
+      "value": "مشاهده"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.AddChat",
+      "value": "افزودن گفتگو به انجمن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.Administrators",
+      "value": "مدیران"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.Edit.ChatsHeader",
+      "one_value": "⁨%@⁩ گفتگو",
+      "other_value": "⁨%@⁩ گفتگو"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.ChatsLimitReached",
+      "value": "متأسفانه این انجمن به حداکثر تعداد گفتگوها رسیده است."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.CommunityNamePlaceholder",
+      "value": "نام انجمن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.DeleteCommunity",
+      "value": "حذف انجمن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.DeleteConfirmationText",
+      "value": "آیا از حذف این انجمن اطمینان دارید؟"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PendingRequests",
+      "value": "درخواست‌های معلق"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionAllMembers",
+      "value": "تمامی اعضا"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionAllMembersInfo",
+      "value": "به اعضا اجازه داده دهید که گروه‌ها و کانال‌های خود را به انجمن اضافه کنند."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionOnlyAdmins",
+      "value": "فقط مدیران"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionOnlyAdminsInfo",
+      "value": "گفتگوهای پیشنهاد شده توسط اعضای انجمن، نیازمند موافقت مدیر هستند."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.RemovedUsers",
+      "value": "کاربران حذف شده"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.WhoCanAddChats",
+      "value": "چه کسانی می‌توانند گفتگو اضافه کنند"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionAddAdmins",
+      "value": "افزودن مدیران انجمن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionBanUsers",
+      "value": "محروم کردن اعضا"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.EditAdmin.PermissionChangeInfo",
+      "value": "ویرایش اطلاعات انجمن"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.EditAdmin.PermissionManageLinkedPeers",
       "value": "ویرایش لیست گفتگوها"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.AddToExistingHeader",
+      "value": "افزودن به یک انجمن موجود"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.List.ChatCount",
+      "one_value": "⁨%@⁩ گفتگو",
+      "other_value": "⁨%@⁩ گفتگو"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.CreateCommunity",
+      "value": "ایجاد انجمن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleBot",
+      "value": "ربات خود را به عضوی از یک انجمن با چندین گفتگوی مرتبط تبدیل کنید."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleChannel",
+      "value": "کانال خود را به عضوی از یک انجمن با چندین گفتگوی مرتبط تبدیل کنید."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.SubtitleGroup",
+      "value": "گروه خود را به عضوی از یک انجمن با چندین گفتگوی مرتبط تبدیل کنید."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.List.Title",
+      "value": "انجمن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.Info",
+      "value": "این گفتگو فقط با دعوت قابل دسترسی است.\nفقط اعضای آن می‌توانند آن را مشاهده کنند."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChat.MessageOwner",
+      "value": "ارسال پیام به مالک گفتگو"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Remove",
+      "value": "حذف"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Text",
+      "value": "این گفتگو از انجمن حذف خواهد شد."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChat.Title",
+      "value": "گفتگو از انجمن حذف شود؟"
     },
     {
       "_": "types.LangPackString",
@@ -16429,13 +16813,149 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Request.ApprovalInfo",
+      "value": "گفتگوها پیش از اضافه شدن به انجمن نیازمند موافقت مدیر هستند. [تغییر دادن تنظیمات >](settings)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.ApprovedToast",
+      "value": "شما گفتگو را به انجمن اضافه کردید."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Request.Decline",
       "value": "رد کردن"
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAll",
+      "value": "رد کردن همه"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclineAllConfirmation",
+      "value": "آیا می‌خواهید تمامی **⁨%@⁩** درخواست عضویت در انجمن را رد کنید؟"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.DeclinedToast",
+      "value": "شما اضافه شدن گفتگو به انجمن را رد کردید."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.EmptyText",
+      "value": "گفتگوی پیشنهاد شده دیگری برای این انجمن وجود ندارد."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.EmptyTitle",
+      "value": "درخواست معلقی وجود ندارد"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.PrivateStatus",
+      "value": "فقط برای اعضای آن قابل مشاهده است"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsBot",
+      "value": "⁨%@⁩ این ربات را پیشنهاد می‌کند:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsChannel",
+      "value": "⁨%@⁩ این کانال را پیشنهاد می‌کند:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsGroup",
+      "value": "⁨%@⁩ این گروه را پیشنهاد می‌کند:"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.Request.SectionTitle",
+      "one_value": "⁨%@⁩ گفتگوی پیشنهادی برای این انجمن",
+      "other_value": "⁨%@⁩ گفتگوی پیشنهادی برای این انجمن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.Title",
+      "value": "درخواست‌های معلق"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.UnknownRequester",
+      "value": "یک نفر"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.AddChatButton",
+      "value": "افزودن یک گفتگو به انجمن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ChatsLimitReached",
+      "value": "متأسفانه این انجمن به حداکثر تعداد گفتگوها رسیده است."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.HiddenChatToast",
+      "value": "تا زمانی که یک مدیر شما را دعوت نکند، نمی‌توانید به این گفتگو بپیوندید یا آن را مشاهده کنید."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestApprovedToast",
+      "value": "شما این گروه را به انجمن اضافه کردید."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestDeclinedToast",
+      "value": "شما افزودن این گفتگو به انجمن را رد کردید."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequestHeader",
+      "value": "درخواست معلق"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.PendingRequests",
+      "value": "درخواست‌های معلق"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.View.SectionHidden",
       "value": "گفتگوهای پنهان"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionJoined",
+      "value": "گفتگوهایی که در آن‌ها هستید"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionRequestable",
+      "value": "گفتگوهایی که می‌توانید به آن‌ها درخواست عضویت دهید"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.SectionVisible",
+      "value": "گفتگوهایی که می‌توانید مشاهده کنید"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ShowAsOneChat",
+      "value": "نمایش در قالب یک گفتگو"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.ShowAsOneChatInfo",
+      "value": "تمامی گفتگوهای انجمن را در قالب یک مورد در لیست گفتگوها گروه‌بندی کنید."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View.Title",
+      "value": "انجمن"
     },
     {
       "_": "types.LangPackString",
@@ -17696,7 +18216,7 @@
     {
       "_": "types.LangPackString",
       "key": "Conversation.EmojiStake.LostYou",
-      "value": "شما ⁨%@⁩ از دست دادید"
+      "value": "شما $⁨%@⁩ از دست دادید"
     },
     {
       "_": "types.LangPackString",
@@ -28380,7 +28900,7 @@
     {
       "_": "types.LangPackString",
       "key": "InviteLink.Create.RequestApprovalInfo",
-      "value": "پیوستن افراد از طریق این لینک نیازمند موافقت مدیر باشد."
+      "value": "پیوستن افراد از طریق این لینک نیازمند موافقت مدیر است."
     },
     {
       "_": "types.LangPackString",
@@ -29951,6 +30471,22 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Login.Fee.GetPremiumForDays",
+      "value": "دریافت تلگرام پرمیوم به مدت ⁨%@⁩"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Login.Fee.GetPremiumForDays.Days",
+      "one_value": "⁨%@⁩ روز",
+      "other_value": "⁨%@⁩ روز"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Login.Fee.GetPremiumNone",
+      "value": "دریافت تلگرام پرمیوم"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Login.Fee.SignUp",
       "value": "ثبت نام با پرداخت ⁨%@⁩"
     },
@@ -29963,6 +30499,12 @@
       "_": "types.LangPackString",
       "key": "Login.Fee.SmsCost.Title",
       "value": "هزینه‌های پیامکی بالا"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Login.Fee.Support.NewText.Days",
+      "one_value": "⁨%@⁩ روز",
+      "other_value": "⁨%@⁩ روز"
     },
     {
       "_": "types.LangPackString",
@@ -31540,6 +32082,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "MediaPicker.SetNewCommunityPhoto",
+      "value": "تنظیم عکس انجمن جدید"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "MediaPicker.SetNewPhoto",
       "value": "تنظیم عکس پروفایل جدید"
     },
@@ -31920,6 +32467,16 @@
       "_": "types.LangPackString",
       "key": "Message.Contact",
       "value": "مخاطب"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Message.EditFullDateFormat",
+      "value": "ویرایش شده در ⁨%1$@⁩ ساعت ⁨%2$@⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Message.EditTodayFullDateFormat",
+      "value": "ویرایش شده در ⁨%1$@⁩"
     },
     {
       "_": "types.LangPackString",
@@ -33778,6 +34335,51 @@
       "_": "types.LangPackString",
       "key": "Notification.ChatTheme.TextYou",
       "value": "**شما**، **⁨%@⁩** را به عنوان پوسته جدید این گفتگو تنظیم کردید."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedBot",
+      "value": "این ربات به انجمن ⁨%1$@⁩ اضافه شد"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedChannel",
+      "value": "این کانال به انجمن ⁨%1$@⁩ اضافه شد"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroup",
+      "value": "⁨%1$@⁩ این گروه را به انجمن ⁨%2$@⁩ اضافه کرد"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroupUnknown",
+      "value": "این گروه به انجمن ⁨%1$@⁩ اضافه شد"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityAddedGroupYou",
+      "value": "شما این گروه را به انجمن ⁨%1$@⁩ اضافه کردید"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedBot",
+      "value": "این ربات از انجمن حذف شد"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedChannel",
+      "value": "این کانال از انجمن حذف شد"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroup",
+      "value": "⁨%1$@⁩ این گروه را از انجمن حذف کرد"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedGroupYou",
+      "value": "شما این گروه را از انجمن حذف کردید"
     },
     {
       "_": "types.LangPackString",
@@ -36439,8 +37041,8 @@
     {
       "_": "types.LangPackStringPluralized",
       "key": "OldChannels.LeaveCommunities",
-      "one_value": "ترک ⁨%@⁩ گروه یا کانال",
-      "other_value": "ترک ⁨%@⁩ گروه و کانال"
+      "one_value": "ترک ⁨%@⁩ انجمن",
+      "other_value": "ترک ⁨%@⁩ انجمن"
     },
     {
       "_": "types.LangPackString",
@@ -39830,6 +40432,57 @@
       "value": "پاک کردن پیام‌ها"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "PeerInfo.Community",
+      "one_value": "انجمن حاوی ⁨%@⁩ گفتگو",
+      "other_value": "انجمن حاوی ⁨%@⁩ گفتگو"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddBot",
+      "value": "افزودن ربات به یک انجمن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddChannel",
+      "value": "افزودن کانال به یک انجمن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.AddGroup",
+      "value": "افزودن گروه به یک انجمن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.BotInfo",
+      "value": "ربات خود را به عضوی از یک انجمن با چندین گفتگوی مرتبط تبدیل کنید"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.ChannelInfo",
+      "value": "کانال خود را به عضوی از یک انجمن با چندین گفتگوی مرتبط تبدیل کنید"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.GroupInfo",
+      "value": "گروه خود را به عضوی از یک انجمن با چندین گفتگوی مرتبط تبدیل کنید"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveBot",
+      "value": "حذف ربات از انجمن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveChannel",
+      "value": "حذف کانال از انجمن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.RemoveGroup",
+      "value": "حذف گروه از انجمن"
+    },
+    {
       "_": "types.LangPackString",
       "key": "PeerInfo.CustomizeNotifications",
       "value": "شخصی‌سازی"
@@ -41065,6 +41718,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollStats.Title",
+      "value": "آمار نظرسنجی"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PowerSaving.AlertEnabledAction",
       "value": "غیرفعال کردن"
     },
@@ -41416,7 +42074,7 @@
     {
       "_": "types.LangPackString",
       "key": "Premium.Business.Replies.Text",
-      "value": "میان‌برهایی را با متن غنی و رسانه تنظیم کنید تا سریع‌تر به پیام‌ها پاسخ دهید."
+      "value": "میان‌برهایی با قالب‌بندی متن پیشرفته و رسانه تنظیم کنید تا سریع‌تر به پیام‌ها پاسخ دهید."
     },
     {
       "_": "types.LangPackString",
@@ -41960,6 +42618,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Premium.Limits.Messages",
+      "value": "پیام‌ها"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Premium.Limits.PinnedChats",
       "value": "گفتگوهای سنجاق شده"
     },
@@ -42444,8 +43107,29 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Premium.RichText",
+      "value": "ابزار قالب‌بندی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.RichTextInfo",
+      "value": "سربرگ، جدول، رسانه‌های درون‌خطی و محتوای هوش مصنوعی را به پیام‌ها اضافه کنید."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Premium.Semiannual",
       "value": "شش ماه یکبار"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Premium.SignUp.SignUpNewInfo.Days",
+      "one_value": "⁨%@⁩ روز",
+      "other_value": "⁨%@⁩ روز"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.SignUp.SignUpNewInfoNone",
+      "value": "دریافت تلگرام پرمیوم"
     },
     {
       "_": "types.LangPackString",
@@ -43153,6 +43837,11 @@
       "_": "types.LangPackString",
       "key": "Privacy.GroupsAndChannels.InviteToChannelMultipleError",
       "value": "متأسفانه به دلیل تنظیمات حریم خصوصی این کاربران، نمی‌توانید با آن‌ها گروهی ایجاد کنید."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Privacy.GroupsAndChannels.InviteToCommunityError",
+      "value": "متأسفانه به دلیل تنظیمات حریم خصوصی ⁨%@⁩، نمی‌توانید ⁨%@⁩ را به انجمن اضافه کنید."
     },
     {
       "_": "types.LangPackString",
@@ -44372,7 +45061,7 @@
     {
       "_": "types.LangPackString",
       "key": "QuickReplies.EmptyState.Text",
-      "value": "میان‌برهایی با متن غنی و رسانه ایجاد کنید تا به پیام‌ها سریع‌تر پاسخ دهید."
+      "value": "میان‌برهایی با قالب‌بندی متن پیشرفته و رسانه تنظیم کنید تا سریع‌تر به پیام‌ها پاسخ دهید."
     },
     {
       "_": "types.LangPackString",
@@ -44640,6 +45329,11 @@
       "_": "types.LangPackString",
       "key": "RecentSessions.ConnectedBot.ConnectedTime",
       "value": "متصل شده ⁨%@⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RecentSessions.ConnectedBot.TerminateCheckbox",
+      "value": "همچنین پایان دادن به ⁨%@⁩"
     },
     {
       "_": "types.LangPackString",
@@ -45184,6 +45878,56 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.AddMediaTitle",
+      "value": "افزودن رسانه"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaAdd",
+      "value": "افزودن فرمول"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaEdit",
+      "value": "ویرایش فرمول"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionResultTitle",
+      "value": "نتیجه"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.FormulaSectionSourceTitle",
+      "value": "LATEX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkRemove",
+      "value": "حذف"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkSet",
+      "value": "تنظیم"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkText",
+      "value": "برای متن انتخاب شده، یک URL تنظیم کنید"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.LinkTitle",
+      "value": "لینک"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Bullet",
+      "value": "لیست نشانه‌دار"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichText.Menu.List.Checklist",
       "value": "چک‌لیست"
     },
@@ -45194,8 +45938,48 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.Menu.List.Numbered",
+      "value": "لیست شماره‌دار"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.ConvertToText",
+      "value": "تبدیل به متن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Copy",
+      "value": "کپی جدول"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.Delete",
+      "value": "حذف جدول"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.HighlightOff",
+      "value": "حذف هایلایت"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.Menu.Table.HighlightOn",
+      "value": "هایلایت کردن"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichText.MenuCode",
       "value": "کد"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuFormula",
+      "value": "فرمول"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.MenuHeading",
+      "value": "تیتر"
     },
     {
       "_": "types.LangPackString",
@@ -45219,8 +46003,68 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichText.PlaceholderBody",
+      "value": "چیزی تایپ کنید..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.PlaceholderCode",
+      "value": "کد را اینجا تایپ کنید"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.PlaceholderQuote",
+      "value": "نقل قولی را در اینجا تایپ کنید"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.PremiumToastText",
+      "value": "ارسال پیام با این قالب‌بندی نیازمند [تلگرام پرمیوم]() است."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingText",
+      "value": "این پیام از قالب‌بندی پیشرفته استفاده می‌کند که نیازمند تلگرام پرمیوم است."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.RemoveFormattingTitle",
+      "value": "قالب‌بندی حذف شود؟"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.SendWithoutFormatting",
+      "value": "ارسال بدون قالب‌بندی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.SubscribeToPremium",
+      "value": "خرید اشتراک پرمیوم"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichText.TableMenu.Alignment",
+      "value": "تراز"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichText.TitleArticle",
       "value": "متن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextPreview.Formula",
+      "value": "[فرمول]"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextPreview.Music",
+      "value": "موزیک"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextPreview.Table",
+      "value": "[جدول]"
     },
     {
       "_": "types.LangPackString",
@@ -46144,6 +46988,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Settings.ChangePhoto",
+      "value": "تغییر عکس"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Settings.ChangeProfilePhoto",
       "value": "تغییر عکس پروفایل"
     },
@@ -46601,6 +47450,11 @@
       "_": "types.LangPackString",
       "key": "Settings.SetNewProfilePhotoOrVideo",
       "value": "تنظیم عکس جدید"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Settings.SetPhoto",
+      "value": "تنظیم عکس"
     },
     {
       "_": "types.LangPackString",
@@ -48215,6 +49069,11 @@
       "_": "types.LangPackString",
       "key": "Stars.Intro.Transaction.AppleTopUp.Title",
       "value": "شارژ ستاره"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Stars.Intro.Transaction.Commission.Title",
+      "value": "⁨%@⁩ کمیسیون"
     },
     {
       "_": "types.LangPackString",
@@ -50173,6 +51032,11 @@
       "key": "StickerPack.RemoveStickerCount",
       "one_value": "حذف 1 استیکر",
       "other_value": "حذف ⁨%@⁩ استیکر"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StickerPack.RemoveStickerSet",
+      "value": "حذف بسته استیکر"
     },
     {
       "_": "types.LangPackString",
@@ -52997,6 +53861,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.AlertCreatorDeleteStyle.Title",
+      "value": "حذف لحن"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.AlertTooManyStyles.Title",
+      "value": "سبک‌های بسیار زیاد"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.EditStyle.ActionCreate",
       "value": "ایجاد"
     },
@@ -53009,6 +53883,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.EditStyle.AddLink",
       "value": "افزودن لینک به حساب کاربری من"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.EditStyle.Delete",
+      "value": "حذف لحن"
     },
     {
       "_": "types.LangPackString",
@@ -53057,6 +53936,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextProcessing.PromptPlaceholder",
+      "value": "متن، فرمول یا جدول تولید کنید..."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextProcessing.ResultBadge",
       "value": "نتیجه"
     },
@@ -53064,6 +53948,16 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.StyleFooterCreatedBy",
       "value": "ایجاد شده توسط [⁨%@⁩]()"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.StyleFooterCreatedByFormat",
+      "value": "⁨%1$@⁩. ⁨%2$@⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.StyleFooterCreatedBySimpleFormat",
+      "value": "⁨%@⁩."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -53075,6 +53969,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.StyleList.Add",
       "value": "ایجاد"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.StyleList.Prompt",
+      "value": "دستور"
     },
     {
       "_": "types.LangPackString",
@@ -53145,6 +54044,11 @@
       "_": "types.LangPackString",
       "key": "TextProcessing.TextExpand",
       "value": "بیشتر"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextProcessing.TitleAICompose",
+      "value": "ایجاد با هوش مصنوعی"
     },
     {
       "_": "types.LangPackString",
@@ -53862,6 +54766,276 @@
       "_": "types.LangPackString",
       "key": "Translation.Language.zh",
       "value": "چینی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.AR",
+      "value": "عربی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.BE",
+      "value": "بلاروسی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.CA",
+      "value": "کاتالان"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.DE",
+      "value": "آلمانی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.EN",
+      "value": "انگلیسی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.EO",
+      "value": "اسپرانتو"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.ES",
+      "value": "اسپانیایی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.FI",
+      "value": "فنلاندی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.FR",
+      "value": "فرانسوی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.HE",
+      "value": "عبری"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.HR",
+      "value": "کرواتی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.HU",
+      "value": "مجارستانی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.ID",
+      "value": "اندونزیایی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.IT",
+      "value": "ایتالیایی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.JA",
+      "value": "ژاپنی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.KO",
+      "value": "کره‌ای"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.KZ",
+      "value": "قزاق"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.ML",
+      "value": "مالایالم"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.MS",
+      "value": "مالایی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.NL",
+      "value": "هلندی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.NO",
+      "value": "نروژی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.PO",
+      "value": "لهستانی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.PT",
+      "value": "پرتغالی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.RO",
+      "value": "رومانیایی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.RU",
+      "value": "روسی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.SK",
+      "value": "اسلواک"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.SR",
+      "value": "صربی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.SV",
+      "value": "سوئدی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.TA",
+      "value": "تامیل"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.TR",
+      "value": "ترکی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.UK",
+      "value": "اوکراینی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.UZ",
+      "value": "ازبکی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageFrom.ZH",
+      "value": "چینی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.AR",
+      "value": "عربی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.BE",
+      "value": "بلاروسی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.CA",
+      "value": "کاتالان"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.DE",
+      "value": "آلمانی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.EN",
+      "value": "انگلیسی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.EO",
+      "value": "اسپرانتو"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.ES",
+      "value": "اسپانیایی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.FI",
+      "value": "فنلاندی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.FR",
+      "value": "فرانسوی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.HE",
+      "value": "عبری"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.HR",
+      "value": "کرواتی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.HU",
+      "value": "مجارستانی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.ID",
+      "value": "اندونزیایی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.IT",
+      "value": "ایتالیایی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.JA",
+      "value": "ژاپنی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.KO",
+      "value": "کره‌ای"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.KZ",
+      "value": "قزاق"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.ML",
+      "value": "مالایالم"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.MS",
+      "value": "مالایی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.NL",
+      "value": "هلندی"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translation.LanguageTo.NO",
+      "value": "نروژی"
     },
     {
       "_": "types.LangPackString",
@@ -55319,6 +56493,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "VideoChat.StatusPeerJoined",
+      "value": "⁨%@⁩ پیوست"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "VoiceChat.AddBio",
       "value": "افزودن بیوگرافی"
     },
@@ -56100,7 +57279,7 @@
     {
       "_": "types.LangPackString",
       "key": "VoiceChat.StopRecording",
-      "value": "متوقف کردن ضبط"
+      "value": "توقف ضبط"
     },
     {
       "_": "types.LangPackString",
@@ -58612,5 +59791,5 @@
       "value": "شما کد امنیتی نامعتبری را وارد کرده‌اید."
     }
   ],
-  "version": 21602702
+  "version": 21622246
 }
