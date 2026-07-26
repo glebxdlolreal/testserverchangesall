@@ -170,6 +170,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AIEditorStylePrompt",
+      "value": "Prompt"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AIEditorStylePromptHint",
       "value": "Instruksi (misalnya, \"Tulis seperti bajak laut pemberani. Gunakan arr, ye, matey, dan bicarakan harta karun dan lautan\")"
     },
@@ -652,6 +657,11 @@
       "_": "types.LangPackString",
       "key": "AccDescrIVFooter",
       "value": "Catatan kaki"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AccDescrIVFormula",
+      "value": "Rumus"
     },
     {
       "_": "types.LangPackString",
@@ -4375,13 +4385,358 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleAIAddToPage",
+      "value": "Tambah ke Halaman"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleAICreate",
+      "value": "Buat Dengan AI"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleAIGenerate",
+      "value": "Hasilkan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleAIPrompt",
+      "value": "Tulis prompt..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleAlignment",
+      "value": "Perataan"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleByAuthor",
       "value": "oleh %1$s"
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleCode",
+      "value": "Kode"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandAudio",
+      "value": "Audio"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandDivider",
+      "value": "Pembagi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandImage",
+      "value": "Gambar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandList",
+      "value": "Daftar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandMap",
+      "value": "Peta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandMath",
+      "value": "Matematika"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandOrderedList",
+      "value": "Daftar Berurut"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandTable",
+      "value": "Tabel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandToggle",
+      "value": "Sakelar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleCommandVideo",
+      "value": "Video"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleConversionSendPlain",
+      "value": "Kirim Tanpa Pemformatan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleConversionSubscribe",
+      "value": "Berlangganan Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleConversionText",
+      "value": "Pesan ini menggunakan pemformatan kaya, yang memerlukan **Telegram Premium**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleConversionTitle",
+      "value": "Hapus Pemformatan"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleDateByAuthor",
       "value": "%1$s oleh %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteColumn",
+      "value": "Hapus Kolom"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteDraft",
+      "value": "Hapus draf"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteDraftMessage",
+      "value": "Teks yang Anda tulis akan hilang."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteDraftTitle",
+      "value": "Hapus draf ini?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteRow",
+      "value": "Hapus Baris"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleDeleteTable",
+      "value": "Hapus Tabel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleEditor",
+      "value": "Editor Kaya"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleFooter",
+      "value": "Catatan Kaki"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading",
+      "value": "Heading"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading1",
+      "value": "Heading 1"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading2",
+      "value": "Heading 2"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading3",
+      "value": "Heading 3"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading4",
+      "value": "Heading 4"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading5",
+      "value": "Heading 5"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHeading6",
+      "value": "Heading 6"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHighlightCell",
+      "value": "Sorot Sel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHighlightColumn",
+      "value": "Sorot Kolom"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHighlightRow",
+      "value": "Sorot Baris"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintAuthor",
+      "value": "Penulis"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintCode",
+      "value": "Ketik kode..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintDetailsTitle",
+      "value": "Judul"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintLanguage",
+      "value": "Bahasa"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintQuote",
+      "value": "Masukkan kutipan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintText",
+      "value": "Ketik sesuatu..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleHintTitle",
+      "value": "Judul"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleIndent",
+      "value": "Majukan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleInsertAbove",
+      "value": "Sisipkan Atas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleInsertBelow",
+      "value": "Sisipkan Bawah"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleInsertLeft",
+      "value": "Sisipkan Kiri"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleInsertRight",
+      "value": "Sisipkan Kanan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleLatexEquation",
+      "value": "Rumus LaTeX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleLatexError",
+      "value": "Kendala"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleListBulleted",
+      "value": "Poin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleListBulletedList",
+      "value": "Daftar poin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleListChecklist",
+      "value": "Daftar Periksa"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleListNumbered",
+      "value": "Nomor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleListNumberedList",
+      "value": "Daftar nomor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleListTodo",
+      "value": "Tugas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleMergeCells",
+      "value": "Gabung Sel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleNone",
+      "value": "Tidak Ada"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleOutdent",
+      "value": "Mundurkan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticlePullquote",
+      "value": "Sorotan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleQuote",
+      "value": "Kutipan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleRemoveHighlight",
+      "value": "Hapus Sorotan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleSaveDraftMessage",
+      "value": "Anda dapat simpan teks yang telah ditulis sebagai draf sebelum menutup."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleSaveDraftTitle",
+      "value": "Simpan draf ini?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleSplitCells",
+      "value": "Pisah Sel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleText",
+      "value": "Teks"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArticleToggleBlock",
+      "value": "Blok Lipat"
     },
     {
       "_": "types.LangPackString",
@@ -4397,6 +4752,11 @@
       "_": "types.LangPackString",
       "key": "AskButton",
       "value": "Tanya sukarelawan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AttachArticle",
+      "value": "Artikel"
     },
     {
       "_": "types.LangPackString",
@@ -9421,7 +9781,7 @@
     {
       "_": "types.LangPackString",
       "key": "BusinessBotNotSupportedMessage",
-      "value": "Bot ini belum mendukung **Telegram Business**."
+      "value": "Bot ini belum mendukung **Mode Sekretaris**."
     },
     {
       "_": "types.LangPackString",
@@ -13550,6 +13910,711 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community",
+      "value": "Komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAChatToCommunity",
+      "value": "Tambah Obrolan ke Komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAdmin",
+      "value": "Tambah Admin"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityAddAllChatsMessage",
+      "other_value": "Apakah Anda ingin menambahkan **%1$d** obrolan ke komunitas?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAllChatsTitle",
+      "value": "Tambah Semua Obrolan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotTitle",
+      "value": "Tambah Bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotToCommunity",
+      "value": "Tambah Bot ke Komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotToCommunityInfo",
+      "value": "Buat bot Anda bagian dari komunitas dengan obrolan terkait lainnya."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChannelToCommunity",
+      "value": "Tambah Channel ke Komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChannelToCommunityInfo",
+      "value": "Buat channel Anda bagian dari komunitas dengan obrolan terkait lainnya."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChatTitle",
+      "value": "Tambah Obrolan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddGroupToCommunity",
+      "value": "Tambah Grup ke Komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddGroupToCommunityInfo",
+      "value": "Buat grup Anda bagian dari komunitas dengan obrolan terkait lainnya."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityButton",
+      "value": "Tambah ke Komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityChannelMessage",
+      "value": "Jika channel disetujui admin komunitas, pelanggan akan dapat bergabung atau minta untuk bergabung dalam obrolan lain di komunitas."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityGroupMessage",
+      "value": "Jika grup disetujui admin komunitas, anggota grup akan dapat bergabung atau minta untuk bergabung dalam obrolan lain di komunitas."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityRequestButton",
+      "value": "Kirim Permintaan Gabung"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityTitle",
+      "value": "Tambah ke Komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToExistingCommunity",
+      "value": "Tambah ke komunitas yang ada"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdminRightBanMembers",
+      "value": "Blokir Anggota"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdminRightEditCommunityName",
+      "value": "Ubah Nama Komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdminRightEditGroupList",
+      "value": "Ubah Daftar Obrolan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdministrators",
+      "value": "Admin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdministratorsTitle",
+      "value": "Admin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityBanFromCommunity",
+      "value": "Blokir dari Komunitas"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityBanFromCommunityInfo",
+      "other_value": "Pengguna akan dikeluarkan dari **%1$d obrolan >**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityBanUserTitle",
+      "value": "Blokir Pengguna"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityBanWarningMessage",
+      "other_value": "Memblokir **%2$s** juga akan menghapus **%1$d** obrolan mereka dari komunitas."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityBanWarningTitle",
+      "value": "Peringatan"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityBanWillRemoveFromChats",
+      "other_value": "**%2$s** akan dikeluarkan dari **%1$d** obrolan komunitas."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityCannotChange",
+      "value": "Anda tidak akan dapat mengubah ini nanti."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHidden",
+      "value": "Tersembunyi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHiddenBotInfo",
+      "value": "Hanya anggota yang diundang dan admin komunitas dapat melihat bot ini."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHiddenInfo",
+      "value": "Hanya anggota yang diundang dan admin dapat melihat obrolan ini."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilitySection",
+      "value": "Visibilitas obrolan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisible",
+      "value": "Terlihat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisibleBotInfo",
+      "value": "Siapa pun dalam komunitas dapat melihat bot ini."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisibleInfo",
+      "value": "Semua anggota komunitas dapat melihat obrolan ini."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityCreated",
+      "value": "Komunitas dibuat!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityJoinedChannel",
+      "value": "Anda menambahkan channel ini ke komunitas!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityJoinedGroup",
+      "value": "Anda menambahkan grup ini ke komunitas!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityPending",
+      "value": "Permintaan bergabung Anda ke komunitas telah dikirim ke admin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCreateCommunity",
+      "value": "Buat Komunitas"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityDeclineAllMessage",
+      "other_value": "Apakah Anda ingin menolak semua **%1$d** permintaan bergabung dengan komunitas?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDeclineAllTitle",
+      "value": "Tolak Semua"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDelete",
+      "value": "Hapus Komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionBot",
+      "value": "Jadikan bot Anda bagian dari komunitas dengan obrolan terkait lainnya."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionChannel",
+      "value": "Buat channel Anda bagian dari komunitas dengan obrolan terkait lainnya."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionGroup",
+      "value": "Buat grup Anda bagian dari komunitas dengan obrolan terkait lainnya."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenChannelUnavailable",
+      "value": "Tidak dapat bergabung atau melihat channel ini sebelum admin mengundang Anda."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenChatTooltipMessage",
+      "value": "Hanya anggota yang diundang dan admin komunitas dapat melihat obrolan ini."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenChatTooltipTitle",
+      "value": "Obrolan Tersembunyi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenGroupUnavailable",
+      "value": "Tidak dapat bergabung atau lihat grup sampai admin mengundang Anda."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityHiddenStatus",
+      "value": "Tersembunyi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyChannelInfo",
+      "value": "Channel hanya untuk undangan.\nHanya anggota channel dapat melihat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyChannelMessageOwner",
+      "value": "Kirim Pesan Ke Pemilik"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyGroupInfo",
+      "value": "Grup hanya untuk undangan.\nHanya anggota grup dapat melihat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityInviteOnlyGroupMessageOwner",
+      "value": "Pesan Pemilik Grup"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminMessage",
+      "value": "**%1$s** akan dapat mengubah info komunitas dan menggunakan fungsi admin lainnya."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminPromote",
+      "value": "Angkat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMakeAdminTitle",
+      "value": "Buat Admin Komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuAddChat",
+      "value": "Tambah Obrolan ke Komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuRemoveBotFromCommunityConfirm",
+      "value": "Anda yakin ingin hapus bot ini dari komunitas?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuRemoveChannelFromCommunityConfirm",
+      "value": "Anda yakin ingin hapus channel ini dari komunitas?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuRemoveFromCommunity",
+      "value": "Hapus dari Komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuRemoveGroupFromCommunityConfirm",
+      "value": "Anda yakin ingin hapus grup ini dari komunitas?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuSettings",
+      "value": "Pengaturan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuShowAsOneChat",
+      "value": "Jadikan Satu Obrolan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuShowAsSeparateChats",
+      "value": "Pisahkan Obrolan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuViewBot",
+      "value": "Lihat Bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuViewChannel",
+      "value": "Lihat Channel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuViewGroup",
+      "value": "Lihat Grup"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNewCommunityNameHint",
+      "value": "Nama Komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNewCommunityTitle",
+      "value": "Komunitas Baru"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNoChatsToAdd",
+      "value": "Tidak memiliki obrolan untuk ditambahkan ke komunitas."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequest",
+      "value": "Permintaan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestAdd",
+      "value": "Tambahkan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestAddAll",
+      "value": "Tambahkan Semua"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestDecline",
+      "value": "Tolak"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestDeclineAll",
+      "value": "Tolak Semua"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestOnlyVisibleToMembers",
+      "value": "Hanya terlihat oleh anggota"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedBot",
+      "value": "**%s** sarankan bot ini"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedChannel",
+      "value": "**%s** sarankan channel ini"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestSuggestedGroup",
+      "value": "**%s** sarankan grup ini"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequests",
+      "value": "Permintaan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfo",
+      "value": "Obrolan perlu persetujuan admin sebelum ditambahkan ke komunitas. **Ubah Pengaturan >**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsInfoNoChange",
+      "value": "Obrolan perlu persetujuan admin sebelum ditambahkan ke komunitas."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityPendingRequestsRow",
+      "other_value": "%1$d Permintaan Menunggu"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityPendingRequestsSuggestedHeader",
+      "other_value": "%1$d obrolan disarankan untuk komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequestsTitle",
+      "value": "Permintaan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPermissionsHeader",
+      "value": "Apa yang dapat dilakukan anggota komunitas?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveBotFromCommunity",
+      "value": "Hapus Bot dari Komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveChannelFromCommunity",
+      "value": "Hapus Channel dari Komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemoveGroupFromCommunity",
+      "value": "Hapus Grup dari Komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemovedUsers",
+      "value": "Daftar Blokir"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequestApprovedToast",
+      "value": "Anda setujui permintaan untuk tambahkan **%1$s** ke komunitas."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequestDeclinedToast",
+      "value": "Anda tolak permintaan untuk tambahkan **%1$s** ke komunitas."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouAreIn",
+      "value": "Obrolan yang Anda ikuti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanJoin",
+      "value": "Obrolan dapat diikuti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanRequestToJoin",
+      "value": "Obrolan perlu persetujuan masuk"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanView",
+      "value": "Obrolan dapat Anda lihat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionCommunityName",
+      "value": "Nama komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionHiddenChats",
+      "value": "Obrolan disembunyikan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionWhoCanAddChats",
+      "value": "Siapa dapat tambahkan obrolan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotAdded",
+      "value": "**%1$s** tambahkan bot ini ke komunitas **%2$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotAddedUnknown",
+      "value": "Bot ditambahkan ke komunitas **%1$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotRemoved",
+      "value": "**%1$s** hapus bot ini dari komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotRemovedUnknown",
+      "value": "Bot ini dihapus dari komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotYouAdded",
+      "value": "**Anda** tambahkan bot ke komunitas **%1$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageBotYouRemoved",
+      "value": "**Anda** hapus bot ini dari komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelAdded",
+      "value": "**%1$s** tambahkan channel ini ke komunitas **%2$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelAddedUnknown",
+      "value": "Channel ini ditambahkan ke komunitas **%1$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelRemoved",
+      "value": "**%1$s** hapus channel ini dari komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelRemovedUnknown",
+      "value": "Channel ini dihapus dari komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelYouAdded",
+      "value": "**Anda** tambahkan channel ini ke komunitas %1$s."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelYouRemoved",
+      "value": "**Anda** hapus channel ini dari komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupAdded",
+      "value": "**%1$s** tambahkan grup ke komunitas **%2$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupAddedUnknown",
+      "value": "Grup ini ditambahkan ke komunitas **%1$s**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupRemoved",
+      "value": "**%1$s** hapus grup ini dari komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupRemovedUnknown",
+      "value": "Grup ini dihapus dari komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupYouAdded",
+      "value": "**Anda** tambahkan grup ini ke komunitas %1$s."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupYouRemoved",
+      "value": "**Anda** hapus grup ini dari komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageView",
+      "value": "Lihat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsChangePhoto",
+      "value": "Ganti Foto Komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsSetPhoto",
+      "value": "Pasang Foto Komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsTitle",
+      "value": "Komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChat",
+      "value": "Jadikan Satu Obrolan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChatInfo",
+      "value": "Kelompokkan semua obrolan komunitas menjadi satu dalam daftar obrolan."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityTitle",
+      "value": "Komunitas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityUngroupChats",
+      "value": "Pisahkan Obrolan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityUngroupChatsButton",
+      "value": "Pisahkan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityUngroupChatsText",
+      "value": "Obrolan komunitas ini akan muncul terpisah dalam daftar obrolan Anda."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsAllMembers",
+      "value": "Semua anggota"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsAllMembersInfo",
+      "value": "Izinkan anggota tambahkan grup dan channel ke komunitas."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsOnlyAdmins",
+      "value": "Hanya admin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsOnlyAdminsInfo",
+      "value": "Obrolan yang disarankan anggota perlu persetujuan admin."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityWithChats",
+      "other_value": "Komunitas dengan %1$d obrolan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminContinue",
+      "value": "Lanjutkan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminMessage",
+      "value": "Anda kini dapat ubah info **%1$s** dan gunakan fungsi admin lainnya."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminNoThanks",
+      "value": "Tidak, terima kasih"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityYouAreAdminTitle",
+      "value": "Anda admin komunitas"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CompatibilityChat",
       "value": "%1$s menggunakan Telegram versi lama sehingga Foto Sementara akan ditampilkan dalam mode kompabilitas.\n\nSetelah Telegram %2$s diperbarui, foto dengan timer 1 menit atau kurang akan mulai bekerja dalam mode 'Tekan dan tahan untuk melihat', dan Anda akan diberitahu pada waktu pihak lain mengambil tangkapan layar."
     },
@@ -17127,6 +18192,21 @@
       "_": "types.LangPackString",
       "key": "EnterYourTelegramPasscode",
       "value": "Masukkan Sandi Telegram anda"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageMenuHint",
+      "value": "Hanya Anda yang melihat pesan ini. Pesan akan hilang setelah Anda login kembali."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageVisibleToOther",
+      "value": "Hanya terlihat oleh @%s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralMessageVisibleToYou",
+      "value": "Hanya terlihat oleh Anda"
     },
     {
       "_": "types.LangPackString",
@@ -25565,6 +26645,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "InviteToCommunityError",
+      "value": "Maaf, Anda tidak dapat menambah pengguna ini ke komunitas karena pengaturan privasi mereka."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "InviteToGroupByLink",
       "value": "Undang ke Grup dengan Tautan"
     },
@@ -29655,6 +30740,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NoBlockedCommunity2",
+      "value": "Pengguna yang dikeluarkan dari komunitas oleh admin tidak dapat bergabung kembali melalui tautan undangan."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NoBlockedGroup",
       "value": "Pengguna diblokir telah dikeluarkan dari grup dan hanya dapat diundang oleh admin. Tautan undangan tidak berfungsi."
     },
@@ -29722,6 +30812,16 @@
       "_": "types.LangPackString",
       "key": "NoComments",
       "value": "Belum ada komentar..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NoCommunityJoinRequests",
+      "value": "Tidak ada permintaan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NoCommunityJoinRequestsDescription",
+      "value": "Semua permintaan masuk\nkomunitas telah diproses."
     },
     {
       "_": "types.LangPackString",
@@ -35895,6 +36995,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumPreviewRichEditor",
+      "value": "Fitur Pemformatan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PremiumPreviewRichEditorDescription",
+      "value": "Tambahkan header, tabel, media inline, dan konten AI ke dalam pesan."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumPreviewSharingDisable",
       "value": "Nonaktifkan Berbagi"
     },
@@ -40130,6 +41240,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorDraftSaved",
+      "value": "Draf Tersimpan."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RightNow",
       "value": "Baru saja"
     },
@@ -40171,7 +41286,7 @@
     {
       "_": "types.LangPackString",
       "key": "SMSFee3Text",
-      "value": "Daftar 1 minggu langganan Telegram Premium untuk membantu menutupi biaya SMS."
+      "value": "Daftar 1 minggu Telegram Premium untuk membantu menutupi biaya SMS."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -42222,6 +43337,11 @@
       "_": "types.LangPackString",
       "key": "SetColorAsBackground",
       "value": "Pasang Warna sebagai Latar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SetCommunityPhoto",
+      "value": "Pasang Foto Komunitas"
     },
     {
       "_": "types.LangPackString",
@@ -48095,6 +49215,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SwipeUngroupCommunity",
+      "value": "Pisahkan"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SwipeUnmute",
       "value": "Bunyi"
     },
@@ -49151,7 +50276,7 @@
     {
       "_": "types.LangPackString",
       "key": "TodoAddedOneTaskOut",
-      "value": "Anda tambahkan “%1$s” ke daftar periksa"
+      "value": "Anda tambahkan \"%1$s\" ke daftar periksa"
     },
     {
       "_": "types.LangPackString",
@@ -54884,5 +56009,5 @@
       "value": "Paspor Telegram"
     }
   ],
-  "version": 59866609
+  "version": 60102178
 }
