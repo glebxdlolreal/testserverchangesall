@@ -2109,6 +2109,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AttachmentMenuArticle",
+      "value": "Чланак"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AttachmentMenuDisableSpoiler",
       "value": "Уклони спојлер"
     },
@@ -5251,6 +5256,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ErrorRichMessageTableTooWide",
+      "value": "Табела у поруци има превише колона. Максимум је {count}."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ErrorSendRestrictedStickersAll",
       "value": "У овој групи није дозвољено слање налепница"
     },
@@ -5721,6 +5731,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "FormattingClearAria",
+      "value": "Очистите обликовање"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "FormattingEnterUrl",
       "value": "Унесите URL..."
     },
@@ -5728,6 +5743,16 @@
       "_": "types.LangPackString",
       "key": "FormattingItalicAria",
       "value": "Курзив"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingLinkUrl",
+      "value": "URL"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingMarkedAria",
+      "value": "Истакнути текст"
     },
     {
       "_": "types.LangPackString",
@@ -5743,6 +5768,16 @@
       "_": "types.LangPackString",
       "key": "FormattingStrikethroughAria",
       "value": "Прецртан текст"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingSubscriptAria",
+      "value": "Индексни текст"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingSuperscriptAria",
+      "value": "Експонентни текст"
     },
     {
       "_": "types.LangPackString",
@@ -10787,6 +10822,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ProfileSendAGift",
+      "value": "Пошаљи поклон"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ProfileTabBotPreview",
       "value": "Претпреглед"
     },
@@ -11191,6 +11231,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RemoveMember",
+      "value": "Уклони број"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RemoveRichFormatting",
+      "value": "Уклони обликовање"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RemoveRichFormattingTitle",
+      "value": "Уклонити обликовање?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RemoveSymbol",
       "value": "Избриши емоџи"
     },
@@ -11245,6 +11300,11 @@
       "_": "types.LangPackString",
       "key": "ReportChat",
       "value": "Пријави {peer}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReportChatMessagesRequired",
+      "value": "Изаберите поруке које желите укључити у своју пријаву."
     },
     {
       "_": "types.LangPackString",
@@ -11383,8 +11443,327 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorBlockMenu",
+      "value": "Уметните блок"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorBlockPlaceholder",
+      "value": "Напишите нешто"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorBlockquote",
+      "value": "Цитат"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorBulletList",
+      "value": "Листа с тачкама"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorChecklist",
+      "value": "Контролна листа"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorCodeBlock",
+      "value": "Блок кода"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorDetails",
+      "value": "Склопиви блок"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorDivider",
+      "value": "Разделник"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorEquation",
+      "value": "Једначина"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorEquationPrompt",
+      "value": "Унесите једначину..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorFooter",
+      "value": "Подножје"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorHeading",
+      "value": "Наслов"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorHeadingLevel",
+      "value": "Наслов {level}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListCheckmarks",
+      "value": "Контролна листа"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListMenu",
+      "value": "Листе"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingDecimal",
+      "value": "Бројеви (1, 2, 3)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingLowercaseLetters",
+      "value": "Мала слова (a, b, c)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingLowercaseRoman",
+      "value": "Мали римски бројеви (i, ii, iii)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingUppercaseLetters",
+      "value": "Велика слова (A, B, C)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingUppercaseRoman",
+      "value": "Велики римски бројеви (I, II, III)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListOptions",
+      "value": "Опције листе"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListReverseOrder",
+      "value": "Обрни редослед"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorOrderedList",
+      "value": "Нумерисана листа"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorParagraph",
+      "value": "Пасус"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorPullquote",
+      "value": "Истакнути цитат"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorPullquotePlaceholder",
+      "value": "Овде унесите цитат"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorQuoteCaptionPlaceholder",
+      "value": "Додајте аутора"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorSubheading",
+      "value": "Поднаслов"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTable",
+      "value": "Табела"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlign",
+      "value": "Поравнање"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignBottom",
+      "value": "Поравнај доле"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignCenter",
+      "value": "Поравнај по средини"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignLeft",
+      "value": "Поравнај лево"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignMiddle",
+      "value": "Поравнај по средини"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignRight",
+      "value": "Поравнај десно"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignTop",
+      "value": "Поравнај горе"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableBorderless",
+      "value": "Табела без ивица"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableDelete",
+      "value": "Избриши"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Избриши {count} колоне",
+      "key": "RichEditorTableDeleteColumn",
+      "one_value": "Избриши {count} колону",
+      "other_value": "Избриши {count} колона"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Избриши {count} реда",
+      "key": "RichEditorTableDeleteRow",
+      "one_value": "Избриши {count} ред",
+      "other_value": "Избриши {count} редова"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableDeleteTable",
+      "value": "Избриши табелу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableHighlight",
+      "value": "Истакни"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsert",
+      "value": "Уметни"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsertColumnLeft",
+      "value": "Уметни колону лево"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsertColumnRight",
+      "value": "Уметни колону десно"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsertRowAbove",
+      "value": "Уметни ред изнад"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsertRowBelow",
+      "value": "Уметни ред испод"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMenu",
+      "value": "Табела"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMergeCells",
+      "value": "Обједини ћелије"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMove",
+      "value": "Премести"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMoveDown",
+      "value": "Премести доле"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMoveLeft",
+      "value": "Премести лево"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMoveRight",
+      "value": "Премести десно"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMoveUp",
+      "value": "Премести горе"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableRemoveHighlight",
+      "value": "Уклони истицање"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableResizeSelectionAria",
+      "value": "Промените величину изабране ћелије"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableSelectColumnAria",
+      "value": "Изаберите колону"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableSelectRowAria",
+      "value": "Изаберите ред"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableSelectTableAria",
+      "value": "Изаберите табелу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableSplitCell",
+      "value": "Подели ћелију"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableStriped",
+      "value": "Пругаста табела"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichFormattingSubscribe",
+      "value": "Претплати ме на Premium"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichMessageMore",
       "value": "Прикажи више"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor",
+      "value": "Напредни уређивач текста"
     },
     {
       "_": "types.LangPackString",
@@ -11440,6 +11819,11 @@
       "_": "types.LangPackString",
       "key": "SavedMessagesShort",
       "value": "Сачувано"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SavedOpenChat",
+      "value": "Отвори ћаскање"
     },
     {
       "_": "types.LangPackString",
@@ -12018,6 +12402,11 @@
       "_": "types.LangPackString",
       "key": "SettingsAboutBio",
       "value": "Било који детаљи као што су старост, занимање или град.\nПример: Дизајнер из Београда, 23 године."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAutomaticTextReplacements",
+      "value": "Аутоматске замене текста"
     },
     {
       "_": "types.LangPackString",
@@ -14612,5 +15001,5 @@
       "value": "Ваше име"
     }
   ],
-  "version": 266493
+  "version": 274549
 }
