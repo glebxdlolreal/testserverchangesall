@@ -86,6 +86,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedPollOption",
+      "value": "%1$s la til \"%2$s\" i avstemningen"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionAddedPollOptionMsg",
       "value": "%1$s la til \"%2$s\" i avstemningen \"%3$s\""
     },
@@ -93,6 +98,11 @@
       "_": "types.LangPackString",
       "key": "ActionAddedPollOutOption",
       "value": "Du la til \"%1$s\" i avstemningen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOptionMsg",
+      "value": "Du la til \"%1$s\" i avstemningen \"%2$s\""
     },
     {
       "_": "types.LangPackString",
@@ -135,9 +145,15 @@
       "value": "Du la til %1$s i listen"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkDoneTasksOut",
+      "one_value": "Du merket %1$s oppgave som fullført",
+      "other_value": "Du merket %1$s oppgaver som fullført"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionChecklistMarkNotDoneOut",
-      "value": "Du markerte %1$s som ikke fullført"
+      "value": "Du merket %1$s som ikke fullført"
     },
     {
       "_": "types.LangPackString",
@@ -148,6 +164,21 @@
       "_": "types.LangPackString",
       "key": "ActionCreatedManagedBot",
       "value": "Du opprettet %1$s robot som administreres av %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOption",
+      "value": "%1$s fjernet \"%2$s\" fra avstemningen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOptionMsg",
+      "value": "%1$s fjernet \"%2$s\" fra avstemningen \"%3$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOption",
+      "value": "Du fjernet \"%1$s\" fra avstemningen"
     },
     {
       "_": "types.LangPackString",
@@ -168,6 +199,18 @@
       "_": "types.LangPackString",
       "key": "ActionMutePerson",
       "value": "Demp %1$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPaidMessagesRefunded",
+      "one_value": "%2$s har refundert %3$s for %1$s melding",
+      "other_value": "%2$s har refundert %3$s for %1$s meldinger"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPaidMessagesRefundedOut",
+      "one_value": "Du har refundert %2$s for %1$s melding",
+      "other_value": "Du har refundert %2$s for %1$s meldinger"
     },
     {
       "_": "types.LangPackString",
@@ -18248,6 +18291,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncHint3",
+      "value": "Kontakter på enheten din (telefonnumre, for- og etternavn) blir kontinuerlig lastet opp til Telegrams servere, slik at du kan finne dem i **Kontakter** i **%1$s**, eller motta et varsel når de blir med.\n\nData deles ikke med tredjeparter. Når du sletter en kontakt på enheten mens synkronisering er på, vil den også bli slettet fra kontaktlisten din på **Telegrams** servere.\n\nDu kan alltid slå av synkronisering eller slette data på Telegram-servere via **Innstillinger > Personvern og sikkerhet > Slett synkroniserte kontakter**.\n\nFor å slå på synkronisering må du også gi **%1$s** tilgang til kontakter på enheten din."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncHintRetry",
       "value": "For å hjelpe deg å sende meldinger til venner og familie på Telegram, gi tilgang til kontaktene dine.\n\nGå inn på Innstillinger > Tillatelser, og aktiver kontakter."
     },
@@ -21862,6 +21910,12 @@
       "value": "+premium"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_refundedStars",
+      "one_value": "%1$s stjerne",
+      "other_value": "%1$s stjerner"
+    },
+    {
       "_": "types.LangPackString",
       "key": "format_sessionsAndWebsites",
       "value": "%1$s, %2$s"
@@ -23981,5 +24035,5 @@
       "other_value": "%1$s år"
     }
   ],
-  "version": 1633902
+  "version": 1635173
 }
