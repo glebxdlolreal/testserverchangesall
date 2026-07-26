@@ -87,6 +87,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedPollOption",
+      "value": "%1$s dodaje opciju \"%2$s\" u anketu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOptionMsg",
+      "value": "%1$s dodaje \"%2$s\" u anketu \"%3$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOption",
+      "value": "Dodali ste opciju %1$s u anketu"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChannelChangedPhoto",
       "value": "Slika kanala je promijenjena."
     },
@@ -107,8 +122,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunity",
+      "value": "Ovaj razgovor je dodan u zajednicu \"%1$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunityUnknown",
+      "value": "Ovaj razgovor je dodan u zajednicu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatRemovedFromCommunity",
+      "value": "Ovaj razgovor je uklonjen iz zajednice"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOut",
+      "value": "Dodali ste %1$s na popis"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDoneOut",
+      "value": "Označili ste %1$s kao nedovršeno"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "Napravljen je kanal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionCreatedManagedBot",
+      "value": "Izradili ste bot %1$s kojim upravlja %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -221,9 +266,83 @@
       "value": "%1$s prikvačuje **glasovnu poruku**"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s mijenja naknadu na %1$s zvjezdice po poruci",
+      "key": "ActionPriceChanged",
+      "one_value": "%2$s mijenja naknadu na %1$s zvjezdicu po poruci",
+      "other_value": "%2$s mijenja naknadu na %1$s zvjezdica po poruci"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Promijenili ste naknadu na %1$s zvjezdice po poruci",
+      "key": "ActionPriceChangedOut",
+      "one_value": "Promijenili ste naknadu na %1$s zvjezdicu po poruci",
+      "other_value": "Promijenili ste naknadu na %1$s zvjezdica po poruci"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "Označi kao pročitano"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabled",
+      "value": "%1$s zabranjuje kopiranje sadržaja u ovom razgovoru"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabledOut",
+      "value": "Zabranili ste kopiranje sadržaja u ovom razgovoru"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabledOut",
+      "value": "Dopustili ste kopiranje sadržaja u ovom razgovoru"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequest",
+      "value": "%1$s želi dopustiti kopiranje sadržaja u ovom razgovoru"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestExpired",
+      "value": "Zahtjev za dozvolu kopiranja je istekao"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestOut",
+      "value": "Predložili ste da kopiranje sadržaja bude dopušteno"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillDisabled",
+      "value": "Kopiranje sadržaja je još uvijek zabranjeno"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillEnabled",
+      "value": "Kopiranje sadržaja je još uvijek dopušteno"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIcon",
+      "value": "%2$s mijenja ikonu teme u %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHidden",
+      "value": "%1$s skriva općenitu temu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhidden",
+      "value": "%1$s prikazuje općenitu temu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosed",
+      "value": "%1$s zatvara temu"
     },
     {
       "_": "types.LangPackString",
@@ -4303,6 +4422,13 @@
       "value": "Zemlja"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Možete odabrati najviše %1$s države",
+      "key": "CountryLimit",
+      "one_value": "Možete odabrati najviše %1$s državu",
+      "other_value": "Možete odabrati najviše %1$s država"
+    },
+    {
       "_": "types.LangPackString",
       "key": "CreateAHintForYourPassword",
       "value": "Napravite podsjetnik za lozinku"
@@ -5776,6 +5902,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EndsInDuration",
+      "value": "završava za %1$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Enhance",
       "value": "Poboljšanje"
     },
@@ -6953,6 +7084,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogTagRemoved",
+      "value": "%2$s uklanja oznaku \"%1$s\" od %3$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSet",
+      "value": "%2$s postavlja oznaku \"%1$s\" na %3$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogToggledInvitesOff",
       "value": "%1$s onemogućuje pozivanje u grupu"
     },
@@ -6985,6 +7126,16 @@
       "_": "types.LangPackString",
       "key": "EventLogTransferredOwnership",
       "value": "prenosi vlasništvo na %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOff",
+      "value": "%1$s isključuje automatsko prevođenje"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOn",
+      "value": "%1$s uključuje automatsko prevođenje"
     },
     {
       "_": "types.LangPackString",
@@ -12559,6 +12710,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollDescriptionEmpty",
+      "value": "Dodajte opis"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDiscard",
       "value": "Odbaciti anketu?"
     },
@@ -12626,8 +12782,53 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingAdding",
+      "value": "Dodavanje opcija"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingAddingOn",
+      "value": "Sudionici će moći predlagati nove opcije"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingAnonymous",
       "value": "Anonimno"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountries",
+      "value": "Ograniči po državama"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOn",
+      "value": "Samo korisnici iz odabranih država mogu odgovarati"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDuration",
+      "value": "Ograniči trajanje"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDurationOff",
+      "value": "Anketa će se automatski zatvoriti u postavljeno vrijeme"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResults",
+      "value": "Sakrij rezultate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembers",
+      "value": "Ograniči na pretplatnike"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembersOn",
+      "value": "Samo pretplatnici koji su se pridružili prije najmanje 24 sata"
     },
     {
       "_": "types.LangPackString",
@@ -12643,6 +12844,36 @@
       "_": "types.LangPackString",
       "key": "PollSettingQuizInfo",
       "value": "Ankete u kviz načinu imaju samo jedan točan odgovor. Korisnici ne mogu mijenjati svoje odgovore."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevoting",
+      "value": "Promjena odgovora"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevotingOn",
+      "value": "Sudionici će moći promijeniti svoj odgovor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVoters",
+      "value": "Prikaži tko je odgovorio"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVotersOn",
+      "value": "Prikazat će se imena sudionika na svakoj opciji"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffle",
+      "value": "Nasumični odgovori"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffleOn",
+      "value": "Odgovori će se pojavljivati nasumičnim redoslijedom"
     },
     {
       "_": "types.LangPackString",
@@ -23464,5 +23695,5 @@
       "other_value": "%1$s godina"
     }
   ],
-  "version": 1634276
+  "version": 1635132
 }
