@@ -1805,7 +1805,7 @@
     {
       "_": "types.LangPackString",
       "key": "AriaComposerOpenRichInput",
-      "value": "Отворите пун уређивач"
+      "value": "Отворите уређивач"
     },
     {
       "_": "types.LangPackString",
@@ -5271,6 +5271,25 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ErrorRichMessageTooDeep",
+      "value": "Порука је превише угнежђена. Максимална дубина је {count}."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Порука има превише блокова. Уклоните {count} блока.",
+      "key": "ErrorRichMessageTooManyBlocks",
+      "one_value": "Порука има превише блокова. Уклоните {count} блок.",
+      "other_value": "Порука има превише блокова. Уклоните {count} блокова."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Порука има превише медијских ставки. Уклоните {count} ставке.",
+      "key": "ErrorRichMessageTooManyMedia",
+      "one_value": "Порука има превише медијских ставки. Уклоните {count} ставку.",
+      "other_value": "Порука има превише медијских ставки. Уклоните {count} ставки."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ErrorSendRestrictedStickersAll",
       "value": "У овој групи није дозвољено слање налепница"
     },
@@ -5742,7 +5761,7 @@
     {
       "_": "types.LangPackString",
       "key": "FormattingClearAria",
-      "value": "Очистите обликовање"
+      "value": "Уклоните обликовање"
     },
     {
       "_": "types.LangPackString",
@@ -8509,7 +8528,7 @@
     {
       "_": "types.LangPackString",
       "key": "MenuGram",
-      "value": "Мој грам"
+      "value": "Моји грами"
     },
     {
       "_": "types.LangPackString",
@@ -11251,6 +11270,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RemoveRichFormattingText",
+      "value": "Ова порука користи напредно обликовање, што захтева **Telegram Premium**."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RemoveRichFormattingTitle",
       "value": "Уклонити обликовање?"
     },
@@ -11509,12 +11533,12 @@
     {
       "_": "types.LangPackString",
       "key": "RichEditorEquationToBlock",
-      "value": "Претвори у једначину у блоку"
+      "value": "Претворите у једначину у блоку"
     },
     {
       "_": "types.LangPackString",
       "key": "RichEditorEquationToInline",
-      "value": "Претвори у једначину у тексту"
+      "value": "Претворите у једначину у тексту"
     },
     {
       "_": "types.LangPackString",
@@ -12442,6 +12466,11 @@
       "_": "types.LangPackString",
       "key": "SettingsAutomaticTextReplacements",
       "value": "Аутоматске замене текста"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAutomaticTextReplacementsInfo",
+      "value": "Претворите --, << и >> док уносите"
     },
     {
       "_": "types.LangPackString",
@@ -15036,5 +15065,5 @@
       "value": "Ваше име"
     }
   ],
-  "version": 274566
+  "version": 274586
 }
