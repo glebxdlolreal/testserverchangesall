@@ -136,13 +136,64 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatOwnerChanged",
+      "value": "%1$s er ny eier av denne samtalen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeft",
+      "value": "Eieren har forlatt samtalen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeftTo",
+      "value": "Eieren har forlatt samtalen. %1$s vil bli den nye eieren av samtalen dersom nåværende eier ikke returnerer."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChatRemovedFromCommunity",
       "value": "Denne samtalen ble fjernet fra samfunnet"
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChecklistAdd",
+      "value": "%1$s la til %2$s i sjekklisten"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddMsg",
+      "value": "%1$s la til %2$s til \"%3$s\" sjekklisten"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChecklistAddOut",
       "value": "Du la til %1$s i listen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOutMsg",
+      "value": "Du la til %1$s i sjekklisten \"%2$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMark",
+      "value": "%1$s merket %2$s som fullført, og %3$s som ikke fullført"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDone",
+      "value": "%1$s merket %2$s som fullført"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDoneOut",
+      "value": "Du merket %1$s som fullført"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkDoneTasks",
+      "one_value": "%2$s merket %1$s oppgave som fullført",
+      "other_value": "%2$s merket %1$s oppgaver som fullført"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -152,8 +203,30 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDone",
+      "value": "%1$s merket %2$s som ikke fullført"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChecklistMarkNotDoneOut",
       "value": "Du merket %1$s som ikke fullført"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkNotDoneTasks",
+      "one_value": "%2$s merket %1$s oppgave som ikke fullført",
+      "other_value": "%2$s merket %1$s oppgaver som ikke fullført"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkNotDoneTasksOut",
+      "one_value": "Du merket %1$s oppgave som ikke fullført",
+      "other_value": "Du merket %1$s oppgaver som ikke fullført"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkOut",
+      "value": "Du merket %1$s som fullført, og %2$s som ikke fullført"
     },
     {
       "_": "types.LangPackString",
@@ -184,6 +257,26 @@
       "_": "types.LangPackString",
       "key": "ActionDeletedPollOutOptionMsg",
       "value": "Du fjernet \"%1$s\" fra avstemningen \"%2$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosed",
+      "value": "%1$s lukket generelt-emnet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosedOut",
+      "value": "Du lukket generelt-emnet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopened",
+      "value": "%1$s gjenåpnet generelt-emnet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopenedOut",
+      "value": "Du gjenåpnet generelt-emnet"
     },
     {
       "_": "types.LangPackString",
@@ -351,6 +444,18 @@
       "other_value": "%2$s festet **%1$s betalte videoer**"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPriceChanged",
+      "one_value": "%2$s endret prisen til %1$s stjerne pr. melding",
+      "other_value": "%2$s endret prisen til %1$s stjerner pr. melding"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPriceChangedOut",
+      "one_value": "Du endret prisen til %1$s stjerne pr. melding",
+      "other_value": "Du endret prisen til %1$s stjerner pr. melding"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "Merk som lest"
@@ -364,6 +469,11 @@
       "_": "types.LangPackString",
       "key": "ActionSharingDisabledOut",
       "value": "Du deaktiverte deling i denne samtalen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabled",
+      "value": "%1$s aktiverte deling i denne samtalen"
     },
     {
       "_": "types.LangPackString",
@@ -394,6 +504,126 @@
       "_": "types.LangPackString",
       "key": "ActionSharingStillEnabled",
       "value": "Deling i denne samtalen er fortsatt aktivert"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIcon",
+      "value": "%2$s endret emneikon til %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconName",
+      "value": "%3$s endret emnenavnet og ikonet til %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconNameOut",
+      "value": "Du endret emnenavnet og ikonet til %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconOut",
+      "value": "Du endret emneikonet til %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosed",
+      "value": "%3$s lukket %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosedOut",
+      "value": "Du lukket %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreate",
+      "value": "%2$s opprettet emnet %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIcon",
+      "value": "%3$s opprettet emnet %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIconOut",
+      "value": "Du opprettet emnet %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateOut",
+      "value": "Du opprettet emnet %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreated",
+      "value": "Emnet %1$s ble opprettet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreatedIcon",
+      "value": "Emnet %1$s %2$s ble opprettet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHidden",
+      "value": "%1$s skjulte Generelt-emnet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHiddenOut",
+      "value": "Du skjulte det generelt-emnet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamed",
+      "value": "%2$s endret navn på emnet til %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamedOut",
+      "value": "Du endret navn på emnet til %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopened",
+      "value": "%3$s gjenåpnet %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopenedOut",
+      "value": "Du gjenåpnet %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhidden",
+      "value": "%1$s gjorde Generelt-emnet synlig igjen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhiddenOut",
+      "value": "Du gjorde generelt-emnet synlig igjen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosed",
+      "value": "%1$s lukket emnet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosedOut",
+      "value": "Du lukket emnet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopened",
+      "value": "%1$s gjenåpnet emne"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopenedOut",
+      "value": "Du gjenåpnet emnet"
     },
     {
       "_": "types.LangPackString",
@@ -6713,6 +6943,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPermissionEditTag",
+      "value": "Redigere egen tagg"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPermissionPinMessages",
       "value": "Feste meldinger"
     },
@@ -6968,6 +7203,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPromotedManageTags",
+      "value": "Redigere medlemstagger"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPromotedManageTopics",
       "value": "Administrere emner"
     },
@@ -7093,6 +7333,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogRestrictedEditTag",
+      "value": "Redigere egen tagg"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogRestrictedNew",
       "value": "begrenset %1$s\n\nVarighet: %2$s"
     },
@@ -7208,8 +7453,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogTagRemovedYour",
+      "value": "%2$s fjernet taggen din \"%1$s\""
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogTagSet",
       "value": "%2$s endret %3$s sin tagg til \"%1$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSetYour",
+      "value": "%2$s anga taggen din \"%1$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouRemoved",
+      "value": "Du fjernet taggen for %2$s \"%1$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouSet",
+      "value": "Du anga tagg for %2$s \"%1$s\""
     },
     {
       "_": "types.LangPackString",
@@ -7263,8 +7528,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogTranslationOffYou",
+      "value": "Du har deaktivert autooversettelse"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogTranslationOn",
       "value": "%1$s aktiverte autooversettelse"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOnYou",
+      "value": "Du har aktivert autooversettelse"
     },
     {
       "_": "types.LangPackString",
@@ -18256,6 +18531,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncBtn",
+      "value": "Synk"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncContacts",
       "value": "Synkroniser kontakter"
     },
@@ -18287,7 +18567,7 @@
     {
       "_": "types.LangPackString",
       "key": "SyncHint",
-      "value": "Contacts on your device\n (phone numbers, first and last names)\n will be seamlessly uploaded to Telegram servers so you could find them in Contacts section of Telegram X, or receive a notification once they join.\n\nWhen you delete a contact on your device while sync is on, it will also be deleted from your contacts list on Telegram servers.\n\nYou can always turn sync off or clear data on Telegram servers via Settings > Privacy and Security > Delete Synced Contacts.\n\nTo turn sync on, you also have to allow Telegram X to access contacts on your device."
+      "value": "Kontakter på enheten din\n (telefonnumre, for- og etternavn)\n vil sømløst lastes opp til Telegrams servere, slik at du kan finne dem i Kontakter i Telegram X, eller motta et varsel når de blir med.\n\nNår du sletter en kontakt på enheten mens synkronisering er på, vil den også bli slettet fra kontaktlisten din på Telegrams servere.\n\nDu kan når som helst slå av synkronisering eller slette data på Telegrams servere via Innstillinger > Personvern og sikkerhet > Slett synkroniserte kontakter.\n\nFor å slå på synkronisering må du også la Telegram X få tilgang til kontakter på enheten din."
     },
     {
       "_": "types.LangPackString",
@@ -18297,17 +18577,37 @@
     {
       "_": "types.LangPackString",
       "key": "SyncHintRetry",
-      "value": "For å hjelpe deg å sende meldinger til venner og familie på Telegram, gi tilgang til kontaktene dine.\n\nGå inn på Innstillinger > Tillatelser, og aktiver kontakter."
+      "value": "For å slå på kontaktsynkronisering og sømløst laste dem opp til Telegram, gi tilgang til kontaktene dine.\n\nGå inn på Innstillinger > Tillatelser, og aktiver kontakter."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintRetry2",
+      "value": "For å slå på kontaktsynkronisering og sømløst laste dem opp til Telegram, gi tilgang til kontaktene dine.\n\nTrykk på **Innstillinger** > **Tillatelser**, og slå på **Kontakter**."
     },
     {
       "_": "types.LangPackString",
       "key": "SyncHintTitle",
-      "value": "Finn kontakter"
+      "value": "Synkroniser kontakter med Telegram?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintTitle2",
+      "value": "Synkroniser kontakter med Telegram?"
     },
     {
       "_": "types.LangPackString",
       "key": "SyncHintUnavailable",
-      "value": "Gå inn på Innstillinger > Tillatelser og aktiver Kontakter for å gi Telegram tilgang til kontaktene dine."
+      "value": "Gå inn på Innstillinger > Tillatelser og aktiver Kontakter for å gi Telegram X tilgang til kontaktene dine."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintUnavailable2",
+      "value": "Trykk på Innstillinger > Tillatelser, og slå på Kontakter for å gi **%1$s** tilgang til kontaktene dine for å finne dem på Telegram."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncLearnMore",
+      "value": "Personvernvilkår"
     },
     {
       "_": "types.LangPackString",
@@ -21551,6 +21851,55 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistItem",
+      "value": "\"%1$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparator",
+      "value": ", "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparatorLast",
+      "value": " og "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasks",
+      "value": "%1$s merket %2$s og %3$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksDone",
+      "one_value": "%1$s oppgave som fullført",
+      "other_value": "%1$s oppgaver som fullført"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksNotDone",
+      "one_value": "%1$s som ikke fullført",
+      "other_value": "%1$s som ikke fullført"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasksOut",
+      "value": "Du merket %1$s og %2$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksOutDone",
+      "one_value": "%1$s oppgave som fullført",
+      "other_value": "%1$s oppgaver som fullført"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksOutNotDone",
+      "one_value": "%1$s som ikke fullført",
+      "other_value": "%1$s som ikke fullført"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• %1$s\n• %2$s\n• %3$s\n• %4$s"
     },
@@ -21848,6 +22197,11 @@
       "_": "types.LangPackString",
       "key": "format_notificationTitlePinned",
       "value": "%1$s (festet melding)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_notificationTitleSecret",
+      "value": "🔒️ %1$s"
     },
     {
       "_": "types.LangPackString",
@@ -23258,6 +23612,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "url_contactsPrivacy",
+      "value": "https://telegram.org/privacy#3-4-phone-number-and-contacts"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "url_faq",
       "value": "https://telegram.org/faq#general-questions"
     },
@@ -24035,5 +24394,5 @@
       "other_value": "%1$s år"
     }
   ],
-  "version": 1635173
+  "version": 1635256
 }

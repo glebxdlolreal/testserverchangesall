@@ -4879,6 +4879,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.Poll.AttachLink",
+      "value": "Legg til lenke"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.Poll.CopyOption",
       "value": "Kopier alternativ"
     },
@@ -6514,6 +6519,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DeleteAllMessages",
+      "value": "Slett alle meldinger"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteAllReactions",
+      "value": "Slett alle reaksjoner"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DeleteAllRevokedLinks",
       "value": "Slett alle annullerte lenker"
     },
@@ -6617,6 +6632,11 @@
       "_": "types.LangPackString",
       "key": "DeleteProceedBtn",
       "value": "Fortsett"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteReaction",
+      "value": "Slett reaksjon"
     },
     {
       "_": "types.LangPackString",
@@ -8383,6 +8403,11 @@
       "_": "types.LangPackString",
       "key": "GiftPremiumUseGiftBtn",
       "value": "Bruk gave"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GiftRecipientDoesNotAccept",
+      "value": "Denne brukeren godtar ikke gaver."
     },
     {
       "_": "types.LangPackString",
@@ -11448,13 +11473,29 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.AllowedCountries",
+      "value": "Tillatte land"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.Anonymous",
       "value": "Anonym avstemning"
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.ChooseCountry",
+      "value": "Vennligst velg minst et land."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.CouldNotCreate",
       "value": "Kunne ikke opprette avstemning"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "NewPoll.CountriesCount",
+      "one_value": "%d land",
+      "other_value": "%d land"
     },
     {
       "_": "types.LangPackString",
@@ -11480,6 +11521,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.HideResultsSubtitle",
       "value": "Aktiver for å skjule resultatene frem til avstemningen er avsluttet."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountry",
+      "value": "Begrens etter land"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountrySubtitle",
+      "value": "Kun brukere fra valgte land kan stemme."
     },
     {
       "_": "types.LangPackString",
@@ -11536,6 +11587,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.Quiz",
       "value": "Quizmodus"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribers",
+      "value": "Begrens til abonnenter"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribersSubtitle",
+      "value": "Kun abonnenter som ble med for 24+ timer siden kan stemme."
     },
     {
       "_": "types.LangPackString",
@@ -13235,6 +13296,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Countries",
+      "value": "Kun brukere fra valgte land kan stemme."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.CountriesList",
+      "value": "Kun brukere fra %s kan stemme."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Subscribers",
+      "value": "Kun abonnenter kan stemme."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersChannel",
+      "value": "Kun abonnenter på %s kan stemme."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersRecent",
+      "value": "Kun abonnenter som ble med for mer enn 24 timer siden kan stemme."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollOptions",
       "value": "Avstemningsalternativer"
     },
@@ -13253,6 +13339,26 @@
       "_": "types.LangPackString",
       "key": "PollResults.Title.Quiz",
       "value": "Quizresultater"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.NoVotes",
+      "value": "Ingen stemmer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Title",
+      "value": "Statistikk for avstemning"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.View",
+      "value": "Se statistikk"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Votes",
+      "value": "Avstemningsalternativer"
     },
     {
       "_": "types.LangPackString",
@@ -16358,6 +16464,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ShowAllReactions",
+      "value": "Vis alle reaksjoner"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ShowMessage",
       "value": "Vis melding"
     },
@@ -19136,6 +19247,42 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Dismissed",
+      "value": "Du kan sende gaver til venner senere fra innstillingene."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Suggestion.BirthdayContacts.Multiple",
+      "one_value": "%d kontakte har fødselsdag i dag! 🎂",
+      "other_value": "%d kontakter har fødselsdag i dag! 🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Single",
+      "value": "Det er %s sin fødselsdag i dag! 🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Subtitle",
+      "value": "Send en gave."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Today",
+      "value": "Fødselsdag i dag"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Tomorrow",
+      "value": "Fødselsdag i morgen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Yesterday",
+      "value": "Fødselsdag i går"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Suggestion.BirthdaySetup",
       "value": "Legg til fødselsdagen din! %s"
     },
@@ -19208,6 +19355,11 @@
       "_": "types.LangPackString",
       "key": "SupportStatus",
       "value": "support"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TapAndHoldToDeleteReaction",
+      "value": "Trykk og hold for å slette reaksjon."
     },
     {
       "_": "types.LangPackString",
@@ -19734,6 +19886,57 @@
       "_": "types.LangPackString",
       "key": "Unblock",
       "value": "Opphev blokkering"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirm",
+      "value": "Ja, det er meg"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirmed",
+      "value": "Ny innlogging godkjent"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirmedMessage",
+      "value": "Du kan sjekke listen over aktive innlogginger i %s."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedButton",
+      "value": "Jeg skjønner"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedMessageSingle",
+      "value": "Vi har avsluttet innloggingsforsøket fra %s."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "UnconfirmedAuthDeniedTitle",
+      "one_value": "Ny innlogging stanset",
+      "other_value": "Nye innlogginger stanset"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedWarning",
+      "value": "Send aldri innloggingskoden din til noen, ellers kan du miste Telegram-kontoen din!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeny",
+      "value": "Nei, det er ikke meg!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthSingle",
+      "value": "Vi har oppdaget en ny innlogging på din konto fra %s. Er dette deg?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthTitle",
+      "value": "Noen har nettopp fått tilgang til meldingene dine!"
     },
     {
       "_": "types.LangPackString",
@@ -20803,5 +21006,5 @@
       "other_value": "%1$d meldinger"
     }
   ],
-  "version": 310273
+  "version": 310317
 }
