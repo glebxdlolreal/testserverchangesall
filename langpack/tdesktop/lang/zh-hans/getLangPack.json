@@ -3935,6 +3935,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_ai_compose_in_language",
+      "value": "{language}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_ai_compose_increase_limit",
       "value": "提升上限"
     },
@@ -4475,6 +4480,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_limit_blocks",
+      "value": "文章模块过多。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_columns",
+      "value": "文章表格列数过多。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_depth",
+      "value": "文章嵌套层级过深。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_limit_length",
       "value": "文章过长。"
     },
@@ -4585,8 +4605,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_premium_choice_plain_save",
+      "value": "以纯文本保存"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_premium_choice_title",
       "value": "删除格式"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_required",
+      "value": "订阅 {link} 即可发送富媒体文章。"
     },
     {
       "_": "types.LangPackString",
@@ -4605,6 +4635,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_table_add_column",
+      "value": "添加列"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_add_column_left",
+      "value": "左侧添加一栏"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_add_column_right",
+      "value": "在右侧添加列"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_add_row",
+      "value": "添加行"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_add_row_above",
+      "value": "上方添加一行"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_add_row_below",
+      "value": "下方添加一行"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_table_align_bottom",
       "value": "底部对齐"
     },
@@ -4615,8 +4675,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_table_align_left",
+      "value": "向左对齐"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_table_align_middle",
       "value": "居中对齐"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_right",
+      "value": "向右对齐"
     },
     {
       "_": "types.LangPackString",
@@ -4642,6 +4712,26 @@
       "_": "types.LangPackString",
       "key": "lng_article_table_delete_cells",
       "value": "删除单元格"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_column",
+      "value": "删除一列"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_columns",
+      "value": "删除列"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_row",
+      "value": "删除一行"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_delete_rows",
+      "value": "删除行"
     },
     {
       "_": "types.LangPackString",
@@ -4672,6 +4762,11 @@
       "_": "types.LangPackString",
       "key": "lng_article_table_striped",
       "value": "条纹表格"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_unite_cells",
+      "value": "合并单元格"
     },
     {
       "_": "types.LangPackString",
@@ -9360,6 +9455,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_admin_dismiss_text",
+      "value": "您将无法再使用社群管理工具，但仍保留群组管理员权限。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_admin_dismiss_title",
       "value": "解除您自己的社群管理员身分"
     },
@@ -9384,9 +9484,19 @@
       "value": "您是社群管理员"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_ban_about",
+      "other_value": "用户将被移出 {count} 个聊天。"
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_community_ban_button",
       "value": "封禁"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_done",
+      "value": "{user} 已被社群封禁。"
     },
     {
       "_": "types.LangPackString",
@@ -9394,9 +9504,19 @@
       "value": "被社群封禁"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_ban_warning",
+      "other_value": "封闭 {user} 也会将其从社群中的 {count} 个聊天中移除。"
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_community_ban_warning_title",
       "value": "警告"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_bot_peers_limit",
+      "other_value": "已达到 {count} 个机器人的上限。"
     },
     {
       "_": "types.LangPackString",
@@ -9520,6 +9640,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_hidden_not_accessible_bot",
+      "value": "需管理员邀请才能使用该机器人。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_hidden_not_accessible_channel",
       "value": "在获得管理员邀请之前，您无法加入或查看此频道。"
     },
@@ -9570,6 +9695,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "key": "lng_community_peers_limit",
+      "other_value": "已达到 {count} 个聊天的上限。"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "key": "lng_community_profile_status",
       "other_value": "包含 {count} 个聊天的社群"
     },
@@ -9609,9 +9739,34 @@
       "value": "添加"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_request_added_toast",
+      "other_value": "{count} 个聊天已添加到社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_added_toast_undo",
+      "value": "您已批准将 {chat} 加入到社群的申请。"
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_community_request_decline",
       "value": "拒绝"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "lng_community_request_declined_toast",
+      "other_value": "已拒绝 {count} 份添加聊天的申請。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_declined_toast_undo",
+      "value": "您已拒绝将 {chat} 添加到社群的申请。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only",
+      "value": "此群组仅限受邀者加入。只有群组成员才能查看此群组。"
     },
     {
       "_": "types.LangPackString",
@@ -10475,6 +10630,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_context_copy_in_reply_to",
+      "value": "回复 {name}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_context_copy_link",
       "value": "复制链接"
     },
@@ -10742,6 +10902,11 @@
       "_": "types.LangPackString",
       "key": "lng_context_open_channel",
       "value": "打开频道"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_context_open_community",
+      "value": "打开社群"
     },
     {
       "_": "types.LangPackString",
@@ -12102,6 +12267,11 @@
       "_": "types.LangPackString",
       "key": "lng_credits_topup_button",
       "value": "{emoji} 充值余额"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_credits_topup_disabled",
+      "value": "抱歉，您的 Telegram 星星余额不足。"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -13750,8 +13920,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_edited_at",
+      "value": "已编辑于 {time}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_edited_date",
       "value": "编辑时间：{date}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_edited_on",
+      "value": "已编辑于 {date} {time}"
     },
     {
       "_": "types.LangPackString",
@@ -13782,6 +13962,11 @@
       "_": "types.LangPackString",
       "key": "lng_effect_stickers_title",
       "value": "贴纸特效"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_adapt_no_video",
+      "value": "目前尚不支持视频贴纸。"
     },
     {
       "_": "types.LangPackString",
@@ -13867,6 +14052,11 @@
       "_": "types.LangPackString",
       "key": "lng_emoji_copy",
       "value": "复制表情"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_create_emoji_about",
+      "value": "选择与你的表情符号相匹配的表情符号"
     },
     {
       "_": "types.LangPackString",
@@ -14040,8 +14230,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_ephemeral_about",
+      "value": "只有您自己才能看到这条消息。下次登录后，消息就会消失。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_ephemeral_cant_schedule",
       "value": "临时消息无法安排发送时间。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_command_tooltip",
+      "value": "其他成员将看不到此消息"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_reply_single_message",
+      "value": "您只能回复此消息一次。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_reply_text_only",
+      "value": "这种类型的消息，无法作为对此消息的回复。\n"
     },
     {
       "_": "types.LangPackString",
@@ -15480,6 +15690,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_filters_tabs_icons",
+      "value": "仅限图标"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_filters_tabs_subtitle",
+      "value": "标签外观"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_filters_tabs_text",
+      "value": "纯文本"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_filters_tabs_text_icons",
+      "value": "文字和图标"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_filters_tag_color_about",
       "value": "为此文件夹的标签选择颜色。"
     },
@@ -15677,6 +15907,11 @@
       "_": "types.LangPackString",
       "key": "lng_formatting_math_source_label",
       "value": "LaTeX 公式"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_source_placeholder",
+      "value": "公式来源"
     },
     {
       "_": "types.LangPackString",
@@ -21215,6 +21450,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_iv_editor_close_now",
+      "value": "立即关闭"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_iv_editor_discard_draft_sure",
       "value": "您确定要删除此邮件吗？此操作无法撤销。"
     },
@@ -21222,6 +21462,21 @@
       "_": "types.LangPackString",
       "key": "lng_iv_editor_media_invalid_file",
       "value": "抱歉，这里仅支持图片、视频和音频文件。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_save_draft_failed",
+      "value": "无法保存草稿。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_save_draft_failed_error",
+      "value": "无法保存草稿。\n\n错误：{error}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_saving_draft",
+      "value": "正在保存草稿..."
     },
     {
       "_": "types.LangPackString",
@@ -23285,6 +23540,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_media_zoom_in",
+      "value": "放大"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_media_zoom_out",
+      "value": "缩小"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_mediaview_archive_story",
       "value": "归档动态"
     },
@@ -23612,6 +23877,11 @@
       "_": "types.LangPackString",
       "key": "lng_menu_formatting_monospace",
       "value": "等宽"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_menu_formatting_plain_text",
+      "value": "纯文本"
     },
     {
       "_": "types.LangPackString",
@@ -29425,6 +29695,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_pull_next_channel",
+      "value": "上滑跳转到下一个未读频道"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_pull_no_unread_channels",
+      "value": "暂无未读频道"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_qr_box_font_size",
       "value": "字体大小"
     },
@@ -29847,6 +30127,11 @@
       "_": "types.LangPackString",
       "key": "lng_record_voice_tip",
       "value": "长按以录制语音消息，点击切换为视频消息。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_release_next_channel",
+      "value": "松开跳转到下一个未读频道"
     },
     {
       "_": "types.LangPackString",
@@ -32427,6 +32712,11 @@
       "_": "types.LangPackString",
       "key": "lng_sent_date",
       "value": "已发送: {date}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_sent_on",
+      "value": "已发送于 {date} {time}"
     },
     {
       "_": "types.LangPackString",
@@ -40354,5 +40644,5 @@
       "other_value": "您支付了 {count} 颗星星。"
     }
   ],
-  "version": 5754010
+  "version": 5755967
 }
