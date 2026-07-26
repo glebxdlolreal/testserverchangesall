@@ -3413,6 +3413,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BotAddAsAdminChannelConfirm",
+      "value": "Quer mesmo adicionar o bot como admin no canal **%1$s**? Ele terá acesso à lista de admins e inscritos."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddAsAdminGroupConfirm",
+      "value": "Quer mesmo adicionar esse bot como admin no grupo **%1$s**? Ele terá acesso à lista de admins anônimos."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToChannelAbout",
+      "value": "Este bot é capaz de gerenciar canais."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupAbout",
+      "value": "Este bot é capaz de gerenciar grupos."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannel",
+      "value": "Adicionar ao Grupo ou Canal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotAddToGroupOrChannelAbout",
+      "value": "Este bot é capaz de gerenciar um grupo ou canal."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BotAllowAccessTo",
       "value": "Permitir acesso a"
     },
@@ -3455,6 +3485,11 @@
       "_": "types.LangPackString",
       "key": "BotCantReadChatTooltip",
       "value": "Este bot não pode ler o chat — apenas a mensagem onde foi mencionado."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BotChooseGroup",
+      "value": "Selecione um Grupo"
     },
     {
       "_": "types.LangPackString",
@@ -4844,6 +4879,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.Poll.AttachLink",
+      "value": "Adicionar Link"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.Poll.CopyOption",
       "value": "Copiar Opção"
     },
@@ -4912,12 +4952,12 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.Poll.TotalVotesEmpty",
-      "value": "Sem votos ainda"
+      "value": "Nenhum voto ainda"
     },
     {
       "_": "types.LangPackString",
       "key": "Chat.Poll.TotalVotesResultEmpty",
-      "value": "Sem votos"
+      "value": "Nenhum voto"
     },
     {
       "_": "types.LangPackString",
@@ -6479,6 +6519,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DeleteAllMessages",
+      "value": "Apagar todas as mensagens"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteAllReactions",
+      "value": "Apagar todas as reações"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DeleteAllRevokedLinks",
       "value": "Apagar Todos os Links Revogados"
     },
@@ -6582,6 +6632,11 @@
       "_": "types.LangPackString",
       "key": "DeleteProceedBtn",
       "value": "Continuar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteReaction",
+      "value": "Apagar Reação"
     },
     {
       "_": "types.LangPackString",
@@ -7325,6 +7380,16 @@
       "_": "types.LangPackString",
       "key": "EditedMessage",
       "value": "editada"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.At",
+      "value": "editado às %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.On",
+      "value": "editado em %1$s às %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -11408,13 +11473,29 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.AllowedCountries",
+      "value": "Países Permitidos"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.Anonymous",
       "value": "Votação Anônima"
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.ChooseCountry",
+      "value": "Escolha pelo menos um país."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.CouldNotCreate",
       "value": "Não foi possível criar a enquete"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "NewPoll.CountriesCount",
+      "one_value": "%d país",
+      "other_value": "%d países"
     },
     {
       "_": "types.LangPackString",
@@ -11440,6 +11521,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.HideResultsSubtitle",
       "value": "Os resultados só aparecem quando a enquete encerrar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountry",
+      "value": "Limitar por País"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountrySubtitle",
+      "value": "Só usuários dos países selecionados podem votar."
     },
     {
       "_": "types.LangPackString",
@@ -11496,6 +11587,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.Quiz",
       "value": "Modo Quiz"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribers",
+      "value": "Restringir aos Inscritos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribersSubtitle",
+      "value": "Só inscritos que entraram há mais de 24 horas podem votar."
     },
     {
       "_": "types.LangPackString",
@@ -13195,6 +13296,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Countries",
+      "value": "Só usuários de países selecionados podem votar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.CountriesList",
+      "value": "Só usuários de %s podem votar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Subscribers",
+      "value": "Só inscritos podem votar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersChannel",
+      "value": "Só inscritos de %s podem votar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersRecent",
+      "value": "Só inscritos que entraram há mais de 24 horas podem votar."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollOptions",
       "value": "Opções da enquete"
     },
@@ -13213,6 +13339,26 @@
       "_": "types.LangPackString",
       "key": "PollResults.Title.Quiz",
       "value": "Resultados do Quiz"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.NoVotes",
+      "value": "Nenhum voto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Title",
+      "value": "Estatísticas da Enquete"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.View",
+      "value": "Ver Estatísticas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Votes",
+      "value": "Votos da enquete"
     },
     {
       "_": "types.LangPackString",
@@ -14863,6 +15009,17 @@
       "value": "Adicionar Comentário (Opcional)"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "Report2MessagesCount",
+      "one_value": "Denunciar %1$d Mensagem",
+      "other_value": "Denunciar %1$d Mensagens"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Report2SelectMessages",
+      "value": "Selecione as mensagens para denunciar."
+    },
+    {
       "_": "types.LangPackString",
       "key": "Report2Send",
       "value": "Enviar Denúncia"
@@ -14955,7 +15112,7 @@
     {
       "_": "types.LangPackString",
       "key": "RequestJoin.List.SearchEmpty",
-      "value": "Sem resultados para \"%@\".\nTente outra busca."
+      "value": "Nenhum resultado para \"%@\".\nTente outra busca."
     },
     {
       "_": "types.LangPackString",
@@ -15722,7 +15879,7 @@
     {
       "_": "types.LangPackString",
       "key": "SearchEmptyViewTitle",
-      "value": "Sem Resultados"
+      "value": "Nenhum Resultado"
     },
     {
       "_": "types.LangPackString",
@@ -16293,17 +16450,22 @@
     {
       "_": "types.LangPackString",
       "key": "SharingStillDisabled",
-      "value": "O compartilhamento neste chat ainda está desativado"
+      "value": "O compartilhamento ainda está desativado neste chat"
     },
     {
       "_": "types.LangPackString",
       "key": "SharingStillEnabled",
-      "value": "O compartilhamento neste chat ainda está ativado"
+      "value": "O compartilhamento ainda está ativado neste chat"
     },
     {
       "_": "types.LangPackString",
       "key": "Show",
       "value": "Mostrar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ShowAllReactions",
+      "value": "Mostrar Todas as Reações"
     },
     {
       "_": "types.LangPackString",
@@ -19196,6 +19358,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TapAndHoldToDeleteReaction",
+      "value": "Segure para apagar a reação."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Telegram.GeneralSettingsViewController",
       "value": "Configurações Gerais"
     },
@@ -19737,6 +19904,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedButton",
+      "value": "Entendi"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UnconfirmedAuthDeniedMessageSingle",
       "value": "Encerramos a tentativa de login de %s."
     },
@@ -19745,6 +19917,11 @@
       "key": "UnconfirmedAuthDeniedTitle",
       "one_value": "Novo Login Impedido",
       "other_value": "Novos Logins Impedidos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedWarning",
+      "value": "Nunca envie seu código de login para ninguém ou você pode perder sua conta do Telegram!"
     },
     {
       "_": "types.LangPackString",
@@ -20829,5 +21006,5 @@
       "other_value": "%1$d mensagens"
     }
   ],
-  "version": 310011
+  "version": 310056
 }
