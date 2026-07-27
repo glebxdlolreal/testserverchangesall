@@ -86,6 +86,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedPollOption",
+      "value": "%1$s தேர்ந்தளிப்பில் \"%2$s\" சேர்த்தார்"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOption",
+      "value": "தேர்ந்தளிப்பில் \"%1$s\" சேர்த்தீர்"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChannelChangedPhoto",
       "value": "பதிதடத்தின் படம் மாற்றப்பட்டது"
     },
@@ -106,8 +116,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunity",
+      "value": "இந்த அரட்டை \"%1$s\" குழாமில் சேர்ந்திற்று"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunityUnknown",
+      "value": "இந்த அரட்டை குழாமில் சேர்ந்திற்று"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatRemovedFromCommunity",
+      "value": "இந்த அரட்டை குழாமில் நீங்கிற்று"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOut",
+      "value": "சரிபட்டியில் %1$s சேர்த்தீர்"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDoneOut",
+      "value": "%1$s செய்யாததெனக் குறித்தீர்"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "பதிதடம் உருவாக்கப்பட்டது"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionCreatedManagedBot",
+      "value": "%2$s மேலாண்மைக்கு %1$s கூளி உருவாக்கினீர்"
     },
     {
       "_": "types.LangPackString",
@@ -266,6 +306,66 @@
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "பார்த்ததாக்கு"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabled",
+      "value": "இந்த அரட்டையில் பகிர %1$s தடையிட்டார்"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabledOut",
+      "value": "இந்த அரட்டையில் பகிர தடையிட்டீர்"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabledOut",
+      "value": "இந்த அரட்டையில் பகிர அனுமதித்தீர்"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequest",
+      "value": "%1$s இந்த அரட்டையில் பகிர்வதை இயக்க விரும்புகிறார்"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestExpired",
+      "value": "பகிர்வுக் கோரிக்கை காலாவதியாகிற்று"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestOut",
+      "value": "இந்த அரட்டையில் பகிர்வதை இயக்க பரிந்துரைத்தீர்"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillDisabled",
+      "value": "இந்த அரட்டையில் பகிர்வது இன்னமும் தடைதான்"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillEnabled",
+      "value": "இந்த அரட்டையுடையதை இன்னமும் பகிரலாம்"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIcon",
+      "value": "தலைப்புச் சின்னத்தை %1$s ஆக %2$s மாற்றினார்"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHidden",
+      "value": "%1$s பொதுத் தலைப்பை மறைத்தார்"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhidden",
+      "value": "%1$s பொதுத் தலைப்பு மறைவை நீக்கினார்"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosed",
+      "value": "%1$s தலைப்பு மூடப்பட்டது"
     },
     {
       "_": "types.LangPackString",
@@ -4387,6 +4487,17 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CountryCode",
+      "value": "நாட்டின் எண்"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CountryLimit",
+      "one_value": "%1$s நாடு வரை தெரிந்தெடுக்கலாம்.",
+      "other_value": "%1$s நாடுகள் வரை தெரிந்தெடுக்கலாம்."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CreateAHintForYourPassword",
       "value": "உமது கடவுச்சொல் குறிப்பை எழுதுக"
     },
@@ -5865,6 +5976,11 @@
       "_": "types.LangPackString",
       "key": "EncryptionKeyDescription",
       "value": "இந்தப் படமும் மற்றும் எழுத்துகள் **%1$s** உடனான கமுக்க அரட்டையில் பெறப்பட்ட குறிமுறைத் திறவி.\n\n**%1$s** உடைய சாதனத்தில் இதேபோல் தெரிந்தால், இறுதிக்கு-இறுதி மறைகுறியானதை உறுதி செய்யலாம்.\n\nTelegram.org இல் மேலும் அறிக"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EndsInDuration",
+      "value": "முடிவது-%1$s"
     },
     {
       "_": "types.LangPackString",
@@ -12794,6 +12910,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollDescription",
+      "value": "விளக்கம் (விரும்பினால்)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollDescriptionEmpty",
+      "value": "விளக்கம் சேர்"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDiscard",
       "value": "தேர்ந்தளிப்பைக் கைவிடு"
     },
@@ -12860,8 +12986,53 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingAdding",
+      "value": "தெரிவுகள் சேர்க்க அனுமதி"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingAddingOn",
+      "value": "பங்கேற்போர் புதிய தெரிவு பரிந்துரைக்கலாம்"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingAnonymous",
       "value": "அநாமதேய வாக்களிப்பு"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountries",
+      "value": "நாடு வரம்பிடு"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOn",
+      "value": "தெரிவான நாட்டின் பயனர் மட்டுமே வாக்களிப்பர்"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDuration",
+      "value": "கால அளவு"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDurationOff",
+      "value": "குறிப்பிட்ட நேரத்தில் வாக்கெடுப்பைத் தானாக மூடு"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResults",
+      "value": "முடிவுகளை மறை"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembers",
+      "value": "நேயர்கள் மட்டுமென வரம்பிடு"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembersOn",
+      "value": "24+ மணி நேரம்முன் சேர்ந்தோர் மட்டுமே வாக்களிப்பர்"
     },
     {
       "_": "types.LangPackString",
@@ -12877,6 +13048,36 @@
       "_": "types.LangPackString",
       "key": "PollSettingQuizInfo",
       "value": "வினாவிடையில் ஒரே ஒரு சரியான பதில் இருக்கும். பயனர்கள் தாங்கள் அளித்த பதில்களைத் திரும்பப்பெற முடியாது."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevoting",
+      "value": "மறுவாக்களிப்பை அனுமதி"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevotingOn",
+      "value": "வாக்காளர் தனது வாக்கை மாற்றலாம்"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVoters",
+      "value": "வாக்களித்தவர் காண்"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVotersOn",
+      "value": "தெரிவில் வாக்களித்தவர்கள் காண்பி"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffle",
+      "value": "தெரிவு குலுக்கல்"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffleOn",
+      "value": "ஒவ்வொருக்கும் தெரிவுகள் மாறிமாறி வரும்"
     },
     {
       "_": "types.LangPackString",
@@ -15880,7 +16081,7 @@
     {
       "_": "types.LangPackString",
       "key": "ScanQRLinkHint",
-      "value": "விரைவுகுறியால் உள்நுழைய அமைவுகள் — சாதனங்கள் — விரைவுகுறியை ஒளிவருடுக."
+      "value": "விரைவுகுறியால் புகுபதிய அமைவுகள் > சாதனங்கள் > சாதனம் சேர்"
     },
     {
       "_": "types.LangPackString",
@@ -15942,6 +16143,11 @@
       "key": "SearchApproximateResults",
       "one_value": "~%1$s முடிவு",
       "other_value": "~%1$s முடிவுகள்"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SearchCountry",
+      "value": "தேடல்…"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -17922,6 +18128,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncBtn",
+      "value": "ஒத்திசை"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncContacts",
       "value": "தொடர்புகளை ஒத்து அமை"
     },
@@ -17969,6 +18180,11 @@
       "_": "types.LangPackString",
       "key": "SyncHintUnavailable",
       "value": "அமைவுகள் > அனுமதிகளுக்குச் சென்று தொடர்புகளை அணுக அனுமதிக்கவும்."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncLearnMore",
+      "value": "தனிமறைவுக்கொள்கை"
     },
     {
       "_": "types.LangPackString",
@@ -21202,6 +21418,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistItem",
+      "value": "\"%1$s\""
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• %1$s\n• %2$s\n• %3$s\n• %4$s"
     },
@@ -21559,6 +21780,12 @@
       "_": "types.LangPackString",
       "key": "format_plusPremium",
       "value": "+மிகைப்பு"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_refundedStars",
+      "one_value": "%1$s உடு",
+      "other_value": "%1$s உடுக்கள்"
     },
     {
       "_": "types.LangPackString",
@@ -23680,5 +23907,5 @@
       "other_value": "%1$s வருடங்கள்"
     }
   ],
-  "version": 1633914
+  "version": 1635511
 }

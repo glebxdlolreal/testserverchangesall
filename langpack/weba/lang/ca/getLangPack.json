@@ -1782,6 +1782,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AriaComposerCloseRichInput",
+      "value": "Col·lapsa l'editor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AriaComposerOpenRichInput",
+      "value": "Obre l'editor complet"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AriaComposerOpenScheduled",
       "value": "Obre els missatges programats"
     },
@@ -2089,6 +2099,11 @@
       "_": "types.LangPackString",
       "key": "AttachmentDragAddItems",
       "value": "Afegiu ítems"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AttachmentMenuArticle",
+      "value": "Article"
     },
     {
       "_": "types.LangPackString",
@@ -5203,6 +5218,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ErrorRichMessageTableTooWide",
+      "value": "Una taula del missatge té massa columnes. El màxim és {count}."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ErrorRichMessageTooDeep",
+      "value": "El missatge té massa imbricacions. La profunditat màxima és {count}."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ErrorRichMessageTooManyBlocks",
+      "one_value": "El missatge té massa blocs. Elimineu-ne {count}.",
+      "other_value": "El missatge té massa blocs. Elimineu-ne {count}."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ErrorRichMessageTooManyMedia",
+      "one_value": "El missatge té massa elements multimèdia. Elimineu-ne {count}.",
+      "other_value": "El missatge té massa elements multimèdia. Elimineu-ne {count}."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ErrorSendRestrictedStickersAll",
       "value": "No es permet enviar adhesius al grup"
     },
@@ -5668,6 +5705,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "FormattingClearAria",
+      "value": "Esborra el format"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "FormattingEnterUrl",
       "value": "Introduïu un URL..."
     },
@@ -5675,6 +5717,16 @@
       "_": "types.LangPackString",
       "key": "FormattingItalicAria",
       "value": "Cursiva"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingLinkUrl",
+      "value": "URL"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingMarkedAria",
+      "value": "Text ressaltat"
     },
     {
       "_": "types.LangPackString",
@@ -5690,6 +5742,16 @@
       "_": "types.LangPackString",
       "key": "FormattingStrikethroughAria",
       "value": "Ratllat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingSubscriptAria",
+      "value": "Subíndex"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingSuperscriptAria",
+      "value": "Superíndex"
     },
     {
       "_": "types.LangPackString",
@@ -10646,6 +10708,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ProfileSendAGift",
+      "value": "Envia un regal"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ProfileTabBotPreview",
       "value": "Vista prèvia"
     },
@@ -11048,6 +11115,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RemoveMember",
+      "value": "Elimina el membre"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RemoveRichFormatting",
+      "value": "Elimina el format"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RemoveRichFormattingText",
+      "value": "El missatge utilitza format enriquit, que requereix el **Telegram Premium**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RemoveRichFormattingTitle",
+      "value": "Voleu eliminar el format?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RemoveSymbol",
       "value": "Elimina l'emoji"
     },
@@ -11101,6 +11188,11 @@
       "_": "types.LangPackString",
       "key": "ReportChat",
       "value": "Denuncia {peer}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReportChatMessagesRequired",
+      "value": "Seleccioneu els missatges per incloure a la denúncia."
     },
     {
       "_": "types.LangPackString",
@@ -11239,8 +11331,350 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorBlockMenu",
+      "value": "Insereix un bloc"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorBlockPlaceholder",
+      "value": "Escriviu alguna cosa"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorBlockquote",
+      "value": "Cita"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorBulletList",
+      "value": "Llista amb pics"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorChecklist",
+      "value": "Llista de comprovació"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorCodeBlock",
+      "value": "Codi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorCodeLanguageAuto",
+      "value": "Auto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorDetails",
+      "value": "Detalls"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorDivider",
+      "value": "Divisor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorEquation",
+      "value": "Fórmula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorEquationPrompt",
+      "value": "Introduïu una fórmula..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorEquationToBlock",
+      "value": "Converteix a fórmula en bloc"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorEquationToInline",
+      "value": "Converteix en fórmula en línia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorFooter",
+      "value": "Peu de pàgina"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorHeading",
+      "value": "Capçalera"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorHeadingLevel",
+      "value": "Capçalera {level}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListCheckmarks",
+      "value": "Marques"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListMenu",
+      "value": "Llistes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingDecimal",
+      "value": "Números (1, 2, 3)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingLowercaseLetters",
+      "value": "Lletres en minúscules (a, b, c)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingLowercaseRoman",
+      "value": "Números romans en minúscules (i, ii, iii)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingType",
+      "value": "Tipus de numeració"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingUppercaseLetters",
+      "value": "Lletres en majúscules (A, B, C)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingUppercaseRoman",
+      "value": "Números romans en majúscules (I, II, III)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListOptions",
+      "value": "Opcions de llista"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListReverseOrder",
+      "value": "Ordre invers"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorOrderedList",
+      "value": "Llista numerada"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorParagraph",
+      "value": "Paràgraf"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorPullquote",
+      "value": "Cita destacada"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorPullquotePlaceholder",
+      "value": "Escriviu una cita"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorQuoteCaptionPlaceholder",
+      "value": "Afegiu l'autor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorSubheading",
+      "value": "Subtítol"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTable",
+      "value": "Taula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableActionsAria",
+      "value": "Obre les accions de la taula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlign",
+      "value": "Alineació"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignBottom",
+      "value": "Alinea a sota"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignCenter",
+      "value": "Alinea al centre"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignLeft",
+      "value": "Alinea a l'esquerra"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignMiddle",
+      "value": "Alinea al mig"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignRight",
+      "value": "Alinea a la dreta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignTop",
+      "value": "Alinea a sobre"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableBorderless",
+      "value": "Sense vores"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableDelete",
+      "value": "Elimina"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "RichEditorTableDeleteColumn",
+      "one_value": "Elimina la columna",
+      "other_value": "Elimina les {count} columnes"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "RichEditorTableDeleteRow",
+      "one_value": "Elimina la fila",
+      "other_value": "Elimina les {count} files"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableDeleteTable",
+      "value": "Elimina la taula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableHighlight",
+      "value": "Ressalta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsert",
+      "value": "Insereix"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsertColumnLeft",
+      "value": "Insereix a l'esquerra"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsertColumnRight",
+      "value": "Insereix a la dreta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsertRowAbove",
+      "value": "Insereix a sobre"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsertRowBelow",
+      "value": "Insereix a sota"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMenu",
+      "value": "Taula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMergeCells",
+      "value": "Combina les cel·les"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMove",
+      "value": "Mou"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMoveDown",
+      "value": "Mou a baix"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMoveLeft",
+      "value": "Mou a l'esquerra"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMoveRight",
+      "value": "Mou a la dreta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMoveUp",
+      "value": "Mou a sobre"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableRemoveHighlight",
+      "value": "Elimina el ressaltat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableResizeSelectionAria",
+      "value": "Canvia la mida de la selecció"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableSelectColumnAria",
+      "value": "Seleccioneu la columna"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableSelectRowAria",
+      "value": "Seleccioneu la fila"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableSelectTableAria",
+      "value": "Seleccioneu la taula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableSplitCell",
+      "value": "Divideix la cel·la"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableStriped",
+      "value": "Files alternes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichFormattingSubscribe",
+      "value": "Subscriviu-vos al Premium"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichMessageMore",
       "value": "Mostra'n més"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor",
+      "value": "Editor de text enriquit"
     },
     {
       "_": "types.LangPackString",
@@ -11296,6 +11730,11 @@
       "_": "types.LangPackString",
       "key": "SavedMessagesShort",
       "value": "Desats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SavedOpenChat",
+      "value": "Obre el xat"
     },
     {
       "_": "types.LangPackString",
@@ -11870,6 +12309,16 @@
       "_": "types.LangPackString",
       "key": "SettingsAboutBio",
       "value": "Detalls com l'edat, la professió o la ciutat.\nExemple: Tinc 23 anys, dissenyador de Menorca."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAutomaticTextReplacements",
+      "value": "Reemplaçament de text automàtic"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAutomaticTextReplacementsInfo",
+      "value": "Converteix --, << i >> mentre escriviu"
     },
     {
       "_": "types.LangPackString",
@@ -14448,5 +14897,5 @@
       "value": "El vostre nom"
     }
   ],
-  "version": 266118
+  "version": 275061
 }
