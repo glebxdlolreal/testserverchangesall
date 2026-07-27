@@ -87,6 +87,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedPollOption",
+      "value": "%1$s a adăugat \"%2$s\" la sondaj"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionAddedPollOptionMsg",
       "value": "%1$s a adăugat \"%2$s\" la sondajul \"%3$s\""
     },
@@ -122,8 +127,58 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunity",
+      "value": "Conversația a fost adăugată în comunitatea \"%1$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunityUnknown",
+      "value": "Conversația a fost adăugată în comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerChanged",
+      "value": "%1$s este un nou proprietar al conversației"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeft",
+      "value": "Proprietarul conversației a ieșit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeftTo",
+      "value": "Proprietarul conversației a ieșit. Dacă nu se întoarce, %1$s va deveni noul proprietar."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChatRemovedFromCommunity",
       "value": "Conversația a fost eliminată din comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAdd",
+      "value": "%1$s a adăugat %2$s în listă"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddMsg",
+      "value": "%1$s a adăugat %2$s în lista \"%3$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOut",
+      "value": "Ai adăugat %1$s în listă"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOutMsg",
+      "value": "Ai adăugat %1$s în lista \"%2$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMark",
+      "value": "%1$s a marcat %2$s ca finalizată, și %3$s ca nefinalizată"
     },
     {
       "_": "types.LangPackString",
@@ -175,8 +230,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChecklistMarkOut",
+      "value": "Ai marcat %1$s ca finalizată, și %2$s ca nefinalizată"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "Canalul a fost creat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionCreatedManagedBot",
+      "value": "Ai creat robotul %1$s pentru ca %2$s să îl gestioneze"
     },
     {
       "_": "types.LangPackString",
@@ -200,6 +265,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosed",
+      "value": "%1$s a închis rubrica generală"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosedOut",
+      "value": "Ai închis rubrica generală"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopened",
+      "value": "%1$s a redeschis rubrica generală"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopenedOut",
+      "value": "Ai redeschis rubrica generală"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionMute",
       "value": "Pune pe mut"
     },
@@ -212,6 +297,20 @@
       "_": "types.LangPackString",
       "key": "ActionMutePerson",
       "value": "%1$s pe silențios"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s a rambursat %3$s pentru %1$s mesaje",
+      "key": "ActionPaidMessagesRefunded",
+      "one_value": "%2$s a rambursat %3$s pentru %1$s mesaj",
+      "other_value": "%2$s a rambursat %3$s pentru %1$s de mesaje"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Ai rambursat %2$s pentru %1$s mesaje",
+      "key": "ActionPaidMessagesRefundedOut",
+      "one_value": "Ai rambursat %2$s pentru %1$s mesaj",
+      "other_value": "Ai rambursat %2$s pentru %1$s de mesaje"
     },
     {
       "_": "types.LangPackString",
@@ -355,9 +454,48 @@
       "other_value": "%2$s a fixat **%1$s de clipuri plătite**"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s a schimbat prețul la %1$s Stele per mesaj",
+      "key": "ActionPriceChanged",
+      "one_value": "%2$s a schimbat prețul la %1$s Stea per mesaj",
+      "other_value": "%2$s a schimbat prețul la %1$s de Stele per mesaj"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Ai schimbat prețul la %1$s Stele per mesaj",
+      "key": "ActionPriceChangedOut",
+      "one_value": "Ai schimbat prețul la %1$s Stea per mesaj",
+      "other_value": "Ai schimbat prețul la %1$s de Stele per mesaj"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "L-am citit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabled",
+      "value": "%1$s a dezactivat partajarea în această conversație"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabledOut",
+      "value": "Ai dezactivat partajarea în această conversație"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabled",
+      "value": "%1$s a activat partajarea în această conversație"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabledOut",
+      "value": "Ai activat partajarea în această conversație"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequest",
+      "value": "%1$s vrea activarea partajării în această conversație"
     },
     {
       "_": "types.LangPackString",
@@ -368,6 +506,136 @@
       "_": "types.LangPackString",
       "key": "ActionSharingRequestOut",
       "value": "Ai sugerat activarea partajării în această conversație"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillDisabled",
+      "value": "Partajarea în această conversație este încă dezactivată"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillEnabled",
+      "value": "Partajarea în această conversație este încă activată"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIcon",
+      "value": "%2$s a schimbat iconița rubricii în %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconName",
+      "value": "%3$s a schimbat numele și iconița rubricii în %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconNameOut",
+      "value": "Ai schimbat numele și iconița rubricii în %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconOut",
+      "value": "Ai schimbat iconița rubricii în %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosed",
+      "value": "%3$s a închis %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosedOut",
+      "value": "Ai închis %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreate",
+      "value": "%2$s a creat rubrica %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIcon",
+      "value": "%3$s a creat rubrica %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIconOut",
+      "value": "Ai creat rubrica %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateOut",
+      "value": "Ai creat rubrica %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreated",
+      "value": "Rubrica %1$s a fost creată"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreatedIcon",
+      "value": "Rubrica %1$s %2$s a fost creată"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHidden",
+      "value": "%1$s a ascuns rubrica generală"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHiddenOut",
+      "value": "Ai ascuns rubrica generală"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamed",
+      "value": "%2$s a redenumit rubrica în %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamedOut",
+      "value": "Ai redenumit rubrica în %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopened",
+      "value": "%3$s a redeschis %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopenedOut",
+      "value": "Ai redeschis %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhidden",
+      "value": "%1$s a afișat rubrica generală"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhiddenOut",
+      "value": "Ai afișat rubrica generală"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosed",
+      "value": "%1$s a închis rubrica"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosedOut",
+      "value": "Ai închis rubrica"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopened",
+      "value": "%1$s a redeschis rubrica"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopenedOut",
+      "value": "Ai redeschis rubrica"
     },
     {
       "_": "types.LangPackString",
@@ -6783,6 +7051,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPermissionEditTag",
+      "value": "Editează tag propriu"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPermissionPinMessages",
       "value": "Fixează mesaje"
     },
@@ -7038,6 +7311,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPromotedManageTags",
+      "value": "Editează taguri membri"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPromotedManageTopics",
       "value": "Gestionează rubrici"
     },
@@ -7163,6 +7441,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogRestrictedEditTag",
+      "value": "Editează tag propriu"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogRestrictedNew",
       "value": "a restricționat pe %1$s\n\nDurată: %2$s"
     },
@@ -7273,6 +7556,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogTagRemoved",
+      "value": "%2$s a eliminat tagul \"%1$s\" pentru %3$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagRemovedYour",
+      "value": "%2$s ți-a eliminat tagul \"%1$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSet",
+      "value": "%2$s a setat tagul \"%1$s\" pentru %3$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSetYour",
+      "value": "%2$s ți-a setat tagul pe \"%1$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouRemoved",
+      "value": "Ai eliminat tagul \"%1$s\" pentru %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouSet",
+      "value": "Ai setat tagul \"%1$s\" pentru %2$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogToggledInvitesOff",
       "value": "%1$s a dezactivat invitațiile pentru grup"
     },
@@ -7315,6 +7628,26 @@
       "_": "types.LangPackString",
       "key": "EventLogTransferredOwnership",
       "value": "a transferat proprietatea către %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOff",
+      "value": "%1$s a dezactivat traducerea automată"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOffYou",
+      "value": "Ai dezactivat traducerea automată"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOn",
+      "value": "%1$s a activat traducerea automată"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOnYou",
+      "value": "Ai activat traducerea automată"
     },
     {
       "_": "types.LangPackString",
@@ -18459,6 +18792,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncBtn",
+      "value": "Sincronizează"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncContacts",
       "value": "Sincronizează Contacte"
     },
@@ -18470,7 +18808,7 @@
     {
       "_": "types.LangPackString",
       "key": "SyncContactsDeleteButton",
-      "value": "Șterge contactele sincronizate"
+      "value": "Șterge Contactele Sincronizate"
     },
     {
       "_": "types.LangPackString",
@@ -18494,18 +18832,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncHint3",
+      "value": "Contactele pe dispozitivul tău (numere de telefon, nume și prenume) vor fi încărcate continuu pe serverele Telegram pentru ca tu să le poți găsi în secțiunea **Contacte** a **%1$s**, sau pentru a primi o notificare când se alătură.\n\nDatele nu sunt partajate cu terți. Când ștergi un contact de pe dispozitivul tău și sincronizarea este activă, acesta va fi șters și din lista contactelor tale de pe serverele **Telegram**.\n\nPoți oricând dezactiva sincronizarea sau șterge datele de pe serverele Telegram din **Setări > Confidențialitate și Securitate > Șterge Contactele Sincronizate**.\n\nPentru a activa sincronizarea, trebuie să și permiți **%1$s** să îți acceseze contactele pe dispozitiv."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncHintRetry",
-      "value": "Pentru a te ajuta să îți contactezi prietenii și familia pe Telegram, permite accesul la contactele tale.\n\nAtinge Setări > Permisiuni și activează-le pentru contacte."
+      "value": "Pentru a activa sincronizarea contactelor și a le încărca pe Telegram, permite accesul la contactele tale.\n\nAtinge Setări > Permisiuni și activează Contacte."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintRetry2",
+      "value": "Pentru a activa sincronizarea contactelor și a le încărca pe Telegram, permite accesul la contactele tale.\n\nAtinge **Setări** > **Permisiuni**, și activează **Contacte**."
     },
     {
       "_": "types.LangPackString",
       "key": "SyncHintTitle",
-      "value": "Caută contacte"
+      "value": "Sincronizezi contactele cu Telegram?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintTitle2",
+      "value": "Sincronizezi contactele cu Telegram?"
     },
     {
       "_": "types.LangPackString",
       "key": "SyncHintUnavailable",
-      "value": "Atinge Setări > Permisiuni și activează pentru contacte, astfel permiți Telegram să îți acceseze contactele."
+      "value": "Atinge Setări > Permisiuni și activează Contacte pentru a permite Telegram X accesul la contactele tale pentru a le găsi pe Telegram."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintUnavailable2",
+      "value": "Atinge Setări > Permisiuni și activează Contacte pentru a permite **%1$s** accesul la contactele tale pentru a le găsi pe Telegram."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncLearnMore",
+      "value": "Politica de Confidențialitate"
     },
     {
       "_": "types.LangPackString",
@@ -21824,6 +22187,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparator",
+      "value": ", "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparatorLast",
+      "value": " și "
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_ActionChecklistMarkTasks",
       "value": "%1$s a marcat %2$s și %3$s"
     },
@@ -22162,6 +22535,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_notificationTitleSecret",
+      "value": "🔒️ %1$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_notificationTitleShort",
       "value": "%1$s (%2$s)"
     },
@@ -22219,6 +22597,13 @@
       "_": "types.LangPackString",
       "key": "format_plusPremium",
       "value": "+premium"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s Stele",
+      "key": "format_refundedStars",
+      "one_value": "%1$s Stea",
+      "other_value": "%1$s de Stele"
     },
     {
       "_": "types.LangPackString",
@@ -23614,6 +23999,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "url_contactsPrivacy",
+      "value": "https://telegram.org/privacy#3-4-phone-number-and-contacts"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "url_faq",
       "value": "https://telegram.org/faq#general-questions"
     },
@@ -24509,5 +24899,5 @@
       "other_value": "%1$s de ani"
     }
   ],
-  "version": 1633907
+  "version": 1635461
 }
