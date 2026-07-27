@@ -85,6 +85,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AccDescrVideoMessage",
+      "value": "Enregistrer un message vidéo"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AccDescrVoiceMessage",
       "value": "Enregistrer un message vocal"
     },
@@ -1692,6 +1697,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AreYouSureCloseBrowserTabs",
+      "value": "Voulez-vous vraiment fermer tous les onglets du navigateur ?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AreYouSureCloseMiniApps",
       "value": "Voulez-vous vraiment fermer toutes les mini-applications ?"
     },
@@ -1774,6 +1784,36 @@
       "_": "types.LangPackString",
       "key": "AriaComposerOpenScheduled",
       "value": "Ouvrir les messages planifiés"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AriaComposerPausePlayback",
+      "value": "Mettre la lecture en pause"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AriaComposerPauseVideo",
+      "value": "Mettre en pause l'enregistrement vidéo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AriaComposerPauseVoice",
+      "value": "Mettre en pause l'enregistrement vocal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AriaComposerPlayVoice",
+      "value": "Écouter l'enregistrement vocal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AriaComposerResumeVideo",
+      "value": "Reprendre l'enregistrement vidéo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AriaComposerResumeVoice",
+      "value": "Reprendre l'enregistrement vocal"
     },
     {
       "_": "types.LangPackString",
@@ -2034,6 +2074,11 @@
       "_": "types.LangPackString",
       "key": "AttachVideo",
       "value": "Vidéo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AttachVideoMessage",
+      "value": "Message vidéo"
     },
     {
       "_": "types.LangPackString",
@@ -2622,6 +2667,12 @@
       "_": "types.LangPackString",
       "key": "BoxRemove",
       "value": "Éjecter"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "BrowserMoreTabs",
+      "one_value": "{title} & {count} autre",
+      "other_value": "{title} & {count} autres"
     },
     {
       "_": "types.LangPackString",
@@ -3636,6 +3687,11 @@
       "_": "types.LangPackString",
       "key": "Close",
       "value": "Fermer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CloseBrowserTabs",
+      "value": "Fermer les onglets"
     },
     {
       "_": "types.LangPackString",
@@ -9726,6 +9782,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PlayOnceVideoMessageTooltip",
+      "value": "Ce message vidéo ne peut être lu qu'une seule fois."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PlayerPlaybackRate",
       "value": "Vitesse de lecture"
     },
@@ -10727,6 +10788,21 @@
       "_": "types.LangPackString",
       "key": "PublishNow",
       "value": "Publier maintenant"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "QrCodeCopied",
+      "value": "Code QR copié dans le presse-papier"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "QrCodeCopy",
+      "value": "Copier le code QR"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "QrCodeTitle",
+      "value": "Code QR"
     },
     {
       "_": "types.LangPackString",
@@ -13869,6 +13945,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "VideoMessagePermissionDenied",
+      "value": "Pour enregistrer des messages vidéo, autorisez l'accès à votre caméra et à votre micro"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "VideoMessageRecordError",
+      "value": "Impossible d'enregistrer un message vidéo. Vérifiez votre caméra et réessayez."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "VideoMessagesRestrictedByPrivacy",
+      "value": "**{user}** n'accepte pas les messages vidéo."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "VideoPlayerBuffering",
       "value": "Mise en cache..."
     },
@@ -13982,6 +14073,11 @@
       "key": "VoiceOverChatMessagesSelected",
       "one_value": "{count} message sélectionné",
       "other_value": "{count} message sélectionnés"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "VoiceRecordMicError",
+      "value": "Autorisez l'accès à votre micro pour enregistrer des messages vocaux"
     },
     {
       "_": "types.LangPackString",
@@ -14352,5 +14448,5 @@
       "value": "Votre nom"
     }
   ],
-  "version": 265492
+  "version": 274745
 }
