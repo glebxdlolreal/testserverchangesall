@@ -2971,6 +2971,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BotChooseGroup",
+      "value": "Trieu un grup"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BotDownloadAccept",
       "value": "Baixa"
     },
@@ -4334,6 +4339,11 @@
       "_": "types.LangPackString",
       "key": "Chat.Poll.AddAnOption",
       "value": "Afegeix una opció"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Poll.AttachLink",
+      "value": "Afegiu un enllaç"
     },
     {
       "_": "types.LangPackString",
@@ -5902,6 +5912,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DeleteAllMessages",
+      "value": "Elimina tots els missatges"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteAllReactions",
+      "value": "Elimina totes les reaccions"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DeleteAllRevokedLinks",
       "value": "Elimina els enllaços revocats"
     },
@@ -6005,6 +6025,11 @@
       "_": "types.LangPackString",
       "key": "DeleteProceedBtn",
       "value": "Continua"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteReaction",
+      "value": "Elimina la reacció"
     },
     {
       "_": "types.LangPackString",
@@ -7735,6 +7760,11 @@
       "_": "types.LangPackString",
       "key": "GiftPremiumUseGiftBtn",
       "value": "Usa el regal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GiftRecipientDoesNotAccept",
+      "value": "L'usuari no accepta regals."
     },
     {
       "_": "types.LangPackString",
@@ -10745,13 +10775,29 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.AllowedCountries",
+      "value": "Països permesos"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.Anonymous",
       "value": "Votació anònima"
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.ChooseCountry",
+      "value": "Trieu almenys un país."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.CouldNotCreate",
       "value": "No s'ha pogut crear l'enquesta"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "NewPoll.CountriesCount",
+      "one_value": "%d país",
+      "other_value": "%d països"
     },
     {
       "_": "types.LangPackString",
@@ -10777,6 +10823,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.HideResultsSubtitle",
       "value": "En activar-ho, els resultats no seran visibles fins que no finalitzi l'enquesta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountry",
+      "value": "Límit per país"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.LimitByCountrySubtitle",
+      "value": "Només els usuaris dels països seleccionats poden votar."
     },
     {
       "_": "types.LangPackString",
@@ -10828,6 +10884,16 @@
       "_": "types.LangPackString",
       "key": "NewPoll.Quiz",
       "value": "Mode concurs"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribers",
+      "value": "Restringeix als subscriptors"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewPoll.RestrictToSubscribersSubtitle",
+      "value": "Només els subscriptors que s'hi van unir fa més de 24 hores poden votar."
     },
     {
       "_": "types.LangPackString",
@@ -12507,6 +12573,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Countries",
+      "value": "Només els usuaris dels països seleccionats poden votar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.CountriesList",
+      "value": "Només els usuaris en %s poden votar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.Subscribers",
+      "value": "Només els subscriptors poden votar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersChannel",
+      "value": "Només els subscriptors del %s poden votar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Poll.VoteRestricted.SubscribersRecent",
+      "value": "Només els subscriptors que s'hi han unit fa més de 24 hores poden votar."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollOptions",
       "value": "Opcions de l'enquesta"
     },
@@ -12525,6 +12616,26 @@
       "_": "types.LangPackString",
       "key": "PollResults.Title.Quiz",
       "value": "Resultats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.NoVotes",
+      "value": "Sense vots"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Title",
+      "value": "Estadístiques de l'enquesta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.View",
+      "value": "Mostra les estadístiques"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollStats.Votes",
+      "value": "Enquestes"
     },
     {
       "_": "types.LangPackString",
@@ -15564,6 +15675,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ShowAllReactions",
+      "value": "Mostra totes les reaccions"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ShowMessage",
       "value": "Mostra el missatge"
     },
@@ -18210,6 +18326,42 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Dismissed",
+      "value": "Podeu enviar regals més endavant des de la Configuració."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Suggestion.BirthdayContacts.Multiple",
+      "one_value": "%d contacte fa anys avui 🎂",
+      "other_value": "%d contactes fan anys avui 🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Single",
+      "value": "%s **fa anys** avui 🎂"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Subtitle",
+      "value": "Envieu-li un regal."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Today",
+      "value": "Fa anys avui"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Tomorrow",
+      "value": "Fa anys demà"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.BirthdayContacts.Yesterday",
+      "value": "Va fer anys ahir"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Suggestion.BirthdaySetup",
       "value": "Afegiu el vostre aniversari %s"
     },
@@ -18257,6 +18409,11 @@
       "_": "types.LangPackString",
       "key": "SupportStatus",
       "value": "assistència"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TapAndHoldToDeleteReaction",
+      "value": "Manteniu premut per a eliminar la reacció."
     },
     {
       "_": "types.LangPackString",
@@ -18773,6 +18930,57 @@
       "_": "types.LangPackString",
       "key": "Unblock",
       "value": "Desbloca"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirm",
+      "value": "Sí, sóc jo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirmed",
+      "value": "S'ha permès l'inici de sessió"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirmedMessage",
+      "value": "Podeu comprovar la llista de sessions actives a la %s."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedButton",
+      "value": "D'acord"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedMessageSingle",
+      "value": "Hem aturat l'intent d'inici de sessió des d'un %s."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "UnconfirmedAuthDeniedTitle",
+      "one_value": "S'ha aturat l'accés",
+      "other_value": "S'han aturat els accessos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeniedWarning",
+      "value": "No envieu mai el codi d'accés a ningú o podríeu perdre el compte de Telegram!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthDeny",
+      "value": "No, no sóc jo!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthSingle",
+      "value": "Hem detectat un inici de sessió des d'un %s. Sou vós?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnconfirmedAuthTitle",
+      "value": "Algú acaba d'accedir als vostres missatges!"
     },
     {
       "_": "types.LangPackString",
@@ -19842,5 +20050,5 @@
       "other_value": "%1$d missatges"
     }
   ],
-  "version": 300956
+  "version": 310389
 }
