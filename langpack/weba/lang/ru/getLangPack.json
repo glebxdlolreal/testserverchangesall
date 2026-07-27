@@ -1816,6 +1816,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AriaComposerCloseRichInput",
+      "value": "Свернуть редактор"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AriaComposerOpenRichInput",
+      "value": "Развернуть редактор"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AriaComposerOpenScheduled",
       "value": "Открыть отложенные сообщения"
     },
@@ -2123,6 +2133,11 @@
       "_": "types.LangPackString",
       "key": "AttachmentDragAddItems",
       "value": "Добавить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AttachmentMenuArticle",
+      "value": "Статья"
     },
     {
       "_": "types.LangPackString",
@@ -5299,6 +5314,32 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ErrorRichMessageTableTooWide",
+      "value": "В таблице в этом сообщении слишком много столбцов. Их не может быть больше {count}."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ErrorRichMessageTooDeep",
+      "value": "В сообщении слишком много уровней вложенности. Их не может быть больше {count}."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "В сообщении слишком много блоков. Чтобы продолжить, удалите {count} из них.",
+      "key": "ErrorRichMessageTooManyBlocks",
+      "many_value": "В сообщении слишком много блоков. Чтобы продолжить, удалите {count} из них.",
+      "one_value": "В сообщении слишком много блоков. Чтобы продолжить, удалите {count} из них.",
+      "other_value": "В сообщении слишком много блоков. Чтобы продолжить, удалите {count} из них."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "В сообщении слишком много медиафайлов. Чтобы продолжить, удалите {count} из них.",
+      "key": "ErrorRichMessageTooManyMedia",
+      "many_value": "В сообщении слишком много медиафайлов. Чтобы продолжить, удалите {count} из них.",
+      "one_value": "В сообщении слишком много медиафайлов. Чтобы продолжить, удалите {count} из них.",
+      "other_value": "В сообщении слишком много медиафайлов. Чтобы продолжить, удалите {count} из них."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ErrorSendRestrictedStickersAll",
       "value": "В этой группе запрещено отправлять стикеры"
     },
@@ -5774,6 +5815,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "FormattingClearAria",
+      "value": "Без форматирования"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "FormattingEnterUrl",
       "value": "Укажите ссылку..."
     },
@@ -5781,6 +5827,16 @@
       "_": "types.LangPackString",
       "key": "FormattingItalicAria",
       "value": "Курсив"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingLinkUrl",
+      "value": "Ссылка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingMarkedAria",
+      "value": "Выделенный"
     },
     {
       "_": "types.LangPackString",
@@ -5796,6 +5852,16 @@
       "_": "types.LangPackString",
       "key": "FormattingStrikethroughAria",
       "value": "Зачёркнутый"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingSubscriptAria",
+      "value": "Подстрочный"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingSuperscriptAria",
+      "value": "Надстрочный"
     },
     {
       "_": "types.LangPackString",
@@ -10928,6 +10994,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ProfileSendAGift",
+      "value": "Отправить подарок"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ProfileTabBotPreview",
       "value": "Предпросмотр"
     },
@@ -11334,6 +11405,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RemoveMember",
+      "value": "Исключить участника"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RemoveRichFormatting",
+      "value": "Сбросить форматирование"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RemoveRichFormattingText",
+      "value": "В сообщении используется расширенное форматирование, доступное только с подпиской **Telegram Premium**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RemoveRichFormattingTitle",
+      "value": "Сбросить форматирование?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RemoveSymbol",
       "value": "Удалить эмодзи"
     },
@@ -11389,6 +11480,11 @@
       "_": "types.LangPackString",
       "key": "ReportChat",
       "value": "Пожаловаться на {peer}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReportChatMessagesRequired",
+      "value": "Выберите сообщения для жалобы."
     },
     {
       "_": "types.LangPackString",
@@ -11527,13 +11623,354 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorBlockMenu",
+      "value": "Блок"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorBlockPlaceholder",
+      "value": "Ваш текст"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorBlockquote",
+      "value": "Цитата"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorBulletList",
+      "value": "Маркированный список"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorChecklist",
+      "value": "Контрольный список"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorCodeBlock",
+      "value": "Код"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorCodeLanguageAuto",
+      "value": "Авто"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorDetails",
+      "value": "Сворачиваемый блок"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichEditorDivider",
       "value": "Разделитель"
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorEquation",
+      "value": "Формула"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorEquationPrompt",
+      "value": "Формула..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorEquationToBlock",
+      "value": "Вынести отдельно"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorEquationToInline",
+      "value": "Встроить в текст"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorFooter",
+      "value": "Мелкий шрифт"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorHeading",
+      "value": "Заголовок"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorHeadingLevel",
+      "value": "Заголовок {level}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListCheckmarks",
+      "value": "Отметки"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListMenu",
+      "value": "Список"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingDecimal",
+      "value": "Цифры (1, 2, 3)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingLowercaseLetters",
+      "value": "Строчные буквы (a, b, c)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingLowercaseRoman",
+      "value": "Строчные римские цифры (i, ii, iii)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingType",
+      "value": "Нумерация"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingUppercaseLetters",
+      "value": "Прописные буквы (A, B, C)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingUppercaseRoman",
+      "value": "Прописные римские цифры (I, II, III)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListOptions",
+      "value": "Настройки списка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListReverseOrder",
+      "value": "Обратный порядок"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorOrderedList",
+      "value": "Нумерованный список"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorParagraph",
+      "value": "Абзац"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorPullquote",
+      "value": "Выносная цитата"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorPullquotePlaceholder",
+      "value": "Текст цитаты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorQuoteCaptionPlaceholder",
+      "value": "Автор"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorSubheading",
+      "value": "Подзаголовок"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTable",
+      "value": "Таблица"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableActionsAria",
+      "value": "Действия с таблицей"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlign",
+      "value": "Выравнивание"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignBottom",
+      "value": "По низу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignCenter",
+      "value": "По центру"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignLeft",
+      "value": "По левому краю"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignMiddle",
+      "value": "По центру"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignRight",
+      "value": "По правому краю"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignTop",
+      "value": "По верху"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableBorderless",
+      "value": "Прозрачная граница"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableDelete",
+      "value": "Удалить"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Удалить {count} столбца",
+      "key": "RichEditorTableDeleteColumn",
+      "many_value": "Удалить {count} столбцов",
+      "one_value": "Удалить {count} столбец",
+      "other_value": "Удалить {count} столбцов"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Удалить {count} строки",
+      "key": "RichEditorTableDeleteRow",
+      "many_value": "Удалить {count} строк",
+      "one_value": "Удалить {count} строку",
+      "other_value": "Удалить {count} строк"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableDeleteTable",
+      "value": "Удалить таблицу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableHighlight",
+      "value": "Залить цветом"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsert",
+      "value": "Вставить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsertColumnLeft",
+      "value": "Вставить столбец слева"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsertColumnRight",
+      "value": "Вставить столбец справа"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsertRowAbove",
+      "value": "Вставить строку сверху"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsertRowBelow",
+      "value": "Вставить строку снизу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMenu",
+      "value": "Таблица"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMergeCells",
+      "value": "Объединить ячейки"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMove",
+      "value": "Переместить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMoveDown",
+      "value": "Переместить вниз"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMoveLeft",
+      "value": "Переместить влево"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMoveRight",
+      "value": "Переместить вправо"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMoveUp",
+      "value": "Переместить вверх"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableRemoveHighlight",
+      "value": "Убрать заливку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableResizeSelectionAria",
+      "value": "Изменить диапазон ячеек"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableSelectColumnAria",
+      "value": "Выбрать столбец"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableSelectRowAria",
+      "value": "Выбрать строку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableSelectTableAria",
+      "value": "Выбрать таблицу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableSplitCell",
+      "value": "Разделить ячейку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableStriped",
+      "value": "Чередующиеся строки"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichFormattingSubscribe",
+      "value": "Оформить Premium"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichMessageMore",
       "value": "Показать ещё"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor",
+      "value": "Расширенный редактор сообщений"
     },
     {
       "_": "types.LangPackString",
@@ -11589,6 +12026,11 @@
       "_": "types.LangPackString",
       "key": "SavedMessagesShort",
       "value": "Избранное"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SavedOpenChat",
+      "value": "Перейти в чат"
     },
     {
       "_": "types.LangPackString",
@@ -12171,6 +12613,16 @@
       "_": "types.LangPackString",
       "key": "SettingsAboutBio",
       "value": "Любые подробности, например: возраст, род занятий или город.\nПример: 23 года, дизайнер из Санкт-Петербурга."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAutomaticTextReplacements",
+      "value": "Автозамена текста"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAutomaticTextReplacementsInfo",
+      "value": "Преобразование --, << и >> при вводе"
     },
     {
       "_": "types.LangPackString",
@@ -14781,5 +15233,5 @@
       "value": "Ваше имя"
     }
   ],
-  "version": 274269
+  "version": 274730
 }
