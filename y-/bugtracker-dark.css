@@ -13,6 +13,12 @@
   --bt-dark-success: #5bad57;
 }
 
+@property --bt-theme-hole-radius {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
 .bt-theme-toggle {
   align-items: center;
   background: transparent;
@@ -50,42 +56,50 @@ html.bt-theme-switching body * {
   transition: none !important;
 }
 
-@property --vt-radius {
-  syntax: '<percentage>';
-  inherits: true;
-  initial-value: 200%;
-}
-
-::view-transition-group(root),
-::view-transition-image-pair(root) {
+::view-transition-group(root) {
   isolation: isolate;
+  overflow: hidden;
+}
+::view-transition-image-pair(root) {
+  isolation: auto;
   overflow: hidden;
 }
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
-  backface-visibility: hidden;
-  contain: paint;
 }
 ::view-transition-old(root) {
   z-index: 9999; /* the shrinking layer rides on top */
   will-change: clip-path;
   transform: translateZ(0); /* dedicated, fully-rasterised GPU layer */
-  clip-path: circle(var(--vt-radius, 200%) at var(--vt-x, 95%) var(--vt-y, 2%));
-  animation: 500ms cubic-bezier(0.23, 1, 0.32, 1) both vt-circle-reveal;
-  animation-duration: var(--vt-duration, 500ms);
 }
 ::view-transition-new(root) { z-index: 1; }
 
-html.bt-theme-drain ::view-transition-old(root) {
-  animation: none;
+/* Light -> dark also keeps the old snapshot on top, but opens an expanding
+   transparent hole in it. This avoids repeatedly clipping Chromium's live
+   new(root) snapshot, which can retain a stale compositor surface. */
+:root.bt-theme-reveal::view-transition-old(root) {
+  z-index: 9999;
+  transform: none;
+  will-change: auto;
+  -webkit-mask-image: radial-gradient(
+    circle at var(--bt-theme-origin-x) var(--bt-theme-origin-y),
+    transparent 0,
+    transparent var(--bt-theme-hole-radius),
+    #000 calc(var(--bt-theme-hole-radius) + 1px)
+  );
+  mask-image: radial-gradient(
+    circle at var(--bt-theme-origin-x) var(--bt-theme-origin-y),
+    transparent 0,
+    transparent var(--bt-theme-hole-radius),
+    #000 calc(var(--bt-theme-hole-radius) + 1px)
+  );
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-mode: alpha;
 }
-
-@keyframes vt-circle-reveal {
-  from { --vt-radius: var(--vt-target-radius, 145%); }
-  to { --vt-radius: 0%; }
-}
+:root.bt-theme-reveal::view-transition-new(root) { z-index: 1; }
 
 /* Theme toggle icon morph animation. */
 @keyframes bt-icon-out {
