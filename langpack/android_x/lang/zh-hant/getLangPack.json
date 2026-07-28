@@ -85,6 +85,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedPollOption",
+      "value": "%1$s 新增了投票選項「%2$s」"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionAddedPollOutOption",
       "value": "您新增了投票選項「%1$s」"
     },
@@ -129,9 +134,19 @@
       "value": "您已將 %1$s 新增至核對清單"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkDoneTasksOut",
+      "other_value": "您將 %1$s 個任務標示為已完成"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionChecklistMarkNotDoneOut",
       "value": "您將「%1$s」標記為未完成"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkNotDoneTasksOut",
+      "other_value": "您將 %1$s 個任務標示為未完成"
     },
     {
       "_": "types.LangPackString",
@@ -142,6 +157,11 @@
       "_": "types.LangPackString",
       "key": "ActionCreatedManagedBot",
       "value": "您已建立 %1$s 機器人供 %2$s 管理"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOption",
+      "value": "您移除了投票選項「%1$s」"
     },
     {
       "_": "types.LangPackString",
@@ -355,8 +375,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionTopicCreate",
+      "value": "%2$s 建立了話題「%1$s」"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreated",
+      "value": "話題「%1$s」已建立"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionTopicHidden",
       "value": "%1$s 隱藏了一般話題"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHiddenOut",
+      "value": "您隱藏了一般話題"
     },
     {
       "_": "types.LangPackString",
@@ -365,8 +400,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionTopicUnhiddenOut",
+      "value": "您取消隱藏了一般話題"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionUnknownTopicClosed",
       "value": "%1$s 關閉了話題"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosedOut",
+      "value": "您關閉了話題"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopened",
+      "value": "%1$s 重開了話題"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopenedOut",
+      "value": "您重開了話題"
     },
     {
       "_": "types.LangPackString",
@@ -6590,6 +6645,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPermissionEditTag",
+      "value": "編輯自己的標籤"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPermissionPinMessages",
       "value": "置頂訊息"
     },
@@ -6845,6 +6905,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPromotedManageTags",
+      "value": "編輯成員標籤"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPromotedManageTopics",
       "value": "管理話題"
     },
@@ -6967,6 +7032,11 @@
       "_": "types.LangPackString",
       "key": "EventLogRestrictedDeleted",
       "value": "移除了對 %1$s 的限制"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogRestrictedEditTag",
+      "value": "編輯自己的標籤"
     },
     {
       "_": "types.LangPackString",
@@ -7140,8 +7210,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogTranslationOffYou",
+      "value": "您已停用自動翻譯"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogTranslationOn",
       "value": "%1$s 已啟用自動翻譯"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOnYou",
+      "value": "您已啟用自動翻譯"
     },
     {
       "_": "types.LangPackString",
@@ -17980,6 +18060,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncBtn",
+      "value": "同步"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncContacts",
       "value": "同步聯絡人"
     },
@@ -18016,17 +18101,22 @@
     {
       "_": "types.LangPackString",
       "key": "SyncHintRetry",
-      "value": "為了幫助您在 Telegram 傳送訊息給家人和朋友們，請允許存取您的聯絡人資料。\n\n請到您系統的「設定」>「應用程式」>「權限」，然後將「聯絡人」這個選項開啟。"
+      "value": "為了幫助您在 Telegram 傳送訊息給家人和朋友們，請允許存取您的聯絡人資料。\n\n請到您系統的「設定」>「權限」，然後將「聯絡人」這個選項開啟。"
     },
     {
       "_": "types.LangPackString",
       "key": "SyncHintTitle",
-      "value": "尋找聯絡人"
+      "value": "同步聯絡人到 Telegram？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintTitle2",
+      "value": "同步聯絡人到 Telegram？"
     },
     {
       "_": "types.LangPackString",
       "key": "SyncHintUnavailable",
-      "value": "請到您系統的「設定」>「應用程式」>「權限」，然後將「聯絡人」這個選項開啟，讓 Telegram 可以存取您的聯絡人資料。"
+      "value": "請到您系統的「設定」>「權限」，然後將「聯絡人」這個選項開啟，讓 Telegram X 可以存取您的聯絡人資料。"
     },
     {
       "_": "types.LangPackString",
@@ -21210,6 +21300,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparator",
+      "value": "， "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparatorLast",
+      "value": " 和 "
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• %1$s\n• %2$s\n• %3$s\n• %4$s"
     },
@@ -21572,6 +21672,11 @@
       "_": "types.LangPackString",
       "key": "format_plusPremium",
       "value": "+premium"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_refundedStars",
+      "other_value": "%1$s 顆星星"
     },
     {
       "_": "types.LangPackString",
@@ -22865,6 +22970,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "url_contactsPrivacy",
+      "value": "https://telegram.org/privacy#3-4-phone-number-and-contacts"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "url_faq",
       "value": "https://telegram.org/faq#general-questions"
     },
@@ -23524,5 +23634,5 @@
       "other_value": "%1$s 年"
     }
   ],
-  "version": 1635539
+  "version": 1635670
 }
