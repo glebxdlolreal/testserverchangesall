@@ -90,8 +90,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedPollOptionMsg",
+      "value": "%1$s 向投票活動「%3$s」新增了選項「%2$s」"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionAddedPollOutOption",
       "value": "您新增了投票選項「%1$s」"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOptionMsg",
+      "value": "您向投票活動「%2$s」新增了選項「%1$s」"
     },
     {
       "_": "types.LangPackString",
@@ -125,13 +135,63 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatOwnerChanged",
+      "value": "%1$s 成為此聊天室的新擁有者"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeft",
+      "value": "聊天室擁有者已退出"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeftTo",
+      "value": "聊天室擁有者已退出。除非他們重新加入，否則 %1$s 將成為新擁有者"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChatRemovedFromCommunity",
       "value": "此聊天室已從社群中移除"
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChecklistAdd",
+      "value": "%1$s 已將「%2$s」新增至核對清單"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddMsg",
+      "value": "%1$s 已將「%2$s」新增至核對清單「%3$s」"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChecklistAddOut",
       "value": "您已將 %1$s 新增至核對清單"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOutMsg",
+      "value": "您已將「%1$s」新增至核對清單「%2$s」"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMark",
+      "value": "%1$s 將 %2$s 標示為已完成，並將 %3$s 標示為未完成"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDone",
+      "value": "%1$s 將 %2$s 標示為已完成"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDoneOut",
+      "value": "您將 %1$s 標示為已完成"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkDoneTasks",
+      "other_value": "%2$s 已將 %1$s 標示為已完成"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -140,13 +200,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDone",
+      "value": "%1$s 將 %2$s 標示為未完成"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChecklistMarkNotDoneOut",
       "value": "您將「%1$s」標記為未完成"
     },
     {
       "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkNotDoneTasks",
+      "other_value": "%2$s 已將 %1$s 標示為未完成"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "key": "ActionChecklistMarkNotDoneTasksOut",
       "other_value": "您將 %1$s 個任務標示為未完成"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkOut",
+      "value": "您將 %1$s 標示為已完成，並將 %2$s 標示為未完成"
     },
     {
       "_": "types.LangPackString",
@@ -160,8 +235,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionDeletedPollOption",
+      "value": "%1$s 已移除投票活動中的選項「%2$s」"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOptionMsg",
+      "value": "%1$s 已移除投票活動「%3$s」中的選項「%2$s」"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionDeletedPollOutOption",
       "value": "您移除了投票選項「%1$s」"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOptionMsg",
+      "value": "你已移除投票活動「%2$s」中的選項「%1$s」"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosed",
+      "value": "%1$s 已關閉一般話題"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosedOut",
+      "value": "您已關閉一般話題"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopened",
+      "value": "%1$s 已重啟一般話題"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopenedOut",
+      "value": "您已重啟一般話題"
     },
     {
       "_": "types.LangPackString",
@@ -177,6 +287,16 @@
       "_": "types.LangPackString",
       "key": "ActionMutePerson",
       "value": "將 %1$s 關閉通知"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPaidMessagesRefunded",
+      "other_value": "%2$s 已為 %1$s 則訊息退還 %3$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPaidMessagesRefundedOut",
+      "other_value": "您已為 %1$s 則訊息退還 %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -340,6 +460,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionSharingEnabled",
+      "value": "%1$s 已啟用此聊天中的分享功能"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionSharingEnabledOut",
       "value": "您已啟用此聊天中的分享功能"
     },
@@ -375,13 +500,58 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconName",
+      "value": "%3$s 將話題名稱和圖示變更為「%1$s %2$s」"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconNameOut",
+      "value": "您將話題名稱和圖示變更為「%1$s %2$s」"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconOut",
+      "value": "您將話題圖示變更為「%1$s」"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosed",
+      "value": "%3$s 關閉了話題「%1$s %2$s」"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosedOut",
+      "value": "您關閉了話題「%1$s %2$s」"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionTopicCreate",
       "value": "%2$s 建立了話題「%1$s」"
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionTopicCreateIcon",
+      "value": "%3$s 建立了話題「%1$s %2$s」"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIconOut",
+      "value": "您建立了話題「%1$s %2$s」"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateOut",
+      "value": "您建立了話題「%1$s」"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionTopicCreated",
       "value": "話題「%1$s」已建立"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreatedIcon",
+      "value": "話題「%1$s %2$s」已建立"
     },
     {
       "_": "types.LangPackString",
@@ -392,6 +562,26 @@
       "_": "types.LangPackString",
       "key": "ActionTopicHiddenOut",
       "value": "您隱藏了一般話題"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamed",
+      "value": "%2$s 將話題名稱變更為「%1$s」"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamedOut",
+      "value": "您將話題名稱變更為「%1$s」"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopened",
+      "value": "%3$s 已重啟話題「%1$s %2$s」"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopenedOut",
+      "value": "您已重啟話題「%1$s %2$s」"
     },
     {
       "_": "types.LangPackString",
@@ -421,7 +611,7 @@
     {
       "_": "types.LangPackString",
       "key": "ActionUnknownTopicReopenedOut",
-      "value": "您重開了話題"
+      "value": "您重啟了話題"
     },
     {
       "_": "types.LangPackString",
@@ -6511,7 +6701,7 @@
     {
       "_": "types.LangPackString",
       "key": "EventLogForumTopicReopened",
-      "value": "%1$s 已重開話題 %2$s"
+      "value": "%1$s 已重啟話題「%2$s」"
     },
     {
       "_": "types.LangPackString",
@@ -7155,8 +7345,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogTagRemovedYour",
+      "value": "%2$s 已移除您的標籤「%1$s」"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogTagSet",
       "value": "%2$s 將 %3$s 的標籤設定為「%1$s」"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSetYour",
+      "value": "%2$s 已為您設定標籤「%1$s」"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouRemoved",
+      "value": "您已移除 %2$s 的標籤「%1$s」"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouSet",
+      "value": "您已為 %2$s 設定標籤「%1$s」"
     },
     {
       "_": "types.LangPackString",
@@ -18100,8 +18310,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncHint3",
+      "value": "您裝置上的聯絡人（電話號碼、名字和姓氏）將持續上傳至 Telegram 伺服器，以便您能在 **%1$s** 的**聯絡人**部分中找到他們，或在他們加入時收到通知。\n\n資料不會與第三方共享。當您在同步功能開啟時刪除裝置上的聯絡人，該聯絡人也會從 **Telegram** 伺服器上的聯絡人清單中刪除。\n\n您隨時可透過**「設定 」>「 隱私與安全」>「刪除已同步的聯絡人」**關閉同步功能或清除 Telegram 伺服器上的資料。\n\n若要開啟同步功能，您還必須允許 **%1$s** 存取裝置上的聯絡人。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncHintRetry",
-      "value": "為了幫助您在 Telegram 傳送訊息給家人和朋友們，請允許存取您的聯絡人資料。\n\n請到您系統的「設定」>「權限」，然後將「聯絡人」這個選項開啟。"
+      "value": "若要開啟聯絡人同步功能並將聯絡人無縫上傳至 Telegram，請允許存取您的聯絡人資料。\n\n請到您系統的「設定」>「權限」，然後將「聯絡人」這個選項開啟。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintRetry2",
+      "value": "若要開啟聯絡人同步功能並將聯絡人無縫上傳至 Telegram，請允許存取您的聯絡人資料。\n\n請到您系統的「設定」>「權限」，然後將「聯絡人」這個選項開啟。"
     },
     {
       "_": "types.LangPackString",
@@ -18117,6 +18337,11 @@
       "_": "types.LangPackString",
       "key": "SyncHintUnavailable",
       "value": "請到您系統的「設定」>「權限」，然後將「聯絡人」這個選項開啟，讓 Telegram X 可以存取您的聯絡人資料。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintUnavailable2",
+      "value": "請到您系統的「設定」>「權限」，然後將「聯絡人」這個選項開啟，讓 **%1$s** 可以存取您的聯絡人資料。"
     },
     {
       "_": "types.LangPackString",
@@ -21310,6 +21535,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasks",
+      "value": "%1$s 您已標示 %2$s 和 %3$s "
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksDone",
+      "other_value": "%1$s 個任務已完成"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksNotDone",
+      "other_value": "%1$s 個任務未完成"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasksOut",
+      "value": "您已標示 %1$s 和 %2$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksOutDone",
+      "other_value": "%1$s 個任務已完成"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksOutNotDone",
+      "other_value": "%1$s 個任務未完成"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• %1$s\n• %2$s\n• %3$s\n• %4$s"
     },
@@ -22296,7 +22551,7 @@
     {
       "_": "types.LangPackString",
       "key": "message_edited_yesterday",
-      "value": "於昨天 %1$s 已編輯"
+      "value": "編輯於昨天 %1$s"
     },
     {
       "_": "types.LangPackString",
@@ -23634,5 +23889,5 @@
       "other_value": "%1$s 年"
     }
   ],
-  "version": 1635670
+  "version": 1635790
 }

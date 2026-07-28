@@ -5151,7 +5151,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.Service.Group.TopicEdited.You.Resumed",
-      "value": "您重開了話題"
+      "value": "您重啟了話題"
     },
     {
       "_": "types.LangPackString",
@@ -7292,6 +7292,16 @@
       "_": "types.LangPackString",
       "key": "EditedMessage",
       "value": "已編輯"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.At",
+      "value": "編輯於 %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditedMessage.On",
+      "value": "編輯於 %1$s %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -14789,6 +14799,11 @@
       "value": "寫則評論（選填）"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "Report2MessagesCount",
+      "other_value": "檢舉 %1$d 則訊息"
+    },
+    {
       "_": "types.LangPackString",
       "key": "Report2SelectMessages",
       "value": "請選擇要檢舉的訊息。"
@@ -19615,6 +19630,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UnconfirmedAuthConfirmedMessage",
+      "value": "您可以在%s中查看您已登入的裝置清單。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UnconfirmedAuthDeniedButton",
       "value": "了解"
     },
@@ -20704,5 +20724,5 @@
       "other_value": "%1$d 則訊息"
     }
   ],
-  "version": 310425
+  "version": 310583
 }
