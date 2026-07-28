@@ -4005,6 +4005,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleNone",
+      "value": "Nič"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AskAQuestion",
       "value": "Položiť otázku"
     },
@@ -6183,11 +6188,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "**%2$s** obsahuje aj **%1$d**x **%3$s**. Za doručenie týchto cien sú zodpovední správcovia kanálov.",
+      "few_value": "**%2$s** obsahuje aj **%1$dx** **%3$s**. Za doručenie týchto cien sú zodpovední správcovia kanálov.",
       "key": "BoostingGiveawayHowItWorksIncludeText",
       "many_value": "",
-      "one_value": "**%2$s** obsahuje aj **%1$d** **%3$s**. Za doručenie týchto cien sú zodpovední správcovia kanálov.",
-      "other_value": "**%2$s** obsahuje aj **%1$d**x **%3$s**. Za doručenie týchto cien sú zodpovední správcovia kanálov."
+      "one_value": "**%2$s** obsahuje aj **%1$dx** **%3$s**. Za doručenie týchto cien sú zodpovední správcovia kanálov.",
+      "other_value": "**%2$s** obsahuje aj **%1$dx** **%3$s**. Za doručenie týchto cien sú zodpovední správcovia kanálov."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -6207,11 +6212,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "Telegram %2$s automaticky vyberie **%3$s*** náhodných používateľov, ktorí sa pripojili k **%4$s** a **%5$s** ďalších uvedených kanálov po **%6$s**, **%7$s**.",
+      "few_value": "Telegram **%2$s** automaticky vyberie **%3$s** náhodných používateľov, ktorí sa pripojili k **%4$s** a **%5$s** ďalších uvedených kanálov po **%6$s**, **%7$s**.",
       "key": "BoostingGiveawayHowItWorksSubTextDateSeveral",
       "many_value": "",
-      "one_value": "Telegram %2$s automaticky vyberie **%3$s*** náhodného používateľa, ktorý sa pripojil k **%4$s** a **%5$s** ďalších uvedených kanálov po **%6$s**, **%7$s**.",
-      "other_value": "Telegram %2$s automaticky vyberie **%3$s*** náhodných používateľov, ktorí sa pripojili k **%4$s** a **%5$s** ďalších uvedených kanálov po **%6$s**, **%7$s**."
+      "one_value": "Telegram **%2$s** automaticky vyberie **%3$s** náhodného používateľa, ktorý sa pripojil k **%4$s** a **%5$s** ďalších uvedených kanálov po **%6$s**, **%7$s**.",
+      "other_value": "Telegram **%2$s** automaticky vyberie **%3$s** náhodných používateľov, ktorí sa pripojili k **%4$s** a **%5$s** ďalších uvedených kanálov po **%6$s**, **%7$s**."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -10235,7 +10240,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChannelEnablePaidReactionsInfo",
-      "value": "Zapnite túto funkciu, aby vaši predplatitelia mohli reagovať na príspevky pomocou telegramových hviezdičiek, ktoré budete môcť neskôr vybrať ako GRAM."
+      "value": "Zapnite túto funkciu, aby vaši predplatitelia mohli reagovať na príspevky pomocou telegramových hviezdičiek, ktoré budete môcť neskôr vybrať ako gramy."
     },
     {
       "_": "types.LangPackString",
@@ -12224,6 +12229,261 @@
       "many_value": "%1$d spoločných skupín",
       "one_value": "%1$d spoločná skupina",
       "other_value": "%1$d spoločných skupín"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddAChatToCommunity",
+      "value": "Pridať konverzáciu do komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotToCommunity",
+      "value": "Pridať bota do komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddBotToCommunityInfo",
+      "value": "Pridajte svojho bota do komunity s viacerými súvisiacimi konverzáciami."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChannelToCommunity",
+      "value": "Pridať kanál do komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddChatTitle",
+      "value": "Pridať konverzáciu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddGroupToCommunity",
+      "value": "Pridať skupinu do komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddGroupToCommunityInfo",
+      "value": "Skupinu môžete pridať do komunity s viacerými súvisiacimi konverzáciami."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityChannelMessage",
+      "value": "Ak tento kanál schváli správca komunity, jeho odberatelia budú môcť vstúpiť do iných konverzácií v rámci komunity alebo požiadať o vstup do nich."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityGroupMessage",
+      "value": "Ak túto skupinu schváli správca komunity, jej členovia budú môcť vstúpiť do iných konverzácií v rámci komunity alebo požiadať o vstup do nich."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityRequestButton",
+      "value": "Odoslať žiadosť o pripojenie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToCommunityTitle",
+      "value": "Pridať do komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAddToExistingCommunity",
+      "value": "Pridať do existujúcej komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityCannotChange",
+      "value": "Neskôr to už nebudete môcť zmeniť."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHidden",
+      "value": "Skrytá"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityHiddenInfo",
+      "value": "Túto konverzáciu uvidia iba pozvaní členovia a správcovia komunít."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilitySection",
+      "value": "Viditeľnosť konverzácie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisible",
+      "value": "Viditeľná"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatVisibilityVisibleInfo",
+      "value": "Túto konverzáciu bude môcť vidieť každý člen komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityCreated",
+      "value": "Komunita bola vytvorená!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityJoinedGroup",
+      "value": "Túto skupinu ste pridali do komunity!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCommunityPending",
+      "value": "Vaša žiadosť o vstup do komunity bola odoslaná správcom"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityCreateCommunity",
+      "value": "Vytvoriť komunitu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionChannel",
+      "value": "Kanál môžete pridať do komunity s viacerými súvisiacimi konverzáciami."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityDescriptionGroup",
+      "value": "Skupinu môžete pridať do komunity s viacerými súvisiacimi konverzáciami."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityMenuAddChat",
+      "value": "Pridať konverzáciu do komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNewCommunityNameHint",
+      "value": "Názov komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNewCommunityTitle",
+      "value": "Nová komunita"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequest",
+      "value": "Čakajúca žiadosť"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityPendingRequests",
+      "value": "Čakajúce žiadosti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRemovedUsers",
+      "value": "Odstránení používatelia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequestApprovedToast",
+      "value": "Schválili ste žiadosť o pridanie **%1$s** do komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequestDeclinedToast",
+      "value": "Odmietli ste žiadosť o pridanie **%1$s** do komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouAreIn",
+      "value": "Ste zapojený týchto do konverzácií"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanRequestToJoin",
+      "value": "Konverzácie so žiadosťami o pripojenie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionChatsYouCanView",
+      "value": "Konverzácie na zobrazenie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionCommunityName",
+      "value": "Názov komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySectionWhoCanAddChats",
+      "value": "Kto môže pridávať konverzácie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelAddedUnknown",
+      "value": "Tento kanál bol pridaný do komunity **%1$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageChannelRemovedUnknown",
+      "value": "Tento kanál bol odstránený z komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupAddedUnknown",
+      "value": "Táto skupina bola pridaná do komunity **%1$s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityServiceMessageGroupYouRemoved",
+      "value": "**Odstránili** ste túto skupinu z komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySettingsSetPhoto",
+      "value": "Nastaviť fotku komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChat",
+      "value": "Zobraziť ako jednu konverzáciu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChatInfo",
+      "value": "V zozname konverzácii zoskupiť všetky komunitné konverzácie do jednej položky."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityTitle",
+      "value": "Komunita"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityUngroupChats",
+      "value": "Oddeliť konverzácie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityUngroupChatsButton",
+      "value": "Oddeliť"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsAllMembers",
+      "value": "Všetci členovia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsAllMembersInfo",
+      "value": "Členovia môžu do komunity pridávať svoje skupiny a kanály."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsOnlyAdmins",
+      "value": "Iba správcovia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityWhoCanAddChatsOnlyAdminsInfo",
+      "value": "Konverzácie navrhnuté členmi komunity vyžadujú schválenie správcu."
     },
     {
       "_": "types.LangPackString",
@@ -18921,17 +19181,17 @@
     {
       "_": "types.LangPackString",
       "key": "Gift2BuyInTON",
-      "value": "Zaplatiť v GRAM"
+      "value": "Zaplatiť v gramoch"
     },
     {
       "_": "types.LangPackString",
       "key": "Gift2BuyPriceOnlyTON",
-      "value": "Predávajúci prijíma iba platbu v GRAM."
+      "value": "Predávajúci prijíma iba platbu v gramoch."
     },
     {
       "_": "types.LangPackString",
       "key": "Gift2BuyPricePayHintTON",
-      "value": "Zaplaťte v GRAM a preskočíte 21-dňové čakanie na opätovný prevod darčeka."
+      "value": "Zaplaťte v gramoch a preskočíte 21-dňové čakanie na opätovný prevod darčeka."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -20605,6 +20865,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GiftCraftProgressSuccessChance",
+      "value": "%s šanca na úspech"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GiftCraftProgressText",
       "value": "Ak sa výroba nepodarí, tieto darčeky\nbudú stratené."
     },
@@ -21200,6 +21465,11 @@
       "_": "types.LangPackString",
       "key": "GiftTelegramPremiumTitle",
       "value": "Darovať Telegram Prémium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GiftThemesSetActionView",
+      "value": "Zobraziť"
     },
     {
       "_": "types.LangPackString",
@@ -23596,7 +23866,7 @@
     {
       "_": "types.LangPackString",
       "key": "LeaveAComment",
-      "value": "Zanechať komentár"
+      "value": "Komentovať"
     },
     {
       "_": "types.LangPackString",
@@ -26171,7 +26441,7 @@
     {
       "_": "types.LangPackString",
       "key": "MonetizationInfoFeature2Text",
-      "value": "Môžete získať 50 % príjmov z reklamy ako odmenu v GRAM."
+      "value": "Môžete získať 50 % príjmov z reklamy ako odmenu v gramoch."
     },
     {
       "_": "types.LangPackString",
@@ -26181,7 +26451,7 @@
     {
       "_": "types.LangPackString",
       "key": "MonetizationInfoFeature3Text",
-      "value": "Svoj GRAM si môžete kedykoľvek vybrať."
+      "value": "Svoje gramy si môžete kedykoľvek vybrať."
     },
     {
       "_": "types.LangPackString",
@@ -26191,12 +26461,12 @@
     {
       "_": "types.LangPackString",
       "key": "MonetizationInfoTONText",
-      "value": "**GRAM** je kryptomena blockchainovej platformy TON, ktorú využíva Telegram. Jej výhodami sú vysoká rýchlosť spracovania transakcií a nízke poplatky."
+      "value": "**Gram** je kryptomena blockchainovej platformy TON, ktorú využíva Telegram pre jej vysokú rýchlosť a nízke transakčné poplatky."
     },
     {
       "_": "types.LangPackString",
       "key": "MonetizationInfoTONTitle",
-      "value": "Čo je 💎 GRAM?"
+      "value": "Čo je 💎 gram?"
     },
     {
       "_": "types.LangPackString",
@@ -26231,12 +26501,12 @@
     {
       "_": "types.LangPackString",
       "key": "MonetizationProceedsStarsTONInfo",
-      "value": "Hviezdičky a GRAM z celkového zostatku môžete použiť na reklamy alebo si ich vybrať ako odmenu 21, resp. 3 dni po ich získaní."
+      "value": "Hviezdičky a gramy z celkového zostatku môžete použiť na reklamy alebo si ich vybrať ako odmenu 21, resp. 3 dni po ich získaní."
     },
     {
       "_": "types.LangPackString",
       "key": "MonetizationProceedsTONInfo",
-      "value": "Gram z celkového zostatku môžete použiť na reklamy alebo si ho vybrať ako odmenu 3 dni po získaní. Nemôžete vybrať menej ako 10 GRAM."
+      "value": "Gramy z celkového zostatku môžete použiť na reklamy alebo si ho vybrať ako odmenu 3 dni po získaní. Nemôžete vybrať menej ako 10 gramov."
     },
     {
       "_": "types.LangPackString",
@@ -26526,7 +26796,7 @@
     {
       "_": "types.LangPackString",
       "key": "MyTON",
-      "value": "Môj GRAM"
+      "value": "Moje Gramy"
     },
     {
       "_": "types.LangPackString",
@@ -26883,6 +27153,11 @@
       "_": "types.LangPackString",
       "key": "NoBlockedChannel2",
       "value": "Používatelia odstránení z tohto kanála správcami sa nemôžu pripojiť znovu cez pozvánky."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NoBlockedCommunity2",
+      "value": "Používatelia, ktorých správcovia vylúčili z komunity, sa nemôžu opäť pripojiť cez pozvánky."
     },
     {
       "_": "types.LangPackString",
@@ -36802,7 +37077,7 @@
     {
       "_": "types.LangPackString",
       "key": "SMSFeePurchaseTitle",
-      "value": "Zaregistrovať sa za %s"
+      "value": "Kúpiť za %s"
     },
     {
       "_": "types.LangPackString",
@@ -43598,7 +43873,7 @@
     {
       "_": "types.LangPackString",
       "key": "SuggestedOfferTON",
-      "value": "Ponúknuť GRAM"
+      "value": "Ponúknuť gramy"
     },
     {
       "_": "types.LangPackString",
@@ -43859,6 +44134,11 @@
       "_": "types.LangPackString",
       "key": "SwipeToGoNextUnreadTopic",
       "value": "Vytiahnite nahor a prejdite na ďalšiu neprečítanú tému"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SwipeUngroupCommunity",
+      "value": "Oddeliť"
     },
     {
       "_": "types.LangPackString",
@@ -45109,7 +45389,7 @@
     {
       "_": "types.LangPackString",
       "key": "TonNeededTitle",
-      "value": "Vyžaduje sa %s GRAM"
+      "value": "Potrebujete %s GRAM"
     },
     {
       "_": "types.LangPackString",
@@ -50057,5 +50337,5 @@
       "value": "Telegram pas"
     }
   ],
-  "version": 59822247
+  "version": 60132272
 }
