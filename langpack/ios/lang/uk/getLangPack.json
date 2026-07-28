@@ -1891,7 +1891,7 @@
     {
       "_": "types.LangPackString",
       "key": "ArchiveSettings.FolderChatsFooter",
-      "value": "Залишати архівовані чати, додані до папок, в архіві, навіть якщо для них увімкнено сповіщення та приходить нове повідомлення."
+      "value": "Залишати в архіві чати, додані до папок, навіть якщо приходить повідомлення зі сповіщенням."
     },
     {
       "_": "types.LangPackString",
@@ -1926,7 +1926,7 @@
     {
       "_": "types.LangPackString",
       "key": "ArchiveSettings.UnmutedChatsFooter",
-      "value": "Залишати архівовані чати в архіві, навіть якщо для них увімкнено сповіщення та приходить нове повідомлення."
+      "value": "Залишати чати в архіві, навіть якщо приходить повідомлення зі сповіщенням."
     },
     {
       "_": "types.LangPackString",
@@ -3148,7 +3148,7 @@
     {
       "_": "types.LangPackString",
       "key": "AutoremoveSetup.TimerValueAfter",
-      "value": "За %@"
+      "value": "%@"
     },
     {
       "_": "types.LangPackString",
@@ -4744,7 +4744,7 @@
     {
       "_": "types.LangPackString",
       "key": "Business.Intro.ResetToDefault",
-      "value": "Скинути до типової"
+      "value": "Відновити за замовчуванням"
     },
     {
       "_": "types.LangPackString",
@@ -12033,7 +12033,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.PanelHidePinnedMessages",
-      "value": "Приховати всі прикріплені"
+      "value": "Приховати всі"
     },
     {
       "_": "types.LangPackString",
@@ -12058,7 +12058,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.PanelUnpinAllMessages",
-      "value": "Відкріпити всі повідомлення"
+      "value": "Відкріпити всі"
     },
     {
       "_": "types.LangPackString",
@@ -13999,15 +13999,15 @@
     {
       "_": "types.LangPackString",
       "key": "ChatList.BirthdayMultipleText",
-      "value": "Надішліть їм подарунки."
+      "value": "Надішліть їм подарунки. 🎂"
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "У %@ контактів **день народження**! 🎂",
+      "few_value": "У %@ контактів **день народження**!",
       "key": "ChatList.BirthdayMultipleTitle",
-      "many_value": "У %@ контактів **день народження**! 🎂",
-      "one_value": "У %@ контакту **день народження**! 🎂",
-      "other_value": "У %@ контактів **день народження**! 🎂"
+      "many_value": "У %@ контактів **день народження**!",
+      "one_value": "У %@ контакту **день народження**!",
+      "other_value": "У %@ контактів **день народження**!"
     },
     {
       "_": "types.LangPackString",
@@ -15409,7 +15409,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChatListFilter.ToastChatsAddedText",
-      "value": "Це не вплине на списки чатів, доступні за посиланнями цієї папки."
+      "value": "Списки чатів, доступні за старими посиланнями, не змінилися."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -17886,22 +17886,22 @@
     {
       "_": "types.LangPackString",
       "key": "Conversation.AutoremoveTimerSetUser",
-      "value": "%1$@ вмикає автовидалення повідомлень через %2$@"
+      "value": "%1$@ вмикає автовидалення\nповідомлень через %2$@"
     },
     {
       "_": "types.LangPackString",
       "key": "Conversation.AutoremoveTimerSetUserGlobal",
-      "value": "%1$@ використовує автовидалення за таймером для всіх чатів.\nУсі нові повідомлення в цьому чаті автоматично видалятимуться через %2$@ після надсилання."
+      "value": "%1$@ використовує автовидалення за таймером для всіх чатів.\nНові повідомлення автоматично видалятимуться через %2$@."
     },
     {
       "_": "types.LangPackString",
       "key": "Conversation.AutoremoveTimerSetUserGlobalYou",
-      "value": "Ви встановили автовидалення за таймером для всіх чатів. Нові повідомлення в цьому чаті видалятимуться автоматично\nчерез %1$@ після надсилання."
+      "value": "Ви встановили автовидалення за таймером для всіх чатів. Нові повідомлення видалятимуться автоматично через %1$@."
     },
     {
       "_": "types.LangPackString",
       "key": "Conversation.AutoremoveTimerSetUserYou",
-      "value": "Ви вмикаєте автовидалення повідомлень через %1$@"
+      "value": "Ви вмикаєте автовидалення\nповідомлень через %1$@"
     },
     {
       "_": "types.LangPackString",
@@ -27414,7 +27414,7 @@
     {
       "_": "types.LangPackString",
       "key": "GlobalAutodeleteSettings.InfoEnabled",
-      "value": "Якщо увімкнено, усі нові повідомлення в чатах, які ви починаєте, автоматично видалятимуться для всіх учасників через %@ після надсилання. Ви також можете [використати цю можливість для ваших наявних чатів]()."
+      "value": "Повідомлення у нових чатах видалятимуться автоматично для всіх учасників через %@.\nЦе також можна увімкнути для [наявних чатів]()."
     },
     {
       "_": "types.LangPackString",
@@ -27444,17 +27444,17 @@
     {
       "_": "types.LangPackString",
       "key": "GlobalAutodeleteSettings.SetConfirmToastDisabled",
-      "value": "Повідомлення у всіх нових чатах, які ви починаєте, не видалятимуться автоматично."
+      "value": "Повідомлення у всіх нових чатах не видалятимуться автоматично."
     },
     {
       "_": "types.LangPackString",
       "key": "GlobalAutodeleteSettings.SetConfirmToastEnabled",
-      "value": "Повідомлення у всіх нових чатах, які ви починаєте, автоматично видалятимуться через %@."
+      "value": "Повідомлення у нових чатах автоматично видалятимуться через %@."
     },
     {
       "_": "types.LangPackString",
       "key": "GlobalAutodeleteSettings.SetCustomTime",
-      "value": "Власний час..."
+      "value": "Вказати власний час..."
     },
     {
       "_": "types.LangPackString",
@@ -30755,7 +30755,7 @@
     {
       "_": "types.LangPackString",
       "key": "Localization.ShowTranslateInfoExtended",
-      "value": "Показувати кнопку для перекладу в меню дій повідомлення."
+      "value": "Показувати опцію перекладу в меню повідомлення."
     },
     {
       "_": "types.LangPackString",
@@ -31270,7 +31270,7 @@
     {
       "_": "types.LangPackString",
       "key": "Login.Fee.GetPremiumForAWeek",
-      "value": "Ви отримаєте Telegram Premium на 1 тиждень"
+      "value": "Ви отримаєте Premium на 1 тиждень"
     },
     {
       "_": "types.LangPackString",
@@ -31293,7 +31293,7 @@
     {
       "_": "types.LangPackString",
       "key": "Login.Fee.SignUp",
-      "value": "Підпишіться за %@"
+      "value": "Зареєструватися за %@"
     },
     {
       "_": "types.LangPackString",
@@ -31346,7 +31346,7 @@
     {
       "_": "types.LangPackString",
       "key": "Login.Fee.Verification.Title",
-      "value": "Необхідно підтвердження"
+      "value": "Потрібне підтвердження"
     },
     {
       "_": "types.LangPackString",
@@ -37862,7 +37862,7 @@
     {
       "_": "types.LangPackString",
       "key": "Notifications.UploadError.TooLarge.Title",
-      "value": "Звуковий файл завеликий"
+      "value": "Аудіофайл завеликий"
     },
     {
       "_": "types.LangPackString",
@@ -37872,7 +37872,7 @@
     {
       "_": "types.LangPackString",
       "key": "Notifications.UploadError.TooLong.Title",
-      "value": "Звук задовгий"
+      "value": "Аудіофайл задовгий"
     },
     {
       "_": "types.LangPackString",
@@ -43291,7 +43291,7 @@
     {
       "_": "types.LangPackString",
       "key": "Premium.ChatManagementInfo",
-      "value": "Вибір типової папки, автоархівування та приховування нових чатів."
+      "value": "Вибір початкової папки, автоархівування та приховування нових чатів."
     },
     {
       "_": "types.LangPackString",
@@ -44606,12 +44606,12 @@
     {
       "_": "types.LangPackString",
       "key": "Premium.Week.SignUp",
-      "value": "Підпишіться за %@"
+      "value": "Зареєструватися за %@"
     },
     {
       "_": "types.LangPackString",
       "key": "Premium.Week.SignUpInfo",
-      "value": "Ви отримаєте Telegram Premium на 1 тиждень"
+      "value": "Ви отримаєте Premium на 1 тиждень"
     },
     {
       "_": "types.LangPackString",
@@ -45137,12 +45137,12 @@
     {
       "_": "types.LangPackString",
       "key": "Privacy.Messages.PremiumToast.Text",
-      "value": "Це опція доступна тільки з **Telegram Premium**."
+      "value": "Ця опція доступна тільки з **Telegram Premium**."
     },
     {
       "_": "types.LangPackString",
       "key": "Privacy.Messages.PremiumToast.Title",
-      "value": "Тільки з Premium"
+      "value": "Потрібна підписка"
     },
     {
       "_": "types.LangPackString",
@@ -45235,7 +45235,7 @@
     {
       "_": "types.LangPackString",
       "key": "Privacy.PaymentsClearInfoHelp",
-      "value": "Ви можете видалити дані доставки та попросити всіх платіжних провайдерів видалити збережені кредитні картки. Telegram ніколи не зберігає дані вашої кредитної картки."
+      "value": "Ви можете видалити дані доставки й надіслати запит платіжним провайдерам на видалення збережених кредитних карток. Зауважте, що Telegram ніколи не зберігає дані ваших кредитних карток."
     },
     {
       "_": "types.LangPackString",
@@ -45380,7 +45380,7 @@
     {
       "_": "types.LangPackString",
       "key": "Privacy.SecretChatsLinkPreviewsHelp",
-      "value": "Попередній перегляд формується на серверах Telegram. Ми не зберігаємо даних із надісланих вами посилань."
+      "value": "Попередній перегляд формується на серверах Telegram. Ми не зберігаємо дані про ваші посилання."
     },
     {
       "_": "types.LangPackString",
@@ -48201,7 +48201,7 @@
     {
       "_": "types.LangPackString",
       "key": "Settings.AutoDeleteInfo",
-      "value": "Автоматично видаляти повідомлення для всіх через певний час у нових чатах, які ви починаєте."
+      "value": "Автоматично видаляти повідомлення у нових чатах для всіх через певний час."
     },
     {
       "_": "types.LangPackString",
@@ -48631,17 +48631,17 @@
     {
       "_": "types.LangPackString",
       "key": "Settings.Privacy.ReadTimePremiumActive",
-      "value": "Підписник Telegram Premium"
+      "value": "Ви підписані на Telegram Premium"
     },
     {
       "_": "types.LangPackString",
       "key": "Settings.Privacy.ReadTimePremiumActiveFooter",
-      "value": "Оскільки ви підписані на Telegram Premium, ви бачитимете час активності та час прочитання усіх користувачів, які діляться ним з вами, — навіть якщо приховуєте свій."
+      "value": "Ви бачитимете час активності та час прочитання усіх користувачів, які діляться ним з вами, — навіть якщо приховуєте свій."
     },
     {
       "_": "types.LangPackString",
       "key": "Settings.Privacy.ReadTimePremiumFooter",
-      "value": "Якщо ви підпишетеся на Telegram Premium, ви все одно бачитимете час активності та прочитання інших користувачів, навіть якщо ви приховали від них свої (за умови, що їхні налаштування це дозволяють)."
+      "value": "Якщо ви оформите підписку, ви бачитимете час активності та прочитання інших користувачів, навіть якщо ви приховали від них свої (за умови, що їхні налаштування це дозволяють)."
     },
     {
       "_": "types.LangPackString",
@@ -61586,5 +61586,5 @@
       "value": "Ви ввели неправильний код безпеки."
     }
   ],
-  "version": 21644008
+  "version": 21655744
 }
