@@ -1249,6 +1249,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown",
+      "value": "{from} přidal/a tuto skupinu do komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown_channel",
+      "value": "Tento kanál byl přidán do komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_added_unknown_chat",
+      "value": "Tento chat byl přidán do komunity."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_community_removed",
       "value": "{from} odebral/a tuto skupinu z komunity."
     },
@@ -1256,6 +1271,11 @@
       "_": "types.LangPackString",
       "key": "lng_action_community_removed_channel",
       "value": "Tento kanál byl odebrán z komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_community_removed_chat",
+      "value": "Tento chat byl odebrán z komunity."
     },
     {
       "_": "types.LangPackString",
@@ -4465,6 +4485,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_editor_title",
+      "value": "Článek"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_editor_title_editing",
+      "value": "Úpravy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_blockquote",
+      "value": "Citace"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_insert_bullet_list",
       "value": "Odrážkový seznam"
     },
@@ -4482,6 +4517,11 @@
       "_": "types.LangPackString",
       "key": "lng_article_insert_divider",
       "value": "Oddělovač"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_emoji",
+      "value": "Emoji"
     },
     {
       "_": "types.LangPackString",
@@ -4525,6 +4565,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_insert_math",
+      "value": "Matematika"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_media",
+      "value": "Přiložit médium"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_insert_ordered_list",
       "value": "Uspořádaný seznam"
     },
@@ -4532,6 +4582,11 @@
       "_": "types.LangPackString",
       "key": "lng_article_insert_pullquote",
       "value": "Výňatek textu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_insert_table",
+      "value": "Tabulka"
     },
     {
       "_": "types.LangPackString",
@@ -4667,6 +4722,11 @@
       "_": "types.LangPackString",
       "key": "lng_article_premium_choice_plain",
       "value": "Odeslat bez formátování"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_premium_choice_plain_save",
+      "value": "Uložit bez formátování"
     },
     {
       "_": "types.LangPackString",
@@ -4810,6 +4870,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_table_header_cells",
+      "value": "Záhlaví buněk"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_table_split_cell",
       "value": "Rozdělit buňky"
     },
@@ -4840,6 +4905,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_tooltip_list_style",
+      "value": "Styl seznamu"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_tooltip_media",
       "value": "Vložit média"
     },
@@ -4847,6 +4917,11 @@
       "_": "types.LangPackString",
       "key": "lng_article_tooltip_table_insert",
       "value": "Vložit tabulku"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_table_style",
+      "value": "Styl tabulky"
     },
     {
       "_": "types.LangPackString",
@@ -9709,8 +9784,53 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_add_chat_title",
+      "value": "Přidat chat do komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_confirm",
+      "value": "Pokud tuto skupinu schválí správce komunity, budou její členové moci vstoupit do jiných chatů v rámci komunity nebo o to požádat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_confirm_add",
+      "value": "Přidat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_confirm_bot",
+      "value": "Pokud tohoto bota schválí správce komunity, budou jej členové komunity moci vidět a používat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_confirm_channel",
+      "value": "Pokud tento kanál schválí správce komunity, budou jeho odběratelé moci vstoupit do jiných chatů v rámci komunity nebo o to požádat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_done",
+      "value": "Skupina přidána do komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_done_bot",
+      "value": "Bot přidán do komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_add_done_channel",
+      "value": "Kanál přidán do komunity."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_add_to",
       "value": "Přidat do komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_about",
+      "value": "Nyní můžete upravit info o {community} a použít další nástroje správce."
     },
     {
       "_": "types.LangPackString",
@@ -9724,8 +9844,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_admin_dismiss_text",
+      "value": "Ztratíte přístup k nástrojům pro správu komunity, ale zachováte si práva správce skupiny."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_dismiss_title",
+      "value": "Odebrat si práva správce komunity"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_promote",
+      "value": "Povýšit"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_admin_promote_sure",
       "value": "{user} bude moci upravovat informace o komunitě a využívat další nástroje pro správce."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_admin_promote_title",
+      "value": "Jmenovat správce komunity"
     },
     {
       "_": "types.LangPackString",
@@ -9734,11 +9874,52 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "few_value": "Uživatel bude odebrán ze {count} chatů.",
+      "key": "lng_community_ban_about",
+      "many_value": "Uživatel bude odebrán z {count} chatů.",
+      "one_value": "Uživatel bude odebrán z {count} chatu.",
+      "other_value": "Uživatel bude odebrán z {count} chatů."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_button",
+      "value": "Zablokovat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_done",
+      "value": "{user} byl/a vyloučen/a z komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_toggle",
+      "value": "Vyloučit z komunity"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "few_value": "Zablokování {user} způsobí také odstranění {count}, které tento uživatel v komunitě vytvořil.",
       "key": "lng_community_ban_warning",
       "many_value": "Zablokování {user} způsobí také odstranění {count}, které tento uživatel v komunitě vytvořil.",
       "one_value": "Zablokování {user} způsobí také odstranění {count}, který tento uživatel v komunitě vytvořil.",
       "other_value": "Zablokování {user} způsobí také odstranění {count}, které tento uživatel v komunitě vytvořil."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_ban_warning_title",
+      "value": "Varování"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Limit {count} botů dosažen.",
+      "key": "lng_community_bot_peers_limit",
+      "many_value": "Limit {count} botů dosažen.",
+      "one_value": "Limit {count} bota dosažen.",
+      "other_value": "Limit {count} botů dosažen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_chat_loading",
+      "value": "Načítání..."
     },
     {
       "_": "types.LangPackString",
@@ -9800,8 +9981,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_create_chat",
+      "value": "Vytvořit nový chat"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_create_hidden",
       "value": "Skrytá skupina"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_create_hidden_bot",
+      "value": "Skrytý bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_create_hidden_channel",
+      "value": "Skrytý kanál"
     },
     {
       "_": "types.LangPackString",
@@ -9812,6 +10008,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_create_title",
       "value": "Nová komunita"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_created",
+      "value": "Komunita vytvořena."
     },
     {
       "_": "types.LangPackString",
@@ -9845,8 +10046,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_hidden_not_accessible_bot",
+      "value": "Tohoto bota nemůžete používat, dokud vás nepozve správce."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_hidden_not_accessible_channel",
+      "value": "Tento kanál nemůžete sledovat ani se k němu připojit, dokud vás nepozve správce."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_hidden_status",
       "value": "Skrytý"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_join_sure",
+      "value": "Chcete se připojit do {group}?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage",
+      "value": "Spravovat komunitu"
     },
     {
       "_": "types.LangPackString",
@@ -9857,6 +10078,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_manage_all_members_about",
       "value": "Umožnit členům přidávat do komunity své skupiny a kanály."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_manage_name",
+      "value": "Název komunity"
     },
     {
       "_": "types.LangPackString",
@@ -9872,6 +10098,14 @@
       "_": "types.LangPackString",
       "key": "lng_community_manage_who_add",
       "value": "Kdo může přidávat chaty"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Limit {count} chatů dosažen.",
+      "key": "lng_community_peers_limit",
+      "many_value": "Limit {count} chatů dosažen.",
+      "one_value": "Limit {count} chatu dosažen.",
+      "other_value": "Limit {count} chatů dosažen."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -9898,6 +10132,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_remove_done",
+      "value": "Odebrán z komunity."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_remove_sure",
       "value": "Opravdu chcete {group} odebrat z komunity?"
     },
@@ -9912,9 +10151,50 @@
       "value": "Přidat"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "{count} chaty byly přidány do komunity.",
+      "key": "lng_community_request_added_toast",
+      "many_value": "{count} chatů bylo přidáno do komunity.",
+      "one_value": "Chat byl přidán do komunity.",
+      "other_value": "{count} chatů bylo přidáno do komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_added_toast_undo",
+      "value": "Schválil/a jste žádost o přidání {chat} do komunity."
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_community_request_decline",
       "value": "Odmítnout"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "{count} žádosti o přidání chatu byly zamítnuty.",
+      "key": "lng_community_request_declined_toast",
+      "many_value": "{count} žádostí o přidání chatu bylo zamítnuto.",
+      "one_value": "Žádost o přidání chatu byla zamítnuta.",
+      "other_value": "{count} žádostí o přidání chatu bylo zamítnuto."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_declined_toast_undo",
+      "value": "Odmítl/a jste žádost o přidání {chat} do komunity."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only",
+      "value": "Tato skupina je jen pro pozvané. Zobrazit ji mohou pouze její členové."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only_bot",
+      "value": "Tento bot je přístupný pouze na pozvání. Používat jej mohou pouze pozvaní členové."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_invite_only_channel",
+      "value": "Tento kanál je přístupný pouze na pozvání. Zobrazit ho mohou pouze jeho členové."
     },
     {
       "_": "types.LangPackString",
@@ -9923,8 +10203,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_request_message_owner_bot",
+      "value": "Napsat správci bota"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_request_message_owner_channel",
       "value": "Napsat vlastníkovi kanálu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_only_members",
+      "value": "Viditelné pouze pro členy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_request_sent",
+      "value": "Váš požadavek byl odeslán správcům komunity."
     },
     {
       "_": "types.LangPackString",
@@ -9971,6 +10266,14 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "few_value": "{count} nevyřízené žádosti",
+      "key": "lng_community_requests_button",
+      "many_value": "{count} nevyřízených žádostí",
+      "one_value": "{count} nevyřízená žádost",
+      "other_value": "{count} nevyřízených žádostí"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "few_value": "{count} navrhované chaty pro tuto komunitu",
       "key": "lng_community_requests_count",
       "many_value": "{count} navrhovaných chatů pro tuto komunitu",
@@ -10009,6 +10312,11 @@
       "_": "types.LangPackString",
       "key": "lng_community_show_as_one_about",
       "value": "Seskupit všechny komunitní chaty do jedné položky v seznamu chatů."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_community_status",
+      "value": "komunita"
     },
     {
       "_": "types.LangPackString",
@@ -10791,6 +11099,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_context_copy_in_reply_to",
+      "value": "v odpovědi na {name}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_context_copy_link",
       "value": "Kopírovat odkaz"
     },
@@ -11058,6 +11371,11 @@
       "_": "types.LangPackString",
       "key": "lng_context_open_channel",
       "value": "Otevřít kanál"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_context_open_community",
+      "value": "Otevřít komunitu"
     },
     {
       "_": "types.LangPackString",
@@ -12481,6 +12799,11 @@
       "_": "types.LangPackString",
       "key": "lng_credits_topup_button",
       "value": "{emoji} Navýšit zůstatek"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_credits_topup_disabled",
+      "value": "Je nám líto, ale na vašem účtu nemáte dostatek hvězd Telegramu."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -14228,8 +14551,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_edited_at",
+      "value": "upraveno {time}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_edited_date",
       "value": "Upraveno: {date}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_edited_on",
+      "value": "upraveno {date} v {time}"
     },
     {
       "_": "types.LangPackString",
@@ -14260,6 +14593,21 @@
       "_": "types.LangPackString",
       "key": "lng_effect_stickers_title",
       "value": "Efekty ze samolepek"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_adapt_no_video",
+      "value": "Videosamolepky zatím nejsou podporovány."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_adapt_sticker",
+      "value": "Převést ze samolepky"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_add_existing",
+      "value": "Přidat existující emoji"
     },
     {
       "_": "types.LangPackString",
@@ -14338,8 +14686,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_emoji_create_emoji_about",
+      "value": "Vyberte emoji, které je shodné s vaším emoji"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_create_image_title",
+      "value": "Nové emoji"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_create_new",
+      "value": "Vytvořit nové emoji"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_emoji_featured_unlock",
       "value": "Odemknout"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_emoji_group_badge",
+      "value": "Emoji skupiny"
     },
     {
       "_": "types.LangPackString",
@@ -14498,8 +14866,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_ephemeral_cant_schedule",
+      "value": "Dočasné zprávy nelze naplánovat."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_ephemeral_command_tooltip",
       "value": "Ostatní členové tuto zprávu neuvidí"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_reply_single_message",
+      "value": "Na tuto zprávu můžete odeslat pouze jednu odpověď."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_ephemeral_reply_text_only",
+      "value": "Tento typ zprávy nelze odeslat jako odpověď na tuto zprávu."
     },
     {
       "_": "types.LangPackString",
@@ -16043,6 +16426,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_filters_tabs_default",
+      "value": "Výchozí"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_filters_tabs_icons",
+      "value": "Pouze ikony"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_filters_tabs_subtitle",
+      "value": "Vzhled karet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_filters_tabs_text",
+      "value": "Pouze text"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_filters_tabs_text_icons",
+      "value": "Text a ikony"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_filters_tag_color_about",
       "value": "Zvolte barvu štítku této složky."
     },
@@ -16236,8 +16644,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_formatting_math_source",
+      "value": "Vzorec"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_formatting_math_source_label",
       "value": "LaTeX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_source_placeholder",
+      "value": "Zdroj vzorce"
     },
     {
       "_": "types.LangPackString",
@@ -21614,6 +22032,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_in_dlg_table",
+      "value": "Tabulka"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_in_dlg_todo_list",
       "value": "Kontrolní seznam"
     },
@@ -22062,8 +22485,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_iv_editor_close_now",
+      "value": "Zavřít nyní"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_iv_editor_discard_draft_sure",
       "value": "Opravdu chcete tuto zprávu smazat? Tuto akci nelze vrátit zpět."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_media_invalid_file",
+      "value": "Je nám líto ale zde jsou podporovány pouze fotky, videa a zvukové soubory."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_save_draft_failed",
+      "value": "Nepodařilo se uložit koncept."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_save_draft_failed_error",
+      "value": "Nepodařilo se uložit koncept.\n\nChyba: {error}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_editor_saving_draft",
+      "value": "Ukládání konceptu..."
     },
     {
       "_": "types.LangPackString",
@@ -24070,6 +24518,14 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "few_value": "{count} média",
+      "key": "lng_media_selected_media",
+      "many_value": "{count} médií",
+      "one_value": "{count} médium",
+      "other_value": "{count} médií"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "few_value": "{count} zprávy",
       "key": "lng_media_selected_message",
       "many_value": "{count} zpráv",
@@ -24230,6 +24686,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_media_zoom_in",
+      "value": "Přiblížit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_media_zoom_out",
+      "value": "Oddálit"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_mediaview_archive_story",
       "value": "Archivovat příběh"
     },
@@ -24237,6 +24703,11 @@
       "_": "types.LangPackString",
       "key": "lng_mediaview_channel_photo",
       "value": "Fotka kanálu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_mediaview_community_photo",
+      "value": "Fotka komunity"
     },
     {
       "_": "types.LangPackString",
@@ -24570,6 +25041,11 @@
       "_": "types.LangPackString",
       "key": "lng_menu_formatting_monospace",
       "value": "Monospace"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_menu_formatting_plain_text",
+      "value": "Prostý text"
     },
     {
       "_": "types.LangPackString",
@@ -29609,6 +30085,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_profile_action_short_live_stream",
+      "value": "Živý přenos"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_profile_action_short_manage",
       "value": "Spravovat"
     },
@@ -30056,6 +30537,14 @@
       "value": "Spravovat omezené uživatele"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "{count} média",
+      "key": "lng_profile_media",
+      "many_value": "{count} médií",
+      "one_value": "{count} médium",
+      "other_value": "{count} médií"
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_profile_migrate_body",
       "value": "Pokud chcete přidat další členy, můžete povýšit skupinu na superskupinu."
@@ -30372,6 +30861,11 @@
       "_": "types.LangPackString",
       "key": "lng_profile_sure_remove_admin",
       "value": "Odebrat uživatele {user} ze správců?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_profile_tab_set_as_main",
+      "value": "Nastavit jako hlavní kartu"
     },
     {
       "_": "types.LangPackString",
@@ -30713,6 +31207,16 @@
       "_": "types.LangPackString",
       "key": "lng_public_post_private_hint_ctrl",
       "value": "Neveřejný odkaz zkopírujete pomocí Ctrl+kliknutí."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_pull_next_channel",
+      "value": "Potáhněte nahoru pro zobrazení následujícího nepřečteného kanálu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_pull_no_unread_channels",
+      "value": "Nemáte žádné nepřečtené kanály"
     },
     {
       "_": "types.LangPackString",
@@ -31141,6 +31645,11 @@
       "_": "types.LangPackString",
       "key": "lng_record_voice_tip",
       "value": "Podržte pro nahrávání audia. Kliknutím přepnete na video."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_release_next_channel",
+      "value": "Pro další nepřečtený kanál uvolněte"
     },
     {
       "_": "types.LangPackString",
@@ -33140,8 +33649,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_search_filter_from_archive",
+      "value": "Z archivu"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_search_filter_group",
       "value": "Skupinové konverzace"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_search_filter_non_archived",
+      "value": "Nearchivováno"
     },
     {
       "_": "types.LangPackString",
@@ -33801,6 +34320,11 @@
       "_": "types.LangPackString",
       "key": "lng_sent_date",
       "value": "Posláno: {date}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_sent_on",
+      "value": "posláno {date} v {time}"
     },
     {
       "_": "types.LangPackString",
@@ -35623,6 +36147,11 @@
       "_": "types.LangPackString",
       "key": "lng_settings_profile_photo_privacy",
       "value": "Profilové fotky"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_settings_pull_to_next_channel",
+      "value": "Přejetí prstem k dalšímu nepřečtenému kanálu"
     },
     {
       "_": "types.LangPackString",
@@ -37467,6 +37996,16 @@
       "_": "types.LangPackString",
       "key": "lng_sr_country_column_name",
       "value": "Název země"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_sr_folder_locked",
+      "value": "{text}, vyžadováno Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_sr_folder_locked_about",
+      "value": "Kliknutím zobrazit možnosti předplatného."
     },
     {
       "_": "types.LangPackString",
@@ -41989,5 +42528,5 @@
       "other_value": "Zaplatil/a jste {count} hvězd."
     }
   ],
-  "version": 5757294
+  "version": 5758628
 }
