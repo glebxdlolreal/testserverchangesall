@@ -1816,6 +1816,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AriaComposerCloseRichInput",
+      "value": "Zwiń edytor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AriaComposerOpenRichInput",
+      "value": "Otwórz pełny edytor"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AriaComposerOpenScheduled",
       "value": "Otwórz zaplanowane wiadomości"
     },
@@ -2123,6 +2133,11 @@
       "_": "types.LangPackString",
       "key": "AttachmentDragAddItems",
       "value": "Dodaj elementy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AttachmentMenuArticle",
+      "value": "Artykuł"
     },
     {
       "_": "types.LangPackString",
@@ -5299,6 +5314,32 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ErrorRichMessageTableTooWide",
+      "value": "Tabela artykułu ma zbyt wiele kolumn. Maksymalna liczba kolumn to {count}."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ErrorRichMessageTooDeep",
+      "value": "Artykuł jest zbyt głęboko osadzony. Maksymalna głębokość wynosi {count}."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Artykuł zawiera zbyt wiele bloków. Usuń {count} bloki.",
+      "key": "ErrorRichMessageTooManyBlocks",
+      "many_value": "Artykuł zawiera zbyt wiele bloków. Usuń {count} bloków.",
+      "one_value": "Artykuł zawiera zbyt wiele bloków. Usuń {count} blok.",
+      "other_value": "Artykuł zawiera zbyt wiele bloków. Usuń {count} bloku."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Artykuł zawiera zbyt wiele plików multimedialnych. Usuń {count} pliki.",
+      "key": "ErrorRichMessageTooManyMedia",
+      "many_value": "Artykuł zawiera zbyt wiele plików multimedialnych. Usuń {count} plików.",
+      "one_value": "Artykuł zawiera zbyt wiele plików multimedialnych. Usuń {count} plik.",
+      "other_value": "Artykuł zawiera zbyt wiele plików multimedialnych. Usuń {count} pliku."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ErrorSendRestrictedStickersAll",
       "value": "W tej grupie wysyłanie naklejek jest niedozwolone"
     },
@@ -5774,6 +5815,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "FormattingClearAria",
+      "value": "Wyczyść formatowanie"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "FormattingEnterUrl",
       "value": "Wprowadź URL…"
     },
@@ -5781,6 +5827,16 @@
       "_": "types.LangPackString",
       "key": "FormattingItalicAria",
       "value": "Kursywa"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingLinkUrl",
+      "value": "URL"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingMarkedAria",
+      "value": "Wyróżniony tekst"
     },
     {
       "_": "types.LangPackString",
@@ -5796,6 +5852,16 @@
       "_": "types.LangPackString",
       "key": "FormattingStrikethroughAria",
       "value": "Przekreślenie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingSubscriptAria",
+      "value": "Indeks dolny"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingSuperscriptAria",
+      "value": "Indeks górny"
     },
     {
       "_": "types.LangPackString",
@@ -10918,6 +10984,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ProfileSendAGift",
+      "value": "Wyślij prezent"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ProfileTabBotPreview",
       "value": "Podgląd"
     },
@@ -11324,6 +11395,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RemoveMember",
+      "value": "Usuń członka"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RemoveRichFormatting",
+      "value": "Usuń formatowanie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RemoveRichFormattingText",
+      "value": "Ta wiadomość zawiera bogate formatowanie, które wymaga subskrypcji **Telegram Premium**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RemoveRichFormattingTitle",
+      "value": "Usunąć formatowanie?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RemoveSymbol",
       "value": "Usuń emoji"
     },
@@ -11379,6 +11470,11 @@
       "_": "types.LangPackString",
       "key": "ReportChat",
       "value": "Zgłoś {peer}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReportChatMessagesRequired",
+      "value": "Wybierz wiadomości, które chcesz uwzględnić w raporcie."
     },
     {
       "_": "types.LangPackString",
@@ -11517,8 +11613,354 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorBlockMenu",
+      "value": "Wstaw blok"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorBlockPlaceholder",
+      "value": "Napisz coś…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorBlockquote",
+      "value": "Cytat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorBulletList",
+      "value": "Wypunktowana"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorChecklist",
+      "value": "Lista zadań"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorCodeBlock",
+      "value": "Blok kodu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorCodeLanguageAuto",
+      "value": "Automatyczny"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorDetails",
+      "value": "Rozwijana"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorDivider",
+      "value": "Separator"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorEquation",
+      "value": "Formuła"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorEquationPrompt",
+      "value": "Wprowadź równianie…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorEquationToBlock",
+      "value": "Konwertuj na równanie blokowe"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorEquationToInline",
+      "value": "Konwertuj na równanie liniowe"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorFooter",
+      "value": "Stopka"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorHeading",
+      "value": "Nagłówek"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorHeadingLevel",
+      "value": "Nagłówek {level}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListCheckmarks",
+      "value": "Znaczniki wyboru"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListMenu",
+      "value": "Listy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingDecimal",
+      "value": "Liczby (1, 2, 3)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingLowercaseLetters",
+      "value": "Małe litery (a, b, c)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingLowercaseRoman",
+      "value": "Małe litery rzymskie (i, ii, iii)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingType",
+      "value": "Typ numerowania"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingUppercaseLetters",
+      "value": "Duże litery (A, B, C)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingUppercaseRoman",
+      "value": "Duże litery rzymskie (I, II, III)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListOptions",
+      "value": "Opcje listy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListReverseOrder",
+      "value": "Odwrotna kolejność"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorOrderedList",
+      "value": "Numerowana"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorParagraph",
+      "value": "Paragraf"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorPullquote",
+      "value": "Cytat wyróżniony"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorPullquotePlaceholder",
+      "value": "Wpisz cytat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorQuoteCaptionPlaceholder",
+      "value": "Autor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorSubheading",
+      "value": "Podtytuł"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTable",
+      "value": "Tabela"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableActionsAria",
+      "value": "Otwórz działania na tabeli"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlign",
+      "value": "Wyrównanie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignBottom",
+      "value": "Do dołu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignCenter",
+      "value": "Do środka"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignLeft",
+      "value": "Do lewej"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignMiddle",
+      "value": "Do środka"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignRight",
+      "value": "Do prawej"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignTop",
+      "value": "Do góry"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableBorderless",
+      "value": "Bez obramowania"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableDelete",
+      "value": "Usuń"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Usuń {count} kolumny",
+      "key": "RichEditorTableDeleteColumn",
+      "many_value": "Usuń {count} kolumnę",
+      "one_value": "Usuń kolumnę",
+      "other_value": "Usuń {count} kolumny"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Usuń {count} wiersze",
+      "key": "RichEditorTableDeleteRow",
+      "many_value": "Usuń {count} wierszy",
+      "one_value": "Usuń wiersz",
+      "other_value": "Usuń {count} wiersza"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableDeleteTable",
+      "value": "Usuń tabelę"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableHighlight",
+      "value": "Wyróżnij"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsert",
+      "value": "Wstaw"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsertColumnLeft",
+      "value": "Wstaw kolumnę z lewej"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsertColumnRight",
+      "value": "Wstaw kolumnę z prawej"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsertRowAbove",
+      "value": "Wstaw wiersz powyżej"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsertRowBelow",
+      "value": "Wstaw wiersz poniżej"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMenu",
+      "value": "Tabela"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMergeCells",
+      "value": "Scal komórki"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMove",
+      "value": "Przesuń"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMoveDown",
+      "value": "Przesuń w dół"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMoveLeft",
+      "value": "Przesuń w lewo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMoveRight",
+      "value": "Przesuń w prawo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMoveUp",
+      "value": "Przesuń w górę"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableRemoveHighlight",
+      "value": "Usuń wyróżnienie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableResizeSelectionAria",
+      "value": "Zmień zaznaczenia komórek"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableSelectColumnAria",
+      "value": "Zaznacz kolumnę"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableSelectRowAria",
+      "value": "Zaznacz wiersz"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableSelectTableAria",
+      "value": "Zaznacz tabelę"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableSplitCell",
+      "value": "Podziel komórki"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableStriped",
+      "value": "Tabela w paski"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichFormattingSubscribe",
+      "value": "Subskrybuj Premium"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichMessageMore",
       "value": "Pokaż więcej"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor",
+      "value": "Edytor bagatego tekstu"
     },
     {
       "_": "types.LangPackString",
@@ -11564,6 +12006,11 @@
       "_": "types.LangPackString",
       "key": "SavedMessagesShort",
       "value": "Zapisany"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SavedOpenChat",
+      "value": "Otwórz czat"
     },
     {
       "_": "types.LangPackString",
@@ -12146,6 +12593,16 @@
       "_": "types.LangPackString",
       "key": "SettingsAboutBio",
       "value": "Różne szczegóły takie jak wiek, zawód, miejscowość.\nPrzykład: 23 lata, projektant z Warszawy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAutomaticTextReplacements",
+      "value": "Automatyczne zastępowanie tekstu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAutomaticTextReplacementsInfo",
+      "value": "Konwertuj --, << i >> podczas pisania"
     },
     {
       "_": "types.LangPackString",
@@ -14746,5 +15203,5 @@
       "value": "Twoja nazwa"
     }
   ],
-  "version": 274330
+  "version": 275838
 }
