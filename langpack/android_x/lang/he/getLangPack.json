@@ -88,6 +88,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedPollOption",
+      "value": "⁨%1$s⁩ הוסיף/ה את \"⁨%2$s⁩\" לסקר"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOptionMsg",
+      "value": "⁨%1$s⁩ הוסיף/ה את \"⁨%2$s⁩\" לסקר \"⁨%3$s⁩\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOption",
+      "value": "הוספת את \"⁨%1$s⁩\" לסקר"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOptionMsg",
+      "value": "הוספת את \"⁨%1$s⁩\" לסקר \"⁨%2$s⁩\""
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChannelChangedPhoto",
       "value": "תמונת הערוץ השתנתה"
     },
@@ -108,8 +128,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunity",
+      "value": "צ'אט זה נוסף לקהילה \"⁨%1$s⁩\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunityUnknown",
+      "value": "הצ'אט נוסף לקהילה"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChatOwnerLeftTo",
       "value": "הבעלים של הצ'אט עזב. אם הוא לא יחזור, ⁨%1$s⁩ יהיה הבעלים החדש"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatRemovedFromCommunity",
+      "value": "הצ'אט הוסר מהקהילה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAdd",
+      "value": "⁨%1$s⁩ הוסיף/ה ⁨%2$s⁩ לרשימת המשימות"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddMsg",
+      "value": "⁨%1$s⁩ הוסיף/ה ⁨%2$s⁩ לרשימת המשימות \"⁨%3$s⁩\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOut",
+      "value": "הוספת ⁨%1$s⁩ לרשימת המשימות"
     },
     {
       "_": "types.LangPackString",
@@ -118,8 +168,79 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChecklistMark",
+      "value": "⁨%1$s⁩ סימן/ה ש⁨%2$s⁩ בוצע, וש⁨%3$s⁩ לא בוצע"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDone",
+      "value": "⁨%1$s⁩ סימן/ה ש⁨%2$s⁩ בוצע"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDoneOut",
+      "value": "סימנת ש⁨%1$s⁩ בוצע"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkDoneTasks",
+      "many_value": "⁨%2$s⁩ סימן/ה ש⁨%1$s⁩ משימות בוצעו",
+      "one_value": "⁨%2$s⁩ סימן/ה שמשימה ⁨%1$s⁩ בוצעה",
+      "other_value": "⁨%2$s⁩ סימן/ה ש⁨%1$s⁩ משימות בוצעו",
+      "two_value": "⁨%2$s⁩ סימן/ה ש⁨%1$s⁩ משימות בוצעו"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDone",
+      "value": "⁨%1$s⁩ סימן/ה ש⁨%2$s⁩ לא בוצע"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDoneOut",
+      "value": "סימנת ש⁨%1$s⁩ לא בוצע"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkNotDoneTasks",
+      "many_value": "⁨%2$s⁩ סימן/ה ש⁨%1$s⁩ משימות לא בוצעו",
+      "one_value": "⁨%2$s⁩ סימן/ה שמשימה ⁨%1$s⁩ לא בוצעה",
+      "other_value": "⁨%2$s⁩ סימן/ה ש⁨%1$s⁩ משימות לא בוצעו",
+      "two_value": "⁨%2$s⁩ סימן/ה ש⁨%1$s⁩ משימות לא בוצעו"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkOut",
+      "value": "סימנת ש⁨%1$s⁩ בוצע, וש⁨%2$s⁩ לא בוצע"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "הערוץ נוצר"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionCreatedManagedBot",
+      "value": "יצרת את הבוט ⁨%1$s⁩ לניהול ⁨%2$s⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOption",
+      "value": "⁨%1$s⁩ הסיר/ה את \"⁨%2$s⁩\" מהסקר"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOptionMsg",
+      "value": "⁨%1$s⁩ הסיר/ה את \"⁨%2$s⁩\" מהסקר \"⁨%3$s⁩\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOption",
+      "value": "הסרת את \"⁨%1$s⁩\" מהסקר"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOptionMsg",
+      "value": "הסרת את \"⁨%1$s⁩\" מהסקר \"⁨%2$s⁩\""
     },
     {
       "_": "types.LangPackString",
@@ -304,6 +425,46 @@
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "סמן כנקרא"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabled",
+      "value": "⁨%1$s⁩ השבית/ה שיתוף מצ'אט זה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabledOut",
+      "value": "השבתת שיתוף בצ'אט זה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabledOut",
+      "value": "אפשרת שיתוף בצ'אט זה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequest",
+      "value": "⁨%1$s⁩ רוצה לאפשר שיתוף מצ'אט זה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestExpired",
+      "value": "פג תוקף בקשת השיתוף"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestOut",
+      "value": "הצעת לאפשר שיתוף מצ'אט זה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillDisabled",
+      "value": "השיתוף מצ'אט זה עדיין מושבת"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillEnabled",
+      "value": "השיתוף מצ'אט זה עדיין מאופשר"
     },
     {
       "_": "types.LangPackString",
@@ -18764,6 +18925,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncBtn",
+      "value": "סנכרן"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncContacts",
       "value": "סנכרן אנשי קשר"
     },
@@ -18809,8 +18975,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncHintTitle2",
+      "value": "לסנכרן את אנשי הקשר עם טלגרם?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncHintUnavailable",
       "value": "הקש על הגדרות > הרשאות, והפעל את אנשי הקשר כדי לאפשר גישה לטלגרם לאנשי הקשר שלך."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncLearnMore",
+      "value": "מדיניות הפרטיות"
     },
     {
       "_": "types.LangPackString",
@@ -22194,6 +22370,53 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistItem",
+      "value": "\"⁨%1$s⁩\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasks",
+      "value": "⁨%1$s⁩ סימן/ה ש⁨%2$s⁩ וש⁨%3$s⁩"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksDone",
+      "many_value": "⁨%1$s⁩משימות בוצעו",
+      "one_value": "משימה ⁨%1$s⁩ בוצעה",
+      "other_value": "⁨%1$s⁩ משימות בוצעו",
+      "two_value": "⁨%1$s⁩ משימות בוצעו"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksNotDone",
+      "many_value": "⁨%1$s⁩ משימות לא בוצעו",
+      "one_value": "משימה ⁨%1$s⁩ לא בוצעה",
+      "other_value": "⁨%1$s⁩ משימות לא בוצעו",
+      "two_value": "⁨%1$s⁩ משימות לא בוצעו"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasksOut",
+      "value": "סימנת ש⁨%1$s⁩ וש⁨%2$s⁩"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksOutDone",
+      "many_value": "⁨%1$s⁩ משימות בוצעו",
+      "one_value": "משימה ⁨%1$s⁩ בוצעה",
+      "other_value": "⁨%1$s⁩ משימות בוצעו",
+      "two_value": "⁨%1$s⁩ משימות בוצעו"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksOutNotDone",
+      "many_value": "⁨%1$s⁩ משימות לא בוצעו",
+      "one_value": "משימה ⁨%1$s⁩ לא בוצעה",
+      "other_value": "⁨%1$s⁩ משימות לא בוצעו",
+      "two_value": "⁨%1$s⁩ משימות לא בוצעו"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• ⁨%1$s⁩\n• ⁨%2$s⁩\n• ⁨%3$s⁩\n• ⁨%4$s⁩"
     },
@@ -23997,6 +24220,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "url_contactsPrivacy",
+      "value": "https://telegram.org/privacy#3-4-phone-number-and-contacts"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "url_faq",
       "value": "https://telegram.org/faq#general-questions"
     },
@@ -25010,5 +25238,5 @@
       "two_value": "שנתיים"
     }
   ],
-  "version": 1635281
+  "version": 1635855
 }
