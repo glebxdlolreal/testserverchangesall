@@ -1765,6 +1765,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AriaComposerCloseRichInput",
+      "value": "Kecilkan editor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AriaComposerOpenRichInput",
+      "value": "Buka editor penuh"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AriaComposerOpenScheduled",
       "value": "Buka mesej berjadual"
     },
@@ -2072,6 +2082,11 @@
       "_": "types.LangPackString",
       "key": "AttachmentDragAddItems",
       "value": "Tambah Item"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AttachmentMenuArticle",
+      "value": "Artikel"
     },
     {
       "_": "types.LangPackString",
@@ -5155,6 +5170,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ErrorRichMessageTableTooWide",
+      "value": "Jadual di mesej ada terlalu banyak kolum. Maximum ialah {count}."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ErrorRichMessageTooDeep",
+      "value": "Mesej dirangkai terlalu dalam. Maximum ialah {count}."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ErrorRichMessageTooManyBlocks",
+      "other_value": "Mesej punyai terlalu banyak blok. Sila keluarkan {count} blok."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ErrorRichMessageTooManyMedia",
+      "other_value": "Mesej punyai terlalu banayak item media. Sila keluarkan {count} item."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ErrorSendRestrictedStickersAll",
       "value": "Maaf, kirim stiker di grup ini tak dibenarkan"
     },
@@ -5615,6 +5650,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "FormattingClearAria",
+      "value": "Padam format"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "FormattingEnterUrl",
       "value": "Masukkan URL..."
     },
@@ -5622,6 +5662,16 @@
       "_": "types.LangPackString",
       "key": "FormattingItalicAria",
       "value": "Teks condong"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingLinkUrl",
+      "value": "URL"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingMarkedAria",
+      "value": "Teks disorot"
     },
     {
       "_": "types.LangPackString",
@@ -5637,6 +5687,16 @@
       "_": "types.LangPackString",
       "key": "FormattingStrikethroughAria",
       "value": "Potong teks"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingSubscriptAria",
+      "value": "Teks subskrip"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingSuperscriptAria",
+      "value": "Teks superskrip"
     },
     {
       "_": "types.LangPackString",
@@ -10505,6 +10565,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ProfileSendAGift",
+      "value": "Kirim Hadiah"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ProfileTabBotPreview",
       "value": "Pratonton"
     },
@@ -10905,6 +10970,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RemoveMember",
+      "value": "Keluarkan ahli"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RemoveRichFormatting",
+      "value": "Keluarkan Pemformatan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RemoveRichFormattingText",
+      "value": "Mesej ini guna pemformatan kaya, dan perlukan **Telegram Premium**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RemoveRichFormattingTitle",
+      "value": "Keluarkan Format?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RemoveSymbol",
       "value": "Hapus emoji"
     },
@@ -10957,6 +11042,11 @@
       "_": "types.LangPackString",
       "key": "ReportChat",
       "value": "Lapur {peer}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReportChatMessagesRequired",
+      "value": "Pilih mesej untuk masukkan dalam lapuran anda."
     },
     {
       "_": "types.LangPackString",
@@ -11095,8 +11185,348 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorBlockMenu",
+      "value": "Selit blok"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorBlockPlaceholder",
+      "value": "Taip sesuatu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorBlockquote",
+      "value": "Petik"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorBulletList",
+      "value": "Senarai bulet"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorChecklist",
+      "value": "Senaraisemak"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorCodeBlock",
+      "value": "Blok kod"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorCodeLanguageAuto",
+      "value": "Auto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorDetails",
+      "value": "Perincian"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorDivider",
+      "value": "Pembahagi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorEquation",
+      "value": "Formula"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorEquationPrompt",
+      "value": "Masuk formula..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorEquationToBlock",
+      "value": "Tukar ke peersamaan blok"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorEquationToInline",
+      "value": "Tukar ke persamaan di talian"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorFooter",
+      "value": "Pengaki"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorHeading",
+      "value": "Tajuk"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorHeadingLevel",
+      "value": "Tajuk {level}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListCheckmarks",
+      "value": "Tanda semak"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListMenu",
+      "value": "Senarai"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingDecimal",
+      "value": "Nombor (1, 2, 3)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingLowercaseLetters",
+      "value": "Huruf Kecil (a, b, c)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingLowercaseRoman",
+      "value": "Huruf Kecil Roman (i, ii, iii)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingType",
+      "value": "Jenis nombor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingUppercaseLetters",
+      "value": "Huruf Besar (A, B, C)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingUppercaseRoman",
+      "value": "Huruf Besar Roman (I, II, III)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListOptions",
+      "value": "Senarai opsyen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListReverseOrder",
+      "value": "Terbalikkan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorOrderedList",
+      "value": "Senarai bernombor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorParagraph",
+      "value": "Paragraf"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorPullquote",
+      "value": "Tarikpetik"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorPullquotePlaceholder",
+      "value": "Taip petikan di sini"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorQuoteCaptionPlaceholder",
+      "value": "Tambah pengarang"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorSubheading",
+      "value": "Tajuk sub"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTable",
+      "value": "Jadual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableActionsAria",
+      "value": "Buka jadual aksi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlign",
+      "value": "Penjajaran"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignBottom",
+      "value": "Jajar bawah"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignCenter",
+      "value": "Jajar tengah"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignLeft",
+      "value": "Jajar kiri"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignMiddle",
+      "value": "Jajar tengah"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignRight",
+      "value": "Jajar kanan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableAlignTop",
+      "value": "Jajar atas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableBorderless",
+      "value": "Tanpa sempadan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableDelete",
+      "value": "Hapus"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "RichEditorTableDeleteColumn",
+      "other_value": "Hapus {count} kolum"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "RichEditorTableDeleteRow",
+      "other_value": "Hapus {count} baris"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableDeleteTable",
+      "value": "Hapus jadual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableHighlight",
+      "value": "Sorot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsert",
+      "value": "Selit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsertColumnLeft",
+      "value": "Selit kolum kiri"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsertColumnRight",
+      "value": "Selit kolum kanan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsertRowAbove",
+      "value": "Selit baris atas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableInsertRowBelow",
+      "value": "Selit baris bawah"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMenu",
+      "value": "Jadual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMergeCells",
+      "value": "Gabung sel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMove",
+      "value": "Gerak"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMoveDown",
+      "value": "Gerak bawah"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMoveLeft",
+      "value": "Gerak kiri"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMoveRight",
+      "value": "Gerak kanan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMoveUp",
+      "value": "Gerak atas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableRemoveHighlight",
+      "value": "Keluarkan sorotan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableResizeSelectionAria",
+      "value": "Saiz semula pilihan sel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableSelectColumnAria",
+      "value": "Pilih kolum"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableSelectRowAria",
+      "value": "Pilih baris"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableSelectTableAria",
+      "value": "Pilih jadual"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableSplitCell",
+      "value": "Asing sel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableStriped",
+      "value": "Baris berjalur"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichFormattingSubscribe",
+      "value": "Langgani Premium"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichMessageMore",
       "value": "Tunjuk lagi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor",
+      "value": "Editor Teks Kaya"
     },
     {
       "_": "types.LangPackString",
@@ -11152,6 +11582,11 @@
       "_": "types.LangPackString",
       "key": "SavedMessagesShort",
       "value": "Disimpan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SavedOpenChat",
+      "value": "Buka Bual"
     },
     {
       "_": "types.LangPackString",
@@ -11722,6 +12157,16 @@
       "_": "types.LangPackString",
       "key": "SettingsAboutBio",
       "value": "Butiran seperti umur, pekerjaan atau bandar.\nContoh: 23 tahun, jurutera dari Seberang Tayor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAutomaticTextReplacements",
+      "value": "Gantian teks auto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAutomaticTextReplacementsInfo",
+      "value": "Tukar --, << dan >> ketika anda taip"
     },
     {
       "_": "types.LangPackString",
@@ -14284,5 +14729,5 @@
       "value": "Nama Anda"
     }
   ],
-  "version": 273540
+  "version": 276240
 }
