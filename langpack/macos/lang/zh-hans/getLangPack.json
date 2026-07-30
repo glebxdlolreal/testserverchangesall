@@ -1875,6 +1875,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Description",
+      "value": "请添加您的邮箱以保持您对账号的访问权限。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.ErrorEmailNotAllowed",
+      "value": "抱歉，无法使用此邮箱。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.ErrorInvalidEmail",
+      "value": "请输入有效的邮箱地址。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Placeholder",
+      "value": "输入邮箱"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthEmailSetup.Title",
+      "value": "添加邮箱"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AuthSessions.MessageApp",
       "value": "您允许此机器人在您打开 %@ 时向您发送信息。"
     },
@@ -2756,12 +2781,12 @@
     {
       "_": "types.LangPackString",
       "key": "Business.ChatBots.BotNotSupported",
-      "value": "此机器人暂不支持 “Telegram 企业版”。"
+      "value": "此机器人暂不支持秘书模式。"
     },
     {
       "_": "types.LangPackString",
       "key": "Business.ChatBots.Footer",
-      "value": "输入您希望自动处理聊天的 Telegram 机器人链接。"
+      "value": "选择一个机器人自动管理您的聊天。"
     },
     {
       "_": "types.LangPackString",
@@ -5415,6 +5440,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChannelBlocklist.CommunityEmptyDescription",
+      "value": "被管理员从社区移除的用户无法通过邀请链接重新加入。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChannelBoost.AdditionalFeatures.Text",
       "value": "通过获得助推，您的群组可以达到更高的等级并解锁更多的功能。"
     },
@@ -7740,6 +7770,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.EmptyMessageError",
+      "value": "您不能发送空消息。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.File.QuickLook.Malf",
       "value": "预览此文件可能会将您的 IP 地址暴露给发件人或损害您的设备。"
     },
@@ -8961,7 +8996,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.Pinned.DontShow",
-      "value": "不显示置顶消息"
+      "value": "隐藏置顶消息"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -11285,6 +11320,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatInput.EmptyMessageError",
+      "value": "您不能发送空消息。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatInput.OpenChat",
       "value": "打开聊天"
     },
@@ -12310,6 +12350,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.RemoveFromCommunity",
+      "value": "从社群中移除"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.RevealAction.Collapse",
       "value": "折叠"
     },
@@ -12595,6 +12640,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Ungroup",
+      "value": "分开显示"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupChats",
+      "value": "分开显示聊天？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupChatsInfo",
+      "value": "来自该社区的聊天记录将单独显示在您的聊天列表中。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.UnhideMuted",
       "value": "显现静音"
     },
@@ -12755,6 +12815,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatMessageMenu.SentAt",
+      "value": "已发送 %1$@"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatMessageMenuItems.AndJoiner",
       "value": " 和 "
     },
@@ -12850,6 +12915,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatRow.Edited",
+      "value": "已编辑 %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.AddedGroup",
+      "value": "%1$@ 已将此群组添加到 %2$@ 社群中。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.BotAddedToCommunity",
+      "value": "此机器人已加入到 %1$@ 社群中。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatService.ChangedToSameWallpaper",
       "value": "%1$@ 已为此聊天设置相同的壁纸。"
     },
@@ -12857,6 +12937,11 @@
       "_": "types.LangPackString",
       "key": "ChatService.ChangedWallpaper",
       "value": "%1$@ 为此聊天已设置新壁纸。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.ChannelAddedToCommunity",
+      "value": "此频道已加入到 %1$@ 社群。"
     },
     {
       "_": "types.LangPackString",
@@ -13152,6 +13237,11 @@
       "_": "types.LangPackString",
       "key": "ChatService.ViewBackground",
       "value": "查看壁纸"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatService.YouAddedGroup",
+      "value": "您已将此群组添加到 %1$@ 社群中。"
     },
     {
       "_": "types.LangPackString",
@@ -13745,13 +13835,83 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.InviteOnlyInfo",
+      "value": "该团体只能受邀请者加入。\n只有团体成员才能查看该团体。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.YouAreAdminInfo",
+      "value": "您现在可以编辑 %1$@ 的消息，并使用其他管理工具。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityAdmin.EditGroupList",
+      "value": "编辑聊天清单"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityAdmins.Loading",
       "value": "加载中……"
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityInfo.Community",
+      "value": "社群"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityInfo.CommunityWithChats",
+      "other_value": "包含 %1$d 个聊天的社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.AddChat",
+      "value": "添加聊天"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.EditCommunity",
+      "value": "编辑社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.PendingRequests",
+      "value": "待处理申请"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityList.ShowAsOneChat",
+      "value": "以单一聊天显示"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.ApprovalInfo",
+      "value": "聊天需要管理员审核才能添加到社群。[更改设置](设置)"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityRequests.Loading",
       "value": "加载中……"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.SuggestsGroup",
+      "value": "%1$@ 已推荐此群组："
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.SuggestsGroupSuffix",
+      "value": " 推荐此聊天:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.HideChat",
+      "value": "隐藏"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowChat",
+      "value": "显示"
     },
     {
       "_": "types.LangPackString",
@@ -14705,6 +14865,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DeleteGroupMessages.Ban",
+      "value": "封禁"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteGroupMessages.BanFromCommunity",
+      "value": "被社群封禁"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "DeleteGroupMessages.CommunityBanWarning",
+      "other_value": "封闭 %2$@ 也会将其从社群中的 %1$d 个聊天中移除。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DeleteGroupMessages.DeleteAllFromPeer",
       "value": "删除来自 %1$@ 的所有消息"
     },
@@ -14719,9 +14894,24 @@
       "value": "删除表情回应"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "DeleteGroupMessages.MemberCount",
+      "other_value": "%1$d 个成员"
+    },
+    {
       "_": "types.LangPackString",
       "key": "DeleteGroupMessages.ReactionTitle",
       "value": "删除 1 个表情回应"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "DeleteGroupMessages.RemovedFromChatsCount",
+      "other_value": "用户将被移出 %1$d 个聊天 。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteGroupMessages.WarningTitle",
+      "value": "警告"
     },
     {
       "_": "types.LangPackString",
@@ -18960,6 +19150,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupInfo.AddGroupToCommunity",
+      "value": "将群组添加到社群中"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupInfo.AddUserLeftError",
       "value": "抱歉，如果某人已不再是群组的成员，您需要成为其 Telegram 联系人才能将对方添加回来。\n\n注意只要对方不在被移除用户列表中，就仍可通过群组的邀请链接加入。"
     },
@@ -19020,8 +19215,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupInfo.Remove",
+      "value": "移除"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.RemoveGroupFromCommunity",
+      "value": "从社群中移除群组"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.RemoveGroupFromCommunityConfirm",
+      "value": "您确定要将从社群中移除此群组吗？"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupInfo.ScamWarning",
       "value": "⚠️ 警告：许多用户报告了此账户的诈骗行为。若对方谈及金钱交易，请格外小心。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.SomethingWentWrong",
+      "value": "发生错误。"
     },
     {
       "_": "types.LangPackString",
@@ -26705,6 +26920,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumBoarding.RichFormattingInfo",
+      "value": "在消息中添加标题、表格、内嵌媒体和 AI 内容。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PremiumBoarding.RichFormattingTitle",
+      "value": "格式化工具"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumBoarding.Stories.ExpirationDuration.Info",
       "value": "为您的动态设置自定义过期时间，比如 6 小时或 48 小时。"
     },
@@ -28497,6 +28722,231 @@
       "_": "types.LangPackString",
       "key": "RequestJoin.Sent",
       "value": "加入请求已发送"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.AddToPage",
+      "value": "添加到页面"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.ErrorEmpty",
+      "value": "无法处理空消息。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.ErrorTooLong",
+      "value": "消息过长。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.Generate",
+      "value": "生成"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.PromptPlaceholder",
+      "value": "生成文本、公式或表格……"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.Result",
+      "value": "结果"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.Title",
+      "value": "AI 生成"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Bold",
+      "value": "粗体"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Copy",
+      "value": "复制"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Cut",
+      "value": "剪切"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Format",
+      "value": "格式"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Italic",
+      "value": "斜体"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.LookUp",
+      "value": "查找"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Paste",
+      "value": "粘贴"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.SelectAll",
+      "value": "全选"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Share",
+      "value": "分享…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Underline",
+      "value": "下划线"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Placeholder.AddAuthor",
+      "value": "添加作者"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Placeholder.AddCaption",
+      "value": "添加说明…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Placeholder.TypeSomething",
+      "value": "请输入内容..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ShowAsSlider",
+      "value": "轮播显示"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddColumnLeft",
+      "value": "添加左列"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddColumnRight",
+      "value": "添加右列"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddRowAbove",
+      "value": "上方插入"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddRowBelow",
+      "value": "下方插入"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignCenter",
+      "value": "居中对齐"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignLeft",
+      "value": "向左对齐"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignRight",
+      "value": "向右对齐"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteColumn",
+      "value": "删除列"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteColumns",
+      "value": "删除列"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteRow",
+      "value": "删除行"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteRows",
+      "value": "删除行"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.AiPremiumRequired",
+      "value": "Telegram 高级版提供富文本编辑器中的 AI 工具。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.CodeBlock",
+      "value": "代码"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.CodeLanguage",
+      "value": "代码语言"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.Edit",
+      "value": "编辑"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.EditWithoutFormatting",
+      "value": "以纯文字编辑?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.EmptyMessage",
+      "value": "您不能发送空消息。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PremiumToastSend",
+      "value": "发送此格式的消息需要 [Telegram 高级版]()。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PullQuote",
+      "value": "精选引用"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.RemoveFormatting",
+      "value": "移除格式"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.RichFormattingRequiresPremium",
+      "value": "此消息使用了富文本格式，需要 **Telegram 高级版** 才能使用。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.Send",
+      "value": "发送"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.SendWithoutFormatting",
+      "value": "以纯文字发送"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.SetLanguage",
+      "value": "设置语言…"
     },
     {
       "_": "types.LangPackString",
@@ -33310,6 +33760,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarGiftNft.ResaleMinPriceInfo",
+      "value": "此选项仅适用于价格高于 %1$@ 的礼物。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarList.Ton",
       "value": "Gram"
     },
@@ -36485,6 +36940,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextUtils.AddedToCommunity",
+      "value": "已添加到 \"%1$@\" 社群"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextUtils.ManagedBotCreated",
       "value": "%1$@ 已创建 %2$@"
     },
@@ -36497,6 +36957,11 @@
       "_": "types.LangPackString",
       "key": "TextUtils.PollOptionDeleted",
       "value": "%1$@ 已删除一个选项: %2$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TextUtils.RemovedFromCommunity",
+      "value": "已从社群移除"
     },
     {
       "_": "types.LangPackString",
@@ -37660,6 +38125,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TranslateModal.PromptPlaceholder",
+      "value": "请说明如何重写这段文字…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TranslateModal.PromptStyle",
+      "value": "提示"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TranslateModal.ShareStyle",
       "value": "分享风格"
     },
@@ -38070,8 +38545,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UserInfo.AddBotToCommunity",
+      "value": "将机器人添加到社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.AddBotToCommunityInfo",
+      "value": "让你的机器人成为拥有多个相关聊天的社群的一部分。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UserInfo.ManagedBotCreatedBy",
       "value": "由以下创建并管理"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.RemoveBotFromCommunity",
+      "value": "您确定要将从社群中移除此机器人吗？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.RemoveBotFromCommunityButton",
+      "value": "从社群中移除机器人"
     },
     {
       "_": "types.LangPackString",
@@ -40319,5 +40814,5 @@
       "value": "显示替换"
     }
   ],
-  "version": 2245552
+  "version": 2246802
 }
