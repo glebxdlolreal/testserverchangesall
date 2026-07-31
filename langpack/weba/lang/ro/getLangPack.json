@@ -1804,6 +1804,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AriaComposerOpenRichInput",
+      "value": "Deschide editor complet"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AriaComposerOpenScheduled",
       "value": "Deschide mesajele programate"
     },
@@ -5261,8 +5266,27 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ErrorRichMessageTableTooWide",
+      "value": "Un tabel în mesaj are prea multe coloane. Maximul este de {count}."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ErrorRichMessageTooDeep",
       "value": "Mesajul este imbricat prea adânc. Adâncimea maximă este {count}."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Mesajul are prea multe blocuri. Elimină {count} blocuri.",
+      "key": "ErrorRichMessageTooManyBlocks",
+      "one_value": "Mesajul are prea multe blocuri. Elimină {count} bloc.",
+      "other_value": "Mesajul are prea multe blocuri. Elimină {count} de blocuri."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Mesajul are prea multe articole media. Elimină {count} articole.",
+      "key": "ErrorRichMessageTooManyMedia",
+      "one_value": "Mesajul are prea multe articole media. Elimină {count} articol.",
+      "other_value": "Mesajul are prea multe articole media. Elimină {count} de articole."
     },
     {
       "_": "types.LangPackString",
@@ -5756,6 +5780,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "FormattingMarkedAria",
+      "value": "Text evidențiat"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "FormattingMonospaceAria",
       "value": "Monospace text"
     },
@@ -5768,6 +5797,16 @@
       "_": "types.LangPackString",
       "key": "FormattingStrikethroughAria",
       "value": "Tăiat cu o linie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingSubscriptAria",
+      "value": "Text la indice"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingSuperscriptAria",
+      "value": "Text la exponent"
     },
     {
       "_": "types.LangPackString",
@@ -10812,6 +10851,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ProfileSendAGift",
+      "value": "Trimite un Cadou"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ProfileTabBotPreview",
       "value": "Previzualizare"
     },
@@ -11216,8 +11260,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RemoveMember",
+      "value": "Elimină membru"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RemoveRichFormatting",
       "value": "Elimină formatarea"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RemoveRichFormattingText",
+      "value": "Mesajul folosește formatarea avansată, care necesită **Telegram Premium**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RemoveRichFormattingTitle",
+      "value": "Elimini Formatarea?"
     },
     {
       "_": "types.LangPackString",
@@ -11418,6 +11477,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorBlockMenu",
+      "value": "Inserează bloc"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichEditorBlockPlaceholder",
       "value": "Tastează ceva"
     },
@@ -11463,6 +11527,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorEquationPrompt",
+      "value": "Introdu ecuația..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorEquationToBlock",
+      "value": "Convertește în ecuație bloc"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorEquationToInline",
+      "value": "Convertește în ecuație inline"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichEditorFooter",
       "value": "Subsol"
     },
@@ -11478,13 +11557,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorListCheckmarks",
+      "value": "Bife"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichEditorListMenu",
       "value": "Liste"
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorListNumberingDecimal",
+      "value": "Numere (1, 2, 3)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingLowercaseLetters",
+      "value": "Minuscule (a, b, c)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingLowercaseRoman",
+      "value": "Minusculă Latină (i, ii, iii)"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichEditorListNumberingType",
       "value": "Tip numerotare"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingUppercaseLetters",
+      "value": "Majuscule (A, B, C)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListNumberingUppercaseRoman",
+      "value": "Majusculă Latină (I, II, III)"
     },
     {
       "_": "types.LangPackString",
@@ -11712,6 +11821,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor",
+      "value": "Editor Text Avansat"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextMapPreview",
       "value": "[hartă]"
     },
@@ -11764,6 +11878,11 @@
       "_": "types.LangPackString",
       "key": "SavedMessagesShort",
       "value": "Salvat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SavedOpenChat",
+      "value": "Deschide Conversația"
     },
     {
       "_": "types.LangPackString",
@@ -12342,6 +12461,16 @@
       "_": "types.LangPackString",
       "key": "SettingsAboutBio",
       "value": "Orice detalii ca vârsta, ocupația sau orașul.\nExemplu: designer de 23 de ani din San Francisco."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAutomaticTextReplacements",
+      "value": "Înlocuiri automate text"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAutomaticTextReplacementsInfo",
+      "value": "Convertește --, << și >> tastându-le"
     },
     {
       "_": "types.LangPackString",
@@ -14936,5 +15065,5 @@
       "value": "Numele tău"
     }
   ],
-  "version": 276041
+  "version": 276635
 }
