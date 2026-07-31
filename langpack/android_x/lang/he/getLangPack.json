@@ -138,6 +138,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatOwnerChanged",
+      "value": "⁨%1$s⁩ הינו הבעלים החדש של הצ'אט"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeft",
+      "value": "הבעלים של הצ'אט עזב"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChatOwnerLeftTo",
       "value": "הבעלים של הצ'אט עזב. אם הוא לא יחזור, ⁨%1$s⁩ יהיה הבעלים החדש"
     },
@@ -190,6 +200,14 @@
       "two_value": "⁨%2$s⁩ סימן/ה ש⁨%1$s⁩ משימות בוצעו"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkDoneTasksOut",
+      "many_value": "סימנת ש⁨%1$s⁩ משימות בוצעו",
+      "one_value": "סימנת שמשימה ⁨%1$s⁩ בוצעה",
+      "other_value": "סימנת ש⁨%1$s⁩ משימות בוצעו",
+      "two_value": "סימנת ש⁨%1$s⁩ משימות בוצעו"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionChecklistMarkNotDone",
       "value": "⁨%1$s⁩ סימן/ה ש⁨%2$s⁩ לא בוצע"
@@ -206,6 +224,14 @@
       "one_value": "⁨%2$s⁩ סימן/ה שמשימה ⁨%1$s⁩ לא בוצעה",
       "other_value": "⁨%2$s⁩ סימן/ה ש⁨%1$s⁩ משימות לא בוצעו",
       "two_value": "⁨%2$s⁩ סימן/ה ש⁨%1$s⁩ משימות לא בוצעו"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkNotDoneTasksOut",
+      "many_value": "סימנת ש⁨%1$s⁩ משימות לא בוצעו",
+      "one_value": "סימנת שמשימה ⁨%1$s⁩ לא בוצעה",
+      "other_value": "סימנת ש⁨%1$s⁩ משימות לא בוצעו",
+      "two_value": "סימנת ש⁨%1$s⁩ משימות לא בוצעו"
     },
     {
       "_": "types.LangPackString",
@@ -276,6 +302,22 @@
       "_": "types.LangPackString",
       "key": "ActionMutePerson",
       "value": "השתק את ⁨%1$s⁩"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPaidMessagesRefunded",
+      "many_value": "⁨%2$s⁩ החזיר ⁨%3$s⁩ על ⁨%1$s⁩ הודעות",
+      "one_value": "⁨%2$s⁩ החזיר ⁨%3$s⁩ על הודעה ⁨%1$s⁩",
+      "other_value": "⁨%2$s⁩ החזיר ⁨%3$s⁩ על ⁨%1$s⁩ הודעות",
+      "two_value": "⁨%2$s⁩ החזיר ⁨%3$s⁩ על ⁨%1$s⁩ הודעות"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPaidMessagesRefundedOut",
+      "many_value": "החזרת ⁨%2$s⁩ על ⁨%1$s⁩ הודעות",
+      "one_value": "החזרת ⁨%2$s⁩ על הודעה ⁨%1$s⁩",
+      "other_value": "החזרת ⁨%2$s⁩ על ⁨%1$s⁩ הודעות",
+      "two_value": "החזרת ⁨%2$s⁩ על ⁨%1$s⁩ הודעות"
     },
     {
       "_": "types.LangPackString",
@@ -422,6 +464,22 @@
       "two_value": "⁨%2$s⁩ נעץ **⁨%1$s⁩ סרטונים בתשלום**"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPriceChanged",
+      "many_value": "⁨%2$s⁩ שינה/תה את המחיר ל⁨%1$s⁩ כוכבים להודעה",
+      "one_value": "⁨%2$s⁩ שינה/תה את המחיר לכוכב ⁨%1$s⁩ להודעה",
+      "other_value": "⁨%2$s⁩ שינה/תה את המחיר ל⁨%1$s⁩ כוכבים להודעה",
+      "two_value": "⁨%2$s⁩ שינה/תה את המחיר ל⁨%1$s⁩ כוכבים להודעה"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPriceChangedOut",
+      "many_value": "שינית את המחיר ל⁨%1$s⁩כוכבים להודעה",
+      "one_value": "שינית את המחיר לכוכב ⁨%1$s⁩ להודעה",
+      "other_value": "שינית את המחיר ל⁨%1$s⁩ כוכבים להודעה",
+      "two_value": "שינית את המחיר ל⁨%1$s⁩ כוכבים להודעה"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "סמן כנקרא"
@@ -435,6 +493,11 @@
       "_": "types.LangPackString",
       "key": "ActionSharingDisabledOut",
       "value": "השבתת שיתוף בצ'אט זה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabled",
+      "value": "⁨%1$s⁩ הפעיל/ה שיתוף בצ'אט זה"
     },
     {
       "_": "types.LangPackString",
@@ -498,6 +561,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionTopicCreate",
+      "value": "⁨%2$s⁩ יצר/ה את הנושא ⁨%1$s⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIcon",
+      "value": "⁨%3$s⁩ יצר/ה את הנושא ⁨%1$s⁩ ⁨%2$s⁩"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionTopicCreateIconOut",
       "value": "יצרת את הנושא ⁨%1$s⁩ ⁨%2$s⁩"
     },
@@ -505,6 +578,16 @@
       "_": "types.LangPackString",
       "key": "ActionTopicCreateOut",
       "value": "יצרת את הנושא ⁨%1$s⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreated",
+      "value": "הנושא ⁨%1$s⁩ נוצר"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreatedIcon",
+      "value": "הנושא ⁨%1$s⁩ ⁨%2$s⁩ נוצר"
     },
     {
       "_": "types.LangPackString",
@@ -7076,6 +7159,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPermissionEditTag",
+      "value": "עריכת תגית עצמית"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPermissionPinMessages",
       "value": "נעיצת הודעות"
     },
@@ -7331,6 +7419,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPromotedManageTags",
+      "value": "עריכת תגי חבר"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPromotedManageTopics",
       "value": "ניהול נושאים"
     },
@@ -7456,6 +7549,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogRestrictedEditTag",
+      "value": "עריכת תגית עצמית"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogRestrictedNew",
       "value": "הגביל/ה את ⁨%1$s⁩\n\nלמשך: ⁨%2$s⁩"
     },
@@ -7563,6 +7661,36 @@
       "_": "types.LangPackString",
       "key": "EventLogSlowModeDisabledYou",
       "value": "⁨%1$s⁩ ביטל/ה את המצב האיטי"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagRemoved",
+      "value": "⁨%2$s⁩ הסיר/ה את התג של ⁨%3$s⁩ \"⁨%1$s⁩\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagRemovedYour",
+      "value": "⁨%2$s⁩ הסיר/ה את התג שלך \"⁨%1$s⁩\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSet",
+      "value": "⁨%2$s⁩ הגדיר/ה את התג של ⁨%3$s⁩ ל\"⁨%1$s⁩\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSetYour",
+      "value": "⁨%2$s⁩ הגדיר/ה את התג שלך ל\"⁨%1$s⁩\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouRemoved",
+      "value": "הסרת את התג של ⁨%2$s⁩ \"⁨%1$s⁩\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouSet",
+      "value": "הגדרת את התג של ⁨%2$s⁩ ל\"⁨%1$s⁩\""
     },
     {
       "_": "types.LangPackString",
@@ -18970,8 +19098,13 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncHintRetry2",
+      "value": "כדי להפעיל סנכרון אנשי קשר ולהעלות אותם בצורה חלקה לטלגרם, אפשר גישה לאנשי הקשר שלך.\n\nהקש על **הגדרות** > **הרשאות**, והפעל את **אנשי קשר**."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncHintTitle",
-      "value": "מצא אנשי קשר"
+      "value": "לסנכרן את אנשי הקשר עם טלגרם?"
     },
     {
       "_": "types.LangPackString",
@@ -18981,7 +19114,12 @@
     {
       "_": "types.LangPackString",
       "key": "SyncHintUnavailable",
-      "value": "הקש על הגדרות > הרשאות, והפעל את אנשי הקשר כדי לאפשר גישה לטלגרם לאנשי הקשר שלך."
+      "value": "הקש על הגדרות > הרשאות, והפעל את אנשי הקשר כדי לאפשר לTelegram X גישה לאנשי הקשר שלך כדי למצוא אותם בטלגרם."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintUnavailable2",
+      "value": "הקש על הגדרות > הרשאות, והפעל את אנשי הקשר כדי לאפשר ל**⁨%1$s⁩** גישה לאנשי הקשר שלך כדי למצוא אותם בטלגרם."
     },
     {
       "_": "types.LangPackString",
@@ -22375,6 +22513,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparator",
+      "value": ", "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparatorLast",
+      "value": " ו"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_ActionChecklistMarkTasks",
       "value": "⁨%1$s⁩ סימן/ה ש⁨%2$s⁩ וש⁨%3$s⁩"
     },
@@ -22717,6 +22865,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_notificationTitleSecret",
+      "value": "🔒️ ⁨%1$s⁩"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_notificationTitleShort",
       "value": "⁨%1$s⁩ (⁨%2$s⁩)"
     },
@@ -22774,6 +22927,14 @@
       "_": "types.LangPackString",
       "key": "format_plusPremium",
       "value": "+Premium"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_refundedStars",
+      "many_value": "⁨%1$s⁩ כוכבים",
+      "one_value": "כוכב ⁨%1$s⁩",
+      "other_value": "⁨%1$s⁩ כוכבים",
+      "two_value": "⁨%1$s⁩ כוכבים"
     },
     {
       "_": "types.LangPackString",
@@ -25238,5 +25399,5 @@
       "two_value": "שנתיים"
     }
   ],
-  "version": 1635855
+  "version": 1636297
 }
