@@ -14260,6 +14260,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityEdit.AddChatToCommunity",
+      "value": "Chat toevoegen aan gemeenschap"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Administrators",
+      "value": "Beheerders"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityEdit.AllMembers",
       "value": "Alle leden"
     },
@@ -14267,6 +14277,11 @@
       "_": "types.LangPackString",
       "key": "CommunityEdit.AllMembersDescription",
       "value": "Leden mogen hun groepen en kanalen aan de gemeenschap toevoegen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.ChangePhoto",
+      "value": "Foto wijzigen"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -14278,6 +14293,11 @@
       "_": "types.LangPackString",
       "key": "CommunityEdit.CommunityName",
       "value": "Naam van gemeenschap"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Delete",
+      "value": "Verwijderen"
     },
     {
       "_": "types.LangPackString",
@@ -14295,6 +14315,12 @@
       "value": "Verborgen"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityEdit.MembersCount",
+      "one_value": "",
+      "other_value": "%d leden"
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityEdit.OnlyAdmins",
       "value": "Alleen beheerders"
@@ -14303,6 +14329,51 @@
       "_": "types.LangPackString",
       "key": "CommunityEdit.OnlyAdminsDescription",
       "value": "Beheerdersgoedkeuring is vereist voor chats die door leden worden voorgesteld."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.PendingRequests",
+      "value": "Openstaande verzoeken"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Remove",
+      "value": "Verwijderen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemoveChatConfirm",
+      "value": "Wil je deze chat uit de gemeenschap verwijderen?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemoveFromCommunity",
+      "value": "Verwijderen uit gemeenschap"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.RemovedUsers",
+      "value": "Verwijderde gebruikers"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.SetPhoto",
+      "value": "Foto instellen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.SomethingWentWrong",
+      "value": "Er ging iets mis."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.Title",
+      "value": "Gemeenschap bewerken"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityEdit.UpdatingPhoto",
+      "value": "Foto bijwerken..."
     },
     {
       "_": "types.LangPackString",
@@ -14418,8 +14489,34 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityRequests.DeclineAllConfirm",
+      "value": "Alle voorgestelde chats afwijzen?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Empty",
+      "value": "Geen openstaande verzoeken."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Loading",
+      "value": "Laden…"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityRequests.MembersCount",
+      "one_value": "",
+      "other_value": "%d leden"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityRequests.PendingRequests",
       "value": "Openstaande verzoeken"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.Someone",
+      "value": "Iemand"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -14439,8 +14536,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityRequests.Unknown",
+      "value": "Onbekend"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityRequests.VisibleOnlyToMembers",
       "value": "alleen zichtbaar voor leden"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityRequests.VisibleOnlyToMembersSuffix",
+      "value": " · alleen voor leden zichtbaar"
     },
     {
       "_": "types.LangPackString",
@@ -14449,13 +14556,64 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityView.EditCommunity",
+      "value": "Gemeenschap bewerken"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityView.HideChat",
       "value": "Verbergen"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityView.Members",
+      "one_value": "",
+      "other_value": "%1$d leden"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Mute",
+      "value": "Dempen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.PendingRequests",
+      "value": "Openstaande verzoeken"
     },
     {
       "_": "types.LangPackString",
       "key": "CommunityView.Remove",
       "value": "Verwijderen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.RemoveChatConfirm",
+      "value": "Wil je deze chat uit de gemeenschap verwijderen?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.RemoveFromCommunity",
+      "value": "Verwijderen uit de gemeenschap"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SectionChatsYouAreIn",
+      "value": "Chats waarin je zit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SectionChatsYouCanJoin",
+      "value": "Chats waarvan je lid kunt worden"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.SectionChatsYouCanRequestToJoin",
+      "value": "Chats waarvan je lid kunt worden"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.ShowAsOneChat",
+      "value": "Als één chat weergeven"
     },
     {
       "_": "types.LangPackString",
@@ -14469,8 +14627,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityView.SomethingWentWrong",
+      "value": "Er ging iets mis."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityView.Title",
       "value": "Gemeenschap"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityView.Unmute",
+      "value": "Dempen opheffen"
     },
     {
       "_": "types.LangPackString",
@@ -29421,6 +29589,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.AddMedia",
+      "value": "Foto of video toevoegen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignCenter",
+      "value": "Midden uitlijnen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignLeft",
+      "value": "Links uitlijnen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.AlignRight",
+      "value": "Rechts uitlijnen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Apply",
+      "value": "Toepassen"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.AttachTitle",
       "value": "Artikel"
     },
@@ -29436,13 +29629,58 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.Copy",
+      "value": "Kopiëren"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Cut",
+      "value": "Knippen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DecreaseIndent",
+      "value": "Uitspringen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Delete",
+      "value": "Verwijderen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DeleteColumn",
+      "value": "Kolom verwijderen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.DeleteRow",
+      "value": "Rij verwijderen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Edit",
+      "value": "Bewerken"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.EditFormula",
       "value": "Formule bewerken"
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.Format",
+      "value": "Opmaak"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.Formula",
       "value": "Formule"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.FormulaPreviewPlaceholder",
+      "value": "Voorbeeld verschijnt hier"
     },
     {
       "_": "types.LangPackString",
@@ -29456,8 +29694,53 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.IncreaseIndent",
+      "value": "Inspringen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertAbove",
+      "value": "Boven invoegen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertBelow",
+      "value": "Onder invoegen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertLeft",
+      "value": "Links invoegen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertRight",
+      "value": "Rechts invoegen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InsertTable",
+      "value": "Tabel invoegen"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.InvalidFormula",
+      "value": "Ongeldige formule"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.LatexSection",
       "value": "LaTeX"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Link",
+      "value": "Link"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ListNone",
+      "value": "Geen"
     },
     {
       "_": "types.LangPackString",
@@ -29516,6 +29799,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.More",
+      "value": "Meer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.NumberedList",
+      "value": "Genummerde lijst"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Paste",
+      "value": "Plakken"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.Placeholder.AddAuthor",
       "value": "Auteur toevoegen"
     },
@@ -29531,13 +29829,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.Remove",
+      "value": "Verwijderen"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.RemoveHighlight",
       "value": "Markering weghalen"
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.Replace",
+      "value": "Vervangen"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.ResultSection",
       "value": "Resultaat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.SelectAll",
+      "value": "Alles selecteren"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.ShowAsCollage",
+      "value": "Als collage weergeven"
     },
     {
       "_": "types.LangPackString",
@@ -41637,5 +41955,5 @@
       "value": "Toon vervangingen"
     }
   ],
-  "version": 2246031
+  "version": 2247428
 }
