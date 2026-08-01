@@ -1821,6 +1821,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AriaComposerOpenRichInput",
+      "value": "Otevřít celý editor"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AriaComposerOpenScheduled",
       "value": "Otevřít naplánované zprávy"
     },
@@ -2128,6 +2133,11 @@
       "_": "types.LangPackString",
       "key": "AttachmentDragAddItems",
       "value": "Přidat položky"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AttachmentMenuArticle",
+      "value": "Článek"
     },
     {
       "_": "types.LangPackString",
@@ -5304,6 +5314,32 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ErrorRichMessageTableTooWide",
+      "value": "Tabulka v článku obsahuje příliš mnoho sloupců. Maximum je {count}."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ErrorRichMessageTooDeep",
+      "value": "Zpráva je vnořena příliš hluboko. Maximální hloubka je {count}."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Zpráva má příliš mnoho odstavců. Odeberte {count} odstavce.",
+      "key": "ErrorRichMessageTooManyBlocks",
+      "many_value": "Zpráva má příliš mnoho odstavců. Odeberte {count} odstavců.",
+      "one_value": "Zpráva má příliš mnoho odstavců. Odeberte {count} odstavec.",
+      "other_value": "Zpráva má příliš mnoho odstavců. Odeberte {count} odstavců."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Zpráva má příliš mnoho mediálních položek. Odeberte {count} položky.",
+      "key": "ErrorRichMessageTooManyMedia",
+      "many_value": "Zpráva má příliš mnoho mediálních položek. Odeberte {count} položek.",
+      "one_value": "Zpráva má příliš mnoho mediálních položek. Odeberte {count} položku.",
+      "other_value": "Zpráva má příliš mnoho mediálních položek. Odeberte {count} položek."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ErrorSendRestrictedStickersAll",
       "value": "Litujeme, posílání samolepek není v této skupině povoleno"
     },
@@ -5779,6 +5815,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "FormattingClearAria",
+      "value": "Vyčistit formátování"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "FormattingEnterUrl",
       "value": "Zadejte URL..."
     },
@@ -5794,6 +5835,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "FormattingMarkedAria",
+      "value": "Zvýrezněný text"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "FormattingMonospaceAria",
       "value": "Mono"
     },
@@ -5806,6 +5852,16 @@
       "_": "types.LangPackString",
       "key": "FormattingStrikethroughAria",
       "value": "Přeškrtnuté"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingSubscriptAria",
+      "value": "Dolní index"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattingSuperscriptAria",
+      "value": "Horní index"
     },
     {
       "_": "types.LangPackString",
@@ -10938,6 +10994,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ProfileSendAGift",
+      "value": "Poslat dárek"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ProfileTabBotPreview",
       "value": "Náhled"
     },
@@ -11344,6 +11405,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RemoveMember",
+      "value": "Odebrat člena"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RemoveRichFormatting",
+      "value": "Odebrat formátování"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RemoveRichFormattingText",
+      "value": "Tato zpráva obsahuje formátování s pokročilými funkcemi, což vyžaduje **Telegram Premium**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RemoveRichFormattingTitle",
+      "value": "Odebrat formátování?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RemoveSymbol",
       "value": "Smazat emoji"
     },
@@ -11399,6 +11480,11 @@
       "_": "types.LangPackString",
       "key": "ReportChat",
       "value": "Nahlásit {peer}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReportChatMessagesRequired",
+      "value": "Vyberte zprávy, které chcete nahlásit."
     },
     {
       "_": "types.LangPackString",
@@ -11537,8 +11623,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorBlockMenu",
+      "value": "Vložit blok"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorBlockPlaceholder",
+      "value": "Něco napište"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorBlockquote",
+      "value": "Citace"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorBulletList",
+      "value": "Odrážkový seznam"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichEditorChecklist",
       "value": "Kontrolní seznam"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorCodeBlock",
+      "value": "Kód"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorCodeLanguageAuto",
+      "value": "Auto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorDetails",
+      "value": "Detaily"
     },
     {
       "_": "types.LangPackString",
@@ -11567,6 +11688,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorFooter",
+      "value": "Zápatí"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorHeading",
+      "value": "Nadpis"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorHeadingLevel",
+      "value": "Nadpis {level}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListCheckmarks",
+      "value": "Zaškrtávací políčka"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorListMenu",
+      "value": "Seznamy"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichEditorListNumberingDecimal",
       "value": "Číslice (1, 2, 3)"
     },
@@ -11582,6 +11728,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorListNumberingType",
+      "value": "Typ číslování"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichEditorListNumberingUppercaseLetters",
       "value": "Velká písmena (A, B, C)"
     },
@@ -11592,8 +11743,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorListOptions",
+      "value": "Možnosti seznamu"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichEditorListReverseOrder",
       "value": "Obrátit pořadí"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorOrderedList",
+      "value": "Číslovaný seznam"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorParagraph",
+      "value": "Odstavec"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorPullquote",
+      "value": "Výňatek textu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorPullquotePlaceholder",
+      "value": "Zde zadejte citaci"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorQuoteCaptionPlaceholder",
+      "value": "Přidat autora"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorSubheading",
+      "value": "Podnadpis"
     },
     {
       "_": "types.LangPackString",
@@ -11773,8 +11959,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichFormattingSubscribe",
+      "value": "Předplatit Premium"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichMessageMore",
       "value": "Zobrazit více"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor",
+      "value": "Editor formátovaného textu"
     },
     {
       "_": "types.LangPackString",
@@ -11830,6 +12026,11 @@
       "_": "types.LangPackString",
       "key": "SavedMessagesShort",
       "value": "Uložené"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SavedOpenChat",
+      "value": "Otevřít chat"
     },
     {
       "_": "types.LangPackString",
@@ -12412,6 +12613,16 @@
       "_": "types.LangPackString",
       "key": "SettingsAboutBio",
       "value": "Jakékoli informace o vás, jako jsou věk, povolání nebo město.\nNapř.: 24letý student z Prahy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAutomaticTextReplacements",
+      "value": "Automatické nahrazování textu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAutomaticTextReplacementsInfo",
+      "value": "Převádění --, << a >> během psaní"
     },
     {
       "_": "types.LangPackString",
@@ -15022,5 +15233,5 @@
       "value": "Vaše jméno"
     }
   ],
-  "version": 275834
+  "version": 276725
 }
