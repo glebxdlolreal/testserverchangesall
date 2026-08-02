@@ -9748,6 +9748,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_community_ban_button",
+      "value": "Zabrani pristup"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_community_ban_done",
       "value": "Korisnik {user} je uklonjen iz zajednice."
     },
@@ -9767,6 +9772,13 @@
       "_": "types.LangPackString",
       "key": "lng_community_ban_warning_title",
       "value": "Upozorenje"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Dosegnut je limit od {count} bota.",
+      "key": "lng_community_bot_peers_limit",
+      "one_value": "Dosegnut je limit od {count} bota.",
+      "other_value": "Dosegnut je limit od {count} botova."
     },
     {
       "_": "types.LangPackString",
@@ -9944,6 +9956,13 @@
       "_": "types.LangPackString",
       "key": "lng_community_manage_who_add",
       "value": "Tko može dodati razgovore"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Dosegnut je limit od {count} razgovora.",
+      "key": "lng_community_peers_limit",
+      "one_value": "Dosegnut je limit od {count} razgovora.",
+      "other_value": "Dosegnut je limit od {count} razgovora."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -26129,8 +26148,128 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_passkey_cable_bluetooth",
+      "value": "Neka Bluetooth bude uključen — telefon se povezuje s ovim uređajem preko Bluetootha."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_connecting",
+      "value": "Povezivanje s vašim mobitelom…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_continue",
+      "value": "Nastavi na mobitelu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_error",
+      "value": "Povezivanje s vašim uređajem nije uspjelo.\nMolimo pokušajte ponovo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_error_title",
+      "value": "Došlo je do pogreške"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_follow",
+      "value": "Slijedite upute na mobitelu."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_key_about",
+      "value": "Umetnite i dodirnite svoj sigurnosni ključ."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_login_about",
+      "value": "Skenirajte ovaj QR kod kamerom na mobitelu ili tabletu koji ima vaš pristupni ključ."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_login_title",
+      "value": "Prijava preko pristupnog ključa"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_no_bluetooth",
+      "value": "Bluetooth nije dostupan. Uključite Bluetooth da biste se prijavili s mobitelom."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_register_about",
+      "value": "Skenirajte ovaj QR kod kamerom na mobitelu ili tabletu na kojem želite spremiti pristupni ključ."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_register_title",
+      "value": "Dodavanje pristupnog ključa"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_confirm",
+      "value": "Potvrdi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_error_login",
+      "value": "Nije moguće prijaviti se sa sigurnosnim ključem."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_error_no_credentials",
+      "value": "Ovaj sigurnosni ključ nema pristupni ključ za vaš račun."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_error_no_device",
+      "value": "Sigurnosni ključ nije pronađen. Umetnite jedan i pokušajte ponovno."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_error_register",
+      "value": "Nije moguće dodati pristupni ključ sa sigurnosnim ključem."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_insert",
+      "value": "Umetnite svoj sigurnosni ključ, zatim ga dodirnite za nastavak."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_method_key",
+      "value": "Koristi sigurnosni ključ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_pin_about",
+      "value": "Unesite PIN sigurnosnog ključa."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_pin_blocked",
+      "value": "PIN sigurnosnog ključa je blokiran. Ponovno spojite ključ ili ga resetirajte."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_pin_invalid",
+      "value": "Netočan PIN. Molimo pokušajte ponovo."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_passkey_pin_placeholder",
       "value": "PIN"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_pin_title",
+      "value": "PIN sigurnosnog ključa"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_touch",
+      "value": "Dodirnite svoj sigurnosni ključ"
     },
     {
       "_": "types.LangPackString",
@@ -30701,8 +30840,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_pull_next_topic",
+      "value": "Povucite za sljedeću temu"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_pull_no_unread_channels",
       "value": "Nemate nepročitanih kanala"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_pull_no_unread_topics",
+      "value": "Više nema pročitanih tema u {group}"
     },
     {
       "_": "types.LangPackString",
@@ -31135,6 +31284,11 @@
       "_": "types.LangPackString",
       "key": "lng_release_next_channel",
       "value": "Pustite za sljedeći nepročitani kanal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_release_next_topic",
+      "value": "Pustite za sljedeću temu"
     },
     {
       "_": "types.LangPackString",
@@ -41891,5 +42045,5 @@
       "other_value": "Platili ste {count} zvjezdica."
     }
   ],
-  "version": 5762472
+  "version": 5764538
 }
