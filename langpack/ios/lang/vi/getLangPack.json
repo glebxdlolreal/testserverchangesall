@@ -8255,8 +8255,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Channel.EditAdmin.GuardBotEnableMembersText",
+      "value": "Từ giờ, thành viên mới cần được **%@** chấp nhận trước khi có thể gửi tin nhắn vào nhóm này"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Channel.EditAdmin.GuardBotReplaceKeep",
       "value": "Giữ %@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.EditAdmin.GuardBotReplaceText",
+      "value": "**%@** đang xử lý các yêu cầu tham gia. Chuyển sang **%@** thay thế?"
     },
     {
       "_": "types.LangPackString",
@@ -8382,6 +8392,11 @@
       "_": "types.LangPackString",
       "key": "Channel.EditAdmin.PermissionProcessJoinRequests",
       "value": "Xử lý yêu cầu tham gia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.EditAdmin.PermissionProcessJoinRequestsInfo",
+      "value": "Cho phép bot này phê duyệt thành viên mới bằng công nghệ của nó, như là captcha."
     },
     {
       "_": "types.LangPackString",
@@ -11055,6 +11070,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.GuestChatMessageTooltip",
+      "value": "Bot này không thể đọc toàn bộ chat, mà chỉ riêng tin nhắn được nhắc tên."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.HashtagSuggestion.UseGeneric.Text",
       "value": "tìm kiếm bài đăng từ tất cả kênh"
     },
@@ -11712,6 +11732,11 @@
       "_": "types.LangPackString",
       "key": "Chat.Poll.ContextMenu.SectionPoll",
       "value": "Bình chọn"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Poll.ContextMenu.SectionsInfo",
+      "value": "Bạn đang xem hành động cho một lựa chọn.\nBạn có thể đổi sang xem cả danh sách."
     },
     {
       "_": "types.LangPackString",
@@ -16165,13 +16190,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextChannel",
+      "value": "Nếu admin của cộng đồng duyệt kênh này, người đăng ký kênh cũng có thể tham gia hoặc gửi yêu cầu tham gia các chat khác của cộng đồng."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.Confirm.TextGroup",
+      "value": "Nếu admin của cộng đồng duyệt nhóm này, thành viên nhóm cũng có thể tham gia hoặc gửi yêu cầu tham gia các chat khác của cộng đồng."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Add.VisibilityHidden",
       "value": "Đã ẩn"
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityHiddenInfo",
+      "value": "Chỉ thành viên được mời và admin cộng đồng có thể thấy chat này."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Add.VisibilityInfo",
       "value": "Bạn sẽ không thể thay đổi điều này."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Add.VisibilityVisibleInfo",
+      "value": "Bất kỳ ai trong cộng đồng cũng có thể thấy chat này."
     },
     {
       "_": "types.LangPackString",
@@ -16200,6 +16245,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Edit.AddChat",
+      "value": "Thêm chat vào cộng đồng"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Edit.Administrators",
       "value": "Quản trị viên"
     },
@@ -16220,8 +16270,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionAllMembersInfo",
+      "value": "Cho phép thành viên thêm nhóm và kênh của họ vào cộng đồng."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Edit.PermissionOnlyAdmins",
       "value": "Chỉ admin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit.PermissionOnlyAdminsInfo",
+      "value": "Admin phải duyệt chat được đề xuất bởi thành viên cộng đồng."
     },
     {
       "_": "types.LangPackString",
@@ -16287,6 +16347,11 @@
       "_": "types.LangPackString",
       "key": "Community.Request.EmptyTitle",
       "value": "0 yêu cầu cần duyệt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Request.RequesterSuggestsBot",
+      "value": "%@ đề xuất bot này:"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -26311,7 +26376,27 @@
     {
       "_": "types.LangPackString",
       "key": "Group.Setup.ApproveNewMembers",
-      "value": "Thành viên mới đã được chấp nhận"
+      "value": "Duyệt thành viên mới"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Group.Setup.ApproveNewMembersApplyToExistingInviteLinksText.DisableChannel",
+      "value": "Cũng tắt **Duyệt người đăng ký mới** cho **%@** của kênh này?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Group.Setup.ApproveNewMembersApplyToExistingInviteLinksText.DisableGroup",
+      "value": "Cũng tắt **Duyệt thành viên mới** cho **%@** của nhóm này?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Group.Setup.ApproveNewMembersApplyToExistingInviteLinksText.EnableChannel",
+      "value": "Cũng bật **Duyệt người đăng ký mới** cho **%@** của kênh này?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Group.Setup.ApproveNewMembersApplyToExistingInviteLinksText.EnableGroup",
+      "value": "Cũng bật **Duyệt thành viên mới** cho **%@** của nhóm này?"
     },
     {
       "_": "types.LangPackString",
@@ -27996,7 +28081,7 @@
     {
       "_": "types.LangPackString",
       "key": "InviteLink.Create.RequestApproval",
-      "value": "Phê duyệt thành viên mới"
+      "value": "Yêu cầu admin duyệt"
     },
     {
       "_": "types.LangPackString",
@@ -31331,7 +31416,7 @@
     {
       "_": "types.LangPackString",
       "key": "MemberRequests.RequestToJoinDescriptionGroup",
-      "value": "Nhóm này chỉ nhận thành viên mới sau khi được admin chấp nhận."
+      "value": "Nhóm này chỉ nhận thành viên mới sau khi được admin phê duyệt."
     },
     {
       "_": "types.LangPackString",
@@ -33252,6 +33337,11 @@
       "_": "types.LangPackString",
       "key": "Notification.CommunityAddedGroupYou",
       "value": "Bạn đã thêm nhóm này vào cộng đồng %1$@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notification.CommunityRemovedChannel",
+      "value": "Kênh này đã bị xóa khỏi cộng đồng"
     },
     {
       "_": "types.LangPackString",
@@ -39204,6 +39294,11 @@
       "value": "Xóa tin nhắn"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "PeerInfo.Community",
+      "other_value": "Cộng đồng có %@ chat"
+    },
+    {
       "_": "types.LangPackString",
       "key": "PeerInfo.Community.AddBot",
       "value": "Thêm bot vào cộng đồng"
@@ -39217,6 +39312,21 @@
       "_": "types.LangPackString",
       "key": "PeerInfo.Community.AddGroup",
       "value": "Thêm nhóm vào cộng đồng"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.BotInfo",
+      "value": "Để bot của bạn thành một phần của cộng đồng với các chat liên quan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.ChannelInfo",
+      "value": "Để kênh của bạn thành một phần của cộng đồng với các chat liên quan"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.Community.GroupInfo",
+      "value": "Để nhóm của bạn thành một phần của cộng đồng với các chat liên quan"
     },
     {
       "_": "types.LangPackString",
@@ -57485,6 +57595,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WebBrowser.Exception.OpenInBrowser",
+      "value": "Luôn mở trang này bằng trình duyệt"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "WebBrowser.Exceptions.AddException",
       "value": "Thêm website"
     },
@@ -57502,6 +57617,11 @@
       "_": "types.LangPackString",
       "key": "WebBrowser.Exceptions.ClearConfirmation.Text",
       "value": "Bạn có chắc muốn xóa danh sách này?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "WebBrowser.Exceptions.Create.ExternalText",
+      "value": "Nhập tên miền bạn muốn mở bằng trình duyệt có sẵn của ứng dụng. "
     },
     {
       "_": "types.LangPackString",
@@ -57525,8 +57645,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WebBrowser.Exceptions.DontOpenInApp",
+      "value": "ĐỪNG MỞ TRONG APP"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "WebBrowser.Exceptions.InAppInfo",
+      "value": "Những trang này sẽ vẫn mở trong ứng dụng."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "WebBrowser.Exceptions.Info",
       "value": "Các website này sẽ luôn mở bằng trình duyệt mặc định."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "WebBrowser.Exceptions.OpenInApp",
+      "value": "MỞ TRONG APP"
     },
     {
       "_": "types.LangPackString",
@@ -57844,5 +57979,5 @@
       "value": "Bạn đã nhập sai mã bảo mật."
     }
   ],
-  "version": 21601728
+  "version": 21699801
 }
