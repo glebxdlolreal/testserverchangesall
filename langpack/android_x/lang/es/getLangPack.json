@@ -17208,6 +17208,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SessionSnapshot",
+      "value": "Instantánea de la sesión"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshotDesc",
+      "value": "Enviar datos de autorización privados"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshotWarning",
+      "value": "**¡Advertencia!**\n\nLa instantánea que vas a enviar contiene el acceso a tu cuenta de Telegram.\n\nNo la envíes ni reenvíes a nadie, a menos que sepas lo que estás haciendo."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SessionSystem",
       "value": "Sistema"
     },
@@ -18562,7 +18577,7 @@
     {
       "_": "types.LangPackString",
       "key": "SyncHint3",
-      "value": "Los contactos en tu dispositivo (números de teléfono, nombres y apellidos) se subirán a los servidores de Telegram para que puedas encontrarlos en la sección **Contactos** de **%1$s**, o recibir una notificación cuando se unan.\n\nEstos datos no se comparten con terceros. Si eliminas un contacto de tu dispositivo mientras la sincronización está activada, también se eliminará de tu lista de contactos en los servidores de **Telegram**.\n\nSiempre puedes desactivar la sincronización o borrar los datos de los servidores de Telegram en **Ajustes > Privacidad y seguridad > Eliminar contactos sincronizados**.\n\nPara activar la sincronización, también debes permitir a **%1$s** el acceso a tus contactos en el dispositivo."
+      "value": "Los contactos en tu dispositivo (números de teléfono, nombres y apellidos) se subirán continuamente a los servidores de **Telegram** para que puedas encontrarlos en la sección **Contactos**, o recibir una notificación cuando se unan.\n\nLos datos sólo se transmiten a Telegram y nunca se comparten con terceros. Si eliminas un contacto de tu dispositivo mientras la sincronización está activada, también se eliminará de tu lista de contactos en los servidores de **Telegram**.\n\nSiempre puedes desactivar la sincronización o borrar los datos de los servidores de **Telegram** en **Ajustes > Privacidad y seguridad > Eliminar contactos sincronizados**.\n\nPara activar la sincronización, también debes permitir a **%1$s** el acceso a tus contactos en el dispositivo."
     },
     {
       "_": "types.LangPackString",
@@ -24384,5 +24399,5 @@
       "other_value": "%1$s años"
     }
   ],
-  "version": 1635138
+  "version": 1636960
 }
