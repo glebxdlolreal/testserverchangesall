@@ -989,8 +989,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_gift_auction",
+      "value": "Вы паспяхова набылі падарунак для {name} на аўкцыёне за {cost}.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_gift_auction_won",
+      "value": "Вы выйгралі аўкцыён са стаўкай {cost}."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_gift_can_remove_channel",
       "value": "Вы можаце выдаліць гэты падарунак з падарункаў канала.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_gift_can_remove_text",
+      "value": "Вы можаце выдаліць гэты падарунак са свайго профілю.\n"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -1004,6 +1019,11 @@
       "_": "types.LangPackString",
       "key": "lng_action_gift_channel_about_unique",
       "value": "Вы можаце дадаць гэты падарунак у профіль канала або канвертаваць яго ва ўнікальны калекцыйны."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_gift_crafted",
+      "value": "Вы стварылі новы падарунак"
     },
     {
       "_": "types.LangPackString",
@@ -1027,6 +1047,11 @@
       "_": "types.LangPackString",
       "key": "lng_action_gift_got_gift_channel",
       "value": "Вы можаце захаваць гэты падарунак у падарунках канала."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_gift_got_gift_text",
+      "value": "Вы можаце дадаць гэты падарунак у свой профіль.\n"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -1131,6 +1156,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_gift_received_anonymous",
+      "value": "Невядомы карыстальнік даслаў вам падарунак за {cost}\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_gift_received_me",
       "value": "Вы адправілі для {user} падарунак за {cost}"
     },
@@ -1214,6 +1244,11 @@
       "_": "types.LangPackString",
       "key": "lng_action_gift_sent_upgrade",
       "value": "{from} даслаў(-ла) паляпшэнне коштам **{cost}** для вашага падарунка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_gift_sent_upgrade_self",
+      "value": "Вы даслалі паляпшэнне коштам {cost} для гэтага падарунка."
     },
     {
       "_": "types.LangPackString",
@@ -1538,6 +1573,11 @@
       "_": "types.LangPackString",
       "key": "lng_action_payment_init_recurring_for",
       "value": "Вы паспяхова перавялі {amount} для {user} за {invoice} і далі дазвол на будучыя перыядычныя плацяжы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_payment_refunded",
+      "value": "{peer} вярнуў(-ла) {amount}"
     },
     {
       "_": "types.LangPackString",
@@ -1938,6 +1978,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_topic_closed_inside_by",
+      "value": "{from} закрыў(-ла) тэму"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_topic_created",
       "value": "Створана тэма «{topic}»"
     },
@@ -1985,6 +2030,11 @@
       "_": "types.LangPackString",
       "key": "lng_action_topic_reopened_inside",
       "value": "Тэма адноўлена"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_topic_reopened_inside_by",
+      "value": "{from} аднавіў(-ла) тэму"
     },
     {
       "_": "types.LangPackString",
@@ -3561,6 +3611,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_all_files",
+      "value": "Файлы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_all_links",
+      "value": "Спасылкі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_all_music",
+      "value": "Музыка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_all_photos",
+      "value": "Фота"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_all_videos",
+      "value": "Відэа"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_all_voice",
+      "value": "Голас"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_allow_bot",
       "value": "Дазволіць"
     },
@@ -3726,7 +3806,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_article_insert_code",
-      "value": "Блок кода"
+      "value": "Код"
     },
     {
       "_": "types.LangPackString",
@@ -3736,12 +3816,12 @@
     {
       "_": "types.LangPackString",
       "key": "lng_article_insert_divider",
-      "value": "Падзяляльнік"
+      "value": "Раздзяляльнік"
     },
     {
       "_": "types.LangPackString",
       "key": "lng_article_insert_footer",
-      "value": "Ніжні блок"
+      "value": "Ніжні калонтытул"
     },
     {
       "_": "types.LangPackString",
@@ -3796,12 +3876,42 @@
     {
       "_": "types.LangPackString",
       "key": "lng_article_insert_table",
-      "value": "Матэматыка"
+      "value": "Табліца"
     },
     {
       "_": "types.LangPackString",
       "key": "lng_article_insert_task_list",
       "value": "Кантрольны спіс"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_limit_columns",
+      "value": "У табліцы зашмат слупкоў."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_lowercase_letters",
+      "value": "Маленькія літары"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_lowercase_roman",
+      "value": "Маленькія рымскія лічбы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_numbers",
+      "value": "Нумараваны"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_uppercase_letters",
+      "value": "Вялікія літары"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_list_uppercase_roman",
+      "value": "Вялікія рымскія лічбы"
     },
     {
       "_": "types.LangPackString",
@@ -3835,8 +3945,53 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_premium_choice_plain_save",
+      "value": "Захаваць без фарматавання"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_premium_choice_title",
       "value": "Выдаліць фарматаванне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_bottom",
+      "value": "Унізе"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_center",
+      "value": "Па цэнтры"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_left",
+      "value": "Па левым краі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_middle",
+      "value": "У цэнтры"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_right",
+      "value": "Па правым краі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_align_top",
+      "value": "Уверсе"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_alignment",
+      "value": "Выраўноўванне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_borderless",
+      "value": "Без меж"
     },
     {
       "_": "types.LangPackString",
@@ -3856,12 +4011,22 @@
     {
       "_": "types.LangPackString",
       "key": "lng_article_table_split_cell",
-      "value": "Падзяліць ячэйкі"
+      "value": "Раздзяліць ячэйкі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_striped",
+      "value": "Рознакаляровая"
     },
     {
       "_": "types.LangPackString",
       "key": "lng_article_table_unite_cells",
       "value": "Аб'яднаць ячэйкі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_tooltip_formula",
+      "value": "Формула"
     },
     {
       "_": "types.LangPackString",
@@ -3897,6 +4062,11 @@
       "_": "types.LangPackString",
       "key": "lng_attach_profile_emoji",
       "value": "Ужыць эмодзі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_attach_replace",
+      "value": "Замяніць укладанне\n"
     },
     {
       "_": "types.LangPackString",
@@ -3938,6 +4108,30 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "few_value": "{count} падарункі разыгрываюцца ў {rounds} сярод {bidders} паводле велічыні стаўкі.",
+      "key": "lng_auction_about_top_about",
+      "many_value": "{count} падарункаў разыгрываецца ў {rounds} сярод {bidders} паводле велічыні стаўкі.",
+      "one_value": "{count} падарунак разыгрываецца ў {rounds} сярод {bidders} паводле велічыні стаўкі.",
+      "other_value": "{count} падарунка разыгрываецца ў {rounds} сярод {bidders} паводле велічыні стаўкі."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "{count} лепшых удзельнікаў",
+      "key": "lng_auction_about_top_bidders",
+      "many_value": "{count} лепшых удзельнікаў",
+      "one_value": "{count} лепшы удзельнік",
+      "other_value": "{count} лепшага удзельніка"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "{count} раўнды",
+      "key": "lng_auction_about_top_rounds",
+      "many_value": "{count} раўндаў",
+      "one_value": "{count} раўнд",
+      "other_value": "{count} раўнду"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "few_value": "{count} падарункі скідваюцца {bidders} паводле сумы стаўкі. {link}",
       "key": "lng_auction_about_top_short",
       "many_value": "{count} падарункаў скідваюцца {bidders} паводле сумы стаўкі. {link}",
@@ -3954,6 +4148,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_auction_about_understood",
+      "value": "Зразумела\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_auction_availability_label",
       "value": "Наяўнасць"
     },
@@ -3964,8 +4163,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_auction_average_label",
+      "value": "Сярэдняя цана\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_auction_average_tooltip",
       "value": "{amount} — гэта сярэдняя цана продажу падарунка {gift}."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_auction_bar_active",
+      "value": "Актыўны аўкцыён"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -4129,6 +4338,14 @@
       "value": "Вы перамагаеце"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "{count} {emoji} куплена падарункі {arrow}",
+      "key": "lng_auction_bought",
+      "many_value": "{count} {emoji} куплена падарункаў {arrow}",
+      "one_value": "{count} {emoji} куплены падарунак {arrow}",
+      "other_value": "{count}{emoji} куплена падарунку {arrow}"
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_auction_bought_bid",
       "value": "Прынятая стаўка"
@@ -4193,8 +4410,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_auction_join_time_medium",
+      "value": "{hours} гадз {minutes} хв\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_auction_menu_about",
       "value": "Даведацца больш"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_auction_menu_copy_link",
+      "value": "Скапіраваць спасылку\n"
     },
     {
       "_": "types.LangPackString",
@@ -4205,6 +4432,14 @@
       "_": "types.LangPackString",
       "key": "lng_auction_preview_backdrop",
       "value": "фон"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "У гэтай калекцыі **{count}** унікальныя фоны  ",
+      "key": "lng_auction_preview_backdrops",
+      "many_value": "У гэтай калекцыі **{count}** унікальных фонаў  ",
+      "one_value": "У гэтай калекцыі **{count}** унікальны фон  ",
+      "other_value": "У гэтай калекцыі **{count}** унікальныя фоны"
     },
     {
       "_": "types.LangPackString",
@@ -4238,6 +4473,14 @@
       "_": "types.LangPackString",
       "key": "lng_auction_preview_model",
       "value": "мадэль"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "У гэтай калекцыі {count} унікальныя мадэлі",
+      "key": "lng_auction_preview_models",
+      "many_value": "У гэтай калекцыі {count} унікальных мадэляў",
+      "one_value": "У гэтай калекцыі {count} унікальная мадэль",
+      "other_value": "У гэтай калекцыі {count} унікальный мадэлі"
     },
     {
       "_": "types.LangPackString",
@@ -4365,6 +4608,11 @@
       "_": "types.LangPackString",
       "key": "lng_auction_text_ended",
       "value": "Аўкцыён скончаны."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_auction_text_link",
+      "value": "Даведацца больш {arrow}\n"
     },
     {
       "_": "types.LangPackString",
@@ -4968,6 +5216,14 @@
       "other_value": "Гэтаму каналу не хапае {count} «маланкі», каб размяшчаць гісторыі."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Гэтаму каналу не хапае **{count}** «маланак», каб ён мог {post}.",
+      "key": "lng_boost_channel_you_more",
+      "many_value": "Гэтаму каналу не хапае **{count}** «маланак», каб ён мог {post}.",
+      "one_value": "Гэтаму каналу не хапае **{count}** «маланкі», каб ён мог {post}.",
+      "other_value": "Гэтаму каналу не хапае **{count}** «маланкі», каб ён мог {post}."
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_boost_channel_you_title",
       "value": "Вы падтрымалі {channel}!"
@@ -5388,6 +5644,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_bot_apps_which_link",
+      "value": "Даведацца больш >\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_bot_apps_your",
       "value": "Вашы праграмы"
     },
@@ -5477,6 +5738,11 @@
       "value": "Зоркі з вашага агульнага балансу можна выкарыстоўваць на рэкламу альбо выводзіць як узнагароду праз 21 дзень пасля іх атрымання."
     },
     {
+      "_": "types.LangPackString",
+      "key": "lng_bot_earn_balance_about_url",
+      "value": "https://telegram.org/tos/stars"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "Вывесці {emoji} {count}",
       "key": "lng_bot_earn_balance_button",
@@ -5541,6 +5807,11 @@
       "_": "types.LangPackString",
       "key": "lng_bot_earn_out_ph",
       "value": "Увядзіце суму для вываду"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_bot_earn_out_ph_max",
+      "value": "Увядзіце суму для вываду (макс. {amount})\n"
     },
     {
       "_": "types.LangPackString",
@@ -5660,7 +5931,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_bot_off_thread_ph",
-      "value": "Паведамленне па-за тэмай"
+      "value": "Паведамленне без тэмы"
     },
     {
       "_": "types.LangPackString",
@@ -6153,6 +6424,11 @@
       "_": "types.LangPackString",
       "key": "lng_call_accept",
       "value": "Прыняць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_call_add_people",
+      "value": "Дадаць людзей\n"
     },
     {
       "_": "types.LangPackString",
@@ -6934,6 +7210,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_channel_earn_out_check_password_about",
+      "value": "Вы можаце вывесці ўзнагароду, толькі калі маеце:"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_channel_earn_overview_title",
       "value": "Агляд даходаў"
     },
@@ -7447,9 +7728,9 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "{count} у сетцы",
+      "few_value": "",
       "key": "lng_chat_status_online",
-      "many_value": "{count} у сетцы",
+      "many_value": "",
       "one_value": "{count} у сетцы",
       "other_value": "{count} у сетцы"
     },
@@ -7775,6 +8056,11 @@
       "_": "types.LangPackString",
       "key": "lng_chatbots_warning_username_text",
       "value": "Бот {bot} зможа **задаваць і выдаляць імёны карыстальнікаў** вашага ўліковага запісу, што можа прывесці да страты вашага бягучага імя карыстальніка."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_choose_cover",
+      "value": "Выбраць вокладку відэа"
     },
     {
       "_": "types.LangPackString",
@@ -8651,6 +8937,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_confcall_invite_done_user",
+      "value": "Вы выклікаеце {user} для далучэння.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_confcall_invite_fail_user",
+      "value": "Не ўдалося выклікаць {user} для далучэння.\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_confcall_join_button",
       "value": "Далучыцца да выкліку"
     },
@@ -8698,6 +8994,11 @@
       "_": "types.LangPackString",
       "key": "lng_confcall_link_revoke",
       "value": "Адклікаць спасылку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_confcall_link_revoked_text",
+      "value": "Створана новая спасылка.\n"
     },
     {
       "_": "types.LangPackString",
@@ -9146,6 +9447,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_context_clear_cover",
+      "value": "Выдаліць вокладку\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_context_clear_selection",
       "value": "Скасаваць выбар"
     },
@@ -9188,6 +9494,16 @@
       "_": "types.LangPackString",
       "key": "lng_context_copy_message_link",
       "value": "Капіяваць спасылку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_context_copy_poll_option",
+      "value": "Скапіраваць варыянт\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_context_copy_poll_option_link",
+      "value": "Скапіраваць спасылку на варыянт\n"
     },
     {
       "_": "types.LangPackString",
@@ -9241,6 +9557,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_context_delete_poll_option",
+      "value": "Выдаліць"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_context_delete_selected",
       "value": "Выдаліць выбранае"
     },
@@ -9258,6 +9579,16 @@
       "_": "types.LangPackString",
       "key": "lng_context_disable_spoiler",
       "value": "Прыбраць спойлер"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_context_draw",
+      "value": "Рэдагаваць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_context_edit_cover",
+      "value": "Змяніць вокладку"
     },
     {
       "_": "types.LangPackString",
@@ -9627,10 +9958,10 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "{count} прачыталі",
+      "few_value": "",
       "key": "lng_context_seen_text",
-      "many_value": "{count} прачыталі",
-      "one_value": "{count} прачытаў",
+      "many_value": "",
+      "one_value": "{count} прачытаў(-ла)",
       "other_value": "{count} прачыталі"
     },
     {
@@ -9703,6 +10034,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_context_set_reminder",
+      "value": "Выберыце дату і час\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_context_show_in_finder",
       "value": "Паказаць праз Finder"
     },
@@ -9755,6 +10091,11 @@
       "_": "types.LangPackString",
       "key": "lng_context_unpin_msg",
       "value": "Адмацаваць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_context_upload_edit_caption",
+      "value": "Рэдагаваць подпіс"
     },
     {
       "_": "types.LangPackString",
@@ -9874,7 +10215,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_create_channel_link_available",
-      "value": "Гэта спасылка даступная"
+      "value": "Гэта спасылка даступна"
     },
     {
       "_": "types.LangPackString",
@@ -10028,6 +10369,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_credits_box_history_entry_ads",
+      "value": "Рэкламная платформа"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_credits_box_history_entry_affiliate",
       "value": "Партнёр"
     },
@@ -10040,6 +10386,11 @@
       "_": "types.LangPackString",
       "key": "lng_credits_box_history_entry_api",
       "value": "Платная трансляцыя"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_credits_box_history_entry_app_store",
+      "value": "App Store"
     },
     {
       "_": "types.LangPackString",
@@ -10078,6 +10429,11 @@
       "_": "types.LangPackString",
       "key": "lng_credits_box_history_entry_gift_bought",
       "value": "Пакупка падарунка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_credits_box_history_entry_gift_bought_from",
+      "value": "Ад"
     },
     {
       "_": "types.LangPackString",
@@ -10136,6 +10492,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_credits_box_history_entry_gift_sold_to",
+      "value": "Для"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_credits_box_history_entry_gift_transfer",
       "value": "Перадача падарунка"
     },
@@ -10186,6 +10547,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_credits_box_history_entry_play_market",
+      "value": "Play Store"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_credits_box_history_entry_posts_search",
       "value": "Пошук публічных допісаў"
     },
@@ -10213,6 +10579,16 @@
       "_": "types.LangPackString",
       "key": "lng_credits_box_history_entry_subscription",
       "value": "Штомесячная плата за падпіску"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_credits_box_history_entry_success_date",
+      "value": "Дата транзакцыі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_credits_box_history_entry_success_url",
+      "value": "Спасылка на транзакцыю"
     },
     {
       "_": "types.LangPackString",
@@ -10355,6 +10731,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_credits_earn_button",
+      "value": "Зарабляць зоркі з міні-праграм\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_credits_enough",
       "value": "На дадзены момант у вас дастаткова «зорак». {link}"
     },
@@ -10393,6 +10774,11 @@
       "_": "types.LangPackString",
       "key": "lng_credits_media_done_title",
       "value": "Доступ да медыя адкрыты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_credits_more_options",
+      "value": "Больш варыянтаў"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -10439,6 +10825,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_credits_small_balance_for_messages",
+      "value": "Купіце **зоркі**, каб адпраўляць паведамленні.\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_credits_small_balance_for_search",
       "value": "Купіце **зоркі**, каб шукаць допісы."
     },
@@ -10474,6 +10865,11 @@
       "_": "types.LangPackString",
       "key": "lng_credits_small_balance_video_stream",
       "value": "Купіце **зоркі**, каб адправіць іх {name} у падтрымку трансляцыі."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_credits_stats_button",
+      "value": "Праглядзець статыстыку"
     },
     {
       "_": "types.LangPackString",
@@ -10660,6 +11056,11 @@
       "_": "types.LangPackString",
       "key": "lng_credits_summary_title",
       "value": "Зоркі Telegram"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_credits_topup_button",
+      "value": "{emoji} Папоўніць баланс\n"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -10852,6 +11253,16 @@
       "_": "types.LangPackString",
       "key": "lng_delete_photo_sure",
       "value": "Вы ўпэўнены, што хочаце выдаліць гэта фота?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_delete_sub_messages",
+      "value": "Выдаліць усе паведамленні"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_delete_sub_reactions",
+      "value": "Выдаліць усе рэакцыі"
     },
     {
       "_": "types.LangPackString",
@@ -11239,6 +11650,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_drag_media_here",
+      "value": "Перацягніце фота і відэа сюды\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_drag_photos_here",
       "value": "Перацягніце фота сюды,"
     },
@@ -11246,6 +11662,11 @@
       "_": "types.LangPackString",
       "key": "lng_drag_to_send_files",
       "value": "каб адправіць іх як дакументы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_drag_to_send_media",
+      "value": "каб адправіць іх як медыяфайлы\n"
     },
     {
       "_": "types.LangPackString",
@@ -12552,6 +12973,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_error_cant_reply_other",
+      "value": "На гэта паведамленне нельга адказаць у іншым чаце.\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_error_nocopy_channel",
       "value": "Капіяванне з гэтага канала адключана кіраўнікамі."
     },
@@ -13091,11 +13517,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "Ліміт у {count} стыкеры дасягнуты",
+      "few_value": "",
       "key": "lng_fave_sticker_limit_title",
-      "many_value": "Ліміт у {count} стыкераў дасягнуты",
-      "one_value": "Ліміт у {count} стыкер дасягнуты",
-      "other_value": "Дасягнуты ліміт у {count} стыкеры"
+      "many_value": "",
+      "one_value": "Дасягнуты ліміт стыкераў: {count}",
+      "other_value": "Дасягнуты ліміт стыкераў: {count}"
     },
     {
       "_": "types.LangPackString",
@@ -14104,6 +14530,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_formatting_date_title",
+      "value": "Выберыце дату і час\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_formatting_link_create",
       "value": "Стварыць"
     },
@@ -14126,6 +14557,11 @@
       "_": "types.LangPackString",
       "key": "lng_formatting_link_url",
       "value": "URL-адрас"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_formatting_math_create_title",
+      "value": "Формула"
     },
     {
       "_": "types.LangPackString",
@@ -14300,6 +14736,56 @@
       "_": "types.LangPackString",
       "key": "lng_forward_about",
       "value": "Вы можаце схаваць імя адпраўніка, паведамленне будзе выглядаць як адпраўленае вамі."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_forward_action_change_recipient",
+      "value": "Змяніць атрымальніка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_forward_action_hide_caption",
+      "value": "Хаваць подпіс"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_forward_action_hide_captions",
+      "value": "Хаваць подпісы\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_forward_action_hide_sender",
+      "value": "Хаваць імя адпраўніка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_forward_action_hide_senders",
+      "value": "Хаваць імёны адпраўнікоў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_forward_action_remove",
+      "value": "Не перасылаць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_forward_action_show_caption",
+      "value": "Паказваць подпіс"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_forward_action_show_captions",
+      "value": "Паказваць подпісы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_forward_action_show_sender",
+      "value": "Паказваць імя адпраўніка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_forward_action_show_senders",
+      "value": "Паказваць імёны адпраўнікоў"
     },
     {
       "_": "types.LangPackString",
@@ -14613,6 +15099,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_gift_buy_price_change_text",
+      "value": "Цана гэтага падарунка змянілася і цяпер складае {price}. Вы ўсё яшчэ хочаце купіць?\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_gift_buy_price_change_title",
+      "value": "Цана змянілася!\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_gift_buy_resale_button",
       "value": "Купіць за {cost}"
     },
@@ -14645,6 +15141,11 @@
       "_": "types.LangPackString",
       "key": "lng_gift_buy_resale_pay_ton",
       "value": "Аплата ў Gram"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_gift_buy_resale_title",
+      "value": "Купіць {name}\n"
     },
     {
       "_": "types.LangPackString",
@@ -14791,6 +15292,14 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "few_value": "Вы хочаце абмяняць гэты падарунак ад {user} у **{count} зоркі**?",
+      "key": "lng_gift_convert_sure_confirm",
+      "many_value": "Вы хочаце абмяняць гэты падарунак ад {user} у **{count} зорак**?",
+      "one_value": "Вы хочаце абмяняць гэты падарунак ад {user} у **{count} зорку**?",
+      "other_value": "Вы хочаце абмяняць гэты падарунак ад {user} у **{count} зоркі**?"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "few_value": "Хочаце канвертаваць гэты падарунак у {channel} за **{count} зоркі**?",
       "key": "lng_gift_convert_sure_confirm_channel",
       "many_value": "Хочаце канвертаваць гэты падарунак у {channel} за **{count} зорак**?",
@@ -14855,6 +15364,11 @@
       "_": "types.LangPackString",
       "key": "lng_gift_craft_another_button",
       "value": "Стварыць яшчэ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_gift_craft_button",
+      "value": "Стварыць {gift}"
     },
     {
       "_": "types.LangPackString",
@@ -15062,6 +15576,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_gift_in_blockchain_link",
+      "value": "Паглядзець >"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_gift_legendary_tag",
       "value": "легендарны"
     },
@@ -15182,6 +15701,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_gift_list_birthday_status_today",
+      "value": "{emoji} Дзень нараджэння"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_gift_list_birthday_status_tomorrow",
+      "value": "Дзень нараджэння заўтра"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_gift_list_birthday_status_yesterday",
+      "value": "Дзень нараджэння ўчора"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_gift_locked_title",
       "value": "Падарунак заблакіраваны"
     },
@@ -15219,6 +15753,11 @@
       "_": "types.LangPackString",
       "key": "lng_gift_offer_confirm_reject",
       "value": "Вы сапраўды хочаце адхіліць прапанову ад {user}?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_gift_offer_confirm_text",
+      "value": "Вы хочаце прапанаваць {cost} {user} за {name}?"
     },
     {
       "_": "types.LangPackString",
@@ -15327,6 +15866,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_gift_premium_label",
+      "value": "Premium"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_gift_premium_or_stars",
       "value": "Падарыць падарунак"
     },
@@ -15391,6 +15935,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_gift_resale_count_none",
+      "value": "Няма прапаноў\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_gift_resale_date",
       "value": "Дата"
     },
@@ -15429,6 +15978,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_gift_resale_search_none",
+      "value": "Па вашым пошуку падарункаў не знойдзена.\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_gift_resale_sort_date",
       "value": "Па даце"
     },
@@ -15446,6 +16000,11 @@
       "_": "types.LangPackString",
       "key": "lng_gift_resale_stars_only",
       "value": "Толькі за зоркі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_gift_resale_switch_to",
+      "value": "Пераключыцца на {currency}\n"
     },
     {
       "_": "types.LangPackString",
@@ -15489,6 +16048,11 @@
       "_": "types.LangPackString",
       "key": "lng_gift_self_title",
       "value": "Купіць падарунак"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_gift_sell_about",
+      "value": "Вы атрымаеце {percent} ад выбранай сумы.\n"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -15582,6 +16146,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_gift_sell_update",
+      "value": "Змяніць цану"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_gift_sell_updated",
+      "value": "Цана продажу для {name} зменена.\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_gift_send_anonymous",
       "value": "Схаваць маё імя"
     },
@@ -15594,6 +16168,11 @@
       "_": "types.LangPackString",
       "key": "lng_gift_send_anonymous_about_channel",
       "value": "Вы можаце схаваць сваё імя і паведамленне ад усіх наведвальнікаў гэтага канала, акрамя яго кіраўнікоў."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_gift_send_anonymous_about_paid",
+      "value": "Вы можаце схаваць сваё імя ад наведвальнікаў профілю {user}. {recipient} усё роўна будзе бачыць ваша імя.\n"
     },
     {
       "_": "types.LangPackString",
@@ -15675,6 +16254,11 @@
       "_": "types.LangPackString",
       "key": "lng_gift_send_unique_about_channel",
       "value": "Уключыце гэта, каб дазволіць кіраўнікам {name} пераўтварыць ваш падарунак ва ўнікальны калекцыйны. {link}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_gift_send_unique_link",
+      "value": "Даведацца больш >"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -15760,6 +16344,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_gift_stars_auction_view",
+      "value": "Праглядзець"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_gift_stars_incoming",
       "value": "Выкарыстоўвайце зоркі на разблакіроўку змесціва і паслуг Telegram."
     },
@@ -15787,6 +16376,11 @@
       "_": "types.LangPackString",
       "key": "lng_gift_stars_premium",
       "value": "premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_gift_stars_resale",
+      "value": "перапродаж"
     },
     {
       "_": "types.LangPackString",
@@ -15847,12 +16441,22 @@
       "other_value": "{count} зоркі"
     },
     {
+      "_": "types.LangPackString",
+      "key": "lng_gift_stars_your_finished",
+      "value": "больш няма\n"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "Засталося {count}",
       "key": "lng_gift_stars_your_left",
       "many_value": "Засталося {count}",
       "one_value": "Застаўся {count}",
       "other_value": "Засталося {count}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_gift_subtitle_birthdays",
+      "value": "Дні нараджэння\n"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -15977,6 +16581,14 @@
       "_": "types.LangPackString",
       "key": "lng_gift_transfer_unlocks_update_title",
       "value": "Патрэбна абнаўленне"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Праз {count} дні",
+      "key": "lng_gift_transfer_unlocks_when_days",
+      "many_value": "Праз {count} дзён",
+      "one_value": "Праз {count} дзень",
+      "other_value": "Праз {count} дня"
     },
     {
       "_": "types.LangPackString",
@@ -16188,6 +16800,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_gift_upgrade_confirm",
+      "value": "Пацвердзіць"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_gift_upgrade_decreases",
       "value": "Цана зніжаецца праз {time}"
     },
@@ -16200,6 +16817,11 @@
       "_": "types.LangPackString",
       "key": "lng_gift_upgrade_gifted_about",
       "value": "Цяпер {name} можа ператварыць гэты падарунак ва ўнікальны калекцыйны."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_gift_upgrade_preview_about",
+      "value": "Дазвольце {name} зрабіць ваш падарунак унікальным у калекцыі."
     },
     {
       "_": "types.LangPackString",
@@ -16225,6 +16847,11 @@
       "_": "types.LangPackString",
       "key": "lng_gift_upgrade_see_table",
       "value": "Паглядзіце, як гэта цана будзе зніжацца {arrow}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_gift_upgrade_title",
+      "value": "Паляпшэнне падарунка"
     },
     {
       "_": "types.LangPackString",
@@ -16321,6 +16948,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_gift_value_initial_price_value",
+      "value": "{stars} ({amount})"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_gift_value_initial_sale",
       "value": "Першы продаж"
     },
@@ -16386,6 +17018,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_gift_visible_hide_arrow",
+      "value": "Схаваць {arrow}\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_gift_visible_hint",
       "value": "Гэты падарунак бачны ў вашым профілі.\n"
     },
@@ -16393,6 +17030,11 @@
       "_": "types.LangPackString",
       "key": "lng_gift_visible_hint_channel",
       "value": "Гэты падарунак бачны ў профілі вашага канала."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_gift_visible_show_arrow",
+      "value": "Паказаць {arrow}\n"
     },
     {
       "_": "types.LangPackString",
@@ -17042,6 +17684,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_group_call_blockchain_only_status",
+      "value": "слухае"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_group_call_calling_status",
       "value": "выклік..."
     },
@@ -17097,8 +17744,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_group_call_confcall_add",
+      "value": "Выклік"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_group_call_connecting",
       "value": "Злучэнне..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_group_call_context_cancel_invite",
+      "value": "Адхіліць запрашэнне\n"
     },
     {
       "_": "types.LangPackString",
@@ -17278,6 +17935,11 @@
       "value": "Запрасіць"
     },
     {
+      "_": "types.LangPackString",
+      "key": "lng_group_call_invite_conf",
+      "value": "Дадаць людзей\n"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "Вы запрасілі ў відэачат **{count} удзельнікі**.",
       "key": "lng_group_call_invite_done_many",
@@ -17289,6 +17951,11 @@
       "_": "types.LangPackString",
       "key": "lng_group_call_invite_done_user",
       "value": "Вы запрасілі {user} у відэачат."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_group_call_invite_limit",
+      "value": "Гэта максімальна дазволены лік удзельнікаў."
     },
     {
       "_": "types.LangPackString",
@@ -18753,7 +19420,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_guard_bot_replace_confirm",
-      "value": "Ужыць {bot}"
+      "value": "Выкарыстаць {bot}"
     },
     {
       "_": "types.LangPackString",
@@ -19404,6 +20071,11 @@
       "_": "types.LangPackString",
       "key": "lng_iv_wrong_layout",
       "value": "Памылковы макет?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_iv_zoom_tooltip_cmd",
+      "value": "Утрымлівайце Cmd, каб наблізіць на 5%.\nУтрымлівайце Alt, каб наблізіць на 1%.\n"
     },
     {
       "_": "types.LangPackString",
@@ -20497,6 +21169,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_manage_peer_bot_balance",
+      "value": "Баланс"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_manage_peer_bot_balance_credits",
       "value": "Зоркі"
     },
@@ -21243,6 +21920,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_media_round",
+      "value": "Відэапаведамленне"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_media_save_progress",
       "value": "{ready} з {total} {mb}"
     },
@@ -21701,7 +22383,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_menu_formatting",
-      "value": "Фармаціраванне"
+      "value": "Фарматаванне"
     },
     {
       "_": "types.LangPackString",
@@ -21711,7 +22393,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_menu_formatting_bold",
-      "value": "Тоўсты"
+      "value": "Тлусты"
     },
     {
       "_": "types.LangPackString",
@@ -21740,6 +22422,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_menu_formatting_marked",
+      "value": "Маркіраваны"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_menu_formatting_monospace",
       "value": "Монашырынны"
     },
@@ -21752,6 +22439,16 @@
       "_": "types.LangPackString",
       "key": "lng_menu_formatting_strike_out",
       "value": "Закрэслены"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_menu_formatting_subscript",
+      "value": "Ніжні тэкст"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_menu_formatting_superscript",
+      "value": "Верхні тэкст"
     },
     {
       "_": "types.LangPackString",
@@ -23000,7 +23697,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_passcode_about",
-      "value": "Калі вы ўключыце блакіроўку кодам доступу, уверсе спіса вашых чатаў з’явіцца значок блакіроўкі. Націсніце яго, каб заблакіраваць або разблакіраваць праграму.\n\nЗвярніце ўвагу: калі вы забудзецеся на код, вам прыйдзецца выйсці з уліковага запісу Telegram Desktop і нанава ўвайсці."
+      "value": "Калі вы задасце лакальны код доступу, з’явіцца значок блакіроўкі над спісам вашых чатаў. Націсніце на яго, каб заблакіраваць Telegram.\n\nЗвярніце ўвагу: калі вы забудзецеся на код, вам прыйдзецца выйсці з уліковага запісу Telegram Desktop і нанава ўвайсці."
     },
     {
       "_": "types.LangPackString",
@@ -23016,6 +23713,11 @@
       "_": "types.LangPackString",
       "key": "lng_passcode_about3",
       "value": "Заўвага: калі вы забыліся код доступу, вам трэба будзе выйсці з Telegram Desktop і ўвайсці зноў."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passcode_applewatch",
+      "value": "Вам трэба ўвесці код доступу\nперш чым выкарыстоўваць гадзіннік для разблакіроўкі."
     },
     {
       "_": "types.LangPackString",
@@ -23162,6 +23864,11 @@
       "_": "types.LangPackString",
       "key": "lng_passcode_systempwd",
       "value": "Вам трэба ўвесці код доступу перш чым выкарыстоўваць сістэмны пароль."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passcode_touchid",
+      "value": "Вам трэба ўвесці код доступу\nперш чым выкарыстоўваць Touch ID."
     },
     {
       "_": "types.LangPackString",
@@ -23913,6 +24620,14 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "few_value": "Заплаціць за {count} паведамленні",
+      "key": "lng_payment_confirm_button",
+      "many_value": "Заплаціць за {count} паведамленняў",
+      "one_value": "Заплаціць за {count} паведамленне",
+      "other_value": "Заплаціць за {count} паведамлення"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "few_value": "Вы выбралі **{count}** чаты, дзе за паведамленні спаганяюцца зоркі.",
       "key": "lng_payment_confirm_chats",
       "many_value": "Вы выбралі **{count}** чаты, дзе за паведамленні спаганяюцца зоркі.",
@@ -23944,6 +24659,14 @@
       "_": "types.LangPackString",
       "key": "lng_payment_confirm_title",
       "value": "Пацвярджэнне аплаты"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Вы выбралі **{count}** карыстальніка, якія спаганяе зоркі за паведамленні.",
+      "key": "lng_payment_confirm_users",
+      "many_value": "Вы выбралі **{count}** карыстальнікаў, якія спаганяе зоркі за паведамленні.",
+      "one_value": "Вы выбралі **{count}** карыстальніка, які спаганяе зоркі за паведамленні.",
+      "other_value": "Вы выбралі **{count}** карыстальніка, якія спаганяе зоркі за паведамленні."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -24355,6 +25078,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_peer_gifts_filter_upgradable",
+      "value": "Паляпшаемы"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_peer_gifts_notify",
       "value": "Апавяшчаць аб новых падарунках"
     },
@@ -24397,6 +25125,21 @@
       "_": "types.LangPackString",
       "key": "lng_photo_caption",
       "value": "Подпіс"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_photo_editor_crop_free",
+      "value": "Вольны"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_photo_editor_crop_original",
+      "value": "Арыгінал"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_photo_editor_crop_square",
+      "value": "Квадрат"
     },
     {
       "_": "types.LangPackString",
@@ -24536,8 +25279,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_polls_add_option",
+      "value": "Дадаць варыянт\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_polls_add_option_placeholder",
+      "value": "Тэкст варыянта...\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_polls_add_option_save",
       "value": "Захаваць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_polls_admin_back_vote",
+      "value": "{arrow} Галасаваць"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -24670,6 +25428,11 @@
       "_": "types.LangPackString",
       "key": "lng_polls_create_deadline_button",
       "value": "Уставіць тэрмін"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_polls_create_deadline_expired",
+      "value": "Тэрмін апытання ўжо прайшоў. Выберыце новы час."
     },
     {
       "_": "types.LangPackString",
@@ -24879,6 +25642,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_polls_menu_item",
+      "value": "Апытанне"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_polls_option_added_by",
       "value": "Дададзена  {user}"
     },
@@ -25003,6 +25771,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_polls_vote_yesterday",
+      "value": "учора"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_polls_votes_collapse",
       "value": "Згарнуць"
     },
@@ -25028,6 +25801,11 @@
       "_": "types.LangPackString",
       "key": "lng_popular_apps_info_confirm",
       "value": "Зразумела"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_popular_apps_info_here",
+      "value": "тут"
     },
     {
       "_": "types.LangPackString",
@@ -25186,6 +25964,14 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "few_value": "Праглядайце да {count} падобных каналаў",
+      "key": "lng_premium_double_limits_about_similar_channels",
+      "many_value": "Праглядайце да {count} падобных каналаў",
+      "one_value": "Праглядайце да {count} падобнага канала",
+      "other_value": "Праглядайце да {count} падобнага канала"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "few_value": "Захоўвайце ў вашы абраныя стыкеры да {count} штук",
       "key": "lng_premium_double_limits_about_stickers",
       "many_value": "Захоўвайце ў вашы абраныя стыкеры да {count} штук",
@@ -25236,6 +26022,11 @@
       "_": "types.LangPackString",
       "key": "lng_premium_double_limits_subtitle_pins",
       "value": "Замацаваныя чаты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_premium_double_limits_subtitle_similar_channels",
+      "value": "Падобныя каналы"
     },
     {
       "_": "types.LangPackString",
@@ -25526,6 +26317,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_premium_summary_about_filter_tags",
+      "value": "Назва папкі будзе паказвацца побач з кожным чатам у спісе."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_premium_summary_about_gifts",
       "value": "Падарункі — гэта калекцыйныя рэчы, якія можна абменьваць або паказваць у профілі."
     },
@@ -25558,6 +26354,11 @@
       "_": "types.LangPackString",
       "key": "lng_premium_summary_about_no_forwards",
       "value": "Забараніць перасылку, захаванне і капіраванне кантэнту ў прыватных чатах."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_premium_summary_about_peer_colors",
+      "value": "Выбірайце колер і лагатып для вашага профілю і адказаў на вашы паведамленні."
     },
     {
       "_": "types.LangPackString",
@@ -25675,6 +26476,11 @@
       "value": "Паскораная хуткасць"
     },
     {
+      "_": "types.LangPackString",
+      "key": "lng_premium_summary_subtitle_filter_tags",
+      "value": "Тэгі для чатаў"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "{user} падарыў(-ла) вам {count}-месячную падпіску на Telegram Premium.",
       "key": "lng_premium_summary_subtitle_gift",
@@ -25724,6 +26530,11 @@
       "_": "types.LangPackString",
       "key": "lng_premium_summary_subtitle_no_forwards",
       "value": "Адключыць абагульванне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_premium_summary_subtitle_peer_colors",
+      "value": "Колеры імя і профілю"
     },
     {
       "_": "types.LangPackString",
@@ -27582,8 +28393,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_record_listen_cancel_sure_round",
+      "value": "Вы хочаце скасаваць запісанае відэапаведамленне?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_record_lock_cancel_sure",
       "value": "Вы ўпэўнены, што хочаце спыніць запіс і адхіліць галасавое паведамленне?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_record_lock_cancel_sure_round",
+      "value": "Вы хочаце спыніць запіс і адхіліць ваша відэапаведамленне?\n"
     },
     {
       "_": "types.LangPackString",
@@ -27604,6 +28425,16 @@
       "_": "types.LangPackString",
       "key": "lng_record_once_first_tooltip",
       "value": "Націсніце тут, каб паведамленне можна было **прайграць толькі аднойчы**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_record_video_tip",
+      "value": "Утрымлівайце, каб пачаць запіс відэа. Націсніце, каб пераключыцца на запіс аўдыя."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_record_voice_tip",
+      "value": "Утрымлівайце, каб пачаць запіс аўдыя. Націсніце, каб пераключыцца на запіс відэа."
     },
     {
       "_": "types.LangPackString",
@@ -27629,6 +28460,11 @@
       "_": "types.LangPackString",
       "key": "lng_removed_list_title",
       "value": "Выдаленыя карыстальнікі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_rename_file",
+      "value": "Змяніць назву"
     },
     {
       "_": "types.LangPackString",
@@ -27813,6 +28649,11 @@
       "_": "types.LangPackString",
       "key": "lng_reply_cant_forward",
       "value": "На жаль, вы не можаце адказаць на паведамленне, якое было адпраўлена да абнаўлення суполкі ў суперсуполку. Вы можаце пераслаць яго і дадаць свой каментарый. Зрабіць так?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_reply_from_private_chat",
+      "value": "Гэты адказ з прыватнага чата."
     },
     {
       "_": "types.LangPackString",
@@ -28519,6 +29360,11 @@
       "_": "types.LangPackString",
       "key": "lng_restricted_send_non_premium_more",
       "value": "Падрабязней…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_restricted_send_paid_media",
+      "value": "На жаль, платныя медыя нельга адпраўляць у гэты канал."
     },
     {
       "_": "types.LangPackString",
@@ -29301,11 +30147,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "Дасягнуты ліміт на {count} анімацыі",
+      "few_value": "",
       "key": "lng_saved_gif_limit_title",
-      "many_value": "Дасягнуты ліміт на {count} анімацый",
-      "one_value": "Дасягнуты ліміт на {count} анімацыю",
-      "other_value": "Дасягнуты ліміт на {count} анімацыі"
+      "many_value": "",
+      "one_value": "Дасягнуты ліміт анімацый: {count}",
+      "other_value": "Дасягнуты ліміт анімацый: {count}"
     },
     {
       "_": "types.LangPackString",
@@ -29336,6 +30182,11 @@
       "_": "types.LangPackString",
       "key": "lng_saved_open_group",
       "value": "Адкрыць суполку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_saved_quote_here",
+      "value": "Працытаваць тут, каб захаваць."
     },
     {
       "_": "types.LangPackString",
@@ -29399,6 +30250,11 @@
       "_": "types.LangPackString",
       "key": "lng_schedule_repeat_promo",
       "value": "Падпішыцеся на {link}, каб адпраўляць  рэгулярныя паведамленні."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_schedule_repeat_promo_link",
+      "value": "Telegram Premium"
     },
     {
       "_": "types.LangPackString",
@@ -29477,6 +30333,21 @@
       "_": "types.LangPackString",
       "key": "lng_scheduled_video_view",
       "value": "Праглядзець"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_screen_reader_bar_disable",
+      "value": "Выключыць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_screen_reader_bar_text",
+      "value": "Telegram працуе ў рэжыме экраннага чытача.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_screen_reader_confirm_disable",
+      "value": "Выключыць"
     },
     {
       "_": "types.LangPackString",
@@ -29958,6 +30829,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_send_high_quality",
+      "value": "Высокая якасць"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_send_image",
       "value": "Адправіць відарыс"
     },
@@ -30155,7 +31031,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_sessions_header",
-      "value": "Бягучы сеанс"
+      "value": "Гэта прылада"
     },
     {
       "_": "types.LangPackString",
@@ -32246,6 +33122,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_settings_suggestion_password_step_input_about",
+      "value": "Вы ўсё яшчэ памятаеце ваш пароль?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_settings_suggestion_password_step_input_title",
+      "value": "Увядзіце ваш пароль"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_settings_suggestion_password_title",
       "value": "Ваш пароль"
     },
@@ -32572,6 +33458,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_settings_use_applewatch",
+      "value": "Разблакіроўваць праз Apple Watch"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_settings_use_applewatch_about",
+      "value": "Вам трэба ўвесці код доступу адзін раз, перш чым Telegram будзе разблакіроўвацца з дапамогай Apple Watch."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_settings_use_native_notifications",
       "value": "Выкарыстоўваць сістэмныя апавяшчэнні"
     },
@@ -32584,6 +33480,16 @@
       "_": "types.LangPackString",
       "key": "lng_settings_use_systempwd_about",
       "value": "Вам трэба ўвесці код доступу адзін раз, перш чым Telegram будзе разблакіроўвацца сістэмным паролем."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_settings_use_touchid",
+      "value": "Разблакіроўваць праз Touch ID"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_settings_use_touchid_about",
+      "value": "Вам трэба ўвесці код доступу адзін раз перш чым разблакіроўваць Telegram з дапамогай Touch ID."
     },
     {
       "_": "types.LangPackString",
@@ -33723,6 +34629,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_star_ref_stopped",
+      "value": "Гэтая партнёрская спасылка больш не актыўная.\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_star_ref_title",
       "value": "Партнёрская праграма"
     },
@@ -33870,6 +34781,14 @@
       "other_value": "Адмоўны рэйтынг азначае, што вашы плацяжы ненадзейныя. Выдаткуйце **{count} зоркі**, каб выправіць гэту праблему."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Рэйтынг абновіцца {when}.\nЧакаюцца {count} балы. {link}",
+      "key": "lng_stars_rating_pending",
+      "many_value": "Рэйтынг абновіцца {when}.\nЧакаецца {count} балаў. {link}",
+      "one_value": "Рэйтынг абновіцца {when}.\nЧакаецца {count} бал. {link}",
+      "other_value": "Рэйтынг абновіцца {when}.\nЧакаецца {count} бала. {link}"
+    },
+    {
       "_": "types.LangPackString",
       "key": "lng_stars_rating_pending_back",
       "value": "Назад {arrow}"
@@ -33888,6 +34807,14 @@
       "_": "types.LangPackString",
       "key": "lng_stars_rating_understood",
       "value": "Зразумела"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "праз {count} дні",
+      "key": "lng_stars_rating_updates",
+      "many_value": "праз {count} дзён",
+      "one_value": "праз {count} дзень",
+      "other_value": "праз {count} дня"
     },
     {
       "_": "types.LangPackString",
@@ -36132,6 +37059,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_translate_cocoon_done",
+      "value": "Зразумела"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_translate_cocoon_efficient_text",
       "value": "Cocoon дазволіў Telegram знізіць кошт перакладу ў 6 разоў."
     },
@@ -36149,6 +37081,11 @@
       "_": "types.LangPackString",
       "key": "lng_translate_cocoon_everyone_title",
       "value": "Даступнасць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_translate_cocoon_explain",
+      "value": "**Co**nfidential **Co**mpute **O**pen **N**etwork"
     },
     {
       "_": "types.LangPackString",
@@ -36179,6 +37116,11 @@
       "_": "types.LangPackString",
       "key": "lng_translate_cocoon_text",
       "value": "Хочаце інтэграваць Cocoon у свае праекты?\nЗвяжыцеся з намі па адрасе {link}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_translate_cocoon_title",
+      "value": "Cocoon"
     },
     {
       "_": "types.LangPackString",
@@ -36674,7 +37616,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_username_available",
-      "value": "Гэта імя карыстальніка даступнае."
+      "value": "Гэта імя карыстальніка даступна."
     },
     {
       "_": "types.LangPackString",
@@ -37211,5 +38153,5 @@
       "other_value": "Вы заплацілі {count} зоркі."
     }
   ],
-  "version": 5743588
+  "version": 5779358
 }

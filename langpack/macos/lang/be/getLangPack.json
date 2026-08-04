@@ -16,7 +16,7 @@
     {
       "_": "types.LangPackString",
       "key": "2oI-Rn-ZJC.title",
-      "value": "Фармаціраванне"
+      "value": "Фарматаванне"
     },
     {
       "_": "types.LangPackString",
@@ -499,7 +499,7 @@
     {
       "_": "types.LangPackString",
       "key": "Admins.GroupDescription",
-      "value": "Калі вам патрэбна дапамога ў кіраванні суполкай, вы можаце прызначыць кіраўнікоў."
+      "value": "Вы можаце дадаць кіраўнікоў, каб яны дапамагалі кіраваць вашай суполкай."
     },
     {
       "_": "types.LangPackString",
@@ -3397,6 +3397,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersEnable",
+      "value": "Уключыць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ApproveMembersInfo",
+      "value": "Цяпер новыя ўдзельнікі змогуць адпраўляць паведамленні ў гэтай суполцы толькі пасля ўхвалення ад %1$@."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Channel.Admin.CantEdit",
       "value": "Вы не можаце рэдагаваць правы гэтага кіраўніка."
     },
@@ -3409,6 +3419,16 @@
       "_": "types.LangPackString",
       "key": "Channel.Admin.Dismiss",
       "value": "Разжалаваць кіраўніка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ProcessJoinRequests",
+      "value": "Апрацоўка запытаў на далучэнне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Channel.Admin.ProcessJoinRequestsInfo",
+      "value": "Дазвольце гэтаму боту ўхваляць новых удзельнікаў з дапамогай яго ўласных інтэрфейсаў, такіх як капча."
     },
     {
       "_": "types.LangPackString",
@@ -7259,10 +7279,10 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "%d прачыталі",
+      "few_value": "",
       "key": "Chat.Message.ReadStats.Seen",
-      "many_value": "%d прачыталі",
-      "one_value": "%d прачытаў",
+      "many_value": "",
+      "one_value": "%d прачытаў(-ла)",
       "other_value": "%d прачыталі"
     },
     {
@@ -7446,7 +7466,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.OffThreadMessage",
-      "value": "Паведамленне па-за тэмай"
+      "value": "Паведамленне без тэмы"
     },
     {
       "_": "types.LangPackString",
@@ -8454,6 +8474,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.Service.Refund",
+      "value": "%@ вярнуў(-ла) %@"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.Service.SearchAllMessages",
       "value": "Шукаць паведамленні ад %@"
     },
@@ -8801,6 +8826,11 @@
       "_": "types.LangPackString",
       "key": "Chat.ShareInlineResultActionHeader",
       "value": "Абагуліць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.StarsGift.UpgradeSent",
+      "value": "Вы даслалі паляпшэнне коштам %@ для гэтага падарунка."
     },
     {
       "_": "types.LangPackString",
@@ -9434,6 +9464,11 @@
       "many_value": "%d актыўных аўкцыёнаў",
       "one_value": "%d актыўны аўкцыён",
       "other_value": "%d актыўнага аўкцыёну"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.ActiveAuction.Title_ZeroValueHolder",
+      "value": "Актыўны аўкцыён"
     },
     {
       "_": "types.LangPackString",
@@ -12572,6 +12607,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DeleteGroupMessages.DeleteAllReactions",
+      "value": "Выдаліць усе рэакцыі"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DeleteGroupMessages.DeleteReaction",
       "value": "Выдаліць рэакцыю"
     },
@@ -14566,7 +14606,7 @@
     {
       "_": "types.LangPackString",
       "key": "GeneralSettings.CopyRTF",
-      "value": "Капіяваць тэкст з фармаціраваннем"
+      "value": "Капіяваць тэкст з фарматаваннем"
     },
     {
       "_": "types.LangPackString",
@@ -16002,7 +16042,7 @@
     {
       "_": "types.LangPackString",
       "key": "GroupCall.InviteLink.Expired",
-      "value": "Гэтая спасылка больш неактыўная"
+      "value": "Гэта спасылка цяпер неактыўная."
     },
     {
       "_": "types.LangPackString",
@@ -16864,7 +16904,7 @@
     {
       "_": "types.LangPackString",
       "key": "InviteLink.Sticker.TimeLeft",
-      "value": "дзейнічае да %@"
+      "value": "дзейнічае %@"
     },
     {
       "_": "types.LangPackString",
@@ -20645,6 +20685,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PeerCall.Screen.E2E.Info",
+      "value": "Калі эмодзі на экране ў **%1$@** такія ж, то выклік абаронены на %2$@."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PeerInfo.About.Placeholder",
       "value": "Апісанне"
     },
@@ -22176,7 +22221,7 @@
     {
       "_": "types.LangPackString",
       "key": "Premium.Boarding.Double.FavedStickers.Info",
-      "value": "Захоўвайце да %@ стыкераў у вашых абраных"
+      "value": "Захоўвайце ў вашы абраныя стыкеры да %@ штук"
     },
     {
       "_": "types.LangPackString",
@@ -22616,7 +22661,7 @@
     {
       "_": "types.LangPackString",
       "key": "Premium.Limit.Locked.FileSize.Info",
-      "value": "Немагчыма адправіць дакумент, бо ён большы за **%1$@**. Мы працуем, каб даць вам перавысіць гэты ліміт у будучыні."
+      "value": "Дакумент немагчыма адправіць, бо ён перавышае **%1$@**. Мы працуем над тым, каб дазволіць вам павялічыць гэты ліміт."
     },
     {
       "_": "types.LangPackString",
@@ -24645,6 +24690,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.Highlight",
+      "value": "Вылучэнне"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.IncreaseIndent",
       "value": "Павялічыць водступ"
     },
@@ -24685,13 +24735,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.Menu.Bold",
+      "value": "Тлусты"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.NumberedList",
       "value": "Нумараваны спіс"
     },
     {
       "_": "types.LangPackString",
       "key": "RichTextEditor.Placeholder.AddAuthor",
-      "value": "Аўтар"
+      "value": "Дадаць аўтара"
     },
     {
       "_": "types.LangPackString",
@@ -24710,6 +24765,41 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddColumnLeft",
+      "value": "Уставіць злева"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddColumnRight",
+      "value": "Уставіць справа"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddRowAbove",
+      "value": "Уставіць вышэй"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AddRowBelow",
+      "value": "Уставіць ніжэй"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignCenter",
+      "value": "Па цэнтры"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignLeft",
+      "value": "Па левым краі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.AlignRight",
+      "value": "Па правым краі"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.Table.DeleteColumn",
       "value": "Выдаліць слупок"
     },
@@ -24721,12 +24811,17 @@
     {
       "_": "types.LangPackString",
       "key": "RichTextEditorWindow.CodeBlock",
-      "value": "Блок кода"
+      "value": "Код"
     },
     {
       "_": "types.LangPackString",
       "key": "RichTextEditorWindow.CodeLanguage",
       "value": "Мова праграмавання"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.EditWithoutFormatting",
+      "value": "Рэдагаваць без фарматавання?"
     },
     {
       "_": "types.LangPackString",
@@ -24747,6 +24842,11 @@
       "_": "types.LangPackString",
       "key": "RichTextEditorWindow.RichFormattingRequiresPremium",
       "value": "Гэта паведамленне выкарыстоўвае пашыранае фарматаванне, для якога патрабуецца Telegram Premium."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.SendWithoutFormatting",
+      "value": "Адправіць без фарматавання?"
     },
     {
       "_": "types.LangPackString",
@@ -26946,7 +27046,7 @@
     {
       "_": "types.LangPackString",
       "key": "ShortcutsController.Markdown",
-      "value": "ФАРМАЦІРАВАННЕ"
+      "value": "ФАРМАТАВАННЕ"
     },
     {
       "_": "types.LangPackString",
@@ -27243,6 +27343,14 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "few_value": "Куплена %d падарункі",
+      "key": "Star.Auction.ItemsBought",
+      "many_value": "Куплена %d падарункаў",
+      "one_value": "Куплены %d падарунак",
+      "other_value": "Куплена %d падарунка"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "few_value": "%d актыўныя аўкцыёны",
       "key": "Star.Auction.List.ActiveAuctions",
       "many_value": "%d актыўных аўкцыёнаў",
@@ -27294,6 +27402,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Star.Auction.Preview.AveragePrice",
+      "value": "Сярэдняя цана"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Star.Auction.Preview.CurrentRound",
       "value": "Бягучы раўнд"
     },
@@ -27319,6 +27432,11 @@
       "many_value": "%1$d падарункаў скідваюцца з рознымі інтэрваламі %2$@ паводле сумы стаўкі.",
       "one_value": "%1$d падарунак скідваецца з рознымі інтэрваламі %2$@ паводле сумы стаўкі.",
       "other_value": "%1$d падарункі скідваюцца з рознымі інтэрваламі %2$@ паводле сумы стаўкі."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Star.Auction.Preview.GiftsDroppedInfo_countable",
+      "value": "%1$d падарункі размяркоўваюцца з рознымі інтэрваламі між %2$@ лепшага удзельніка  паводле сумы ставак."
     },
     {
       "_": "types.LangPackString",
@@ -27473,6 +27591,11 @@
       "_": "types.LangPackString",
       "key": "Star.List.Tos",
       "value": "Працягваючы і купляючы зоркі, вы выказваеце згоду з [Умовамі выкарыстання](https://telegram.org)."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Star.List.Transaction.Ads",
+      "value": "Рэкламная платформа"
     },
     {
       "_": "types.LangPackString",
@@ -27892,6 +28015,11 @@
       "_": "types.LangPackString",
       "key": "Star.Transaction.Tos",
       "value": "Азнаёмцеся з [Умовамі выкарыстання](https://telegram.org) для «зорак»."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Star.Transaction.TransactionUrl",
+      "value": "Спасылка на транзакцыю"
     },
     {
       "_": "types.LangPackString",
@@ -30646,12 +30774,12 @@
     {
       "_": "types.LangPackString",
       "key": "Text.View.Transformations",
-      "value": "Фармаціраванне"
+      "value": "Фарматаванне"
     },
     {
       "_": "types.LangPackString",
       "key": "TextView.Transform.Bold",
-      "value": "Тоўсты"
+      "value": "Тлусты"
     },
     {
       "_": "types.LangPackString",
@@ -30671,7 +30799,7 @@
     {
       "_": "types.LangPackString",
       "key": "TextView.Transform.RemoveAll",
-      "value": "Ачысціць фармаціраванне"
+      "value": "Ачысціць фарматаванне"
     },
     {
       "_": "types.LangPackString",
@@ -32365,7 +32493,7 @@
     {
       "_": "types.LangPackString",
       "key": "UsernameSettings.available",
-      "value": "%@ даступнае"
+      "value": "%@ даступна"
     },
     {
       "_": "types.LangPackString",
@@ -34067,7 +34195,7 @@
     {
       "_": "types.LangPackString",
       "key": "c8a-y6-VQd.title",
-      "value": "Фармаціраванне"
+      "value": "Фарматаванне"
     },
     {
       "_": "types.LangPackString",
@@ -34270,5 +34398,5 @@
       "value": "Паказаць замены"
     }
   ],
-  "version": 2238462
+  "version": 2248354
 }

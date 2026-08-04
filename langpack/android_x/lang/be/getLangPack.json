@@ -1880,7 +1880,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChangePasscodeInfo",
-      "value": "Калі вы задасце дадатковы код доступу, на старонцы вашых чатаў з’явіцца значок блакіроўкі. Націсніце на яго, каб заблакіраваць або разблакіраваць праграму.\n\nЗвярніце ўвагу: калі вы забудзецеся на код, вам прыйдзецца выйсці з уліковага запісу або пераўсталяваць праграму. Усе сакрэтныя чаты будуць страчаны."
+      "value": "Калі вы задасце дадатковы код доступу, з’явіцца значок блакіроўкі над спісам вашых чатаў. Націсніце на яго, каб заблакіраваць або разблакіраваць \nTelegram.\n\nЗвярніце ўвагу: калі вы забудзецеся на код, вам прыйдзецца пераўсталяваць праграму. Усе сакрэтныя чаты будуць страчаны."
     },
     {
       "_": "types.LangPackString",
@@ -8597,7 +8597,7 @@
     {
       "_": "types.LangPackString",
       "key": "LocalizationEditConfirmSave",
-      "value": "Захаваць змены"
+      "value": "Захаваць змяненні"
     },
     {
       "_": "types.LangPackString",
@@ -11106,7 +11106,7 @@
     {
       "_": "types.LangPackString",
       "key": "PlayListReverse",
-      "value": "У адваротным парадку"
+      "value": "У зваротным парадку"
     },
     {
       "_": "types.LangPackString",
@@ -11218,6 +11218,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingAdding",
+      "value": "Новыя варыянты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingAddingOn",
+      "value": "Удзельнікі могуць прапаноўваць новыя варыянты"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingAnonymous",
       "value": "Ананімнае галасаванне"
     },
@@ -11225,6 +11235,16 @@
       "_": "types.LangPackString",
       "key": "PollSettingCountriesOn",
       "value": "Галасаваць могуць толькі карыстальнікі з абраных краін"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDuration",
+      "value": "Абмежаваць тэрмін"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDurationOff",
+      "value": "Аўтаматычна спыніць апытанне ў вызначаны час"
     },
     {
       "_": "types.LangPackString",
@@ -11245,6 +11265,36 @@
       "_": "types.LangPackString",
       "key": "PollSettingQuizInfo",
       "value": "Апытанні ў рэжыме віктарыны маюць толькі адзін правільны адказ. Карыстальнікі не могуць змяніць адказ."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevoting",
+      "value": "Змена голасу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevotingOn",
+      "value": "Галасоўшчыкі могуць змяняць свой выбар"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVoters",
+      "value": "Паказаць галасоўшчыкаў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVotersOn",
+      "value": "Паказваць імёны каля варыянтаў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffle",
+      "value": "Выпадковае чаргаванне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffleOn",
+      "value": "Кожны ўдзельнік убачыць адказы ў выпадковым парадку"
     },
     {
       "_": "types.LangPackString",
@@ -15937,6 +15987,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextFormatClear",
+      "value": "Чысты тэкст"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextFormatItalic",
       "value": "Курсіў"
     },
@@ -17149,7 +17204,7 @@
     {
       "_": "types.LangPackString",
       "key": "UsernameAvailable",
-      "value": "%1$s даступная. "
+      "value": "%1$s даступна. "
     },
     {
       "_": "types.LangPackString",
@@ -20844,6 +20899,14 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s рэакцыі",
+      "key": "xReacted",
+      "many_value": "%1$s рэакцый",
+      "one_value": "%1$s рэакцыя",
+      "other_value": "%1$s рэакцыі"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "few_value": "%1$s з %2$s",
       "key": "xReactions",
       "many_value": "%1$s з %2$s",
@@ -20921,6 +20984,14 @@
       "many_value": "%1$s сеансаў",
       "one_value": "%1$s сеанс",
       "other_value": "%1$s сеансаў"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Уключаны павольны рэжым. \nВы зможаце адправіць наступнае паведамленне праз %1$s секунды",
+      "key": "xSlowModeRestrictionSeconds",
+      "many_value": "Уключаны павольны рэжым. \nВы зможаце адправіць наступнае паведамленне праз %1$s секунд",
+      "one_value": "Уключаны павольны рэжым. \nВы зможаце адправіць наступнае паведамленне праз %1$s секунду",
+      "other_value": "Уключаны павольны рэжым. \nВы зможаце адправіць наступнае паведамленне праз %1$s секунды"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -21051,5 +21122,5 @@
       "other_value": "%1$s гадоў"
     }
   ],
-  "version": 1635286
+  "version": 1637122
 }
