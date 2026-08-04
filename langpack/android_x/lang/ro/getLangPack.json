@@ -1098,7 +1098,7 @@
     {
       "_": "types.LangPackString",
       "key": "ApplicationFolderWarning",
-      "value": "**Atenție!**\n\nDosarul pe care vrei să îl accesezi conține datele tale Telegram private.\n\nNu trimite fișierele din acest dosar nimănui, numai dacă știi sigur ce faci."
+      "value": "**Atenție!**\n\nDosarul pe care vrei să îl accesezi conține datele tale Telegram private.\n\nNu trimite fișierele din acest dosar nimănui, decât dacă știi ce faci."
     },
     {
       "_": "types.LangPackString",
@@ -2237,7 +2237,7 @@
     {
       "_": "types.LangPackString",
       "key": "CallLogsWarning",
-      "value": "**Atenție:** diagnosticele apelului pot conține **date private** ca adresele IP ale părților.\n\nNu le partaja cu nimeni, dacă nu știi ce faci."
+      "value": "**Atenție:** diagnosticele apelului pot conține **date private** ca adresele IP ale părților.\n\nNu le partaja cu nimeni, decât dacă știi ce faci."
     },
     {
       "_": "types.LangPackString",
@@ -17451,6 +17451,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SessionSnapshot",
+      "value": "Snapshot Sesiune"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshotDesc",
+      "value": "Trimite date private de autorizare"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshotWarning",
+      "value": "**Atenție!**\n\nSnapshot-ul pe care urmează să-l trimiți conține accesul la contul tău de Telegram.\n\nNu-l trimite sau redirecționa nimănui, decât dacă știi ce faci."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SessionSystem",
       "value": "Sistem"
     },
@@ -18833,7 +18848,7 @@
     {
       "_": "types.LangPackString",
       "key": "SyncHint3",
-      "value": "Contactele pe dispozitivul tău (numere de telefon, nume și prenume) vor fi încărcate continuu pe serverele Telegram pentru ca tu să le poți găsi în secțiunea **Contacte** a **%1$s**, sau pentru a primi o notificare când se alătură.\n\nDatele nu sunt partajate cu terți. Când ștergi un contact de pe dispozitivul tău și sincronizarea este activă, acesta va fi șters și din lista contactelor tale de pe serverele **Telegram**.\n\nPoți oricând dezactiva sincronizarea sau șterge datele de pe serverele Telegram din **Setări > Confidențialitate și Securitate > Șterge Contactele Sincronizate**.\n\nPentru a activa sincronizarea, trebuie să și permiți **%1$s** să îți acceseze contactele pe dispozitiv."
+      "value": "Contactele pe dispozitivul tău (numere de telefon, nume și prenume) vor fi încărcate continuu pe serverele Telegram pentru ca tu să le poți găsi în secțiunea **Contacte**, sau pentru a primi o notificare când se alătură.\n\nDatele sunt transmise doar către **Telegram**, și niciodată partajate cu terți. Când ștergi un contact de pe dispozitivul tău și sincronizarea este activă, acesta va fi șters și de pe serverele **Telegram**.\n\nPoți oricând dezactiva sincronizarea sau șterge datele de pe serverele Telegram din **Setări > Confidențialitate și Securitate > Șterge Contactele Sincronizate**.\n\nPentru a activa sincronizarea, trebuie să și permiți **%1$s** să îți acceseze contactele pe dispozitiv."
     },
     {
       "_": "types.LangPackString",
@@ -19038,7 +19053,7 @@
     {
       "_": "types.LangPackString",
       "key": "TdlibLogsWarning",
-      "value": "**Atenție:** Jurnalul TDLib poate conține **date private**.\n\nNu îl trimite nimănui, numai dacă știi sigur ce faci."
+      "value": "**Atenție:** Jurnalul TDLib poate conține **date private**.\n\nNu îl trimite nimănui, decât dacă știi ce faci."
     },
     {
       "_": "types.LangPackString",
@@ -19108,7 +19123,7 @@
     {
       "_": "types.LangPackString",
       "key": "TestModeWarn",
-      "value": "**Atenție**: Testarea utilităților este disponibilă **doar** în scopul **testării** și al **depanării**. Nu este garantat că va funcționa.\n\nNu o folosi, decât dacă chiar știi ce faci."
+      "value": "**Atenție**: Testarea utilităților este disponibilă **doar** în scopul **testării** și al **depanării**. Nu este garantat că va funcționa.\n\nNu o folosi, decât dacă știi ce faci."
     },
     {
       "_": "types.LangPackString",
@@ -24899,5 +24914,5 @@
       "other_value": "%1$s de ani"
     }
   ],
-  "version": 1635461
+  "version": 1637012
 }
