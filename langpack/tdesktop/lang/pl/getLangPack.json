@@ -21061,7 +21061,17 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_group_invite_about_approve_disabled_channel",
+      "value": "Ta opcja jest niedostępna, ponieważ każdy może dołączyć do kanału za pośrednictwem publicznego linku."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_group_invite_about_approve_managed",
+      "value": "Osoby dołączające za pomocą tego linku muszą uzyskać zgodę administratora. Zarządzane przez {bot}."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_group_invite_about_approve_managed_channel",
       "value": "Osoby dołączające za pomocą tego linku muszą uzyskać zgodę administratora. Zarządzane przez {bot}."
     },
     {
@@ -21576,6 +21586,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_group_request_declined_channel",
+      "value": "Twoja prośba o dołączenie do kanału została odrzucona."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_group_request_sent",
       "value": "Zostaniesz członkiem tej grupy, gdy jej administrator zatwierdzi twoją prośbę."
     },
@@ -21671,6 +21686,21 @@
       "_": "types.LangPackString",
       "key": "lng_group_stickers_description",
       "value": "Możesz wybrać zestaw naklejek, który będzie dostępny dla każdego członka podczas czatu grupowego."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_guard_bot_approve_confirm",
+      "value": "Włącz"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_guard_bot_approve_text",
+      "value": "Nowi członkowie będą teraz potrzebować zgody {bot}, aby móc wysyłać wiadomości w tej grupie."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_guard_bot_approve_title",
+      "value": "Zatwierdź nowych członków"
     },
     {
       "_": "types.LangPackString",
@@ -26467,6 +26497,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_passkey_cable_connecting",
+      "value": "Łączenie z telefonem…"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_passkey_cable_continue",
       "value": "Kontynuuj na swoim telefonie"
     },
@@ -26517,8 +26552,68 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_passkey_confirm",
+      "value": "Potwierdź"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_error_login",
+      "value": "Nie można zalogować się za pomocą klucza bezpieczeństwa."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_error_no_credentials",
+      "value": "Ten klucz bezpieczeństwa nie zawiera klucza dostępu do twojego konta."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_error_no_device",
+      "value": "Nie znaleziono klucza bezpieczeństwa. Włóż klucz i spróbuj ponownie."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_error_register",
+      "value": "Nie można dodać klucza dostępu za pomocą klucza bezpieczeństwa."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_insert",
+      "value": "Włóż klucz bezpieczeństwa, a następnie dotknij go, aby kontynuować."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_passkey_method_key",
       "value": "Użyj klucza bezpieczeństwa"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_pin_about",
+      "value": "Wprowadź PIN klucza bezpieczeństwa."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_pin_blocked",
+      "value": "PIN klucza bezpieczeństwa jest zablokowany. Podłącz klucz ponownie lub zresetuj go."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_pin_invalid",
+      "value": "Nieprawidłowy PIN. Spróbuj ponownie."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_pin_placeholder",
+      "value": "PIN"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_pin_title",
+      "value": "PIN klucza bezpieczeństwa"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_touch",
+      "value": "Dotknij klucza bezpieczeństwa"
     },
     {
       "_": "types.LangPackString",
@@ -42498,5 +42593,5 @@
       "other_value": "Zapłacono {count} Gwiazdki."
     }
   ],
-  "version": 5779870
+  "version": 5783120
 }
