@@ -6234,6 +6234,7 @@ input.pr-form-control:focus {
   cursor: pointer;
   -webkit-user-select: none;
   user-select: none;
+  touch-action: manipulation;
   transition: opacity .2s ease, transform .2s ease;
 }
 .bt-comment-select-checkbox {
@@ -6267,11 +6268,11 @@ input.pr-form-control:focus {
 .bt-comment-select-checkbox:focus + .bt-comment-select-icon {
   box-shadow: 0 0 0 3px rgba(43, 139, 217, .22);
 }
-.bt-comment-select-checkbox:checked + .bt-comment-select-icon {
+.bt-comment-selection-mode .bt-comment.selected .bt-comment-select-icon {
   border-color: var(--text-accent);
   background: var(--text-accent);
 }
-.bt-comment-select-checkbox:checked + .bt-comment-select-icon:after {
+.bt-comment-selection-mode .bt-comment.selected .bt-comment-select-icon:after {
   opacity: 1;
   transform: rotate(45deg) scale(1);
 }
