@@ -4680,6 +4680,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArticleCommandOrderedList",
+      "value": "قائمة مرقمة"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArticleCommandTable",
       "value": "جدول"
     },
@@ -15104,6 +15109,16 @@
       "value": "تحذير"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "سيتم حذف **⁨%2$s⁩** من **⁨%1$d⁩** مجتمعات.",
+      "key": "CommunityBanWillRemoveFromChats",
+      "many_value": "سيتم حذف **⁨%2$s⁩** من **⁨%1$d⁩** مجتمعًا.",
+      "one_value": "سيتم حذف **⁨%2$s⁩** من  مجتمع واحد.",
+      "other_value": "سيتم حذف **⁨%2$s⁩** من **⁨%1$d⁩** مجتمع.",
+      "two_value": "سيتم حذف **⁨%2$s⁩** من مجتمعين.",
+      "zero_value": ""
+    },
+    {
       "_": "types.LangPackString",
       "key": "CommunityChatVisibilityCannotChange",
       "value": "لا يمكنك تغيير هذا الإعداد لاحقًا!"
@@ -15167,6 +15182,16 @@
       "_": "types.LangPackString",
       "key": "CommunityCreateCommunity",
       "value": "إنشاء مجتمع"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "رفض ⁨%1$d⁩ طلبات للانضمام إلى المجتمع؟",
+      "key": "CommunityDeclineAllMessage",
+      "many_value": "رفض ⁨%1$d⁩ طلبًا للانضمام إلى المجتمع؟",
+      "one_value": "رفض طلب واحد للانضمام إلى المجتمع؟",
+      "other_value": "رفض ⁨%1$d⁩ طلب للانضمام إلى المجتمع؟",
+      "two_value": "رفض كلا الطلبين للانضمام إلى المجتمع؟",
+      "zero_value": ""
     },
     {
       "_": "types.LangPackString",
@@ -20646,7 +20671,7 @@
     {
       "_": "types.LangPackString",
       "key": "ExpiredViewsStubPremiumDescription",
-      "value": "لفتح قائمة المشاهدين للقصص منتهية الصلاحية المنشورة، يرجى الاشتراك في **تيليجرام المُميّز**."
+      "value": "لفتح قائمة المشاهدين الجدد للقصص المنتهية الصلاحية المنشورة؛ يرجى الاشتراك في **تيليجرام المميز**."
     },
     {
       "_": "types.LangPackString",
@@ -59599,5 +59624,5 @@
       "value": "جواز تيليجرام"
     }
   ],
-  "version": 60234207
+  "version": 60250441
 }
