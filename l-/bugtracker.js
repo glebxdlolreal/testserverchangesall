@@ -3523,7 +3523,7 @@ var Issue = {
     $commentsWrap.on('click.curPage', '.bt-comments-more', Issue.eLoadMore);
     $commentsWrap.on('click.curPage', '.bt-select-comment-btn', Issue.eStartCommentSelection);
     $commentsWrap.on('mousedown.curPage', '.bt-comment-select-wrap', Issue.eRememberCommentSelectShift);
-    $commentsWrap.on('click.curPage', '.bt-comment-select-wrap', Issue.eSelectComment);
+    $commentsWrap.on('change.curPage', '.bt-comment-select-checkbox', Issue.eSelectComment);
     $commentsWrap.on('click.curPage', '.bt-deselect-comment-btn', Issue.eDeselectComment);
     $commentsWrap.on('click.curPage', '.bt-deselect-all-comments-btn', Issue.eDeselectAllComments);
     $commentsWrap.on('click.curPage', '.bt-delete-selected-comments-btn', Issue.eDeleteSelectedComments);
@@ -3763,16 +3763,16 @@ var Issue = {
     $(this).data('shiftKey', !!e.shiftKey);
   },
   eSelectComment: function(e) {
-    e.preventDefault();
     e.stopImmediatePropagation();
     var selection = Issue.getCommentSelection();
     if (!selection || selection.deleting) {
       return false;
     }
-    var $select_wrap = $(this);
+    var $checkbox = $(this);
+    var $select_wrap = $checkbox.parents('.bt-comment-select-wrap');
     var $comment = $select_wrap.parents('.bt-comment[data-comment-selectable]');
     var comment_id = $comment.attr('data-comment-id');
-    var selected = !selection.ids[comment_id];
+    var selected = $checkbox.prop('checked');
     var shift_key = !!(e.shiftKey || $select_wrap.data('shiftKey'));
     var $overflow_comments = $();
     var $sync_comments = $comment;

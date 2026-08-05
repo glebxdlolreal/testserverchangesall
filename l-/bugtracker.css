@@ -5185,11 +5185,11 @@ input.pr-form-control:focus {
 .bt-comment-select-checkbox:focus + .bt-comment-select-icon {
   box-shadow: 0 0 0 3px rgba(17, 154, 245, .18);
 }
-.bt-comment-select-checkbox:checked + .bt-comment-select-icon {
+.bt-comment-selection-mode .bt-comment.selected .bt-comment-select-icon {
   border-color: var(--accent-color);
   background: var(--accent-color);
 }
-.bt-comment-select-checkbox:checked + .bt-comment-select-icon:after {
+.bt-comment-selection-mode .bt-comment.selected .bt-comment-select-icon:after {
   opacity: 1;
   transform: rotate(45deg) scale(1);
 }
