@@ -3451,6 +3451,7 @@ var Issue = {
   UPDATE_PERIOD: 3000,
   ONBLUR_UPDATE_PERIOD: 30000,
   BULK_DELETE_AUTHOR_LIMIT: 16,
+  COMMENT_SELECTION_LIMIT: 100,
   bulkDeleteJobs: {},
   init: function(options) {
     options = options || {};
@@ -3468,9 +3469,11 @@ var Issue = {
       Aj.layer.on('click.curPage', '.bt-restore-issue-btn', Issue.eRestoreIssue);
       Aj.layer.on('click.curPage', '.bt-delete-comment-btn', Issue.eDeleteIssueComment);
       Aj.layer.on('click.curPage', '.bt-restore-comment-btn', Issue.eRestoreIssueComment);
+      Aj.layer.on('click.curPage', Issue.eCommentSelectionClickAway);
       Aj.layer.on('click.curPage', '.bt-issue-subscribe.bt-active-btn', Issue.eSubscribe);
       Aj.layer.on('click.curPage', '.bt-view-media', Bugtracker.eShowMedia);
       $(window).on('focus blur', Issue.onFocusChange);
+      $(document).on('keydown.commentSelection', Issue.eCommentSelectionKeydown);
       var $commentsWrap = $('.bt-comments-wrap', Aj.layer);
       Issue.initCommentsForm($commentsWrap);
       Issue.initComments($commentsWrap);
@@ -3492,7 +3495,9 @@ var Issue = {
       $('.bt-comments-wrap', Aj.layer).off('.curPage');
       $('div.input[contenteditable]', Aj.layer).destroyTextarea();
       $(window).off('focus blur', Issue.onFocusChange);
+      $(document).off('keydown.commentSelection');
       clearTimeout(Aj.layerState.updateTo);
+      delete layerState.commentSelection;
     });
   },
   onError() {
@@ -3516,6 +3521,13 @@ var Issue = {
     $commentsWrap.on('click.curPage', 'a[data-comment-link]', Issue.eCommentHighlight);
     $commentsWrap.on('click.curPage', '.bt-toggle-comment-form', Issue.eOpenComments);
     $commentsWrap.on('click.curPage', '.bt-comments-more', Issue.eLoadMore);
+    $commentsWrap.on('click.curPage', '.bt-select-comment-btn', Issue.eStartCommentSelection);
+    $commentsWrap.on('mousedown.curPage', '.bt-comment-select-wrap', Issue.eRememberCommentSelectShift);
+    $commentsWrap.on('click.curPage', '.bt-comment-select-wrap', Issue.eSelectComment);
+    $commentsWrap.on('click.curPage', '.bt-deselect-comment-btn', Issue.eDeselectComment);
+    $commentsWrap.on('click.curPage', '.bt-deselect-all-comments-btn', Issue.eDeselectAllComments);
+    $commentsWrap.on('click.curPage', '.bt-delete-selected-comments-btn', Issue.eDeleteSelectedComments);
+    $commentsWrap.on('click.curPage', '.bt-comment-selection-cancel', Issue.eCancelCommentSelection);
   },
   initAdditional: async function($b) {
     await Promise.resolve();
@@ -3560,6 +3572,344 @@ var Issue = {
     Bugtracker.updateTime(context);
     $('div.input[contenteditable]', context).initTextarea();
     Issue.syncBulkDeleteUi();
+    Issue.syncCommentSelection(context);
+  },
+  getCommentSelection: function() {
+    if (!Aj.layerState || !Aj.layerState.commentSelection) {
+      return false;
+    }
+    var selection = Aj.layerState.commentSelection;
+    if (selection.issue_id != Issue.getCurrentIssueId() ||
+        selection.mode != Issue.getCurrentCommentsMode()) {
+      delete Aj.layerState.commentSelection;
+      return false;
+    }
+    return selection;
+  },
+  getSelectedCommentIds: function() {
+    var selection = Issue.getCommentSelection();
+    var ids = [];
+    if (!selection) {
+      return ids;
+    }
+    $.each(selection.ids, function(comment_id, selected) {
+      if (selected) {
+        ids.push(comment_id);
+      }
+    });
+    return ids;
+  },
+  showCommentSelectionLimit: function($comments) {
+    if (!$comments || !$comments.size()) {
+      return;
+    }
+    var overflow_count = $comments.size();
+    var error = 'You can select up to ' + Issue.COMMENT_SELECTION_LIMIT + ' comments. ';
+    if (overflow_count == 1) {
+      error += 'This comment was not selected.';
+    } else {
+      error += overflow_count + ' extra comments were not selected.';
+    }
+    $comments.removeClass('bt-comment-selection-limit');
+    setTimeout(function() {
+      $comments.addClass('bt-comment-selection-limit');
+    }, 0);
+    showToast(error, 3500);
+    if (Aj.state.isWebApp) {
+      WebApp.HapticFeedback.notificationOccurred('error');
+    }
+  },
+  syncCommentSelection: function(context) {
+    if (!Aj.layer) {
+      return;
+    }
+    var selection = Issue.getCommentSelection();
+    var $wrap = $('.bt-comments-wrap', Aj.layer);
+    var ids = Issue.getSelectedCommentIds();
+    if (selection && !ids.length) {
+      delete Aj.layerState.commentSelection;
+      selection = false;
+    }
+    $wrap.toggleClass('bt-comment-selection-mode', !!selection);
+    Aj.layer.toggleClass('popup-ignore-esc', !!selection);
+    var $selectable_comments = $('.bt-comment[data-comment-selectable]', $wrap);
+    if (context) {
+      $selectable_comments = $selectable_comments
+          .add($(context).filter('.bt-comment[data-comment-selectable]'))
+          .add($('.bt-comment[data-comment-selectable]', context));
+    }
+    $selectable_comments.each(function() {
+      var $comment = $(this);
+      var comment_id = $comment.attr('data-comment-id');
+      var selected = !!(selection && selection.ids[comment_id]);
+      $comment.toggleClass('selected', selected);
+      $('.bt-comment-select-checkbox', $comment)
+          .prop('checked', selected)
+          .prop('disabled', !!(selection && selection.deleting))
+          .attr('tabindex', selection ? '0' : '-1');
+    });
+    $('.bt-comment-selection-state', $wrap).remove();
+    if (selection) {
+      var selected_label = ids.length == 1 ? '1 selected' : ids.length + ' selected';
+      var $state = $('<div class="bt-comment-selection-state"></div>');
+      $('<span class="bt-comment-selection-count"></span>').text(selected_label).appendTo($state);
+      $('<a class="bt-comment-selection-cancel">Cancel</a>').appendTo($state);
+      $state.appendTo($('.bt-comments-header', $wrap));
+    }
+  },
+  clearCommentSelection: function(force) {
+    if (!Aj.layerState || !Aj.layerState.commentSelection) {
+      return;
+    }
+    if (Aj.layerState.commentSelection.deleting &&
+        !force) {
+      return;
+    }
+    $('.bt-comment-selection-menu.open .dropdown-toggle', Aj.layer).dropdown('toggle');
+    delete Aj.layerState.commentSelection;
+    Issue.syncCommentSelection();
+  },
+  eCancelCommentSelection: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    Issue.clearCommentSelection();
+    return false;
+  },
+  eCommentSelectionKeydown: function(e) {
+    if (e.keyCode != Keys.ESC ||
+        !Issue.getCommentSelection()) {
+      return;
+    }
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    Issue.clearCommentSelection(true);
+    return false;
+  },
+  eCommentSelectionClickAway: function(e) {
+    if (!Issue.getCommentSelection()) {
+      return;
+    }
+    if ($(e.target).closest('.bt-comment, .bt-comments-more, .bt-comments-header').size()) {
+      return;
+    }
+    Issue.clearCommentSelection();
+  },
+  eStartCommentSelection: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var $btn = $(this);
+    var $comment = $btn.parents('.bt-comment[data-comment-selectable]');
+    var comment_id = $comment.attr('data-comment-id');
+    var issue_id = Issue.getCurrentIssueId();
+    $btn.parents('.open').find('.dropdown-toggle').dropdown('toggle');
+    if (!comment_id || !issue_id) {
+      return false;
+    }
+    var selection = Issue.getCommentSelection();
+    if (!selection) {
+      selection = {
+        issue_id: issue_id,
+        mode: Issue.getCurrentCommentsMode(),
+        ids: {},
+        anchor_id: comment_id,
+        deleting: false
+      };
+      Aj.layerState.commentSelection = selection;
+    }
+    if (selection.deleting) {
+      return false;
+    }
+    if (!selection.ids[comment_id] &&
+        Issue.getSelectedCommentIds().length >= Issue.COMMENT_SELECTION_LIMIT) {
+      Issue.showCommentSelectionLimit($comment);
+      return false;
+    }
+    selection.ids[comment_id] = true;
+    selection.anchor_id = comment_id;
+    Issue.syncCommentSelection();
+    if (Aj.state.isWebApp) {
+      WebApp.HapticFeedback.impactOccurred('soft');
+    }
+    return false;
+  },
+  eRememberCommentSelectShift: function(e) {
+    e.preventDefault();
+    $(this).data('shiftKey', !!e.shiftKey);
+  },
+  eSelectComment: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var selection = Issue.getCommentSelection();
+    if (!selection || selection.deleting) {
+      return false;
+    }
+    var $select_wrap = $(this);
+    var $comment = $select_wrap.parents('.bt-comment[data-comment-selectable]');
+    var comment_id = $comment.attr('data-comment-id');
+    var selected = !selection.ids[comment_id];
+    var shift_key = !!(e.shiftKey || $select_wrap.data('shiftKey'));
+    var $overflow_comments = $();
+    $select_wrap.data('shiftKey', false);
+    if (shift_key && selection.anchor_id) {
+      var $comments = $('.bt-comment[data-comment-selectable]:not(.deleted)', Aj.layer);
+      var anchor_index = -1;
+      var comment_index = -1;
+      $comments.each(function(index) {
+        var current_id = $(this).attr('data-comment-id');
+        if (current_id == selection.anchor_id) {
+          anchor_index = index;
+        }
+        if (current_id == comment_id) {
+          comment_index = index;
+        }
+      });
+      if (anchor_index >= 0 && comment_index >= 0) {
+        var selected_count = Issue.getSelectedCommentIds().length;
+        var range_step = anchor_index <= comment_index ? 1 : -1;
+        for (var range_index = anchor_index;
+          range_index != comment_index + range_step;
+          range_index += range_step) {
+          var $range_comment = $comments.eq(range_index);
+          var range_id = $range_comment.attr('data-comment-id');
+          if (selected) {
+            if (selection.ids[range_id]) {
+              continue;
+            }
+            if (selected_count < Issue.COMMENT_SELECTION_LIMIT) {
+              selection.ids[range_id] = true;
+              selected_count++;
+            } else {
+              $overflow_comments = $overflow_comments.add($range_comment);
+            }
+          } else {
+            delete selection.ids[range_id];
+          }
+        }
+      }
+    } else {
+      if (selected) {
+        if (Issue.getSelectedCommentIds().length < Issue.COMMENT_SELECTION_LIMIT) {
+          selection.ids[comment_id] = true;
+        } else {
+          $overflow_comments = $overflow_comments.add($comment);
+        }
+      } else {
+        delete selection.ids[comment_id];
+      }
+      if (!$overflow_comments.size()) {
+        selection.anchor_id = comment_id;
+      }
+    }
+    Issue.syncCommentSelection();
+    if ($overflow_comments.size()) {
+      Issue.showCommentSelectionLimit($overflow_comments);
+    } else if (Aj.state.isWebApp) {
+      WebApp.HapticFeedback.impactOccurred('soft');
+    }
+    return false;
+  },
+  eDeselectComment: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var $btn = $(this);
+    var selection = Issue.getCommentSelection();
+    var $comment = $btn.parents('.bt-comment[data-comment-selectable]');
+    var comment_id = $comment.attr('data-comment-id');
+    $btn.parents('.open').find('.dropdown-toggle').dropdown('toggle');
+    if (!selection || selection.deleting || !comment_id) {
+      return false;
+    }
+    delete selection.ids[comment_id];
+    if (selection.anchor_id == comment_id) {
+      selection.anchor_id = 0;
+    }
+    Issue.syncCommentSelection();
+    if (Aj.state.isWebApp) {
+      WebApp.HapticFeedback.impactOccurred('soft');
+    }
+    return false;
+  },
+  eDeselectAllComments: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var $btn = $(this);
+    $btn.parents('.open').find('.dropdown-toggle').dropdown('toggle');
+    Issue.clearCommentSelection();
+    if (Aj.state.isWebApp) {
+      WebApp.HapticFeedback.impactOccurred('soft');
+    }
+    return false;
+  },
+  refreshDeletedReplyPreviews: function(comment_ids) {
+    $.each(comment_ids, function(i, comment_id) {
+      $('.bt-comment-reply-content[data-comment-link="' + comment_id + '"]', Aj.layer).each(function() {
+        var $reply = $(this);
+        $reply.removeAttr('href')
+            .removeAttr('data-layer')
+            .removeAttr('data-comment-link')
+            .addClass('bt-comment-reply-deleted');
+        $('.bt-comment-head', $reply).text(l('WEB_COMMENT_DELETED'));
+        $('.bt-comment-text, .bt-comment-thumb', $reply).remove();
+      });
+    });
+  },
+  eDeleteSelectedComments: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var $btn = $(this);
+    var selection = Issue.getCommentSelection();
+    var comment_ids = Issue.getSelectedCommentIds();
+    if (!selection || selection.deleting || !comment_ids.length) {
+      return false;
+    }
+    $btn.parents('.open').find('.dropdown-toggle').dropdown('toggle');
+    selection.deleting = true;
+    Issue.syncCommentSelection();
+    $('.bt-comment.selected', Aj.layer).addClass('bt-comment-selection-deleting');
+    Aj.apiRequest('deleteSelectedComments', {
+      issue_id: selection.issue_id,
+      comment_ids: comment_ids.join(',')
+    }, function(result) {
+      var deleted_ids = result.deleted_ids || [];
+      var is_active_issue = Aj.layer &&
+          Issue.getCurrentIssueId() == selection.issue_id &&
+          Issue.getCurrentCommentsMode() == selection.mode;
+      if (is_active_issue) {
+        delete Aj.layerState.commentSelection;
+        Issue.syncCommentSelection();
+        $('.bt-comment-selection-deleting', Aj.layer).removeClass('bt-comment-selection-deleting');
+        Issue.refreshDeletedReplyPreviews(deleted_ids);
+        $.each(deleted_ids, function(i, comment_id) {
+          $('.bt-comment[data-comment-id="' + comment_id + '"]', Aj.layer)
+              .addClass('bt-comment-selection-removed');
+        });
+        setTimeout(function() {
+          if (!Aj.layer || Issue.getCurrentIssueId() != selection.issue_id) {
+            return;
+          }
+          $('.bt-comment-selection-removed', Aj.layer).remove();
+          var $comments = $('.bt-comments', Aj.layer);
+          if (!$('.bt-comment', $comments).size() &&
+              !$('.bt-comments-more:not(.hide)', $comments).size() &&
+              !$('.cd-list-empty-wrap', $comments).size()) {
+            $comments.prepend('<div class="cd-list-empty-wrap"><div class="cd-list-empty">' + l('WEB_NO_COMMENTS') + '</div></div>');
+          }
+        }, 220);
+      }
+      if (result.header_cnts) {
+        Issue.updateHeaderCounters(result.header_cnts);
+      }
+      if (typeof result.counters_html !== 'undefined') {
+        Filters.updateIssueCounters(selection.issue_id, result.counters_html);
+      }
+      if (is_active_issue) {
+        Issue.requestCommentsUpdate();
+      }
+      if (Aj.state.isWebApp && deleted_ids.length) {
+        WebApp.HapticFeedback.notificationOccurred('success');
+      }
+    });
+    return false;
   },
   truncateText: function(text, limit) {
     text = $.trim(text || '');
@@ -4281,6 +4631,7 @@ var Issue = {
         Issue.initComments($comments);
         if (result.replace) {
           $('.bt-comments', Aj.layer).html(result.comments_html);
+          Issue.syncCommentSelection();
         } else {
           $comments.insertBefore($moreEl);
           $moreEl.remove();
