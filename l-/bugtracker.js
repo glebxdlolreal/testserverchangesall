@@ -3451,6 +3451,7 @@ var Issue = {
   UPDATE_PERIOD: 3000,
   ONBLUR_UPDATE_PERIOD: 30000,
   BULK_DELETE_AUTHOR_LIMIT: 16,
+  COMMENT_SELECTION_LIMIT: 100,
   bulkDeleteJobs: {},
   init: function(options) {
     options = options || {};
@@ -3598,6 +3599,26 @@ var Issue = {
     });
     return ids;
   },
+  showCommentSelectionLimit: function($comments) {
+    if (!$comments || !$comments.size()) {
+      return;
+    }
+    var overflow_count = $comments.size();
+    var error = 'You can select up to ' + Issue.COMMENT_SELECTION_LIMIT + ' comments. ';
+    if (overflow_count == 1) {
+      error += 'This comment was not selected.';
+    } else {
+      error += overflow_count + ' extra comments were not selected.';
+    }
+    $comments.removeClass('bt-comment-selection-limit');
+    setTimeout(function() {
+      $comments.addClass('bt-comment-selection-limit');
+    }, 0);
+    showToast(error, 3500);
+    if (Aj.state.isWebApp) {
+      WebApp.HapticFeedback.notificationOccurred('error');
+    }
+  },
   syncCommentSelection: function(context) {
     if (!Aj.layer) {
       return;
@@ -3698,6 +3719,11 @@ var Issue = {
     if (selection.deleting) {
       return false;
     }
+    if (!selection.ids[comment_id] &&
+        Issue.getSelectedCommentIds().length >= Issue.COMMENT_SELECTION_LIMIT) {
+      Issue.showCommentSelectionLimit($comment);
+      return false;
+    }
     selection.ids[comment_id] = true;
     selection.anchor_id = comment_id;
     Issue.syncCommentSelection();
@@ -3722,6 +3748,7 @@ var Issue = {
     var comment_id = $comment.attr('data-comment-id');
     var selected = !selection.ids[comment_id];
     var shift_key = !!(e.shiftKey || $select_wrap.data('shiftKey'));
+    var $overflow_comments = $();
     $select_wrap.data('shiftKey', false);
     if (shift_key && selection.anchor_id) {
       var $comments = $('.bt-comment[data-comment-selectable]:not(.deleted)', Aj.layer);
@@ -3737,27 +3764,46 @@ var Issue = {
         }
       });
       if (anchor_index >= 0 && comment_index >= 0) {
-        var range_start = Math.min(anchor_index, comment_index);
-        var range_end = Math.max(anchor_index, comment_index);
-        $comments.slice(range_start, range_end + 1).each(function() {
-          var range_id = $(this).attr('data-comment-id');
+        var selected_count = Issue.getSelectedCommentIds().length;
+        var range_step = anchor_index <= comment_index ? 1 : -1;
+        for (var range_index = anchor_index;
+          range_index != comment_index + range_step;
+          range_index += range_step) {
+          var $range_comment = $comments.eq(range_index);
+          var range_id = $range_comment.attr('data-comment-id');
           if (selected) {
-            selection.ids[range_id] = true;
+            if (selection.ids[range_id]) {
+              continue;
+            }
+            if (selected_count < Issue.COMMENT_SELECTION_LIMIT) {
+              selection.ids[range_id] = true;
+              selected_count++;
+            } else {
+              $overflow_comments = $overflow_comments.add($range_comment);
+            }
           } else {
             delete selection.ids[range_id];
           }
-        });
+        }
       }
     } else {
       if (selected) {
-        selection.ids[comment_id] = true;
+        if (Issue.getSelectedCommentIds().length < Issue.COMMENT_SELECTION_LIMIT) {
+          selection.ids[comment_id] = true;
+        } else {
+          $overflow_comments = $overflow_comments.add($comment);
+        }
       } else {
         delete selection.ids[comment_id];
       }
-      selection.anchor_id = comment_id;
+      if (!$overflow_comments.size()) {
+        selection.anchor_id = comment_id;
+      }
     }
     Issue.syncCommentSelection();
-    if (Aj.state.isWebApp) {
+    if ($overflow_comments.size()) {
+      Issue.showCommentSelectionLimit($overflow_comments);
+    } else if (Aj.state.isWebApp) {
       WebApp.HapticFeedback.impactOccurred('soft');
     }
     return false;
