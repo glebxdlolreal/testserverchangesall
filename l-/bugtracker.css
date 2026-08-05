@@ -5123,3 +5123,116 @@ input.pr-form-control:focus {
   background-image: url('data:image/svg+xml,%3Csvg%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M6%209.5%2011.86%2015.36C11.93%2015.44%2012.06%2015.44%2012.14%2015.36L18%209.5%22%20fill%3D%22none%22%20stroke%3D%22%23999%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%221.4%22%2F%3E%3C%2Fsvg%3E');
   pointer-events: none;
 }
+
+.bt-comment-selection-state {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: #70767b;
+}
+.bt-comment-selection-cancel {
+  margin-left: 9px;
+  cursor: pointer;
+}
+.bt-comment-select-wrap {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  left: 17px;
+  top: 17px;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  opacity: 0;
+  transform: scale(.7);
+  pointer-events: none;
+  cursor: pointer;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.bt-comment-select-checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.bt-comment-select-icon {
+  display: block;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #a3a6a9;
+  border-radius: 5px;
+  background: #fff;
+  transition: border-color .15s ease, background-color .15s ease, box-shadow .15s ease;
+}
+.bt-comment-select-icon:after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 9px;
+  margin: 2px 0 0 5px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  opacity: 0;
+  transform: rotate(45deg) scale(.7);
+  transition: opacity .15s ease, transform .15s ease;
+}
+.bt-comment-select-checkbox:focus + .bt-comment-select-icon {
+  box-shadow: 0 0 0 3px rgba(17, 154, 245, .18);
+}
+.bt-comment-select-checkbox:checked + .bt-comment-select-icon {
+  border-color: var(--accent-color);
+  background: var(--accent-color);
+}
+.bt-comment-select-checkbox:checked + .bt-comment-select-icon:after {
+  opacity: 1;
+  transform: rotate(45deg) scale(1);
+}
+.bt-comment-selection-menu {
+  display: none;
+}
+.bt-comment-selection-mode .bt-comment-select-wrap {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+.bt-comment-selection-mode .bt-comment.deleted .bt-comment-select-wrap {
+  opacity: 0;
+  pointer-events: none;
+}
+.bt-comment-selection-mode .bt-comment[data-comment-selectable] .bt-comment-box {
+  width: calc(100% - 32px);
+  transform: translateX(32px);
+}
+.bt-comment-selection-mode .bt-comment.selected {
+  background: #e8f3fa;
+  border-radius: 8px;
+}
+.bt-comment-selection-mode .bt-comment.selected .bt-comment-default-menu,
+.bt-comment-selection-mode .bt-comment.selected .bt-action-btn.bt-reply-btn {
+  display: none;
+}
+.bt-comment-selection-mode .bt-comment.selected .bt-comment-selection-menu {
+  display: block;
+}
+.bt-comment-selection-mode .bt-comment-selection-deleting {
+  opacity: .55;
+  pointer-events: none;
+}
+.bt-comment-selection-removed {
+  opacity: 0;
+  transform: scale(.98);
+  pointer-events: none;
+}
+.bt-comment-reply-content.bt-comment-reply-deleted {
+  cursor: default;
+}
+.bt-comment-reply-content.bt-comment-reply-deleted:before {
+  border-left-color: #a3a6a9;
+}
+.bt-comment-reply-content.bt-comment-reply-deleted .bt-comment-head {
+  color: #70767b;
+  font-weight: 500;
+}

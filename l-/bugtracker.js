@@ -3468,6 +3468,7 @@ var Issue = {
       Aj.layer.on('click.curPage', '.bt-restore-issue-btn', Issue.eRestoreIssue);
       Aj.layer.on('click.curPage', '.bt-delete-comment-btn', Issue.eDeleteIssueComment);
       Aj.layer.on('click.curPage', '.bt-restore-comment-btn', Issue.eRestoreIssueComment);
+      Aj.layer.on('click.curPage', Issue.eCommentSelectionClickAway);
       Aj.layer.on('click.curPage', '.bt-issue-subscribe.bt-active-btn', Issue.eSubscribe);
       Aj.layer.on('click.curPage', '.bt-view-media', Bugtracker.eShowMedia);
       $(window).on('focus blur', Issue.onFocusChange);
@@ -3493,6 +3494,7 @@ var Issue = {
       $('div.input[contenteditable]', Aj.layer).destroyTextarea();
       $(window).off('focus blur', Issue.onFocusChange);
       clearTimeout(Aj.layerState.updateTo);
+      delete layerState.commentSelection;
     });
   },
   onError() {
@@ -3516,6 +3518,10 @@ var Issue = {
     $commentsWrap.on('click.curPage', 'a[data-comment-link]', Issue.eCommentHighlight);
     $commentsWrap.on('click.curPage', '.bt-toggle-comment-form', Issue.eOpenComments);
     $commentsWrap.on('click.curPage', '.bt-comments-more', Issue.eLoadMore);
+    $commentsWrap.on('click.curPage', '.bt-select-comment-btn', Issue.eStartCommentSelection);
+    $commentsWrap.on('click.curPage', '.bt-comment-select-checkbox', Issue.eSelectComment);
+    $commentsWrap.on('click.curPage', '.bt-delete-selected-comments-btn', Issue.eDeleteSelectedComments);
+    $commentsWrap.on('click.curPage', '.bt-comment-selection-cancel', Issue.eCancelCommentSelection);
   },
   initAdditional: async function($b) {
     await Promise.resolve();
@@ -3560,6 +3566,240 @@ var Issue = {
     Bugtracker.updateTime(context);
     $('div.input[contenteditable]', context).initTextarea();
     Issue.syncBulkDeleteUi();
+    Issue.syncCommentSelection(context);
+  },
+  getCommentSelection: function() {
+    if (!Aj.layerState || !Aj.layerState.commentSelection) {
+      return false;
+    }
+    var selection = Aj.layerState.commentSelection;
+    if (selection.issue_id != Issue.getCurrentIssueId() ||
+        selection.mode != Issue.getCurrentCommentsMode()) {
+      delete Aj.layerState.commentSelection;
+      return false;
+    }
+    return selection;
+  },
+  getSelectedCommentIds: function() {
+    var selection = Issue.getCommentSelection();
+    var ids = [];
+    if (!selection) {
+      return ids;
+    }
+    $.each(selection.ids, function(comment_id, selected) {
+      if (selected) {
+        ids.push(comment_id);
+      }
+    });
+    return ids;
+  },
+  syncCommentSelection: function(context) {
+    if (!Aj.layer) {
+      return;
+    }
+    var selection = Issue.getCommentSelection();
+    var $wrap = $('.bt-comments-wrap', Aj.layer);
+    var ids = Issue.getSelectedCommentIds();
+    if (selection && !ids.length) {
+      delete Aj.layerState.commentSelection;
+      selection = false;
+    }
+    $wrap.toggleClass('bt-comment-selection-mode', !!selection);
+    var $selectable_comments = $('.bt-comment[data-comment-selectable]', $wrap);
+    if (context) {
+      $selectable_comments = $selectable_comments
+          .add($(context).filter('.bt-comment[data-comment-selectable]'))
+          .add($('.bt-comment[data-comment-selectable]', context));
+    }
+    $selectable_comments.each(function() {
+      var $comment = $(this);
+      var comment_id = $comment.attr('data-comment-id');
+      var selected = !!(selection && selection.ids[comment_id]);
+      $comment.toggleClass('selected', selected);
+      $('.bt-comment-select-checkbox', $comment)
+          .prop('checked', selected)
+          .prop('disabled', !!(selection && selection.deleting))
+          .attr('tabindex', selection ? '0' : '-1');
+    });
+    $('.bt-comment-selection-state', $wrap).remove();
+    if (selection) {
+      var selected_label = ids.length == 1 ? '1 selected' : ids.length + ' selected';
+      var $state = $('<div class="bt-comment-selection-state"></div>');
+      $('<span class="bt-comment-selection-count"></span>').text(selected_label).appendTo($state);
+      $('<a class="bt-comment-selection-cancel">Cancel</a>').appendTo($state);
+      $state.appendTo($('.bt-comments-header', $wrap));
+    }
+  },
+  clearCommentSelection: function() {
+    if (!Aj.layerState || !Aj.layerState.commentSelection) {
+      return;
+    }
+    if (Aj.layerState.commentSelection.deleting) {
+      return;
+    }
+    delete Aj.layerState.commentSelection;
+    Issue.syncCommentSelection();
+  },
+  eCancelCommentSelection: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    Issue.clearCommentSelection();
+    return false;
+  },
+  eCommentSelectionClickAway: function(e) {
+    if (!Issue.getCommentSelection()) {
+      return;
+    }
+    if ($(e.target).closest('.bt-comment, .bt-comments-more, .bt-comments-header').size()) {
+      return;
+    }
+    Issue.clearCommentSelection();
+  },
+  eStartCommentSelection: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var $btn = $(this);
+    var $comment = $btn.parents('.bt-comment[data-comment-selectable]');
+    var comment_id = $comment.attr('data-comment-id');
+    var issue_id = Issue.getCurrentIssueId();
+    $btn.parents('.open').find('.dropdown-toggle').dropdown('toggle');
+    if (!comment_id || !issue_id) {
+      return false;
+    }
+    Aj.layerState.commentSelection = {
+      issue_id: issue_id,
+      mode: Issue.getCurrentCommentsMode(),
+      ids: {},
+      anchor_id: comment_id,
+      deleting: false
+    };
+    Aj.layerState.commentSelection.ids[comment_id] = true;
+    Issue.syncCommentSelection();
+    if (Aj.state.isWebApp) {
+      WebApp.HapticFeedback.impactOccurred('soft');
+    }
+    return false;
+  },
+  eSelectComment: function(e) {
+    e.stopImmediatePropagation();
+    var selection = Issue.getCommentSelection();
+    if (!selection || selection.deleting) {
+      e.preventDefault();
+      return false;
+    }
+    var $checkbox = $(this);
+    var $comment = $checkbox.parents('.bt-comment[data-comment-selectable]');
+    var comment_id = $comment.attr('data-comment-id');
+    var selected = $checkbox.prop('checked');
+    if (e.shiftKey && selection.anchor_id) {
+      var $comments = $('.bt-comment[data-comment-selectable]:not(.deleted)', Aj.layer);
+      var anchor_index = -1;
+      var comment_index = -1;
+      $comments.each(function(index) {
+        var current_id = $(this).attr('data-comment-id');
+        if (current_id == selection.anchor_id) {
+          anchor_index = index;
+        }
+        if (current_id == comment_id) {
+          comment_index = index;
+        }
+      });
+      if (anchor_index >= 0 && comment_index >= 0) {
+        var range_start = Math.min(anchor_index, comment_index);
+        var range_end = Math.max(anchor_index, comment_index);
+        $comments.slice(range_start, range_end + 1).each(function() {
+          var range_id = $(this).attr('data-comment-id');
+          if (selected) {
+            selection.ids[range_id] = true;
+          } else {
+            delete selection.ids[range_id];
+          }
+        });
+      }
+    } else {
+      if (selected) {
+        selection.ids[comment_id] = true;
+      } else {
+        delete selection.ids[comment_id];
+      }
+      selection.anchor_id = comment_id;
+    }
+    Issue.syncCommentSelection();
+    if (Aj.state.isWebApp) {
+      WebApp.HapticFeedback.impactOccurred('soft');
+    }
+    return true;
+  },
+  refreshDeletedReplyPreviews: function(comment_ids) {
+    $.each(comment_ids, function(i, comment_id) {
+      $('.bt-comment-reply-content[data-comment-link="' + comment_id + '"]', Aj.layer).each(function() {
+        var $reply = $(this);
+        $reply.removeAttr('href')
+            .removeAttr('data-layer')
+            .removeAttr('data-comment-link')
+            .addClass('bt-comment-reply-deleted');
+        $('.bt-comment-head', $reply).text(l('WEB_COMMENT_DELETED'));
+        $('.bt-comment-text, .bt-comment-thumb', $reply).remove();
+      });
+    });
+  },
+  eDeleteSelectedComments: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var $btn = $(this);
+    var selection = Issue.getCommentSelection();
+    var comment_ids = Issue.getSelectedCommentIds();
+    if (!selection || selection.deleting || !comment_ids.length) {
+      return false;
+    }
+    $btn.parents('.open').find('.dropdown-toggle').dropdown('toggle');
+    selection.deleting = true;
+    Issue.syncCommentSelection();
+    $('.bt-comment.selected', Aj.layer).addClass('bt-comment-selection-deleting');
+    Aj.apiRequest('deleteSelectedComments', {
+      issue_id: selection.issue_id,
+      comment_ids: comment_ids.join(',')
+    }, function(result) {
+      var deleted_ids = result.deleted_ids || [];
+      var is_active_issue = Aj.layer &&
+          Issue.getCurrentIssueId() == selection.issue_id &&
+          Issue.getCurrentCommentsMode() == selection.mode;
+      if (is_active_issue) {
+        delete Aj.layerState.commentSelection;
+        Issue.syncCommentSelection();
+        $('.bt-comment-selection-deleting', Aj.layer).removeClass('bt-comment-selection-deleting');
+        Issue.refreshDeletedReplyPreviews(deleted_ids);
+        $.each(deleted_ids, function(i, comment_id) {
+          $('.bt-comment[data-comment-id="' + comment_id + '"]', Aj.layer)
+              .addClass('bt-comment-selection-removed');
+        });
+        setTimeout(function() {
+          if (!Aj.layer || Issue.getCurrentIssueId() != selection.issue_id) {
+            return;
+          }
+          $('.bt-comment-selection-removed', Aj.layer).remove();
+          var $comments = $('.bt-comments', Aj.layer);
+          if (!$('.bt-comment', $comments).size() &&
+              !$('.bt-comments-more:not(.hide)', $comments).size() &&
+              !$('.cd-list-empty-wrap', $comments).size()) {
+            $comments.prepend('<div class="cd-list-empty-wrap"><div class="cd-list-empty">' + l('WEB_NO_COMMENTS') + '</div></div>');
+          }
+        }, 220);
+      }
+      if (result.header_cnts) {
+        Issue.updateHeaderCounters(result.header_cnts);
+      }
+      if (typeof result.counters_html !== 'undefined') {
+        Filters.updateIssueCounters(selection.issue_id, result.counters_html);
+      }
+      if (is_active_issue) {
+        Issue.requestCommentsUpdate();
+      }
+      if (Aj.state.isWebApp && deleted_ids.length) {
+        WebApp.HapticFeedback.notificationOccurred('success');
+      }
+    });
+    return false;
   },
   truncateText: function(text, limit) {
     text = $.trim(text || '');
@@ -4281,6 +4521,7 @@ var Issue = {
         Issue.initComments($comments);
         if (result.replace) {
           $('.bt-comments', Aj.layer).html(result.comments_html);
+          Issue.syncCommentSelection();
         } else {
           $comments.insertBefore($moreEl);
           $moreEl.remove();
