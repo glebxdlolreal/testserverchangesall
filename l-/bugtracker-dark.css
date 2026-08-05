@@ -393,6 +393,18 @@ html.bt-theme-dark .bt-comment-selection-state,
 html.bt-theme-dark .bt-comment-reply-content.bt-comment-reply-deleted .bt-comment-head {
   color: var(--bt-dark-text-secondary);
 }
+html.bt-theme-dark .bt-comment-menu-divider {
+  background: var(--bt-dark-border);
+}
+html.bt-theme-dark .bt-dropdown-wrap ul.dropdown-menu > li > .bt-comment-menu-danger,
+html.bt-theme-dark .bt-dropdown-wrap ul.dropdown-menu > li > .bt-comment-menu-danger:hover,
+html.bt-theme-dark .bt-dropdown-wrap ul.dropdown-menu > li > .bt-comment-menu-danger:focus {
+  color: var(--bt-dark-danger);
+}
+html.bt-theme-dark .bt-dropdown-wrap ul.dropdown-menu > li > .bt-comment-menu-danger:hover,
+html.bt-theme-dark .bt-dropdown-wrap ul.dropdown-menu > li > .bt-comment-menu-danger:focus {
+  background: rgba(239, 101, 143, .12);
+}
 html.bt-theme-dark a.bt-card-row:hover,
 html.bt-theme-dark .bt-comment.highlight {
   background: var(--bt-dark-card-bg);

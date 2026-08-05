@@ -5149,6 +5149,8 @@ input.pr-form-control:focus {
   transform: scale(.7);
   pointer-events: none;
   cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
   transition: opacity .2s ease, transform .2s ease;
 }
 .bt-comment-select-checkbox {
@@ -5235,4 +5237,22 @@ input.pr-form-control:focus {
 .bt-comment-reply-content.bt-comment-reply-deleted .bt-comment-head {
   color: #70767b;
   font-weight: 500;
+}
+.bt-comment:has(.bt-dropdown-wrap.open) {
+  z-index: 5;
+}
+.bt-comment-menu-divider {
+  height: 1px;
+  margin: 4px 10px;
+  background: rgba(0, 0, 0, .08);
+  pointer-events: none;
+}
+.bt-dropdown-wrap ul.dropdown-menu > li > .bt-comment-menu-danger,
+.bt-dropdown-wrap ul.dropdown-menu > li > .bt-comment-menu-danger:hover,
+.bt-dropdown-wrap ul.dropdown-menu > li > .bt-comment-menu-danger:focus {
+  color: #d14e4e;
+}
+.bt-dropdown-wrap ul.dropdown-menu > li > .bt-comment-menu-danger:hover,
+.bt-dropdown-wrap ul.dropdown-menu > li > .bt-comment-menu-danger:focus {
+  background: #fcdfde;
 }
