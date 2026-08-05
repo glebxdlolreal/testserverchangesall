@@ -3604,11 +3604,16 @@ var Issue = {
       return;
     }
     var overflow_count = $comments.size();
-    var error = 'You can select up to ' + Issue.COMMENT_SELECTION_LIMIT + ' comments. ';
+    var error;
     if (overflow_count == 1) {
-      error += 'This comment was not selected.';
+      error = l('WEB_COMMENT_SELECTION_LIMIT_SINGLE_ERROR', {
+        limit: Issue.COMMENT_SELECTION_LIMIT
+      });
     } else {
-      error += overflow_count + ' extra comments were not selected.';
+      error = l('WEB_COMMENT_SELECTION_LIMIT_MULTIPLE_ERROR', {
+        limit: Issue.COMMENT_SELECTION_LIMIT,
+        n: overflow_count
+      });
     }
     $comments.removeClass('bt-comment-selection-limit');
     setTimeout(function() {
@@ -3650,10 +3655,10 @@ var Issue = {
     });
     $('.bt-comment-selection-state', $wrap).remove();
     if (selection) {
-      var selected_label = ids.length == 1 ? '1 selected' : ids.length + ' selected';
+      var selected_label = l('WEB_COMMENTS_SELECTED', {n: ids.length});
       var $state = $('<div class="bt-comment-selection-state"></div>');
       $('<span class="bt-comment-selection-count"></span>').text(selected_label).appendTo($state);
-      $('<a class="bt-comment-selection-cancel">Cancel</a>').appendTo($state);
+      $('<a class="bt-comment-selection-cancel"></a>').text(l('WEB_CANCEL_BUTTON')).appendTo($state);
       $state.appendTo($('.bt-comments-header', $wrap));
     }
   },
