@@ -3620,8 +3620,25 @@ var Issue = {
       $comments.addClass('bt-comment-selection-limit');
     }, 0);
     showToast(error, 3500);
-    if (Aj.state.isWebApp) {
-      WebApp.HapticFeedback.notificationOccurred('error');
+    Issue.deferCommentSelectionHaptic('error');
+  },
+  deferCommentSelectionHaptic: function(type) {
+    if (!Aj.state.isWebApp) {
+      return;
+    }
+    var haptic = function() {
+      if (type == 'error') {
+        WebApp.HapticFeedback.notificationOccurred('error');
+      } else {
+        WebApp.HapticFeedback.impactOccurred(type);
+      }
+    };
+    if (window.requestAnimationFrame) {
+      window.requestAnimationFrame(function() {
+        setTimeout(haptic, 0);
+      });
+    } else {
+      setTimeout(haptic, 0);
     }
   },
   syncCommentSelection: function(context) {
@@ -3634,14 +3651,16 @@ var Issue = {
     if (selection && !ids.length) {
       delete Aj.layerState.commentSelection;
       selection = false;
+      context = false;
     }
     $wrap.toggleClass('bt-comment-selection-mode', !!selection);
     Aj.layer.toggleClass('popup-ignore-esc', !!selection);
-    var $selectable_comments = $('.bt-comment[data-comment-selectable]', $wrap);
+    var $selectable_comments;
     if (context) {
-      $selectable_comments = $selectable_comments
-          .add($(context).filter('.bt-comment[data-comment-selectable]'))
+      $selectable_comments = $(context).filter('.bt-comment[data-comment-selectable]')
           .add($('.bt-comment[data-comment-selectable]', context));
+    } else {
+      $selectable_comments = $('.bt-comment[data-comment-selectable]', $wrap);
     }
     $selectable_comments.each(function() {
       var $comment = $(this);
@@ -3653,13 +3672,18 @@ var Issue = {
           .prop('disabled', !!(selection && selection.deleting))
           .attr('tabindex', selection ? '0' : '-1');
     });
-    $('.bt-comment-selection-state', $wrap).remove();
+    var $state = $('.bt-comment-selection-state', $wrap);
     if (selection) {
       var selected_label = l('WEB_COMMENTS_SELECTED', {n: ids.length});
-      var $state = $('<div class="bt-comment-selection-state"></div>');
-      $('<span class="bt-comment-selection-count"></span>').text(selected_label).appendTo($state);
-      $('<a class="bt-comment-selection-cancel"></a>').text(l('WEB_CANCEL_BUTTON')).appendTo($state);
-      $state.appendTo($('.bt-comments-header', $wrap));
+      if (!$state.size()) {
+        $state = $('<div class="bt-comment-selection-state"></div>');
+        $('<span class="bt-comment-selection-count"></span>').appendTo($state);
+        $('<a class="bt-comment-selection-cancel"></a>').text(l('WEB_CANCEL_BUTTON')).appendTo($state);
+        $state.appendTo($('.bt-comments-header', $wrap));
+      }
+      $('.bt-comment-selection-count', $state).text(selected_label);
+    } else {
+      $state.remove();
     }
   },
   clearCommentSelection: function(force) {
@@ -3732,13 +3756,10 @@ var Issue = {
     selection.ids[comment_id] = true;
     selection.anchor_id = comment_id;
     Issue.syncCommentSelection();
-    if (Aj.state.isWebApp) {
-      WebApp.HapticFeedback.impactOccurred('soft');
-    }
+    Issue.deferCommentSelectionHaptic('soft');
     return false;
   },
   eRememberCommentSelectShift: function(e) {
-    e.preventDefault();
     $(this).data('shiftKey', !!e.shiftKey);
   },
   eSelectComment: function(e) {
@@ -3754,6 +3775,7 @@ var Issue = {
     var selected = !selection.ids[comment_id];
     var shift_key = !!(e.shiftKey || $select_wrap.data('shiftKey'));
     var $overflow_comments = $();
+    var $sync_comments = $comment;
     $select_wrap.data('shiftKey', false);
     if (shift_key && selection.anchor_id) {
       var $comments = $('.bt-comment[data-comment-selectable]:not(.deleted)', Aj.layer);
@@ -3769,12 +3791,14 @@ var Issue = {
         }
       });
       if (anchor_index >= 0 && comment_index >= 0) {
+        $sync_comments = $();
         var selected_count = Issue.getSelectedCommentIds().length;
         var range_step = anchor_index <= comment_index ? 1 : -1;
         for (var range_index = anchor_index;
           range_index != comment_index + range_step;
           range_index += range_step) {
           var $range_comment = $comments.eq(range_index);
+          $sync_comments = $sync_comments.add($range_comment);
           var range_id = $range_comment.attr('data-comment-id');
           if (selected) {
             if (selection.ids[range_id]) {
@@ -3805,11 +3829,11 @@ var Issue = {
         selection.anchor_id = comment_id;
       }
     }
-    Issue.syncCommentSelection();
+    Issue.syncCommentSelection($sync_comments);
     if ($overflow_comments.size()) {
       Issue.showCommentSelectionLimit($overflow_comments);
-    } else if (Aj.state.isWebApp) {
-      WebApp.HapticFeedback.impactOccurred('soft');
+    } else {
+      Issue.deferCommentSelectionHaptic('soft');
     }
     return false;
   },
@@ -3828,10 +3852,8 @@ var Issue = {
     if (selection.anchor_id == comment_id) {
       selection.anchor_id = 0;
     }
-    Issue.syncCommentSelection();
-    if (Aj.state.isWebApp) {
-      WebApp.HapticFeedback.impactOccurred('soft');
-    }
+    Issue.syncCommentSelection($comment);
+    Issue.deferCommentSelectionHaptic('soft');
     return false;
   },
   eDeselectAllComments: function(e) {
@@ -3840,9 +3862,7 @@ var Issue = {
     var $btn = $(this);
     $btn.parents('.open').find('.dropdown-toggle').dropdown('toggle');
     Issue.clearCommentSelection();
-    if (Aj.state.isWebApp) {
-      WebApp.HapticFeedback.impactOccurred('soft');
-    }
+    Issue.deferCommentSelectionHaptic('soft');
     return false;
   },
   refreshDeletedReplyPreviews: function(comment_ids) {
