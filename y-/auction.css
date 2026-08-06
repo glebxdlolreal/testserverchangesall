@@ -2049,12 +2049,11 @@ a.tm-catalog-grid-more:focus {
   background-image: var(--image-url-usdc-pol-icon);
 }
 .icon-usd:before {
-  width: 1em;
-  height: 1.1em;
-  font-size: 1.1em;
+  width: 13px;
+  height: 16px;
+  font-size: 14px;
   content: '$';
   text-align: center;
-  vertical-align: baseline;
 }
 .icon-ton:empty:before {
   display: none;
@@ -4667,10 +4666,6 @@ a.tm-table-action-link:hover {
   text-align: right;
   color: var(--dropdown-secondary-color);
   margin-left: 20px;
-}
-.tm-radio-desc.icon-before.icon-ton {
-  text-align: start;
-  width: 90px;
 }
 .tm-input:focus ~ .tm-stars-price {
   visibility: hidden;
