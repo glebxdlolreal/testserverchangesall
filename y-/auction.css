@@ -2049,11 +2049,8 @@ a.tm-catalog-grid-more:focus {
   background-image: var(--image-url-usdc-pol-icon);
 }
 .icon-usd:before {
-  width: 1em;
-  height: 1.1em;
-  font-size: 1.1em;
   content: '$';
-  text-align: center;
+  margin-right: 1px;
   vertical-align: baseline;
 }
 .icon-ton:empty:before {
@@ -4668,7 +4665,7 @@ a.tm-table-action-link:hover {
   color: var(--dropdown-secondary-color);
   margin-left: 20px;
 }
-.tm-radio-desc.icon-before.icon-ton {
+.tm-stars-options .tm-radio-desc.icon-before.icon-ton {
   text-align: start;
   width: 90px;
 }

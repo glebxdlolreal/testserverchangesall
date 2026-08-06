@@ -808,7 +808,7 @@
     {
       "_": "types.LangPackString",
       "key": "App.Tooltip.VideoRecord",
-      "value": "Video kaydetmek için basılı tutun. Sese geçmek için tıklayın"
+      "value": "Videoyu kaydetmek için basılı tutun. Sesli kayda geçmek için tıklayın."
     },
     {
       "_": "types.LangPackString",
@@ -1123,7 +1123,7 @@
     {
       "_": "types.LangPackString",
       "key": "ApplyLanguage.ChangeLanguageOfficialText",
-      "value": "Bir dil paketi uygulamak üzeresiniz (**%@**).\n\nBu, tüm arayüzü çevirecektir. Düzeltmeleri [çeviri platformu]() aracılığıyla önerebilirsiniz.\n\nDilinizi istediğiniz zaman Ayarlar'dan değiştirebilirsiniz."
+      "value": "**%@** dil paketini uygulamak üzeresiniz.\n\nBu işlem, arayüzün tamamını çevirecektir. Düzeltme önerilerinizi [çeviri paneli]() üzerinden iletebilirsiniz.\n\nAyarlar bölümünden dilinizi istediğiniz zaman geri değiştirebilirsiniz."
     },
     {
       "_": "types.LangPackString",
@@ -1528,7 +1528,7 @@
     {
       "_": "types.LangPackString",
       "key": "BOF-NM-1cW.title",
-      "value": "Tercihler…"
+      "value": "Ayarlar…"
     },
     {
       "_": "types.LangPackString",
@@ -3719,7 +3719,7 @@
     {
       "_": "types.LangPackString",
       "key": "Channel.Persmission.Denied.SendMessages.Forever",
-      "value": "Bu grubun yöneticileri, mesaj yazmanızı kısıtladı."
+      "value": "Bu grubun yöneticileri, mesaj gönderme yetkinizi kısıtlamıştır."
     },
     {
       "_": "types.LangPackString",
@@ -3754,7 +3754,7 @@
     {
       "_": "types.LangPackString",
       "key": "Channel.Persmission.Denied.SendStickers.Until",
-      "value": "Bu grubun yöneticileri, %@ tarihine kadar çıkartmaları buraya göndermenizi kısıtladı."
+      "value": "Bu grubun yöneticileri, %@ tarihine kadar çıkartma gönderme yetkinizi kısıtladı."
     },
     {
       "_": "types.LangPackString",
@@ -3919,7 +3919,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChannelBlacklist.AddMember",
-      "value": "Üye Ekle"
+      "value": "Üye Kısıtla"
     },
     {
       "_": "types.LangPackString",
@@ -4475,17 +4475,17 @@
     {
       "_": "types.LangPackString",
       "key": "ChannelVisibility.Forwarding.Disabled",
-      "value": "İletmeyi Kısıtla"
+      "value": "İçerik Kaydedilmesini Kısıtla"
     },
     {
       "_": "types.LangPackString",
       "key": "ChannelVisibility.Forwarding.Enabled",
-      "value": "İletmeye İzin Ver"
+      "value": "İçeriğin Kaydedilmesine İzin Ver"
     },
     {
       "_": "types.LangPackString",
       "key": "ChannelVisibility.Forwarding.GroupInfo",
-      "value": "Üyeler bu gruptan içerik kopyalayabilecek, kaydedebilecek ve iletebilecek."
+      "value": "Üyeler, bu gruptaki içerikleri kopyalayabilecek, kaydedebilecek ve paylaşabileceklerdir."
     },
     {
       "_": "types.LangPackString",
@@ -5020,7 +5020,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.Context.ClearScheduled",
-      "value": "Tümünü Temizle"
+      "value": "Tümünü İptal Et"
     },
     {
       "_": "types.LangPackString",
@@ -5222,7 +5222,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.Context.SaveRingtone.AddSuccess",
-      "value": "Ses başarıyla kaydedildi"
+      "value": "Ses tonu kütüphanenize kaydedildi"
     },
     {
       "_": "types.LangPackString",
@@ -5478,6 +5478,11 @@
       "_": "types.LangPackString",
       "key": "Chat.Giveaway.Info.Ongoing",
       "value": "**%1$@** tarihinde Telegram otomatik olarak **%3$@** kanalından %2$@ seçecektir."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Giveaway.Info.OngoingIntro",
+      "value": "Çekiliş, takipçileri için %3$@ boyunca %2$@ satın alan **%1$@** yöneticileri tarafından desteklenmektedir."
     },
     {
       "_": "types.LangPackString",
@@ -5984,12 +5989,12 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.Message.Sponsored",
-      "value": "sponsorlu"
+      "value": "reklam"
     },
     {
       "_": "types.LangPackString",
       "key": "Chat.Message.Sponsored.Link",
-      "value": "https://promote.telegram.org"
+      "value": "https://ads.telegram.org"
     },
     {
       "_": "types.LangPackString",
@@ -6687,7 +6692,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.Service.Group.SetTimer",
-      "value": "Bir grup yöneticisi mesajları %@ sonra otomatik olarak silinecek şekilde ayarladı"
+      "value": "Bir grup yöneticisi, mesajları %@ sonra otomatik olarak silinecek şekilde ayarladı"
     },
     {
       "_": "types.LangPackString",
@@ -6943,7 +6948,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.Service.SecretChat.SetTimer1",
-      "value": "%@, mesajları %@ sonra otomatik olarak silinecek şekilde ayarladı"
+      "value": "%@, mesajları %@ içinde otomatik silinecek şekilde ayarladı"
     },
     {
       "_": "types.LangPackString",
@@ -8554,6 +8559,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.RemoveFromCommunity",
+      "value": "Topluluktan Çıkar"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.RevealAction.Collapse",
       "value": "Daralt"
     },
@@ -8826,6 +8836,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Ungroup",
+      "value": "Grubu Kaldır"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupChats",
+      "value": "Sohbet Gruplarını Ayrıştırılsın mı?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupChatsInfo",
+      "value": "Bu topluluğa ait sohbetler, sohbet listenizde ayrı bir bölümde görünecektir."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.UnhideMuted",
       "value": "Sessizleri Gizleme"
     },
@@ -8924,6 +8949,11 @@
       "_": "types.LangPackString",
       "key": "ChatReaction.Undo.StarsSent",
       "value": "Yıldızlar gönderildi!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatRow.Edited",
+      "value": "düzenlendi: %1$@"
     },
     {
       "_": "types.LangPackString",
@@ -9439,6 +9469,12 @@
       "_": "types.LangPackString",
       "key": "CommunityInfo.Community",
       "value": "Topluluk"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityInfo.CommunityWithChats",
+      "one_value": "",
+      "other_value": "%1$d sohbeti olan topluluk"
     },
     {
       "_": "types.LangPackString",
@@ -12867,6 +12903,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupInfo.AddGroupToCommunity",
+      "value": "Bir Topluluğa Grup Ekle"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupInfo.AddUserLeftError",
       "value": "Üzgünüz, bir kişi gruptan ayrılırsa, yalnızca karşılıklı bir kişi onu geri getirebilir. (Sizin onun numarasına, onun da sizin numaranıza ihtiyacı vardır.)"
     },
@@ -12927,8 +12968,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupInfo.RemoveGroupFromCommunity",
+      "value": "Grubu Topluluktan Kaldır"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.RemoveGroupFromCommunityConfirm",
+      "value": "Bu grubu topluluktan kaldırmak istediğinizden emin misiniz?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupInfo.ScamWarning",
       "value": "⚠️ Uyarı: Bu grup, birçok kullanıcı tarafından aldatıcı veya taklit hesap olarak bildirildi. Özellikle sizden para isterse dikkatli olun."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupInfo.SomethingWentWrong",
+      "value": "Bir sorun oluştu."
     },
     {
       "_": "types.LangPackString",
@@ -17900,7 +17956,7 @@
     {
       "_": "types.LangPackString",
       "key": "PhoneNumber.Code.Info",
-      "value": "Onay kodu içeren bir kısa mesaj gönderdik, işlemi tamamlamak için lütfen bunu girin."
+      "value": "Size bir onay kodu içeren SMS gönderdik; işlemi tamamlamak için lütfen bu kodu girin."
     },
     {
       "_": "types.LangPackString",
@@ -17910,7 +17966,7 @@
     {
       "_": "types.LangPackString",
       "key": "PhoneNumber.Info",
-      "value": "Yeni numaranıza onay kodu içeren bir kısa mesaj göndereceğiz."
+      "value": "Yeni numaranıza arama veya SMS yoluyla bir onay kodu gönderilecektir."
     },
     {
       "_": "types.LangPackString",
@@ -18216,7 +18272,7 @@
     {
       "_": "types.LangPackString",
       "key": "Premium.Boarding.Peer.Gift.Info",
-      "value": "Artık ek özelliklere erişiminiz var."
+      "value": "Artık ek özelliklere erişebilirsiniz."
     },
     {
       "_": "types.LangPackString",
@@ -19996,6 +20052,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextAiCompose.ErrorEmpty",
+      "value": "Boş bir mesajı işleyemezsiniz."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.ErrorTooLong",
+      "value": "Makale çok uzun."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.Generate",
+      "value": "Oluştur"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.PromptPlaceholder",
+      "value": "Metin, formüller veya tablolar oluşturun..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextAiCompose.Title",
+      "value": "YZ ile Oluştur"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.Checklist",
       "value": "Kontrol listesi"
     },
@@ -20013,6 +20094,51 @@
       "_": "types.LangPackString",
       "key": "RichTextEditor.Table.AddColumnRight",
       "value": "Sağa Sütun Ekle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.AiPremiumRequired",
+      "value": "Zengin metin düzenleyicisindeki yapay zeka araçları, Telegram Premium ile kullanılabilir."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.CodeBlock",
+      "value": "Kod"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.CodeLanguage",
+      "value": "Kod Dili"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.Edit",
+      "value": "Düzenle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.EmptyMessage",
+      "value": "Boş bir mesaj gönderemezsiniz."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.PullQuote",
+      "value": "Öne Çıkan Alıntı"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.RemoveFormatting",
+      "value": "Biçimlendirmeyi Kaldır"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.Send",
+      "value": "Gönder"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditorWindow.SetLanguage",
+      "value": "Dili Ayarla…"
     },
     {
       "_": "types.LangPackString",
@@ -21475,12 +21601,12 @@
     {
       "_": "types.LangPackString",
       "key": "ServiceMessage.ExpiredPhoto",
-      "value": "fotoğrafın süresi doldu"
+      "value": "Süresi dolmuş fotoğraf"
     },
     {
       "_": "types.LangPackString",
       "key": "ServiceMessage.ExpiredVideo",
-      "value": "videonun süresi doldu"
+      "value": "Süresi dolmuş video"
     },
     {
       "_": "types.LangPackString",
@@ -24887,7 +25013,7 @@
     {
       "_": "types.LangPackString",
       "key": "StoryViewers.Premium.Unlock",
-      "value": "Süresi dolan ve yayınlanan hikayelerin izleyici listelerine erişmek için [Telegram Premium]()'a abone olun."
+      "value": "Süresi dolmuş ve yayınlanmış hikayelerin gelecekteki görüntüleme listelerine erişmek için [Telegram Premium]()'a abone olun."
     },
     {
       "_": "types.LangPackString",
@@ -25358,7 +25484,7 @@
     {
       "_": "types.LangPackString",
       "key": "Text.Context.Copy.StickerPack",
-      "value": "Çıkartma Paketini Kopyala"
+      "value": "Çıkartma Paketi Bağlantısını Kopyala"
     },
     {
       "_": "types.LangPackString",
@@ -25408,7 +25534,7 @@
     {
       "_": "types.LangPackString",
       "key": "Text.View.Transformations",
-      "value": "Dönüşümler"
+      "value": "Biçimlendirme"
     },
     {
       "_": "types.LangPackString",
@@ -25428,7 +25554,7 @@
     {
       "_": "types.LangPackString",
       "key": "TextView.Transform.RemoveAll",
-      "value": "Dönüşümleri Temizle"
+      "value": "Biçimlendirmeyi Temizle"
     },
     {
       "_": "types.LangPackString",
@@ -26191,7 +26317,7 @@
     {
       "_": "types.LangPackString",
       "key": "TwoStepAuth.EmailInvalid",
-      "value": "Geçersiz e-posta adresi. Lütfen tekrar deneyin."
+      "value": "E-posta adresi geçersiz. Lütfen tekrar deneyin."
     },
     {
       "_": "types.LangPackString",
@@ -26482,6 +26608,26 @@
       "_": "types.LangPackString",
       "key": "Upgrade.ChannelsTooMuch",
       "value": "Üzgünüz, çok fazla grup ve kanalın üyesisiniz.\nTeknik nedenlerden dolayı, bu ayarı gruplarınızda değiştirmeden önce birkaç tanesinden ayrılmanız gerekir."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.AddBotToCommunity",
+      "value": "Bir Topluluğa Bot Ekle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.AddBotToCommunityInfo",
+      "value": "Botunuzu, birbiriyle ilişkili birçok sohbetin bulunduğu bir topluluğun parçası haline getirin."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.RemoveBotFromCommunity",
+      "value": "Bu botu topluluktan kaldırmak istediğinizden emin misiniz?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserInfo.RemoveBotFromCommunityButton",
+      "value": "Botu Topluluktan Kaldır"
     },
     {
       "_": "types.LangPackString",
@@ -27720,7 +27866,7 @@
     {
       "_": "types.LangPackString",
       "key": "WallpaperPreview.DoesntExists",
-      "value": "Üzgünüz, bu bir arka plan gibi görünmüyor."
+      "value": "Üzgünüz, bu duvar kağıdı mevcut değil gibi görünüyor."
     },
     {
       "_": "types.LangPackString",
@@ -28075,7 +28221,7 @@
     {
       "_": "types.LangPackString",
       "key": "c8a-y6-VQd.title",
-      "value": "Dönüşümler"
+      "value": "Biçimlendirme"
     },
     {
       "_": "types.LangPackString",
@@ -28278,5 +28424,5 @@
       "value": "Değiştirmeleri Göster"
     }
   ],
-  "version": 2256596
+  "version": 2256657
 }
