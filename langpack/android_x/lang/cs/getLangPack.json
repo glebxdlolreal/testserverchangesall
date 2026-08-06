@@ -138,6 +138,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatOwnerChanged",
+      "value": "%1$s je novým vlastníkem této konverzace"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeft",
+      "value": "Vlastník opustil konverzaci"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeftTo",
+      "value": "Vlastník opustil konverzaci. Pokud se nevrátí, stane se %1$s novým vlastníkem"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChatRemovedFromCommunity",
       "value": "Tento chat byl odebrán z komunity"
     },
@@ -155,6 +170,11 @@
       "_": "types.LangPackString",
       "key": "ActionChecklistAddOut",
       "value": "Přidal/a jste %1$s na kontrolní seznam"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOutMsg",
+      "value": "Přidal/a jste %1$s na kontrolní seznam \"%2$s\""
     },
     {
       "_": "types.LangPackString",
@@ -247,6 +267,26 @@
       "_": "types.LangPackString",
       "key": "ActionDeletedPollOutOptionMsg",
       "value": "Odebral/a jste \"%1$s\" z hlasování \"%2$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosed",
+      "value": "%1$s uzavřel/a obecné vlákno"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosedOut",
+      "value": "Uzavřel/a jste obecné vlákno"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopened",
+      "value": "%1$s znovu otevřel/a obecné vlákno"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopenedOut",
+      "value": "Znovu jste otevřel/a obecné vlákno"
     },
     {
       "_": "types.LangPackString",
@@ -424,14 +464,45 @@
       "other_value": "%2$s připnul/a **%1$s placených videí**"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s změnil/a cenu za zprávu na %1$s hvězdy",
+      "key": "ActionPriceChanged",
+      "many_value": "%2$s změnil/a cenu za zprávu na %1$s hvězd",
+      "one_value": "%2$s změnil/a cenu za zprávu na %1$s hvězdu",
+      "other_value": "%2$s změnil/a cenu za zprávu na %1$s hvězd"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Změnil/a jste cenu za zprávu na %1$s hvězdy",
+      "key": "ActionPriceChangedOut",
+      "many_value": "Změnil/a jste cenu za zprávu na %1$s hvězd",
+      "one_value": "Změnil/a jste cenu za zprávu na %1$s hvězdu",
+      "other_value": "Změnil/a jste cenu za zprávu na %1$s hvězd"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "Označit jako přečtené"
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionSharingDisabled",
+      "value": "%1$s zakázal/a sdílení v této konverzaci"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabledOut",
+      "value": "Zakázal/a jste sdílení v této konverzaci"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionSharingEnabled",
       "value": "%1$s povolil/a sdílení v této konverzaci"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabledOut",
+      "value": "Povolil/a jste sdílení v této konverzaci"
     },
     {
       "_": "types.LangPackString",
@@ -447,6 +518,136 @@
       "_": "types.LangPackString",
       "key": "ActionSharingRequestOut",
       "value": "Navrhujete povolit sdílení v této konverzaci"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillDisabled",
+      "value": "Sdílení v této konverzaci je stále zakázáno"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillEnabled",
+      "value": "Sdílení v této konverzaci je stále povoleno"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIcon",
+      "value": "%1$s změnil/a ikonu vlákna na %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconName",
+      "value": "%3$s změnil/a název a ikonu vlákna na %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconNameOut",
+      "value": "Změnil/a jste název a ikonu vlákna na %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconOut",
+      "value": "Změnil/a jste ikonu vlákna na %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosed",
+      "value": "%3$s uzavřel/a %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosedOut",
+      "value": "Uzavřel/a jste %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreate",
+      "value": "%2$s vytvořil/a vlákno  %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIcon",
+      "value": "%3$s vytvořil/a vlákno %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIconOut",
+      "value": "Vytvořil/a jste vlákno  %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateOut",
+      "value": "Vytvořil/a jste vlákno  %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreated",
+      "value": "Vlákno %1$s vytvořeno"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreatedIcon",
+      "value": "Vlákno %1$s %2$s vytvořeno"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHidden",
+      "value": "%1$s skryl/a obecné vlákno"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHiddenOut",
+      "value": "Skryl/a jste obecné vlákno"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamed",
+      "value": "%2$s přejmenoval/a vlákno na %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamedOut",
+      "value": "Přejmenoval/a jste vlákno na %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopened",
+      "value": "%3$s znovu otevřel/a %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopenedOut",
+      "value": "Znovu jste otevřel/a %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhidden",
+      "value": "%1$s odkryl/a obecné vlákno"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhiddenOut",
+      "value": "Odkryl/a jste obecné vlákno"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosed",
+      "value": "%1$s uzavřel/a vlákno"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosedOut",
+      "value": "Uzavřel/a jste vlákno"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopened",
+      "value": "%1$s znovu otevřel/a vlákno"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopenedOut",
+      "value": "Znovu jste otevřel/a vlákno"
     },
     {
       "_": "types.LangPackString",
@@ -17483,6 +17684,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SessionSnapshot",
+      "value": "Snímek relace"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshotDesc",
+      "value": "Odeslat soukromá autorizační data"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshotWarning",
+      "value": "**Varování**\n\nSnímek, který se chystáte odeslat, obsahuje přístupové údaje k vašemu účtu na Telegramu.\n\nNeodesílejte jej ani nepředávejte dál nikomu, pokud si nejste jisti, co děláte."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SessionSystem",
       "value": "Systém"
     },
@@ -18919,6 +19135,11 @@
       "_": "types.LangPackString",
       "key": "SyncHintUnavailable",
       "value": "Klepněte na Nastavení > Oprávnění a povolte Kontakty, abyste aplikaci Telegram X umožnili přístup ke svým kontaktům."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintUnavailable2",
+      "value": "Klepněte na Nastavení > Oprávnění a zapněte Kontakty, abyste aplikaci **%1$s** umožnili přístup ke svým kontaktům a mohla je vyhledat v aplikaci Telegram."
     },
     {
       "_": "types.LangPackString",
@@ -25198,5 +25419,5 @@
       "other_value": "%1$s roků"
     }
   ],
-  "version": 1636859
+  "version": 1637823
 }
