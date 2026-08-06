@@ -423,7 +423,9 @@ i.icon {
   width: 70px;
 }
 .tm-stars-price .tm-value.icon-ton:before,
-.tm-form-radio-label .tm-value.icon-ton:before {
+.tm-stars-price .stars-ton.icon-ton:before,
+.tm-form-radio-label .tm-value.icon-ton:before,
+.tm-form-radio-label .stars-ton.icon-ton:before {
   width: 15px;
   height: 19px;
   margin-left: -1px;
@@ -4665,9 +4667,66 @@ a.tm-table-action-link:hover {
   color: var(--dropdown-secondary-color);
   margin-left: 20px;
 }
-.tm-stars-options .tm-radio-desc.icon-before.icon-ton {
-  text-align: start;
+.tm-stars-options .stars-usd {
+  width: 100px;
+  text-align: right;
+  order: 1;
+}
+.tm-stars-options .stars-ton {
   width: 90px;
+  text-align: start;
+  font-weight: normal;
+  color: var(--dropdown-secondary-color);
+  order: 2;
+}
+.js-stars-form.ton-payment .tm-stars-options .stars-usd {
+  width: 90px;
+  text-align: start;
+  font-weight: normal;
+  color: var(--dropdown-secondary-color);
+  order: 2;
+}
+.js-stars-form.ton-payment .tm-stars-options .stars-ton {
+  width: 100px;
+  text-align: right;
+  font-weight: inherit;
+  color: inherit;
+  order: 1;
+}
+.tm-stars-price .stars-usd {
+  order: 1;
+}
+.tm-stars-price .stars-ton {
+  font-weight: normal;
+  color: var(--dropdown-secondary-color);
+  margin-left: 20px;
+  order: 2;
+}
+.js-stars-form.ton-payment .tm-stars-price .stars-usd {
+  font-weight: normal;
+  color: var(--dropdown-secondary-color);
+  margin-left: 20px;
+  order: 2;
+}
+.js-stars-form.ton-payment .tm-stars-price .stars-ton {
+  font-weight: inherit;
+  color: inherit;
+  margin-left: 0;
+  order: 1;
+}
+@media (max-width: 767px) {
+  .tm-stars-options .stars-ton,
+  .tm-stars-price .stars-ton {
+    display: none !important;
+  }
+  .js-stars-form.ton-payment .tm-stars-options .stars-usd,
+  .js-stars-form.ton-payment .tm-stars-price .stars-usd {
+    display: none !important;
+  }
+  .js-stars-form.ton-payment .tm-stars-options .stars-ton,
+  .js-stars-form.ton-payment .tm-stars-price .stars-ton {
+    display: inline-block !important;
+  }
 }
 .tm-input:focus ~ .tm-stars-price {
   visibility: hidden;
