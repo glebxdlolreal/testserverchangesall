@@ -1405,6 +1405,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AiToneDeleteStyleConfirm",
+      "value": "آیا از حذف این لحن اطمینان دارید؟"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AiToneEditStyle",
       "value": "ویرایش لحن"
     },
@@ -1573,6 +1578,11 @@
       "_": "types.LangPackString",
       "key": "ApproveNewMembersDescription",
       "value": "در صورتی که می‌خواهید کاربران فقط پس از موافقت مدیر عضو شوند، این گزینه را فعال کنید."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ApproveNewMembersPublicUnavailable",
+      "value": "این گزینه در دسترس نیست، زیرا هر کسی می‌تواند از طریق لینک عمومی گروه به آن بپیوندد و پیام ارسال کند."
     },
     {
       "_": "types.LangPackString",
@@ -3676,7 +3686,7 @@
     {
       "_": "types.LangPackString",
       "key": "ComposerPlaceholderBotTopicGeneral",
-      "value": "پیام خارج از رشته"
+      "value": "پیام خارج از موضوع"
     },
     {
       "_": "types.LangPackString",
@@ -4311,6 +4321,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DeleteReactionTooltip",
+      "value": "حذف واکنش"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DeleteSingleMessagesTitle",
       "value": "حذف پیام"
     },
@@ -4871,6 +4886,11 @@
       "_": "types.LangPackString",
       "key": "EmptyGroupInfoTitle",
       "value": "شما یک گروه ایجاد کردید"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Enable",
+      "value": "فعال کردن"
     },
     {
       "_": "types.LangPackString",
@@ -7166,6 +7186,65 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GuardApplyToInvitesApply",
+      "value": "اعمال کردن"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "GuardApplyToInvitesChannel",
+      "one_value": "همچنین گزینه **پذیرفتن مشترکین جدید** برای **1 لینک دعوت فعلی** در این کانال فعال شود؟",
+      "other_value": "همچنین گزینه **پذیرفتن مشترکین جدید** برای **⁨{count}⁩ لینک دعوت فعلی** در این کانال فعال شود؟"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApplyToInvitesDontApply",
+      "value": "اعمال نکردن"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "GuardApplyToInvitesGroup",
+      "one_value": "همچنین گزینه **پذیرفتن اعضای جدید** برای **1 لینک دعوت فعلی** در این گروه فعال شود؟",
+      "other_value": "همچنین گزینه **پذیرفتن اعضای جدید** برای **⁨{count}⁩ لینک دعوت فعلی** در این گروه فعال شود؟"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApplyToInvitesTitle",
+      "value": "به لینک‌های دعوت فعلی اعمال شود؟"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApproveNewChannelSubscribersInfo",
+      "value": "یک مدیر باید کاربرانی که می‌خواهند به کانال بپیوندند را تأیید کند."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApproveNewPrivateGroupMembersInfo",
+      "value": "یک مدیر باید کاربرانی که می‌خواهند به گروه بپیوندند را تأیید کند."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardApproveNewPublicGroupMembersInfo",
+      "value": "یک مدیر باید کاربرانی که می‌خواهند در گروه پیام ارسال کنند را تأیید کند."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "GuardDisableInvitesChannel",
+      "one_value": "همچنین گزینه **پذیرفتن مشترکین جدید** برای **1 لینک دعوت فعلی** در این کانال غیرفعال شود؟",
+      "other_value": "همچنین گزینه **پذیرفتن مشترکین جدید** برای **⁨{count}⁩ لینک دعوت فعلی** در این کانال غیرفعال شود؟"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "GuardDisableInvitesGroup",
+      "one_value": "همچنین گزینه **پذیرفتن اعضای جدید** برای **1 لینک دعوت فعلی** در این گروه غیرفعال شود؟",
+      "other_value": "همچنین گزینه **پذیرفتن اعضای جدید** برای **⁨{count}⁩ لینک دعوت فعلی** در این گروه غیرفعال شود؟"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardManagedBy",
+      "value": "مدیریت شده توسط ⁨{bot}⁩"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GuardManagedByDescription",
       "value": "⁨{approvalInfo}⁩ ⁨{managedBy}⁩"
     },
@@ -8259,7 +8338,7 @@
     {
       "_": "types.LangPackString",
       "key": "MessageMetaEditedAtTime",
-      "value": "ویرایش شده در ⁨{time}⁩"
+      "value": "ویرایش شده ساعت ⁨{time}⁩"
     },
     {
       "_": "types.LangPackString",
@@ -9027,6 +9106,11 @@
       "value": "هیچ‌کس"
     },
     {
+      "_": "types.LangPackString",
+      "key": "PageContentEmbed",
+      "value": "محتوای درج شده"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "PaidMessageTransaction",
       "one_value": "هزینه ⁨{count}⁩ پیام",
@@ -9544,6 +9628,12 @@
       "_": "types.LangPackString",
       "key": "PollBackToVote",
       "value": "< رأی دادن"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "PollCountriesLimit",
+      "one_value": "شما می‌توانید تا ⁨{count}⁩ کشور انتخاب کنید.",
+      "other_value": "شما می‌توانید تا ⁨{count}⁩ کشور انتخاب کنید."
     },
     {
       "_": "types.LangPackString",
@@ -10572,6 +10662,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ReplaceGuardBotDescription",
+      "value": "در حال حاضر، **⁨{current}⁩** درخواست‌های عضویت را پردازش می‌کند. آیا به **⁨{new}⁩** تغییر می‌دهید؟"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ReplaceGuardBotKeep",
       "value": "همین ربات بماند ⁨{bot}⁩"
     },
@@ -10734,6 +10829,11 @@
       "_": "types.LangPackString",
       "key": "RevokedLinks",
       "value": "لینک‌های باطل شده"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorTableMenu",
+      "value": "جدول"
     },
     {
       "_": "types.LangPackString",
@@ -13835,5 +13935,5 @@
       "value": "نام شما"
     }
   ],
-  "version": 273782
+  "version": 282136
 }
