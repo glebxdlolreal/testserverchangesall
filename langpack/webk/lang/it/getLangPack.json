@@ -4503,6 +4503,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChannelSettingsJoinRequestChannel",
+      "value": "Approva i nuovi iscritti"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChannelSettingsJoinRequestInfo",
       "value": "Attiva se vuoi che gli utenti possano unirsi solo dopo l'approvazione degli amministratori."
     },
@@ -5146,6 +5151,26 @@
       "_": "types.LangPackString",
       "key": "Chat.Service.Channel.UpdatedVideo",
       "value": "Foto del canale aggiornata"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.You",
+      "value": "Tu hai aggiunto questo gruppo alla community %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Bot",
+      "value": "Il canale è stato rimosso da una community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Channel",
+      "value": "Il canale è stato rimosso da una community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Group.You",
+      "value": "Tu hai rimosso questo gruppo da una community"
     },
     {
       "_": "types.LangPackString",
@@ -6297,8 +6322,53 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.AddBot",
+      "value": "Aggiungi bot a una community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChannel",
+      "value": "Aggiungi canale a una community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat",
+      "value": "Aggiungi chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddExisting",
+      "value": "Aggiungi a una community esistente"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddGroup",
+      "value": "Aggiungi gruppo a una community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdministratorsInfo",
+      "value": "Puoi aggiungere amministratori per farti aiutare a gestire la tua community."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AllMembers",
+      "value": "Tutti i membri"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AllMembersInfo",
+      "value": "Consenti ai membri di aggiungere i propri gruppi e canali alla community."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Ban",
       "value": "Banna"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.BanFromCommunity",
+      "value": "Banna dalla community"
     },
     {
       "_": "types.LangPackString",
@@ -6312,8 +6382,19 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.BotDescription",
+      "value": "Rendi il tuo bot parte di una community con più chat correlate."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.BotNotAccessible",
       "value": "Questo bot non è più accessibile."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.BotPeersLimit",
+      "one_value": "Limite di %d bot raggiunto.",
+      "other_value": "Limite di %d bot raggiunto."
     },
     {
       "_": "types.LangPackString",
@@ -6322,8 +6403,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.ChangeSettings",
+      "value": "Cambia impostazioni >"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.ChannelAdded",
       "value": "Canale aggiunto alla community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChannelDescription",
+      "value": "Rendi il tuo canale parte di una community con più chat correlate."
     },
     {
       "_": "types.LangPackString",
@@ -6334,6 +6425,17 @@
       "_": "types.LangPackString",
       "key": "Community.ChannelRemoved",
       "value": "Canale rimosso dalla community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatRemoved",
+      "value": "Chat rimossa dalla community"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.ChatsCount",
+      "one_value": "%d chat",
+      "other_value": "%d chat"
     },
     {
       "_": "types.LangPackString",
@@ -6357,8 +6459,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.CommunityAdded.View",
+      "value": "Apri"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Create",
+      "value": "Crea community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Created",
+      "value": "Community creata"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.DeclineAll",
       "value": "Rifiuta tutto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DeclineAllRequests",
+      "value": "Rifiuta tutte le richieste"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Delete",
+      "value": "Elimina community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Deleted",
+      "value": "Community eliminata"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Description",
+      "value": "Rendi il tuo gruppo parte di una community con più chat correlate."
     },
     {
       "_": "types.LangPackString",
@@ -6372,13 +6509,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Hidden",
+      "value": "Nascosta"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.HiddenChannelInfo",
       "value": "Non puoi unirti o vedere questo canale finché un amministratore non ti inviterà."
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.HiddenInfo",
+      "value": "Solo i membri invitati e gli amministratori della community vedranno questa chat."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.JoinConfirm",
       "value": "Vuoi unirti a %s?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Leave",
+      "value": "Lascia community"
     },
     {
       "_": "types.LangPackString",
@@ -6397,6 +6549,37 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Name",
+      "value": "Nome"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoAdministrators",
+      "value": "Nessun amministratore"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoRemovedUsers",
+      "value": "Nessun utente rimosso"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.OnlyAdmins",
+      "value": "Solo gli amministratori"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.OnlyAdminsInfo",
+      "value": "Le chat suggerite dai membri della community richiedono l'approvazione dell'amministratore."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.PeersLimit",
+      "one_value": "Limite di %d chat raggiunto.",
+      "other_value": "Limite di %d chat raggiunto."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.PrivateBotInfo",
       "value": "Questo bot è solo su invito. Solo i membri invitati possono usarlo."
     },
@@ -6411,6 +6594,12 @@
       "value": "Questo gruppo è solo su invito. Solo i suoi membri possono vederlo."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.ProfileStatus",
+      "one_value": "Community con %d chat",
+      "other_value": "Community con %d chat"
+    },
+    {
       "_": "types.LangPackString",
       "key": "Community.Promote",
       "value": "Promuovi"
@@ -6419,6 +6608,11 @@
       "_": "types.LangPackString",
       "key": "Community.RemoveAdmin",
       "value": "Rimuovi amministratore"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveAdminConfirm",
+      "value": "Rimuovere questo amministratore dalla community?"
     },
     {
       "_": "types.LangPackString",
@@ -6432,8 +6626,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.RemoveChat",
+      "value": "Rimuovi dalla community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChatConfirm",
+      "value": "Rimuovere %s da questa community?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveConfirm",
+      "value": "Rimuovere %s da questa community?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.RemoveGroup",
       "value": "Rimuovi gruppo dalla community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveUser",
+      "value": "Rimuovi utente"
     },
     {
       "_": "types.LangPackString",
@@ -6442,8 +6656,29 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.RemovedFromCommunity",
+      "value": "Rimosso dalla community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemovedUsersInfo",
+      "value": "Gli utenti rimossi dalla community non possono rientrare tramite link d'invito."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.RequestSent",
       "value": "Richiesta inviata"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.RequestsAdded",
+      "one_value": "%d chat aggiunta alla community.",
+      "other_value": "%d chat aggiunte alla community."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Retry",
+      "value": "Riprova"
     },
     {
       "_": "types.LangPackString",
@@ -6462,8 +6697,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Title",
+      "value": "Community"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Unban",
       "value": "Sblocca"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View",
+      "value": "Apri community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.VisibilityImmutable",
+      "value": "Non potrai cambiarlo in seguito."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Visible",
+      "value": "Visibile"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.VisibleInfo",
+      "value": "Chiunque nella community potrà vedere questa chat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.WhoCanAddChats",
+      "value": "Chi può aggiungere chat?"
     },
     {
       "_": "types.LangPackString",
@@ -7960,8 +8225,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Ephemeral.CantSchedule",
+      "value": "I messaggi effimeri non possono essere programmati."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.CommandTooltip",
+      "value": "Gli altri membri non vedranno questo messaggio"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.ReplySingleMessage",
+      "value": "Puoi inviare un solo messaggio in risposta a questo messaggio."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Ephemeral.Retry",
       "value": "Riprova"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.VisibleTo",
+      "value": "Visibile solo a %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.VisibleYou",
+      "value": "Visibile solo a te"
     },
     {
       "_": "types.LangPackString",
@@ -9094,6 +9384,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GramBalance",
+      "value": "Saldo Gram"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Group",
       "value": "Gruppo"
     },
@@ -9159,6 +9454,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupRequestApproved",
+      "value": "La tua richiesta di accesso al gruppo è stata approvata"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestApprovedChannel",
+      "value": "La tua richiesta di accesso al canale è stata approvata"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestDeclined",
+      "value": "La tua richiesto di accesso al gruppo è stata rifiutata."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestDeclinedChannel",
+      "value": "La tua richiesto di accesso al canale è stata rifiutata."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestSent",
+      "value": "Sarai aggiunto al gruppo quando un amministratore approverà la tua richiesta."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestSentChannel",
+      "value": "Sarai aggiunto al canale quando un amministratore approverà la tua richiesta."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupStats.Title",
       "value": "Statistiche gruppo"
     },
@@ -9197,6 +9522,31 @@
       "_": "types.LangPackString",
       "key": "GrowthChartTitle",
       "value": "Crescita"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotEnable",
+      "value": "Attiva"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotManagedBy",
+      "value": "Gestito da %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotProcessJoinRequests",
+      "value": "Gestire le richieste di accesso"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotReplaceTitle",
+      "value": "Sostituisci il bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotReplaceUse",
+      "value": "Usa %s"
     },
     {
       "_": "types.LangPackString",
@@ -18550,6 +18900,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarsNotAvailableTitle",
+      "value": "Non disponibile"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarsPending",
       "value": "In attesa"
     },
@@ -21346,5 +21701,5 @@
       "other_value": "%1$d messaggi"
     }
   ],
-  "version": 322826
+  "version": 322900
 }
