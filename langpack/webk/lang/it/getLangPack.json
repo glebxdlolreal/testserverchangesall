@@ -5154,6 +5154,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Bot",
+      "value": "Il bot è stato aggiunto alla community %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Channel",
+      "value": "Il canale è stato aggiunto alla community %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.By",
+      "value": "%1$s ha aggiunto questo gruppo alla community %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.Unknown",
+      "value": "Il gruppo è stato aggiunto alla community %1$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.Service.CommunityAdded.Group.You",
       "value": "Tu hai aggiunto questo gruppo alla community %1$s"
     },
@@ -5166,6 +5186,11 @@
       "_": "types.LangPackString",
       "key": "Chat.Service.CommunityRemoved.Channel",
       "value": "Il canale è stato rimosso da una community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Group.By",
+      "value": "%1$s ha rimosso questo gruppo da una community"
     },
     {
       "_": "types.LangPackString",
@@ -5632,6 +5657,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.LoadFailed",
+      "value": "Impossibile caricare"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.ManageBot",
       "value": "Gestisci bot"
     },
@@ -5799,6 +5829,11 @@
       "_": "types.LangPackString",
       "key": "ChatAutomation.Stop",
       "value": "Arresta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TerminateConnectedBot",
+      "value": "Termina anche %s"
     },
     {
       "_": "types.LangPackString",
@@ -6611,6 +6646,12 @@
       "value": "%s è stato bannato dalla community."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.BannedCount",
+      "one_value": "%d bannato",
+      "other_value": "%d bannati"
+    },
+    {
       "_": "types.LangPackString",
       "key": "Community.BotAdded",
       "value": "Bot aggiunto alla community"
@@ -6672,6 +6713,11 @@
       "value": "Visibilità chat"
     },
     {
+      "_": "types.LangPackString",
+      "key": "Community.Chats",
+      "value": "Chat community"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "Community.ChatsCount",
       "one_value": "%d chat",
@@ -6731,6 +6777,11 @@
       "_": "types.LangPackString",
       "key": "Community.Delete",
       "value": "Elimina community"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DeleteConfirm",
+      "value": "Eliminare questa community? Questa azione non può essere annullata."
     },
     {
       "_": "types.LangPackString",
@@ -6819,8 +6870,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.NoChatsToAdd",
+      "value": "Non ci sono chat disponibili da aggiungere."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoPendingRequests",
+      "value": "Nessuna richiesta in sospeso"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.NoRemovedUsers",
       "value": "Nessun utente rimosso"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoRequests",
+      "value": "nessuna richiesta"
     },
     {
       "_": "types.LangPackString",
@@ -7016,6 +7082,11 @@
       "_": "types.LangPackString",
       "key": "Community.SuggestedChannel",
       "value": "ha suggerito questo canale"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedGroup",
+      "value": "ha suggerito questo gruppo"
     },
     {
       "_": "types.LangPackString",
@@ -8547,6 +8618,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Ephemeral.About",
+      "value": "Solo tu puoi vedere questo messaggio. Sparirà al riavvio dell'app."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Ephemeral.CantSchedule",
       "value": "I messaggi effimeri non possono essere programmati."
     },
@@ -8557,6 +8633,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Ephemeral.CommandUnavailable",
+      "value": "Questo bot non è ancora disponibile. Per favore riprova."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Ephemeral.ReplySingleMessage",
       "value": "Puoi inviare un solo messaggio in risposta a questo messaggio."
     },
@@ -8564,6 +8645,16 @@
       "_": "types.LangPackString",
       "key": "Ephemeral.Retry",
       "value": "Riprova"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.SendUnavailable",
+      "value": "Questo messaggio privato non può più essere inviato."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.SingleAttachment",
+      "value": "Puoi allegare solo un file a un messaggio effimero."
     },
     {
       "_": "types.LangPackString",
@@ -15695,6 +15786,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ProfileTab.OrderChanged",
+      "value": "Ordine schede cambiato."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ProfileTab.SetAsMain",
+      "value": "Imposta come principale"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ProfileUnofficialSecurityRisk",
       "value": "%1$s usa un client Telegram non ufficiale: i messaggi a questo utente potrebbero essere meno sicuri."
     },
@@ -22038,5 +22139,5 @@
       "other_value": "%1$d messaggi"
     }
   ],
-  "version": 323474
+  "version": 323502
 }
