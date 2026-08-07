@@ -5649,6 +5649,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Confirmed",
+      "value": "Нови бот дозвољен."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.ConnectionReview.Reject",
       "value": "Не, нисам ја!"
     },
@@ -5726,6 +5731,11 @@
       "_": "types.LangPackString",
       "key": "ChatAutomation.IncludedDescription",
       "value": "Изаберите ћаскања или читаве категорије ћаскања којима ће бот **ИМАТИ ПРИСТУП**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.LoadFailed",
+      "value": "Учитавање није успело"
     },
     {
       "_": "types.LangPackString",
@@ -5819,8 +5829,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.RecipientLimit",
+      "value": "Можете изабрати до 100 корисника."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.RecipientSummaryEmpty",
       "value": "Додај"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RecipientsEmpty",
+      "value": "Изаберите најмање једног примаоца."
     },
     {
       "_": "types.LangPackString",
@@ -6694,8 +6714,25 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Ban",
+      "value": "Забрани"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.BanWarningTitle",
       "value": "Упозорење"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Banned",
+      "value": "Кориснику %s је забрањен приступ заједници."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d забрањена",
+      "key": "Community.BannedCount",
+      "one_value": "%d забрањен",
+      "other_value": "%d забрањених"
     },
     {
       "_": "types.LangPackString",
@@ -6711,6 +6748,13 @@
       "_": "types.LangPackString",
       "key": "Community.BotNotAccessible",
       "value": "Овај бот више није доступан."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Достигнуто ограничење од %d бота.",
+      "key": "Community.BotPeersLimit",
+      "one_value": "Достигнуто ограничење од %d бота.",
+      "other_value": "Достигнуто ограничење од %d ботова."
     },
     {
       "_": "types.LangPackString",
@@ -6935,6 +6979,13 @@
       "value": "За ћаскања која предложе чланови заједнице потребно је одобрење администратора."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Достигнуто ограничење од %d ћаскања.",
+      "key": "Community.PeersLimit",
+      "one_value": "Достигнуто ограничење од %d ћаскања.",
+      "other_value": "Достигнуто ограничење од %d ћаскања."
+    },
+    {
       "_": "types.LangPackString",
       "key": "Community.PendingRequest",
       "value": "Захтев на чекању"
@@ -6943,6 +6994,13 @@
       "_": "types.LangPackString",
       "key": "Community.PendingRequests",
       "value": "Захтеви на чекању"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Предложена %d ћаскања",
+      "key": "Community.PendingRequestsCount",
+      "one_value": "Предложено %d ћаскање",
+      "other_value": "Предложено %d ћаскања"
     },
     {
       "_": "types.LangPackString",
@@ -22311,5 +22369,5 @@
       "other_value": "%1$d порука"
     }
   ],
-  "version": 323411
+  "version": 323535
 }
