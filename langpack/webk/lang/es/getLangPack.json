@@ -5159,8 +5159,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Channel",
+      "value": "El canal fue añadido a la comunidad %1$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.Service.CommunityRemoved.Bot",
       "value": "El bot fue quitado de la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Channel",
+      "value": "El canal fue quitado de la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Group.By",
+      "value": "%1$s quitó este grupo de una comunidad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Group.You",
+      "value": "Quitaste este grupo de una comunidad"
     },
     {
       "_": "types.LangPackString",
@@ -6402,6 +6422,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.AdministratorsInfo",
+      "value": "Puedes añadir admins. para que te ayuden en la comunidad. "
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.AllMembers",
       "value": "Todos los miembros"
     },
@@ -6451,6 +6476,11 @@
       "_": "types.LangPackString",
       "key": "Community.BotDescription",
       "value": "Haz que tu bot forme parte de una comunidad con múltiples chats relacionados."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChangeSettings",
+      "value": "Cambiar ajustes >"
     },
     {
       "_": "types.LangPackString",
@@ -6600,8 +6630,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.NoAdministrators",
+      "value": "Sin administradores"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.NoCommunities",
       "value": "Aún no tienes comunidades."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoPendingRequests",
+      "value": "No hay solicitudes pendientes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoRemovedUsers",
+      "value": "Sin usuarios expulsados"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoRequests",
+      "value": "sin solicitudes"
     },
     {
       "_": "types.LangPackString",
@@ -6612,6 +6662,11 @@
       "_": "types.LangPackString",
       "key": "Community.OnlyAdminsInfo",
       "value": "Los chats sugeridos por los miembros de la comunidad requieren la aprobación de los admins."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PendingRequestsInfo",
+      "value": "Los chats requieren la aprobación de los admins. antes de ser añadidos a la comunidad."
     },
     {
       "_": "types.LangPackString",
@@ -6685,6 +6740,32 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.RemovedUsersInfo",
+      "value": "Los usuarios expulsados de esta comunidad por los administradores no pueden regresar con enlaces de invitación."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RequestAdded",
+      "value": "Chat añadido a la comunidad."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RequestDeclined",
+      "value": "Sugerencia rechazada."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.RequestsAdded",
+      "one_value": "%d chat fue añadido a la comunidad.",
+      "other_value": "%d chats fueron añadidos a la comunidad."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Retry",
+      "value": "Reintentar"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.SaveChanges",
       "value": "Guardar cambios"
     },
@@ -6702,6 +6783,36 @@
       "_": "types.LangPackString",
       "key": "Community.ShowSeparately",
       "value": "Mostrar como chats separados"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Someone",
+      "value": "Alguien"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedBot",
+      "value": "sugirió este bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedBy",
+      "value": "Sugerido por"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedBySomeone",
+      "value": "Alguien sugirió este chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedChannel",
+      "value": "sugirió este canal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedGroup",
+      "value": "sugirió este grupo"
     },
     {
       "_": "types.LangPackString",
@@ -21734,5 +21845,5 @@
       "other_value": "%1$d mensajes"
     }
   ],
-  "version": 325030
+  "version": 325044
 }
