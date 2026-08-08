@@ -2572,7 +2572,7 @@
     {
       "_": "types.LangPackString",
       "key": "BlockedUsersInfo",
-      "value": "Блокирани корисници не могу вам слати поруке нити додавати у групе. Они неће видети ваше слике профила, приче, статус на мрежи и време последње активности."
+      "value": "Блокирани корисници не могу вам слати поруке ни додавати вас у групе. Они неће видети ваше слике профила, приче, статус на мрежи и време последње активности."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -6880,6 +6880,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.ChannelRequestSent",
+      "value": "Ваш захтев за придруживање каналу је послат његовим администраторима."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.ChatRemoved",
       "value": "Ћаскање уклоењено из заједнице"
     },
@@ -7002,13 +7007,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.GroupRequestSent",
+      "value": "Ваш захтев за придруживање групи је послат њеним администраторима."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Hidden",
       "value": "Скривено"
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.HiddenBotInfo",
+      "value": "Не можете користити овог бота док вас администратор не позове."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.HiddenChannelInfo",
-      "value": "Не можете се придружити нити видети овај канал док вас админ не позове."
+      "value": "Не можете се придружити ни видети овај канал док вас админ не позове."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.HiddenChatInfo",
+      "value": "Не можете се придружити ни видети ово ћаскање док вас админ не позове."
     },
     {
       "_": "types.LangPackString",
@@ -9523,7 +9543,7 @@
     {
       "_": "types.LangPackString",
       "key": "Frozen.ReadOnly.Subtitle",
-      "value": "Можете приступити свом налогу, али не можете слати поруке нити предузимати радње."
+      "value": "Можете приступити свом налогу, али не можете слати поруке ни предузимати радње."
     },
     {
       "_": "types.LangPackString",
@@ -14169,6 +14189,11 @@
       "_": "types.LangPackString",
       "key": "PaymentInvoice",
       "value": "ФАКТУРА"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PaymentInvoiceDisabledStarsText",
+      "value": "Нема довољно звездица"
     },
     {
       "_": "types.LangPackString",
@@ -19738,6 +19763,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarsNotAvailableText",
+      "value": "Нажалост, куповина звездица није доступна у вашој држави."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarsNotAvailableTitle",
       "value": "Није доступно"
     },
@@ -22576,5 +22606,5 @@
       "other_value": "%1$d порука"
     }
   ],
-  "version": 323634
+  "version": 323647
 }
