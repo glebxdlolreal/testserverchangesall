@@ -5164,6 +5164,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.By",
+      "value": "%1$s añadió este grupo a la comunidad %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.Unknown",
+      "value": "El grupo fue añadido a la comunidad %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.You",
+      "value": "Añadiste este grupo a la comunidad %1$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.Service.CommunityRemoved.Bot",
       "value": "El bot fue quitado de la comunidad"
     },
@@ -5492,8 +5507,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.AccessibleChats",
+      "value": "Chats accesibles para el bot"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.Add",
       "value": "Añadir"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.AllExcept",
+      "value": "Todos los chats privados, excepto…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotDescription",
+      "value": "Pon el nombre de usuario o URL del bot de Telegram que quieres que procese tus chats automáticamente."
     },
     {
       "_": "types.LangPackString",
@@ -5504,6 +5534,11 @@
       "_": "types.LangPackString",
       "key": "ChatAutomation.BotManagesChat",
       "value": "el bot gestiona este chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotNotFound",
+      "value": "Chatbot no encontrado"
     },
     {
       "_": "types.LangPackString",
@@ -5532,13 +5567,63 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectedFrom",
+      "value": "Conectado desde"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Confirm",
+      "value": "Sí, soy yo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Confirmed",
+      "value": "Nuevo bot permitido."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Reject",
+      "value": "¡No, no soy yo!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Text",
+      "value": "se conectó a tu cuenta desde %s. ¿Fuiste tú?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.TextNoLocation",
+      "value": "se conectó a tu cuenta. ¿Fuiste tú?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Title",
+      "value": "¡Un bot acaba de acceder a tus mensajes!"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.Contacts",
       "value": "Contactos"
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.DeleteReceived",
+      "value": "Eliminar mensajes recibidos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.DeleteSent",
+      "value": "Eliminar mensajes enviados"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.EditBio",
       "value": "Editar biografía"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.EditName",
+      "value": "Editar nombre"
     },
     {
       "_": "types.LangPackString",
@@ -5552,8 +5637,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.ExcludeChats",
+      "value": "Excluir chats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ExcludedChats",
+      "value": "Chats excluidos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ExcludedDescription",
+      "value": "Selecciona chats o categorías enteras de chats a los que el bot **NO TENDRÁ** acceso."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.ExistingChats",
       "value": "Chats existentes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.GiftsAndStarsWarning",
+      "value": "El bot **%s** podrá **gestionar tus regalos y estrellas**, incluyendo regalarlos a otros usuarios."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.HeroDescription",
+      "value": "Añade un bot a tu cuenta para que te ayude a procesar y responder automáticamente mensajes recibidos. [Saber más >]()"
     },
     {
       "_": "types.LangPackString",
@@ -5562,13 +5672,48 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.IncludedChats",
+      "value": "Chats incluidos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.IncludedDescription",
+      "value": "Selecciona chats o categorías enteras de chats a los que el bot **TENDRÁ** acceso."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.LoadFailed",
       "value": "No se pudo cargar"
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageBot",
+      "value": "Gestionar bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageGifts",
+      "value": "Gestionar regalos y estrellas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageMessages",
+      "value": "Gestionar mensajes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageProfile",
+      "value": "Gestionar perfil"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.ManageStories",
       "value": "Gestionar historias"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.MarkRead",
+      "value": "Marcar mensajes como leídos"
     },
     {
       "_": "types.LangPackString",
@@ -5587,13 +5732,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.OnlySelected",
+      "value": "Sólo los chats seleccionados"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.PermissionWarningProceed",
       "value": "Continuar"
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.PermissionWarningTitle",
+      "value": "Advertencia"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.Permissions",
       "value": "Permisos del bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.PermissionsDescription",
+      "value": "El bot sólo puede responder en tu nombre en chats que hayan estado activos durante las últimas 24 h."
     },
     {
       "_": "types.LangPackString",
@@ -5607,6 +5767,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.ReadMessages",
+      "value": "Leer mensajes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RecipientCategories",
+      "value": "Categorías de chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RecipientLimit",
+      "value": "Puedes seleccionar hasta 100 usuarios."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.RecipientSummaryEmpty",
       "value": "Añadir"
     },
@@ -5617,8 +5792,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.RemoveFromChat",
+      "value": "Quitar bot de este chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Reply",
+      "value": "Responder mensajes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RevokeFromChat",
+      "value": "Anular el acceso a este chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SearchFailed",
+      "value": "No se pudo encontrar bots. Reinténtalo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Searching",
+      "value": "Buscando bots…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SelectChats",
+      "value": "Seleccionar chats"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.SellGifts",
       "value": "Vender regalos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Session",
+      "value": "Bot de automatización de chats"
     },
     {
       "_": "types.LangPackString",
@@ -5637,6 +5847,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.SetupNotCompletedLeave",
+      "value": "Salir"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SetupNotCompletedText",
+      "value": "No has añadido un bot para que gestione tu cuenta. ¿Quieres salir de todos modos?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SetupNotCompletedTitle",
+      "value": "No se ha añadido un bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.StarsWarning",
+      "value": "El bot **%s** podrá **transferir tus estrellas**."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.Start",
       "value": "Iniciar"
     },
@@ -5644,6 +5874,16 @@
       "_": "types.LangPackString",
       "key": "ChatAutomation.Stop",
       "value": "Detener"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TerminateConnectedBot",
+      "value": "También terminar %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TerminateSession",
+      "value": "Cerrar sesión"
     },
     {
       "_": "types.LangPackString",
@@ -5659,6 +5899,16 @@
       "_": "types.LangPackString",
       "key": "ChatAutomation.TransferStars",
       "value": "Transferir estrellas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.UsernameWarning",
+      "value": "El bot **%s** podrá **añadir o quitar nombres de usuario** en tu cuenta, lo que puede provocar la pérdida de tu nombre de usuario actual."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ViaBotTooltip",
+      "value": "Sólo tú puedes ver que este mensaje fue enviado por un bot."
     },
     {
       "_": "types.LangPackString",
@@ -11582,6 +11832,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "MediaCopied",
+      "value": "Multimedia copiada al portapapeles"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MediaCopyFailed",
+      "value": "Fallo al copiar la multimedia al portapapeles"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "MediaEditor.Adjustments.Brightness",
       "value": "Brillo"
     },
@@ -15494,6 +15754,11 @@
       "_": "types.LangPackString",
       "key": "ProfileStoriesArchiveHint",
       "value": "Sólo tú puedes ver las historias archivadas, a menos que decidas publicarlas en tu perfil."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ProfileTab.OrderChanged",
+      "value": "Orden de pestañas cambiado."
     },
     {
       "_": "types.LangPackString",
@@ -21845,5 +22110,5 @@
       "other_value": "%1$d mensajes"
     }
   ],
-  "version": 325044
+  "version": 325053
 }
