@@ -5630,7 +5630,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChatAutomation.BotUnsupported",
-      "value": "Овај бот још не подржава режим секретара."
+      "value": "Овај бот још не подржава секретарски режим."
     },
     {
       "_": "types.LangPackString",
@@ -5761,6 +5761,11 @@
       "_": "types.LangPackString",
       "key": "ChatAutomation.LoadFailed",
       "value": "Учитавање није успело"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageAutomation",
+      "value": "Управљање аутоматизацијом ћаскања"
     },
     {
       "_": "types.LangPackString",
@@ -7023,12 +7028,12 @@
     {
       "_": "types.LangPackString",
       "key": "Community.HiddenChannelInfo",
-      "value": "Не можете се придружити ни видети овај канал док вас админ не позове."
+      "value": "Не можете се придружити ни видети овај канал док вас администратор не позове."
     },
     {
       "_": "types.LangPackString",
       "key": "Community.HiddenChatInfo",
-      "value": "Не можете се придружити ни видети ово ћаскање док вас админ не позове."
+      "value": "Не можете се придружити ни видети ово ћаскање док вас администратор не позове."
     },
     {
       "_": "types.LangPackString",
@@ -8884,7 +8889,7 @@
     {
       "_": "types.LangPackString",
       "key": "Ephemeral.CantSchedule",
-      "value": "Краткотрајне поруке се не могу заказати."
+      "value": "Привремене поруке се не могу заказати."
     },
     {
       "_": "types.LangPackString",
@@ -8910,6 +8915,21 @@
       "_": "types.LangPackString",
       "key": "Ephemeral.SendFailed",
       "value": "Слање ове приватне поруке није успело."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.SendUnavailable",
+      "value": "Ова приватна порука се више не може послати."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.SingleAttachment",
+      "value": "Уз привремену поруку можете приложити само једну датотеку."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.UnsupportedContent",
+      "value": "Овај садржај се не може послати као привремена порука."
     },
     {
       "_": "types.LangPackString",
@@ -19778,6 +19798,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarsPurchaseUnavailable",
+      "value": "Куповина звездица тренутно није доступна."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarsRating.Back",
       "value": "Назад"
     },
@@ -21618,6 +21643,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UnsavedChangesDescription.ChatAutomation",
+      "value": "Променили сте подешавања аутоматизације ћаскања. Сачувати промене?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UnsavedChangesDescription.Group",
       "value": "Променили сте нека подешавања у овој групи. Сачувати промене?"
     },
@@ -22606,5 +22636,5 @@
       "other_value": "%1$d порука"
     }
   ],
-  "version": 323649
+  "version": 323665
 }
