@@ -5669,6 +5669,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Text",
+      "value": "се повезао на ваш налог с локације %s. Да ли сте то били ви?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.TextNoLocation",
+      "value": "се повезао на ваш налог. Да ли сте то били ви?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.ConnectionReview.Title",
       "value": "Бот је управо добио приступ вашим порукама!"
     },
@@ -8890,6 +8900,11 @@
       "_": "types.LangPackString",
       "key": "Ephemeral.CantSchedule",
       "value": "Привремене поруке се не могу заказати."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.CommandAmbiguous",
+      "value": "Додајте @korisnickoime да бисте изабрали ком боту је намењена ова команда."
     },
     {
       "_": "types.LangPackString",
@@ -21539,7 +21554,7 @@
     {
       "_": "types.LangPackString",
       "key": "UnconfirmedAuthSingle",
-      "value": "Открили смо нову пријаву на ваш налог са %s. Јесте ли то ви?"
+      "value": "Открили смо нову пријаву на ваш налог са %s. Да ли сте ово ви?"
     },
     {
       "_": "types.LangPackString",
@@ -22636,5 +22651,5 @@
       "other_value": "%1$d порука"
     }
   ],
-  "version": 323665
+  "version": 323690
 }
