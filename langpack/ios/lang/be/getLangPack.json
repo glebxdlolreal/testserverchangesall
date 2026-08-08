@@ -318,6 +318,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AdsInfo.Launch.Text_URL",
+      "value": "https://ads.telegram.org"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AdsInfo.Launch.Title",
       "value": "А можна мне заказаць рэкламу?"
     },
@@ -2528,7 +2533,7 @@
     {
       "_": "types.LangPackString",
       "key": "AuthSessions.AddDevice.UrlLoginHint",
-      "value": "Гэты код можа быць выкарыстаны, каб дазволіць камусьці ўвайсці ў ваш уліковы запіс Telegram.\n\nКаб пацвердзіць уваход у Telegram, перайдзіце ў «Налады > Прылады > Сканаваць QR-код» і адскануйце код."
+      "value": "Гэты код можна выкарыстоўваць, каб дазволіць камусьці ўвайсці ў ваш уліковы запіс Telegram.\n\nКаб пацвердзіць уваход у telegram, калі ласка, перайдзіце ў Налады > Прылады > Звязаць прыладу і адскануйце код."
     },
     {
       "_": "types.LangPackString",
@@ -10920,6 +10925,14 @@
       "value": "Вы хочаце прадаць **%1$@** карыстальніку **%2$@** за **%3$@**? Пасля спагнання камісіі вы атрымаеце **%4$@**."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%@ зоркі",
+      "key": "Chat.GiftPurchaseOffer.AcceptConfirmation.Text.Stars",
+      "many_value": "%@ зорак",
+      "one_value": "%@ зорку",
+      "other_value": "%@ зоркі"
+    },
+    {
       "_": "types.LangPackString",
       "key": "Chat.GiftPurchaseOffer.AcceptConfirmation.Title",
       "value": "Пацвердзіць продаж"
@@ -16106,6 +16119,11 @@
       "_": "types.LangPackString",
       "key": "ChatbotSetup.Text",
       "value": "Дадайце бота, каб ён адказваў на паведамленні за вас."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatbotSetup.TextLink",
+      "value": "https://telegram.org/blog/telegram-business/be#chatboti-dlya-bznesu"
     },
     {
       "_": "types.LangPackString",
@@ -36560,6 +36578,11 @@
       "other_value": "%@ хв"
     },
     {
+      "_": "types.LangPackString",
+      "key": "Notification.StarGiftOffer.Offer",
+      "value": "Карыстальнік прапанаваў вам **%2$@** за ваш падарунак **%3$@**."
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "%@ зоркі",
       "key": "Notification.StarGiftOffer.Offer.Stars",
@@ -46684,6 +46707,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ReportAd.Help_URL",
+      "value": "https://ads.telegram.org/guidelines"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ReportAd.Hidden",
       "value": "Вы больш не будзеце бачыць рэкламу ад Telegram."
     },
@@ -50109,7 +50137,7 @@
     {
       "_": "types.LangPackString",
       "key": "SponsoredMessageInfo.ActionUrl",
-      "value": "https://telegram.org"
+      "value": "https://ads.telegram.org"
     },
     {
       "_": "types.LangPackString",
@@ -50119,7 +50147,7 @@
     {
       "_": "types.LangPackString",
       "key": "SponsoredMessageInfo.Url",
-      "value": "https://promote.telegram.org"
+      "value": "https://ads.telegram.org"
     },
     {
       "_": "types.LangPackString",
@@ -61558,5 +61586,5 @@
       "value": "Вы ўвялі памылковы код бяспекі."
     }
   ],
-  "version": 21735531
+  "version": 21735548
 }
