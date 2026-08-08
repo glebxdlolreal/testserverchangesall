@@ -1292,6 +1292,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_action_gift_transferred_unknown",
+      "value": "Нехта перадаў вам падарунак"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_action_gift_transferred_unknown_channel",
+      "value": "Нехта перадаў падарунак каналу {channel}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_action_gift_upgraded",
       "value": "{user} ператварыў(-ла) ваш падарунак ва ўнікальны калекцыйны"
     },
@@ -1989,7 +1999,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_action_topic_created",
-      "value": "Створана тэма «{topic}»"
+      "value": "Была створана тэма «{topic}»"
     },
     {
       "_": "types.LangPackString",
@@ -3261,7 +3271,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_admin_log_topics_closed",
-      "value": "{from} закрыў(-ла) тэму «{topic}»"
+      "value": "{from} закрыў(-ла) тэму {topic}"
     },
     {
       "_": "types.LangPackString",
@@ -3296,7 +3306,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_admin_log_topics_reopened",
-      "value": "{from} аднавіў(-ла) тэму «{topic}»"
+      "value": "{from} аднавіў(-ла) тэму {topic}"
     },
     {
       "_": "types.LangPackString",
@@ -3821,7 +3831,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_article_insert_details",
-      "value": "Падрабязней"
+      "value": "Згортваемы блок"
     },
     {
       "_": "types.LangPackString",
@@ -5690,7 +5700,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_bot_close_warning",
-      "value": "Унесеныя вамі змены могуць быць не захаваны."
+      "value": "Унесеныя вамі змяненні могуць быць не захаваны."
     },
     {
       "_": "types.LangPackString",
@@ -10768,7 +10778,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_credits_currency_summary_about",
-      "value": "Адпраўляйце каналам у Telegram прапановы публікацый узамен на TON"
+      "value": "Выкарыстоўвайце Gram, каб купляць падарункі і прапаноўваць допісы для каналаў."
     },
     {
       "_": "types.LangPackString",
@@ -11179,7 +11189,7 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "праз {count} дня",
+      "few_value": "праз {count} дні",
       "key": "lng_date_relative_in_days",
       "many_value": "праз {count} дзён",
       "one_value": "праз {count} дзень",
@@ -11515,6 +11525,11 @@
       "_": "types.LangPackString",
       "key": "lng_disable_sharing_title",
       "value": "Забараніць абагульванне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_disable_sharing_toast",
+      "value": "Абагульванне адключана для гэтага чата"
     },
     {
       "_": "types.LangPackString",
@@ -15414,11 +15429,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "Канвертацыя даступная на працягу **{count} дней**.",
+      "few_value": "Канвертацыя даступная на працягу **{count} дзён**.",
       "key": "lng_gift_convert_sure_limit",
       "many_value": "Канвертацыя даступная на працягу **{count} дзён**.",
       "one_value": "Канвертацыя даступная на працягу **{count} дня**.",
-      "other_value": "Канвертацыя даступная на працягу **{count} дня**."
+      "other_value": "Канвертацыя даступная на працягу **{count} дзён**."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -16442,6 +16457,11 @@
       "_": "types.LangPackString",
       "key": "lng_gift_stars_about",
       "value": "Вашы падарункі {name} зможа захоўваць у сваім профілі або абмяняць на зоркі. {link}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_gift_stars_about_collectibles",
+      "value": "Калекцыйныя падарункі — гэта ўнікальныя лічбавыя прадметы, якія можна абмяняць або прадаць.{link}"
     },
     {
       "_": "types.LangPackString",
@@ -18903,7 +18923,12 @@
     {
       "_": "types.LangPackString",
       "key": "lng_group_invite_about_approve_disabled",
-      "value": "Гэтая опцыя недаступная, бо кожны можа далучыцца да суполкі і дасылаць паведамленні праз публічную спасылку."
+      "value": "Гэты параметр недаступны, бо кожны можа далучыцца да суполкі і адпраўляць паведамленні праз публічную спасылку."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_group_invite_about_approve_disabled_channel",
+      "value": "Гэты параметр недаступны, бо кожны можа далучыцца да канала праз публічную спасылку."
     },
     {
       "_": "types.LangPackString",
@@ -19409,6 +19434,11 @@
       "_": "types.LangPackString",
       "key": "lng_group_request_declined",
       "value": "Ваш запыт на далучэнне да суполкі адхілены"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_group_request_declined_channel",
+      "value": "Ваш запыт на далучэнне да канала адхілены."
     },
     {
       "_": "types.LangPackString",
@@ -20113,6 +20143,11 @@
       "_": "types.LangPackString",
       "key": "lng_intro_submit",
       "value": "Адправіць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_invite_status_disabled",
+      "value": "даступна толькі карыстальнікам Premium"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -23332,6 +23367,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_new_window_tooltip_ctrl",
+      "value": "Націсніце, утрымліваючы Ctrl, каб адкрыць у новым акне."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_no_chats",
       "value": "Тут будуць вашы чаты"
     },
@@ -24076,6 +24116,11 @@
       "_": "types.LangPackString",
       "key": "lng_passcode_wrong",
       "value": "Няправільны код доступу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_bluetooth",
+      "value": "Не выключайце Bluetooth — праз яго ваш тэлефон злучаецца з гэтай прыладай."
     },
     {
       "_": "types.LangPackString",
@@ -25586,6 +25631,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_polls_add_option_closed",
+      "value": "Гэта апытанне закрыта."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_polls_add_option_duplicate",
+      "value": "Такі варыянт адказу ўжо ёсць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_polls_add_option_error",
+      "value": "Не ўдалося дадаць варыянт адказу. Паспрабуйце яшчэ раз"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_polls_add_option_placeholder",
       "value": "Тэкст варыянта...\n"
     },
@@ -25693,7 +25753,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_polls_create_allowed_countries",
-      "value": "Абраныя краіны"
+      "value": "Выбраныя краіны"
     },
     {
       "_": "types.LangPackString",
@@ -25782,7 +25842,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_polls_create_limit_by_country_about",
-      "value": "Галасаваць могуць толькі карыстальнікі з абраных краін"
+      "value": "Галасаваць могуць толькі карыстальнікі з выбраных краін"
     },
     {
       "_": "types.LangPackString",
@@ -25921,7 +25981,7 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "завяршыцца праз {count} дня",
+      "few_value": "завяршыцца праз {count} дні",
       "key": "lng_polls_ends_in_days",
       "many_value": "завяршыцца праз {count} дзён",
       "one_value": "завяршыцца праз {count} дзень",
@@ -25994,6 +26054,11 @@
       "_": "types.LangPackString",
       "key": "lng_polls_retract",
       "value": "Адклікаць голас"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_polls_search_none",
+      "value": "Апытанні не знойдзены"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -28452,6 +28517,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_pull_next_channel",
+      "value": "Пацягніце ўверх, каб перайсці да наступнага канала"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_qr_box_font_size",
       "value": "Памер шрыфту\n"
     },
@@ -28775,6 +28845,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_record_lock_resume",
+      "value": "Узнавіць запіс"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_record_once_active_tooltip",
       "value": "Атрымальнік зможа праслухаць яго толькі адзін раз."
     },
@@ -28800,6 +28875,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_release_next_channel",
+      "value": "Адпусціце, каб перайсці да наступнага канала"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_remember",
       "value": "Запомніць гэты выбар"
     },
@@ -28817,6 +28897,11 @@
       "_": "types.LangPackString",
       "key": "lng_reminder_messages",
       "value": "Напаміны"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_reminder_scheduled_in",
+      "value": "Напамін прыдзе ў {link}."
     },
     {
       "_": "types.LangPackString",
@@ -34647,6 +34732,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_sr_cancel_search",
+      "value": "Скасаваць пошук"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_sr_player_close",
+      "value": "Закрыць прайгравальнік"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_stake_game_about",
       "value": "Эмодзі-гульня для карыстальнікаў з Узроўнем 5 і вышэй. Заробленыя ў гульні 💎 можна траціць толькі на падарункі і публікацыі Telegram."
     },
@@ -36301,6 +36396,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_stories_view_anonymously",
+      "value": "Глядзець ананімна"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_stories_view_reactions",
       "value": "Прагледзець рэакцыі"
     },
@@ -37742,7 +37842,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_ttl_round_tooltip_in",
-      "value": "Гэтае відэапаведамленне можна прайграць толькі адзін раз."
+      "value": "Гэта відэапаведамленне можна прайграць толькі адзін раз."
     },
     {
       "_": "types.LangPackString",
@@ -37808,6 +37908,11 @@
       "_": "types.LangPackString",
       "key": "lng_unconfirmed_auth_confirmed_message",
       "value": "Спіс вашых актыўных сеансаў можна праверыць у {link}."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_unconfirmed_auth_denied_multiple",
+      "value": "Мы спынілі спробу ўвайсці з {country}."
     },
     {
       "_": "types.LangPackString",
@@ -38409,7 +38514,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_view_button_story",
-      "value": "Прагледзець гісторыю"
+      "value": "Праглядзець гісторыю"
     },
     {
       "_": "types.LangPackString",
@@ -38590,5 +38695,5 @@
       "other_value": "Вы заплацілі {count} зоркі."
     }
   ],
-  "version": 5779840
+  "version": 5798497
 }
