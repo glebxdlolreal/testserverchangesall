@@ -4004,6 +4004,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_ai_compose_style_prompt_placeholder",
+      "value": "Skriv en instruks..."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_ai_compose_style_tooltip",
       "value": "Angi en stil"
     },
@@ -4610,6 +4615,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_article_paste_truncated",
+      "value": "Innholdet som ble limt inn passet ikke og ble avkortet."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_article_placeholder_author",
       "value": "Legg til forfatter"
     },
@@ -4802,6 +4812,11 @@
       "_": "types.LangPackString",
       "key": "lng_article_table_striped",
       "value": "Tabell med kantlinjer"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_article_table_truncated",
+      "value": "Den innlimte tabellen passet ikke og ble avkortet."
     },
     {
       "_": "types.LangPackString",
@@ -9534,7 +9549,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_community_add_confirm",
-      "value": "Hvis denne gruppen er godkjent av en samfunnsadministrator, vil medlemmene kunne bli med eller be om å bli med i andre samtaler i fellesskapet."
+      "value": "Hvis denne gruppen er godkjent av en samfunnsadministrator, vil medlemmene kunne bli med eller be om å bli med i andre samtaler i samfunnet."
     },
     {
       "_": "types.LangPackString",
@@ -10513,7 +10528,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_contact_details_url",
-      "value": "Nettadresse"
+      "value": "URL"
     },
     {
       "_": "types.LangPackString",
@@ -11220,6 +11235,11 @@
       "_": "types.LangPackString",
       "key": "lng_context_save_gif",
       "value": "Lagre i GIF'er"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_context_save_html",
+      "value": "Lagre som HTML"
     },
     {
       "_": "types.LangPackString",
@@ -14726,6 +14746,26 @@
       "_": "types.LangPackString",
       "key": "lng_export_header_topic",
       "value": "Innstillinger for eksportering av emne"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_export_html_embed",
+      "value": "Innebygd innhold"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_export_html_failed",
+      "value": "Kunne ikke lagre meldingen som HTML."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_export_html_media_missing",
+      "value": "Media utilgjengelig"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_export_html_saved_to",
+      "value": "Meldingen ble lagret i {downloads}-mappen"
     },
     {
       "_": "types.LangPackString",
@@ -20112,7 +20152,7 @@
     {
       "_": "types.LangPackString",
       "key": "lng_group_call_rtmp_info",
-      "value": "For å strømme med en annen app, legg inn denne serveradressen og strømmenøkkel i din strømmeapp. Software koding er anbefalt (x264 i OBS).\n\nNår du har startet kringkastingen i din strømmeapp, klikk på start direktesending nedenfor."
+      "value": "For å strømme med en annen app, legg inn server URL og strømmenøkkel i strømmeappen din. Software koding er anbefalt (x264 i OBS).\n\nNår du har startet kringkastingen i din strømmeapp, klikk på start direktesending nedenfor."
     },
     {
       "_": "types.LangPackString",
@@ -20157,17 +20197,17 @@
     {
       "_": "types.LangPackString",
       "key": "lng_group_call_rtmp_url_copied",
-      "value": "Serveradresse kopiert til utklippstavlen."
+      "value": "Server URL kopiert til utklippstavlen."
     },
     {
       "_": "types.LangPackString",
       "key": "lng_group_call_rtmp_url_copy",
-      "value": "Kopier serveradresse"
+      "value": "Kopier server URL"
     },
     {
       "_": "types.LangPackString",
       "key": "lng_group_call_rtmp_url_subtitle",
-      "value": "Serveradresse"
+      "value": "Server URL"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -25769,6 +25809,131 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_passkey_cable_bluetooth",
+      "value": "Hold Bluetooth påslått. Telefonen kobles til denne enheten via Bluetooth."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_connecting",
+      "value": "Kobler til telefonen din…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_continue",
+      "value": "Fortsett på telefonen din"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_error",
+      "value": "Kunne ikke koble til telefonen din.\nVennligst prøv igjen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_error_title",
+      "value": "Noe gikk galt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_follow",
+      "value": "Følg instruksjonene på telefonen din."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_key_about",
+      "value": "Sett inn og berør sikkerhetsnøkkelen din."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_login_about",
+      "value": "Skann denne QR-koden med kameraet på telefonen eller nettbrettet som har passnøkkelen din."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_login_title",
+      "value": "Logg på med passnøkkel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_no_bluetooth",
+      "value": "Bluetooth er utilgjengelig. Slå på Bluetooth for å logge på med en telefon."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_register_about",
+      "value": "Skann denne QR-koden med kameraet på telefonen eller nettbrettet du vil lagre passordet ditt på."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_cable_register_title",
+      "value": "Legg til en passnøkkel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_confirm",
+      "value": "Bekreft"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_error_login",
+      "value": "Kunne ikke logge på med sikkerhetsnøkkelen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_error_no_credentials",
+      "value": "Denne sikkerhetsnøkkelen har ingen passnøkkel for kontoen din."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_error_no_device",
+      "value": "Finner ingen sikkerhetsnøkkel. Sett inn en og prøv igjen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_error_register",
+      "value": "Kunne ikke legge til en passnøkkel med sikkerhetsnøkkelen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_insert",
+      "value": "Sett inn sikkerhetsnøkkelen, og berør den for å fortsette."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_method_key",
+      "value": "Bruk en sikkerhetsnøkkel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_pin_about",
+      "value": "Skriv inn PIN-koden til sikkerhetsnøkkelen din."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_pin_blocked",
+      "value": "PIN-koden for sikkerhetsnøkkelen er blokkert. Koble til nøkkelen igjen eller tilbakestill den."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_pin_invalid",
+      "value": "Feil PIN-kode. Vennligst prøv igjen."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_pin_placeholder",
+      "value": "PIN"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_pin_title",
+      "value": "PIN-kode for sikkerhetsnøkkel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_passkey_touch",
+      "value": "Berør sikkerhetsnøkkelen din"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_passport_about_password",
       "value": "Dette passordet vil også kreves når du logger inn på en ny enhet."
     },
@@ -27056,6 +27221,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_photo_editor_keep_ratio",
+      "value": "Behold originalt størrelsesforhold"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_photo_editor_menu_delete",
       "value": "Slett"
     },
@@ -27068,6 +27238,36 @@
       "_": "types.LangPackString",
       "key": "lng_photo_editor_menu_flip",
       "value": "Vend"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_photo_editor_shape_arrow",
+      "value": "Pil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_photo_editor_shape_bubble",
+      "value": "Boble"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_photo_editor_shape_circle",
+      "value": "Sirkel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_photo_editor_shape_filled",
+      "value": "Fyll"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_photo_editor_shape_rectangle",
+      "value": "Rektangel"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_photo_editor_shape_star",
+      "value": "Stjerne"
     },
     {
       "_": "types.LangPackString",
@@ -30215,8 +30415,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "lng_pull_next_topic",
+      "value": "Hold og dra oppover for å gå til neste uleste emne"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "lng_pull_no_unread_channels",
       "value": "Du har ingen uleste kanaler"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_pull_no_unread_topics",
+      "value": "Ingen flere uleste emner i {group}"
     },
     {
       "_": "types.LangPackString",
@@ -30648,6 +30858,11 @@
       "_": "types.LangPackString",
       "key": "lng_release_next_channel",
       "value": "Slipp for å gå til neste uleste kanal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "lng_release_next_topic",
+      "value": "Slipp for å gå til neste uleste emne"
     },
     {
       "_": "types.LangPackString",
@@ -41282,5 +41497,5 @@
       "other_value": "Du betalte {count} stjerner."
     }
   ],
-  "version": 5758401
+  "version": 5799861
 }
