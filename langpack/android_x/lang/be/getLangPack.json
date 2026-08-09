@@ -73,6 +73,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunityUnknown",
+      "value": "Чат дададзены ў супольнасць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatRemovedFromCommunity",
+      "value": "Чат выдалены з супольнасці"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "Канал створаны"
     },
@@ -1940,7 +1950,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChannelGroupNew",
-      "value": "Стварыць новую групу"
+      "value": "Стварыць новую суполку"
     },
     {
       "_": "types.LangPackString",
@@ -2181,6 +2191,14 @@
       "_": "types.LangPackString",
       "key": "ChatBannedUntil",
       "value": "Кіраўнікі заблакіравалі вас у гэтай суполцы да %1$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Атрымана %1$s «маланкі» ад карыстальніка %2$s",
+      "key": "ChatBoostedXTimes",
+      "many_value": "Атрымана %1$s «маланак» ад карыстальніка %2$s",
+      "one_value": "Атрымана %1$s «маланка» ад карыстальніка %2$s",
+      "other_value": "Атрымана %1$s «маланак» ад карыстальніка %2$s"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -4167,7 +4185,7 @@
     {
       "_": "types.LangPackString",
       "key": "DeleteAccountConfirmFirst",
-      "value": "**Пачакайце. Вы ўваходзіце ў небяспечную зону.**\n\nГэта дзеянне назаўжды выдаліць усе даныя, звязаныя з вашым уліковым запісам на серверах Telegram. Аднавіць іх будзе немагчыма.\n\nДоступ да любых каналаў ці груп, дзе вы адзіны кіраўнік, **будзе страчаны назаўжды**."
+      "value": "**Пачакайце. Вы ўваходзіце ў небяспечную зону.**\n\nГэта дзеянне назаўжды выдаліць усе даныя, звязаныя з вашым уліковым запісам на серверах Telegram. Аднавіць іх будзе немагчыма.\n\nДоступ да любых каналаў ці суполак, дзе вы адзіны кіраўнік, **будзе страчаны назаўжды**."
     },
     {
       "_": "types.LangPackString",
@@ -13010,6 +13028,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ReportChatMessagesRequired",
+      "value": "Выберыце паведамленні для скаргі.\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ReportChatPhoto",
       "value": "Паскардзіцца на фота ад %1$s?"
     },
@@ -17404,7 +17427,7 @@
     {
       "_": "types.LangPackString",
       "key": "ViewPackPreview",
-      "value": "Паказаць набор"
+      "value": "Праглядзець набор"
     },
     {
       "_": "types.LangPackString",
@@ -21157,5 +21180,5 @@
       "other_value": "%1$s гадоў"
     }
   ],
-  "version": 1641775
+  "version": 1641856
 }

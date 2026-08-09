@@ -117,6 +117,14 @@
       "other_value": "Вы можаце захоўваць да %1$d стыляў. Падпішыцеся на Telegram Premium, каб павялічыць гэты ліміт да %2$d."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "\n",
+      "key": "AIStyleModal.SavedLimitReached",
+      "many_value": "\n",
+      "one_value": "Вы дасягнулі ліміту ў **%1$d** захаваны стыляў.\n",
+      "other_value": "Вы дасягнулі ліміту ў **%1$d** захаваных стыляў.\n"
+    },
+    {
       "_": "types.LangPackString",
       "key": "AISummary.ClickToSeeOriginal",
       "value": "Націсніце, каб убачыць арыгінальны тэкст"
@@ -722,7 +730,7 @@
     {
       "_": "types.LangPackString",
       "key": "AffiliateSetup.AlertTerminate.Title",
-      "value": "Папярэджанне"
+      "value": "Увага"
     },
     {
       "_": "types.LangPackString",
@@ -4984,6 +4992,14 @@
       "other_value": "На ўзроўні %d даступныя:"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d колеры для назвы канала",
+      "key": "ChannelBoost.Table.NameColor",
+      "many_value": "%d колераў для назвы канала",
+      "one_value": "%d колер для назвы канала",
+      "other_value": "%d колеру для назвы канала"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ChannelBoost.Table.NoAds",
       "value": "Адключэнне рэкламы"
@@ -5088,7 +5104,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChannelEventFilter.GroupSettings",
-      "value": "Налады групы"
+      "value": "Налады суполкі"
     },
     {
       "_": "types.LangPackString",
@@ -5253,7 +5269,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChannelParticipant.TagDescSelf",
-      "value": "Абагуліце сваю ролю, пасаду або тое, як вас называюць у гэтай групе. Ваш тэг бачны ўсім удзельнікам."
+      "value": "Абагуліце сваю ролю, пасаду або тое, як вас называюць у гэтай суполцы. Ваш тэг бачны ўсім удзельнікам."
     },
     {
       "_": "types.LangPackString",
@@ -6692,6 +6708,11 @@
       "_": "types.LangPackString",
       "key": "Chat.Giveaway.Info.Participating",
       "value": "Вы ўдзельнічаеце ў гэтым розыгрышы, бо падпісаныя на канал **%1$@**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Giveaway.Info.ParticipatingMany",
+      "value": "Вы ўдзельнічаеце ў гэтым розыгрышы, бо далучыліся да канала **%1$@** (і %2$@)."
     },
     {
       "_": "types.LangPackString",
@@ -8427,7 +8448,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.Service.PaymentSentRecurringInit",
-      "value": "Вы паспяхова перавялі **%1$@** для **%2$@** за **%3$@** і далі дазвол на будучыя перыядычныя плацяжы"
+      "value": "Вы паспяхова перавялі **%1$@** да **%2$@** за **%3$@** і далі дазвол на будучыя перыядычныя плацяжы"
     },
     {
       "_": "types.LangPackString",
@@ -8649,6 +8670,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.Service.SuggestPost.Header.Title.You",
+      "value": "**Вы** прапануеце апублікаваць гэта паведамленне."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.Service.SuggestPost.Refunded.Deleted",
       "value": "Сродкі за прапанаваны допіс вернуты, бо ён быў выдалены"
     },
@@ -8695,7 +8721,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.Service.SuggestPost.Status.Rejected.Incoming.WithComment",
-      "value": "**%1$@** адхіліў/ла ваша паведамленне з каментаром:\n\n%2$@"
+      "value": "**%1$@** адхіліў(-ла) ваша паведамленне з каментарыем:\n\n%2$@"
     },
     {
       "_": "types.LangPackString",
@@ -8756,6 +8782,11 @@
       "_": "types.LangPackString",
       "key": "Chat.Service.Todo.Marked.Done.You",
       "value": "Вы адзначылі {values} як выкананае"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.Todo.Marked.Undone",
+      "value": "{author} адзначыў(-ла) {values} як нявыкананае"
     },
     {
       "_": "types.LangPackString",
@@ -9439,6 +9470,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatGift.Info.Normal",
+      "value": "Вы атрымалі падарунак ад канала **%1$@**.\n\nВаш падарунак гэта падпіска **Telegram Premium** на %2$@ мес."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatGift.Info.Unclaimed",
       "value": "У вас ёсць незапатрабаваны прыз з розыгрышу ад канала **%1$@**.\n\nГэты прыз — падпіска **Telegram Premium** на %2$@ мес."
     },
@@ -9461,6 +9497,11 @@
       "_": "types.LangPackString",
       "key": "ChatHeader.Search.AddTags.Second",
       "value": "да паведамленняў у «Захаваным»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatHeader.Tone.Casual",
+      "value": "Нефармальны\n"
     },
     {
       "_": "types.LangPackString",
@@ -10278,6 +10319,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.GracePeriod.Info",
+      "value": "Не губляйце доступу да эксклюзіўных магчымасцяў."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.GracePeriod.Title",
+      "value": "⚠️ Ваша падпіска Premium скончваецца!"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.GroupChannel",
       "value": "Group Channel"
     },
@@ -10339,7 +10390,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChatList.Mute.Until.OK",
-      "value": "Ужыць"
+      "value": "Выкарыстаць"
     },
     {
       "_": "types.LangPackString",
@@ -11590,6 +11641,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Communities.Hidden",
+      "value": "Схаваны"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Communities.HiddenInfo",
       "value": "Толькі запрошаныя ўдзельнікі і кіраўнікі супольнасці будуць бачыць гэты чат."
     },
@@ -11620,6 +11676,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Communities.Visible",
+      "value": "Бачны"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Communities.VisibleInfo",
       "value": "Кожны ў супольнасці зможа бачыць гэты чат."
     },
@@ -11627,6 +11688,16 @@
       "_": "types.LangPackString",
       "key": "Community.Continue",
       "value": "Працягнуць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DismissAdminHeader",
+      "value": "Разжалаваць сябе"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DismissAdminInfo",
+      "value": "Вы страціце доступ да інструментаў кіраўніка, але захаваеце правы кіраўніка."
     },
     {
       "_": "types.LangPackString",
@@ -12603,7 +12674,7 @@
     {
       "_": "types.LangPackString",
       "key": "DataAndStorage.SensitiveContent.Info",
-      "value": "Паказваць далікатныя медыя ў публічных каналах на ўсіх сваіх прыладах."
+      "value": "Не хаваць медыя, якое змяшчае кантэнт, прызначаны толькі для дарослых."
     },
     {
       "_": "types.LangPackString",
@@ -13253,6 +13324,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Email.CodeFloodError",
+      "value": "Занадта шмат спроб, паспрабуйце пазней."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Email.InvalidEmailAddressError",
       "value": "Адбылася памылка, паспрабуйце яшчэ раз."
     },
@@ -13429,6 +13505,11 @@
       "_": "types.LangPackString",
       "key": "EmojiPack.Unlock",
       "value": "РАЗБЛАКІРАВАЦЬ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EmojiSection.GroupEmoji",
+      "value": "ЭМОДЗІ СУПОЛКІ"
     },
     {
       "_": "types.LangPackString",
@@ -14023,6 +14104,11 @@
       "_": "types.LangPackString",
       "key": "FactCheck.Info.Second",
       "value": "Гэта тлумачэнне было прадстаўлена Telegram."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FactCheck.Link.OnlyAllowed",
+      "value": "Дазволены толькі спасылкі, якія пачынаюцца з %@"
     },
     {
       "_": "types.LangPackString",
@@ -16816,11 +16902,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "**%d карыстальнікі** \nмогуць быць запрошаны толькі праз спасылку, але вы не маеце дазволу на \nабагульванне запрашальных спасылак для гэтай суполкі.",
+      "few_value": "**%d карыстальнікі** могуць быць запрошаны толькі праз спасылку, але вы не маеце дазволу на абагульванне запрашальных спасылак для гэтай суполкі.",
       "key": "InviteFailed.Text.Cant.Multiple",
-      "many_value": "**%d карыстальнікаў** \nмогуць быць запрошаны толькі праз спасылку, але вы не маеце дазволу на \nабагульванне запрашальных спасылак для гэтай суполкі.",
+      "many_value": "**%d карыстальнікаў** могуць быць запрошаны толькі праз спасылку, але вы не маеце дазволу на абагульванне запрашальных спасылак для гэтай суполкі.",
       "one_value": "**%d карыстальнік** можа быць запрошаны толькі праз спасылку, але вы не маеце дазволу на абагульванне запрашальных спасылак для гэтай суполкі.",
-      "other_value": "**%d карыстальнікаў** \nмогуць быць запрошаны толькі праз спасылку, але вы не маеце дазволу на \nабагульванне запрашальных спасылак для гэтай суполкі."
+      "other_value": "**%d карыстальнікаў** могуць быць запрошаны толькі праз спасылку, але вы не маеце дазволу на абагульванне запрашальных спасылак для гэтай суполкі."
     },
     {
       "_": "types.LangPackString",
@@ -17262,7 +17348,7 @@
     {
       "_": "types.LangPackString",
       "key": "LiveStream.AllowComments",
-      "value": "Дазволіць каментары"
+      "value": "Дазволіць каментарыі"
     },
     {
       "_": "types.LangPackString",
@@ -17272,12 +17358,12 @@
     {
       "_": "types.LangPackString",
       "key": "LiveStream.PricePerComment",
-      "value": "КОШТ ЗА КАМЕНТАР"
+      "value": "ЦАНА ЗА КАМЕНТАРЫЙ"
     },
     {
       "_": "types.LangPackString",
       "key": "LiveStream.PricePerCommentInfo",
-      "value": "Кошт, які гледач павінен заплаціць, каб адпраўіць каментар."
+      "value": "Цана, за якую глядач павінен заплаціць, каб адправіць каментарый."
     },
     {
       "_": "types.LangPackString",
@@ -17347,12 +17433,17 @@
     {
       "_": "types.LangPackString",
       "key": "Login.ConnectionError.UseProxy",
-      "value": "Ужыць проксі"
+      "value": "Выкарыстаць проксі"
     },
     {
       "_": "types.LangPackString",
       "key": "Login.ContinueOnLanguage",
       "value": "Працягнуць па-беларуску"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Login.EmailChanged",
+      "value": "Ваша электронная пошта была зменена."
     },
     {
       "_": "types.LangPackString",
@@ -18296,6 +18387,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Message.Placeholder.MessageInGeneral",
+      "value": "Напісаць у агульным..."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Message.Placeholder.PaidMessage",
       "value": "Адправіць за %@"
     },
@@ -18776,6 +18872,11 @@
       "_": "types.LangPackString",
       "key": "Monetization.TransactionInfo.Proceeds",
       "value": "Узнагароды за рэкламу, якая паказана ў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Monetization.TransactionInfo.ViewInExplorer",
+      "value": "Паказаць у аглядальніку блокчэйна"
     },
     {
       "_": "types.LangPackString",
@@ -22525,6 +22626,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Premium.Boarding.Peer.Gift.You.Title.Updated",
+      "value": "Вы падарылі карыстальніку [%1$@](profile) падпіску Telegram Premium на %2$@."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Premium.Boarding.Peer.Info",
       "value": "Уладальнікі ўліковых запісаў **Telegram Premium** маюць эксклюзіўны доступ да дадатковых функцый."
     },
@@ -23116,7 +23222,7 @@
     {
       "_": "types.LangPackString",
       "key": "PremiumBoarding.DisableSharingInfo",
-      "value": "Забараніць перасылку, захаванне і капіраванне кантэнту ў прыватных чатах."
+      "value": "Забараніць перасылку, захаванне і капіяванне змесціва ў прыватных чатах."
     },
     {
       "_": "types.LangPackString",
@@ -24775,6 +24881,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextAiCompose.ErrorTooLong",
+      "value": "Артыкул занадта доўгі."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextAiCompose.Generate",
       "value": "Згенерыраваць"
     },
@@ -24870,6 +24981,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.MakeCollage",
+      "value": "Зрабіць калаж"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.Menu.Bold",
       "value": "Тлусты"
     },
@@ -24940,8 +25056,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteColumns",
+      "value": "Выдаліць слупкі"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichTextEditor.Table.DeleteRow",
       "value": "Выдаліць радок"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Table.DeleteRows",
+      "value": "Выдаліць радкі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichTextEditor.Text",
+      "value": "Тэкст"
     },
     {
       "_": "types.LangPackString",
@@ -24992,6 +25123,11 @@
       "_": "types.LangPackString",
       "key": "SavedAs.ModalOk",
       "value": "Захавана!\n[Паказаць у Finder]()"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SavedMessages.Tags.Unlock",
+      "value": "Разблакіраваць"
     },
     {
       "_": "types.LangPackString",
@@ -25950,7 +26086,7 @@
     {
       "_": "types.LangPackString",
       "key": "SecureId.PhoneNumber.UseSame.Desc",
-      "value": "Ужыць нумар уліковага запісу Telegram."
+      "value": "Выкарыстаць нумар уліковага запісу Telegram."
     },
     {
       "_": "types.LangPackString",
@@ -26274,6 +26410,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SelectColor.Icon.RemoveIcon",
+      "value": "ВЫДАЛІЦЬ ЗНАЧОК"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SelectColor.Info.Channel",
       "value": "Гэты колер будзе выкарыстоўвацца для назвы вашага канала, спасылак, якія ён адпраўляе, і адказаў на яго допісы."
     },
@@ -26315,7 +26456,7 @@
     {
       "_": "types.LangPackString",
       "key": "SelectColor.UseGift.Title",
-      "value": "УЖЫЦЬ ПАДАРУНАК"
+      "value": "ВЫКАРЫСТАЦЬ ПАДАРУНАК"
     },
     {
       "_": "types.LangPackString",
@@ -27100,6 +27241,11 @@
       "value": "Папка %@ дададзена"
     },
     {
+      "_": "types.LangPackString",
+      "key": "SharedFolder.Tooltip.Updated.Title",
+      "value": "Папка %@ абноўлена"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "%d чаты",
       "key": "SharedMedia.SavedMessagesCount",
@@ -27804,11 +27950,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "%d на перапродажы",
+      "few_value": "%d прапановы",
       "key": "Star.Marketplace.ResaleAvailable",
-      "many_value": "%d на перапродажы",
-      "one_value": "%d на перапродажы",
-      "other_value": "%d на перапродажы"
+      "many_value": "%d прапаноў",
+      "one_value": "%d прапанова",
+      "other_value": "%d прапановы"
     },
     {
       "_": "types.LangPackString",
@@ -30015,7 +30161,7 @@
     {
       "_": "types.LangPackString",
       "key": "Story.LiveStream.Input.CommentsDisabled",
-      "value": "Каментары адключаныя."
+      "value": "Каментарыі адключаны."
     },
     {
       "_": "types.LangPackString",
@@ -31406,7 +31552,7 @@
     {
       "_": "types.LangPackString",
       "key": "Translate.Language.Albanian",
-      "value": "Албанская"
+      "value": "албанская"
     },
     {
       "_": "types.LangPackString",
@@ -31436,7 +31582,7 @@
     {
       "_": "types.LangPackString",
       "key": "Translate.Language.Belarusian",
-      "value": "Беларуская"
+      "value": "беларускую"
     },
     {
       "_": "types.LangPackString",
@@ -31791,12 +31937,12 @@
     {
       "_": "types.LangPackString",
       "key": "Translate.Language.Serbian",
-      "value": "Сербская"
+      "value": "сербскую"
     },
     {
       "_": "types.LangPackString",
       "key": "Translate.Language.Sesotho",
-      "value": "Сесота"
+      "value": "сесота"
     },
     {
       "_": "types.LangPackString",
@@ -31836,7 +31982,7 @@
     {
       "_": "types.LangPackString",
       "key": "Translate.Language.Sundanese",
-      "value": "Сундская"
+      "value": "сундская"
     },
     {
       "_": "types.LangPackString",
@@ -32067,6 +32213,11 @@
       "_": "types.LangPackString",
       "key": "TranslateModal.ShareStyle",
       "value": "Абагуліць стыль"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TranslateModal.StyleByAuthor",
+      "value": "Стыль ад [%1$@](https://t.me/%1$@)"
     },
     {
       "_": "types.LangPackString",
@@ -34581,5 +34732,5 @@
       "value": "Паказаць замены"
     }
   ],
-  "version": 2257814
+  "version": 2258069
 }
