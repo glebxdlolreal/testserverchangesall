@@ -1980,6 +1980,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Attachment.ChatsMusic",
+      "value": "CHAT CỦA BẠN"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Attachment.Contact",
       "value": "Danh bạ"
     },
@@ -2311,7 +2316,12 @@
     {
       "_": "types.LangPackString",
       "key": "AuthConfirmation.Description",
-      "value": "Trang này sẽ có được **tên**,\n**username** và **ảnh đại diện** của bạn."
+      "value": "Trang này sẽ có được **tên**,\n**tênlink** và **ảnh đại diện** của bạn."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AuthConfirmation.DescriptionApp",
+      "value": "App này sẽ có được **tên**,\n**tênlink** và **ảnh đại diện** của bạn."
     },
     {
       "_": "types.LangPackString",
@@ -10366,12 +10376,12 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.DeletePaidMessageTon.Text",
-      "value": "Bạn sẽ không nhận được **TON** cho bài viết này nếu xóa nó ngay. Bài viết phải xuất hiện ít nhất **24 giờ** kể từ khi được đăng."
+      "value": "Bạn sẽ không nhận được **Gram** cho bài viết này nếu xóa nó ngay. Bài viết phải xuất hiện ít nhất **24 giờ** kể từ khi được đăng."
     },
     {
       "_": "types.LangPackString",
       "key": "Chat.DeletePaidMessageTon.Title",
-      "value": "TON sẽ bị mất"
+      "value": "Gram sẽ bị mất"
     },
     {
       "_": "types.LangPackString",
@@ -11600,6 +11610,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.PanelSetBotPhoto",
+      "value": "Đặt ảnh đại diện"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.PanelStatusAuthorHidden",
       "value": "Người gửi những tin nhắn này đã ẩn tên khi chuyển tiếp tin nhắn."
     },
@@ -12447,6 +12462,11 @@
       "_": "types.LangPackString",
       "key": "Chat.ReplyStoryPrivateChannel",
       "value": "Tin riêng tư"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.RichText.ShowMore",
+      "value": "Xem thêm"
     },
     {
       "_": "types.LangPackString",
@@ -13490,6 +13510,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.ClearSearchHistory.Confirm",
+      "value": "Xóa"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.CloseAction",
       "value": "Đóng"
     },
@@ -14205,6 +14230,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.RemoveFolderConfirmationTitle",
+      "value": "Xóa bỏ %@?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.RemovedFromFolderTooltip",
       "value": "%1$@ đã bị bỏ khỏi %2$@"
     },
@@ -14622,6 +14652,11 @@
       "_": "types.LangPackString",
       "key": "ChatList.UndoArchiveTitle",
       "value": "Đã lưu trữ chat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.UngroupCommunity.Action",
+      "value": "Rã nhóm"
     },
     {
       "_": "types.LangPackString",
@@ -15241,7 +15276,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChatbotSetup.BotSearchPlaceholder",
-      "value": "Tên người dùng/link bot"
+      "value": "Tên link hoặc link"
     },
     {
       "_": "types.LangPackString",
@@ -16247,6 +16282,11 @@
       "_": "types.LangPackString",
       "key": "Community.Blacklist.UsersSectionTitle",
       "value": "NGƯỜI ĐÃ BỊ XÓA"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.CommunityAdded.View",
+      "value": "Xem"
     },
     {
       "_": "types.LangPackString",
@@ -20020,6 +20060,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CreateBot.SectionUsername",
+      "value": "TÊN LINK CỦA BOT"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CreateBot.Text",
       "value": "[%@]() muốn tạo và quản lý chatbot bằng tên của bạn."
     },
@@ -20027,6 +20072,46 @@
       "_": "types.LangPackString",
       "key": "CreateBot.Title",
       "value": "Tạo Bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CreateBot.UnsavedAlert.Discard",
+      "value": "Hủy bỏ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CreateBot.UnsavedAlert.Text",
+      "value": "Bạn chưa hoàn thành việc tạo bot. "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CreateBot.UnsavedAlert.Title",
+      "value": "Thay đổi chưa lưu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CreateBot.UsernameStatus.Invalid",
+      "value": "Bạn chỉ có thể dùng **a-z**, **0-9** và gạch dưới."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CreateBot.UsernameStatus.LimitExceeded",
+      "other_value": "Bạn không thể tạo nhiều quá %d bot."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CreateBot.UsernameStatus.Link",
+      "value": "Link: t.me/%@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CreateBot.UsernameStatus.Short",
+      "value": "Tên link phải có ít nhất 5 ký tự."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CreateBot.UsernameStatus.Taken",
+      "value": "Tên link này đã được sử dụng."
     },
     {
       "_": "types.LangPackString",
@@ -26405,6 +26490,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Group.Setup.ApproveNewMembersApplyToExistingInviteLinksDisable",
+      "value": "tắt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Group.Setup.ApproveNewMembersApplyToExistingInviteLinksEnable",
+      "value": "bật"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Group.Setup.ApproveNewMembersApplyToExistingInviteLinksPeerChannel",
+      "value": "kênh"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Group.Setup.ApproveNewMembersApplyToExistingInviteLinksPeerGroup",
+      "value": "nhóm"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Group.Setup.ApproveNewMembersApplyToExistingInviteLinksText.DisableChannel",
       "value": "Cũng tắt **Duyệt người đăng ký mới** cho **%@** của kênh này?"
     },
@@ -26432,6 +26537,11 @@
       "_": "types.LangPackString",
       "key": "Group.Setup.ApproveNewMembersInfo",
       "value": "Bật lên nếu bạn muốn người dùng chỉ nhắn tin sau khi được admin chấp nhận."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Group.Setup.ApproveNewMembersManagedBy",
+      "value": "Quản lý bởi %@"
     },
     {
       "_": "types.LangPackString",
@@ -31185,6 +31295,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "MediaPicker.SetNewChannelPhoto",
+      "value": "Đặt ảnh kênh mới"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MediaPicker.SetNewGroupPhoto",
+      "value": "Đặt ảnh nhóm mới"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "MediaPicker.SetNewPhoto",
       "value": "Đặt ảnh đại diện mới"
     },
@@ -31337,6 +31457,16 @@
       "_": "types.LangPackString",
       "key": "MediaPlayer.Playlist.ThisChat",
       "value": "NHẠC TRONG CHAT NÀY"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MediaPlayer.PlaylistTitle",
+      "value": "Danh sách phát %@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MediaPlayer.PlaylistYourTitle",
+      "value": "Danh sách phát"
     },
     {
       "_": "types.LangPackString",
@@ -31687,6 +31817,11 @@
       "_": "types.LangPackString",
       "key": "Message.LiveLocation",
       "value": "Vị trí hiện tại"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Message.LivePhoto",
+      "value": "Live Photo"
     },
     {
       "_": "types.LangPackString",
@@ -39096,7 +39231,7 @@
     {
       "_": "types.LangPackString",
       "key": "PeerInfo.Bot.Username",
-      "value": "Tên bot"
+      "value": "Tên link"
     },
     {
       "_": "types.LangPackString",
@@ -39747,6 +39882,11 @@
       "_": "types.LangPackString",
       "key": "PeerInfo.GroupAboutItem",
       "value": "giới thiệu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.HiddenCommunityStatus",
+      "value": "Đã ẩn • %@"
     },
     {
       "_": "types.LangPackString",
@@ -45535,6 +45675,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Settings.About.PrivacyHelpEmpty",
+      "value": "Vài dòng về bản thân."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Settings.About.PrivacyHelpEveryone",
       "value": "Ai cũng xem được giới thiệu. [Thay đổi >]()"
     },
@@ -45727,6 +45872,11 @@
       "_": "types.LangPackString",
       "key": "Settings.ChatAutomationInfo",
       "value": "Thêm bot trả lời tin nhắn bằng tên của bạn."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Settings.ChatAutomationOff",
+      "value": "Tắt"
     },
     {
       "_": "types.LangPackString",
@@ -54551,12 +54701,12 @@
     {
       "_": "types.LangPackString",
       "key": "Username.BotLinkHint",
-      "value": "Tên người dùng không thể sửa."
+      "value": "Tên link này không thể sửa."
     },
     {
       "_": "types.LangPackString",
       "key": "Username.BotLinkHintExtended",
-      "value": "Link này không thể sửa. Bạn có thể mua thêm tên người dùng ở [Fragment]()."
+      "value": "Tên link này không thể sửa. Bạn có thể mua thêm tên link ở [Fragment]()."
     },
     {
       "_": "types.LangPackString",
@@ -58014,5 +58164,5 @@
       "value": "Bạn đã nhập sai mã bảo mật."
     }
   ],
-  "version": 21742231
+  "version": 21742774
 }
