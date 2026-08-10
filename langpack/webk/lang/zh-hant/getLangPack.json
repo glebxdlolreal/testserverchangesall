@@ -4445,6 +4445,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChannelSettingsJoinRequestChannel",
+      "value": "審核新訂閱者"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChannelSettingsJoinRequestInfo",
       "value": "如果您希望用戶僅在獲得管理員批准後加入，請開啟此選項。"
     },
@@ -5075,6 +5080,51 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Bot",
+      "value": "此機器人已加入到「%1$s」社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Channel",
+      "value": "此頻道已加入到「%1$s」社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.By",
+      "value": "%1$s 已將此群組加入到「%2$s」社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.Unknown",
+      "value": "此群組已加入到「%1$s」社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.You",
+      "value": "您已將此群組加入到「%1$s」社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Bot",
+      "value": "此機器人已從社群中移除"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Channel",
+      "value": "此頻道已從社群中移除"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Group.By",
+      "value": "%1$s 已將此群組從社群中移除"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Group.You",
+      "value": "您已將此群組從社群中移除"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.Service.ConferenceCall.Ended",
       "value": "群組通話已結束（%1$@）"
     },
@@ -5377,6 +5427,336 @@
       "_": "types.LangPackString",
       "key": "ChatAdmin",
       "value": "管理員"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.AccessibleChats",
+      "value": "機器人可存取的聊天"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.AllExcept",
+      "value": "所有私聊，除了..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotHasAccess",
+      "value": "機器人有權存取此聊天"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotManagesChat",
+      "value": "機器人管理此聊天"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotNotFound",
+      "value": "未找到聊天機器人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotPaused",
+      "value": "機器人已暫停"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotPlaceholder",
+      "value": "機器人用戶名稱"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotUnsupported",
+      "value": "此機器人尚不支援「秘書模式」。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ChangeGiftSettings",
+      "value": "變更禮物設定"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ChooseBot",
+      "value": "選擇一個機器人來自動管理您的聊天。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectedFrom",
+      "value": "連線自"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Confirm",
+      "value": "是的，是我本人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Confirmed",
+      "value": "已授權新機器人。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Reject",
+      "value": "不，那不是我！"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Title",
+      "value": "有機器人剛剛存取了您的訊息！"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Contacts",
+      "value": "聯絡人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.DeleteReceived",
+      "value": "刪除已收到的訊息"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.DeleteSent",
+      "value": "刪除已傳送的訊息"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.EditBio",
+      "value": "編輯個人簡介"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.EditName",
+      "value": "編輯名稱"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.EditPhoto",
+      "value": "編輯大頭貼"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.EditUsername",
+      "value": "編輯用戶名稱"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ExcludeChats",
+      "value": "不包含的聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ExcludedChats",
+      "value": "不包含的聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ExcludedDescription",
+      "value": "選擇機器人**不會**存取的聊天室或聊天類型。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ExistingChats",
+      "value": "現有聊天"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.GiftsAndStarsWarning",
+      "value": "機器人**%s** 將有權管理您的禮物和星星，包括將它們贈送給其他用戶。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.GiftsWarning",
+      "value": "機器人 **%s** 將有權**管理您的禮物**，包括將它們贈送給其他用戶。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.HeroTitle",
+      "value": "聊天機器人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.IncludedChats",
+      "value": "包含的聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.IncludedDescription",
+      "value": "選擇機器人**將有權**存取的聊天或整個聊天類型。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageBot",
+      "value": "管理機器人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageGifts",
+      "value": "管理禮物和星星"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageMessages",
+      "value": "管理訊息"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageProfile",
+      "value": "管理資料頁"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageStories",
+      "value": "管理動態"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.MarkRead",
+      "value": "標示訊息為已讀"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.NewChats",
+      "value": "新聊天"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.NonContacts",
+      "value": "非聯絡人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.OnlySelected",
+      "value": "僅選定的聊天"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.PermissionWarningTitle",
+      "value": "警告"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Permissions",
+      "value": "機器人權限"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.PermissionsDescription",
+      "value": "此機器人只能代表您在過去 24 小時內活躍的聊天室中進行回覆。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ProfileDescription",
+      "value": "新增機器人代您回覆訊息。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ProfileLabel",
+      "value": "聊天自動化"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ReadMessages",
+      "value": "閲讀訊息"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RemoveBot",
+      "value": "移除機器人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Reply",
+      "value": "回覆訊息"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SelectChats",
+      "value": "選擇聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SellGifts",
+      "value": "將禮物轉換為星星"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Session",
+      "value": "聊天自動化機器人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SessionDate",
+      "value": "日期"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SessionDevice",
+      "value": "裝置"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SessionLocation",
+      "value": "位置"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SetupNotCompletedLeave",
+      "value": "退出"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SetupNotCompletedText",
+      "value": "您尚未新增機器人來管理您的帳號。仍然退出？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SetupNotCompletedTitle",
+      "value": "未加入機器人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.StarsWarning",
+      "value": "機器人 **%s** 將有權**轉讓您的星星**。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TerminateConnectedBot",
+      "value": "同時終止 %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TerminateSession",
+      "value": "登出"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Title",
+      "value": "聊天自動化"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TransferGifts",
+      "value": "轉讓和升級禮物"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TransferStars",
+      "value": "轉帳星星"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.UsernameWarning",
+      "value": "機器人 **%s** 將有權對您的帳號**設定和移除用戶名稱**，這可能會導致您遺失目前的用戶名稱。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ViaBotTooltip",
+      "value": "只有您可以看到此訊息是由機器人傳送。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ViewGifts",
+      "value": "查看禮物和星星"
     },
     {
       "_": "types.LangPackString",
@@ -6047,6 +6427,371 @@
       "_": "types.LangPackStringPluralized",
       "key": "CommonGroups",
       "other_value": "%1$d 個共同的群組"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddAll",
+      "value": "全部批准"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddAllRequests",
+      "value": "新增全部聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddBot",
+      "value": "將機器人加入社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddBotConfirm",
+      "value": "如果此機器人獲得社群管理員批准，社群成員便能看到並使用它。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChannel",
+      "value": "將頻道加入社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChannelConfirm",
+      "value": "若此頻道獲得社群管理員的批准，其成員將能夠加入或申請加入社群中的其他聊天室。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChatButton",
+      "value": "將聊天室加入到社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddExisting",
+      "value": "加入到現有社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddGroup",
+      "value": "將群組加入社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddGroupConfirm",
+      "value": "若此群組獲得社群管理員的批准，其成員將能夠加入或申請加入社群中的其他聊天室。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddTo",
+      "value": "加入到社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminAddAdmins",
+      "value": "新增社群管理員"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminBanMembers",
+      "value": "封鎖成員"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminEditChats",
+      "value": "編輯聊天室清單"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminEditInfo",
+      "value": "編輯社群名稱"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdministratorsInfo",
+      "value": "您可以新增管理員來幫助您管理社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AllMembers",
+      "value": "所有成員"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AllMembersInfo",
+      "value": "允許成員將自己的群組和頻道新增到社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.BanFromCommunity",
+      "value": "遭社群封鎖"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.BanFromCommunityInfo",
+      "other_value": "用戶將被移出 %d 個聊天室。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.BanWarning",
+      "value": "封鎖 %1$s 也會將其從社群中的 %2$d 個聊天室中移除。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Banned",
+      "value": "%s 已遭社群封鎖。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.BotAdded",
+      "value": "機器人已加入到社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.BotDescription",
+      "value": "將您的機器人加入擁有多個相關聊天室的社群中。"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.BotPeersLimit",
+      "other_value": "已達到 %d 個機器人的上限。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChannelAdded",
+      "value": "頻道已加入到社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChannelDescription",
+      "value": "將您的頻道加入擁有多個相關聊天室的社群中。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatVisibility",
+      "value": "聊天是否可見"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatsHidden",
+      "value": "隱藏聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatsJoined",
+      "value": "已加入的聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatsRequestable",
+      "value": "可申請加入的聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatsVisible",
+      "value": "可查看的聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Create",
+      "value": "建立社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.CreateChat",
+      "value": "建立新聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DeclineAll",
+      "value": "全部拒絕"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Delete",
+      "value": "刪除社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Description",
+      "value": "將您的群組加入擁有多個相關聊天室的社群中。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.GroupAdded",
+      "value": "群組已加入到社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Hidden",
+      "value": "隱藏"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.HiddenBotInfo",
+      "value": "在獲得管理員邀請之前，您無法使用此機器人。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.HiddenChannelInfo",
+      "value": "在獲得管理員邀請之前，您無法加入或查看此頻道。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.HiddenChatInfo",
+      "value": "在獲得管理員邀請之前，您無法加入或查看此聊天室。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.HiddenInfo",
+      "value": "只有受邀成員和社群管理員才能看到此聊天室。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.MessageBotOwner",
+      "value": "私訊機器人擁有者"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.MessageChannelOwner",
+      "value": "私訊頻道擁有者"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.MessageOwner",
+      "value": "私訊群組擁有者"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.OnlyAdmins",
+      "value": "僅限管理員"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.OnlyAdminsInfo",
+      "value": "由社群成員建議的聊天室需經管理員批准。"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.PeersLimit",
+      "other_value": "已達到 %d 個聊天室的上限。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PendingRequest",
+      "value": "待處理的申請"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PendingRequests",
+      "value": "待處理的申請"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PendingRequestsInfo",
+      "value": "聊天室必須經管理員批准後才能加入社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateBotInfo",
+      "value": "此機器人僅限受邀者使用。只有限受邀成員才能使用它。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChannelInfo",
+      "value": "此頻道僅限受邀者加入。只有頻道成員才能查看此頻道。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChatInfo",
+      "value": "此群組僅限受邀者加入。只有群組成員才能查看此群組。"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.ProfileStatus",
+      "other_value": "包含 %d 個聊天室的社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveBot",
+      "value": "從社群中移除機器人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChannel",
+      "value": "從社群中移除頻道"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveGroup",
+      "value": "從社群中移除群組"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemovedUsersInfo",
+      "value": "被管理員移出社群的用戶，無法透過邀請連結重新加入。"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.RequestsAdded",
+      "other_value": "%d 個聊天室已加入到社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ShowAsOne",
+      "value": "以單一聊天室顯示"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ShowAsOneInfo",
+      "value": "將所有社群聊天室彙整為聊天室清單中的單一項目。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ShowSeparately",
+      "value": "以個別聊天室顯示"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedBot",
+      "value": "推薦了此機器人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedChannel",
+      "value": "推薦了此頻道"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedGroup",
+      "value": "推薦了此群組"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Title",
+      "value": "社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Unban",
+      "value": "解除封鎖"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.VisibilityImmutable",
+      "value": "您之後將無法變更此設定。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Visible",
+      "value": "顯示"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.VisibleInfo",
+      "value": "社群中的任何人都能看到此聊天室。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.WhoCanAddChats",
+      "value": "誰可以新增聊天室？"
     },
     {
       "_": "types.LangPackString",
@@ -7535,6 +8280,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Ephemeral.CantSchedule",
+      "value": "無法預約臨時訊息。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.CommandTooltip",
+      "value": "其他成員不會看到此訊息"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.ReplySingleMessage",
+      "value": "您只能回覆此訊息一次。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.VisibleTo",
+      "value": "僅 %s 可見"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.VisibleYou",
+      "value": "僅您自己可見"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Error.AnError",
       "value": "發生錯誤，請稍後再試。"
     },
@@ -8625,6 +9395,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GramBalance",
+      "value": "Gram 餘額"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Group",
       "value": "群組"
     },
@@ -8690,6 +9465,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupRequestApproved",
+      "value": "您加入群組的申請已獲批准"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestApprovedChannel",
+      "value": "您加入頻道的申請已獲批准"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestDeclined",
+      "value": "您加入群組的申請遭到拒絕。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestDeclinedChannel",
+      "value": "您加入頻道的申請遭到拒絕。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestSent",
+      "value": "一旦管理員批准了您的申請，您就會被加入到群組中。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestSentChannel",
+      "value": "一旦其管理員批准您的申請，您就會被加入到該頻道中。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupStats.Title",
       "value": "群組統計資料"
     },
@@ -8727,6 +9532,46 @@
       "_": "types.LangPackString",
       "key": "GrowthChartTitle",
       "value": "總人數"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotEnableMembersText",
+      "value": "新成員現在必須獲得 **%s** 的批准才能在此群組中傳送訊息"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotEnableSubscribersText",
+      "value": "新訂閱者現在需要獲得 **%s** 的批准才能加入此頻道"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotManagedBy",
+      "value": "由 %s 管理"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotProcessJoinRequests",
+      "value": "處理加入請求"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotProcessJoinRequestsInfo",
+      "value": "允許此機器人透過其自有介面（例如驗證碼）來審核新成員。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotReplaceText",
+      "value": "**%1$s** 目前正在處理加入申請。要將機器人替換為 **%2$s** 嗎？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotReplaceTitle",
+      "value": "替換機器人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotReplaceUse",
+      "value": "使用 %s"
     },
     {
       "_": "types.LangPackString",
@@ -10787,6 +11632,11 @@
       "_": "types.LangPackStringPluralized",
       "key": "MediaFiles",
       "other_value": "%d 個媒體檔案"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MediaViewer.Context.Copy",
+      "value": "拷貝媒體"
     },
     {
       "_": "types.LangPackString",
@@ -14457,6 +15307,16 @@
       "_": "types.LangPackString",
       "key": "ProfileStoriesArchiveHint",
       "value": "只有您自己可以查看已封存的動態，除非您選擇將它們發表到您的資料頁中。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ProfileTab.OrderChanged",
+      "value": "頁籤順序已變更。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ProfileTab.SetAsMain",
+      "value": "設定為主頁籤"
     },
     {
       "_": "types.LangPackString",
@@ -20600,6 +21460,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WebAppGuardDisclaimerText",
+      "value": "**%1$s** 透過 **%2$s** 歡迎新成員加入。您必須同意迷你程式的[使用條款]()才能繼續。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "WebPage.InstantView",
       "value": "即時瀏覽"
     },
@@ -20724,5 +21589,5 @@
       "other_value": "%1$d 則訊息"
     }
   ],
-  "version": 310583
+  "version": 326502
 }
