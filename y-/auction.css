@@ -423,9 +423,7 @@ i.icon {
   width: 70px;
 }
 .tm-stars-price .tm-value.icon-ton:before,
-.tm-stars-price .stars-ton.icon-ton:before,
-.tm-form-radio-label .tm-value.icon-ton:before,
-.tm-form-radio-label .stars-ton.icon-ton:before {
+.tm-form-radio-label .tm-value.icon-ton:before {
   width: 15px;
   height: 19px;
   margin-left: -1px;
@@ -4667,32 +4665,39 @@ a.tm-table-action-link:hover {
   color: var(--dropdown-secondary-color);
   margin-left: 20px;
 }
-.tm-stars-options .stars-usd {
-  width: 100px;
-  text-align: right;
-}
-.tm-stars-options .stars-ton {
-  width: 90px;
+.tm-stars-options .tm-form-radio-label .tm-value,
+.tm-stars-options .tm-form-radio-label .tm-radio-desc,
+.tm-stars-price .tm-value,
+.tm-stars-price .tm-radio-desc {
   text-align: start;
+}
+.js-stars-form.ton-payment .tm-stars-options .tm-value,
+.js-stars-form.ton-payment .tm-stars-price .tm-value {
   font-weight: normal;
   color: var(--dropdown-secondary-color);
 }
-.tm-stars-price .stars-ton {
-  font-weight: normal;
-  color: var(--dropdown-secondary-color);
-  margin-left: 20px;
+.js-stars-form.ton-payment .tm-stars-options .tm-radio-desc,
+.js-stars-form.ton-payment .tm-stars-price .tm-radio-desc {
+  font-weight: inherit;
+  color: inherit;
 }
 @media (max-width: 767px) {
-  .tm-stars-options .stars-ton,
-  .tm-stars-price .stars-ton {
+  .tm-stars-options .tm-form-radio-label .tm-value,
+  .tm-stars-options .tm-form-radio-label .tm-radio-desc,
+  .tm-stars-price .tm-value,
+  .tm-stars-price .tm-radio-desc {
+    text-align: end;
+  }
+  .tm-stars-options .tm-form-radio-label .tm-radio-desc,
+  .tm-stars-price .tm-radio-desc {
     display: none !important;
   }
-  .js-stars-form.ton-payment .tm-stars-options .stars-usd,
-  .js-stars-form.ton-payment .tm-stars-price .stars-usd {
+  .js-stars-form.ton-payment .tm-stars-options .tm-value,
+  .js-stars-form.ton-payment .tm-stars-price .tm-value {
     display: none !important;
   }
-  .js-stars-form.ton-payment .tm-stars-options .stars-ton,
-  .js-stars-form.ton-payment .tm-stars-price .stars-ton {
+  .js-stars-form.ton-payment .tm-stars-options .tm-radio-desc,
+  .js-stars-form.ton-payment .tm-stars-price .tm-radio-desc {
     display: inline-block !important;
     font-weight: inherit;
     color: inherit;

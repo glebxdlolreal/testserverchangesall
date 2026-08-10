@@ -652,7 +652,7 @@
     {
       "_": "types.LangPackString",
       "key": "AffiliateProgram.SortSelectorRevenue",
-      "value": "Даход"
+      "value": "даходзе"
     },
     {
       "_": "types.LangPackString",
@@ -2168,6 +2168,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BotVerification.Removed",
+      "value": "Вы выдалілі праверку **%@**."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BotVerification.Verify.Bot.Text",
       "value": "Хочаце праверыць гэтага бота з пазначэннем сваім знакам праверкі і апісаннем?"
     },
@@ -3341,7 +3346,7 @@
     {
       "_": "types.LangPackString",
       "key": "Channel.AddBot.Confirm.Info",
-      "value": "Вы ўпэўнены, што хочаце дадаць гэтага бота ў якасці кіраўніка ў суполку %@?"
+      "value": "Вы ўпэўнены, што хочаце дадаць гэтага бота як кіраўніка ў суполку %@? Ëн будзе мець доступ да спісу ананімных кіраўнікоў."
     },
     {
       "_": "types.LangPackString",
@@ -3811,7 +3816,7 @@
     {
       "_": "types.LangPackString",
       "key": "Channel.BoostsStats.Prepaid.Info",
-      "value": "Выберыце розыгрыш, ужо аплачаны вамі, каб наладзіць яго."
+      "value": "Выберыце розыгрыш, які ўжо аплачаны вамі, каб наладзіць яго."
     },
     {
       "_": "types.LangPackString",
@@ -4402,7 +4407,7 @@
     {
       "_": "types.LangPackString",
       "key": "Channel.Persmission.Denied.SendMessages.DefaultRestrictedText",
-      "value": "У гэтай суполцы забаронена пісаць паведамленні."
+      "value": "У гэтай суполцы забаронена адпраўляць паведамленні.\n"
     },
     {
       "_": "types.LangPackString",
@@ -4447,17 +4452,17 @@
     {
       "_": "types.LangPackString",
       "key": "Channel.Persmission.Denied.SendPoll.DefaultRestrictedText",
-      "value": "У гэтай суполцы забаронена размяшчаць апытанні."
+      "value": "У гэтай суполцы забаронена адпраўляць апытанні."
     },
     {
       "_": "types.LangPackString",
       "key": "Channel.Persmission.Denied.SendPoll.Forever",
-      "value": "Кіраўнікі суполкі забаранілі вам размяшчаць тут апытанні."
+      "value": "Кіраўнікі суполкі забаранілі вам адпраўляць апытанні."
     },
     {
       "_": "types.LangPackString",
       "key": "Channel.Persmission.Denied.SendPoll.Until",
-      "value": "Кіраўнікі суполкі забаранілі вам размяшчаць тут апытанні да %@."
+      "value": "Кіраўнікі суполкі забаранілі вам адпраўляць апытанні да %@."
     },
     {
       "_": "types.LangPackString",
@@ -4492,7 +4497,7 @@
     {
       "_": "types.LangPackString",
       "key": "Channel.Persmission.Denied.SendVoice.DefaultRestrictedText",
-      "value": "Галасавыя паведамленні ў гэтай суполцы забаронены."
+      "value": "Галасавыя паведамленні ў гэтай суполцы адпраўляць забаронена."
     },
     {
       "_": "types.LangPackString",
@@ -4587,7 +4592,7 @@
     {
       "_": "types.LangPackString",
       "key": "Channel.SlowMode.ToolTip",
-      "value": "Уключаны павольны рэжым. \nВы зможаце адправіць наступнае паведамленне праз %@:%@"
+      "value": "Уключаны павольны рэжым. \n Вы зможаце напісаць праз %@:%@"
     },
     {
       "_": "types.LangPackString",
@@ -4857,7 +4862,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChannelBoost.EnableStoriesMoreRequired",
-      "value": "Гэтаму каналу не хапае **%1$@**, каб размяшчаць гісторыі."
+      "value": "Гэтаму каналу не хапае **%1$@**, каб адпраўляць гісторыі."
     },
     {
       "_": "types.LangPackString",
@@ -5260,6 +5265,11 @@
       "_": "types.LangPackString",
       "key": "ChannelParticipant.PromoteToAdmin",
       "value": "Прызначыць кіраўніком"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChannelParticipant.SaveChanges",
+      "value": "Захаваць змяненні"
     },
     {
       "_": "types.LangPackString",
@@ -5789,7 +5799,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.Alert.Unsaved",
-      "value": "У вас ёсць незахаваныя змены.\nСкінуць?"
+      "value": "У вас ёсць незахаваныя змяненні.\nСкінуць?"
     },
     {
       "_": "types.LangPackString",
@@ -5810,6 +5820,11 @@
       "_": "types.LangPackString",
       "key": "Chat.AutoremoveTimerSetUserGlobalYou",
       "value": "Вы задаяце таймер на самазнішчэнне для ўсіх чатаў.\nУсе новыя паведамленні ў гэтым чаце будуць аўтаматычна выдаляцца праз %1$@ пасля адпраўкі."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Bot.Remove",
+      "value": "прыбраць"
     },
     {
       "_": "types.LangPackString",
@@ -6336,17 +6351,17 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.Context.SaveRingtone.AddSuccess",
-      "value": "Тон захаваны"
+      "value": "Мелодыя захавана ў вашу бібліятэку гукаў"
     },
     {
       "_": "types.LangPackString",
       "key": "Chat.Context.SaveRingtone.Remove",
-      "value": "Выдаліць тон"
+      "value": "Выдаліць мелодыю"
     },
     {
       "_": "types.LangPackString",
       "key": "Chat.Context.SaveRingtone.RemoveSuccess",
-      "value": "Тон выдалены"
+      "value": "Мелодыя выдалена"
     },
     {
       "_": "types.LangPackString",
@@ -6547,7 +6562,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.Edit.Cancel.Text",
-      "value": "Вы ўпэўнены, што хочаце адхіліць усе змены?"
+      "value": "Вы ўпэўнены, што хочаце адхіліць усе змяненні?"
     },
     {
       "_": "types.LangPackString",
@@ -6683,6 +6698,16 @@
       "_": "types.LangPackString",
       "key": "Chat.Giveaway.Info.NotAllowedCountry",
       "value": "Вы не можаце ўдзельнічаць у гэтым розыгрышы, бо ваша краіна не ўваходзіць ва ўмовы розыгрышу."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Giveaway.Info.NotAllowedJoinedEarly",
+      "value": "Вы не можаце ўдзельнічаць у гэтым розыгрышы, бо далучыліся да канала **%@**, яшчэ да пачатку розыгрышу."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Giveaway.Info.NotQualified",
+      "value": "Для ўдзелу ў розыгрышы далучыцеся да канала **%1$@** да **%2$@**."
     },
     {
       "_": "types.LangPackString",
@@ -8905,6 +8930,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.StarsGift.Upgrade.Other",
+      "value": "%@ адправіў(-ла) паляпшэнне коштам для падарунка %@, які вы атрымалі ад %@"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.StarsGift.UpgradeSent",
       "value": "Вы даслалі паляпшэнне коштам %@ для гэтага падарунка."
     },
@@ -9082,6 +9112,11 @@
       "_": "types.LangPackString",
       "key": "Chat.Translate.Menu.Hide.Tooltip",
       "value": "Панэль перакладу схавана для гэтага канала. Вы можаце ўключыць яе ў звестках аб канале."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Translate.Menu.Hide.User.Tooltip",
+      "value": "Панэль перакладу схавана.\nУключыць яе можна на старонцы звестак."
     },
     {
       "_": "types.LangPackString",
@@ -9497,6 +9532,11 @@
       "_": "types.LangPackString",
       "key": "ChatHeader.Search.AddTags.Second",
       "value": "да паведамленняў у «Захаваным»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatHeader.Tone",
+      "value": "Мелодыя"
     },
     {
       "_": "types.LangPackString",
@@ -9944,7 +9984,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChatList.Filter.Discard.Header",
-      "value": "Адхіліць змены"
+      "value": "Адхіліць змяненні"
     },
     {
       "_": "types.LangPackString",
@@ -9954,7 +9994,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChatList.Filter.Discard.Text",
-      "value": "Вы ўпэўнены, што хочаце адхіліць усе змены?"
+      "value": "Вы ўпэўнены, што хочаце адхіліць усе змяненні?"
     },
     {
       "_": "types.LangPackString",
@@ -11237,7 +11277,7 @@
     {
       "_": "types.LangPackString",
       "key": "Checkout.PasswordEntry.Text",
-      "value": "Ваша картка %@ была захавана. Каб скарыстацца ёю, увядзіце ваш пароль двухэтапнай праверкі."
+      "value": "Ваша картка %@ была захавана. Каб скарыстаць яе, увядзіце пароль двухэтапнай праверкі."
     },
     {
       "_": "types.LangPackString",
@@ -13089,6 +13129,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Edit.PostSuggestion.Title.Suggest",
+      "value": "Прапанаваць змяненні"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EditAccount.AddAccount",
       "value": "Дадаць уліковы запіс"
     },
@@ -13150,7 +13195,7 @@
     {
       "_": "types.LangPackString",
       "key": "EditImageControl.Confirm.Discard",
-      "value": "Вы ўпэўнены, што хочаце адхіліць ўсе змены?"
+      "value": "Вы ўпэўнены, што хочаце адхіліць ўсе змяненні?"
     },
     {
       "_": "types.LangPackString",
@@ -16605,6 +16650,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "InAppLinks.LoginExpired",
+      "value": "Тэрмін дзеяння гэтай спасылкі скончыўся."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "InAppLinks.LoginSuccess",
       "value": "Вы паспяхова ўвайшлі."
     },
@@ -18176,7 +18226,7 @@
     {
       "_": "types.LangPackString",
       "key": "MediaSender.DiscardChanges.Header",
-      "value": "Адхіліць змены"
+      "value": "Адхіліць змяненні"
     },
     {
       "_": "types.LangPackString",
@@ -18186,7 +18236,7 @@
     {
       "_": "types.LangPackString",
       "key": "MediaSender.DiscardChanges.Text",
-      "value": "Вы ўпэўнены, што хочаце адхіліць усе змены?"
+      "value": "Вы ўпэўнены, што хочаце адхіліць усе змяненні?"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -19851,7 +19901,7 @@
     {
       "_": "types.LangPackString",
       "key": "NotificationSound.Tones.Info",
-      "value": "Адкрыйце кантэкстнае меню любога кароткага файла mp3 у чаце і выберыце «Захаваць для апавяшчэнняў», каб ён з'явіўся тут."
+      "value": "Адкрыйце кантэкстнае меню любога кароткага файла MP3 у чаце і абярыце «Захаваць для апавяшчэнняў», каб ён з'явіўся тут."
     },
     {
       "_": "types.LangPackString",
@@ -19861,7 +19911,7 @@
     {
       "_": "types.LangPackString",
       "key": "NotificationSound.Tones.Title",
-      "value": "ТОНЫ TELEGRAM"
+      "value": "МЕЛОДЫІ TELEGRAM"
     },
     {
       "_": "types.LangPackString",
@@ -20254,12 +20304,12 @@
     {
       "_": "types.LangPackString",
       "key": "Passport.Language.dv",
-      "value": "па-мальдыўску"
+      "value": "Дзівехі"
     },
     {
       "_": "types.LangPackString",
       "key": "Passport.Language.dz",
-      "value": "на дзонг-кэ"
+      "value": "Дзонг-кэ\n"
     },
     {
       "_": "types.LangPackString",
@@ -21235,8 +21285,13 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PeerInfo.ChannelAppearance",
+      "value": "Выгляд"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PeerInfo.ChannelColor",
-      "value": "Змяніць колер імя"
+      "value": "Колер канала"
     },
     {
       "_": "types.LangPackString",
@@ -21257,6 +21312,11 @@
       "_": "types.LangPackString",
       "key": "PeerInfo.ChannelType",
       "value": "Тып канала"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PeerInfo.ChatBackground",
+      "value": "Змяніць фон"
     },
     {
       "_": "types.LangPackString",
@@ -22582,7 +22642,7 @@
     {
       "_": "types.LangPackString",
       "key": "Premium.Boarding.MessagePrivacy.Info",
-      "value": "Абмежаваць атрыманне паведамленняў ад людзей, якіх вы не ведаеце."
+      "value": "Абмежаваць паведамленні ад незнаёмцаў або спаганяць плату за ўваходныя паведамленні."
     },
     {
       "_": "types.LangPackString",
@@ -22798,6 +22858,11 @@
       "_": "types.LangPackString",
       "key": "Premium.Gift.Sent.Multiple.Title",
       "value": "Падарункі адпраўленыя!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Premium.Gift.Sent.One.Text",
+      "value": "**%@** апавешчаны(-а) аб купленым вамі падарунку.\n\nЦяпер гэты карыстальнік мае доступ да дадатковых магчымасцяў."
     },
     {
       "_": "types.LangPackString",
@@ -24912,7 +24977,7 @@
     {
       "_": "types.LangPackString",
       "key": "RichTextEditor.Checklist",
-      "value": "Кантрольны спіс"
+      "value": "Спіс спраў"
     },
     {
       "_": "types.LangPackString",
@@ -25601,12 +25666,12 @@
     {
       "_": "types.LangPackString",
       "key": "SecureId.DiscardChanges.Header",
-      "value": "Адхіліць змены"
+      "value": "Адхіліць змяненні"
     },
     {
       "_": "types.LangPackString",
       "key": "SecureId.DiscardChanges.Text",
-      "value": "Вы ўпэўнены, што хочаце адхіліць усе змены?"
+      "value": "Вы ўпэўнены, што хочаце адхіліць усе змяненні?"
     },
     {
       "_": "types.LangPackString",
@@ -30279,7 +30344,7 @@
     {
       "_": "types.LangPackString",
       "key": "Story.Tooltip.MessageSent",
-      "value": "Адказ адпраўлены."
+      "value": "Паведамленне адпраўлена."
     },
     {
       "_": "types.LangPackString",
@@ -30320,6 +30385,11 @@
       "_": "types.LangPackString",
       "key": "Story.Tooltip.StickerSent",
       "value": "Стыкер адпраўлены."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Story.Tooltip.Unarchive",
+      "value": "Гісторыі ад **%@** будуць паказвацца ў архіве."
     },
     {
       "_": "types.LangPackString",
@@ -30424,7 +30494,7 @@
     {
       "_": "types.LangPackString",
       "key": "StoryMedia.ArchiveText",
-      "value": "Толькі вы можаце бачыць гісторыі ў архіве, калі не вырашыце захаваць іх у свой профіль."
+      "value": "Толькі вы можаце бачыць гісторыі ў архіве, калі не вырашыце апублікаваць іх у свой профіль."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -31102,6 +31172,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TextUtils.ManagedBotCreated",
+      "value": "%1$@ стварыў(-ла) %2$@"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TextView.Transform.Bold",
       "value": "Тлусты"
     },
@@ -31547,7 +31622,7 @@
     {
       "_": "types.LangPackString",
       "key": "Translate.Language.Afrikaans",
-      "value": "Афрыканская"
+      "value": "Афрыкаанс"
     },
     {
       "_": "types.LangPackString",
@@ -32082,7 +32157,7 @@
     {
       "_": "types.LangPackString",
       "key": "Translate.Language.Zulu",
-      "value": "Зулуская"
+      "value": "Зулу"
     },
     {
       "_": "types.LangPackString",
@@ -32188,6 +32263,11 @@
       "_": "types.LangPackString",
       "key": "Translate.To",
       "value": "НА МОВУ: %@"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Translate.Tone",
+      "value": "Стыль"
     },
     {
       "_": "types.LangPackString",
@@ -34732,5 +34812,5 @@
       "value": "Паказаць замены"
     }
   ],
-  "version": 2258069
+  "version": 2258302
 }

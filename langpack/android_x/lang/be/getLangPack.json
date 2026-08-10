@@ -568,6 +568,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArchiveAppearanceTitle",
+      "value": "Выгляд"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArchiveAppearanceToggle",
       "value": "Паказваць як папку"
     },
@@ -2950,7 +2955,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChatFoldersAppearance",
-      "value": "Знешні выгляд"
+      "value": "Выгляд"
     },
     {
       "_": "types.LangPackString",
@@ -4628,12 +4633,12 @@
     {
       "_": "types.LangPackString",
       "key": "DiscardChanges",
-      "value": "Адхіліць змены"
+      "value": "Адхіліць змяненні"
     },
     {
       "_": "types.LangPackString",
       "key": "DiscardCurrentChanges",
-      "value": "Адхіліць бягучыя змены?"
+      "value": "Адхіліць бягучыя змяненні?"
     },
     {
       "_": "types.LangPackString",
@@ -4643,7 +4648,7 @@
     {
       "_": "types.LangPackString",
       "key": "DiscardEditCaptionHint",
-      "value": "Вы ўпэўнены, што хочаце адхіліць адрэдагаваны подпіс? Гэтыя змены не захаваюцца."
+      "value": "Вы ўпэўнены, што хочаце адхіліць адрэдагаваны подпіс?\nГэтыя змяненні не захаваюцца."
     },
     {
       "_": "types.LangPackString",
@@ -4653,27 +4658,27 @@
     {
       "_": "types.LangPackString",
       "key": "DiscardEditMsgHint",
-      "value": "Вы ўпэўнены, што хочаце адхіліць адрэдагаванае паведамленне? Гэтыя змены не захаваюцца."
+      "value": "Вы ўпэўнены, што хочаце адхіліць адрэдагаванае паведамленне?\nГэтыя змяненні не захаваюцца."
     },
     {
       "_": "types.LangPackString",
       "key": "DiscardMediaHint",
-      "value": "Вы ўпэўнены, што хочаце адхіліць рэдагаваныя медыя? Гэтыя змены не захаваюцца."
+      "value": "Вы ўпэўнены, што хочаце адхіліць рэдагаваныя медыя?\nГэтыя змяненні не захаваюцца."
     },
     {
       "_": "types.LangPackString",
       "key": "DiscardMediaHint2",
-      "value": "Вы ўпэўнены, што хочаце адхіліць уведзеныя апісанні? Гэтыя змены не захаваюцца."
+      "value": "Вы ўпэўнены, што хочаце адхіліць уведзеныя апісанні?\nГэтыя змяненні не захаваюцца."
     },
     {
       "_": "types.LangPackString",
       "key": "DiscardMediaHint3",
-      "value": "Вы ўпэўнены, што хочаце адхіліць апісанні і рэдагаваныя медыя? Гэтыя змены не захаваюцца."
+      "value": "Вы ўпэўнены, што хочаце адхіліць апісанні і рэдагаваныя медыя?\nГэтыя змяненні не захаваюцца."
     },
     {
       "_": "types.LangPackString",
       "key": "DiscardMediaMsg",
-      "value": "Адхіліць змены"
+      "value": "Адхіліць змяненні"
     },
     {
       "_": "types.LangPackString",
@@ -4683,7 +4688,7 @@
     {
       "_": "types.LangPackString",
       "key": "DiscardMediaMsg3",
-      "value": "Адхіліць змены"
+      "value": "Адхіліць змяненні"
     },
     {
       "_": "types.LangPackString",
@@ -6664,11 +6669,24 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s з пераможцаў ужо выкарысталі свае падарункавыя спасылкі.",
+      "key": "GiveawayInfoEndedPart3",
+      "many_value": "%1$s з пераможцаў ужо выкарысталі свае падарункавыя спасылкі.",
+      "one_value": "%1$s з пераможцаў ужо выкарыстаў свае падарункавыя спасылкі.",
+      "other_value": "%1$s з пераможцаў ужо выкарысталі свае падарункавыя спасылкі."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "few_value": "Гэты розыгрыш спансіруецца кіраўнікамі канала %2$s, якія купілі %1$s %3$s-месячныя падпіскі Telegram Premium для сваіх падпісчыкаў.",
       "key": "GiveawayInfoOngoingPart1",
       "many_value": "Гэты розыгрыш спансіруецца кіраўнікамі канала %2$s, якія купілі %1$s %3$s-месячных падпісак Telegram Premium для сваіх падпісчыкаў.",
       "one_value": "Гэты розыгрыш спансіруецца кіраўнікамі канала %2$s, якія купілі %1$s %3$s-месячную падпіску Telegram Premium для сваіх падпісчыкаў.",
       "other_value": "Гэты розыгрыш спансіруецца кіраўнікамі канала %2$s, якія купілі %1$s %3$s-месячнай падпіскі Telegram Premium для сваіх падпісчыкаў."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GiveawayInfoOngoingPartEligible",
+      "value": "Для ўдзелу ў розыгрышы далучыцеся да канала %1$s да %2$s."
     },
     {
       "_": "types.LangPackString",
@@ -6679,6 +6697,11 @@
       "_": "types.LangPackString",
       "key": "GiveawayInfoOngoingPartRestrictedCountry",
       "value": "Вы не можаце ўдзельнічаць у гэтым розыгрышы, бо ваша краіна (%1$s) не ўваходзіць ва ўмовы розыгрышу."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GiveawayInfoOngoingPartRestrictedMember",
+      "value": "Вы не можаце ўдзельнічаць у гэтым розыгрышы, бо далучыліся да канала %1$s, яшчэ да пачатку розыгрышу."
     },
     {
       "_": "types.LangPackString",
@@ -8625,12 +8648,12 @@
     {
       "_": "types.LangPackString",
       "key": "LocalizationEditConfirmDiscard",
-      "value": "Адхіліць змены"
+      "value": "Адхіліць змяненні"
     },
     {
       "_": "types.LangPackString",
       "key": "LocalizationEditConfirmPrompt",
-      "value": "Бягучы радок (%1$s) быў зменены. Вы хочаце захаваць змены?"
+      "value": "Бягучы радок (%1$s) быў зменены. Вы хочаце захаваць змяненні?"
     },
     {
       "_": "types.LangPackString",
@@ -12695,6 +12718,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RecurringPayment",
+      "value": "Перыядычны плацеж"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ReduceMotion",
       "value": "Адключыць эфекты"
     },
@@ -13180,6 +13208,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ResetPasswordWait",
+      "value": "Вы нядаўна запыталі скід пароля, які быў скасаваны.\nПачакайце %1$s перад новым запытам."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ResetStatistics",
       "value": "Скінуць статыстыку"
     },
@@ -13196,7 +13229,7 @@
     {
       "_": "types.LangPackString",
       "key": "RestartEffect",
-      "value": "Перазапусціце праграму, каб змены набылі моц."
+      "value": "Перазапусціце праграму, каб змяненні ўступілі ў сілу."
     },
     {
       "_": "types.LangPackString",
@@ -16046,7 +16079,7 @@
     {
       "_": "types.LangPackString",
       "key": "TextFormatClear",
-      "value": "Чысты тэкст"
+      "value": "Ачысціць фарматаванне"
     },
     {
       "_": "types.LangPackString",
@@ -17457,7 +17490,7 @@
     {
       "_": "types.LangPackString",
       "key": "ViewSourceCodeChanges",
-      "value": "Змены ў зыходным кодзе"
+      "value": "Змяненні ў зыходным кодзе"
     },
     {
       "_": "types.LangPackString",
@@ -18789,7 +18822,7 @@
     {
       "_": "types.LangPackString",
       "key": "error_CHAT_SEND_POLL_FORBIDDEN",
-      "value": "Кіраўнікі чата забаранілі размяшчаць апытанні"
+      "value": "Кіраўнікі чата забаранілі адпраўляць апытанні"
     },
     {
       "_": "types.LangPackString",
@@ -19613,7 +19646,7 @@
     {
       "_": "types.LangPackString",
       "key": "language_continueInLanguagePopupText",
-      "value": "**Telegram X** цяпер даступны **на беларускай мове**!\n\nХочаце пераключыцца на яе?\n\nВы можаце скасаваць змены ў любы час праз «Налады > Мова»."
+      "value": "**Telegram X** цяпер даступны **на беларускай мове**!\n\nХочаце пераключыцца на яе?\n\nВы можаце скасаваць змяненні ў любы час праз «Налады > Мова»."
     },
     {
       "_": "types.LangPackString",
@@ -21045,11 +21078,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "Уключаны павольны рэжым. \nВы зможаце адправіць наступнае паведамленне праз %1$s секунды",
+      "few_value": "Уключаны павольны рэжым. \nВы зможаце напісаць праз %1$s секунды",
       "key": "xSlowModeRestrictionSeconds",
-      "many_value": "Уключаны павольны рэжым. \nВы зможаце адправіць наступнае паведамленне праз %1$s секунд",
-      "one_value": "Уключаны павольны рэжым. \nВы зможаце адправіць наступнае паведамленне праз %1$s секунду",
-      "other_value": "Уключаны павольны рэжым. \nВы зможаце адправіць наступнае паведамленне праз %1$s секунды"
+      "many_value": "Уключаны павольны рэжым. \nВы зможаце напісаць праз %1$s секунд",
+      "one_value": "Уключаны павольны рэжым.\nВы зможаце напісаць праз %1$s секунду",
+      "other_value": "Уключаны павольны рэжым. \nВы зможаце напісаць праз %1$s секунды"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -21180,5 +21213,5 @@
       "other_value": "%1$s гадоў"
     }
   ],
-  "version": 1641856
+  "version": 1642050
 }
