@@ -4445,6 +4445,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChannelSettingsJoinRequestChannel",
+      "value": "새 구독자 승인"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChannelSettingsJoinRequestInfo",
       "value": "관리자가 승인해야만 사용자가 입장 할 수 있게 하려면 활성화하세요."
     },
@@ -5075,6 +5080,51 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Bot",
+      "value": "봇이 %1$s 커뮤니티에 추가되었습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Channel",
+      "value": "채널이 %1$s 커뮤니티에 추가되었습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.By",
+      "value": "%1$s님이 이 그룹을 %2$s 커뮤니티에 추가했습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.Unknown",
+      "value": "이 그룹은 %1$s 커뮤니티에 추가되었습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.You",
+      "value": "이 그룹을 %1$s 커뮤니티에 추가했습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Bot",
+      "value": "봇이 커뮤니티에서 제거되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Channel",
+      "value": "채널이 커뮤니티에서 제거되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Group.By",
+      "value": "%1$s님이 이 그룹을 커뮤니티에서 제거했습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Group.You",
+      "value": "이 그룹을 커뮤니티에서 제거했습니다."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.Service.ConferenceCall.Ended",
       "value": "그룹 통화 종료됨(%1$@)"
     },
@@ -5377,6 +5427,441 @@
       "_": "types.LangPackString",
       "key": "ChatAdmin",
       "value": "관리자"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.AccessibleChats",
+      "value": "봇이 접근할 수 있는 대화"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Add",
+      "value": "추가"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.AllExcept",
+      "value": "일부를 제외한 모든 개인 대화"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotDescription",
+      "value": "대화를 자동으로 처리할 텔레그램 봇의 사용자명 또는 URL을 입력하세요."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotHasAccess",
+      "value": "봇이 이 대화에 접근할 수 있습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotManagesChat",
+      "value": "이 대화는 봇이 관리합니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotNotFound",
+      "value": "챗봇을 찾을 수 없습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotPaused",
+      "value": "봇 일시 정지"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotPlaceholder",
+      "value": "봇 사용자명"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotUnsupported",
+      "value": "이 봇은 아직 비서 모드를 지원하지 않습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ChangeGiftSettings",
+      "value": "선물 설정 변경"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ChooseBot",
+      "value": "대화를 자동으로 관리할 봇을 선택하세요."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectedFrom",
+      "value": "연결 위치"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Confirm",
+      "value": "네, 맞습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Confirmed",
+      "value": "새 봇이 허용되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Reject",
+      "value": "아니요, 아닙니다!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Rejected",
+      "value": "봇 접근 권한이 취소되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Text",
+      "value": "%s에서 회원님의 계정에 연결했습니다. 회원님이 직접 허용하셨나요?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.TextNoLocation",
+      "value": "회원님의 계정에 연결했습니다. 회원님이 직접 허용하셨나요?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Title",
+      "value": "봇이 방금 회원님의 메시지에 접근했습니다!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Contacts",
+      "value": "연락처"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.DeleteReceived",
+      "value": "받은 메시지 삭제"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.DeleteSent",
+      "value": "보낸 메시지 삭제"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.EditBio",
+      "value": "자기소개 수정"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.EditName",
+      "value": "이름 수정"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.EditPhoto",
+      "value": "프로필 사진 편집"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.EditUsername",
+      "value": "사용자명 변경"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ExcludeChats",
+      "value": "대화 제외"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ExcludedChats",
+      "value": "제외할 대화"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ExcludedDescription",
+      "value": "봇이 접근할 수 **없는** 대화 또는 전체 대화 카테고리를 선택하세요."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ExistingChats",
+      "value": "기존 대화"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.GiftsAndStarsWarning",
+      "value": "**%s** 봇은 선물과 스타를 다른 사용자에게 보내는 작업을 포함하여 **회원님의 선물과 스타를 관리**할 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.GiftsWarning",
+      "value": "**%s** 봇은 선물을 다른 사용자에게 보내는 작업을 포함하여 **회원님의 선물을 관리**할 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.HeroDescription",
+      "value": "받는 메시지를 자동으로 처리하고 답장할 수 있도록 계정에 봇을 추가하세요. [자세히 알아보기 >]()"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.HeroTitle",
+      "value": "챗봇"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.IncludedChats",
+      "value": "포함할 대화"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.IncludedDescription",
+      "value": "봇이 접근**할 수 있는** 대화 또는 전체 대화 카테고리를 선택하세요."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.LoadFailed",
+      "value": "불러올 수 없습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageAutomation",
+      "value": "대화 자동화 관리"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageBot",
+      "value": "봇 관리"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageGifts",
+      "value": "선물 및 스타 관리"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageMessages",
+      "value": "메시지 관리"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageProfile",
+      "value": "프로필 관리"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageStories",
+      "value": "스토리 관리"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.MarkRead",
+      "value": "메시지를 읽음으로 표시"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.NewChats",
+      "value": "새 대화"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.NonContacts",
+      "value": "연락처에 없는 사용자"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Off",
+      "value": "끔"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.OnlySelected",
+      "value": "선택한 대화만"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.PermissionWarningProceed",
+      "value": "계속"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.PermissionWarningTitle",
+      "value": "경고"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Permissions",
+      "value": "봇 권한"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.PermissionsDescription",
+      "value": "봇은 최근 24시간 동안 활성 상태였던 대화에서만 회원님을 대신해 답장할 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ProfileDescription",
+      "value": "회원님을 대신해 메시지에 답장할 봇을 추가하세요."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ProfileLabel",
+      "value": "대화 자동화"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ReadMessages",
+      "value": "메시지 읽기"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RecipientCategories",
+      "value": "대화 카테고리"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RecipientLimit",
+      "value": "최대 100명의 사용자를 선택할 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RecipientSummaryEmpty",
+      "value": "추가"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RecipientsEmpty",
+      "value": "받는 사람을 한 명 이상 선택하세요."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RemoveBot",
+      "value": "봇 제거"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RemoveFromChat",
+      "value": "이 대화에서 봇 제거"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Reply",
+      "value": "메시지에 답장"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RevokeFromChat",
+      "value": "이 대화 접근 권한 취소"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SaveSuccess",
+      "value": "대화 자동화가 업데이트되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SearchFailed",
+      "value": "봇을 검색할 수 없습니다. 다시 시도해 보세요."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Searching",
+      "value": "봇 검색 중..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SelectChats",
+      "value": "대화 선택"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SellGifts",
+      "value": "선물 판매"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Session",
+      "value": "대화 자동화 봇"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SessionDate",
+      "value": "날짜"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SessionDevice",
+      "value": "기기"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SessionLocation",
+      "value": "위치"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SetupNotCompletedLeave",
+      "value": "나가기"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SetupNotCompletedText",
+      "value": "계정을 관리할 봇을 추가하지 않았습니다. 그래도 나가시겠습니까?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SetupNotCompletedTitle",
+      "value": "추가된 봇 없음"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.StarsWarning",
+      "value": "**%s** 봇은 **회원님의 스타를 전송**할 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Start",
+      "value": "시작"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Stop",
+      "value": "중지"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TerminateConnectedBot",
+      "value": "%s도 종료"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TerminateSession",
+      "value": "세션 종료"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Title",
+      "value": "대화 자동화"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TransferGifts",
+      "value": "선물 이전 및 업그레이드"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TransferStars",
+      "value": "스타 전송"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.UsernameWarning",
+      "value": "**%s** 봇은 회원님의 계정에서 **사용자명을 설정하거나 제거**할 수 있으며, 이로 인해 현재 사용자명을 잃을 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ViaBotTooltip",
+      "value": "이 메시지를 봇이 보냈다는 사실은 회원님에게만 표시됩니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ViewGifts",
+      "value": "선물 보기"
     },
     {
       "_": "types.LangPackString",
@@ -6050,13 +6535,163 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.AddAll",
+      "value": "모두 추가"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddAllRequests",
+      "value": "모든 대화 추가"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddAllRequestsConfirm",
+      "value": "대기 중인 대화 %d개를 모두 이 커뮤니티에 추가하시겠습니까?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddBot",
+      "value": "커뮤니티에 봇 추가"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddBotConfirm",
+      "value": "커뮤니티 관리자가 이 봇을 승인하면 커뮤니티 구성원이 이를 보고 사용할 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChannel",
+      "value": "커뮤니티에 채널 추가"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChannelConfirm",
+      "value": "커뮤니티 관리자가 이 채널을 승인하면 구독자는 커뮤니티의 다른 대화에 참여하거나 참여를 요청할 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat",
+      "value": "대화 추가"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChatButton",
+      "value": "커뮤니티에 대화 추가"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddExisting",
+      "value": "기존 커뮤니티에 추가"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddGroup",
+      "value": "커뮤니티에 그룹 추가"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddGroupConfirm",
+      "value": "커뮤니티 관리자가 이 그룹을 승인하면 해당 구성원은 커뮤니티의 다른 대화에 참여하거나 참여를 요청할 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddTo",
+      "value": "커뮤니티에 추가"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminAddAdmins",
+      "value": "커뮤니티 관리자 추가"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminBanMembers",
+      "value": "회원 차단"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminEditChats",
+      "value": "대화 목록 수정"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminEditInfo",
+      "value": "커뮤니티 정보 수정"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminRequired",
+      "value": "더 이상 이러한 요청을 관리할 권한이 없습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdministratorsInfo",
+      "value": "커뮤니티 관리에 도움을 줄 관리자를 추가할 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AllMembers",
+      "value": "모든 회원"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AllMembersInfo",
+      "value": "회원이 자신의 그룹과 채널을 커뮤니티에 추가하도록 허용합니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Ban",
+      "value": "차단"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.BanFromCommunity",
+      "value": "커뮤니티에서 차단"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.BanFromCommunityInfo",
+      "other_value": "사용자가 커뮤니티 대화 %d개에서 제거됩니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.BanWarning",
+      "value": "%1$s님을 차단하면 이 사용자가 만든 대화 %2$d개도 커뮤니티에서 제거됩니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.BanWarningTitle",
+      "value": "경고"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Banned",
+      "value": "%s님이 커뮤니티에서 차단되었습니다."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.BannedCount",
+      "other_value": "차단된 사용자 %d명"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.BotAdded",
       "value": "봇이 커뮤니티에 추가되었습니다."
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.BotDescription",
+      "value": "봇을 여러 관련 대화로 구성된 커뮤니티에 추가하세요."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.BotNotAccessible",
       "value": "이 봇은 더 이상 이용할 수 없습니다."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.BotPeersLimit",
+      "other_value": "봇 %d개 한도에 도달했습니다."
     },
     {
       "_": "types.LangPackString",
@@ -6065,8 +6700,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.ChangeSettings",
+      "value": "설정 변경 >"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.ChannelAdded",
       "value": "채널이 커뮤니티에 추가되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChannelDescription",
+      "value": "채널을 여러 관련 대화로 구성된 커뮤니티에 추가하세요."
     },
     {
       "_": "types.LangPackString",
@@ -6090,8 +6735,78 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.ChatSettings",
+      "value": "커뮤니티 대화 설정"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatVisibility",
+      "value": "대화 공개 범위"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Chats",
+      "value": "커뮤니티 대화"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.ChatsCount",
+      "other_value": "대화 %d개"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatsHidden",
+      "value": "숨겨진 대화"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatsJoined",
+      "value": "참여 중인 대화"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatsRequestable",
+      "value": "참여를 요청할 수 있는 대화"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatsVisible",
+      "value": "볼 수 있는 대화"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.CommunityAdded.View",
+      "value": "보기"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Create",
+      "value": "커뮤니티 만들기"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.CreateChat",
+      "value": "새 대화 만들기"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Created",
       "value": "커뮤니티가 생성되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DeclineAll",
+      "value": "모두 거절"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DeclineAllRequests",
+      "value": "모든 요청 거절"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DeclineAllRequestsConfirm",
+      "value": "대기 중인 대화 제안 %d개를 모두 거부하시겠습니까?"
     },
     {
       "_": "types.LangPackString",
@@ -6107,6 +6822,16 @@
       "_": "types.LangPackString",
       "key": "Community.Deleted",
       "value": "커뮤니티가 삭제되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Description",
+      "value": "그룹을 여러 관련 대화로 구성된 커뮤니티에 추가하세요."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit",
+      "value": "커뮤니티 편집"
     },
     {
       "_": "types.LangPackString",
@@ -6130,6 +6855,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Hidden",
+      "value": "숨김"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.HiddenBotInfo",
       "value": "관리자가 초대할 때까지 이 봇을 사용할 수 없습니다."
     },
@@ -6142,6 +6872,11 @@
       "_": "types.LangPackString",
       "key": "Community.HiddenChatInfo",
       "value": "관리자가 초대할 때까지 이 대화에 참여하거나 대화를 볼 수 없습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.HiddenInfo",
+      "value": "초대받은 회원과 커뮤니티 관리자만 이 대화를 볼 수 있습니다."
     },
     {
       "_": "types.LangPackString",
@@ -6160,6 +6895,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.LoadMore",
+      "value": "더 보기"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.MessageBotOwner",
       "value": "봇 소유자에게 메시지 보내기"
     },
@@ -6175,6 +6915,76 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Name",
+      "value": "이름"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoAdministrators",
+      "value": "관리자 없음"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoChatsToAdd",
+      "value": "추가할 수 있는 대화가 없습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoCommunities",
+      "value": "아직 커뮤니티가 없습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoPendingRequests",
+      "value": "대기 중인 요청 없음"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoRemovedUsers",
+      "value": "제거된 사용자 없음"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoRequests",
+      "value": "요청 없음"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.OnlyAdmins",
+      "value": "관리자만"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.OnlyAdminsInfo",
+      "value": "커뮤니티 회원이 제안한 대화는 관리자 승인이 필요합니다."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.PeersLimit",
+      "other_value": "대화 %d개 한도에 도달했습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PendingRequest",
+      "value": "요청 대기 중"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PendingRequests",
+      "value": "대기 중인 요청"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.PendingRequestsCount",
+      "other_value": "대화 %d개 제안됨"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PendingRequestsInfo",
+      "value": "대화를 커뮤니티에 추가하려면 관리자 승인이 필요합니다."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.PrivateBotInfo",
       "value": "이 봇은 초대를 통해서만 사용할 수 있습니다. 초대받은 회원만 사용할 수 있습니다."
     },
@@ -6187,6 +6997,36 @@
       "_": "types.LangPackString",
       "key": "Community.PrivateChatInfo",
       "value": "이 그룹은 초대를 통해서만 참여할 수 있습니다. 회원만 볼 수 있습니다."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.ProfileStatus",
+      "other_value": "대화 %d개가 있는 커뮤니티"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Promote",
+      "value": "승격"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PromoteAdmin",
+      "value": "관리자로 승격"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PromoteAdminConfirm",
+      "value": "%s님을 이 커뮤니티의 관리자로 지정하시겠습니까?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveAdmin",
+      "value": "관리자 제거"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveAdminConfirm",
+      "value": "이 관리자를 커뮤니티에서 제거하시겠습니까?"
     },
     {
       "_": "types.LangPackString",
@@ -6220,8 +7060,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.RemoveUser",
+      "value": "사용자 제거"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Removed",
       "value": "커뮤니티에서 그룹이 제거되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemovedFromCommunity",
+      "value": "커뮤니티에서 제거됨"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemovedUsersInfo",
+      "value": "커뮤니티에서 제거된 사용자는 초대 링크로 다시 참여할 수 없습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RequestAdded",
+      "value": "커뮤니티에 대화가 추가되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RequestDeclined",
+      "value": "제안이 거부되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RequestFailed",
+      "value": "요청을 업데이트할 수 없습니다. 다시 시도해 주세요."
     },
     {
       "_": "types.LangPackString",
@@ -6232,6 +7102,31 @@
       "_": "types.LangPackString",
       "key": "Community.RequestSent",
       "value": "요청이 전송되었습니다"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.RequestsAdded",
+      "other_value": "대화 %d개가 커뮤니티에 추가되었습니다."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.RequestsDeclined",
+      "other_value": "제안 %d개가 거부되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RequestsLoadFailed",
+      "value": "대기 중인 요청을 로드할 수 없습니다. 다시 시도해 주세요."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Retry",
+      "value": "다시 시도"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SaveChanges",
+      "value": "변경사항 저장"
     },
     {
       "_": "types.LangPackString",
@@ -6250,8 +7145,68 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Someone",
+      "value": "누군가"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedBot",
+      "value": "이 봇을 제안했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedBy",
+      "value": "제안자"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedBySomeone",
+      "value": "누군가가 이 대화를 제안했습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedChannel",
+      "value": "이 채널을 추천했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedGroup",
+      "value": "이 그룹을 추천했습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Title",
+      "value": "커뮤니티"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Unban",
+      "value": "차단 해제"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.View",
       "value": "커뮤니티 보기"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.VisibilityImmutable",
+      "value": "나중에는 변경할 수 없습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Visible",
+      "value": "공개"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.VisibleInfo",
+      "value": "커뮤니티의 모든 회원이 이 대화를 볼 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.WhoCanAddChats",
+      "value": "누가 대화를 추가할 수 있나요?"
     },
     {
       "_": "types.LangPackString",
@@ -8965,6 +9920,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupRequestApproved",
+      "value": "그룹 참여 요청이 승인되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestApprovedChannel",
+      "value": "채널 참여 요청이 승인되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestDeclined",
+      "value": "그룹 참여 요청이 거절되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestDeclinedChannel",
+      "value": "채널 참여 요청이 거절되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestSent",
+      "value": "관리자가 요청을 승인하면 곧바로 그룹에 추가됩니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestSentChannel",
+      "value": "관리자가 요청을 승인하면 채널에 추가됩니다."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupStats.Title",
       "value": "그룹 통계"
     },
@@ -9002,6 +9987,51 @@
       "_": "types.LangPackString",
       "key": "GrowthChartTitle",
       "value": "성장"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotEnable",
+      "value": "활성화"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotEnableMembersText",
+      "value": "이제 새 회원이 이 그룹에 메시지를 보내려면 먼저 **%s**의 승인이 필요합니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotEnableSubscribersText",
+      "value": "신규 구독자는 이제 이 채널에 가입하기 전에 **%s**의 승인을 받아야 합니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotManagedBy",
+      "value": "%s에서 관리"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotProcessJoinRequests",
+      "value": "가입 요청 처리"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotProcessJoinRequestsInfo",
+      "value": "이 봇이 보안 문자 같은 자체 인터페이스로 새 회원을 승인하도록 허용합니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotReplaceText",
+      "value": "**%1$s**이(가) 현재 참여 요청을 처리하고 있습니다. 대신 **%2$s**(으)로 전환할까요?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotReplaceTitle",
+      "value": "봇 교체"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotReplaceUse",
+      "value": "%s 사용"
     },
     {
       "_": "types.LangPackString",
@@ -10890,6 +11920,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "MediaCopied",
+      "value": "미디어가 클립보드에 복사되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MediaCopyFailed",
+      "value": "미디어를 클립보드에 복사하지 못했습니다."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "MediaEditor.Adjustments.Brightness",
       "value": "밝기"
     },
@@ -11077,6 +12117,11 @@
       "_": "types.LangPackStringPluralized",
       "key": "MediaFiles",
       "other_value": "미디어 파일 %d개"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MediaViewer.Context.Copy",
+      "value": "미디어 복사"
     },
     {
       "_": "types.LangPackString",
@@ -14752,6 +15797,16 @@
       "_": "types.LangPackString",
       "key": "ProfileStoriesArchiveHint",
       "value": "내 프로필에 게시하지 않는 이상 보관된 스토리는 나만 볼 수 있습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ProfileTab.OrderChanged",
+      "value": "탭 순서가 변경되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ProfileTab.SetAsMain",
+      "value": "기본 탭으로 설정"
     },
     {
       "_": "types.LangPackString",
@@ -20810,6 +21865,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "VoiceChat.Topbar.Join",
+      "value": "들어가기"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "VoiceChat.UnmuteForMe",
       "value": "음소거 해제"
     },
@@ -20912,6 +21972,11 @@
       "_": "types.LangPackString",
       "key": "WebAppDisclaimerUrl",
       "value": "https://telegram.org/tos/mini-apps"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "WebAppGuardDisclaimerText",
+      "value": "**%1$s**에서는 **%2$s**을(를) 통해 새 회원을 맞이합니다. 계속하려면 미니 앱 [이용 약관]()에 동의해야 합니다."
     },
     {
       "_": "types.LangPackString",
@@ -21039,5 +22104,5 @@
       "other_value": "메시지 %1$d개"
     }
   ],
-  "version": 326520
+  "version": 326525
 }
