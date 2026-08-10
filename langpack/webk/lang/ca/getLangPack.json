@@ -3971,6 +3971,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChannelSettingsJoinRequestChannel",
+      "value": "Aprova els subscriptors nous"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChannelSettingsJoinRequestInfo",
       "value": "Activeu-ho si voleu que els usuaris hi entrin només quan l'administració ho aprovi."
     },
@@ -4612,6 +4617,51 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Bot",
+      "value": "S'ha afegit el bot a la comunitat %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Channel",
+      "value": "El canal s'ha afegit a la comunitat %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.By",
+      "value": "%1$s ha afegit el grup a la comunitat %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.Unknown",
+      "value": "S'ha afegit el grup a la comunitat %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.You",
+      "value": "Heu afegit el grup a la comunitat %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Bot",
+      "value": "S'ha eliminat el bot de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Channel",
+      "value": "S'ha eliminat el canal de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Group.By",
+      "value": "%1$s ha eliminat el grup de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Group.You",
+      "value": "Heu eliminat el grup de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.Service.ConferenceCall.Incoming",
       "value": "Trucada grupal rebuda. [Entra](open)"
     },
@@ -4902,6 +4952,336 @@
       "_": "types.LangPackString",
       "key": "ChatAdmin",
       "value": "administrador"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.AccessibleChats",
+      "value": "Xats als quals el bot pot accedir"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.AllExcept",
+      "value": "Tots els xats privats excepte..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotHasAccess",
+      "value": "el bot té accés a aquest xat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotManagesChat",
+      "value": "el bot gestiona aquest xat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotNotFound",
+      "value": "No s'ha trobat el xatbot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotPaused",
+      "value": "bot en pausa"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotPlaceholder",
+      "value": "Nom d'usuari del bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotUnsupported",
+      "value": "Aquest bot encara no és compatible amb el Mode secretari."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ChangeGiftSettings",
+      "value": "Canviar els paràmetres dels regals"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ChooseBot",
+      "value": "Trieu el bot que gestionarà els vostres xats de manera automàtica."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectedFrom",
+      "value": "Connexió des de"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Confirm",
+      "value": "Sí, sóc jo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Confirmed",
+      "value": "Nou bot autoritzat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Reject",
+      "value": "No, no sóc jo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Text",
+      "value": "s'ha connectat al vostre compte des de %s. En sabeu res?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Title",
+      "value": "Un bot ha accedit als vostres missatges!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Contacts",
+      "value": "Contactes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.DeleteReceived",
+      "value": "Eliminar missatges rebuts"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.DeleteSent",
+      "value": "Eliminar missatges enviats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.EditBio",
+      "value": "Editar la biografia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.EditName",
+      "value": "Editar el nom"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.EditPhoto",
+      "value": "Editar la foto de perfil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.EditUsername",
+      "value": "Editar el nom d'usuari"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ExcludeChats",
+      "value": "Xats a excloure"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ExcludedChats",
+      "value": "Xats exclosos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ExcludedDescription",
+      "value": "Seleccioneu xats o categories completes de xats a què el bot **NO TINDRÀ** accés."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ExistingChats",
+      "value": "Xats existents"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.GiftsAndStarsWarning",
+      "value": "El bot **%s** podrà **gestionar els vostres regals i estrelles**, inclús donar-los a altres usuaris."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.GiftsWarning",
+      "value": "El bot **%s** podrà **gestionar els vostres regals**, inclús donar-los a altres usuaris."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.HeroTitle",
+      "value": "Xatbots"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.IncludedChats",
+      "value": "Xats inclosos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.IncludedDescription",
+      "value": "Seleccioneu xats o categories completes de xats a què el bot tindrà accés."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageBot",
+      "value": "Gestiona el bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageGifts",
+      "value": "Gestionar regals i estrelles"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageMessages",
+      "value": "Gestionar missatges"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageProfile",
+      "value": "Gestionar el perfil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageStories",
+      "value": "Gestionar històries"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.MarkRead",
+      "value": "Marcar missatges com a llegits"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.NewChats",
+      "value": "Xats nous"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.NonContacts",
+      "value": "Altres usuaris"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.OnlySelected",
+      "value": "Només els xats seleccionats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.PermissionWarningTitle",
+      "value": "Atenció"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Permissions",
+      "value": "Permisos del bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.PermissionsDescription",
+      "value": "El bot només pot respondre en nom vostre als xats que han estat actius les últimes 24 hores."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ProfileDescription",
+      "value": "Afegiu un bot que respongui als missatges de la vostra part."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ReadMessages",
+      "value": "Llegir missatges"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RemoveBot",
+      "value": "Elimina el bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Reply",
+      "value": "Respondre als missatges"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SelectChats",
+      "value": "Seleccioneu xats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SellGifts",
+      "value": "Convertir regals en estrelles"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Session",
+      "value": "Bot d'automatització de xats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SessionDate",
+      "value": "Data"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SessionDevice",
+      "value": "Dispositiu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SessionLocation",
+      "value": "Ubicació"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SetupNotCompletedLeave",
+      "value": "Surt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SetupNotCompletedText",
+      "value": "No heu afegit cap bot per a gestionar el vostre compte. Voleu sortir igualment?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SetupNotCompletedTitle",
+      "value": "No s'ha afegit cap bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.StarsWarning",
+      "value": "El bot **%s** podrà **transferir les vostres estrelles**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TerminateConnectedBot",
+      "value": "També finalitza %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TerminateSession",
+      "value": "Tanca la sessió"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Title",
+      "value": "Automatització del xat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TransferGifts",
+      "value": "Transferir i millorar els regals"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TransferStars",
+      "value": "Transferir estrelles"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.UsernameWarning",
+      "value": "El bot **%s** podrà **establir i eliminar noms d'usuari** al vostre compte, el que podria comportar la pèrdua del vostre nom d'usuari."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ViaBotTooltip",
+      "value": "Ningú més pot veure que aquest missatge és enviat per un bot."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ViewGifts",
+      "value": "Veure regals i estrelles"
     },
     {
       "_": "types.LangPackString",
@@ -5562,6 +5942,371 @@
       "key": "CommonGroups",
       "one_value": "%1$d grup en comú",
       "other_value": "%1$d grups en comú"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddAll",
+      "value": "Afegeix-ho tot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddAllRequests",
+      "value": "Afegeix tots els xats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddBot",
+      "value": "Afegeix el bot a una comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddBotConfirm",
+      "value": "Si l'administració de la comunitat aprova el bot, els membres podran veure'l i usar-lo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChannel",
+      "value": "Afegeix el canal a una comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChannelConfirm",
+      "value": "Si l'administració de la comunitat aprova el canal, els seus subscriptors podran sol·licitar unir-se a altres xats de la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChatButton",
+      "value": "Afegeix-lo a la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddExisting",
+      "value": "Afegiu a una comunitat existent"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddGroup",
+      "value": "Afegeix el grup a una comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddGroupConfirm",
+      "value": "Si l'administració de la comunitat aprova el grup, els seus membres podran sol·licitar unir-se a altres xats de la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddTo",
+      "value": "Afegiu a la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminAddAdmins",
+      "value": "Afegir administradors de comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminBanMembers",
+      "value": "Bandejar membres"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminEditChats",
+      "value": "Editar la llista de xats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminEditInfo",
+      "value": "Edita la informació de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdministratorsInfo",
+      "value": "Podeu afegir administradors que us ajudin a gestionar la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AllMembers",
+      "value": "Tots els membres"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AllMembersInfo",
+      "value": "Permet que els membres afegeixin els seus grups i canals a la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.BanFromCommunity",
+      "value": "Bandeja de la comunitat"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.BanFromCommunityInfo",
+      "one_value": "L'usuari s'eliminarà d'%d xat de la comunitat.",
+      "other_value": "L'usuari s'eliminarà dels %d xats de la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.BanWarning",
+      "value": "En bandejar %1$s també eliminareu de la comunitat els %2$d xats que va crear."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Banned",
+      "value": "%s s'ha bandejat de la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.BotAdded",
+      "value": "S'ha afegit el bot a la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.BotDescription",
+      "value": "Feu que el bot formi part d'una comunitat amb molts altres xats relacionats."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.BotPeersLimit",
+      "one_value": "S'ha assolit el límit d'%d bot.",
+      "other_value": "S'ha assolit el límit de %d bots."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChannelAdded",
+      "value": "S'ha afegit el canal a la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChannelDescription",
+      "value": "Feu que el canal formi part d'una comunitat amb molts altres xats relacionats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatVisibility",
+      "value": "Visibilitat dels xats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatsHidden",
+      "value": "Xats ocults"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatsJoined",
+      "value": "Xats en què esteu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatsRequestable",
+      "value": "Xats a què podeu demanar unir-vos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatsVisible",
+      "value": "Xats que podeu veure"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Create",
+      "value": "Crea una comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.CreateChat",
+      "value": "Crea un xat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DeclineAll",
+      "value": "Declina-ho tot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Delete",
+      "value": "Elimina la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Description",
+      "value": "Feu que el grup formi part d'una comunitat amb molts altres xats relacionats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.GroupAdded",
+      "value": "S'ha afegit el grup a la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Hidden",
+      "value": "Ocult"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.HiddenBotInfo",
+      "value": "No podreu usar el bot fins que l'administració us hi convidi."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.HiddenChannelInfo",
+      "value": "No podeu veure ni unir-vos al canal fins que l'administració us hi convidi."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.HiddenChatInfo",
+      "value": "No podeu veure ni unir-vos al xat fins que l'administració us hi convidi."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.HiddenInfo",
+      "value": "Només els membres convidats i l'administració de la comunitat veuran el xat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.MessageBotOwner",
+      "value": "Escriu al propietari del bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.MessageChannelOwner",
+      "value": "Escriu al propietari del canal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.MessageOwner",
+      "value": "Escriu al propietari del grup"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.OnlyAdmins",
+      "value": "Només l'administració"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.OnlyAdminsInfo",
+      "value": "Cal que l'administració aprovi els xats suggerits pels membres de la comunitat."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.PeersLimit",
+      "one_value": "S'ha assolit el límit d'%d xat.",
+      "other_value": "S'ha assolit el límit de %d xats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PendingRequest",
+      "value": "Sol·licitud pendent"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PendingRequests",
+      "value": "Sol·licituds pendents"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PendingRequestsInfo",
+      "value": "Cal que l'administració aprovi els xats abans d'afegir-los a la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateBotInfo",
+      "value": "El bot és restringit. Només els membres convidats el poden usar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChannelInfo",
+      "value": "El canal és restringit. Només els membres el poden veure."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PrivateChatInfo",
+      "value": "El xat és restringit. Només els membres el poden veure."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.ProfileStatus",
+      "one_value": "Comunitat amb %d xat",
+      "other_value": "Comunitat amb %d xats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveBot",
+      "value": "Elimina el bot de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChannel",
+      "value": "Elimina el canal de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveGroup",
+      "value": "Elimina el grup de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemovedUsersInfo",
+      "value": "Els usuaris que l'administració ha eliminat de la comunitat no s'hi poden tornar a unir amb enllaços."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.RequestsAdded",
+      "one_value": "El xat s'ha afegit a la comunitat.",
+      "other_value": "Els %d xats s'han afegit a la comunitat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ShowAsOne",
+      "value": "Mostra com a un xat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ShowAsOneInfo",
+      "value": "Agrupa tots els xats de la comunitat en un element a la llista de xats."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ShowSeparately",
+      "value": "Mostra com a xats separats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedBot",
+      "value": "ha suggerit aquest bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedChannel",
+      "value": "ha suggerit aquest canal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedGroup",
+      "value": "ha suggerit aquest grup"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Unban",
+      "value": "Deixa de bandejar-lo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.VisibilityImmutable",
+      "value": "No ho podreu tornar a canviar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Visible",
+      "value": "Visible"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.VisibleInfo",
+      "value": "Tothom en la comunitat podrà veure el xat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.WhoCanAddChats",
+      "value": "Qui pot afegir xats?"
     },
     {
       "_": "types.LangPackString",
@@ -6988,6 +7733,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Ephemeral.CantSchedule",
+      "value": "Els missatges efímers no es poden programar."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.CommandTooltip",
+      "value": "Altres membres no veuran el missatge"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.ReplySingleMessage",
+      "value": "Només podeu enviar un missatge en resposta a aquest missatge."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.VisibleTo",
+      "value": "Només %s el pot veure"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.VisibleYou",
+      "value": "Ningú més el pot veure"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Error.AnError",
       "value": "S'ha produït un error. Torneu a provar-ho més tard."
     },
@@ -8111,6 +8881,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GramBalance",
+      "value": "Saldo de Grams"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Group",
       "value": "Grup"
     },
@@ -8176,6 +8951,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupRequestApproved",
+      "value": "S'ha aprovat la sol·licitud d'unir-vos al grup"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestApprovedChannel",
+      "value": "S'ha aprovat la sol·licitud d'unir-vos al canal"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestDeclined",
+      "value": "S'ha rebutjat la sol·licitud d'unir-vos al grup."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestDeclinedChannel",
+      "value": "S'ha rebutjat la sol·licitud d'unir-vos al canal."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestSent",
+      "value": "Us unireu al grup quan l'administració aprovi la sol·licitud."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestSentChannel",
+      "value": "Us unireu al canal una vegada un administrador aprovi la sol·licitud."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupStats.Title",
       "value": "Estadístiques del grup"
     },
@@ -8214,6 +9019,46 @@
       "_": "types.LangPackString",
       "key": "GrowthChartTitle",
       "value": "Creixement"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotEnableMembersText",
+      "value": "Abans que els membres nous puguin enviar missatges al grup, caldrà que **%s** els aprovi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotEnableSubscribersText",
+      "value": "Abans que els subscriptors nous puguin unir-se al canal, caldrà que **%s** els aprovi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotManagedBy",
+      "value": "Gestionat pel %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotProcessJoinRequests",
+      "value": "Processar les sol·licituds d'unió"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotProcessJoinRequestsInfo",
+      "value": "Permet que el bot aprovi membres nous amb la seva pròpia interfície, com ara captchas."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotReplaceText",
+      "value": "El **%1$s** gestiona les sol·licituds d'unió. Voleu canviar-lo pel **%2$s**?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotReplaceTitle",
+      "value": "Reemplaça el bot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotReplaceUse",
+      "value": "Usa %s"
     },
     {
       "_": "types.LangPackString",
@@ -10248,6 +11093,11 @@
       "key": "MediaFiles",
       "one_value": "%d fitxer",
       "other_value": "%d fitxers"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MediaViewer.Context.Copy",
+      "value": "Copia el fitxer"
     },
     {
       "_": "types.LangPackString",
@@ -13922,6 +14772,16 @@
       "_": "types.LangPackString",
       "key": "ProfileStoriesArchiveHint",
       "value": "Ningú pot veure les històries arxivades tret que decidiu publicar-les al perfil."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ProfileTab.OrderChanged",
+      "value": "S'ha canviat l'ordre de les pestanyes."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ProfileTab.SetAsMain",
+      "value": "Estableix com a pestanya principal"
     },
     {
       "_": "types.LangPackString",
@@ -19923,6 +20783,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WebAppGuardDisclaimerText",
+      "value": "**%1$s** usa el **%2$s** per a rebre els membres nous. Cal que accepteu les [Condicions d'ús]() de les miniaplicacions per a continuar."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "WebPage.InstantView",
       "value": "VISTA IMMEDIATA"
     },
@@ -20050,5 +20915,5 @@
       "other_value": "%1$d missatges"
     }
   ],
-  "version": 310389
+  "version": 326202
 }
