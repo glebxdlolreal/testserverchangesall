@@ -884,7 +884,8 @@ var BotSettings = {
   updateAllowedUrls() {
     var inputAllowedUrls = [];
     $('input[name="allowed_url[]"]').each(function () {
-      var url = URL.parse(this.value)?.href || this.value;
+      var url = this.value;
+      try { url = new URL(this.value).href; } catch (e) {}
       inputAllowedUrls.push({type: this.dataset.type, url: url})
     });
 
