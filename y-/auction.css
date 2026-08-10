@@ -4663,56 +4663,24 @@ a.tm-table-action-link:hover {
 }
 .tm-stars-price .tm-radio-desc {
   font-weight: normal;
-  text-align: right;
+  text-align: start;
   color: var(--dropdown-secondary-color);
   margin-left: 20px;
 }
 .tm-stars-options .stars-usd {
   width: 100px;
   text-align: right;
-  order: 1;
 }
 .tm-stars-options .stars-ton {
   width: 90px;
   text-align: start;
   font-weight: normal;
   color: var(--dropdown-secondary-color);
-  order: 2;
-}
-.js-stars-form.ton-payment .tm-stars-options .stars-usd {
-  width: 90px;
-  text-align: start;
-  font-weight: normal;
-  color: var(--dropdown-secondary-color);
-  order: 2;
-}
-.js-stars-form.ton-payment .tm-stars-options .stars-ton {
-  width: 100px;
-  text-align: right;
-  font-weight: inherit;
-  color: inherit;
-  order: 1;
-}
-.tm-stars-price .stars-usd {
-  order: 1;
 }
 .tm-stars-price .stars-ton {
   font-weight: normal;
   color: var(--dropdown-secondary-color);
   margin-left: 20px;
-  order: 2;
-}
-.js-stars-form.ton-payment .tm-stars-price .stars-usd {
-  font-weight: normal;
-  color: var(--dropdown-secondary-color);
-  margin-left: 20px;
-  order: 2;
-}
-.js-stars-form.ton-payment .tm-stars-price .stars-ton {
-  font-weight: inherit;
-  color: inherit;
-  margin-left: 0;
-  order: 1;
 }
 @media (max-width: 767px) {
   .tm-stars-options .stars-ton,
@@ -4726,6 +4694,8 @@ a.tm-table-action-link:hover {
   .js-stars-form.ton-payment .tm-stars-options .stars-ton,
   .js-stars-form.ton-payment .tm-stars-price .stars-ton {
     display: inline-block !important;
+    font-weight: inherit;
+    color: inherit;
   }
 }
 .tm-input:focus ~ .tm-stars-price {
