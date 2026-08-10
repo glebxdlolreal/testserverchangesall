@@ -543,7 +543,9 @@ var Gift = {
     let max_val = null;
     $(container + ' .skin-row-prob input').each((i, el) => {
       let val = Number(el.value);
-      count++;
+      if (val > 0) {
+        count++;
+      }
       sum += val;
       if (max_val === null || max_val < val) {
         max_val = val;
