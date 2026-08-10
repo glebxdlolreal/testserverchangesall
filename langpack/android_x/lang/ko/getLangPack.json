@@ -135,6 +135,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatOwnerChanged",
+      "value": "%1$s님이 이 대화의 새 소유자가 되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeft",
+      "value": "대화 소유자가 나갔습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeftTo",
+      "value": "대화 소유자가 나갔습니다. 돌아오지 않으면 %1$s님이 새 소유자가 됩니다."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChatRemovedFromCommunity",
       "value": "이 대화가 커뮤니티에서 삭제되었습니다"
     },
@@ -156,7 +171,7 @@
     {
       "_": "types.LangPackString",
       "key": "ActionChecklistAddOutMsg",
-      "value": "“%3$s” 체크리스트에 %1$s 항목을 추가했습니다"
+      "value": "\"%2$s\" 체크리스트에 %1$s 항목을 추가했습니다."
     },
     {
       "_": "types.LangPackString",
@@ -240,6 +255,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosed",
+      "value": "%1$s님이 일반 주제를 닫았습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosedOut",
+      "value": "일반 주제를 닫았습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopened",
+      "value": "%1$s님이 일반 주제를 다시 열었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopenedOut",
+      "value": "일반 주제를 다시 열었습니다."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionMute",
       "value": "음소거"
     },
@@ -252,6 +287,16 @@
       "_": "types.LangPackString",
       "key": "ActionMutePerson",
       "value": "%1$s 음소거"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPaidMessagesRefunded",
+      "other_value": "%2$s님이 메시지 %1$s개에 대한 %3$s를 환불했습니다."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPaidMessagesRefundedOut",
+      "other_value": "메시지 %1$s개에 대한 %2$s를 환불했습니다."
     },
     {
       "_": "types.LangPackString",
@@ -389,6 +434,16 @@
       "other_value": "%2$s님이 **유료 동영상 %1$s개**를 고정했습니다"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPriceChanged",
+      "other_value": "%2$s님이 메시지당 가격을 스타 %1$s개로 변경했습니다."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPriceChangedOut",
+      "other_value": "메시지당 가격을 스타 %1$s개로 변경했습니다."
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "읽음으로 표시"
@@ -437,6 +492,126 @@
       "_": "types.LangPackString",
       "key": "ActionSharingStillEnabled",
       "value": "이 대화에서는 공유가 아직 활성화되어 있습니다"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIcon",
+      "value": "%2$s님이 주제 아이콘을 %1$s로 변경했습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconName",
+      "value": "%3$s님이 주제 이름과 아이콘을 %1$s %2$s로 변경했습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconNameOut",
+      "value": "주제 이름과 아이콘을 %1$s %2$s로 변경했습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconOut",
+      "value": "주제 아이콘을 %1$s로 변경했습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosed",
+      "value": "%3$s님이 %1$s %2$s 주제를 닫았습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosedOut",
+      "value": "%1$s %2$s 주제를 닫았습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreate",
+      "value": "%2$s님이 %1$s 주제를 만들었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIcon",
+      "value": "%3$s님이 %1$s %2$s 주제를 만들었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIconOut",
+      "value": "%1$s %2$s 주제를 만들었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateOut",
+      "value": "%1$s 주제를 만들었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreated",
+      "value": "%1$s 주제가 생성되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreatedIcon",
+      "value": "%1$s %2$s 주제가 생성되었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHidden",
+      "value": "%1$s님이 일반 주제를 숨겼습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHiddenOut",
+      "value": "일반 주제를 숨겼습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamed",
+      "value": "%2$s님이 주제 이름을 %1$s로 변경했습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamedOut",
+      "value": "주제 이름을 %1$s로 변경했습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopened",
+      "value": "%3$s님이 %1$s %2$s 주제를 다시 열었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopenedOut",
+      "value": "%1$s %2$s 주제를 다시 열었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhidden",
+      "value": "%1$s님이 일반 주제 숨기기를 해제했습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhiddenOut",
+      "value": "일반 주제 숨기기를 해제했습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosed",
+      "value": "%1$s님이 주제를 닫았습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosedOut",
+      "value": "주제를 닫았습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopened",
+      "value": "%1$s님이 주제를 다시 열었습니다."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopenedOut",
+      "value": "주제를 다시 열었습니다."
     },
     {
       "_": "types.LangPackString",
@@ -16810,6 +16985,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SessionSnapshot",
+      "value": "세션 스냅샷"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshotDesc",
+      "value": "비공개 인증 데이터 보내기"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshotWarning",
+      "value": "**경고!**\n\n보내려는 스냅샷에는 텔레그램 계정에 접근할 수 있는 인증 정보가 포함되어 있습니다.\n\n내용과 위험을 정확히 이해한 경우가 아니라면 누구에게도 보내거나 전달하지 마세요."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SessionSystem",
       "value": "시스템"
     },
@@ -18095,6 +18285,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncBtn",
+      "value": "동기화"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncContacts",
       "value": "연락처 동기화"
     },
@@ -18130,18 +18325,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncHint3",
+      "value": "기기의 연락처(전화번호, 이름, 성)는 **텔레그램** 서버에 계속 업로드됩니다. 이를 통해 **연락처**에서 지인을 찾거나 지인이 텔레그램에 가입할 때 알림을 받을 수 있습니다.\n\n데이터는 **텔레그램**에만 전송되며 제3자와 공유되지 않습니다. 동기화가 켜진 상태에서 기기의 연락처를 삭제하면 **텔레그램** 서버에서도 삭제됩니다.\n\n**설정 > 개인정보 및 보안 > 동기화된 연락처 삭제**에서 언제든지 동기화를 끄거나 **텔레그램** 서버의 연락처 데이터를 삭제할 수 있습니다.\n\n동기화를 켜려면 **%1$s**에 기기 연락처 접근 권한도 허용해야 합니다."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncHintRetry",
-      "value": "텔레그램에서 친구들과 가족에게 메시지를 보내는 데 도움을 받으려면, 연락처 접근을 허용해 주세요.\n\n설정 > 권한에서 연락처를 켜세요."
+      "value": "연락처 동기화를 켜고 연락처를 텔레그램에 원활하게 업로드하려면 연락처 접근을 허용하세요.\n\n설정 > 권한을 누른 후 연락처를 켜세요."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintRetry2",
+      "value": "연락처 동기화를 켜고 연락처를 텔레그램에 원활하게 업로드하려면 연락처 접근을 허용하세요.\n\n**설정** > **권한**을 누른 후 **연락처**를 켜세요."
     },
     {
       "_": "types.LangPackString",
       "key": "SyncHintTitle",
-      "value": "연락처를 찾습니다"
+      "value": "텔레그램과 연락처를 동기화할까요?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintTitle2",
+      "value": "텔레그램과 연락처를 동기화할까요?"
     },
     {
       "_": "types.LangPackString",
       "key": "SyncHintUnavailable",
-      "value": "텔레그램이 회원님의 연락처에 접근하는 것을 허용하려면, '설정 > 권한'에 들어가 '연락처'를 켜세요."
+      "value": "설정 > 권한을 누른 후 연락처를 켜서 텔레그램 X에 연락처 접근 권한을 허용하고 텔레그램에서 지인을 찾으세요."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintUnavailable2",
+      "value": "설정 > 권한을 누른 후 연락처를 켜서 **%1$s**에 연락처 접근 권한을 허용하고 텔레그램에서 지인을 찾으세요."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncLearnMore",
+      "value": "개인정보 처리방침"
     },
     {
       "_": "types.LangPackString",
@@ -21660,6 +21880,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_notificationTitleSecret",
+      "value": "🔒️ %1$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_notificationTitleShort",
       "value": "%1$s (%2$s)"
     },
@@ -21717,6 +21942,11 @@
       "_": "types.LangPackString",
       "key": "format_plusPremium",
       "value": "+프리미엄"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_refundedStars",
+      "other_value": "스타 %1$s개"
     },
     {
       "_": "types.LangPackString",
@@ -23010,6 +23240,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "url_contactsPrivacy",
+      "value": "https://telegram.org/privacy#3-4-phone-number-and-contacts"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "url_faq",
       "value": "https://telegram.org/faq/ko#325188137"
     },
@@ -23669,5 +23904,5 @@
       "other_value": "%1$s년"
     }
   ],
-  "version": 1636974
+  "version": 1641967
 }
