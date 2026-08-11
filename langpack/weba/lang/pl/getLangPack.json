@@ -586,7 +586,7 @@
     {
       "_": "types.LangPackString",
       "key": "ActionPaidMessagePrice",
-      "value": "W {peer} zmieniono cenę na **{amount}** za wiadomość"
+      "value": "Użytkownik {peer} zmienił cenę na **{amount}** za wiadomość"
     },
     {
       "_": "types.LangPackString",
@@ -1107,6 +1107,16 @@
       "_": "types.LangPackString",
       "key": "ActionStarGiftUpgradedUser",
       "value": "Zmieniono prezent od {user} w unikalny przedmiot kolekcjonerski"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSuggestedBirthday",
+      "value": "{user} proponuje ci dodanie daty urodzenia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSuggestedBirthdayYou",
+      "value": "Proponujesz użytkownikowi {user} dodanie daty urodzenia"
     },
     {
       "_": "types.LangPackString",
@@ -2405,6 +2415,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BackgroundPatternIntensity",
+      "value": "Intensywność wzoru"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BioLimitSubtitle",
       "value": "Dodaj więcej znaków i użyj linków w swojej biografii"
     },
@@ -2412,6 +2427,16 @@
       "_": "types.LangPackString",
       "key": "BioLimitTitle",
       "value": "Biografia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdayAddToProfile",
+      "value": "Dodaj do mojego profilu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdayHideYear",
+      "value": "Ukryj rok"
     },
     {
       "_": "types.LangPackString",
@@ -2447,6 +2472,16 @@
       "_": "types.LangPackString",
       "key": "BirthdaySetupTitle",
       "value": "Data urodzenia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdaySuggest",
+      "value": "Proponuj datę urodzenia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdayTitleForPeer",
+      "value": "Data urodzenia {user}"
     },
     {
       "_": "types.LangPackString",
@@ -3414,6 +3449,11 @@
       "_": "types.LangPackString",
       "key": "ChatBackground",
       "value": "Tapeta czatu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatBackgroundColorThemes",
+      "value": "Kolory, gradienty i wzory"
     },
     {
       "_": "types.LangPackString",
@@ -5968,6 +6008,14 @@
       "other_value": "Wiadomość przekazana do {count} czatu."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Wiadomości przekazane do **Zapisanych wiadomości**",
+      "key": "FwdMessagesToSaved",
+      "many_value": "Wiadomości przekazane do **Zapisanych wiadomości**",
+      "one_value": "Wiadomość przekazana do **Zapisanych wiadomości**",
+      "other_value": "Wiadomości przekazane do **Zapisanych wiadomości**"
+    },
+    {
       "_": "types.LangPackString",
       "key": "General",
       "value": "Ogólne"
@@ -7444,6 +7492,11 @@
       "_": "types.LangPackString",
       "key": "GramAmount",
       "value": "{amount} 💎"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GramAmountIconLast",
+      "value": "{amount}💎"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -10031,6 +10084,46 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PersonalChannelAdd",
+      "value": "Dodaj"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelAddHint",
+      "value": "Dodaj swój kanał"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelDescription",
+      "value": "Wyświetl w swoim profilu kanał, którym zarządzasz."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelLabel",
+      "value": "Kanał"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelNoChannels",
+      "value": "Nie posiadasz żadnych kwalifikujących się kanałów."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelPickerTitle",
+      "value": "Wybierz kanał"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelRemove",
+      "value": "Usuń kanał"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelTitle",
+      "value": "Osobisty kanał"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Phone",
       "value": "Telefon"
     },
@@ -12606,6 +12699,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsAccount",
+      "value": "Konto"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAccountDesc",
+      "value": "Nazwa użytkownika, biografia, urodziny"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsAutomaticTextReplacements",
       "value": "Automatyczne zastępowanie tekstu"
     },
@@ -12636,6 +12739,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsDataDesc",
+      "value": "Pobieranie multimediów, pamięć"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsDisableNightTheme",
       "value": "Wyłącz tryb nocny"
     },
@@ -12661,8 +12769,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsFoldersDesc",
+      "value": "Sortowanie czatów w folderach"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsFoldersEmpty",
       "value": "Nie masz jeszcze folderów"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsGeneralDesc",
+      "value": "Tapeta, motyw, klawiatura"
     },
     {
       "_": "types.LangPackString",
@@ -12688,6 +12806,16 @@
       "_": "types.LangPackString",
       "key": "SettingsKeyboard",
       "value": "Klawiatura"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsLanguageDesc",
+      "value": "{language}, tłumaczenie wiadomości"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsNotificationsDesc",
+      "value": "Dźwięki, połączenia, plakietki"
     },
     {
       "_": "types.LangPackString",
@@ -12783,6 +12911,11 @@
       "_": "types.LangPackString",
       "key": "SettingsPerformanceContextBlur",
       "value": "Rozmycie menu kontekstowego"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsPerformanceDesc",
+      "value": "Animacje, przejścia, autoodtwarzanie"
     },
     {
       "_": "types.LangPackString",
@@ -12886,6 +13019,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsPrivacyDesc",
+      "value": "Ostatnio widziano, hasło, blokowani użytkownicy"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsSaveChanges",
       "value": "Zapisz zmiany"
     },
@@ -12928,6 +13066,16 @@
       "_": "types.LangPackString",
       "key": "SettingsSensitiveTitle",
       "value": "Wrażliwe treści"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsSessionsDesc",
+      "value": "Sesje, automatyczne kończenie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsStickersDesc",
+      "value": "Naklejki, emoji, reakcje"
     },
     {
       "_": "types.LangPackString",
@@ -13224,6 +13372,11 @@
       "_": "types.LangPackString",
       "key": "StarsAmount",
       "value": "{amount} ⭐️"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarsAmountIconLast",
+      "value": "{amount}⭐️"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -15213,5 +15366,5 @@
       "value": "Twoja nazwa"
     }
   ],
-  "version": 283197
+  "version": 283687
 }
