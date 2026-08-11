@@ -5435,8 +5435,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.Add",
+      "value": "新增"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.AllExcept",
       "value": "所有私聊，除了..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotDescription",
+      "value": "請輸入您希望自動處理聊天內容的 Telegram 機器人用戶名稱或網址。"
     },
     {
       "_": "types.LangPackString",
@@ -5497,6 +5507,21 @@
       "_": "types.LangPackString",
       "key": "ChatAutomation.ConnectionReview.Reject",
       "value": "不，那不是我！"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Rejected",
+      "value": "已撤銷機器人存取權限。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Text",
+      "value": "從 %s 連線至您的帳號。是您操作的嗎？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.TextNoLocation",
+      "value": "連線至您的帳號。是您操作的嗎？"
     },
     {
       "_": "types.LangPackString",
@@ -5570,6 +5595,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.HeroDescription",
+      "value": "將機器人新增至您的帳戶，以協助您自動處理並回覆收到的訊息。[了解更多 >]()"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.HeroTitle",
       "value": "聊天機器人"
     },
@@ -5582,6 +5612,16 @@
       "_": "types.LangPackString",
       "key": "ChatAutomation.IncludedDescription",
       "value": "選擇機器人**將有權**存取的聊天或整個聊天類型。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.LoadFailed",
+      "value": "無法載入"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageAutomation",
+      "value": "管理聊天自動化"
     },
     {
       "_": "types.LangPackString",
@@ -5625,8 +5665,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.Off",
+      "value": "關閉"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.OnlySelected",
       "value": "僅選定的聊天"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.PermissionWarningProceed",
+      "value": "繼續"
     },
     {
       "_": "types.LangPackString",
@@ -5660,13 +5710,58 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.RecipientCategories",
+      "value": "聊天類型"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RecipientLimit",
+      "value": "您最多可選取 100 位用戶。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RecipientSummaryEmpty",
+      "value": "新增"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RecipientsEmpty",
+      "value": "請至少選擇一位收件人。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.RemoveBot",
       "value": "移除機器人"
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.RemoveFromChat",
+      "value": "從此聊天室中移除機器人"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.Reply",
       "value": "回覆訊息"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RevokeFromChat",
+      "value": "撤銷對此聊天室的存取權限"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SaveSuccess",
+      "value": "聊天自動化已更新。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SearchFailed",
+      "value": "無法搜尋到機器人，請再試一次。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Searching",
+      "value": "正在搜尋機器人……"
     },
     {
       "_": "types.LangPackString",
@@ -5717,6 +5812,16 @@
       "_": "types.LangPackString",
       "key": "ChatAutomation.StarsWarning",
       "value": "機器人 **%s** 將有權**轉讓您的星星**。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Start",
+      "value": "啟用"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Stop",
+      "value": "停止"
     },
     {
       "_": "types.LangPackString",
@@ -6440,6 +6545,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.AddAllRequestsConfirm",
+      "value": "要將所有 %d 個待處理的聊天室加入此社群嗎？"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.AddBot",
       "value": "將機器人加入社群"
     },
@@ -6457,6 +6567,11 @@
       "_": "types.LangPackString",
       "key": "Community.AddChannelConfirm",
       "value": "若此頻道獲得社群管理員的批准，其成員將能夠加入或申請加入社群中的其他聊天室。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat",
+      "value": "新增聊天室"
     },
     {
       "_": "types.LangPackString",
@@ -6505,6 +6620,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.AdminRequired",
+      "value": "您已無權管理這些申請。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.AdministratorsInfo",
       "value": "您可以新增管理員來幫助您管理社群。"
     },
@@ -6517,6 +6637,11 @@
       "_": "types.LangPackString",
       "key": "Community.AllMembersInfo",
       "value": "允許成員將自己的群組和頻道新增到社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Ban",
+      "value": "封鎖"
     },
     {
       "_": "types.LangPackString",
@@ -6535,8 +6660,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.BanWarningTitle",
+      "value": "警告"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Banned",
       "value": "%s 已遭社群封鎖。"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.BannedCount",
+      "other_value": "已封鎖 %d 人"
     },
     {
       "_": "types.LangPackString",
@@ -6549,9 +6684,24 @@
       "value": "將您的機器人加入擁有多個相關聊天室的社群中。"
     },
     {
+      "_": "types.LangPackString",
+      "key": "Community.BotNotAccessible",
+      "value": "此機器人已無法存取。"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "Community.BotPeersLimit",
       "other_value": "已達到 %d 個機器人的上限。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.BotRemoved",
+      "value": "已從社群中移除機器人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChangeSettings",
+      "value": "變更設定 >"
     },
     {
       "_": "types.LangPackString",
@@ -6565,8 +6715,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.ChannelNotAccessible",
+      "value": "此頻道已無法存取。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChannelRemoved",
+      "value": "已從社群中移除頻道"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChannelRequestSent",
+      "value": "您加入此頻道的申請已傳送給其管理員。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatRemoved",
+      "value": "聊天室已從社群中移除。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatSettings",
+      "value": "社群聊天設定"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.ChatVisibility",
       "value": "聊天是否可見"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Chats",
+      "value": "社群聊天室"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.ChatsCount",
+      "other_value": "%d 個聊天室"
     },
     {
       "_": "types.LangPackString",
@@ -6590,6 +6775,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.CommunityAdded.View",
+      "value": "查看"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Create",
       "value": "建立社群"
     },
@@ -6600,8 +6790,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Created",
+      "value": "社群已建立"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.DeclineAll",
       "value": "全部拒絕"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DeclineAllRequests",
+      "value": "拒絕所有申請"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DeclineAllRequestsConfirm",
+      "value": "拒絕所有 %d 個待處理的聊天室推薦嗎？"
     },
     {
       "_": "types.LangPackString",
@@ -6610,13 +6815,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.DeleteConfirm",
+      "value": "刪除此社群？此操作無法復原。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Deleted",
+      "value": "社群已刪除"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Description",
       "value": "將您的群組加入擁有多個相關聊天室的社群中。"
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Edit",
+      "value": "編輯社群"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.GroupAdded",
       "value": "群組已加入到社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.GroupFull",
+      "value": "此群組已達到成員上限。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.GroupNotAccessible",
+      "value": "此群組已無法存取。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.GroupRequestSent",
+      "value": "您加入此群組的申請已傳送給其管理員。"
     },
     {
       "_": "types.LangPackString",
@@ -6645,6 +6880,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.JoinConfirm",
+      "value": "您想要加入「%s」嗎？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Leave",
+      "value": "退出社群"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.LeaveConfirm",
+      "value": "您確定要退出「%s」？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.LoadMore",
+      "value": "載入更多"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.MessageBotOwner",
       "value": "私訊機器人擁有者"
     },
@@ -6657,6 +6912,41 @@
       "_": "types.LangPackString",
       "key": "Community.MessageOwner",
       "value": "私訊群組擁有者"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Name",
+      "value": "名稱"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoAdministrators",
+      "value": "沒有管理員"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoChatsToAdd",
+      "value": "目前沒有可新增的聊天室。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoCommunities",
+      "value": "您目前還沒有任何社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoPendingRequests",
+      "value": "沒有待處理的申請"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoRemovedUsers",
+      "value": "沒有已移除的用戶"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoRequests",
+      "value": "無加入申請"
     },
     {
       "_": "types.LangPackString",
@@ -6682,6 +6972,11 @@
       "_": "types.LangPackString",
       "key": "Community.PendingRequests",
       "value": "待處理的申請"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.PendingRequestsCount",
+      "other_value": "%d 個推薦的聊天室"
     },
     {
       "_": "types.LangPackString",
@@ -6710,6 +7005,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Promote",
+      "value": "晉升"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PromoteAdmin",
+      "value": "晉升為管理員"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PromoteAdminConfirm",
+      "value": "將 %s 設為此社群的管理員？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveAdmin",
+      "value": "移除管理員"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveAdminConfirm",
+      "value": "將此管理員從社群中移除？"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.RemoveBot",
       "value": "從社群中移除機器人"
     },
@@ -6720,8 +7040,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.RemoveChat",
+      "value": "從社群中移除"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveChatConfirm",
+      "value": "從此社群中移除「%s」？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveConfirm",
+      "value": "從此社群中移除「%s」？"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.RemoveGroup",
       "value": "從社群中移除群組"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveUser",
+      "value": "移除用戶"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Removed",
+      "value": "已從社群中移除群組"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemovedFromCommunity",
+      "value": "已從社群中移除"
     },
     {
       "_": "types.LangPackString",
@@ -6729,9 +7079,54 @@
       "value": "被管理員移出社群的用戶，無法透過邀請連結重新加入。"
     },
     {
+      "_": "types.LangPackString",
+      "key": "Community.RequestAdded",
+      "value": "聊天室已加入到社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RequestDeclined",
+      "value": "已拒絕推薦。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RequestFailed",
+      "value": "無法更新此申請，請再試一次。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RequestJoinConfirm",
+      "value": "送出加入「%s 」的申請嗎？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RequestSent",
+      "value": "已送出申請"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "Community.RequestsAdded",
       "other_value": "%d 個聊天室已加入到社群。"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "Community.RequestsDeclined",
+      "other_value": "已拒絕 %d 項推薦。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RequestsLoadFailed",
+      "value": "無法載入待處理的申請，請再試一次。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Retry",
+      "value": "重試"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SaveChanges",
+      "value": "儲存變更"
     },
     {
       "_": "types.LangPackString",
@@ -6750,8 +7145,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Someone",
+      "value": "某人"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.SuggestedBot",
       "value": "推薦了此機器人"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedBy",
+      "value": "推薦人："
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedBySomeone",
+      "value": "有人推薦了此聊天室"
     },
     {
       "_": "types.LangPackString",
@@ -6772,6 +7182,11 @@
       "_": "types.LangPackString",
       "key": "Community.Unban",
       "value": "解除封鎖"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.View",
+      "value": "查看社群"
     },
     {
       "_": "types.LangPackString",
@@ -8280,8 +8695,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Ephemeral.About",
+      "value": "只有您能看到此訊息。重新啟動應用程式後，此訊息將會消失。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Ephemeral.CantSchedule",
       "value": "無法預約臨時訊息。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.CommandAmbiguous",
+      "value": "加入 @username 以選擇應接收此指令的機器人。"
     },
     {
       "_": "types.LangPackString",
@@ -8290,8 +8715,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Ephemeral.CommandUnavailable",
+      "value": "此機器人尚不可用，請再試一次。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Ephemeral.ReplySingleMessage",
       "value": "您只能回覆此訊息一次。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.Retry",
+      "value": "重試"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.SendFailed",
+      "value": "無法傳送這則私訊。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.SendUnavailable",
+      "value": "無法再次傳送這則私訊。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.SingleAttachment",
+      "value": "您只能在臨時訊息中附加一個檔案。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Ephemeral.UnsupportedContent",
+      "value": "此內容無法以臨時訊息傳送。"
     },
     {
       "_": "types.LangPackString",
@@ -9532,6 +9987,11 @@
       "_": "types.LangPackString",
       "key": "GrowthChartTitle",
       "value": "總人數"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotEnable",
+      "value": "啟用"
     },
     {
       "_": "types.LangPackString",
@@ -11442,6 +11902,16 @@
       "_": "types.LangPackStringPluralized",
       "key": "Media",
       "other_value": "%d 個媒體"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MediaCopied",
+      "value": "媒體已複製到剪貼簿"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MediaCopyFailed",
+      "value": "無法將媒體複製到剪貼簿"
     },
     {
       "_": "types.LangPackString",
@@ -13377,6 +13847,11 @@
       "_": "types.LangPackString",
       "key": "PaymentInvoice",
       "value": "請款單"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PaymentInvoiceDisabledStarsText",
+      "value": "沒有足夠的星星"
     },
     {
       "_": "types.LangPackString",
@@ -18820,8 +19295,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarsNotAvailableText",
+      "value": "抱歉，您的國家目前無法購買星星。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarsNotAvailableTitle",
+      "value": "不可用"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarsPending",
       "value": "待處理"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarsPurchaseUnavailable",
+      "value": "目前無法購買星星。"
     },
     {
       "_": "types.LangPackString",
@@ -20625,6 +21115,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UnsavedChangesDescription.ChatAutomation",
+      "value": "您已變更聊天自動化設定。是否儲存變更？"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UnsavedChangesDescription.Group",
       "value": "您已變更此群組中的某些設定。套用變更嗎？"
     },
@@ -21355,6 +21850,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "VoiceChat.Topbar.Join",
+      "value": "加入"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "VoiceChat.UnmuteForMe",
       "value": "為我取消靜音"
     },
@@ -21589,5 +22089,5 @@
       "other_value": "%1$d 則訊息"
     }
   ],
-  "version": 326502
+  "version": 327169
 }
