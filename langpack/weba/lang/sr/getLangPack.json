@@ -1095,6 +1095,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionSuggestedBirthday",
+      "value": "{user} вам је предложио/ла да додате свој рођендан"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSuggestedBirthdayYou",
+      "value": "Предложили сте кориснику {user} да дода рођендан"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionSuggestedChangesIncoming",
       "value": "**{user}** је предложио/ла {changes} за ову објаву."
     },
@@ -2380,6 +2390,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BackgroundPatternIntensity",
+      "value": "Јачина узорка"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BioLimitSubtitle",
       "value": "Додајте више знакова и користите везе у опису профила"
     },
@@ -2387,6 +2402,16 @@
       "_": "types.LangPackString",
       "key": "BioLimitTitle",
       "value": "Опис профила"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdayAddToProfile",
+      "value": "Додај на мој профил"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdayHideYear",
+      "value": "Сакриј годину"
     },
     {
       "_": "types.LangPackString",
@@ -2406,7 +2431,7 @@
     {
       "_": "types.LangPackString",
       "key": "BirthdayPrivacySuggestion",
-      "value": "{link} ко може видети ваш рођендан"
+      "value": "{link} ко може видети ваш рођендан."
     },
     {
       "_": "types.LangPackString",
@@ -2422,6 +2447,11 @@
       "_": "types.LangPackString",
       "key": "BirthdaySetupTitle",
       "value": "Датум рођења"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdaySuggest",
+      "value": "Предложи датум рођења"
     },
     {
       "_": "types.LangPackString",
@@ -3385,6 +3415,11 @@
       "_": "types.LangPackString",
       "key": "ChatBackground",
       "value": "Позадина ћаскања"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatBackgroundColorThemes",
+      "value": "Боје, преливи и узорци"
     },
     {
       "_": "types.LangPackString",
@@ -5910,6 +5945,13 @@
       "other_value": "Порука прослеђена у {count} ћаскања"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Поруке прослеђене у **Сачуване поруке**",
+      "key": "FwdMessagesToSaved",
+      "one_value": "Порука прослеђена у **Сачуване поруке**",
+      "other_value": "Поруке прослеђене у **Сачуване поруке**"
+    },
+    {
       "_": "types.LangPackString",
       "key": "General",
       "value": "Опште"
@@ -7360,6 +7402,11 @@
       "_": "types.LangPackString",
       "key": "GramAmount",
       "value": "{amount} 💎"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GramAmountIconLast",
+      "value": "{amount}💎"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -9901,6 +9948,41 @@
       "_": "types.LangPackString",
       "key": "Permanent",
       "value": "Главна веза"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelAdd",
+      "value": "Додај"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelAddHint",
+      "value": "Додајте канал"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelDescription",
+      "value": "Прикажите на профилу канал којим управљате."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelLabel",
+      "value": "Канал"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelPickerTitle",
+      "value": "Изаберите канал"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelRemove",
+      "value": "Уклањање канала"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelTitle",
+      "value": "Лични канал"
     },
     {
       "_": "types.LangPackString",
@@ -12464,6 +12546,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsAccount",
+      "value": "Налог"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAccountDesc",
+      "value": "Корисничко име, опис профила, рођендан"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsAutomaticTextReplacements",
       "value": "Аутоматске замене текста"
     },
@@ -13080,6 +13172,11 @@
       "_": "types.LangPackString",
       "key": "StarsAmount",
       "value": "{amount} ⭐"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarsAmountIconLast",
+      "value": "{amount}⭐️"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -15065,5 +15162,5 @@
       "value": "Ваше име"
     }
   ],
-  "version": 282950
+  "version": 283719
 }
