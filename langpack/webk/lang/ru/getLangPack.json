@@ -5631,8 +5631,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.BotHasAccess",
+      "value": "у бота есть доступ к этому чату"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotManagesChat",
+      "value": "бот управляет этим чатом"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.BotNotFound",
       "value": "Бот не найден"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotPaused",
+      "value": "бот приостановлен"
     },
     {
       "_": "types.LangPackString",
@@ -5653,6 +5668,41 @@
       "_": "types.LangPackString",
       "key": "ChatAutomation.ChooseBot",
       "value": "Выберите бота, который будет автоматически обрабатывать Ваши чаты."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectedFrom",
+      "value": "Сведения о подключении"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Confirm",
+      "value": "Да, это я"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Confirmed",
+      "value": "Подключение бота разрешено."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Reject",
+      "value": "Нет, не я!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Text",
+      "value": "был подключён к Вашему аккаунту с %s. Это были Вы?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.TextNoLocation",
+      "value": "был подключён к Вашему аккаунту. Это были Вы?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Title",
+      "value": "Бот получил доступ к Вашим чатам!"
     },
     {
       "_": "types.LangPackString",
@@ -5746,6 +5796,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageAutomation",
+      "value": "Настройка автоматизации"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageBot",
+      "value": "Управление ботом"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.ManageGifts",
       "value": "Подарки и звёзды"
     },
@@ -5831,8 +5891,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.RecipientLimit",
+      "value": "Можно выбрать не более 100 пользователей."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.RecipientSummaryEmpty",
       "value": "Добавить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RecipientsEmpty",
+      "value": "Выберите хотя бы одного получателя."
     },
     {
       "_": "types.LangPackString",
@@ -5871,6 +5941,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.Session",
+      "value": "Бот для автоматизации"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SessionDate",
+      "value": "Дата"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SessionDevice",
+      "value": "Устройство"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SessionLocation",
+      "value": "Место"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.SetupNotCompletedLeave",
       "value": "Выйти"
     },
@@ -5891,6 +5981,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.Start",
+      "value": "Запустить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Stop",
+      "value": "Остановить"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TerminateConnectedBot",
+      "value": "Также отключить %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TerminateSession",
+      "value": "Завершить сеанс"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.Title",
       "value": "Автоматизация чатов"
     },
@@ -5908,6 +6018,11 @@
       "_": "types.LangPackString",
       "key": "ChatAutomation.UsernameWarning",
       "value": "Бот **%s** сможет **задавать и сбрасывать имена пользователя** для Вашего аккаунта. Это может привести к потере Вашего имени пользователя."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ViaBotTooltip",
+      "value": "Только Вы видите, что сообщение отправлено ботом."
     },
     {
       "_": "types.LangPackString",
@@ -6608,6 +6723,36 @@
       "_": "types.LangPackString",
       "key": "Community.AddAllRequestsConfirm",
       "value": "Добавить чаты (%d) в сообщество?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminAddAdmins",
+      "value": "Назначение администраторов"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminBanMembers",
+      "value": "Блокировка участников"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminEditChats",
+      "value": "Изменение списка чатов"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminEditInfo",
+      "value": "Изменение названия"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.BanFromCommunity",
+      "value": "Заблокировать в сообществе"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Banned",
+      "value": "%s исключен(а) из сообщества и заблокирован(а)."
     },
     {
       "_": "types.LangPackString",
@@ -11622,6 +11767,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "MediaViewer.Context.Copy",
+      "value": "Копировать медиа"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "MediaViewer.Context.Download",
       "value": "Загрузить"
     },
@@ -15431,6 +15581,16 @@
       "_": "types.LangPackString",
       "key": "ProfileStoriesArchiveHint",
       "value": "Истории из архива будут видны только Вам, если Вы не опубликуете их в своём профиле."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ProfileTab.OrderChanged",
+      "value": "Порядок изменён."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ProfileTab.SetAsMain",
+      "value": "Сделать основной вкладкой"
     },
     {
       "_": "types.LangPackString",
@@ -21920,5 +22080,5 @@
       "other_value": "%1$d сообщений"
     }
   ],
-  "version": 327047
+  "version": 327416
 }
