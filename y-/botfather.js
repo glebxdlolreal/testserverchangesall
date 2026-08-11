@@ -516,6 +516,7 @@ var BotSettings = {
         <input type="url" class="form-control tm-input" name="allowed_url[]" data-type="${field_type}" placeholder="Enter URL" autocomplete="off" spellcheck="false" />
         <span class="icon-before icon-delete-item js-delete-allowed-url"></span>
       </div>`);
+      BotSettings.updateAddButtons();
     });
 
     $('.tm-row-toggle').on('click', function () {
@@ -654,6 +655,7 @@ var BotSettings = {
     $(cont).on('click.curPage', '.js-delete-allowed-url', function () {
       $(this).parent('.tm-row').remove();
       BotSettings.updateAllowedUrls();
+      BotSettings.updateAddButtons();
     });
 
     $(cont).on('change.curPage', 'input[name="allowed_url[]"]', BotSettings.updateAllowedUrls);
@@ -812,6 +814,8 @@ var BotSettings = {
       $(this).parent().toggleClass('selected');
       botChangeSettings('oauth_alg', value);
     });
+
+    BotSettings.updateAddButtons();
   },
 
   addNativeAppEntry(platform) {
@@ -906,8 +910,19 @@ var BotSettings = {
             $(this).addClass('error');
           }
         })
+        BotSettings.updateAddButtons();
       }
     })
+  },
+
+  updateAddButtons() {
+    $('.js-add-allowed-url').each(function () {
+      var type = this.dataset.type;
+      var count = $('input[name="allowed_url[]"]').filter(function () {
+        return this.dataset.type == type;
+      }).length;
+      $(this).toggleClass('hidden', count >= 20);
+    });
   },
 
   eClickSpoiler() {
