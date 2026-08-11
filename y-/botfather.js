@@ -904,12 +904,25 @@ var BotSettings = {
         return;
       }
       if (res.allowed_urls) {
+        var firstError = '';
         $('input[name="allowed_url[]"]').each(function (i) {
-          $(this).val(res.allowed_urls[i].url);
-          if (res.allowed_urls[i].error) {
+          var item = res.allowed_urls[i];
+          if (!item) {
+            return;
+          }
+          $(this).val(item.url);
+          if (item.error) {
             $(this).addClass('error');
+            if (!firstError) {
+              firstError = item.error;
+            }
+          } else {
+            $(this).removeClass('error');
           }
         })
+        if (firstError) {
+          TWebApp.showErrorToast(firstError);
+        }
         BotSettings.updateAddButtons();
       }
     })
