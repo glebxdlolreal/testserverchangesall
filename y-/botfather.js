@@ -658,9 +658,13 @@ var BotSettings = {
       BotSettings.updateAddButtons();
     });
 
-    $(cont).on('change.curPage', 'input[name="allowed_url[]"]', BotSettings.updateAllowedUrls);
+    Aj.state.allowedUrlsDebounce = debounce();
+    $(cont).on('change.curPage', 'input[name="allowed_url[]"]', function () {
+      Aj.state.allowedUrlsDebounce(BotSettings.updateAllowedUrls, 0);
+    });
     $(cont).on('input.curPage', 'input[name="allowed_url[]"]', function () {
       $(this).removeClass('error');
+      Aj.state.allowedUrlsDebounce(BotSettings.updateAllowedUrls, 600);
     });
 
     Aj.state.webLoginDebounce = debounce();
