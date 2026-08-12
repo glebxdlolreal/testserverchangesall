@@ -723,6 +723,13 @@ var Main = {
 
     var $radio = $('input.radio', $cur_cont);
     $radio.prop('checked', true).trigger('change');
+    Main.ePaymentMethodChanged();
+  },
+  ePaymentMethodChanged: function() {
+    var $form = $('.js-stars-form');
+    if ($form.length) {
+      $form.toggleClass('ton-payment', $form.field('payment_method').value() == 'ton');
+    }
   },
   eMainSearchClear: function(e) {
     var $form = Aj.state.$mainSearchForm;
@@ -3505,6 +3512,7 @@ var Stars = {
       state.$starsSearchForm.field('quantity').on('change', Stars.eQuantityChanged);
       state.$starsSearchForm.on('change', '.js-stars-options input.radio', Stars.eRadioChanged);
       state.$starsSearchForm.on('change', 'input.radio', Stars.updateButton);
+      state.$starsSearchForm.on('change', 'input[name="payment_method"]', Main.ePaymentMethodChanged);
       state.$starsBuyForm.on('change', 'input.checkbox', Stars.eCheckboxChanged);
       state.$starsBuyBtn = $('.js-stars-buy-btn');
       state.curQuantity = state.$starsSearchForm.field('quantity').value();
@@ -3521,6 +3529,7 @@ var Stars = {
       });
       RLottie.init();
       Stars.updateButton();
+      Main.ePaymentMethodChanged();
     });
     Aj.onUnload(function(state) {
       clearTimeout(state.updStateTo);
@@ -3532,6 +3541,7 @@ var Stars = {
       $('.js-form-clear', state.$starsSearchForm).off('click', Stars.eSearchClear);
       state.$starsSearchForm.field('quantity').off('change', Stars.eQuantityChanged);
       state.$starsSearchForm.off('change', '.js-stars-options input.radio', Stars.eRadioChanged);
+      state.$starsSearchForm.off('change', 'input[name="payment_method"]', Main.ePaymentMethodChanged);
       state.$starsBuyForm.off('change', 'input.checkbox', Stars.eCheckboxChanged);
       $('.js-preview-sticker').each(function() {
         RLottie.destroy(this);
@@ -3980,6 +3990,7 @@ var StarsGiveaway = {
       state.$starsSearchForm.field('quantity').on('change', StarsGiveaway.eQuantityChanged);
       state.$starsSearchForm.on('change', '.js-stars-options input.radio', StarsGiveaway.eRadioChanged);
       state.$starsSearchForm.on('change', 'input.radio', StarsGiveaway.updateButton);
+      state.$starsSearchForm.on('change', 'input[name="payment_method"]', Main.ePaymentMethodChanged);
       state.$giveawayStarsBtn = $('.js-giveaway-stars-btn');
       state.$starsBuyBtn = $('.js-stars-buy-btn');
       state.curQuantity = state.$starsSearchForm.field('quantity').value();
@@ -3994,6 +4005,7 @@ var StarsGiveaway = {
         RLottie.init(this, {playUntilEnd: true});
       });
       RLottie.init();
+      Main.ePaymentMethodChanged();
     });
     Aj.onUnload(function(state) {
       clearTimeout(state.updStateTo);
@@ -4006,6 +4018,7 @@ var StarsGiveaway = {
       state.$starsSearchForm.field('quantity').off('change', StarsGiveaway.eQuantityChanged);
       state.$starsSearchForm.off('change', '.js-stars-options input.radio', StarsGiveaway.eRadioChanged);
       state.$starsSearchForm.off('change', 'input.radio', StarsGiveaway.updateButton);
+      state.$starsSearchForm.off('change', 'input[name="payment_method"]', Main.ePaymentMethodChanged);
       state.$giveawayStarsForm.off('change', 'input.checkbox', StarsGiveaway.eCheckboxChanged);
       $('.js-preview-sticker').each(function() {
         RLottie.destroy(this);
