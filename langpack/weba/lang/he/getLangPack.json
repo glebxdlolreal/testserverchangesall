@@ -1110,6 +1110,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionSuggestedBirthday",
+      "value": "⁨{user}⁩ הציע/ה שתוסיף את יום ההולדת שלך"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSuggestedBirthdayYou",
+      "value": "הצעת ל⁨{user}⁩ להוסיף את יום ההולדת"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionSuggestedChangesIncoming",
       "value": "**⁨{user}⁩** הציע/ה ⁨{changes}⁩ עבור פוסט זה."
     },
@@ -2405,6 +2415,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BackgroundPatternIntensity",
+      "value": "חוזק התבנית"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BioLimitSubtitle",
       "value": "הוסף עוד תווים והשתמש בקישורים במקטע האודות שלך"
     },
@@ -2412,6 +2427,16 @@
       "_": "types.LangPackString",
       "key": "BioLimitTitle",
       "value": "אודות"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdayAddToProfile",
+      "value": "הוסף לפרופיל שלי"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdayHideYear",
+      "value": "הסתר את השנה"
     },
     {
       "_": "types.LangPackString",
@@ -2447,6 +2472,16 @@
       "_": "types.LangPackString",
       "key": "BirthdaySetupTitle",
       "value": "תאריך לידה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdaySuggest",
+      "value": "הצע תאריך לידה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdayTitleForPeer",
+      "value": "תאריך הלידה של ⁨{user}⁩"
     },
     {
       "_": "types.LangPackString",
@@ -3414,6 +3449,11 @@
       "_": "types.LangPackString",
       "key": "ChatBackground",
       "value": "טפט הצ'אט"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatBackgroundColorThemes",
+      "value": "צבעים, מעברי צבע ותבניות"
     },
     {
       "_": "types.LangPackString",
@@ -5323,6 +5363,22 @@
       "value": "הכתבה מקוננת יותר מדי. העומק המקסימלי הוא ⁨{count}⁩."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ErrorRichMessageTooManyBlocks",
+      "many_value": "הודעה זו מכילה יותר מדי בלוקים. נא להסיר ⁨{count}⁩ בלוקים.",
+      "one_value": "הודעה זו מכילה יותר מדי בלוקים. נא להסיר בלוק ⁨{count}⁩.",
+      "other_value": "הודעה זו מכילה יותר מדי בלוקים. נא להסיר ⁨{count}⁩ בלוקים.",
+      "two_value": "הודעה זו מכילה יותר מדי בלוקים. נא להסיר ⁨{count}⁩ בלוקים."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ErrorRichMessageTooManyMedia",
+      "many_value": "הודעה זו מכילה יותר מדי פריטי מדיה. נא להסיר ⁨{count}⁩ פריטים.",
+      "one_value": "הודעה זו מכילה יותר מדי פריטי מדיה. נא להסיר פריט ⁨{count}⁩.",
+      "other_value": "הודעה זו מכילה יותר מדי פריטי מדיה. נא להסיר ⁨{count}⁩ פריטים.",
+      "two_value": "הודעה זו מכילה יותר מדי פריטי מדיה. נא להסיר ⁨{count}⁩ פריטים."
+    },
+    {
       "_": "types.LangPackString",
       "key": "ErrorSendRestrictedStickersAll",
       "value": "מצטערים, לא ניתן לשלוח מדבקות לקבוצה זו"
@@ -5950,6 +6006,14 @@
       "one_value": "ההודעה הועברה לצ'אט ⁨{count}⁩.",
       "other_value": "ההודעה הועברה ל⁨{count}⁩ צ'אטים.",
       "two_value": "ההודעה הועברה ל⁨{count}⁩ צ'אטים."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "FwdMessagesToSaved",
+      "many_value": "ההודעות הועברו ל**הודעות שמורות**.",
+      "one_value": "ההודעה הועברה ל**הודעות שמורות**.",
+      "other_value": "ההודעות הועברו ל**הודעות שמורות**.",
+      "two_value": "ההודעות הועברו ל**הודעות שמורות**."
     },
     {
       "_": "types.LangPackString",
@@ -7428,6 +7492,11 @@
       "_": "types.LangPackString",
       "key": "GramAmount",
       "value": "💎⁨{amount}⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GramAmountIconLast",
+      "value": "⁨{amount}⁩💎"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -10012,6 +10081,41 @@
       "_": "types.LangPackString",
       "key": "Permanent",
       "value": "קישור ראשי"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelAdd",
+      "value": "הוסף"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelAddHint",
+      "value": "הוסף את הערוץ שלך"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelLabel",
+      "value": "ערוץ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelNoChannels",
+      "value": "אין לך ערוץ מתאים."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelPickerTitle",
+      "value": "בחר ערוץ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelRemove",
+      "value": "הסר ערוץ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelTitle",
+      "value": "ערוץ אישי"
     },
     {
       "_": "types.LangPackString",
@@ -12600,8 +12704,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsAccount",
+      "value": "חשבון"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAccountDesc",
+      "value": "מספר, שם משתמש, אודות"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsAutomaticTextReplacements",
       "value": "החלפת טקסט אוטומטית"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAutomaticTextReplacementsInfo",
+      "value": "המר --, << ו- >> תוך כדי הקלדה"
     },
     {
       "_": "types.LangPackString",
@@ -12622,6 +12741,11 @@
       "_": "types.LangPackString",
       "key": "SettingsDataClearMediaDone",
       "value": "מטמון המדיה נוקה"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsDataDesc",
+      "value": "הורדת מדיה, מטמון"
     },
     {
       "_": "types.LangPackString",
@@ -12650,8 +12774,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsFoldersDesc",
+      "value": "מיון צ'אטים לתיקיות"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsFoldersEmpty",
       "value": "אין לך עדיין תיקיות"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsGeneralDesc",
+      "value": "טפט, ערכת נושא, מקלדת"
     },
     {
       "_": "types.LangPackString",
@@ -12677,6 +12811,16 @@
       "_": "types.LangPackString",
       "key": "SettingsKeyboard",
       "value": "מקלדת"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsLanguageDesc",
+      "value": "⁨{language}⁩, תרגום הודעות"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsNotificationsDesc",
+      "value": "צלילים, שיחות, תגים"
     },
     {
       "_": "types.LangPackString",
@@ -12772,6 +12916,11 @@
       "_": "types.LangPackString",
       "key": "SettingsPerformanceContextBlur",
       "value": "טשטוש תפריט ההקשר"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsPerformanceDesc",
+      "value": "אנימציות, מעברים, הפעלה אוטומטית"
     },
     {
       "_": "types.LangPackString",
@@ -12875,6 +13024,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsPrivacyDesc",
+      "value": "נראה לאחרונה, סיסמה, משתמשים חסומים"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsSaveChanges",
       "value": "שמור שינויים"
     },
@@ -12917,6 +13071,16 @@
       "_": "types.LangPackString",
       "key": "SettingsSensitiveTitle",
       "value": "תוכן רגיש"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsSessionsDesc",
+      "value": "חיבורים, סיום אוטומטי"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsStickersDesc",
+      "value": "מדברות, אימוג'ים, רגשונים"
     },
     {
       "_": "types.LangPackString",
@@ -13213,6 +13377,11 @@
       "_": "types.LangPackString",
       "key": "StarsAmount",
       "value": "⭐️⁨{amount}⁩"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarsAmountIconLast",
+      "value": "⁨{amount}⁩⭐️"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -15212,5 +15381,5 @@
       "value": "השם שלך"
     }
   ],
-  "version": 276560
+  "version": 283826
 }
