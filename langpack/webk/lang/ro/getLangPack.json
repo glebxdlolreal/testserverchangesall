@@ -4561,6 +4561,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChannelSettingsJoinRequestChannel",
+      "value": "Aprobă abonații noi"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChannelSettingsJoinRequestInfo",
       "value": "Pornește dacă vrei ca utilizatorii să se poată alătura doar după ce au fost aprobați de un admin."
     },
@@ -5223,6 +5228,51 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Bot",
+      "value": "Robotul a fost adăugat în comunitatea %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Channel",
+      "value": "Canalul a fost adăugat în comunitatea %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.By",
+      "value": "%1$s a adăugat acest grup în comunitatea %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.Unknown",
+      "value": "Grupul a fost adăugat în comunitatea %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.You",
+      "value": "Ai adăugat grupul în comunitatea %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Bot",
+      "value": "Robotul a fost eliminat dintr-o comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Channel",
+      "value": "Canalul a fost eliminat dintr-o comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Group.By",
+      "value": "%1$s a eliminat grupul dintr-o comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Group.You",
+      "value": "Ai eliminat acest grup dintr-o comunitate"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.Service.ConferenceCall.Ended",
       "value": "Apel de grup încheiat (%1$@)"
     },
@@ -5549,13 +5599,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.BotHasAccess",
+      "value": "robotul are acces la conversație"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotManagesChat",
+      "value": "robotul gestionează conversația"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.BotNotFound",
       "value": "Chatbotul nu a fost găsit"
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.BotPaused",
+      "value": "robot în pauză"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.BotPlaceholder",
       "value": "Nume de Utilizator Robot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotUnsupported",
+      "value": "Acest robot nu suportă Modul Secretar încă."
     },
     {
       "_": "types.LangPackString",
@@ -5566,6 +5636,46 @@
       "_": "types.LangPackString",
       "key": "ChatAutomation.ChooseBot",
       "value": "Alege un robot care să-ți gestioneze conversațiile automat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectedFrom",
+      "value": "Connectat de pe"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Confirm",
+      "value": "Da, eu sunt"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Confirmed",
+      "value": "Robot nou permis."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Reject",
+      "value": "Nu, nu sunt eu!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Rejected",
+      "value": "Acces robot revocat."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Text",
+      "value": "s-a conectat la conul tău din %s. Tu ai fost?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.TextNoLocation",
+      "value": "s-a conectat la conul tău. Tu ai fost?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Title",
+      "value": "Un robot a primit acces la mesajele tale!"
     },
     {
       "_": "types.LangPackString",
@@ -5624,6 +5734,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.GiftsAndStarsWarning",
+      "value": "Robotul **%s** va putea să **îți gestioneze cadourile și stelele**, incluzând dăruirea lor altor utilizatori."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.GiftsWarning",
+      "value": "Robotul **%s** va putea să **îți gestioneze cadourile**, incluzând dăruirea lor altor utilizatori."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.HeroDescription",
       "value": "Adaugă un robot în contul tău pentru a te ajuta să procesezi și să răspunzi la mesajele pe care le primești automat. [Mai Multe >]()"
     },
@@ -5646,6 +5766,11 @@
       "_": "types.LangPackString",
       "key": "ChatAutomation.LoadFailed",
       "value": "Încărcare eșuată"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageBot",
+      "value": "Gestionează robot"
     },
     {
       "_": "types.LangPackString",
@@ -5734,8 +5859,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.RecipientLimit",
+      "value": "Poți selecta până la 100 de utlizatori."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.RecipientSummaryEmpty",
       "value": "Adaugă"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RecipientsEmpty",
+      "value": "Alege cel puțin un destinatar."
     },
     {
       "_": "types.LangPackString",
@@ -5746,6 +5881,11 @@
       "_": "types.LangPackString",
       "key": "ChatAutomation.Reply",
       "value": "Răspunde la Mesaje"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SaveSuccess",
+      "value": "Automatizare conversație actualizată."
     },
     {
       "_": "types.LangPackString",
@@ -5769,6 +5909,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.Session",
+      "value": "Robot Automatizare Conversație"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SessionDate",
+      "value": "Dată"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SessionDevice",
+      "value": "Dispozitiv"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SessionLocation",
+      "value": "Locație"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.SetupNotCompletedLeave",
       "value": "Ieși"
     },
@@ -5784,6 +5944,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.StarsWarning",
+      "value": "Robotul **%s** va putea să **îți transfere stelele**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Start",
+      "value": "Start"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Stop",
+      "value": "Stop"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TerminateConnectedBot",
+      "value": "Încheie și %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TerminateSession",
+      "value": "Încheie Sesiunea"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.Title",
       "value": "Automatizare Conversație"
     },
@@ -5796,6 +5981,11 @@
       "_": "types.LangPackString",
       "key": "ChatAutomation.TransferStars",
       "value": "Transferă Stele"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.UsernameWarning",
+      "value": "Robotul **%s** va putea să **seteze și elimine nume de utilizator** pt. contul tău, fapt ce va putea rezulta în pierderea numelui tău de utilizator curent."
     },
     {
       "_": "types.LangPackString",
@@ -6481,6 +6671,171 @@
       "key": "CommonGroups",
       "one_value": "%1$d grup comun",
       "other_value": "%1$d de grupuri comune"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddAll",
+      "value": "Adaugă Toate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddAllRequests",
+      "value": "Adaugă Toate Conversațiile"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddBot",
+      "value": "Adaugă Robotul într-o Comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChannel",
+      "value": "Adaugă Canalul într-o Comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChannelConfirm",
+      "value": "Dacă acest canal este aprobat de un admin al Comunității, abonații săi se vor putea alătura sau cere să se alăture în alte conversații în Comunitate."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChatButton",
+      "value": "Adaugă o Conversație"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddExisting",
+      "value": "Adaugă într-o comunitate existentă"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddGroup",
+      "value": "Adaugă Grupul într-o Comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddGroupConfirm",
+      "value": "Dacă acest grup este aprobat de un admin al Comunității, membrii săi se vor putea alătura sau cere să se alăture în alte conversații în Comunitate."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddTo",
+      "value": "Adaugă în Comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AllMembers",
+      "value": "Toți Membrii"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AllMembersInfo",
+      "value": "Permite membrilor să își adauge grupurile și canalele în comunitate."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChannelDescription",
+      "value": "Fă-ți canalul parte a unei comunități cu multiple conversații asociate."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatVisibility",
+      "value": "Vizibilitate conversație"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.CommunityAdded.View",
+      "value": "Vezi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Create",
+      "value": "Creează Comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.CreateChat",
+      "value": "Creează o Conversație Nouă"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DeclineAll",
+      "value": "Respinge Toate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Description",
+      "value": "Fă-ți grupul parte a unei comunități cu multiple conversații asociate."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Hidden",
+      "value": "Ascunsă"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.HiddenInfo",
+      "value": "Doar membrii invitați și adminii comunității vor vedea conversația."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Name",
+      "value": "Nume"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoPendingRequests",
+      "value": "Nicio Cerere în Așteptare"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.OnlyAdmins",
+      "value": "Doar Adminii"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.OnlyAdminsInfo",
+      "value": "Conversațiile sugerate de membrii comunității necesită aprobarea adminilor."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PendingRequest",
+      "value": "Cerere în Așteptare"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PendingRequests",
+      "value": "Cereri în Așteptare"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedBot",
+      "value": "a sugerat acest robot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Title",
+      "value": "Comunitate"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.VisibilityImmutable",
+      "value": "Nu vei putea să o modifici mai târziu."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Visible",
+      "value": "Vizibilă"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.VisibleInfo",
+      "value": "Oricine în comunitate va putea vedea această conversație."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.WhoCanAddChats",
+      "value": "Cine poate adăuga conversații?"
     },
     {
       "_": "types.LangPackString",
@@ -9218,6 +9573,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupRequestApproved",
+      "value": "Cererea ta de alăturare în grup a fost aprobată"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestApprovedChannel",
+      "value": "Cererea ta de alăturare în canal a fost aprobată"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestDeclined",
+      "value": "Cererea ta de alăturare în grup a fost respinsă."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestDeclinedChannel",
+      "value": "Cererea ta de alăturare în canal a fost respinsă."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestSent",
+      "value": "Vei fi adăugat în grup imediat ce un admin îți aprobă cererea."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestSentChannel",
+      "value": "Vei fi adăugat în canal după ce adminii acestuia îți aprobă cererea."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupStats.Title",
       "value": "Statistici Grup"
     },
@@ -9257,6 +9642,41 @@
       "_": "types.LangPackString",
       "key": "GrowthChartTitle",
       "value": "Creștere"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotEnableMembersText",
+      "value": "Membrii noi vor necesita acum aprobare de la **%s** înainte de a putea trimite mesaje în acest grup"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotEnableSubscribersText",
+      "value": "Abonații noi vor necesita acum aprobare de la **%s** înainte de a se putea alătura canalului"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotManagedBy",
+      "value": "Gestionat de %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotProcessJoinRequests",
+      "value": "Procesează Cereri Alăturare"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotProcessJoinRequestsInfo",
+      "value": "Permite acestui robot să aprobe membrii noi prin interfețe proprii, precum captcha."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotReplaceTitle",
+      "value": "Înlocuire Robot"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotReplaceUse",
+      "value": "Folosește %s"
     },
     {
       "_": "types.LangPackString",
@@ -11171,6 +11591,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "MediaCopied",
+      "value": "Conținut media copiat în clipboard"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "MediaEditor.Adjustments.Brightness",
       "value": "Luminozitate"
     },
@@ -11360,6 +11785,11 @@
       "key": "MediaFiles",
       "one_value": "%d fișier media",
       "other_value": "%d de fișiere media"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MediaViewer.Context.Copy",
+      "value": "Copiază Conținut Media"
     },
     {
       "_": "types.LangPackString",
@@ -15128,6 +15558,16 @@
       "_": "types.LangPackString",
       "key": "ProfileStoriesArchiveHint",
       "value": "Doar tu poți vedea poveștile arhivate dacă nu alegi să le postezi la profil."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ProfileTab.OrderChanged",
+      "value": "Ordine file modificată."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ProfileTab.SetAsMain",
+      "value": "Setează ca Filă Principală"
     },
     {
       "_": "types.LangPackString",
@@ -21418,6 +21858,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WebAppGuardDisclaimerText",
+      "value": "**%1$s** folosește **%2$s** pentru a întâmpina membrii noi. Trebuie să fii de acord cu [Termenii de Utilizare]() ai mini apps pentru a continua."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "WebPage.InstantView",
       "value": "VEZI INSTANT"
     },
@@ -21548,5 +21993,5 @@
       "other_value": "%1$d de mesaje"
     }
   ],
-  "version": 327258
+  "version": 328303
 }
