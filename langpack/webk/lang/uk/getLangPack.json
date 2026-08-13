@@ -2537,7 +2537,7 @@
     {
       "_": "types.LangPackString",
       "key": "BirthdaySuggestIncoming",
-      "value": "%s пропонує вам додати дату народження"
+      "value": "%s пропонує вам додати день народження"
     },
     {
       "_": "types.LangPackString",
@@ -4619,6 +4619,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChannelSettingsJoinRequestChannel",
+      "value": "Схвалювати нових підписників"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChannelSettingsJoinRequestInfo",
       "value": "Приєднання до каналу нових користувачів не потребує схвалення адміністратором."
     },
@@ -5297,6 +5302,51 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Bot",
+      "value": "Бота додано до спільноти %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Channel",
+      "value": "Канал додано до спільноти %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.By",
+      "value": "%1$s додає цю групу до спільноти %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.Unknown",
+      "value": "Групу додано до спільноти %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityAdded.Group.You",
+      "value": "Ви додаєте цю групу до спільноти %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Bot",
+      "value": "Бота вилучено зі спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Channel",
+      "value": "Канал вилучено зі спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Group.By",
+      "value": "%1$s вилучає цю групу зі спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.CommunityRemoved.Group.You",
+      "value": "Ви вилучили цю групу зі спільноти"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.Service.ConferenceCall.Ended",
       "value": "Груповий виклик завершено (%1$@)"
     },
@@ -5611,8 +5661,83 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.AccessibleChats",
+      "value": "Чати, до яких бот має доступ"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Add",
+      "value": "Додати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.AllExcept",
+      "value": "Усі особисті чати, крім..."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.BotDescription",
       "value": "Введіть посилання або @імʼя бота, який оброблятиме ваші чати."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotHasAccess",
+      "value": "бот має доступ до цього чату"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotManagesChat",
+      "value": "бот керує цим чатом"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotNotFound",
+      "value": "Чатбота не знайдено"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotPaused",
+      "value": "бота призупинено"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotPlaceholder",
+      "value": "@імʼя бота"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.BotUnsupported",
+      "value": "Цей бот поки не підтримує режим секретаря."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ChangeGiftSettings",
+      "value": "Налаштовувати подарунки"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ChooseBot",
+      "value": "Виберіть бота, який оброблятиме ваші чати."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectedFrom",
+      "value": "Відомості про сеанс"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Confirm",
+      "value": "Так, це я"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Confirmed",
+      "value": "Підʼєднано нового бота."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Reject",
+      "value": "Ні, це не я!"
     },
     {
       "_": "types.LangPackString",
@@ -5621,8 +5746,103 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Text",
+      "value": "підʼєднався до вашого акаунта з %s. Це були ви?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.TextNoLocation",
+      "value": "підʼєднався до вашого акаунта. Це були ви?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ConnectionReview.Title",
+      "value": "Бот отримав доступ до повідомлень!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Contacts",
+      "value": "Контакти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.DeleteReceived",
+      "value": "Видаляти отримані"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.DeleteSent",
+      "value": "Видаляти надіслані"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.EditBio",
+      "value": "Змінювати «Про себе»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.EditName",
+      "value": "Змінювати імʼя"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.EditPhoto",
+      "value": "Змінювати фото"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.EditUsername",
+      "value": "Змінювати імʼя користувача"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ExcludeChats",
+      "value": "Додати чати-винятки"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ExcludedChats",
+      "value": "Виключені чати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ExcludedDescription",
+      "value": "Чати й типи чатів, до яких бот **НЕ МАЄ** доступу."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ExistingChats",
+      "value": "Наявні чати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.GiftsAndStarsWarning",
+      "value": "Бот **%s** зможе керувати вашими подарунками та зірками, включно з передаванням їх іншим користувачам."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.GiftsWarning",
+      "value": "Бот **%s** зможе **керувати вашими подарунками**, включно з передаванням їх іншим користувачам."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.HeroDescription",
       "value": "Підʼєднайте до акаунта бота, який оброблятиме ваші чати й відповідатиме на повідомлення за вас. [Докладніше >]()"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.HeroTitle",
+      "value": "Чатботи"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.IncludedChats",
+      "value": "Включені чати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.IncludedDescription",
+      "value": "Чати й типи чатів, до яких бот **МАЄ** доступ."
     },
     {
       "_": "types.LangPackString",
@@ -5631,8 +5851,108 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageAutomation",
+      "value": "Налаштувати автоматизацію"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageBot",
+      "value": "Керувати ботом"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageGifts",
+      "value": "Керувати подарунками й зірками"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageMessages",
+      "value": "Керувати повідомленнями"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageProfile",
+      "value": "Змінювати профіль"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ManageStories",
+      "value": "Керувати історіями"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.MarkRead",
+      "value": "Позначати як прочитане"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.NewChats",
+      "value": "Нові чати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.NonContacts",
+      "value": "Неконтакти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Off",
+      "value": "Вимк."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.OnlySelected",
+      "value": "Тільки вибрані чати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.PermissionWarningProceed",
+      "value": "Продовжити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.PermissionWarningTitle",
+      "value": "Попередження"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Permissions",
+      "value": "Дозволи бота"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.PermissionsDescription",
+      "value": "Бот може відповідати від вашого імені тільки в чатах, які були активні протягом останніх 24 год."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ProfileDescription",
+      "value": "Підʼєднайте бота, який відповідатиме на повідомлення від вашого імені."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ProfileLabel",
+      "value": "Автоматизація чатів"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ReadMessages",
+      "value": "Читати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RecipientCategories",
+      "value": "Категорії чатів"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.RecipientLimit",
       "value": "Можна вибрати не більше 100 користувачів."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.RecipientSummaryEmpty",
+      "value": "Додати"
     },
     {
       "_": "types.LangPackString",
@@ -5641,8 +5961,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatAutomation.RemoveBot",
+      "value": "Прибрати бота"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatAutomation.RemoveFromChat",
       "value": "Вимкнути бота в цьому чаті"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Reply",
+      "value": "Відповідати"
     },
     {
       "_": "types.LangPackString",
@@ -5653,6 +5983,116 @@
       "_": "types.LangPackString",
       "key": "ChatAutomation.SaveSuccess",
       "value": "Налаштування автоматизації чатів оновлено."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SearchFailed",
+      "value": "Не вдалося знайти ботів. Спробуйте ще раз."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Searching",
+      "value": "Пошук ботів..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SelectChats",
+      "value": "Додати чати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SellGifts",
+      "value": "Продавати подарунки"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Session",
+      "value": "Бот для автоматизації"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SessionDate",
+      "value": "Дата"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SessionDevice",
+      "value": "Пристрій"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SessionLocation",
+      "value": "Місцезнаходження"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SetupNotCompletedLeave",
+      "value": "Вийти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SetupNotCompletedText",
+      "value": "Ви не додали бота для керування вашим акаунтом. Все одно вийти?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.SetupNotCompletedTitle",
+      "value": "Бота не додано"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.StarsWarning",
+      "value": "Бот **%s** зможе **передавати ваші зірки**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Start",
+      "value": "Старт"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Stop",
+      "value": "Стоп"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TerminateConnectedBot",
+      "value": "Також завершити %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TerminateSession",
+      "value": "Завершити сеанс"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.Title",
+      "value": "Автоматизація чатів"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TransferGifts",
+      "value": "Передавати/покращувати подарунки"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.TransferStars",
+      "value": "Передавати зірки"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.UsernameWarning",
+      "value": "Бот **%s** зможе **встановлювати та прибирати імена користувача** вашого акаунта, що може призвести до втрати вашого поточного імені користувача."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ViaBotTooltip",
+      "value": "Тільки ви бачите, що це\nповідомлення від бота."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.ViewGifts",
+      "value": "Переглядати подарунки"
     },
     {
       "_": "types.LangPackString",
@@ -6341,8 +6781,78 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.AddAll",
+      "value": "Додати всі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddAllRequests",
+      "value": "Додати всі чати"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.AddAllRequestsConfirm",
       "value": "Додати всі чати (%d) до спільноти?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddBot",
+      "value": "Додати бота до спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddBotConfirm",
+      "value": "Якщо цього бота буде схвалено адміном спільноти, учасники спільноти зможуть бачити й взаємодіяти з ним."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChannel",
+      "value": "Додати канал до спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChannelConfirm",
+      "value": "Якщо цей канал буде схвалено адміном спільноти, його підписники зможуть приєднуватися або подавати запити до інших чатів у спільноті."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChat",
+      "value": "Додати чат"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddChatButton",
+      "value": "Додати чат до спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddExisting",
+      "value": "Додати до наявної спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddGroup",
+      "value": "Додати групу до спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddGroupConfirm",
+      "value": "Якщо цю групу буде схвалено адміном спільноти, її учасники зможуть приєднуватися або подавати запити до інших чатів у спільноті."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AddTo",
+      "value": "Додати до спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminAddAdmins",
+      "value": "Додавати адмінів спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdminBanMembers",
+      "value": "Блокувати учасників"
     },
     {
       "_": "types.LangPackString",
@@ -6351,8 +6861,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.AdminEditInfo",
+      "value": "Змінювати профіль спільноти"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.AdminRequired",
       "value": "У вас немає дозволу керувати запитами."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AdministratorsInfo",
+      "value": "Додавайте адмінів, щоб керувати спільнотою разом."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AllMembers",
+      "value": "Усі учасники"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.AllMembersInfo",
+      "value": "Учасникам дозволено додавати свої групи й канали до спільноти."
     },
     {
       "_": "types.LangPackString",
@@ -6361,8 +6891,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.BanFromCommunity",
+      "value": "Заблокувати у спільноті"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Користувача буде вилучено з %d чатів.",
+      "key": "Community.BanFromCommunityInfo",
+      "many_value": "Користувача буде вилучено з %d чатів.",
+      "one_value": "Користувача буде вилучено з %d чату.",
+      "other_value": "Користувача буде вилучено з %d чатів."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.BanWarning",
+      "value": "Блокування %1$s також призведе до видалення зі спільноти %2$d чатів цього користувача."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.BanWarningTitle",
       "value": "Попередження"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Banned",
+      "value": "%s заблоковано у спільноті."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -6379,8 +6932,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.BotDescription",
+      "value": "Зробіть свого бота частиною спільноти з кількома повʼязаними чатами."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.BotNotAccessible",
       "value": "Цей бот більше недоступний."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Можна додати щонайбільше %d ботів.",
+      "key": "Community.BotPeersLimit",
+      "many_value": "Можна додати щонайбільше %d ботів.",
+      "one_value": "Можна додати щонайбільше %d бота.",
+      "other_value": "Можна додати щонайбільше %d ботів."
     },
     {
       "_": "types.LangPackString",
@@ -6396,6 +6962,11 @@
       "_": "types.LangPackString",
       "key": "Community.ChannelAdded",
       "value": "Канал додано до спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChannelDescription",
+      "value": "Зробіть свій канал частиною спільноти з кількома повʼязаними чатами."
     },
     {
       "_": "types.LangPackString",
@@ -6424,8 +6995,66 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.ChatVisibility",
+      "value": "Видимість чату"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Chats",
+      "value": "Чати спільноти"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d чати",
+      "key": "Community.ChatsCount",
+      "many_value": "%d чатів",
+      "one_value": "%d чат",
+      "other_value": "%d чатів"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatsHidden",
+      "value": "Приховані чати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatsJoined",
+      "value": "Чати, в яких ви перебуваєте"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatsRequestable",
+      "value": "Чати із запитами на приєднання"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.ChatsVisible",
+      "value": "Чати, які ви можете переглядати"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.CommunityAdded.View",
+      "value": "Переглянути"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Create",
+      "value": "Створити спільноту"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.CreateChat",
+      "value": "Створити новий чат"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Created",
       "value": "Спільноту створено"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.DeclineAll",
+      "value": "Відхилити всі"
     },
     {
       "_": "types.LangPackString",
@@ -6454,6 +7083,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Description",
+      "value": "Зробіть свою групу частиною спільноти з кількома повʼязаними чатами."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Edit",
+      "value": "Змінити спільноту"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.GroupAdded",
       "value": "Групу додано до спільноти"
     },
@@ -6474,6 +7113,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.Hidden",
+      "value": "Прихований"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.HiddenBotInfo",
       "value": "Ви не можете використовувати цього бота без запрошення адміна."
     },
@@ -6481,6 +7125,16 @@
       "_": "types.LangPackString",
       "key": "Community.HiddenChannelInfo",
       "value": "Ви не можете переглядати цей канал без запрошення адміна."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.HiddenChatInfo",
+      "value": "Ви не можете переглядати цей чат без запрошення адміна."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.HiddenInfo",
+      "value": "Цей чат бачать тільки запрошені учасники та адміни спільноти."
     },
     {
       "_": "types.LangPackString",
@@ -6529,6 +7183,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.NoChatsToAdd",
+      "value": "У вас немає чатів, які можна додати."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.NoCommunities",
+      "value": "У вас поки немає спільнот."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.NoPendingRequests",
       "value": "Немає запитів"
     },
@@ -6544,6 +7208,47 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.OnlyAdmins",
+      "value": "Тільки адміни"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.OnlyAdminsInfo",
+      "value": "Учасники можуть пропонувати чати, але пропозицію повинен схвалити адмін."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Можна додати щонайбільше %d чати.",
+      "key": "Community.PeersLimit",
+      "many_value": "Можна додати щонайбільше %d чатів.",
+      "one_value": "Можна додати щонайбільше %d чат.",
+      "other_value": "Можна додати щонайбільше %d чатів."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PendingRequest",
+      "value": "Поточний запит"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PendingRequests",
+      "value": "Поточні запити"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d пропозиції додати чат",
+      "key": "Community.PendingRequestsCount",
+      "many_value": "%d пропозицій додати чат",
+      "one_value": "%d пропозиція додати чат",
+      "other_value": "%d пропозицій додати чат"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PendingRequestsInfo",
+      "value": "Учасники можуть пропонувати чати, але пропозицію повинен схвалити адмін."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.PrivateBotInfo",
       "value": "Це приватний бот. Його можуть використовувати тільки запрошені учасники."
     },
@@ -6556,6 +7261,39 @@
       "_": "types.LangPackString",
       "key": "Community.PrivateChatInfo",
       "value": "Це приватна група. Її можуть\nпереглядати тільки учасники."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Спільнота з %d чатами",
+      "key": "Community.ProfileStatus",
+      "many_value": "Спільнота з %d чатами",
+      "one_value": "Спільнота з %d чатом",
+      "other_value": "Спільнота з %d чатами"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Promote",
+      "value": "Призначити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PromoteAdmin",
+      "value": "Призначити адміна"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.PromoteAdminConfirm",
+      "value": "Зробити %s адміном спільноти?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveAdmin",
+      "value": "Вилучити адміна"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemoveAdminConfirm",
+      "value": "Вилучити цього користувача з адмінів спільноти?"
     },
     {
       "_": "types.LangPackString",
@@ -6589,6 +7327,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.RemoveUser",
+      "value": "Заблокувати користувача"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.Removed",
       "value": "Групу вилучено зі спільноти"
     },
@@ -6596,6 +7339,11 @@
       "_": "types.LangPackString",
       "key": "Community.RemovedFromCommunity",
       "value": "Вилучено зі спільноти"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.RemovedUsersInfo",
+      "value": "Користувачі, яких адміни вилучили зі спільноти, не зможуть повернутися за посиланням."
     },
     {
       "_": "types.LangPackString",
@@ -6623,6 +7371,22 @@
       "value": "Запит надіслано"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d чати додано до спільноти.",
+      "key": "Community.RequestsAdded",
+      "many_value": "%d чатів додано до спільноти.",
+      "one_value": "%d чат додано до спільноти.",
+      "other_value": "%d чатів додано до спільноти."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d пропозиції відхилено.",
+      "key": "Community.RequestsDeclined",
+      "many_value": "%d пропозицій відхилено.",
+      "one_value": "%d пропозицію відхилено.",
+      "other_value": "%d пропозицій відхилено."
+    },
+    {
       "_": "types.LangPackString",
       "key": "Community.RequestsLoadFailed",
       "value": "Не вдалося завантажити запити. Повторіть спробу."
@@ -6631,6 +7395,11 @@
       "_": "types.LangPackString",
       "key": "Community.Retry",
       "value": "Повторити"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SaveChanges",
+      "value": "Зберегти"
     },
     {
       "_": "types.LangPackString",
@@ -6654,6 +7423,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.SuggestedBot",
+      "value": "пропонує цього бота"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.SuggestedBy",
       "value": "Пропонує"
     },
@@ -6664,8 +7438,48 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.SuggestedChannel",
+      "value": "пропонує цей канал"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.SuggestedGroup",
+      "value": "пропонує цю групу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Title",
+      "value": "Спільнота"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Unban",
+      "value": "Розблокувати"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.View",
       "value": "Переглянути спільноту"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.VisibilityImmutable",
+      "value": "Цей параметр не можна змінити пізніше."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.Visible",
+      "value": "Видимий"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.VisibleInfo",
+      "value": "Цей чат бачать усі учасники спільноти."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Community.WhoCanAddChats",
+      "value": "Хто може додавати чати?"
     },
     {
       "_": "types.LangPackString",
@@ -9520,6 +10334,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GroupRequestApproved",
+      "value": "Ваш запит на приєднання до групи схвалено"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestApprovedChannel",
+      "value": "Ваш запит на приєднання до каналу схвалено"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestDeclined",
+      "value": "Ваш запит на приєднання до групи відхилено."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestDeclinedChannel",
+      "value": "Ваш запит на приєднання до каналу відхилено."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestSent",
+      "value": "Вас буде додано до групи, щойно адміни схвалять запит."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GroupRequestSentChannel",
+      "value": "Ви отримаєте доступ до каналу, щойно адміністратори схвалять ваш запит."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GroupStats.Title",
       "value": "Статистика групи"
     },
@@ -9568,13 +10412,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GuardBotEnableMembersText",
+      "value": "Тепер нові учасники повинні отримати схвалення **%s**, перш ніж зможуть писати в групі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotEnableSubscribersText",
+      "value": "Тепер користувачі повинні отримати схвалення **%s**, перш ніж зможуть підписатися на канал"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotManagedBy",
+      "value": "Запити обробляє %s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GuardBotProcessJoinRequests",
       "value": "Обробляти приєднання"
     },
     {
       "_": "types.LangPackString",
+      "key": "GuardBotProcessJoinRequestsInfo",
+      "value": "Дозвольте цьому боту схвалювати нових учасників через власний інтерфейс (наприклад, капчу)."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GuardBotReplaceText",
       "value": "Наразі **%1$s** обробляє запити на приєднання. Призначити замість нього **%2$s**?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotReplaceTitle",
+      "value": "Замінити бота"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GuardBotReplaceUse",
+      "value": "Призначити %s"
     },
     {
       "_": "types.LangPackString",
@@ -12158,7 +13032,7 @@
     {
       "_": "types.LangPackString",
       "key": "New",
-      "value": "Нові"
+      "value": "Нове"
     },
     {
       "_": "types.LangPackString",
@@ -15529,6 +16403,16 @@
       "_": "types.LangPackString",
       "key": "ProfileStoriesArchiveHint",
       "value": "Історії в архіві доступні лише вам, якщо ви не вирішите опублікувати їх у профілі."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ProfileTab.OrderChanged",
+      "value": "Порядок вкладок змінено."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ProfileTab.SetAsMain",
+      "value": "Зробити основною вкладкою"
     },
     {
       "_": "types.LangPackString",
@@ -21910,6 +22794,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WebAppGuardDisclaimerText",
+      "value": "**%1$s** використовує **%2$s** для вітання нових користувачів. Щоб продовжити, необхідно погодитися з [Умовами використання]() для мінізастосунків."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "WebPage.InstantView",
       "value": "МИТТЄВИЙ ПЕРЕГЛЯД"
     },
@@ -22043,5 +22932,5 @@
       "other_value": "%1$d повідомлень"
     }
   ],
-  "version": 329014
+  "version": 329016
 }
