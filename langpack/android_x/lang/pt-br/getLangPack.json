@@ -141,6 +141,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeft",
+      "value": "O dono do chat saiu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeftTo",
+      "value": "O dono do chat saiu. A menos que ele retorne ao chat, %1$s será o novo dono"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChatRemovedFromCommunity",
       "value": "Este chat foi removido da comunidade"
     },
@@ -158,6 +168,11 @@
       "_": "types.LangPackString",
       "key": "ActionChecklistAddOut",
       "value": "Você adicionou %1$s à lista de tarefas"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOutMsg",
+      "value": "Você adicionou %1$s à lista \"%2$s\""
     },
     {
       "_": "types.LangPackString",
@@ -242,6 +257,26 @@
       "_": "types.LangPackString",
       "key": "ActionDeletedPollOutOptionMsg",
       "value": "Você removeu \"%1$s\" da enquete \"%2$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosed",
+      "value": "%1$s fechou o tópico geral"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosedOut",
+      "value": "Você fechou o tópico geral"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopened",
+      "value": "%1$s reabriu o tópico geral"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopenedOut",
+      "value": "Você reabriu o tópico geral"
     },
     {
       "_": "types.LangPackString",
@@ -409,6 +444,18 @@
       "other_value": "%2$s fixou **%1$s vídeos pagos**"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPriceChanged",
+      "one_value": "%2$s alterou o preço para %1$s Estrela por mensagem",
+      "other_value": "%2$s alterou o preço para %1$s Estrelas por mensagem"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPriceChangedOut",
+      "one_value": "Você alterou o preço para %1$s Estrela por mensagem",
+      "other_value": "Você alterou o preço para %1$s Estrelas por mensagem"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "Marcar como lido"
@@ -457,6 +504,126 @@
       "_": "types.LangPackString",
       "key": "ActionSharingStillEnabled",
       "value": "O compartilhamento ainda está ativado neste chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIcon",
+      "value": "%2$s alterou o ícone do tópico para %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconName",
+      "value": "%3$s alterou o nome e o ícone do tópico para %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconNameOut",
+      "value": "Você alterou o nome e o ícone do tópico para %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconOut",
+      "value": "Você alterou o ícone do tópico para %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosed",
+      "value": "%3$s fechou %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosedOut",
+      "value": "Você fechou %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreate",
+      "value": "%2$s criou o tópico %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIcon",
+      "value": "%3$s criou o tópico %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIconOut",
+      "value": "Você criou o tópico %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateOut",
+      "value": "Você criou o tópico %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreated",
+      "value": "O tópico %1$s foi criado"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreatedIcon",
+      "value": "O tópico %1$s %2$s foi criado"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHidden",
+      "value": "%1$s ocultou o tópico geral"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHiddenOut",
+      "value": "Você ocultou o tópico geral"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamed",
+      "value": "%2$s renomeou o tópico para %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamedOut",
+      "value": "Você renomeou o tópico para %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopened",
+      "value": "%3$s reabriu %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopenedOut",
+      "value": "Você reabriu %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhidden",
+      "value": "%1$s reexibiu o tópico geral"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhiddenOut",
+      "value": "Você reexibiu o tópico geral"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosed",
+      "value": "%1$s fechou o tópico"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosedOut",
+      "value": "Você fechou o tópico"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopened",
+      "value": "%1$s reabriu o tópico"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopenedOut",
+      "value": "Você reabriu o tópico"
     },
     {
       "_": "types.LangPackString",
@@ -17026,6 +17193,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SessionSnapshot",
+      "value": "Snapshot da Sessão"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshotDesc",
+      "value": "Enviar dados de autorização privada"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshotWarning",
+      "value": "**Aviso!**\n\nO snapshot que você está prestes a enviar contém acesso à sua conta do Telegram.\n\nNão envie ou encaminhe para ninguém, a menos que você saiba o que está fazendo."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SessionSystem",
       "value": "Sistema"
     },
@@ -18385,7 +18567,7 @@
     {
       "_": "types.LangPackString",
       "key": "SyncHintRetry",
-      "value": "Para te ajudar a conversar com amigos e familiares no Telegram, permita acesso aos seus contatos.\n\nClique em Configurações > Permissões, e ative Contatos."
+      "value": "Para ativar a sincronização de contatos e enviá-los automaticamente para o Telegram, permita o acesso aos seus contatos.\n\nToque em Configurações > Permissões e ative Contatos."
     },
     {
       "_": "types.LangPackString",
@@ -18395,7 +18577,7 @@
     {
       "_": "types.LangPackString",
       "key": "SyncHintTitle",
-      "value": "Encontrar Contatos"
+      "value": "Sincronizar contatos com o Telegram?"
     },
     {
       "_": "types.LangPackString",
@@ -18405,7 +18587,12 @@
     {
       "_": "types.LangPackString",
       "key": "SyncHintUnavailable",
-      "value": "Toque em Configurações > Permissões e ative Contatos para permitir o acesso do Telegram aos seus contatos."
+      "value": "Toque em Configurações > Permissões e ative Contatos para permitir o acesso do Telegram X aos seus contatos."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintUnavailable2",
+      "value": "Toque em Configurações > Permissões e ative Contatos para permitir que o %1$s acesse seus contatos e os encontre no Telegram."
     },
     {
       "_": "types.LangPackString",
@@ -24192,5 +24379,5 @@
       "other_value": "%1$s anos"
     }
   ],
-  "version": 1636933
+  "version": 1643459
 }
