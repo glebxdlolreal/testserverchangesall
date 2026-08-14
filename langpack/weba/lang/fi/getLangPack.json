@@ -1080,6 +1080,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionSuggestedBirthday",
+      "value": "{user} ehdotti sinua lisäämään syntymäpäiväsi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSuggestedBirthdayYou",
+      "value": "Ehdotit käyttäjää {user} lisäämään syntymäpäivänsä"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionSuggestedChangesIncoming",
       "value": "**{user}** ehdotti uutta {changes} tälle viestille."
     },
@@ -2355,6 +2365,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BackgroundPatternIntensity",
+      "value": "Kuvion voimakkuus"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BioLimitSubtitle",
       "value": "Pidemmät ja linkkejä tukevat profiilikuvaukset"
     },
@@ -2362,6 +2377,16 @@
       "_": "types.LangPackString",
       "key": "BioLimitTitle",
       "value": "Profiilikuvaus"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdayAddToProfile",
+      "value": "Lisää profiiliin"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdayHideYear",
+      "value": "Piilota vuosi"
     },
     {
       "_": "types.LangPackString",
@@ -2397,6 +2422,16 @@
       "_": "types.LangPackString",
       "key": "BirthdaySetupTitle",
       "value": "Syntymäpäivä"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdaySuggest",
+      "value": "Ehdota syntymäpäivää"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdayTitleForPeer",
+      "value": "{user}: syntymäpäivä"
     },
     {
       "_": "types.LangPackString",
@@ -3356,6 +3391,11 @@
       "_": "types.LangPackString",
       "key": "ChatBackground",
       "value": "Keskustelun tausta"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatBackgroundColorThemes",
+      "value": "Värit, liukuvärit ja kuviot"
     },
     {
       "_": "types.LangPackString",
@@ -5852,6 +5892,12 @@
       "other_value": "Viesti välitettiin {count} keskusteluun"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "FwdMessagesToSaved",
+      "one_value": "Viesti välitettiin **tallennettuihin viesteihin**",
+      "other_value": "Viestit välitettiin **tallennettuihin viesteihin**"
+    },
+    {
       "_": "types.LangPackString",
       "key": "General",
       "value": "Yleistä"
@@ -7276,6 +7322,11 @@
       "_": "types.LangPackString",
       "key": "GramAmount",
       "value": "💎{amount}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GramAmountIconLast",
+      "value": "{amount}💎"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -9774,6 +9825,46 @@
       "_": "types.LangPackString",
       "key": "Permanent",
       "value": "Päälinkki"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelAdd",
+      "value": "Lisää"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelAddHint",
+      "value": "Lisää kanavasi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelDescription",
+      "value": "Valitse profiilissasi näytettävä kanava."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelLabel",
+      "value": "Kanava"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelNoChannels",
+      "value": "Sinulla ei ole sopivia kanavia."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelPickerTitle",
+      "value": "Valitse kanava"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelRemove",
+      "value": "Poista kanava"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelTitle",
+      "value": "Henkilökohtainen kanava"
     },
     {
       "_": "types.LangPackString",
@@ -12312,6 +12403,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsAccount",
+      "value": "Tili"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAccountDesc",
+      "value": "Käyttäjänimi, profiili, syntymäpäivä"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsAutomaticTextReplacements",
       "value": "Automaattiset tekstikorvaukset"
     },
@@ -12342,6 +12443,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsDataDesc",
+      "value": "Median lataus, välimuisti"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsDisableNightTheme",
       "value": "Poista yötila käytöstä"
     },
@@ -12367,8 +12473,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsFoldersDesc",
+      "value": "Lajittele keskustelut kansioihin"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsFoldersEmpty",
       "value": "Et ole vielä luonut kansioita"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsGeneralDesc",
+      "value": "Taustakuva, teema, näppäimistö"
     },
     {
       "_": "types.LangPackString",
@@ -12394,6 +12510,16 @@
       "_": "types.LangPackString",
       "key": "SettingsKeyboard",
       "value": "Näppäimistö"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsLanguageDesc",
+      "value": "{language}, käännä viestit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsNotificationsDesc",
+      "value": "Äänet, puhelut, merkit"
     },
     {
       "_": "types.LangPackString",
@@ -12489,6 +12615,11 @@
       "_": "types.LangPackString",
       "key": "SettingsPerformanceContextBlur",
       "value": "Kontekstivalikon sumennus"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsPerformanceDesc",
+      "value": "Animaatiot, siirtymät, toistovalinnat"
     },
     {
       "_": "types.LangPackString",
@@ -12592,6 +12723,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsPrivacyDesc",
+      "value": "Nähty-tila, salasana, estot"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsSaveChanges",
       "value": "Tallenna muutokset"
     },
@@ -12634,6 +12770,16 @@
       "_": "types.LangPackString",
       "key": "SettingsSensitiveTitle",
       "value": "Arkaluontoinen sisältö"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsSessionsDesc",
+      "value": "Istunnot, aikakatkaisu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsStickersDesc",
+      "value": "Tarrat, emojit, reaktiot"
     },
     {
       "_": "types.LangPackString",
@@ -12926,6 +13072,11 @@
       "_": "types.LangPackString",
       "key": "StarsAmount",
       "value": "⭐️{amount}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarsAmountIconLast",
+      "value": "{amount}⭐️"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -14897,5 +15048,5 @@
       "value": "Nimesi"
     }
   ],
-  "version": 283424
+  "version": 284406
 }

@@ -1110,6 +1110,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionSuggestedBirthday",
+      "value": "{user} предлагает Вам указать день рождения"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSuggestedBirthdayYou",
+      "value": "Вы предложили {user} указать день рождения"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionSuggestedChangesIncoming",
       "value": "**{user}** предлагает изменить {changes} публикации."
     },
@@ -2405,6 +2415,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BackgroundPatternIntensity",
+      "value": "Яркость узора"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BioLimitSubtitle",
       "value": "Больше знаков и использование любых ссылок"
     },
@@ -2412,6 +2427,16 @@
       "_": "types.LangPackString",
       "key": "BioLimitTitle",
       "value": "Раздел «О себе»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdayAddToProfile",
+      "value": "Добавить в мой профиль"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdayHideYear",
+      "value": "Скрыть год"
     },
     {
       "_": "types.LangPackString",
@@ -2447,6 +2472,16 @@
       "_": "types.LangPackString",
       "key": "BirthdaySetupTitle",
       "value": "Дата рождения"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdaySuggest",
+      "value": "Предложить дату рождения"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdayTitleForPeer",
+      "value": "День рождения {user}\n"
     },
     {
       "_": "types.LangPackString",
@@ -3414,6 +3449,11 @@
       "_": "types.LangPackString",
       "key": "ChatBackground",
       "value": "Обои для чатов"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatBackgroundColorThemes",
+      "value": "Цвета, градиенты и узоры\n"
     },
     {
       "_": "types.LangPackString",
@@ -5968,6 +6008,14 @@
       "other_value": "Сообщение переслано в {count} чатов"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Сообщения пересланы в **Избранное**",
+      "key": "FwdMessagesToSaved",
+      "many_value": "Сообщения пересланы в **Избранное**",
+      "one_value": "Сообщение переслано в **Избранное**",
+      "other_value": "Сообщения пересланы в **Избранное**"
+    },
+    {
       "_": "types.LangPackString",
       "key": "General",
       "value": "Основные"
@@ -7444,6 +7492,11 @@
       "_": "types.LangPackString",
       "key": "GramAmount",
       "value": "💎{amount}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GramAmountIconLast",
+      "value": "{amount}💎"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -10031,6 +10084,46 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PersonalChannelAdd",
+      "value": "Добавить\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelAddHint",
+      "value": "Выберите свой канал"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelDescription",
+      "value": "Вы можете добавить в свой профиль канал, который администрируете."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelLabel",
+      "value": "Канал"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelNoChannels",
+      "value": "У Вас нет подходящих каналов."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelPickerTitle",
+      "value": "Выбор канала"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelRemove",
+      "value": "Убрать канал"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelTitle",
+      "value": "Личный канал\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Phone",
       "value": "Телефон"
     },
@@ -11431,7 +11524,7 @@
     {
       "_": "types.LangPackString",
       "key": "ReplaceGuardBotDescription",
-      "value": "В данный момент **{current}** обрабатывает заявки на вступление. Переключиться на **{new}**?"
+      "value": "Сейчас заявки на всупление обрабатывает **{current}**. Переключиться на **{new}**?"
     },
     {
       "_": "types.LangPackString",
@@ -12616,6 +12709,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsAccount",
+      "value": "Аккаунт"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAccountDesc",
+      "value": "Имя пользователя, «О себе», день рождения"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsAutomaticTextReplacements",
       "value": "Автозамена текста"
     },
@@ -12646,6 +12749,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsDataDesc",
+      "value": "Загрузка медиафайлов, кэш"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsDisableNightTheme",
       "value": "Отключить ночной режим"
     },
@@ -12671,8 +12779,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsFoldersDesc",
+      "value": "Сортировка чатов по папкам"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsFoldersEmpty",
       "value": "Папок пока нет"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsGeneralDesc",
+      "value": "Обои, тема, клавиатура\n"
     },
     {
       "_": "types.LangPackString",
@@ -12698,6 +12816,16 @@
       "_": "types.LangPackString",
       "key": "SettingsKeyboard",
       "value": "Клавиатура"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsLanguageDesc",
+      "value": "{language}, перевод сообщений"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsNotificationsDesc",
+      "value": "Звуки, звонки, счётчик сообщений\n"
     },
     {
       "_": "types.LangPackString",
@@ -12793,6 +12921,11 @@
       "_": "types.LangPackString",
       "key": "SettingsPerformanceContextBlur",
       "value": "Размытие в контекстных меню"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsPerformanceDesc",
+      "value": "Анимации, переходы, автозапуск"
     },
     {
       "_": "types.LangPackString",
@@ -12896,6 +13029,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsPrivacyDesc",
+      "value": "Время захода, пароль, чёрный список"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsSaveChanges",
       "value": "Сохранить изменения"
     },
@@ -12938,6 +13076,16 @@
       "_": "types.LangPackString",
       "key": "SettingsSensitiveTitle",
       "value": "Материалы деликатного характера"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsSessionsDesc",
+      "value": "Активные сеансы, автозавершение"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsStickersDesc",
+      "value": "Стикеры, эмодзи, реакции\n"
     },
     {
       "_": "types.LangPackString",
@@ -13234,6 +13382,11 @@
       "_": "types.LangPackString",
       "key": "StarsAmount",
       "value": "{amount} ⭐️"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarsAmountIconLast",
+      "value": "{amount}⭐️"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -15233,5 +15386,5 @@
       "value": "Ваше имя"
     }
   ],
-  "version": 274730
+  "version": 284404
 }
