@@ -74,6 +74,11 @@
       "value": "账号已删除"
     },
     {
+      "_": "types.LangPackString",
+      "key": "AccountDeletedText",
+      "value": "您的账号 %1$s (%2$s) 现已从 Telegram 服务器中删除，且无法再恢复。 \n\n使用相同的手机号码將创建一个新账号。"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "key": "AccurateToMeters",
       "other_value": "精确到 %1$s 米"
@@ -100,8 +105,128 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunity",
+      "value": "此频道已添加到 ”%1$s“ 社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunityUnknown",
+      "value": "此聊天记录已添加到社群。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerChanged",
+      "value": "%1$s 是此聊天的新所有者"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeft",
+      "value": "聊天所有者离开了"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeftTo",
+      "value": "聊天拥有者已离开。除非他/她回来，%1$s 将成为新拥有者"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatRemovedFromCommunity",
+      "value": "该聊天记录已从社群中删除。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAdd",
+      "value": "%1$s 已将 ”%2$s“ 添加至核对清单"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddMsg",
+      "value": "%1$s 已将 ”%2$s“ 添加至核对清单 ”%3$s“"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOut",
+      "value": "您已将 %1$s 添加至核对清单"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOutMsg",
+      "value": "您已將 %1$s 添加至核对清单 ”%2$s“"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMark",
+      "value": "%1$s 将 %2$s 标记为已完成，并将 %3$s 标记为未完成"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDone",
+      "value": "%1$s 将 %2$s 标记为已完成"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDoneOut",
+      "value": "您将 %1$s 标记为已完成"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkDoneTasks",
+      "other_value": "%2$s 已将 %1$s 标记为已完成"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDone",
+      "value": "%1$s 将 %2$s 标记为未完成"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDoneOut",
+      "value": "您将 %1$s 标记为未完成"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkNotDoneTasks",
+      "other_value": "%2$s 已将 %1$s 标记为未完成"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkOut",
+      "value": "您将 %1$s 标记为已完成，并将 %2$s 标记为未完成"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "频道已创建"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionCreatedManagedBot",
+      "value": "您已创建 %1$s 机器人供 %2$s 管理"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOptionMsg",
+      "value": "你已移除投票活动 “%2$s” 中的选项 “%1$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosed",
+      "value": "%1$s 已关闭一般话题"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosedOut",
+      "value": "您关闭了一般话题。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopened",
+      "value": "%1$s 以重启一般话题"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopenedOut",
+      "value": "您重新开启了一般话题"
     },
     {
       "_": "types.LangPackString",
@@ -249,9 +374,184 @@
       "other_value": "%2$s 已置顶 **%1$s 个付费视频**"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPriceChanged",
+      "other_value": "%2$s 已将价格更改为每条消息 %1$s 颗星星"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPriceChangedOut",
+      "other_value": "您将价格更改为每条消息 %1$s 颗星星"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "标记为已读"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabled",
+      "value": "%1$s 已禁用此聊天中的分享功能"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabledOut",
+      "value": "您已取消此聊天中的分享功能"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabled",
+      "value": "%1$s 已启用此聊天中的分享功能"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabledOut",
+      "value": "您已启用此聊天中分享功能"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequest",
+      "value": "%1$s 希望在此聊天中开启分享功能"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestExpired",
+      "value": "共享申请已过期"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestOut",
+      "value": "您建议启用此聊天中的分享功能"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillDisabled",
+      "value": "此聊天仍禁用分享功能"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillEnabled",
+      "value": "此聊天仍启用分享功能"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIcon",
+      "value": "%1$s 已将话题图标更改为 %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconName",
+      "value": "%3$s 已将话题名称和图标更改为 %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconNameOut",
+      "value": "您已将话题名称和图标更改为 %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconOut",
+      "value": "你已将话题图标更改为 %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosed",
+      "value": "%3$s 已关闭 %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosedOut",
+      "value": "你关闭了 %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreate",
+      "value": "%2$s 创建了话题 %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIcon",
+      "value": "%3$s 已创建话题 %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIconOut",
+      "value": "你创建了话题 %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateOut",
+      "value": "你创建了话题 %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreated",
+      "value": "话题 %1$s 已创建"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreatedIcon",
+      "value": "话题 %1$s %2$s 已创建"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHidden",
+      "value": "%1$s 已隐藏一般话题"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHiddenOut",
+      "value": "你隐藏了一般话题。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamed",
+      "value": "%2$s 将话题重命名为 %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamedOut",
+      "value": "您已将话题重命名为 %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopened",
+      "value": "%3$s 已重启 %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopenedOut",
+      "value": "您已重启话题 %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhidden",
+      "value": "%1$s 已取消隐藏一般话题"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhiddenOut",
+      "value": "你以取消隐藏一般话题。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosed",
+      "value": "%1$s 已关闭话题"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosedOut",
+      "value": "您关闭了此话题。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopened",
+      "value": "%1$s 已重新开启话题"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopenedOut",
+      "value": "你重新打开了话题"
     },
     {
       "_": "types.LangPackString",
@@ -752,6 +1052,11 @@
       "_": "types.LangPackString",
       "key": "ArchiveChat",
       "value": "归档聊天"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArchiveEmojiSet",
+      "value": "归档表情符号包 %1$s？您可以稍后在「设置」>「表情符号」>「归档」中恢復它。"
     },
     {
       "_": "types.LangPackString",
@@ -3007,6 +3312,11 @@
       "_": "types.LangPackString",
       "key": "ChatDisabledStickers",
       "value": "只有管​​理员可以在此群组中发送贴纸"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatDisabledStory",
+      "value": "只有管​​理员才可以在此群组中发送动态"
     },
     {
       "_": "types.LangPackString",
@@ -5990,6 +6300,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogEmojiStatusUnset",
+      "value": "Translation\n\n\n37/43\n\nApplied\n%1$s 移除了表情符号状态 %2$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogEmojiStatusUnsetYou",
       "value": "您移除了表情符号状态 %1$s"
     },
@@ -6290,6 +6605,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPermissionEditTag",
+      "value": "编辑自己的标签"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPermissionPinMessages",
       "value": "置顶消息"
     },
@@ -6395,8 +6715,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogProfileColorIconChanged",
+      "value": "%1$s 将资料页颜色和标图从 %2$s 更改为 %3$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogProfileColorIconChangedYou",
       "value": "您将资料页颜色和图标从 %1$s 更改为 %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogProfileColorIconSet",
+      "value": "%1$s 将资料页颜色和标图更改为 %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -6415,13 +6745,48 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogProfileColorSet",
+      "value": "%1$s 将资料页颜色更改为 %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogProfileColorSetYou",
+      "value": "您将资料页颜色更改为 %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogProfileColorUnset",
+      "value": "%1$s 移除了资料页颜色 %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogProfileColorUnsetYou",
+      "value": "您移除了资料页颜色 %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogProfileEmojiChanged",
+      "value": "%1$s 将个人资料表情符号从 %2$s 更改为 %3$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogProfileEmojiChangedYou",
       "value": "您将个人资料页表情符号从 %1$s 更改为 %2$s"
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogProfileEmojiSet",
+      "value": "%1$s 将个人资料表情符号更改为 %2$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogProfileEmojiSetYou",
       "value": "您将个人资料表情符号更改为 %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogProfileEmojiUnset",
+      "value": "%1$s 移除了个人资料表情符号 %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -6497,6 +6862,11 @@
       "_": "types.LangPackString",
       "key": "EventLogPromotedManageLiveStreams",
       "value": "管理直播"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogPromotedManageTags",
+      "value": "编辑成员标签"
     },
     {
       "_": "types.LangPackString",
@@ -6625,6 +6995,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogRestrictedEditTag",
+      "value": "编辑自己的标签"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogRestrictedNew",
       "value": "限制了“%1$s”\n\n持续时间：%2$s"
     },
@@ -6735,6 +7110,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogTagRemoved",
+      "value": "%2$s 移除了 %3$s 的 \"%1$s\" 标签"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagRemovedYour",
+      "value": "%2$s 已移除您的标签 ”%1$s“"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSet",
+      "value": "%2$s 已将 %3$s 的标签设置为 “%1$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSetYour",
+      "value": "%2$s 已为您设置标签 ”%1$s“"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouRemoved",
+      "value": "您已移除 %2$s 的标签 ”%1$s“"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouSet",
+      "value": "您已为 %2$s 设置标签 ”%1$s“"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogToggledInvitesOff",
       "value": "%1$s 已停用群组邀请"
     },
@@ -6777,6 +7182,26 @@
       "_": "types.LangPackString",
       "key": "EventLogTransferredOwnership",
       "value": "把所有权转让给 %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOff",
+      "value": "%1$s 已禁用自动翻译"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOffYou",
+      "value": "您已禁用自动翻译。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOn",
+      "value": "%1$s 已启用自动翻译"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOnYou",
+      "value": "您已启用自动翻译。"
     },
     {
       "_": "types.LangPackString",
@@ -12305,6 +12730,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "key": "PremiumLimitChatsInFolder",
+      "other_value": "抱歉，但你不能添加超过  %1$s  个聊天到文件夹。你可以通过订阅 **Telegram 高级版** 将限制提升至 %2$s 。"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "key": "PremiumLimitCreateFolder",
       "other_value": "您已达到 %1$s 个文件夹的上限。您可以通过订阅 **Telegram 高级版** 将上限翻倍到 %2$s 个文件夹。"
     },
@@ -12362,6 +12792,11 @@
       "_": "types.LangPackString",
       "key": "PrimaryLinkBotHint",
       "value": "无法停用主要链接。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PrimaryLinkHint",
+      "value": "无法禁用话要链接。您可以使用上面的字段将其移除。"
     },
     {
       "_": "types.LangPackString",
@@ -17205,6 +17640,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncHintRetry2",
+      "value": "要开启联系人同步并将其无缝上传至 Telegram，请允许访问您的联系人。\n点击 **设置** > **权限**，然后开启 **联系人**。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncHintTitle",
       "value": "寻找联系人"
     },
@@ -17217,6 +17657,11 @@
       "_": "types.LangPackString",
       "key": "SyncHintUnavailable",
       "value": "点击“设置” > “权限”，然后开启通讯录访问权限，并允许 Telegram 访问通讯录。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SyncHintUnavailable2",
+      "value": "点击 “设置” > “权限”，然后开启 “联系人” 权限以允许 **%1$s** 访问您的联系人，以便在 Telegram 上找到他们。"
     },
     {
       "_": "types.LangPackString",
@@ -19710,6 +20155,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "key": "YouGiftedPremiumCode",
+      "other_value": "您发送了 %1$s 个月 Telegram 高级版订阅的礼品吗"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "key": "YouGiftedPremiumTo",
       "other_value": "您赠送了 %3$s %1$s 个月的 Telegram 高级版订阅，价值为 %2$s"
     },
@@ -20285,6 +20735,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistItem",
+      "value": "“%1$s“"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparator",
+      "value": "，"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparatorLast",
+      "value": "和"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasks",
+      "value": "%1$s 您已标记 %2$s 和 %3$s "
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksDone",
+      "other_value": "%1$s 个任务已完成"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksNotDone",
+      "other_value": "%1$s 个任务未完成"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• %1$s\n• %2$s\n• %3$s\n• %4$s"
     },
@@ -20572,6 +21052,11 @@
       "_": "types.LangPackString",
       "key": "format_notificationTitlePinned",
       "value": "%1$s （置顶的消息）"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_notificationTitleSecret",
+      "value": "🔒️%1$s"
     },
     {
       "_": "types.LangPackString",
@@ -22130,6 +22615,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "key": "xFutureWinnersOn",
+      "other_value": "将于 %2$s 选出 %1$s 位获奖者"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "key": "xGIFs",
       "other_value": "%1$s 张 GIF 动态图"
     },
@@ -22145,8 +22635,18 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "key": "xGiveawayPrizeReceivedInfo",
+      "other_value": "您的奖品是 **%1$s** 个月的 **Telegram 高级版** 订阅。"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "key": "xGiveawayPrizeStar",
       "other_value": "%1$s 颗 **Telegram 星星**。"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "xGiveawayUnclaimedPrizeReceivedInfo",
+      "other_value": "此奖品是 **%1$s** 个月的 **Telegram 高级版** 订阅。"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -22544,5 +23044,5 @@
       "other_value": "%1$s 年"
     }
   ],
-  "version": 1637708
+  "version": 1643480
 }
