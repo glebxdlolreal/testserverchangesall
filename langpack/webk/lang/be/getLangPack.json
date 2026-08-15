@@ -129,7 +129,7 @@
     {
       "_": "types.LangPackString",
       "key": "ActionChangedVideo",
-      "value": "un1 змяніў(-ла) відэа суполкі"
+      "value": "un1 змяніў(-ла) фота суполкі"
     },
     {
       "_": "types.LangPackString",
@@ -180,6 +180,11 @@
       "_": "types.LangPackString",
       "key": "ActionGiftPremiumView",
       "value": "Праглядзець"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGiftSold",
+      "value": "Вы прадалі падарунак %s\n"
     },
     {
       "_": "types.LangPackString",
@@ -491,8 +496,268 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AdminLog.AdminPermissionsChanged",
+      "value": "змяніў(-ла) правы кіраўніка для %s\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.AdminPermissionsChangedUsername",
+      "value": "змяніў(-ла) правы кіраўніка для %s (%s)\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangeAboutChannel",
+      "value": "%s змяніў(-ла) апісанне канала:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangeAboutGroup",
+      "value": "%s змяніў(-ла) апісанне суполкі:\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangeAvailableReactions",
+      "value": "%s змяніў(-ла) дазволеныя рэакцыі\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangeEmojiStatus",
+      "value": "%s змяніў(-ла) эмодзі-статус\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangeEmojiStickerSet",
+      "value": "%s змяніў(-ла) набор эмодзі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangeHistoryTTLDisabled",
+      "value": "%s адключыў(-ла) таймер аўтавыдалення\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangeHistoryTTLEnabled",
+      "value": "%s задаў(-ла) таймер аўтавыдалення на %s\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangeLinkChannel",
+      "value": "%s змяніў(-ла) спасылку канала:\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangeLinkGroup",
+      "value": "%s змяніў(-ла) спасылку суполкі:\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangeLinkedChat",
+      "value": "%s змяніў(-ла) звязаны чат\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangeLocationChannel",
+      "value": "%s змяніў(-ла) месцазнаходжанне канала\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangeLocationGroup",
+      "value": "%s змяніў(-ла) месцазнаходжанне суполкі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangePeerColor",
+      "value": "%s змяніў(-ла) колер профілю\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangePhotoChannel",
+      "value": "%s змяніў(-ла) фота канала\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangePhotoGroup",
+      "value": "%s змяніў(-ла) фота суполкі\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangeProfilePeerColor",
+      "value": "%s змяніў(-ла) колер профілю"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangeStickerSet",
+      "value": "%s змяніў(-ла) набор стыкераў\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangeTitleChannel",
+      "value": "%s змяніў(-ла) назву канала на %s\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangeTitleGroup",
+      "value": "%s змяніў(-ла) назву суполкі на %s\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangeUsernames",
+      "value": "%s змяніў(-ла) імёны карыстальнікаў\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ChangeWallpaper",
+      "value": "%s змяніў(-ла) фон\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.DefaultBannedRightsChanged",
+      "value": "змяніў(-ла) прадвызначаныя паўнамоцтвы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.DeletedMessage",
+      "value": "%s выдаліў(-ла) паведамленне:\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.DiscardGroupCall",
+      "value": "%s скончыў(-ла) галасавы чат\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.EditedMessage",
+      "value": "%s адрэдагаваў(-ла) паведамленне:\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ExportedInviteDeleted",
+      "value": "%s выдаліў(-ла) запрашальную спасылку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ExportedInviteEdit",
+      "value": "%s адрэдагаваў(-ла) запрашальную спасылку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ExportedInviteRevoked",
+      "value": "%s адклікаў(-ла) запрашальную спасылку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.MessageSent",
+      "value": "%s адправіў(-ла) паведамленне:"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ParticipantBanned",
+      "value": "заблакіраваў(-ла) %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ParticipantBannedUsername",
+      "value": "заблакіраваў(-ла) %s (%s)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ParticipantInvited",
+      "value": "%s запрасіў(-ла) %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ParticipantJoinedByInvite",
+      "value": "%s далучыўся(-лась) па запрашальнай спасылцы\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ParticipantJoinedByRequest",
+      "value": "%s далучыўся(-лась) па запыце, прыняў(-ла) %s\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ParticipantJoinedChannel",
+      "value": "%s далучыўся(-лась) да канала\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ParticipantJoinedGroup",
+      "value": "%s далучыўся(-лась) да суполкі\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ParticipantLeftChannel",
+      "value": "%s выйшаў(-ла) з канала"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AdminLog.ParticipantLeftGroup",
       "value": "%s выйшаў(-ла) з суполкі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ParticipantMuted",
+      "value": "%s быў(-ла) заглушаны(-а) %s\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ParticipantPermissionsToggled",
+      "value": "змяніў(-ла) паўнамоцтвы для %s\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ParticipantPermissionsToggledUsername",
+      "value": "змяніў(-ла) правы для %s (%s)\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ParticipantSubscriptionExtended",
+      "value": "%s падоўжыў(-ла) падпіску\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ParticipantUnmuted",
+      "value": "Для %s адключана заглушэнне (адключыў(-ла): %s)\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ParticipantVolumeChanged",
+      "value": "%s змяніў(-ла) гучнасць %s\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.PinnedMessage",
+      "value": "%s замацаваў(-ла) паведамленне:\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.PollStopped",
+      "value": "%s спыніў(-ла) апытанне\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.RemovedLinkChannel",
+      "value": "%s змяніў(-ла) спасылку суполкі:\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.RemovedLinkGroup",
+      "value": "%s выдаліў(-ла) спасылку суполкі\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.StartGroupCall",
+      "value": "%s пачаў(-ла) відэачат"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ToggleAntiSpamDisabled",
+      "value": "%s адключыў(-ла) спам-фільтр"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ToggleAntiSpamEnabled",
+      "value": "%s уключыў(-ла) спам-фільтр"
     },
     {
       "_": "types.LangPackString",
@@ -506,13 +771,513 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AdminLog.ToggleGroupCallSettingDisabled",
+      "value": "%s адключыў(-ла) далучэнне з заглушаным гукам\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ToggleGroupCallSettingEnabled",
+      "value": "%s уключыў(-ла) далучэнне з заглушаным гукам\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ToggleInvitesDisabled",
+      "value": "%s забароніў(-ла) запрашэнні"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ToggleInvitesEnabled",
+      "value": "%s дазволіў(-ла) запрашэнні\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ToggleNoForwardsDisabled",
+      "value": "%s адключыў(-ла) абарону кантэнту\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ToggleNoForwardsEnabled",
+      "value": "%s уключыў(-ла) абарону кантэнту\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.TogglePreHistoryHiddenDisabled",
+      "value": "%s адключыў(-ла) схаванне гісторыі чата\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.TogglePreHistoryHiddenEnabled",
+      "value": "%s уключыў(-ла) схаванне гісторыі чата "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ToggleSignaturesDisabled",
+      "value": "%s адключыў(-ла) подпісы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ToggleSignaturesEnabled",
+      "value": "%s уключыў(-ла) подпісы\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ToggleSlowModeDisabled",
+      "value": "%s адключыў(-ла) павольны рэжым"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ToggleSlowModeEnabled",
+      "value": "%s уключыў(-ла) павольны рэжым\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.ToggleSlowModeSet",
+      "value": "%s задаў(-ла) таймер павольнага рэжыму на %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.TopicCreated",
+      "value": "%s стварыў(-ла) тэму %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.TopicDeleted",
+      "value": "%s выдаліў(-ла) тэму  «%s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.TopicEdited",
+      "value": "%s змяніў(-ла) тэму %s\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.TopicUnpinned",
+      "value": "%s адмацаваў(-ла) тэму «%s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminLog.UnpinnedMessage",
+      "value": "%s адмацаваў(-ла) паведамленне:\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.AdminToggled",
+      "value": "Змяніў(-ла) правы кіраўніка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ChangeAvailableReactions",
+      "value": "Змяніў(-ла) дазволеныя рэакцыі\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ChangeEmojiStatus",
+      "value": "Змяніў(-ла) эмодзі-статус\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ChangeEmojiStickerSet",
+      "value": "Змяніў(-ла) набор эмодзі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ChangeHistoryTTL",
+      "value": "Змяніў(-ла) таймер аўтавыдалення паведамленняў\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ChangeLinkedChat",
+      "value": "Змяніў(-ла) звязаны чат\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ChangeLocationChannel",
+      "value": "Змяніў(-ла) месцазнаходжанне канала\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ChangeLocationGroup",
+      "value": "Змяніў(-ла) месцазнаходжанне суполкі\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ChangePeerColor",
+      "value": "Змяніў(-ла) дамінуючы колер"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ChangePhotoChannel",
+      "value": "Змяніў(-ла) фота канала)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ChangePhotoGroup",
+      "value": "Змяніў(-ла) фота суполкі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ChangeProfilePeerColor",
+      "value": "Змяніў(-ла) колер профілю"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ChangeRank",
+      "value": "Змяніў(-ла) тэг"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ChangeStickerSet",
+      "value": "Змяніў(-ла) набор стыкераў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ChangeTitleChannel",
+      "value": "Змяніў(-ла) назву канала"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ChangeTitleGroup",
+      "value": "Змяніў(-ла) назву суполкі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ChangeUsernameChannel",
+      "value": "Змяніў(-ла) спасылку на канал"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ChangeUsernameGroup",
+      "value": "Змяніў(-ла) спасылку на суполку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ChangeUsernames",
+      "value": "Змяніў(-ла) імёны карыстальнікаў\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ChangeWallpaper",
+      "value": "Змяніў(-ла) фон\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.DefaultBannedRightsChanged",
+      "value": "Змяніў(-ла) паўнамоцтвы на прадвызначаныя"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.DeletedMessage",
+      "value": "Выдаліў(-ла) паведамленне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.DiscardGroupCall",
+      "value": "Скончыў(-ла) групавы выклік\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.EditedMessage",
+      "value": "Адрэдагаваў(-ла) паведамленне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ExportedInviteDeleted",
+      "value": "Выдаліў(-ла) запрашальную спасылку\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ExportedInviteEdited",
+      "value": "Змяніў(-ла) запрашальную спасылку\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ExportedInviteRevoked",
+      "value": "Адклікаў(-ла) запрашальную спасылку\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.MessageSent",
+      "value": "Даслаў(-ла) паведамленне\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ParticipantBanned",
+      "value": "Заблакіраваў(-ла) удзельніка\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ParticipantInvited",
+      "value": "Запрасіў(-ла) удзельніка\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ParticipantJoinedByInvite",
+      "value": "Удзельнік далучыўся па запрашэнні\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ParticipantJoinedByRequest",
+      "value": "Удзельнік далучыўся па запыце\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ParticipantJoinedChannel",
+      "value": "Карыстальнік далучыўся да канала"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ParticipantJoinedGroup",
+      "value": "Карыстальнік далучыўся да суполкі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ParticipantLeftChannel",
+      "value": "Падпісчык, які пакінуў канал"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ParticipantLeftGroup",
+      "value": "Удзельнік, які выйшаў з суполкі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ParticipantMuted",
+      "value": "Заглушыў(-ла) удзельніка\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ParticipantPermissionsToggled",
+      "value": "Змяніў(-ла) правы ўдзельніка\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ParticipantSubscriptionExtended",
+      "value": "Падоўжыў(-ла) падпіску ўдзельніка\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ParticipantUnmuted",
+      "value": "Адключыў(-ла) заглушэнне ўдзельніка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ParticipantVolumeChanged",
+      "value": "Змяніў(-ла) гучнасць удзельніка\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.PollStopped",
+      "value": "Спыніў(-ла) апытанне\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.StartGroupCall",
+      "value": "Пачаў(-ла) групавы выклік\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ToggleAntiSpam",
+      "value": "Наладзіў(-ла) антыспам-фільтр"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ToggleAutoTranslation",
+      "value": "Наладзіў(-ла) аўтапераклад"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ToggleForum",
+      "value": "Уключыў(-ла) рэжым тэм/адзінага чата."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ToggleGroupCallSetting",
+      "value": "Змяніў(-ла) налады групавога выкліку\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ToggleInvites",
+      "value": "Змяніў(-ла) налады запрашальных спасылак"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ToggleNoForwards",
+      "value": "Змяніў(-ла) забарону на перасыланне\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ToggleNoForwardsDisabled",
+      "value": "Адключыў(-ла) абарону кантэнту\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ToggleNoForwardsEnabled",
+      "value": "Уключыў(-ла) абарону кантэнту\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.TogglePreHistoryHidden",
+      "value": "Змяніў(-ла) бачнасць гісторыі чата"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ToggleSignatureProfiles",
+      "value": "Змяніў(-ла) бачнасць подпісаў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ToggleSignatures",
+      "value": "Змяніў(-ла) налады подпісаў да паведамленняў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.ToggleSlowMode",
+      "value": "Наладзіў(-ла) павольны рэжым."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.TopicCreated",
+      "value": "Стварыў(-ла) тэму\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.TopicDeleted",
+      "value": "Выдаліў(-ла) тэму\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.TopicEdited",
+      "value": "Адрэдагаваў(-ла) тэму\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.TopicPinned",
+      "value": "Замацаваў(-ла) тэму\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionMessage.TopicUnpinned",
+      "value": "Адмацаваў(-ла) тэму\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActions.ApprovedBy",
+      "value": "Заяўку прыняў(-ла)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActions.AutoDeleteTimer",
+      "value": "Таймер аўтавыдалення\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActions.ChangedPermissionsToUser",
+      "value": "Карыстальніку\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActions.ChangedTo",
+      "value": "Зменена на"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActions.Disabled",
+      "value": "выкл."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActions.Enabled",
+      "value": "укл."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActions.JoinMuted",
+      "value": "Новыя ўдзельнікі не могуць пісаць\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActions.Participant",
+      "value": "Удзельнік"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActions.PreviousDescription",
+      "value": "Папярэдняе апісанне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActions.PreviousLink",
+      "value": "Папярэдняя спасылка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActions.PreviousMessage",
+      "value": "Папярэдняе паведамленне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActions.SlowModeDuration",
+      "value": "Працягласць павольнага рэжыму\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActions.UserNotMemberAnymore",
+      "value": "Гэты карыстальнік больш не ўдзельнік\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActions.ViewDeletedMessage",
+      "value": "Праглядзець выдаленае\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActions.ViewPinned",
+      "value": "Праглядзець замацаванае\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActions.ViewPreviousMessage",
+      "value": "Праглядзець папярэднія"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActions.ViewSentMessage",
+      "value": "Праглядзець адпраўленыя"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActions.ViewStopped",
+      "value": "Праглядзець спыненае\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActions.ViewUnpinned",
+      "value": "Праглядзець адмацаванае\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActions.ViewUpdatedMessage",
+      "value": "Праглядзець змененае\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AdminRecentActionsFilters.ApplyFilters",
       "value": "Прымяніць"
     },
     {
       "_": "types.LangPackString",
+      "key": "AdminRecentActionsFilters.BannedMembers",
+      "value": "Заблакіраваныя ўдзельнікі\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AdminRecentActionsFilters.ByAdmin",
       "value": "Фільтраваць паводле кіраўнікоў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionsFilters.ByType",
+      "value": "Выбраць віды дзеянняў"
     },
     {
       "_": "types.LangPackString",
@@ -536,6 +1301,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AdminRecentActionsFilters.Forums",
+      "value": "Тэмы"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AdminRecentActionsFilters.GroupCall",
       "value": "Групавыя выклікі"
     },
@@ -553,6 +1323,11 @@
       "_": "types.LangPackString",
       "key": "AdminRecentActionsFilters.InviteLinks",
       "value": "Запрашальныя спасылкі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionsFilters.InvitedMembers",
+      "value": "Запрошаныя ўдзельнікі\n"
     },
     {
       "_": "types.LangPackString",
@@ -576,6 +1351,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AdminRecentActionsFilters.NewAdminRights",
+      "value": "Новыя паўнамоцтвы кіраўнікоў"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AdminRecentActionsFilters.NewExceptions",
       "value": "Новыя выключэнні"
     },
@@ -585,14 +1365,72 @@
       "value": "Новыя ўдзельнікі"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Не паказваецца %d кіраўнікоў",
+      "key": "AdminRecentActionsFilters.NotShowingAdmins",
+      "many_value": "Не паказваецца %d кіраўнікоў",
+      "one_value": "Не паказваецца %d кіраўнік",
+      "other_value": "Не паказваецца %d кіраўнікоў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionsFilters.PinnedMessages",
+      "value": "Замацаваныя паведамленні"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionsFilters.RemovedAdminRights",
+      "value": "Выдаленыя паўнамоцтвы кіраўніка\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionsFilters.RemovedMembers",
+      "value": "Выдаленыя ўдзельнікі\n"
+    },
+    {
       "_": "types.LangPackString",
       "key": "AdminRecentActionsFilters.ResetFilters",
       "value": "Скінуць"
     },
     {
       "_": "types.LangPackString",
+      "key": "AdminRecentActionsFilters.SentMessages",
+      "value": "Дасланыя паведамленні\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AdminRecentActionsFilters.ShowAllAdminActions",
       "value": "Паказаць дзеянні ўсіх кіраўнікоў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionsFilters.SubscriptionExtensions",
+      "value": "Падаўжэнні падпісак\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionsFilters.UnbannedMembers",
+      "value": "Разблакіраваныя ўдзельнікі\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionsFilters.UnkickedMembers",
+      "value": "Вернутыя ўдзельнікі\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionsPlaceholder.Description",
+      "value": "**Тут пакуль няма дзеянняў**\n\nЗа апошнія **48** гадзін не было ніякіх службовых дзеянняў ад кіраўнікоў канала."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionsPlaceholder.Title",
+      "value": "Тут пакуль няма дзеянняў\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRecentActionsPlaceholder.WithFilterDescription",
+      "value": "Паспрабуйце змяніць фільтры або пашукайце канкрэтнае дзеянне.\n"
     },
     {
       "_": "types.LangPackString",
@@ -618,6 +1456,11 @@
       "_": "types.LangPackString",
       "key": "AdminRights.ManageStories",
       "value": "Кіраваць гісторыямі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdminRights.Other",
+      "value": "Іншае"
     },
     {
       "_": "types.LangPackString",
@@ -739,6 +1582,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AllMessages",
+      "value": "Усе паведамленні\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AllReactions",
       "value": "Усе рэакцыі"
     },
@@ -807,6 +1655,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Archive.HideFromChatList",
+      "value": "Схаваць са спісу чатаў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Archive.MarkAllAsRead.ConfirmationDescription",
+      "value": "Вы ўпэўнены, што хочаце пазначыць усе чаты ў архіве як прачытаныя?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Archive.MarkAllAsRead.ConfirmationTitle",
+      "value": "Усё ў прачытанае"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Archive.ShowInChatList",
       "value": "Паказаць у спісе чатаў"
     },
@@ -827,8 +1690,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArchiveFeatureDetails.Hide.Subtitle",
+      "value": "Націсніце правай кнопкай мышы на архіў і выберыце **%s**. Вы заўсёды зможаце атрымаць да яго доступ з галоўнага меню."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArchiveFeatureDetails.Hide.Title",
       "value": "Схаваць Архіў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArchiveFeatureDetails.HowTo.Subtitle",
+      "value": "Націсніце правай кнопкай мышы на чат і выберыце **%s** або **%s**."
     },
     {
       "_": "types.LangPackString",
@@ -857,8 +1730,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ArchiveFeatureDetails.Title",
+      "value": "Гэта ваш архіў"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ArchivePeerStories",
       "value": "Схаваць гісторыі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArchiveSettings.NewChats.Action",
+      "value": "Без апавяшчэнняў і ў архіў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ArchiveSettings.NewChats.Description",
+      "value": "Аўтаматычна дадаваць у архіў і адключаць апавяшчэнні ў новых чатах, суполках і каналах ад карыстальнікаў не ў кантактах."
     },
     {
       "_": "types.LangPackString",
@@ -922,8 +1810,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AreYouSureDeleteFewMessagesBot",
+      "value": "Вы хочаце выдаліць гэта паведамленне?\nГэта выдаліць яго толькі для вас."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AreYouSureDeleteFewMessagesMega",
       "value": "Вы ўпэўнены, што хочаце выдаліць гэтыя паведамленні для ўсіх?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AreYouSureDeleteFewMessagesMixed",
+      "value": "Вы ўпэўнены, што хочаце выдаліць гэтыя паведамленні?\n\nВы таксама можаце выдаліць паведамленні, якія вы даслалі з паштовай скрыні **%s**, паставіўшы галачку «Адклікаць мае паведамленні»."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AreYouSureDeleteFewMessagesOnlyMe",
+      "value": "Вы хочаце выдаліць гэтыя паведамленні?\n\nЯны будуць выдалены толькі для вас."
     },
     {
       "_": "types.LangPackString",
@@ -932,8 +1835,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AreYouSureDeleteSingleMessageBot",
+      "value": "Вы хочаце выдаліць гэта паведамленне?\nГэта выдаліць яго толькі для вас."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AreYouSureDeleteSingleMessageMega",
       "value": "Вы ўпэўнены, што хочаце выдаліць гэта паведамленне для ўсіх?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AreYouSureDeleteSingleMessageOnlyMe",
+      "value": "Вы хочаце выдаліць гэта паведамленне?\n\nЯно будзе выдалена толькі для вас."
     },
     {
       "_": "types.LangPackString",
@@ -1052,6 +1965,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AutoDeleteMessages",
+      "value": "Аўтавыдаленне паведамленняў"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AutoDeleteMessages.InfoChannel",
       "value": "Аўтаматычна выдаляць для ўсіх паведамленні ў суполцы па сканчэнні гэтага перыяду часу."
     },
@@ -1064,6 +1982,26 @@
       "_": "types.LangPackString",
       "key": "AutoDeleteMessages.InfoDefault",
       "value": "Аўтаматычна выдаляць для ўсіх паведамленні ў новых чатах, пачатых вамі, па сканчэнні зададзенага перыяду часу."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteMessages.SectionTitle",
+      "value": "Таймер самазнішчэння"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteMessages.SetOtherTime",
+      "value": "Задаць уласны час"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteMessagesShort",
+      "value": "Аўтавыдаленне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeletesIn",
+      "value": "аўтавыдаленне праз %s"
     },
     {
       "_": "types.LangPackString",
@@ -1235,6 +2173,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BelowMessage",
+      "value": "Паказваць пад паведамленнем"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Bio.Description",
       "value": "Любыя звесткі кшталту ўзросту, месца жыхарства або адукацыі. Напрыклад: 18 гадоў, студэнт БДУ"
     },
@@ -1260,13 +2203,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BirthdayPopup.Choose",
+      "value": "Выберыце ў %s, каму будзе бачны ваш дзень нараджэння."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BirthdayPopup.ChooseLink",
       "value": "Налады"
     },
     {
       "_": "types.LangPackString",
+      "key": "BirthdayPopup.Day",
+      "value": "Дзень"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BirthdayPopup.HideYear",
       "value": "Схаваць год"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdayPopup.Month",
+      "value": "Месяц\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdayPopup.OnlyContacts",
+      "value": "Толькі вашы кантакты ўбачаць ваш дзень нараджэння. %s"
     },
     {
       "_": "types.LangPackString",
@@ -1300,8 +2263,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BirthdayPopup.Year",
+      "value": "Год"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BirthdaySuggestIncoming",
       "value": "%s прапанаваў вам дадаць сваю дату нараджэння"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdaySuggestView",
+      "value": "Праглядзець"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "(%d гады)",
+      "key": "BirthdayYearsOld",
+      "many_value": "(%d гадоў)",
+      "one_value": "(%d год)",
+      "other_value": "(%d гады)"
     },
     {
       "_": "types.LangPackString",
@@ -1327,6 +2308,14 @@
       "_": "types.LangPackString",
       "key": "BlockedUsersInfo",
       "value": "Заблакіраваныя карыстальнікі не могуць адпраўляць вам паведамленні або запрашаць вас у суполкі. Яны таксама не могуць бачыць вашы фота профілю, гісторыі, статус прысутнасці і апошнюю актыўнасць."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "**%1$d** дні",
+      "key": "BoldDays",
+      "many_value": "**%1$d** дзён",
+      "one_value": "**%1$d** дзень",
+      "other_value": "**%1$d** дня"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -1356,8 +2345,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Boost.DescriptionJustReachedLevel",
+      "value": "Гэты канал дасягнуў **узроўню %1$d** і цяпер можа публікаваць %2$s на дзень."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Boost.DescriptionJustReachedLevel1",
       "value": "Гэты канал дасягнуў **узроўню 1** і цяпер можа размяшчаць гісторыі."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Boost.DescriptionJustReachedLevel1.Group",
+      "value": "Гэтая суполка дасягнула **ўзроўню 1** і цяпер можа публікаваць гісторыі."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Boost.DescriptionNextLevel",
+      "value": "Каналу %1$s не хапае %2$s, каб размяшчаць %3$s на дзень. Дапамажыце зрабіць гэта магчымым!"
     },
     {
       "_": "types.LangPackString",
@@ -1376,6 +2380,14 @@
       "_": "types.LangPackString",
       "key": "Boost.Replace",
       "value": "Змена кірунку падтрымкі"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "**%d** гісторыі",
+      "key": "Boost.StoriesCount",
+      "many_value": "**%d** гісторый",
+      "one_value": "**%d** гісторыя",
+      "other_value": "**%d** гісторый"
     },
     {
       "_": "types.LangPackString",
@@ -2549,6 +3561,11 @@
       "value": "Выходны відэавыклік"
     },
     {
+      "_": "types.LangPackString",
+      "key": "CallSettings.AcceptCalls.Caption",
+      "value": "Выключыце, каб не прымаць уваходныя выклікі і групавыя відэязванкі на гэтай прыладзе."
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "",
       "key": "CanJoin",
@@ -2570,6 +3587,21 @@
       "_": "types.LangPackString",
       "key": "CancelPollAlertTitle",
       "value": "Адхіліць апытанне?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CancelPollConfirm.Description",
+      "value": "Вы ўпэўнены, што хочаце скасаваць адпраўку апытання?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CancelPollConfirm.Timeout",
+      "value": "Апытанне ўжо было адпраўлена, вы можаце замест гэтага выдаліць паведамленне.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CancelPollConfirm.Title",
+      "value": "Скасаваць адпраўку апытання"
     },
     {
       "_": "types.LangPackString",
@@ -2748,6 +3780,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChannelDirectMessages.CantChangeSuggestedPostMessage",
+      "value": "Нельга змяніць паведамленне гэтага допіса\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChannelDirectMessages.ChooseMessage",
       "value": "Выберыце паведамленне, каб адказаць"
     },
@@ -2755,6 +3792,29 @@
       "_": "types.LangPackString",
       "key": "ChannelDirectMessages.Manage",
       "value": "Паведамленні каналу"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d паведамленні",
+      "key": "ChannelDirectMessages.MessagesCount",
+      "many_value": "%d паведамленняў",
+      "one_value": "%d паведамленне",
+      "other_value": "%d паведамленні"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChannelDirectMessages.SelectAChat",
+      "value": "Выберыце чат\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChannelDirectMessages.Settings.Free",
+      "value": "Бясплатна"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChannelDirectMessages.Settings.Off",
+      "value": "Выкл."
     },
     {
       "_": "types.LangPackString",
@@ -3184,6 +4244,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.Menu.Hint",
+      "value": "Каб **адрэдагаваць** або **адказаць**, закрыйце гэтае меню і націсніце побач з паведамленнем."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.Menu.SelectMessages",
       "value": "Выбраць паведамленні"
     },
@@ -3398,6 +4463,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.SearchSelected",
+      "value": "Пошук вылучанага тэксту"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.Selection.LimitToast",
       "value": "Дасягнута макс. колькасць выбраных."
     },
@@ -3464,7 +4534,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.Service.Channel.UpdatedPhoto",
-      "value": "Фота канала абноўлена"
+      "value": "Фота канала зменена"
     },
     {
       "_": "types.LangPackString",
@@ -3474,7 +4544,7 @@
     {
       "_": "types.LangPackString",
       "key": "Chat.Service.Channel.UpdatedVideo",
-      "value": "Відэа канала абноўлена"
+      "value": "Фота канала зменена"
     },
     {
       "_": "types.LangPackString",
@@ -3560,6 +4630,11 @@
       "_": "types.LangPackString",
       "key": "Chat.Service.NoForwardsRequest.Disable",
       "value": "%s прапанаваў(-ла) уключыць абагульванне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Chat.Service.NoForwardsRequest.Enable",
+      "value": "%s прапанаваў(-ла) адключыць абагульванне\n"
     },
     {
       "_": "types.LangPackString",
@@ -3663,6 +4738,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Chat.Service.TopicEdited.You.Mixed",
+      "value": "Вы змянілі назву тэмы і значок на %2$@"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Chat.Service.TopicEdited.You.Mixed.IconRemoved",
       "value": "Вы змянілі назву тэмы на «%1$@» і выдалілі іконку"
     },
@@ -3759,6 +4839,16 @@
       "_": "types.LangPackString",
       "key": "ChatAdmin",
       "value": "кіраўнік"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.AllExcept",
+      "value": "Усе прыватныя чаты, акрамя…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatAutomation.EditBio",
+      "value": "Рэдагаваць «Пра сябе»"
     },
     {
       "_": "types.LangPackString",
@@ -4032,6 +5122,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.SharedFolder.Subtitle",
+      "value": "Націсніце тут, каб праглядзець"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatList.SharedFolder.Title",
+      "value": "**Можаце далучыцца да %s новага чата**"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatLocation",
       "value": "Месцазнах."
     },
@@ -4140,6 +5240,14 @@
       "many_value": "%d новых чатаў",
       "one_value": "%d новы чат",
       "other_value": "%d новага чата"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d чаты выбраны",
+      "key": "ChatsSelected",
+      "many_value": "%d чатаў выбрана",
+      "one_value": "%d чат выбраны",
+      "other_value": "%d чата выбрана"
     },
     {
       "_": "types.LangPackString",
@@ -4298,6 +5406,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ClientPip.PlaceholderDescription",
+      "value": "Каб вярнуцца да адлюстравання ва ўкладцы, націсніце на кнопку тут або на значок у плаваючым акне."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Close",
       "value": "Закрыць"
     },
@@ -4387,6 +5500,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Community.DeleteConfirm",
+      "value": "Выдаліць гэту супольнасць? Гэта дзеянне немагчыма адрабіць."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Community.GroupAdded",
       "value": "Суполка дададзена ў супольнасць."
     },
@@ -4435,6 +5553,11 @@
       "_": "types.LangPackString",
       "key": "Community.Visible",
       "value": "Бачны"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CompactDiffView",
+      "value": "Кампактны рэжым"
     },
     {
       "_": "types.LangPackString",
@@ -4518,6 +5641,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ContinueLastTopic",
+      "value": "Працягнуць апошнюю тэму\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Copy",
       "value": "Капіяваць"
     },
@@ -4543,6 +5671,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CopyRestricted.User",
+      "value": "Капіяванне абмежавана ў гэтым чаце."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Country",
       "value": "Краіна"
     },
@@ -4553,8 +5686,43 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CreateBot.BotWasCreated",
+      "value": "Бот **%s** быў створаны.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CreateBot.FailedToCreate",
+      "value": "Не ўдалося стварыць бота.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CreateBot.TooManyBotsCreated",
+      "value": "Вы стварылі занадта шмат ботаў. Пачакайце %s перад стварэннем новага.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CreateBot.Username.Error",
+      "value": "Праверка імя карыстальніка не ўдалася.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CreateBot.Username.Invalid",
+      "value": "Гэта імя карыстальніка недапушчальнае."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CreateBot.Username.InvalidChars",
+      "value": "Імя карыстальніка можа ўтрымліваць толькі літары, лічбы і знакі падкрэслівання.\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CreateBot.Username.Label",
       "value": "Назва бота"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CreateBot.Username.MustStartLetter",
+      "value": "Імя карыстальніка павінна пачынацца з літары.\n"
     },
     {
       "_": "types.LangPackString",
@@ -4580,6 +5748,11 @@
       "_": "types.LangPackString",
       "key": "CreateNewLink",
       "value": "Стварыць новую спасылку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CreateNewTopicDescription",
+      "value": "Увядзіце любое паведамленне,\nкаб стварыць новую тэму.\n"
     },
     {
       "_": "types.LangPackString",
@@ -4623,6 +5796,16 @@
       "many_value": "%1$d дзён",
       "one_value": "%1$d дзень",
       "other_value": "%1$d дзён"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Deactivated.OtherClient.Subtitle",
+      "value": "Запушчана іншая праграма.\nНацісніце ў любым месцы, каб працягнуць выкарыстанне гэтай праграмы.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Deactivated.OtherClient.Title",
+      "value": "Зашмат укладак."
     },
     {
       "_": "types.LangPackString",
@@ -4864,6 +6047,16 @@
       "other_value": "Выдаліць тэмы"
     },
     {
+      "_": "types.LangPackString",
+      "key": "DeletedMessage",
+      "value": "Выдаленае паведамленне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeletedMessageToast",
+      "value": "Гэта паведамленне было выдалена."
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "%1$d выдаленні",
       "key": "Deletions",
@@ -4893,8 +6086,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Dice.Lost",
+      "value": "%s прайграў(-ла) %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Dice.LostYou",
+      "value": "Вы прайгралі %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Dice.Tooltip",
+      "value": "Адпраўце эмодзі %s, каб выпрабаваць сваю ўдачу."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Dice.Tooltip.CantSend",
       "value": "Адпраўце эмодзі %s у любы чат, каб выпрабаваць сваю ўдачу."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Dice.Won",
+      "value": "%s выйграў(-ла) %s "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Dice.WonYou",
+      "value": "Вы выйгралі %s"
     },
     {
       "_": "types.LangPackString",
@@ -4920,6 +6138,11 @@
       "_": "types.LangPackString",
       "key": "DisableReactionsInfo",
       "value": "Удзельнікі суполкі не могуць дадаваць рэакцыі на паведамленні."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DisableSharing",
+      "value": "Адключыць абагульванне"
     },
     {
       "_": "types.LangPackString",
@@ -5348,6 +6571,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EditProfile.AddBirthdayRow",
+      "value": "Дадаць дзень нараджэння"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EditProfile.BioLabel",
       "value": "Пра сябе (неабавязкова)"
     },
@@ -5383,13 +6611,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EditThisGIF",
+      "value": "Рэдагаваць анімацыю"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditThisPhoto",
+      "value": "Рэдагаваць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EditThisVideo",
+      "value": "Рэдагаваць"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EditTopicHide",
       "value": "Паказваць у спісе тэм"
     },
     {
       "_": "types.LangPackString",
       "key": "EditTopicHideInfo",
-      "value": "Калі тэма «Агульнае» схавана, удзельнікі суполкі могуць пацягнуць уніз спіс тэм, каб праглядзець яе."
+      "value": "Калі галоўная тэма схавана, удзельнікі суполкі могуць пацягнуць уніз спіс тэм, каб праглядзець яе."
     },
     {
       "_": "types.LangPackString",
@@ -5408,6 +6651,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EmailSetup.ChangeEmail",
+      "value": "Змяніць"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EmailSetup.ChangeSubtitle",
       "value": "Цяпер вы будзеце атрымліваць коды для ўваходу ў\nTelegram праз электронную пошту, а не SMS. Увядзіце\nадрас электроннай пошты, да якога маеце доступ."
     },
@@ -5415,6 +6663,11 @@
       "_": "types.LangPackString",
       "key": "EmailSetup.ChangeTitle",
       "value": "Увядзіце новую эл. пошту"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EmailSetup.ChangeToast",
+      "value": "Эл. пошта паспяхова зменена."
     },
     {
       "_": "types.LangPackString",
@@ -5430,6 +6683,16 @@
       "_": "types.LangPackString",
       "key": "EmailSetup.InputCaption",
       "value": "Вашa электронная пошта"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EmailSetup.InvalidEmail",
+      "value": "Памылковы адрас электроннай пошты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EmailSetup.SetupToast",
+      "value": "Эл. пошта паспяхова дададзены.\n"
     },
     {
       "_": "types.LangPackString",
@@ -5982,6 +7245,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ForgotPassword",
+      "value": "[Забыліся на пароль?]()"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "FormattedDate.CopyDate",
       "value": "Скапіяваць дату"
     },
@@ -6032,11 +7300,40 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "few_value": "Праз %1$d месяцы",
+      "key": "FormattedDate.InMonths",
+      "many_value": "Праз %1$d месяцаў",
+      "one_value": "Праз %1$d месяц",
+      "other_value": "Праз %1$d месяца"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "few_value": "праз %1$d секунды",
       "key": "FormattedDate.InSeconds",
       "many_value": "праз %1$d секунд",
       "one_value": "праз %1$d секунду",
       "other_value": "праз %1$d секунды"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Праз %1$d тыдні",
+      "key": "FormattedDate.InWeeks",
+      "many_value": "Праз %1$d тыдняў",
+      "one_value": "Праз %1$d тыдзень",
+      "other_value": "Праз %1$d тыдня"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Праз %1$d гады",
+      "key": "FormattedDate.InYears",
+      "many_value": "Праз %1$d гадоў",
+      "one_value": "Праз %1$d год",
+      "other_value": "Праз %1$d года"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FormattedDate.JustNow",
+      "value": "тольки што"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -6048,11 +7345,35 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d месяцы таму",
+      "key": "FormattedDate.MonthsAgo",
+      "many_value": "%1$d месяцаў таму",
+      "one_value": "%1$d месяц таму",
+      "other_value": "%1$d месяца таму"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "few_value": "%1$d секунды таму",
       "key": "FormattedDate.SecondsAgo",
       "many_value": "%1$d секунд таму",
       "one_value": "%1$d секунду таму",
       "other_value": "%1$d секунды таму"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d тыдні таму",
+      "key": "FormattedDate.WeeksAgo",
+      "many_value": "%1$d тыдняў таму",
+      "one_value": "%1$d тыдзень таму",
+      "other_value": "%1$d тыдня таму"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d гады таму",
+      "key": "FormattedDate.YearsAgo",
+      "many_value": "%1$d гадоў таму",
+      "one_value": "%1$d год таму",
+      "other_value": "%1$d года таму"
     },
     {
       "_": "types.LangPackString",
@@ -6087,7 +7408,7 @@
     {
       "_": "types.LangPackString",
       "key": "ForumTopic.Title.Edit",
-      "value": "Змяніць тэму"
+      "value": "Рэдагаваць тэму"
     },
     {
       "_": "types.LangPackString",
@@ -6139,6 +7460,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Frozen.Ok",
+      "value": "ЗРАЗУМЕЛА"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Frozen.ReadOnly.Subtitle",
       "value": "Вы маеце доступ да свайго ўліковага запісу, але не можаце адпраўляць паведамленні ці выконваць іншыя дзеянні."
     },
@@ -6146,6 +7472,11 @@
       "_": "types.LangPackString",
       "key": "Frozen.ReadOnly.Title",
       "value": "Рэжым чытання"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Frozen.Title",
+      "value": "Ваш уліковы запіс замарожаны\n"
     },
     {
       "_": "types.LangPackString",
@@ -6228,6 +7559,14 @@
       "value": "Вы можаце актываваць гэты код пасля **%1$s** або **[адправіць спасылку]()** сябру."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d дні",
+      "key": "GiftDays",
+      "many_value": "%1$d дзён",
+      "one_value": "%1$d дзень",
+      "other_value": "%1$d дня"
+    },
+    {
       "_": "types.LangPackString",
       "key": "GiftModal.Title.You",
       "value": "Вы падарылі карыстальніку **%1$s** падпіску Telegram Premium на %2$s."
@@ -6289,6 +7628,14 @@
       "_": "types.LangPackString",
       "key": "GiftTelegramPremiumTitle",
       "value": "Падарыць Telegram Premium"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "і яшчэ **%d** пералічаных каналаў",
+      "key": "Giveaway.Info.OtherChannels",
+      "many_value": "і яшчэ **%d** пералічаных каналаў",
+      "one_value": "і яшчэ **%d** пералічанага канала",
+      "other_value": "і яшчэ **%d** пералічанага канала"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -6381,6 +7728,14 @@
       "value": "Для ўдзелу ў розыгрышы далучыцеся да канала **%s** (і %s) да **%s**."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%s будуць выбраныя %d пераможцы",
+      "key": "Giveaway.ToBeSelected",
+      "many_value": "%s будуць выбраныя %d пераможцаў",
+      "one_value": "%s будзе выбраны %d пераможца",
+      "other_value": "%s будзе выбрана %d пераможцы"
+    },
+    {
       "_": "types.LangPackString",
       "key": "Giveaway.Won",
       "value": "Вы выйгралі прыз у гэтым розыгрышы %s"
@@ -6424,6 +7779,11 @@
       "_": "types.LangPackString",
       "key": "GlobalAttachPlainRestricted",
       "value": "У гэтай суполцы забаронена адпраўляць тэкставыя паведамленні"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GlobalAttachRoundRestricted",
+      "value": "У гэтай суполцы забаронена адпраўляць відэапаведамленні."
     },
     {
       "_": "types.LangPackString",
@@ -6668,6 +8028,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "InstantView.Media.Url",
+      "value": "Націсніце, каб адкрыць спасылку:\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "InstantView.Media.Url.Touch",
+      "value": "Дакраніцеся, каб адкрыць спасылку:\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "InstantView.WrongLayout",
       "value": "Памылковы макет?"
     },
@@ -6764,8 +8134,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "InviteLinks.Additional",
+      "value": "Дадатковыя спасылкі"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "InviteLinks.Description",
       "value": "Вы можаце стварыць дадатковыя запрашальныя спасылкі, якія маюць тэрмін дзеяння, абмежаванне на колькасць карыстальнікаў ці патрабуюць платнай падпіскі."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "InviteLinks.Edit",
+      "value": "Рэдагаваць спасылку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "InviteLinks.ExpiresCaption",
+      "value": "Гэта спасылка дзейнічае да %s."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "InviteLinks.LimitReached",
+      "value": "ліміт дасягнуты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "InviteLinks.Reactivate",
+      "value": "Актываваць спасылку зноў"
     },
     {
       "_": "types.LangPackString",
@@ -6776,6 +8171,19 @@
       "_": "types.LangPackString",
       "key": "InviteToGroupError",
       "value": "На жаль, вы не можаце дадаць гэтага карыстальніка ў суполкі, бо ён(яна) забараніў(-ла) гэта сваімі наладамі прыватнасці."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Спасылка абагулена для **%d**",
+      "key": "InviteViaLink.LinkShared",
+      "many_value": "Спасылка абагулена для **%d**",
+      "one_value": "Спасылка абагулена для **%2$s**",
+      "other_value": "Спасылка абагулена для **%d**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "InviteViaLink.Premium",
+      "value": "Адправіць запрашальную спасылку\n"
     },
     {
       "_": "types.LangPackString",
@@ -6794,6 +8202,11 @@
       "_": "types.LangPackString",
       "key": "InviteViaLink.Premium.Subtitle2",
       "value": "Вы можаце адправіць запрашэнне далучыцца да суполкі ў прыватным паведамленні."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "InviteViaLink.Send",
+      "value": "Адправіць запрашальную спасылку"
     },
     {
       "_": "types.LangPackString",
@@ -6835,6 +8248,11 @@
       "_": "types.LangPackString",
       "key": "JumpToDate",
       "value": "Перайсці да даты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "JustArgument",
+      "value": "%@"
     },
     {
       "_": "types.LangPackString",
@@ -7260,7 +8678,7 @@
     {
       "_": "types.LangPackString",
       "key": "LastSeenTitle",
-      "value": "Хто можа бачыць час вашай апошняй актыўнасці?"
+      "value": "Хто можа бачыць час маёй апошняй актыўнасці?"
     },
     {
       "_": "types.LangPackString",
@@ -7494,6 +8912,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "LiteMode.Key.chat_spoilers.Title",
+      "value": "Анімаваны эфект спойлераў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "LiteMode.Key.effects_emoji.Title",
+      "value": "Эфекты эмодзі"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "LiteMode.Key.effects_reactions.Title",
       "value": "Эфект рэакцыі"
     },
@@ -7504,6 +8932,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "LiteMode.Key.emoji_messages.Title",
+      "value": "Аўтапрайграванне ў паведамленнях"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "LiteMode.Key.emoji_panel.Title",
+      "value": "Аўтапрайграванне ў панэлі"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "LiteMode.Key.gif.Title",
       "value": "Аўтапрайграванне анімацый"
     },
@@ -7511,6 +8949,16 @@
       "_": "types.LangPackString",
       "key": "LiteMode.Key.stickers.Title",
       "value": "Анімацыя стыкераў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "LiteMode.Key.stickers_chat.Title",
+      "value": "Аўтапрайграванне ў чатах"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "LiteMode.Key.stickers_panel.Title",
+      "value": "Аўтапрайграванне ў панэлі"
     },
     {
       "_": "types.LangPackString",
@@ -7589,6 +9037,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Login.Passkey.Error.NotFound",
+      "value": "Выкарыстаны ключ доступу не прывязаны да ўліковага запісу\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Login.Password.Subtitle",
       "value": "Ваш уліковы запіс абаронены\nдадатковым паролем"
     },
@@ -7630,12 +9083,17 @@
     {
       "_": "types.LangPackString",
       "key": "Login.QR.Login",
-      "value": "Увайсці праз QR-код"
+      "value": "Увайсці праз QR-код >"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Login.QR.Subtitle",
+      "value": "Адскануйце з дапамогай Telegram на вашым тэлефоне\n"
     },
     {
       "_": "types.LangPackString",
       "key": "Login.QR.Title",
-      "value": "Увайсці ў Telegram праз QR-код"
+      "value": "Увайсці праз QR-код"
     },
     {
       "_": "types.LangPackString",
@@ -7649,8 +9107,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Login.ResetAccount.Text",
+      "value": "Гэта дзеянне нельга адмяніць.\n\nКалі вы скінеце ўліковы запіс, усе вашы паведамленні і чаты будуць выдалены.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Login.ResetAccount.Title",
+      "value": "Увага"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Login.ResetAccountFail.TextWait",
+      "value": "Гэты ўліковы запіс выкарыстоўваецца і абаронены паролем, таму ён будзе выдалены праз тыдзень з меркаванняў бяспекі. \n\nВы можаце скасаваць гэты працэс у любы час.\n\nУліковы запіс будзе выдалены праз: %s."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Login.ResetAccountFail.Title",
+      "value": "Шкада"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Login.ResetEmail.NeedPremium",
       "value": "Патрабуецца Telegram Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Login.ResetEmail.NeedPremiumText",
+      "value": "Праз высокую цану SMS у вашай краіне вам спатрэбіцца падпіска на **Telegram Premium**, каб скінуць гэты адрас электроннай пошты з дапамогай кода з SMS.\n\nМожна папрасіць сябра падарыць вам падпіску на Premium для вашага ўліковага запісу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Login.ResetEmail.Pending",
+      "value": "Эл. пошта будзе скінута праз %s. [Скінуць зараз праз SMS]()"
     },
     {
       "_": "types.LangPackString",
@@ -7659,8 +9147,48 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Login.ResetEmail.Text",
+      "value": "Вы можаце змяніць ваш email для ўваходу, калі вы ўвайшлі ў Telegram з іншай прылады.\n\nУ адваротным выпадку, калі ў вас няма доступу да гэтай эл. пошты, вы можаце скінуць яго з дапамогай **SMS**-кода праз %s.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Login.ResetEmail.Title",
+      "value": "Скінуць эл. пошту"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Login.ResetPassword.Cancel",
+      "value": "Скасаваць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Login.ResetPassword.NoEmailText",
+      "value": "Праз тое, што вы не пакінулі электронную пошту для аднаўлення, калі задавалі пароль, вам застаецца ўспомніць яго або скінуць уліковы запіс."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Login.ResetPassword.ResetAccount",
+      "value": "Скінуць уліковы запіс"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Login.ResetPassword.Subtitle",
+      "value": "Увядзіце код, які мы толькі што\nадаслалі на вашу эл. пошту **%s**.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Login.ResetPassword.Title",
+      "value": "Скінуць пароль"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Login.ResetPassword.TroubleEmailText",
+      "value": "Калі вы не можаце аднавіць доступ да вашага адраса электроннай пошты, вам застаецца толькі ўспомніць свой пароль або скінуць свой уліковы запіс."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Login.StartText",
-      "value": "Выберыце краіну і ўвядзіце нумар вашага тэлефона."
+      "value": "Выберыце краіну \nі ўвядзіце нумар вашага тэлефона."
     },
     {
       "_": "types.LangPackString",
@@ -8070,6 +9598,11 @@
       "value": "Адправіць"
     },
     {
+      "_": "types.LangPackString",
+      "key": "MonoforumLeaveAlertWithName",
+      "value": "Вы ўпэўнены, што хочаце пакінуць **%1$s**?\n"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "%1$d месяцы",
       "key": "Months",
@@ -8137,6 +9670,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Never",
+      "value": "Ніколі"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "New",
       "value": "Новы"
     },
@@ -8154,6 +9692,11 @@
       "_": "types.LangPackString",
       "key": "NewChecklist",
       "value": "Новы спіс спраў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NewChecklist.TitlePlaceholder",
+      "value": "Назва..."
     },
     {
       "_": "types.LangPackString",
@@ -8262,6 +9805,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NewPoll.MinEndTime",
+      "value": "Можна скончыць не раней за: %s\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NewPoll.MultipleChoice",
       "value": "Некалькі варыянтаў адказу"
     },
@@ -8274,6 +9822,14 @@
       "_": "types.LangPackString",
       "key": "NewPoll.OptionsAddOption",
       "value": "Дадаць варыянт у апытанне"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Вы можаце дадаць яшчэ %d.",
+      "key": "NewPoll.OptionsLeft",
+      "many_value": "Вы можаце дадаць яшчэ %d.",
+      "one_value": "Вы можаце дадаць яшчэ %d.",
+      "other_value": "Вы можаце дадаць яшчэ %d."
     },
     {
       "_": "types.LangPackString",
@@ -8367,6 +9923,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NoMessagesYet",
+      "value": "Пакуль няма паведамленняў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "NoMicrophoneAccess",
+      "value": "Дазвольце доступ да мікрафона"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NoReactions",
       "value": "Без рэакцый"
     },
@@ -8427,8 +9993,58 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Notifications.Default",
+      "value": "Дайце Telegram дазвол на адпраўку апавяшчэнняў. Магчыма, вам спатрэбіцца абнавіць старонку, каб убачыць змены.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notifications.Enable",
+      "value": "Уключыць апавяшчэнні"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notifications.Offline",
+      "value": "Паказваць апавяшчэнні ў фоне\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notifications.Restricted",
+      "value": "Вы абмежавалі апавяшчэнні. Скіньце дазвол у браўзеры і паспрабуйце зноў.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notifications.Show",
+      "value": "Паказваць апавяшчэнні"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Notifications.Sound",
       "value": "Гук апавяшчэння"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notifications.Sound.Caption",
+      "value": "Перацягніце і адпусціце або націсніце, каб праверыць гучнасць.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notifications.Sound.Effects",
+      "value": "Гукавыя эфекты\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notifications.Sound.Section",
+      "value": "Гук"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notifications.Sound.Sent",
+      "value": "Паведамленне адпраўлена\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Notifications.Sound.Volume",
+      "value": "Гучнасць гуку\n"
     },
     {
       "_": "types.LangPackString",
@@ -8477,6 +10093,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "NotificationsStoriesImportantInfo",
+      "value": "Аўтаматычна атрымліваць апавяшчэнні пра гісторыі ад 5 карыстальнікаў, з якімі найчасцей размаўляеце."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "NotificationsStoryMute2",
       "value": "Не апавяшчаць\nаб гісторыях"
     },
@@ -8509,6 +10130,11 @@
       "_": "types.LangPackString",
       "key": "Of",
       "value": "%1$d з %2$d"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Off",
+      "value": "Выкл."
     },
     {
       "_": "types.LangPackString",
@@ -8620,6 +10246,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Other",
+      "value": "Іншае"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "OtherSessions",
       "value": "Актыўныя сеансы"
     },
@@ -8676,7 +10307,7 @@
     {
       "_": "types.LangPackString",
       "key": "PaidMedia.Menu.Edit",
-      "value": "Правіць цану"
+      "value": "Змяніць цану"
     },
     {
       "_": "types.LangPackString",
@@ -8704,9 +10335,32 @@
       "value": "За кожнае паведамленне вам %s заплаціць %d."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s цяпер прымае паведамленні за **%1$d зоркі**",
+      "key": "PaidMessages.ChannelPriceChanged",
+      "many_value": "%2$s цяпер прымае паведамленні за **%1$d зорак**",
+      "one_value": "%2$s цяпер прымае паведамленні за **%1$d зорку**",
+      "other_value": "%2$s цяпер прымае паведамленні за **%1$d зоркі**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PaidMessages.ChannelPriceChangedFree",
+      "value": "%s цяпер прымае паведамленні бясплатна"
+    },
+    {
       "_": "types.LangPackString",
       "key": "PaidMessages.ChannelPriceDisabled",
       "value": "%s больш не прымае паведамленні"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PaidMessages.ChargeFee",
+      "value": "Браць плату"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PaidMessages.ChargeFeeWarning",
+      "value": "Вы ўпэўнены, што хочаце спаганяць %s за паведамленне вам?\n"
     },
     {
       "_": "types.LangPackString",
@@ -8970,6 +10624,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PasswordDeactivated",
+      "value": "Пароль адключаны"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PaymentCard.Error.Invalid",
       "value": "Памылковы нумар карткі"
     },
@@ -9052,6 +10711,16 @@
       "_": "types.LangPackString",
       "key": "PaymentInvoiceLinkInvalid",
       "value": "Памылковы рахунак"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PaymentMethod",
+      "value": "Спосаб аплаты\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PaymentMethodNewCard",
+      "value": "Новая карта...\n"
     },
     {
       "_": "types.LangPackString",
@@ -9217,6 +10886,46 @@
       "_": "types.LangPackString",
       "key": "Peer.Activity.Chat.Multi.TypingText1",
       "value": "%@ і яшчэ %d пішуць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Peer.Activity.Chat.Pair.ChoosingSticker",
+      "value": "%1$@ і %2$@ выбіраюць стыкеры\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Peer.Activity.Chat.Pair.PlayingGame",
+      "value": "%1$@ і %2$@ гуляюць у гульню"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Peer.Activity.Chat.Pair.RecordingAudio",
+      "value": "%1$@ і %2$@ запісваюць галасавыя\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Peer.Activity.Chat.Pair.RecordingVideo",
+      "value": "%1$@ і %2$@ запісваюць відэа\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Peer.Activity.Chat.Pair.SendingFile",
+      "value": "%1$@ і %2$@ адпраўляюць файлы\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Peer.Activity.Chat.Pair.SendingPhoto",
+      "value": "%1$@ і %2$@ адпраўляюць фота\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Peer.Activity.Chat.Pair.SendingVideo",
+      "value": "%1$@ і %2$@ адпраўляюць відэа\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Peer.Activity.Chat.Pair.TypingText",
+      "value": "%1$@ і %2$@ пішуць"
     },
     {
       "_": "types.LangPackString",
@@ -9677,6 +11386,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PostsSearch.NeedPremium",
+      "value": "Глабальны пошук — гэта функцыя Premium."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PostsSearch.SearchFor",
       "value": "Шукаць за ⭐️%s"
     },
@@ -9689,6 +11403,11 @@
       "_": "types.LangPackString",
       "key": "PostsSearch.SubscribeToPremium",
       "value": "Падпісацца на Premium"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PostsSearch.TabName",
+      "value": "Допісы"
     },
     {
       "_": "types.LangPackString",
@@ -10241,6 +11960,14 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "few_value": "Адправіць %d анімацыі",
+      "key": "PreviewSender.SendGif",
+      "many_value": "Адправіць %d анімацый",
+      "one_value": "Адправіць %d анімацыю",
+      "other_value": "Адправіць %d анімацый"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "few_value": "Адправіць %d фота",
       "key": "PreviewSender.SendPhoto",
       "many_value": "Адправіць %d фота",
@@ -10259,6 +11986,16 @@
       "_": "types.LangPackString",
       "key": "PricePerMonth",
       "value": "%1$s / месяц"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Privacy.BioCaption",
+      "value": "Вы можаце вызначыць, каму нельга бачыць вашы звесткі «Пра сябе»."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Privacy.Birthday",
+      "value": "Хто можа бачыць мой дзень нараджэння\n"
     },
     {
       "_": "types.LangPackString",
@@ -10312,6 +12049,11 @@
       "_": "types.LangPackString",
       "key": "Privacy.Passkeys.Caption",
       "value": "Ваш ключ доступу надзейна захоўваецца ў вашым менеджары пароляў. [Болей >]()"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Privacy.SavedMusic",
+      "value": "Хто можа бачыць маю захаваную музыку\n"
     },
     {
       "_": "types.LangPackString",
@@ -10549,7 +12291,7 @@
     {
       "_": "types.LangPackString",
       "key": "PrivacySettingsController.AlwaysShare",
-      "value": "Заўсёды паказваць"
+      "value": "Заўсёды бачны для"
     },
     {
       "_": "types.LangPackString",
@@ -10584,7 +12326,7 @@
     {
       "_": "types.LangPackString",
       "key": "PrivacySettingsController.NeverShare",
-      "value": "Заўсёды хаваць ад"
+      "value": "Заўсёды схаваны для"
     },
     {
       "_": "types.LangPackString",
@@ -10716,6 +12458,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ProfileStoriesArchiveChannelHint",
+      "value": "Толькі кіраўнікі могуць бачыць архіваваныя гісторыі, калі вы не вырашыце апублікаваць іх у профілі канала.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ProfileStoriesArchiveGroupHint",
+      "value": "Толькі кіраўнікі суполкі могуць бачыць гісторыі ў архіве, калі яны не апублікаваныя ў профілі суполкі."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ProfileStoriesArchiveHint",
       "value": "Толькі вы можаце бачыць гісторыі ў архіве, калі не вырашыце апублікаваць іх у свой профіль."
     },
@@ -10754,6 +12506,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PushNotification.Message.Refreshing",
+      "value": "Telegram сінхранізуецца ў фоне...\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "QRCode.Copied",
       "value": "QR-код скапіяваны ў буфер абмену."
     },
@@ -10781,6 +12538,11 @@
       "_": "types.LangPackString",
       "key": "QuotePrivate",
       "value": "Гэта цытата з прыватнага чата"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Rank.Label",
+      "value": "Назва"
     },
     {
       "_": "types.LangPackString",
@@ -10836,6 +12598,11 @@
       "_": "types.LangPackString",
       "key": "Recent",
       "value": "Нядаўнія"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RecentActions",
+      "value": "Нядаўнія дзеянні"
     },
     {
       "_": "types.LangPackString",
@@ -10922,8 +12689,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ReplaceGIF",
+      "value": "Замяніць анімацыю"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ReplacePhoto",
       "value": "Замяніць фота"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReplaceSticker",
+      "value": "Замяніць стыкер\n"
     },
     {
       "_": "types.LangPackString",
@@ -11132,6 +12909,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ResetPassword.Action",
+      "value": "[Скінуць пароль]()"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ResetPassword.Confirm",
+      "value": "Вы ўпэўнены, што хочаце скінуць ваш пароль двухэтапнай праверкі?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ResetPassword.RequestPending",
+      "value": "Вы можаце скінуць ваш пароль праз %d  ([скасаваць]())"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ResetPassword.Title",
+      "value": "Скінуць пароль"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ResetPassword.Wait",
       "value": "Вы нядаўна запыталі скід пароля, які быў скасаваны.\nПачакайце %s перад новым запытам."
     },
@@ -11148,7 +12945,7 @@
     {
       "_": "types.LangPackString",
       "key": "RestrictSavingContentInfoChannel",
-      "value": "Падпісчыкі не змогуць капіяваць, захоўваць і перасылаць змесціва з гэтага канала."
+      "value": "Падпісчыкі не змогуць капіяваць, захоўваць або перасылаць змесціва з гэтага канала."
     },
     {
       "_": "types.LangPackString",
@@ -11346,6 +13143,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SavedMusicTab",
+      "value": "Плэй-ліст"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SavedStories",
       "value": "Апублікаваныя гісторыі"
     },
@@ -11403,6 +13205,76 @@
       "_": "types.LangPackString",
       "key": "Schedule.Repeat",
       "value": "Паўтараць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Schedule.Repeat.Biweekly",
+      "value": "Раз у два тыдні"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Schedule.Repeat.Daily",
+      "value": "Штодня"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Schedule.Repeat.Every3Months",
+      "value": "Кожныя 3 месяцы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Schedule.Repeat.Every6Months",
+      "value": "Кожныя 6 месяцаў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Schedule.Repeat.Monthly",
+      "value": "Штомесяц"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Schedule.Repeat.PremiumRequired",
+      "value": "Падпішыцеся на **[Telegram Premium]()**, каб адпраўляць  рэгулярныя паведамленні."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Schedule.Repeat.Weekly",
+      "value": "Штотыдзень"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Schedule.Repeat.Yearly",
+      "value": "Штогод"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Schedule.Repeated.Biweekly",
+      "value": "раз у два тыдні"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Schedule.Repeated.Daily",
+      "value": "штодня"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Schedule.Repeated.EveryMonth",
+      "value": "%1$s штомесяц"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Schedule.Repeated.Monthly",
+      "value": "штомесяц"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Schedule.Repeated.Weekly",
+      "value": "штотыдзень"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Schedule.Repeated.Yearly",
+      "value": "штогод"
     },
     {
       "_": "types.LangPackString",
@@ -11524,13 +13396,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SelectAll",
+      "value": "Выбраць усе"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SelectAll2",
+      "value": "Выбраць усё\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SelectChat",
       "value": "Выберыце чат"
     },
     {
       "_": "types.LangPackString",
+      "key": "SelfDestructingOnMobile.Photo",
+      "value": "%s адправіў(-ла) вам самазнішчальнае фота. Праглядзіце яго на сваёй мабільнай прыладзе."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SelfDestructingOnMobile.Photo.Expired",
       "value": "Самазнішчальнае фота"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SelfDestructingOnMobile.Photo.You",
+      "value": "Вы адправілі самазнішчальнае фота."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SelfDestructingOnMobile.Round",
+      "value": "%s даслаў(-ла) вам самазнішчальнае відэапаведамленне. Прагледзьце яго на вашым тэлефоне.\n"
     },
     {
       "_": "types.LangPackString",
@@ -11544,8 +13441,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SelfDestructingOnMobile.Video",
+      "value": "%s адправіў(-ла) вам самазнішчальнае відэа. Праглядзіце яго на сваёй мабільнай прыладзе."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SelfDestructingOnMobile.Video.Expired",
       "value": "Самазнішчальнае відэа"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SelfDestructingOnMobile.Video.You",
+      "value": "Вы адправілі самазнішчальнае відэа."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SelfDestructingOnMobile.Voice",
+      "value": "%s даслаў(-ла) вам самазнішчальнае галасавое паведамленне. Прагледзьце яго на вашым тэлефоне."
     },
     {
       "_": "types.LangPackString",
@@ -11754,6 +13666,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SharedFolder.Cant.Share",
+      "value": "вы не можаце запрашаць сюды іншых"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SharedFolder.Cant.ShareBots",
       "value": "вам нельга абагульваць чатаў з ботамі"
     },
@@ -11764,13 +13681,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SharedFolder.CreateLink",
+      "value": "Стварыць новую спасылку"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SharedFolder.Edit.Description",
       "value": "Кожны, хто мае гэту спасылку, можа дадаць папку **%s** і **%s**, выбраныя ніжэй."
     },
     {
       "_": "types.LangPackString",
+      "key": "SharedFolder.Edit.Subtitle",
+      "value": "Вы можаце абагульняць толькі тыя суполкі і каналы, у якіх вам дазволена ствараць запрашальныя спасылкі."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SharedFolder.Edit.Title",
+      "value": "Абагуліць папку"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SharedFolder.Link.ChannelAlready",
       "value": "Вы ўжо з'яўляецеся падпісчыкам"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SharedFolder.Link.ChatAlready",
+      "value": "вы ўжо з'яўляецеся ўдзельнікам"
     },
     {
       "_": "types.LangPackString",
@@ -11836,6 +13773,21 @@
       "_": "types.LangPackString",
       "key": "SharedFolder.NoChats.Title",
       "value": "Гэтыя чаты нельга абагульваць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SharedFolder.Toast.NoAdminChannel",
+      "value": "У вас няма паўнамоцтваў абагульняць запрашальныя спасылкі на гэты канал."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SharedFolder.Toast.NoAdminGroup",
+      "value": "У вас няма паўнамоцтваў абагульняць запрашальныя спасылкі на чат гэтай суполкі."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SharedFolder.Toast.NoPrivate",
+      "value": "Вы не можаце абагульняць прыватныя чаты"
     },
     {
       "_": "types.LangPackString",
@@ -12042,6 +13994,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarGiftAveragePriceTooltip",
+      "value": "**%s** — гэта сярэдняя цана продажу падарункаў **%s** на Telegram і Fragment за апошні месяц.\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarGiftCategoryAll",
       "value": "Усе падарункі"
     },
@@ -12102,6 +14059,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarGiftCollectionsAddGifts",
+      "value": "Дадаць падарункі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarGiftCollectionsAddPlaceholder",
+      "value": "Назва"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarGiftCollectionsAddText",
       "value": "Дайце назву вашай калекцыі і дадайце ў яе падарункі."
     },
@@ -12109,6 +14076,11 @@
       "_": "types.LangPackString",
       "key": "StarGiftCollectionsAddTitle",
       "value": "Стварыць новую калекцыю"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarGiftCollectionsAddToCollection",
+      "value": "Дадаць у калекцыю"
     },
     {
       "_": "types.LangPackString",
@@ -12139,6 +14111,16 @@
       "_": "types.LangPackString",
       "key": "StarGiftCollectionsEmptyTitle",
       "value": "Упарадкуйце вашы падарункі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarGiftCollectionsRename",
+      "value": "Змяніць назву"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarGiftConfirmTransferPopupText",
+      "value": "Вы хочаце перадаць %s права ўласнасці на **%s** за **%s**?"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -12236,6 +14218,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarGiftHiddenSender",
+      "value": "Толькі вы можаце бачыць імя адпраўніка."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarGiftHiddenUser",
       "value": "Ананім"
     },
@@ -12258,6 +14245,11 @@
       "_": "types.LangPackString",
       "key": "StarGiftInitialPrice",
       "value": "Пачатковая цана"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarGiftInitialPriceValue",
+      "value": "%s (~%s)"
     },
     {
       "_": "types.LangPackString",
@@ -12418,6 +14410,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarGiftOffer.CreateOfferStars",
+      "value": "Прапанаваць зоркі"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarGiftOffer.CreateOfferSubmit",
       "value": "Прапанаваць %s"
     },
@@ -12483,6 +14480,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarGiftOffer.Reject",
+      "value": "Адхіліць"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarGiftOffer.RejectOfferText",
       "value": "Вы сапраўды хочаце адхіліць прапанову ад **%s**?"
     },
@@ -12495,6 +14497,11 @@
       "_": "types.LangPackString",
       "key": "StarGiftOffer.Rejected",
       "value": "Гэтая прапанова адхілена."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarGiftOffer.RejectedFullOutgoing",
+      "value": "Вы адхілілі прапанову ад **%1$s** купіць ваш падарунак **%3$s** за **%2$s**."
     },
     {
       "_": "types.LangPackString",
@@ -12540,6 +14547,11 @@
       "_": "types.LangPackString",
       "key": "StarGiftPin",
       "value": "Замацаваць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarGiftPremiumBadge",
+      "value": "premium"
     },
     {
       "_": "types.LangPackString",
@@ -12721,6 +14733,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarGiftSellTitlePopup",
+      "value": "Прадаць падарунак\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarGiftSellTitleStars",
       "value": "Цана ў зорках"
     },
@@ -12738,6 +14755,11 @@
       "_": "types.LangPackString",
       "key": "StarGiftSendGift",
       "value": "Адправіць падарунак"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarGiftSendGiftSelf",
+      "value": "Купіць падарунак\n"
     },
     {
       "_": "types.LangPackString",
@@ -12759,6 +14781,22 @@
       "many_value": "Вы адправілі падарунак за **%d** зорак.",
       "one_value": "Вы адправілі падарунак за **%d** зорку.",
       "other_value": "Вы адправілі падарунак за **%d** зоркі."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "**%s** адправіў абнаўленне коштам **%d зоркі** для вашага падарунка",
+      "key": "StarGiftSentMessagePrepaidIncoming",
+      "many_value": "**%s** адправіў абнаўленне коштам **%d зорак** для вашага падарунка",
+      "one_value": "**%s** адправіў абнаўленне коштам **%d зорку** для вашага падарунка",
+      "other_value": "**%s** адправіў абнаўленне коштам **%d зорак** для вашага падарунка"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Вы даслалі паляпшэнне коштам **%d зоркі**",
+      "key": "StarGiftSentMessagePrepaidOutgoing",
+      "many_value": "Вы даслалі паляпшэнне коштам **%d зорак**",
+      "one_value": "Вы даслалі паляпшэнне коштам **%d зорку**",
+      "other_value": "Вы даслалі паляпшэнне коштам **%d зоркі**"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -12855,8 +14893,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarGiftTransferFullFor",
+      "value": "Перадаць за %s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarGiftTransferTo",
       "value": "Перадаць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarGiftTransferToMyself",
+      "value": "Перадаць сабе"
     },
     {
       "_": "types.LangPackString",
@@ -12872,6 +14920,11 @@
       "_": "types.LangPackString",
       "key": "StarGiftUnavailableSubtitle",
       "value": "Гэты падарунак распрададзены."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarGiftUnlistButton",
+      "value": "зняць з продажу\n"
     },
     {
       "_": "types.LangPackString",
@@ -12930,6 +14983,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarGiftUpgradePriceUnderstood",
+      "value": "ЗРАЗУМЕЛА"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarGiftUpgradeSubtitleFor",
+      "value": "Дазвольце %s пераўтварыць гэты падарунак ва ўнікальны калекцыйны прадмет.\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarGiftUpgradeTitle",
       "value": "Паляпшэнне падарунка"
     },
@@ -12980,6 +15043,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarGiftValueLearnMore",
+      "value": "даведацца больш\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarGiftViewResaleFragment",
       "value": "%s прадаюцца ў Fragment %s"
     },
@@ -12990,8 +15058,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StarGiftVisibleHideLink",
+      "value": "Схаваць >\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StarGiftVisibleHint",
       "value": "Падарунак бачны ў вашым профілю."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarGiftVisibleShowLink",
+      "value": "Паказаць >\n"
     },
     {
       "_": "types.LangPackString",
@@ -13047,6 +15125,11 @@
       "_": "types.LangPackString",
       "key": "StarGiftWearStopFull",
       "value": "Спыніць «нашэнне»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StarGiftWearStopped",
+      "value": "Вы перасталі насіць **%s**.\n"
     },
     {
       "_": "types.LangPackString",
@@ -13394,6 +15477,14 @@
       "other_value": "Адмоўны рэйтынг азначае, што вашы плацяжы ненадзейныя. Выдаткуйце **%s зоркі**, каб выправіць гэту праблему."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Рэйтынг абнаўляецца праз **%s** пасля пакупак. Апрацоўваецца **%s балы**.",
+      "key": "StarsRating.PendingDescription",
+      "many_value": "Рэйтынг абнаўляецца праз **%s** пасля пакупак. Апрацоўваецца **%s балаў**.",
+      "one_value": "Рэйтынг абнаўляецца праз **%s** пасля пакупак. Апрацоўваецца **%s бал**.",
+      "other_value": "Рэйтынг абнаўляецца праз **%s** пасля пакупак. Апрацоўваецца **%s балы**."
+    },
+    {
       "_": "types.LangPackString",
       "key": "StarsRating.Preview",
       "value": "Перадпрагляд"
@@ -13626,6 +15717,81 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StorageQuota.CacheSizeLimit",
+      "value": "Ліміт памеру кэша"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StorageQuota.CacheSizeLimitAuto",
+      "value": "Аўта"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StorageQuota.CachedFiles",
+      "value": "Кэшаваныя файлы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StorageQuota.CachedStreamChunks",
+      "value": "Кэшаваныя фрагменты трансляцый"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StorageQuota.Caption",
+      "value": "Звярніце ўвагу, што кэш, неабходны для нармальнай працы праграмы, не будзе ачышчаны.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StorageQuota.Clear",
+      "value": "Ачысціць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StorageQuota.ClearAll",
+      "value": "Ачысціць усё"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StorageQuota.ClearAllConfirmation",
+      "value": "Вы ўпэўнены, што хочаце ачысціць усе кэшаваныя даныя?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StorageQuota.ClearCacheOlderThan",
+      "value": "Ачышчаць кэш старэйшы за\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StorageQuota.ClearCachedFiles",
+      "value": "Ачысціць кэшаваныя файлы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StorageQuota.ClearCachedStreamChunks",
+      "value": "Ачысціць кэшаваныя фрагменты трансляцый"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StorageQuota.ClearConfirmation",
+      "value": "Вы ўпэўнены, што хочаце ачысціць %s кэшаваных даных?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StorageQuota.ClearConfirmationUnknown",
+      "value": "Вы ўпэўнены, што хочаце ачысціць кэшаваныя даныя?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StorageQuota.FailedToCalculate",
+      "value": "Не ўдалося падлічыць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StorageQuota.FailedToClear",
+      "value": "Не ўдалося ачысціць"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StorageQuota.Images",
       "value": "Відарысы"
     },
@@ -13633,6 +15799,21 @@
       "_": "types.LangPackString",
       "key": "StorageQuota.Other",
       "value": "Іншае"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StorageQuota.StickersEmoji",
+      "value": "Стыкеры і эмодзі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StorageQuota.Title",
+      "value": "Прыблізны аб’ём сховішча"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StorageQuota.VideoFiles",
+      "value": "Відэа"
     },
     {
       "_": "types.LangPackString",
@@ -13645,9 +15826,25 @@
       "value": "Дадаць альбом"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Дадаць %1$d гісторыі",
+      "key": "Stories.Albums.AddCount",
+      "many_value": "Дадаць %1$d гісторый",
+      "one_value": "Дадаць %1$d гісторыю",
+      "other_value": "Дадаць %1$d гісторыі"
+    },
+    {
       "_": "types.LangPackString",
       "key": "Stories.Albums.AddStories",
       "value": "Дадаць гісторыі"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d гісторыі былі дададзены ў альбом.",
+      "key": "Stories.Albums.Added",
+      "many_value": "%1$d гісторый былі дададзены ў альбом.",
+      "one_value": "%1$d гісторыя была дададзена ў альбом.",
+      "other_value": "%1$d гісторыі былі дададзены ў альбом."
     },
     {
       "_": "types.LangPackString",
@@ -13663,6 +15860,14 @@
       "_": "types.LangPackString",
       "key": "Stories.Albums.DeleteConfirm",
       "value": "Вы ўпэўнены, што хочаце выдаліць гэты альбом?"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$d гісторыі былі выдалены з альбома.",
+      "key": "Stories.Albums.Removed",
+      "many_value": "%1$d гісторый былі выдалены з альбома.",
+      "one_value": "%1$d гісторыя была выдалена з альбома.",
+      "other_value": "%1$d гісторый былі выдалены з альбома."
     },
     {
       "_": "types.LangPackString",
@@ -13797,6 +16002,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Story.SoundTooltip",
+      "value": "Націсніце тут, каб уключыць гук"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Story.Tooltip.MessageSent",
       "value": "Паведамленне адпраўлена."
     },
@@ -13820,6 +16030,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StoryArchivedFromChannel",
+      "value": "Гэта гісторыя схавана ў профілі канала."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StoryArchivedFromGroup",
+      "value": "Гэта гісторыя схавана ў профілі суполкі."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StoryArchivedFromProfile",
       "value": "Гэта гісторыя схаваная з вашага профілю."
     },
@@ -13827,6 +16047,14 @@
       "_": "types.LangPackString",
       "key": "StoryCantReply",
       "value": "Вам нельга адказваць на гэту гісторыю"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d гісторыі выдалена з профілю канала",
+      "key": "StoryChannelArchived",
+      "many_value": "%d гісторый выдалена з профілю канала",
+      "one_value": "%d гісторыя выдалена з профілю канала",
+      "other_value": "%d гісторыі выдалена з профілю канала"
     },
     {
       "_": "types.LangPackString",
@@ -13837,6 +16065,14 @@
       "_": "types.LangPackString",
       "key": "StoryContactsHint",
       "value": "Толькі тыя карыстальнікі, якіх **%s** дадаў(-ла) у кантакты, могуць праглядаць гэту гісторыю."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d гісторыі выдалена з профілю суполкі",
+      "key": "StoryGroupArchived",
+      "many_value": "%d гісторый выдалена з профілю суполкі",
+      "one_value": "%d гісторыя выдалена з профілю суполкі",
+      "other_value": "%d гісторыі выдалена з профілю суполкі"
     },
     {
       "_": "types.LangPackString",
@@ -13865,6 +16101,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "StoryPinnedToChannel",
+      "value": "Гісторыя апублікавана ў профіль канала."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "StoryPinnedToGroup",
+      "value": "Гісторыя апублікавана ў профіль суполкі."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "StoryPinnedToPosts",
       "value": "Гісторыя апублікавана ў профіль канала"
     },
@@ -13877,6 +16123,22 @@
       "_": "types.LangPackString",
       "key": "StoryReactionsByEmotionChartTitle",
       "value": "Рэакцыі на гісторыі"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d гісторыі апублікавана ў профілі канала",
+      "key": "StorySavedChannelTitle",
+      "many_value": "%d гісторый апублікавана ў профілі канала",
+      "one_value": "%d гісторыя апублікавана ў профілі канала",
+      "other_value": "%d гісторыі апублікавана ў профілі канала"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d гісторыі апублікавана ў профілі суполкі",
+      "key": "StorySavedGroupTitle",
+      "many_value": "%d гісторый апублікавана ў профілі суполкі",
+      "one_value": "%d гісторыя апублікавана ў профілі суполкі",
+      "other_value": "%d гісторыі апублікавана ў профілі суполкі"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -13956,8 +16218,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SuggestedPosts.AcceptOffer",
+      "value": "Прыняць прапанову\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SuggestedPosts.AcceptOfferDescription.ForAdmin",
       "value": "Апублікаваць допіс ад **%s**?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SuggestedPosts.AcceptOfferDescription.ForAdminPaid",
+      "value": "Вы хочаце апублікаваць гэты допіс ад **%s**?\nВы атрымаеце **%s** (%d) праз **%d гадз**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SuggestedPosts.AcceptOfferDescription.ForSubscriber",
+      "value": "Вы хочаце дазволіць публікацыю гэтага допіса ў **%s**?\n"
     },
     {
       "_": "types.LangPackString",
@@ -13968,6 +16245,11 @@
       "_": "types.LangPackString",
       "key": "SuggestedPosts.AgreementReached.HasBeenCharged",
       "value": "%s З %s было спагнана **%s**"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SuggestedPosts.AgreementReached.Published",
+      "value": "%s допіс быў апублікаваны %s\n"
     },
     {
       "_": "types.LangPackString",
@@ -13991,6 +16273,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SuggestedPosts.ApprovedAPost",
+      "value": "%s ухваліў(-ла) допіс\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SuggestedPosts.BalanceTooLow",
+      "value": "%s Недастаткова балансу для публікацыі прапанаванага допіса\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SuggestedPosts.EnterPrice.Description",
+      "value": "Выберыце, колькі зорак заплаціць за публікацыю гэтага допіса. Усталёўваць цану неабавязкова.\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SuggestedPosts.EnterPrice.Label",
       "value": "Увядзіце цану ў зорках"
     },
@@ -14001,13 +16298,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SuggestedPosts.GenericRefund",
+      "value": "Зоркі былі вернуты, бо паведамленне было выдалена\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SuggestedPosts.GenericRejectedPost",
       "value": "%s Допіс быў адхілены"
     },
     {
       "_": "types.LangPackString",
+      "key": "SuggestedPosts.MakeAnOffer",
+      "value": "Зрабіць прапанову\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SuggestedPosts.PostSuccess",
+      "value": "%s Каналу было налічана **%d** за публікацыю допіса\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SuggestedPosts.Price",
+      "value": "Цана"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SuggestedPosts.PublishingTime.Anytime",
       "value": "Любы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SuggestedPosts.PublishingTime.ChooseTime",
+      "value": "Апублікаваць %s\n"
     },
     {
       "_": "types.LangPackString",
@@ -14021,8 +16343,38 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SuggestedPosts.PublishingTime.MinSendTime",
+      "value": "Не раней за %s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SuggestedPosts.PublishingTime.PublishNow",
       "value": "Апублікваць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SuggestedPosts.Refund",
+      "value": "Зоркі былі вернуты %s, бо паведамленне было выдалена\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SuggestedPosts.RejectComment.Caption",
+      "value": "Вы можаце пакінуць неабавязковы каментар з тлумачэннем, чаму вы адхілілі допіс.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SuggestedPosts.RejectComment.Label",
+      "value": "Адхіліць з каментарый (неабавязкова)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SuggestedPosts.RejectOffer",
+      "value": "Адхіліць прапанову\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SuggestedPosts.RejectedAPost",
+      "value": "%s %s адхіліў(-ла) допіс\n"
     },
     {
       "_": "types.LangPackString",
@@ -14056,6 +16408,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SuggestedPosts.SuggestedAPostTopInfoSubtitle.NoConditionsChange",
+      "value": "Націсніце, каб дадаць умовы\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SuggestedPosts.SuggestedAPostTopInfoSubtitle.TimeOnly",
+      "value": "Апублікаваць %s\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SuggestedPosts.Time",
+      "value": "Час"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SuggestedPosts.YouApprovedAPost",
+      "value": "**Вы** ухвалілі допіс\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SuggestedPosts.YouRejectedAPost",
       "value": "%s **Вы** адхілілі допіс."
     },
@@ -14086,8 +16458,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Suggestion.Frozen.Title",
+      "value": "Ваш уліковы запіс замарожаны! %s\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Suggestion.Notifications",
-      "value": "Не прапускайце паведамленне! %s"
+      "value": "Не прапускайце паведамленні! %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Suggestion.Notifications.Dismissed",
+      "value": "Вы абмежавалі апавяшчэнні. Скіньце дазвол у браўзеры і паспрабуйце зноў.\n"
     },
     {
       "_": "types.LangPackString",
@@ -14101,6 +16483,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Suggestion.PasskeySetup.Subtitle",
+      "value": "Бяспечны ўваход і абарона даных"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Summary.Limited",
+      "value": "Дасягнуты ліміт зводкі\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Summary.Limited.Text",
       "value": "Падпішыцеся на [Telegram Premium](), каб павялічыць ліміты на AI-зводкі."
     },
@@ -14108,6 +16500,11 @@
       "_": "types.LangPackString",
       "key": "Summary.Subtitle",
       "value": "Націсніце, каб убачыць арыгінальны тэкст"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Summary.Subtitle.Click",
+      "value": "Націсніце, каб убачыць арыгінальнае паведамленне"
     },
     {
       "_": "types.LangPackString",
@@ -14151,8 +16548,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TelegramPremiumPeerSubtitle",
+      "value": "Уладальнікі **Telegram Premium** маюць эксклюзіўны доступ да шматлікіх дадатковых функцый.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TelegramPremiumPeerSubtitleEmojiStatus",
+      "value": "Эмодзі-статусы — гэта прэміум-функцыя. Іншыя функцыі, уключаныя ў **Telegram Premium**:\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TelegramPremiumPeerTitle",
+      "value": "%s з’яўляецца падпісчыкам **Telegram Premium**\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TelegramPremiumPeerTitleEmojiStatus",
       "value": "%s задаў(-ла) гэты эмодзі з набору [%s]() як свой бягучы статус."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TelegramPremiumPeerTitleEmojiStatusNoPack",
+      "value": "%s задаў(-ла) гэта эмодзі як свой бягучы статус.\n"
     },
     {
       "_": "types.LangPackString",
@@ -14361,6 +16778,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TopicEmptyDescription",
+      "value": "Адпраўце першае паведамленне, каб распачаць тэму."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TopicEmptyTitle",
+      "value": "Амаль гатова!"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TopicProfileStatus",
       "value": "У %s"
     },
@@ -14378,6 +16805,14 @@
       "_": "types.LangPackString",
       "key": "Topics",
       "value": "Тэмы"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d тэмы",
+      "key": "TopicsCount",
+      "many_value": "%d тэм",
+      "one_value": "%d тэма",
+      "other_value": "%d тэмы"
     },
     {
       "_": "types.LangPackString",
@@ -14403,6 +16838,11 @@
       "_": "types.LangPackString",
       "key": "TranslationBarHidden",
       "value": "Панэль перакладу схаваная для гэтага чата."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TroubleEmail",
+      "value": "[Няма доступу да гэтай эл. пошты?]()"
     },
     {
       "_": "types.LangPackString",
@@ -14488,6 +16928,16 @@
       "_": "types.LangPackString",
       "key": "TwoStepVerification",
       "value": "Двухэтапная праверка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TwoStepVerificationEmailSet",
+      "value": "Рэзервовая эл. пошта зададзена!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TwoStepVerificationEmailSetInfo",
+      "value": "Вы зможаце выкарыстоўваць гэты рэзервовы эл. пошты для скіду пароля і аднаўлення доступу да ўліковага запісу.\n"
     },
     {
       "_": "types.LangPackString",
@@ -14638,6 +17088,16 @@
       "_": "types.LangPackString",
       "key": "UnsavedChangesDescription",
       "value": "Вы ўпэўнены, што хочаце адхіліць усе змяненні?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnsavedChangesDescription.Archive",
+      "value": "Вы змянілі некаторыя налады архіву. Захаваць змяненні?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UnsavedChangesDescription.Channel",
+      "value": "Вы змянілі некаторыя налады ў гэтым канале. Захаваць змяненні?"
     },
     {
       "_": "types.LangPackString",
@@ -14862,6 +17322,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UserRestrictionsSendGIFsOnly",
+      "value": "Адпраўляць анімацыі"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UserRestrictionsSendMedia",
       "value": "Адпраўляць медыя"
     },
@@ -14889,6 +17354,11 @@
       "_": "types.LangPackString",
       "key": "UserRestrictionsSendStickers",
       "value": "Адпраўляць стыкеры і анімацыі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserRestrictionsSendStickersOnly",
+      "value": "Адпраўляць стыкеры"
     },
     {
       "_": "types.LangPackString",
@@ -15042,6 +17512,11 @@
       "_": "types.LangPackString",
       "key": "VerificationCodesBotDescription",
       "value": "Староннія сэрвісы, напрыклад, сайты і крамы, могуць дасылаць коды пацверджання на ваш нумар тэлефона праз Telegram замест SMS. Такія коды будуць з'яўляцца ў гэтым чаце.\n\nКалі вы не запытвалі ніякіх кодаў — не хвалюйцеся! Хутчэй за ўсё, нехта проста памыліўся пры ўводзе свайго нумара."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Verified.Bot",
+      "value": "Гэты бот правераны і пазначаны прадстаўнікамі Telegram як афіцыйны."
     },
     {
       "_": "types.LangPackString",
@@ -15332,6 +17807,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WaitForTopicCreation",
+      "value": "Пачакайце стварэння тэмы\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "WebApp.Attach.Success",
       "value": "Вы дадалі «%@» у меню далучэння."
     },
@@ -15369,6 +17849,11 @@
       "_": "types.LangPackString",
       "key": "WebPage.InstantView",
       "value": "ІМГНЕННЫ ПРАГЛЯД"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "WebPage.RemovePreview",
+      "value": "Выдаліць перадпрагляд спасылкі"
     },
     {
       "_": "types.LangPackString",
@@ -15490,5 +17975,5 @@
       "other_value": "%1$d паведамленняў"
     }
   ],
-  "version": 326744
+  "version": 330093
 }

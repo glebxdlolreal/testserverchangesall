@@ -160,11 +160,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "Атрымана {count} «маланкі» ад карыстальніка {from}",
+      "few_value": "Атрымана {count} маланкі ад карыстальніка {from}",
       "key": "ActionBoostApply",
-      "many_value": "Атрымана {count} «маланак» ад карыстальніка {from}",
-      "one_value": "Атрымана {count} «маланка» ад карыстальніка {from}",
-      "other_value": "Атрымана {count} «маланак» ад карыстальніка {from}"
+      "many_value": "Атрымана {count} маланак ад карыстальніка {from}",
+      "one_value": "Атрымана {count} маланка ад карыстальніка {from}",
+      "other_value": "Атрымана {count} маланак ад карыстальніка {from}"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -197,17 +197,17 @@
     {
       "_": "types.LangPackString",
       "key": "ActionChangedPhoto",
-      "value": "{from} абнавіў(-ла) фота суполкі"
+      "value": "{from} змяніў(-ла) фота суполкі"
     },
     {
       "_": "types.LangPackString",
       "key": "ActionChangedPhotoChannel",
-      "value": "Фота канала абноўлена"
+      "value": "Фота канала зменена"
     },
     {
       "_": "types.LangPackString",
       "key": "ActionChangedPhotoYou",
-      "value": "Вы абнавілі фота суполкі"
+      "value": "Вы змянілі фота суполкі"
     },
     {
       "_": "types.LangPackString",
@@ -222,7 +222,7 @@
     {
       "_": "types.LangPackString",
       "key": "ActionChangedTitleYou",
-      "value": "Вы змянілі імя суполкі на «{title}»"
+      "value": "Вы змянілі назву суполкі на «{title}»"
     },
     {
       "_": "types.LangPackString",
@@ -1110,6 +1110,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionSuggestedBirthday",
+      "value": "{user} прапанаваў(-ла) вам дадаць ваш дзень нараджэння"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSuggestedBirthdayYou",
+      "value": "Вы прапанавалі {user} дадаць дзень нараджэння\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionSuggestedChangesIncoming",
       "value": "**{user}** прапаноўвае змяніць {changes} для допісу."
     },
@@ -1156,7 +1166,7 @@
     {
       "_": "types.LangPackString",
       "key": "ActionSuggestedPhotoUpdatedTitle",
-      "value": "Фота абноўлена"
+      "value": "Фота зменена"
     },
     {
       "_": "types.LangPackString",
@@ -1456,17 +1466,17 @@
     {
       "_": "types.LangPackString",
       "key": "AiToneDeleteStyle",
-      "value": "Выдаліць стыль"
+      "value": "Прыбраць стыль"
     },
     {
       "_": "types.LangPackString",
       "key": "AiToneDeleteStyleConfirm",
-      "value": "Вы ўпэўнены, што жадаеце выдаліць гэты стыль?"
+      "value": "Вы ўпэўнены, што жадаеце прыбраць гэты стыль?"
     },
     {
       "_": "types.LangPackString",
       "key": "AiToneDeleteStyleConfirmOwn",
-      "value": "Вы ўпэўнены, што хочаце выдаліць гэты стыль? Ён будзе выдалены ва ўсіх, хто яго ўсталяваў."
+      "value": "Вы ўпэўнены, што хочаце прыбраць гэты стыль? Ён будзе прыбраны ва ўсіх, хто яго ўсталяваў."
     },
     {
       "_": "types.LangPackString",
@@ -1546,7 +1556,7 @@
     {
       "_": "types.LangPackString",
       "key": "AiTonePreviewRemoveStyle",
-      "value": "Выдаліць стыль"
+      "value": "Прыбраць стыль"
     },
     {
       "_": "types.LangPackString",
@@ -1619,7 +1629,7 @@
     {
       "_": "types.LangPackString",
       "key": "AlwaysShareWith",
-      "value": "Заўсёды паказваць"
+      "value": "Заўсёды бачная для"
     },
     {
       "_": "types.LangPackString",
@@ -2405,6 +2415,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BackgroundPatternIntensity",
+      "value": "Інтэнсіўнасць узору\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BioLimitSubtitle",
       "value": "Пішыце больш сімвалаў і выкарыстоўвайце спасылкі ў інфармацыі «Пра сябе»"
     },
@@ -2412,6 +2427,16 @@
       "_": "types.LangPackString",
       "key": "BioLimitTitle",
       "value": "«Пра сябе»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdayAddToProfile",
+      "value": "Дадаць у мой профіль\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdayHideYear",
+      "value": "Схаваць год\n"
     },
     {
       "_": "types.LangPackString",
@@ -2447,6 +2472,16 @@
       "_": "types.LangPackString",
       "key": "BirthdaySetupTitle",
       "value": "Дата нараджэння"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdaySuggest",
+      "value": "Прапанаваць дату нараджэння\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BirthdayTitleForPeer",
+      "value": "Дзень нараджэння {user}\n"
     },
     {
       "_": "types.LangPackString",
@@ -2721,7 +2756,7 @@
     {
       "_": "types.LangPackString",
       "key": "BotSuggestedStatusUpdated",
-      "value": "Ваш эмодзі-статус абноўлены."
+      "value": "Ваш эмодзі-статус зменены."
     },
     {
       "_": "types.LangPackString",
@@ -3112,7 +3147,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChannelEarnLearnCoinAbout",
-      "value": "Gram – гэта блакчэйн-платформа і крыптавалюта, якой Telegram карыстаецца таму, што яна мае высокую хуткасць і нізкія камісіі за транзакцыі. {link}"
+      "value": "Gram – гэта блокчэйн-платформа і крыптавалюта, якой Telegram карыстаецца таму, што яна мае высокую хуткасць і нізкія камісіі за трансакцыі. {link}"
     },
     {
       "_": "types.LangPackString",
@@ -3393,7 +3428,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChannelVisibilityForwardingEnabled",
-      "value": "Дазволіць перасыланне"
+      "value": "Дазволіць захаванне змесціва"
     },
     {
       "_": "types.LangPackString",
@@ -3414,6 +3449,11 @@
       "_": "types.LangPackString",
       "key": "ChatBackground",
       "value": "Фон чата"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatBackgroundColorThemes",
+      "value": "Колеры, градыенты і ўзоры\n"
     },
     {
       "_": "types.LangPackString",
@@ -4224,9 +4264,9 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "",
+      "few_value": "{count} прачыталі",
       "key": "ConversationContextMenuSeen",
-      "many_value": "",
+      "many_value": "{count} прачыталі",
       "one_value": "{count} прачытаў(-ла)",
       "other_value": "{count} прачыталі"
     },
@@ -5746,7 +5786,7 @@
     {
       "_": "types.LangPackString",
       "key": "FormatDateAtTime",
-      "value": "{date} у {time}"
+      "value": "{date} а {time}"
     },
     {
       "_": "types.LangPackString",
@@ -5966,6 +6006,14 @@
       "many_value": "Паведамленне пераслана ў {count} чатаў.",
       "one_value": "Паведамленне пераслана ў {count} чат.",
       "other_value": "Паведамленне пераслана ў {count} чата."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Паведамленні пераслана ў **Захаваныя**",
+      "key": "FwdMessagesToSaved",
+      "many_value": "Паведамленняў пераслана ў **Захаваныя**",
+      "one_value": "Паведамленне пераслана ў **Захаваныя**",
+      "other_value": "Паведамлення пераслана ў **Захаваныя**"
     },
     {
       "_": "types.LangPackString",
@@ -7023,7 +7071,7 @@
     {
       "_": "types.LangPackString",
       "key": "GiftPeerUpgradeText",
-      "value": "Дазвольце {peer} ператворыць гэты падарунак у ўнікальны калекцыйны прадмет."
+      "value": "Дазвольце {peer} ператворыць гэты падарунак у ўнікальны калекцыйны."
     },
     {
       "_": "types.LangPackString",
@@ -7446,6 +7494,11 @@
       "value": "💎{amount}"
     },
     {
+      "_": "types.LangPackString",
+      "key": "GramAmountIconLast",
+      "value": "{amount}💎"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "",
       "key": "GramAmountText",
@@ -7719,7 +7772,7 @@
     {
       "_": "types.LangPackString",
       "key": "HeaderMenuViewGroupInfo",
-      "value": "Праглядзець звесткі пра суполку"
+      "value": "Звесткі пра суполку"
     },
     {
       "_": "types.LangPackString",
@@ -8314,7 +8367,7 @@
     {
       "_": "types.LangPackString",
       "key": "LiveLocationUpdatedTodayAt",
-      "value": "абноўлена ў {time}"
+      "value": "абноўлена а {time}"
     },
     {
       "_": "types.LangPackString",
@@ -8374,7 +8427,7 @@
     {
       "_": "types.LangPackString",
       "key": "LoginQRHelp2",
-      "value": "Перайдзіце ў **Налады** > **Прылады** > **Дадаць прыладу**"
+      "value": "Перайдзіце ў **Налады** > **Прылады** > **Прывязаць прыладу**"
     },
     {
       "_": "types.LangPackString",
@@ -8594,7 +8647,7 @@
     {
       "_": "types.LangPackString",
       "key": "MenuAnimations",
-      "value": "Анімацыі і прадуктыўнасць"
+      "value": "Эфекты і энергазберажэнне"
     },
     {
       "_": "types.LangPackString",
@@ -8679,7 +8732,7 @@
     {
       "_": "types.LangPackString",
       "key": "MenuStars",
-      "value": "Мае Зоркі"
+      "value": "Мае зоркі"
     },
     {
       "_": "types.LangPackString",
@@ -8759,12 +8812,12 @@
     {
       "_": "types.LangPackString",
       "key": "MessageActionTodoCompletionsAsDoneMultiple",
-      "value": "{peer} адзначыў(-ла) {tasks} як выкананае\n"
+      "value": "{peer} адзначыў(-ла) «{tasks}» як выкананае"
     },
     {
       "_": "types.LangPackString",
       "key": "MessageActionTodoCompletionsAsDoneMultipleYou",
-      "value": "Вы адзначылі {tasks} як выкананае\n"
+      "value": "Вы адзначылі «{tasks}» як выкананае"
     },
     {
       "_": "types.LangPackString",
@@ -8779,12 +8832,12 @@
     {
       "_": "types.LangPackString",
       "key": "MessageActionTodoCompletionsAsNotDoneMultiple",
-      "value": "{peer} адзначыў(-ла) {tasks} як невыкананае\n"
+      "value": "{peer} адзначыў(-ла) «{tasks}» як невыкананае"
     },
     {
       "_": "types.LangPackString",
       "key": "MessageActionTodoCompletionsAsNotDoneMultipleYou",
-      "value": "Вы адзначылі {tasks} як невыкананае\n"
+      "value": "Вы адзначылі «{tasks}» як невыкананае"
     },
     {
       "_": "types.LangPackString",
@@ -8817,7 +8870,7 @@
     {
       "_": "types.LangPackString",
       "key": "MessageMetaEditedOnDateAtTime",
-      "value": "адрэдагавана у {date}, {time}"
+      "value": "адрэдагавана а {date}, {time}"
     },
     {
       "_": "types.LangPackString",
@@ -9166,7 +9219,7 @@
     {
       "_": "types.LangPackString",
       "key": "NeverShareWith",
-      "value": "Заўсёды хаваць ад"
+      "value": "Заўсёды схаваная для"
     },
     {
       "_": "types.LangPackString",
@@ -9356,7 +9409,7 @@
     {
       "_": "types.LangPackString",
       "key": "NoMemberRequestsDescription",
-      "value": "Няма запытаў на далучэнне да суполкі ў чаканні."
+      "value": "Няма запытаў на далучэнне ў чаканні."
     },
     {
       "_": "types.LangPackString",
@@ -9396,7 +9449,7 @@
     {
       "_": "types.LangPackString",
       "key": "NoSubscribeRequestsDescription",
-      "value": "Няма запытаў на далучэнне да канала ў чаканні."
+      "value": "Няма запытаў на далучэнне ў чаканні."
     },
     {
       "_": "types.LangPackString",
@@ -9533,9 +9586,9 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "",
+      "few_value": "{count} у сетцы",
       "key": "OnlineCount",
-      "many_value": "",
+      "many_value": "{count} у сетцы",
       "one_value": "{count} у сетцы",
       "other_value": "{count} у сетцы"
     },
@@ -10026,6 +10079,46 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PersonalChannelAdd",
+      "value": "Дадаць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelAddHint",
+      "value": "Дадаць ваш канал\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelDescription",
+      "value": "Паказваць канал, якім вы кіруеце, у вашым профілі.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelLabel",
+      "value": "Канал"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelNoChannels",
+      "value": "У вас няма прыдатных каналаў.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelPickerTitle",
+      "value": "Выбраць канал\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelRemove",
+      "value": "Выдаліць канал\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PersonalChannelTitle",
+      "value": "Асабісты канал\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Phone",
       "value": "Тэлефон"
     },
@@ -10209,7 +10302,7 @@
     {
       "_": "types.LangPackString",
       "key": "PollChooseCountry",
-      "value": "Калі ласка, выберыце прынамсі адну краіну."
+      "value": "Выберыце прынамсі адну краіну."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -11240,7 +11333,7 @@
     {
       "_": "types.LangPackString",
       "key": "RatingBadgeAdded",
-      "value": "Дададзена"
+      "value": "Дадае"
     },
     {
       "_": "types.LangPackString",
@@ -11664,22 +11757,22 @@
     {
       "_": "types.LangPackString",
       "key": "RichEditorEquation",
-      "value": "Ураўненне"
+      "value": "Матэматычны выраз"
     },
     {
       "_": "types.LangPackString",
       "key": "RichEditorEquationPrompt",
-      "value": "Ураўненне..."
+      "value": "Матэматычны выраз..."
     },
     {
       "_": "types.LangPackString",
       "key": "RichEditorEquationToBlock",
-      "value": "Зрабіць ураўненне блокам"
+      "value": "Зрабіць мат. выраз блокам"
     },
     {
       "_": "types.LangPackString",
       "key": "RichEditorEquationToInline",
-      "value": "Убудаваць ураўненне ў тэкст"
+      "value": "Убудаваць мат. выраз у тэкст"
     },
     {
       "_": "types.LangPackString",
@@ -11975,7 +12068,7 @@
     {
       "_": "types.LangPackString",
       "key": "RichTextMathPreview",
-      "value": "[формула]"
+      "value": "[мат. выраз]"
     },
     {
       "_": "types.LangPackString",
@@ -12611,6 +12704,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsAccount",
+      "value": "Уліковы запіс\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsAccountDesc",
+      "value": "Імя карыстальніка, «пра сябе», дзень нараджэння\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsAutomaticTextReplacements",
       "value": "Аўтаматычная замена тэксту"
     },
@@ -12641,6 +12744,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsDataDesc",
+      "value": "Спампоўка медыя, кэш\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsDisableNightTheme",
       "value": "Адключыць начны рэжым"
     },
@@ -12666,8 +12774,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsFoldersDesc",
+      "value": "Сартаваць чаты ў папкі\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsFoldersEmpty",
       "value": "У вас яшчэ няма папак"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsGeneralDesc",
+      "value": "Фон, тэма, клавіятура\n"
     },
     {
       "_": "types.LangPackString",
@@ -12693,6 +12811,16 @@
       "_": "types.LangPackString",
       "key": "SettingsKeyboard",
       "value": "Клавіятура"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsLanguageDesc",
+      "value": "Мова: {language}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsNotificationsDesc",
+      "value": "Гукі, выклікі, лічыльнік непрачытанага"
     },
     {
       "_": "types.LangPackString",
@@ -12791,6 +12919,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsPerformanceDesc",
+      "value": "Эфекты, пераходы, аўтапрайгрыванне"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsPerformanceGranularTitle",
       "value": "Рэсурсаёмістыя працэсы"
     },
@@ -12852,7 +12985,7 @@
     {
       "_": "types.LangPackString",
       "key": "SettingsPerformanceSliderLow",
-      "value": "Захаванне энергіі"
+      "value": "Энергазберажэнне"
     },
     {
       "_": "types.LangPackString",
@@ -12888,6 +13021,11 @@
       "_": "types.LangPackString",
       "key": "SettingsPerformanceThanos",
       "value": "Эфект распылення пры выдаленні"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsPrivacyDesc",
+      "value": "Апошняя актыўнасць, пароль, заблакіраваныя карыстальнікі\n"
     },
     {
       "_": "types.LangPackString",
@@ -12936,6 +13074,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SettingsSessionsDesc",
+      "value": "Аўтаматычна завяршаць сесіі\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SettingsStickersDesc",
+      "value": "Стыкеры, эмодзі, рэакцыі\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SettingsTimeFormat",
       "value": "Фармат часу"
     },
@@ -12967,7 +13115,7 @@
     {
       "_": "types.LangPackString",
       "key": "ShareWith",
-      "value": "Абагуліць з"
+      "value": "Абагуліць для"
     },
     {
       "_": "types.LangPackString",
@@ -13231,6 +13379,11 @@
       "value": "{amount}⭐️"
     },
     {
+      "_": "types.LangPackString",
+      "key": "StarsAmountIconLast",
+      "value": "{amount}⭐️"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "{amount} зоркі",
       "key": "StarsAmountText",
@@ -13347,7 +13500,7 @@
     {
       "_": "types.LangPackString",
       "key": "StarsTransactionsAll",
-      "value": "Усе транзакцыі"
+      "value": "Усе трансакцыі"
     },
     {
       "_": "types.LangPackString",
@@ -13611,7 +13764,7 @@
     {
       "_": "types.LangPackString",
       "key": "StoryMenuSavedStories",
-      "value": "Апублікаваныя гісторыі"
+      "value": "Апублікаваныя допісы"
     },
     {
       "_": "types.LangPackString",
@@ -13754,7 +13907,7 @@
     {
       "_": "types.LangPackString",
       "key": "SuggestedPostBalanceTooLow",
-      "value": "⚠️ **Транзакцыя не ўдалася**, бо ў {peer} не было дастаткова {currency}."
+      "value": "⚠️ **Трансакцыя не ўдалася**, бо ў {peer} не было дастаткова {currency}."
     },
     {
       "_": "types.LangPackString",
@@ -14605,7 +14758,7 @@
     {
       "_": "types.LangPackString",
       "key": "UserUpdatedName",
-      "value": "{user} абнавіў імя {time}"
+      "value": "{user} змяніў(-ла) імя {time}"
     },
     {
       "_": "types.LangPackString",
@@ -15228,5 +15381,5 @@
       "value": "Ваша імя"
     }
   ],
-  "version": 283417
+  "version": 284411
 }
