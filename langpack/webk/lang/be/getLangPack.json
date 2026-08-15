@@ -2607,6 +2607,14 @@
       "other_value": "**%1$d** года"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "**%1$d** дадатковыя маланкі",
+      "key": "Boost.Additional",
+      "many_value": "**%1$d** дадатковых маланак",
+      "one_value": "**%1$d** дадатковая маланка",
+      "other_value": "**%1$d** дадатковых маланак"
+    },
+    {
       "_": "types.LangPackString",
       "key": "Boost.Already",
       "value": "Ужо падтрыманы"
@@ -2653,6 +2661,29 @@
       "many_value": "Каб падтрымаць **%1$s**, вы можаце атрымаць яшчэ **%2$d** маланак, падарыўшы сябру **Telegram Premium**.",
       "one_value": "Каб падтрымаць **%1$s**, вы можаце атрымаць яшчэ **%2$d** маланку, падарыўшы сябру **Telegram Premium**.",
       "other_value": "Каб падтрымаць **%1$s**, вы можаце атрымаць яшчэ **%2$d** маланкі, падарыўшы сябру **Telegram Premium**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Boost.GiftPremium",
+      "value": "**[падарыць Telegram Premium]()**"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Перанакіраваць маланкі",
+      "key": "Boost.Reassign",
+      "many_value": "Перанакіраваць маланкі",
+      "one_value": "Перанакіраваць маланку",
+      "other_value": "Перанакіраваць маланкі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Boost.Reassign.Description",
+      "value": "Каб падтрымаць **%2$s**, перанакіруйце ранейшую маланку або %3$s сябру, каб атрымаць яшчэ %1$s маланкі."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Boost.Reassign.Wait",
+      "value": "Пачакайце, пакуль пасіленне стане даступным, або атрымайце %s, падарыўшы падпіску **[Telegram Premium]()**."
     },
     {
       "_": "types.LangPackString",
@@ -2863,6 +2894,14 @@
       "other_value": "на %2$s."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Новыя падпісчыкі канала:",
+      "key": "BoostingGiveawayMsgNewSubsPlural",
+      "many_value": "Новыя падпісчыкі канала:",
+      "one_value": "Новыя падпісчыкі канала:",
+      "other_value": "Новыя падпісчыкі канала:"
+    },
+    {
       "_": "types.LangPackString",
       "key": "BoostingGiveawayMsgParticipants",
       "value": "**Удзельнікі**"
@@ -3048,6 +3087,14 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "few_value": "Вы можаце выбраць не больш за %1$d каналы.",
+      "key": "BoostingSelectUpToWarningChannelsPlural",
+      "many_value": "Вы можаце выбраць не больш за %1$d каналаў.",
+      "one_value": "Вы можаце выбраць не больш за %1$d канал.",
+      "other_value": "Вы можаце выбраць не больш за %1$d канала."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "few_value": "Вы можаце выбраць не больш за %1$d краіны.",
       "key": "BoostingSelectUpToWarningCountriesPlural",
       "many_value": "Вы можаце выбраць не больш за %1$d краін.",
@@ -3215,6 +3262,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BoostingUserWasSelected",
+      "value": "%s выбраны(-а) каналам"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "BoostingWinnersDate",
       "value": "**Дата выбараў пераможцаў**"
     },
@@ -3277,6 +3329,22 @@
       "value": "Дадатковыя прызы"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "**%d** падпіскі Telegram Premium на %s",
+      "key": "BoostsViaGifts.AdditionalPrizesDetailed",
+      "many_value": "**%d** падпісак Telegram Premium на %s",
+      "one_value": "**%d** падпіска Telegram Premium на %s",
+      "other_value": "**%d** падпіскі Telegram Premium на %s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "**%d** × %s і падпіскі Telegram Premium на %s",
+      "key": "BoostsViaGifts.AdditionalPrizesDetailedWith",
+      "many_value": "**%d** × %s і падпісак Telegram Premium на %s",
+      "one_value": "**%d** × %s і падпіска Telegram Premium на %s",
+      "other_value": "**%d** × %s і падпісак Telegram Premium на %s"
+    },
+    {
       "_": "types.LangPackString",
       "key": "BoostsViaGifts.AdditionalPrizesSubtitle",
       "value": "Усе прызы: %s"
@@ -3334,6 +3402,11 @@
       "_": "types.LangPackString",
       "key": "BoostsViaGifts.DurationSubtitle",
       "value": "Вы можаце азнаёміцца са спісам функцый і падрабязнасцямі пра Telegram Premium [тут]()."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BoostsViaGifts.End",
+      "value": "Дата завяршэння розыгрышу"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -3418,6 +3491,11 @@
       "_": "types.LangPackString",
       "key": "BoostsViaGifts.Users",
       "value": "Хто можа браць удзел у розыгрышы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BoostsViaGifts.UsersSubtitle",
+      "value": "Выберыце, ці хочаце вы абмежаваць розыгрыш толькі тымі, хто далучыўся да канала пасля пачатку розыгрышу, і ці мусяць карыстальнікі паходзіць толькі з пэўных краін."
     },
     {
       "_": "types.LangPackString",
@@ -3882,6 +3960,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Call.Confirm.Discard.Call.ToLive.Text",
+      "value": "Скончыць выклік з «%1$@» і пачаць жывы эфір у «%2$@»?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Call.Confirm.Discard.Call.ToVoice.Text",
       "value": "Скончыць выклік з «%1$@» і пачаць відэачат у «%2$@»?"
     },
@@ -3912,8 +3995,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Call.Confirm.Discard.Live.Header",
+      "value": "Бягучы жывы эфір"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Call.Confirm.Discard.Live.ToCall.Text",
+      "value": "Выйсці з жывога эфіру ў «%1$@» і пачаць выклік з «%2$@»?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Call.Confirm.Discard.Live.ToConference.Text",
       "value": "Пакінуць прамы эфір у %1$@ і пачаць групавы выклік?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Call.Confirm.Discard.Live.ToLive.Text",
+      "value": "Выйсці з жывога эфіру ў «%1$@»  і пачаць новы ў «%2$@»?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Call.Confirm.Discard.Live.ToVoice.Text",
+      "value": "Пакінуць прамую трансляцыю ў «%1$@» і пачаць відэачат у «%2$@»?\n"
     },
     {
       "_": "types.LangPackString",
@@ -3929,6 +4032,11 @@
       "_": "types.LangPackString",
       "key": "Call.Confirm.Discard.Voice.ToConference.Text",
       "value": "Пакінуць відэачат у %1$@ і пачаць групавы выклік?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Call.Confirm.Discard.Voice.ToLive.Text",
+      "value": "Выйсці з відэачата ў «%1$@» і пачаць жывы эфір у «%2$@»?\n"
     },
     {
       "_": "types.LangPackString",
@@ -6158,6 +6266,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatList.Main.EmptyPlaceholder.SubtitleNoContacts",
+      "value": "Выкарыстоўвайце мабільную праграму Telegram для [Android](https://telegram.org/android) або [iOS](https://telegram.org/dl/ios), каб сінхранізаваць кантакты"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatList.Main.EmptyPlaceholder.Title",
       "value": "Вашы чаты будуць паказвацца тут"
     },
@@ -7406,7 +7519,12 @@
     {
       "_": "types.LangPackString",
       "key": "ConnectionStatus.ReconnectIn",
-      "value": "Перападлучыцца праз %d с, %s"
+      "value": "Перападлучэнне праз %d с, %s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ConnectionStatus.ReconnectInPlain",
+      "value": "Перападлучэнне праз %d с"
     },
     {
       "_": "types.LangPackString",
@@ -7891,6 +8009,11 @@
       "_": "types.LangPackString",
       "key": "DeleteRestrictUsers",
       "value": "Абмежаваць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DeleteSavedDialogDescription",
+      "value": "Вы ўпэўнены, што хочаце выдаліць усе захаваныя паведамленні ад **%s**?\n"
     },
     {
       "_": "types.LangPackString",
@@ -9252,6 +9375,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "FilterPersonal",
+      "value": "Асабістыя"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "FilterRecommended",
       "value": "Рэкамендаваныя папкі"
     },
@@ -9520,6 +9648,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ForwardedStoryFromAuthor",
+      "value": "Перасланая гісторыя\nАд: %s (%s)\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ForwardedStoryFromAuthor1",
       "value": "Гісторыя ад %s (%s)"
     },
@@ -9685,6 +9818,11 @@
       "value": "Вы можаце актываваць гэты код пасля **%1$s** або **[адправіць спасылку]()** сябру."
     },
     {
+      "_": "types.LangPackString",
+      "key": "GiftCode.ShareReceived",
+      "value": "Па гэтай спасылцы вы або **[любы, каго вы выбераце]()**, можа актываваць падпіску на **Telegram Premium**."
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "%1$d дні",
       "key": "GiftDays",
@@ -9777,11 +9915,67 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "few_value": "Кіраўнікі канала адказныя за дастаўку гэтых прызоў.",
+      "key": "Giveaway.AlsoPrizes2",
+      "many_value": "Кіраўнікі канала адказныя за дастаўку гэтых прызоў.",
+      "one_value": "Кіраўнікі канала адказныя за дастаўку гэтага прыза.",
+      "other_value": "Кіраўнікі канала адказныя за дастаўку гэтых прызоў."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Giveaway.Info",
+      "value": "**%s** Telegram аўтаматычна выбера %s **%s**.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Giveaway.Info.Date",
+      "value": "**%s** Telegram будзе аўтаматычна выбіраць %s **%s** пасля **%s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Giveaway.Info.Date.End",
+      "value": "**%s** Telegram аўтаматычна выбера %s **%s** пасля **%s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Giveaway.Info.End",
+      "value": "**%s** Telegram аўтаматычна выбера %s **%s**."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "few_value": "і яшчэ **%d** пералічаных каналаў",
       "key": "Giveaway.Info.OtherChannels",
       "many_value": "і яшчэ **%d** пералічаных каналаў",
       "one_value": "і яшчэ **%d** пералічанага канала",
       "other_value": "і яшчэ **%d** пералічанага канала"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Giveaway.Info.Several",
+      "value": "**%s** Telegram будзе аўтаматычна выбіраць %s **%s** і іншых %s."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Giveaway.Info.Several.Date",
+      "value": "**%s** Telegram аўтаматычна абраў %s **%s** і %s пасля **%s**.\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Giveaway.Info.Several.Date.End",
+      "value": "**%s** Telegram аўтаматычна выбера %s **%s** і іншых %s пасля **%s**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Giveaway.Info.Several.End",
+      "value": "**%s** Telegram аўтаматычна выбера %s **%s** і іншых %s."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "**%d** выпадковы карыстальнік, які далучыўся",
+      "key": "Giveaway.Info.Users",
+      "many_value": "**%d** выпадковых карыстальнікаў, якія далучыліся",
+      "one_value": "**%d** выпадковы карыстальнік, які далучыўся",
+      "other_value": "**%d** выпадковых карыстальнікаў, якія далучыліся"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -9797,12 +9991,41 @@
       "value": "Вы ўдзельнічаеце ў гэтым розыгрышы, бо падпісаныя на канал **%s**."
     },
     {
+      "_": "types.LangPackString",
+      "key": "Giveaway.Participation.Multi",
+      "value": "Вы ўдзельнічаеце ў гэтым розыгрышы, бо далучыліся да канала **%s** (і %s).\n"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Перадплачаныя розыгрышы",
+      "key": "Giveaway.Prepaid",
+      "many_value": "Перадплачаныя розыгрышы",
+      "one_value": "Перадплачаны розыгрыш",
+      "other_value": "Перадплачаны розыгрыш"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "для %d карыстальнікаў",
       "key": "Giveaway.Prepaid.For",
       "many_value": "для %d карыстальнікаў",
       "one_value": "для %d карыстальніка",
       "other_value": "для %d карыстальніка"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "на %d месяцы",
+      "key": "Giveaway.Prepaid.Period",
+      "many_value": "на %d месяцаў",
+      "one_value": "на %d месяц",
+      "other_value": "на %d месяцы"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Падпіскі %2$s",
+      "key": "Giveaway.Prepaid.Subtitle",
+      "many_value": "Падпіскі %2$s",
+      "one_value": "Падпіска %2$s",
+      "other_value": "Падпіскі %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -9834,6 +10057,14 @@
       "many_value": "",
       "one_value": "Пераможца атрымаў сваю падарункавую спасылку ў прыватным паведамленні.",
       "other_value": "Усе пераможцы атрымалі свае падарункавыя спасылкі ў прыватных паведамленнях."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "З-за ўмоў розыгрышу Telegram не змог выбраць пераможцаў, **%d** спасылкі на падарунак былі перасланыя кіраўнікам канала.",
+      "key": "Giveaway.Results.NoWinners",
+      "many_value": "З-за ўмоў розыгрышу Telegram не змог выбраць пераможцаў, **%d** спасылак на падарунак былі перасланыя кіраўнікам канала.",
+      "one_value": "З-за ўмоў розыгрышу Telegram не змог выбраць пераможцу, **%d** спасылка на падарунак была пераслана кіраўнікам канала.",
+      "other_value": "З-за ўмоў розыгрышу Telegram не змог выбраць пераможцу, **%d** спасылкі на падарунак была пераслана кіраўнікам канала."
     },
     {
       "_": "types.LangPackString",
@@ -9912,8 +10143,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Giveaway.ToBeSelectedFull",
+      "value": "Розыгрыш: %s\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Giveaway.Type.Specific.Modal.SelectUsers",
       "value": "Выбраць карыстальнікаў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Giveaway.With",
+      "value": "з"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -14297,6 +14538,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Payments.Terms.Accept",
+      "value": "Я прымаю [Умовы абслугоўвання]() **%@**.\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Peer.Activity.Chat.ChoosingSticker",
       "value": "%@ выбірае стыкер"
     },
@@ -14894,6 +15140,11 @@
       "_": "types.LangPackString",
       "key": "Popup.Avatar.Title",
       "value": "Націсніце, каб змяніць пазіцыю"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Popup.OpenInGoogleMaps",
+      "value": "Адкрыць праз Google Maps?"
     },
     {
       "_": "types.LangPackString",
@@ -15957,6 +16208,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PrivacySettings.Messages.PremiumError",
+      "value": "Толькі падпісчыкі [Telegram Premium]() могуць абмяжоўваць атрыманне паведамленняў.\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PrivacySettings.Voice.PremiumError",
       "value": "Толькі падпісчыкі [Telegram Premium]() могуць абмяжоўваць атрыманне галасавых паведамленняў."
     },
@@ -16649,6 +16905,35 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RequestPeer.MultipleLimit",
+      "value": "Вы можаце выбраць да %s.\n"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d каналы",
+      "key": "RequestPeer.MultipleLimit.Channels",
+      "many_value": "%d каналаў",
+      "one_value": "%d канал",
+      "other_value": "%d канала"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d суполкі",
+      "key": "RequestPeer.MultipleLimit.Groups",
+      "many_value": "%d суполак",
+      "one_value": "%d суполка",
+      "other_value": "%d суполкі"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d карыстальнікі",
+      "key": "RequestPeer.MultipleLimit.Users",
+      "many_value": "%d карыстальнікаў",
+      "one_value": "%d карыстальнік",
+      "other_value": "%d карыстальніка"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RequestPeer.Title.Channels",
       "value": "Выбраць каналы"
     },
@@ -16964,6 +17249,11 @@
       "_": "types.LangPackString",
       "key": "Rtmp.RecordPopup.RecordAudioHint",
       "value": "Гэты чат будзе запісаны ў аўдыяфайл"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Rtmp.RecordPopup.RecordVideoHint",
+      "value": "Выберыце арыентацыю відэа"
     },
     {
       "_": "types.LangPackString",
@@ -17308,6 +17598,11 @@
       "_": "types.LangPackString",
       "key": "Search.Confirm.ClearHistory",
       "value": "Вы ўпэўнены, што хочаце ачысціць гісторыю пошуку?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Search.Empty",
+      "value": "Нічога не знойдзена па запыце «%@». Паспрабуйце інакш."
     },
     {
       "_": "types.LangPackString",
@@ -17764,6 +18059,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SharedFolder.Description",
+      "value": "Дайце сваім сябрам і калегам доступ да ўсёй папкі, уключаючы ўсе яе суполкі і каналы, дзе ў вас ёсць неабходныя правы."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SharedFolder.Edit.Description",
       "value": "Кожны, хто мае гэту спасылку, можа дадаць папку **%s** і **%s**, выбраныя ніжэй."
     },
@@ -17779,6 +18079,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SharedFolder.Includes",
+      "value": "Уваходзіць %s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SharedFolder.Link.ChannelAlready",
       "value": "Вы ўжо з'яўляецеся падпісчыкам"
     },
@@ -17786,6 +18091,11 @@
       "_": "types.LangPackString",
       "key": "SharedFolder.Link.ChatAlready",
       "value": "вы ўжо з'яўляецеся ўдзельнікам"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SharedFolder.Link.Chats",
+      "value": "Выбрана %s"
     },
     {
       "_": "types.LangPackString",
@@ -17809,8 +18119,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SharedFolder.Link.DescriptionAdd",
+      "value": "Хочаце далучыцца да **%s** і дадаць яго ў папку **%s**?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SharedFolder.Link.DescriptionAlready",
       "value": "Вы ўжо дадалі гэту папку і яе чаты."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SharedFolder.Link.DescriptionRemove",
+      "value": "Хочаце выйсці з чатаў, да якія вы далучыліся, дадаючы папку **%s**?"
     },
     {
       "_": "types.LangPackString",
@@ -17854,6 +18174,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SharedFolder.Toast.NeedName",
+      "value": "Дадайце назву для гэтай папкі, каб абагуліць яе."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SharedFolder.Toast.NoAdminChannel",
       "value": "У вас няма паўнамоцтваў абагульняць запрашальныя спасылкі на гэты канал."
     },
@@ -17864,8 +18189,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SharedFolder.Toast.NoExcluded",
+      "value": "Выключаныя чаты не падтрымліваюцца ў абагуленых папках."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SharedFolder.Toast.NoPrivate",
       "value": "Вы не можаце абагульняць прыватныя чаты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SharedFolder.Toast.NoTypes",
+      "value": "Тыпы чатаў не падтрымліваюцца ў абагуленых папках."
     },
     {
       "_": "types.LangPackString",
@@ -17979,6 +18314,14 @@
       "many_value": "",
       "one_value": "Падпішыцеся на [Telegram Premium](),\nкаб разблакіраваць да ** %d** падобнага канала.",
       "other_value": "Падпішыцеся на [Telegram Premium](),\nкаб разблакіраваць да ** %d** падобных каналаў."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%d падобныя каналы",
+      "key": "SimilarChannelsCount",
+      "many_value": "%d падобных каналаў",
+      "one_value": "%d падобны канал",
+      "other_value": "%d падобнага канала"
     },
     {
       "_": "types.LangPackString",
@@ -22136,6 +22479,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "Video.Unsupported.Desktop",
+      "value": "__На жаль, гэта відэа нельга прайграць у Telegram Web. Паспрабуйце адкрыць яго з дапамогай нашай [праграмы для Desktop](https://getdesktop.telegram.org/).__"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Video.Unsupported.Mobile",
+      "value": "__На жаль, гэта відэа нельга прайграць у Telegram Web. Паспрабуйце адкрыць яго з дапамогай нашай [мабільнай праграмы](https://telegram.org/dl/).__"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "VideoCall",
       "value": "Відэавыклік"
     },
@@ -22441,6 +22794,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WebApp.AttachRemove.SuccessAll",
+      "value": "\"%@\" прыбраны з усіх меню."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "WebApp.AttachRemove.SuccessSide",
+      "value": "\"%@\" прыбраны з бакавога меню."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "WebApp.Disclaimer.Check",
       "value": "Я прымаю **[Умовы выкарыстання]()**"
     },
@@ -22604,5 +22967,5 @@
       "other_value": "%1$d паведамленняў"
     }
   ],
-  "version": 330456
+  "version": 330581
 }
