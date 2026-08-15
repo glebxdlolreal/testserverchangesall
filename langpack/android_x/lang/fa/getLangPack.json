@@ -116,6 +116,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatOwnerChanged",
+      "value": "⁨%1$s⁩ مالک جدید این گفتگو است"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChatRemovedFromCommunity",
       "value": "این گفتگو از انجمن حذف شد."
     },
@@ -278,9 +283,40 @@
       "other_value": "⁨%2$s⁩، **⁨%1$s⁩ ویدیوی پولی** را سنجاق کرد"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPriceChanged",
+      "one_value": "⁨%2$s⁩ قیمت را به ⁨%1$s⁩ ستاره برای هر پیام تغییر داد",
+      "other_value": "⁨%2$s⁩ قیمت را به ⁨%1$s⁩ ستاره برای هر پیام تغییر داد"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "علامت زدن به عنوان خوانده شده"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreated",
+      "value": "موضوع ⁨%1$s⁩ ایجاد شد"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHidden",
+      "value": "⁨%1$s⁩ موضوع عمومی را پنهان کرد"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHiddenOut",
+      "value": "شما موضوع عمومی را پنهان کردید"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhidden",
+      "value": "⁨%1$s⁩ موضوع عمومی را از حالت پنهان خارج کرد"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhiddenOut",
+      "value": "شما موضوع عمومی را از حالت پنهان خارج کردید"
     },
     {
       "_": "types.LangPackString",
@@ -4513,7 +4549,7 @@
     {
       "_": "types.LangPackString",
       "key": "CustomTitleTooBig",
-      "value": "عنوان سفارشی بسیار طولانی است"
+      "value": "برچسب عضو بسیار طولانی است"
     },
     {
       "_": "types.LangPackString",
@@ -15656,6 +15692,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RightTags",
+      "value": "ویرایش برچسب‌های عضو"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RightTopics",
       "value": "مدیریت موضوع‌ها"
     },
@@ -21247,6 +21288,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparatorLast",
+      "value": " و "
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• ⁨%1$s⁩\n• ⁨%2$s⁩\n• ⁨%3$s⁩\n• ⁨%4$s⁩"
     },
@@ -22954,6 +23000,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "url_contactsPrivacy",
+      "value": "https://telegram.org/privacy#3-4-phone-number-and-contacts"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "url_faq",
       "value": "https://telegram.org/faq/fa#a"
     },
@@ -23731,5 +23782,5 @@
       "other_value": "⁨%1$s⁩ سال"
     }
   ],
-  "version": 1643409
+  "version": 1643578
 }
