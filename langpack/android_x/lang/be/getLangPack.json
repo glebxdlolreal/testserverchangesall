@@ -88,8 +88,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedPollOption",
+      "value": "%1$s дадаў(-ла) «%2$s» у апытанне\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOptionMsg",
+      "value": "%1$s дадаў(-ла) «%2$s» у апытанне «%3$s»\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionAddedPollOutOption",
       "value": "Вы дадалі «%1$s» у апытанне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOptionMsg",
+      "value": "Вы дадалі «%1$s» у апытанне «%2$s»\n"
     },
     {
       "_": "types.LangPackString",
@@ -113,8 +128,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChatAddedToCommunity",
+      "value": "Гэты чат быў даданы да супольнасці «%1$s»\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChatAddedToCommunityUnknown",
       "value": "Чат дададзены ў супольнасць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerChanged",
+      "value": "%1$s цяпер валодае чатам"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeft",
+      "value": "Уладальнік чата выйшаў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChatOwnerLeftTo",
+      "value": "Уладальнік чата выйшаў. Пакуль ён не вернецца, %1$s будзе яго новым уладальнікам"
     },
     {
       "_": "types.LangPackString",
@@ -123,8 +158,135 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionChecklistAdd",
+      "value": "%1$s дадаў(-ла) пункт %2$s у спіс спраў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddMsg",
+      "value": "%1$s дадаў(-ла) %2$s у спіс «%3$s»\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOut",
+      "value": "Вы дадалі %1$s у спіс"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistAddOutMsg",
+      "value": "Вы дадалі элемент %1$s у спіс «%2$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMark",
+      "value": "%1$s адзначыў(-ла) %2$s як выкананае, а %3$s як нявыкананае"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDone",
+      "value": "%1$s адзначыў(-ла) %2$s як выкананае"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkDoneOut",
+      "value": "Вы адзначылі %1$s як выкананае\n"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s адзначыў(-ла) %1$s задачы як выкананыя",
+      "key": "ActionChecklistMarkDoneTasks",
+      "many_value": "%2$s адзначыў(-ла) %1$s задач як выкананыя",
+      "one_value": "%2$s адзначыў(-ла) %1$s задачу як выкананую",
+      "other_value": "%2$s адзначыў(-ла) %1$s задачы як выкананыя"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Вы адзначылі %1$s задачы як выкананыя",
+      "key": "ActionChecklistMarkDoneTasksOut",
+      "many_value": "Вы адзначылі %1$s задач як выкананыя",
+      "one_value": "Вы адзначылі %1$s задачу як выкананую",
+      "other_value": "Вы адзначылі %1$s задачы як выкананыя"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDone",
+      "value": "%1$s адзначыў(-ла) %2$s як невыкананае\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkNotDoneOut",
+      "value": "Вы адзначылі %1$s як нявыкананае"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s адзначыў(-ла) %1$s задачы як нявыкананыя",
+      "key": "ActionChecklistMarkNotDoneTasks",
+      "many_value": "%2$s адзначыў(-ла) %1$s задач як нявыкананыя",
+      "one_value": "%2$s адзначыў(-ла) %1$s задачу як нявыкананую",
+      "other_value": "%2$s адзначыў(-ла) %1$s задачы як нявыкананыя"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Вы адзначылі %1$s задачы як нявыкананыя",
+      "key": "ActionChecklistMarkNotDoneTasksOut",
+      "many_value": "Вы адзначылі %1$s задач як нявыкананыя",
+      "one_value": "Вы адзначылі %1$s задачу як нявыкананую",
+      "other_value": "Вы адзначылі %1$s задачы як нявыкананыя"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionChecklistMarkOut",
+      "value": "Вы адзначылі %1$s як выкананае, а %2$s як невыкананае"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionCreateChannel",
       "value": "Канал створаны"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionCreatedManagedBot",
+      "value": "Вы зрабілі бота %1$s пад кіраваннем %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOption",
+      "value": "%1$s выдаліў(-ла) «%2$s» з апытання\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOptionMsg",
+      "value": "%1$s выдаліў(-ла) «%2$s» з апытання «%3$s»\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOption",
+      "value": "Вы выдалілі «%1$s» з апытання\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOptionMsg",
+      "value": "Вы выдалілі «%1$s» з апытання «%2$s»\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosed",
+      "value": "%1$s закрыў(-ла) галоўную тэму"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicClosedOut",
+      "value": "Вы закрылі галоўную тэму"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopened",
+      "value": "%1$s аднавіў(-ла) галоўную тэму"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionGeneralTopicReopenedOut",
+      "value": "Вы аднавілі галоўную тэму"
     },
     {
       "_": "types.LangPackString",
@@ -140,6 +302,27 @@
       "_": "types.LangPackString",
       "key": "ActionMutePerson",
       "value": "Не апавяшчаць аб %1$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s вярнуў(-ла) %3$s за %1$s паведамленні",
+      "key": "ActionPaidMessagesRefunded",
+      "many_value": "%2$s вярнуў(-ла) %3$s за %1$s паведамленняў",
+      "one_value": "%2$s вярнуў(-ла) %3$s за %1$s паведамленне",
+      "other_value": "%2$s вярнуў(-ла) %3$s за %1$s паведамлення"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Вы вярнулі %2$s за %1$s паведамленні",
+      "key": "ActionPaidMessagesRefundedOut",
+      "many_value": "Вы вярнулі %2$s за %1$s паведамленняў",
+      "one_value": "Вы вярнулі %2$s за %1$s паведамленне",
+      "other_value": "Вы вярнулі %2$s за %1$s паведамлення"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionPinnedChecklist",
+      "value": "%1$s замацаваў(-ла) **спіс спраў**"
     },
     {
       "_": "types.LangPackString",
@@ -281,9 +464,190 @@
       "other_value": "%2$s замацаваў(-ла) **%1$s платнага відэа**"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s змяніў(-ла) цану на %1$s зоркі за паведамленне",
+      "key": "ActionPriceChanged",
+      "many_value": "%2$s змяніў(-ла) цану на %1$s зорак за паведамленне",
+      "one_value": "%2$s змяніў(-ла) цану на %1$s зорку за паведамленне",
+      "other_value": "%2$s змяніў(-ла) цану на %1$s зоркі за паведамленне"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Вы змянілі цану на %1$s зоркі за паведамленне",
+      "key": "ActionPriceChangedOut",
+      "many_value": "Вы змянілі цану на %1$s зорак за паведамленне",
+      "one_value": "Вы змянілі цану на %1$s зорку за паведамленне",
+      "other_value": "Вы змянілі цану на %1$s зоркі за паведамленне"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionRead",
       "value": "У прачытанае"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabled",
+      "value": "%1$s адключыў(-ла) абагульванне ў гэтым чаце"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingDisabledOut",
+      "value": "Вы адключылі абагульванне ў гэтым чаце"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabled",
+      "value": "%1$s уключыў(-ла) абагульванне ў гэтым чаце"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingEnabledOut",
+      "value": "Вы ўключылі абагульванне ў гэтым чаце"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequest",
+      "value": "%1$s хоча ўключыць абагульванне ў гэтым чаце"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestExpired",
+      "value": "Тэрмін дзеяння запыту на ўключэнне абагульвання скончыўся"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingRequestOut",
+      "value": "Вы прапанавалі ўключыць абагульванне ў гэтым чаце"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillDisabled",
+      "value": "Абагульванне ў гэтым чаце ўсё яшчэ адключана"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionSharingStillEnabled",
+      "value": "Абагульванне ў гэтым чаце ўсё яшчэ ўключана"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIcon",
+      "value": "%2$s змяніў(-ла) значок тэмы на %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconName",
+      "value": "%3$s змяніў(-ла) назву і значок тэмы на %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconNameOut",
+      "value": "Вы змянілі назву і значок тэмы на %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicChangedIconOut",
+      "value": "Вы змянілі значок тэмы на %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosed",
+      "value": "%3$s закрыў(-ла) тэму %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicClosedOut",
+      "value": "Вы закрылі тэму %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreate",
+      "value": "%2$s стварыў(-ла) тэму %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIcon",
+      "value": "%3$s стварыў(-ла) тэму %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateIconOut",
+      "value": "Вы стварылі тэму %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreateOut",
+      "value": "Вы стварылі тэму %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreated",
+      "value": "Створана тэма %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicCreatedIcon",
+      "value": "Створана тэма %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHidden",
+      "value": "%1$s схаваў(-ла) галоўную тэму"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicHiddenOut",
+      "value": "Вы схавалі галоўную тэму"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamed",
+      "value": "%2$s змяніў(-ла) назву тэмы на %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicRenamedOut",
+      "value": "Вы змянілі назву тэмы на %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopened",
+      "value": "%3$s аднавіў(-ла) тэму %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicReopenedOut",
+      "value": "Вы аднавілі тэму %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhidden",
+      "value": "%1$s вярнуў(-ла) галоўную тэму"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTopicUnhiddenOut",
+      "value": "Вы вярнулі галоўную тэму"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosed",
+      "value": "%1$s закрыў(-ла) тэму"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicClosedOut",
+      "value": "Вы закрылі тэму"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopened",
+      "value": "%1$s аднавіў(-ла) тэму"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionUnknownTopicReopenedOut",
+      "value": "Вы аднавілі тэму"
     },
     {
       "_": "types.LangPackString",
@@ -317,8 +681,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AdOpenApp",
+      "value": "Адкрыць праграму"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AdOpenBot",
       "value": "Адкрыць бота"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AdOpenChannel",
+      "value": "Праглядзець канал"
     },
     {
       "_": "types.LangPackString",
@@ -610,6 +984,11 @@
       "_": "types.LangPackString",
       "key": "AnimatedStickersInfo",
       "value": "Вы ўпэўнены, што хочаце ачысціць кэш анімаваных стыкераў?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AnonWarning",
+      "value": "Для гэтага дзеяння трэба раскрыць ваш асабісты ўліковы запіс. Націсніце яшчэ раз, каб пацвердзіць."
     },
     {
       "_": "types.LangPackString",
@@ -1285,6 +1664,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AutoNightModeScheduledByLocationPolarNight",
+      "value": "У вашым бягучым месцазнаходжанні на дадзены момант няма ўзыходу або заходу сонца."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AutoNightModeScheduledByLocationProgress",
       "value": "Вызначэнне месцазнаходжання…"
     },
@@ -1347,6 +1731,11 @@
       "_": "types.LangPackString",
       "key": "AutoplayGifs",
       "value": "Аўтапрайграванне анімацый"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AvailableReactions",
+      "value": "Даступныя рэакцыі"
     },
     {
       "_": "types.LangPackString",
@@ -1522,6 +1911,16 @@
       "_": "types.LangPackString",
       "key": "BiometricsError",
       "value": "Сістэмны драйвер біяметрыкі скончыў працу з памылкай. Прагледзьце журналы, каб даведацца больш."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BiometricsStrong",
+      "value": "Моцная (сканер **3-га класу**)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BiometricsWeak",
+      "value": "Слабая (сканер **2-га класу**)"
     },
     {
       "_": "types.LangPackString",
@@ -2005,8 +2404,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CancelBiometrics",
+      "value": "Скасаваць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CancelPasswordReset",
+      "value": "Скасаваць працэс скіду пароля? Калі вы пазней зноў захочаце скінуць пароль, гэта зойме яшчэ 7 дзён."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CancelPasswordResetYes",
       "value": "ТАК"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CancelReset",
+      "value": "Скасаваць скід"
     },
     {
       "_": "types.LangPackString",
@@ -2465,11 +2879,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "Атрымана %1$s «маланкі» ад карыстальніка %2$s",
+      "few_value": "Атрымана %1$s маланкі ад карыстальніка %2$s",
       "key": "ChatBoostedXTimes",
-      "many_value": "Атрымана %1$s «маланак» ад карыстальніка %2$s",
-      "one_value": "Атрымана %1$s «маланка» ад карыстальніка %2$s",
-      "other_value": "Атрымана %1$s «маланак» ад карыстальніка %2$s"
+      "many_value": "Атрымана %1$s маланак ад карыстальніка %2$s",
+      "one_value": "Атрымана %1$s маланка ад карыстальніка %2$s",
+      "other_value": "Атрымана %1$s маланак ад карыстальніка %2$s"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -2840,8 +3254,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatContentLiveStreamAddSomeone",
+      "value": "Запрашае кагосьці ў відэачат"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatContentLiveStreamAddYou",
+      "value": "Запрашае вас у відэачат"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatContentLiveStreamFinished",
       "value": "Завяршыўся жывы эфір (%1$s)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatContentLiveStreamFinishedNoTime",
+      "value": "Жывы эфір скончаны"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatContentLiveStreamFinishedNoTime_outgoing",
+      "value": "Жывы эфір скончаны"
     },
     {
       "_": "types.LangPackString",
@@ -3047,6 +3481,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatContentVideoChatAddSomeone",
+      "value": "Запрашае кагосьці ў відэачат"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatContentVideoChatAddYou",
+      "value": "Запрашае вас у відэачат"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatContentVoice",
       "value": "Галасавое паведамленне"
     },
@@ -3054,6 +3498,16 @@
       "_": "types.LangPackString",
       "key": "ChatContentVoiceChatFinished",
       "value": "Завяршыў(-ла) відэачат (%1$s)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatContentVoiceChatFinishedNoTime",
+      "value": "Відэачат скончаны"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatContentVoiceChatFinishedNoTime_outgoing",
+      "value": "Відэачат скончаны"
     },
     {
       "_": "types.LangPackString",
@@ -3150,6 +3604,11 @@
       "_": "types.LangPackString",
       "key": "ChatDisabledMessages",
       "value": "Толькі кіраўнікі могуць пісаць паведамленні ў гэтай суполцы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatDisabledOther",
+      "value": "Толькі кіраўнікі могуць адпраўляць стыкеры і анімацыі ў гэтую суполку"
     },
     {
       "_": "types.LangPackString",
@@ -3425,7 +3884,7 @@
     {
       "_": "types.LangPackString",
       "key": "ChatRestrictedBots",
-      "value": "Кіраўнікі забаранілі вам карыстацца інлайн-ботамі ў гэтай суполцы"
+      "value": "Кіраўнікі суполкі забаранілі вам адпраўляць сюды паведамленні праз ботаў."
     },
     {
       "_": "types.LangPackString",
@@ -3501,6 +3960,16 @@
       "_": "types.LangPackString",
       "key": "ChatRestrictedMessagesUntil",
       "value": "Кіраўнікі забаранілі вам адпраўляць паведамленні ў гэту суполку да %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatRestrictedOther",
+      "value": "Кіраўнікі гэтай суполкі абмежавалі вам магчымасць адпраўляць стыкеры і анімацыі."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatRestrictedOtherUntil",
+      "value": "Кіраўнікі забаранілі вам адпраўляць стыкеры і анімацыі ў гэтую суполку да %1$s"
     },
     {
       "_": "types.LangPackString",
@@ -3616,6 +4085,11 @@
       "_": "types.LangPackString",
       "key": "ChatTitleSecretChat",
       "value": "%1$s (сакрэтны чат)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ChatTranslateOriginal",
+      "value": "Арыгінал"
     },
     {
       "_": "types.LangPackString",
@@ -4120,8 +4594,28 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ConfirmYourBiometrics",
+      "value": "Пацвердзіце біяметрыю"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ConfirmYourBiometricsStrong",
+      "value": "Пацвердзіце біяметрыю (моцную)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ConfirmYourBiometricsWeak",
+      "value": "Пацвердзіце біяметрыю (слабую)"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ConfirmYourFingerprint",
       "value": "Пацвердзіце свой адбітак пальца"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ConfirmYourFingerprintWeak",
+      "value": "Пацвердзіце адбітак пальца (слабы)"
     },
     {
       "_": "types.LangPackString",
@@ -4301,6 +4795,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CopiedDisplayName",
+      "value": "Імя скапіявана ў буфер абмену\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CopiedHashtag",
       "value": "Хэштэг скапіяваны ў буфер абмену"
     },
@@ -4356,6 +4855,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CopyDisplayName",
+      "value": "Скапіяваць імя для адлюстравання\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CopyLine",
       "value": "Капіяваць радок"
     },
@@ -4408,6 +4912,11 @@
       "_": "types.LangPackString",
       "key": "Country",
       "value": "Краіна"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CountryCode",
+      "value": "Код краіны\n"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -4516,6 +5025,11 @@
       "_": "types.LangPackString",
       "key": "CustomTitle",
       "value": "Тэг удзельніка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CustomTitleEmoji",
+      "value": "Тэг удзельніка не можа змяшчаць эмодзі"
     },
     {
       "_": "types.LangPackString",
@@ -5137,6 +5651,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "DisableHlsVideo",
+      "value": "Адкл. прайграванне паводле HLS"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "DisablePassword",
       "value": "Адключыць пароль"
     },
@@ -5463,6 +5982,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EditAdminTag",
+      "value": "Рэдагаваць тэг кіраўніка"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EditAdminTitle",
       "value": "Рэдагаваць уласны подпіс"
     },
@@ -5594,6 +6118,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EditOwnerTag",
+      "value": "Рэдагаваць тэг уладальніка"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EditPrivacy",
       "value": "Выключэнні з прыватнасці"
     },
@@ -5716,6 +6245,11 @@
       "_": "types.LangPackString",
       "key": "EditUsername",
       "value": "Рэдагаваць імя карыстальніка"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EmailInvalid",
+      "value": "Памылковы фармат эл. пошты."
     },
     {
       "_": "types.LangPackString",
@@ -5917,6 +6451,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EndsInDuration",
+      "value": "завяршыцца праз %1$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Enhance",
       "value": "Паляпшэнне"
     },
@@ -5939,6 +6478,11 @@
       "_": "types.LangPackString",
       "key": "EnterCode",
       "value": "Увядзіце код"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EnterEmail",
+      "value": "Увядзіце адрас электроннай пошты"
     },
     {
       "_": "types.LangPackString",
@@ -6400,8 +6944,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogForumDisabled",
+      "value": "%1$s адключыў(-ла) тэмы"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogForumDisabledYou",
       "value": "Вы адключылі тэмы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogForumEnabled",
+      "value": "%1$s уключыў(-ла) тэмы"
     },
     {
       "_": "types.LangPackString",
@@ -6457,6 +7011,11 @@
       "_": "types.LangPackString",
       "key": "EventLogForumTopicHiddenYou",
       "value": "Вы зрабілі тэму %1$s схаванай"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogForumTopicPinned",
+      "value": "%1$s замацаваў(-ла) тэму %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -6597,6 +7156,11 @@
       "_": "types.LangPackString",
       "key": "EventLogPermissionChangeInfo",
       "value": "Змяняць звесткі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogPermissionEditTag",
+      "value": "Рэдагаваць свой тэг"
     },
     {
       "_": "types.LangPackString",
@@ -6855,6 +7419,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogPromotedManageTags",
+      "value": "Рэдагаваць тэгі ўдзельнікаў"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogPromotedManageTopics",
       "value": "Кіраванне тэмамі"
     },
@@ -6980,6 +7549,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogRestrictedEditTag",
+      "value": "Рэдагаваць свой тэг"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogRestrictedNew",
       "value": "абмежаваны %1$s\n\nПрацягласць: %2$s"
     },
@@ -6987,6 +7561,11 @@
       "_": "types.LangPackString",
       "key": "EventLogRestrictedPinMessages",
       "value": "Замацоўваць паведамленні"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogRestrictedReactToMessages",
+      "value": "Пакідаць рэакцыі"
     },
     {
       "_": "types.LangPackString",
@@ -7085,6 +7664,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "EventLogTagRemoved",
+      "value": "%2$s выдаліў(-ла) тэг %3$s «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagRemovedYour",
+      "value": "%2$s выдаліў(-ла) ваш тэг «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSet",
+      "value": "%2$s задаў(-ла) для %3$s тэг «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagSetYour",
+      "value": "%2$s задаў(-ла) вам тэг «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouRemoved",
+      "value": "Вы выдалілі тэг %2$s «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTagYouSet",
+      "value": "Вы задалі для %2$s тэг «%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "EventLogToggledInvitesOff",
       "value": "%1$s адключыў(-ла) запрашэнні ў суполку"
     },
@@ -7127,6 +7736,26 @@
       "_": "types.LangPackString",
       "key": "EventLogTransferredOwnership",
       "value": "права валодання перададзена да %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOff",
+      "value": "%1$s адключыў(-ла) аўтапераклад"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOffYou",
+      "value": "Вы адключылі аўтапераклад"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOn",
+      "value": "%1$s уключыў(-ла) аўтапераклад"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EventLogTranslationOnYou",
+      "value": "Вы ўключылі аўтапераклад"
     },
     {
       "_": "types.LangPackString",
@@ -7187,6 +7816,14 @@
       "other_value": "%2$s актываваў(-ла) %1$s імені карыстальніка: %3$s"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Вы актывавалі %1$s імёны карыстальніка: %2$s",
+      "key": "EventLogUsernamesActivatedYou",
+      "many_value": "Вы актывавалі %1$s імён карыстальніка: %2$s",
+      "one_value": "Вы актывавалі %1$s імя карыстальніка: %2$s",
+      "other_value": "Вы актывавалі %1$s імені карыстальніка: %2$s"
+    },
+    {
       "_": "types.LangPackString",
       "key": "EventLogUsernamesChanged",
       "value": "%1$s змяніў(-ла) актыўныя імёны карыстальнікаў з %2$s на %3$s"
@@ -7205,6 +7842,22 @@
       "_": "types.LangPackString",
       "key": "EventLogUsernamesChangedYou",
       "value": "Вы змянілі актыўныя імёны карыстальнікаў з %1$s на %2$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s дэактываваў(-ла) %1$s імёны карыстальніка: %3$s",
+      "key": "EventLogUsernamesDeactivated",
+      "many_value": "%2$s дэактываваў(-ла) %1$s імён карыстальніка: %3$s",
+      "one_value": "%2$s дэактываваў(-ла) %1$s імя карыстальніка: %3$s",
+      "other_value": "%2$s дэактываваў(-ла) %1$s імені карыстальніка: %3$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Вы дэактывавалі %1$s імёны карыстальніка: %2$s",
+      "key": "EventLogUsernamesDeactivatedYou",
+      "many_value": "Вы дэактывавалі %1$s імён карыстальніка: %2$s",
+      "one_value": "Вы дэактывавалі %1$s імя карыстальніка: %2$s",
+      "other_value": "Вы дэактывавалі %1$s імені карыстальніка: %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -7248,6 +7901,26 @@
       "many_value": "Вы можаце выбраць да %1$s воблачных чатаў і чатаў і столькі ж сакрэтных чатаў.",
       "one_value": "Вы можаце выбраць толькі адзін воблачны чат і толькі адзін сакрэтны чат.",
       "other_value": "Вы можаце выбраць да %1$s воблачнага чата і чатаў і столькі ж сакрэтных чатаў."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Experiment_ForceAltPushService",
+      "value": "Альтэрнатыўныя сэрвісы апавяшчэнняў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Experiment_ForceAltPushServiceInfo",
+      "value": "Аддаваць перавагу альтэрнатыўным сэрвісам дастаўкі push-апавяшчэнняў, нават калі на прыладзе ўсталяваны і даступныя Сэрвісы Google Play. Каб ужыць змяненні, перазапусціце праграму ўручную."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Experiment_NoEdgeToEdge",
+      "value": "Адключыць Edge to Edge\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "Experiment_NoEdgeToEdgeInfo",
+      "value": "Уключыце гэтую наладу, каб пратэсціраваць паводзіны праграмы без рэжыму «ад краю да краю» на Android 11–14."
     },
     {
       "_": "types.LangPackString",
@@ -7303,6 +7976,11 @@
       "_": "types.LangPackString",
       "key": "Fake",
       "value": "Падстаўны"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "FakeMark",
+      "value": "ПАДСТАЎНЫ"
     },
     {
       "_": "types.LangPackString",
@@ -7707,6 +8385,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GiftLinkWasActivated",
+      "value": "Спасылка была актывавана %1$s а %2$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GiftReason",
       "value": "Прычына"
     },
@@ -7830,11 +8513,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
-      "few_value": "Гэты розыгрыш спансіруецца кіраўнікамі канала %2$s, якія купілі %1$s %3$s-месячныя падпіскі Telegram Premium для сваіх падпісчыкаў.",
+      "few_value": "Гэты розыгрыш спансіруецца кіраўнікамі канала %2$s, якія купілі %1$s падпіскі на Telegram Premium на %3$s мес. для сваіх падпісчыкаў.",
       "key": "GiveawayInfoOngoingPart1",
-      "many_value": "Гэты розыгрыш спансіруецца кіраўнікамі канала %2$s, якія купілі %1$s %3$s-месячных падпісак Telegram Premium для сваіх падпісчыкаў.",
-      "one_value": "Гэты розыгрыш спансіруецца кіраўнікамі канала %2$s, якія купілі %1$s %3$s-месячную падпіску Telegram Premium для сваіх падпісчыкаў.",
-      "other_value": "Гэты розыгрыш спансіруецца кіраўнікамі канала %2$s, якія купілі %1$s %3$s-месячнай падпіскі Telegram Premium для сваіх падпісчыкаў."
+      "many_value": "Гэты розыгрыш спансіруецца кіраўнікамі канала %2$s, якія купілі %1$s падпісак на Telegram Premium на %3$s мес. для сваіх падпісчыкаў.",
+      "one_value": "Гэты розыгрыш спансіруецца кіраўнікамі канала %2$s, якія купілі %1$s падпіску на Telegram Premium на %3$s мес. для сваіх падпісчыкаў.",
+      "other_value": "Гэты розыгрыш спансіруецца кіраўнікамі канала %2$s, якія купілі %1$s падпіскі на Telegram Premium на %3$s мес. для сваіх падпісчыкаў."
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -7873,6 +8556,14 @@
       "value": "Вы не можаце ўдзельнічаць у гэтым розыгрышы, бо далучыліся да канала %1$s, яшчэ да пачатку розыгрышу."
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s разам з прызамі таксама разыгрывае %1$s %3$s. За дастаўку гэтых прызоў адказныя кіраўнікі канала.",
+      "key": "GiveawayInfoPartExtended",
+      "many_value": "%2$s разам з прызамі таксама разыгрывае %1$s %3$s. За дастаўку гэтых прызоў адказныя кіраўнікі канала.",
+      "one_value": "%2$s разам з прызамі таксама разыгрывае %1$s %3$s. За дастаўку гэтых прызоў адказныя кіраўнікі канала.",
+      "other_value": "%2$s разам з прызамі таксама разыгрывае %1$s %3$s. За дастаўку гэтых прызоў адказныя кіраўнікі канала."
+    },
+    {
       "_": "types.LangPackString",
       "key": "GiveawayLearnMore",
       "value": "Даведацца больш"
@@ -7886,6 +8577,11 @@
       "_": "types.LangPackString",
       "key": "GiveawayOngoingYouEligible",
       "value": "Вы можаце ўдзельнічаць у гэтым розыгрышы\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GiveawayOngoingYouParticipating",
+      "value": "Вы ўдзельнічаеце ў гэтым розыгрышы."
     },
     {
       "_": "types.LangPackString",
@@ -7942,6 +8638,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GiveawayViewMyPrize",
+      "value": "Паглядзець на прыз"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GiveawayWinners",
       "value": "Пераможцы"
     },
@@ -7949,6 +8650,11 @@
       "_": "types.LangPackString",
       "key": "GiveawayWinnersSelected",
       "value": "Пераможцы выбраныя!"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "GiveawayWinnersSelectionDate",
+      "value": "%1$s а %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -8492,6 +9198,11 @@
       "_": "types.LangPackString",
       "key": "InstantViewSectionUnsupported",
       "value": "Імгненны прагляд гэтага раздзела пакуль не падтрымліваецца."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "InstantViewUnavailable",
+      "value": "Хуткі прагляд для гэтай старонкі недаступны.\n"
     },
     {
       "_": "types.LangPackString",
@@ -9761,6 +10472,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "LinkedChatNotFound",
+      "value": "Звязаны чат не знойдзены"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "LinkedGroup",
       "value": "Прывязаная суполка"
     },
@@ -10041,6 +10757,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "LoginEmailInfo",
+      "value": "Увядзіце сапраўдны адрас электроннай пошты."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "LoginErrorAirplane",
       "value": "У вас уключаны рэжым палёту. Адключыце яго або падлучыцеся да Wi-Fi, каб мець магчымасць перапісвацца."
     },
@@ -10068,6 +10789,11 @@
       "_": "types.LangPackString",
       "key": "LongStreamingPreloadAlert",
       "value": "Гэта відэа не аптымізаванае для трансляцыі. Вам спатрэбіцца спампаваць яго цалкам, каб праглядзець."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "LongStreamingPreloadAlertClose",
+      "value": "Зразумела"
     },
     {
       "_": "types.LangPackString",
@@ -10177,6 +10903,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "MediaAd",
+      "value": "Рэклама"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "MediaAndFiles",
       "value": "Медыя і файлы"
     },
@@ -10204,6 +10935,11 @@
       "_": "types.LangPackString",
       "key": "MediaOnceWaitFilDownload",
       "value": "Пачакайце, пакуль файл цалкам спампуецца."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MediaRecommendation",
+      "value": "Рэкамендацыя"
     },
     {
       "_": "types.LangPackString",
@@ -10680,6 +11416,21 @@
       "_": "types.LangPackString",
       "key": "MtprotoProxy",
       "value": "Проксі MTPROTO"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MultiLinkPrefix",
+      "value": "а таксама"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MultiUsernamePrefix",
+      "value": "а таксама"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MultipleUrlPlaceholder",
+      "value": "Выбрана некалькі спасылак\n"
     },
     {
       "_": "types.LangPackString",
@@ -11742,7 +12493,7 @@
     {
       "_": "types.LangPackString",
       "key": "NotificationsGuideBlockedAll",
-      "value": "Апавяшчэнні ад Telegram заблакіраваны ў наладах сістэмы.\n\nДля ўключэння апавяшчэнняў:\n• Націсніце на Налады апавяшчэнняў сістэмы\n• Уключыце «Паказваць апавяшчэнні»."
+      "value": "Апавяшчэнні ад Telegram заблакіраваны ў наладах прылады.\n\nДля ўключэння апавяшчэнняў:\n• Націсніце на Налады апавяшчэнняў сістэмы\n• Уключыце «Паказваць апавяшчэнні»."
     },
     {
       "_": "types.LangPackString",
@@ -11752,7 +12503,7 @@
     {
       "_": "types.LangPackString",
       "key": "NotificationsGuideBlockedCategory",
-      "value": "Апавяшчэнні для бягучага ўліковага запісу адключаны ў наладах сістэмы.\n\nДля ўключэння апавяшчэнняў:\n• Націсніце на Налады апавяшчэнняў сістэмы\n• Знайдзіце «%1$s» катэгорыю апавяшчэнняў.\n• Уключыце, каб разблакіраваць апавяшчэнні ."
+      "value": "Апавяшчэнні для бягучага ўліковага запісу адключаны ў наладах сістэмы.\n\nДля ўключэння апавяшчэнняў:\n• Націсніце на Налады апавяшчэнняў сістэмы\n• Знайдзіце «%1$s» катэгорыю апавяшчэнняў.\n• Уключыце, каб разблакіраваць апавяшчэнні."
     },
     {
       "_": "types.LangPackString",
@@ -12211,6 +12962,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PaidX",
+      "value": "Здзейснены плацеж на %1$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PaintModeArrow",
       "value": "Стрэлка"
     },
@@ -12249,6 +13005,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PasscodeBiometrics",
+      "value": "Біяметрыя"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PasscodeBiometricsStrong",
+      "value": "Біяметрыя (моцная)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PasscodeBiometricsWeak",
+      "value": "Біяметрыя (слабая)"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PasscodeFingerprint",
       "value": "Адбітак пальца"
     },
@@ -12281,6 +13052,11 @@
       "_": "types.LangPackString",
       "key": "PasscodeItem",
       "value": "Код блакіроўкі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PasscodeMismatchBiometrics",
+      "value": "Біяметрычныя даныя не супадаюць"
     },
     {
       "_": "types.LangPackString",
@@ -12381,6 +13157,11 @@
       "_": "types.LangPackString",
       "key": "PasteUrlNotValidHint",
       "value": "Памылковая спасылка\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PasteUrlPlaceholder",
+      "value": "Уставіць URL…\n"
     },
     {
       "_": "types.LangPackString",
@@ -12743,6 +13524,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PlaybackSpeedHintTemplate",
+      "value": "%1$s.\n%2$s."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PlaybackSpeedHintVideo100",
       "value": "Аўдыё будзе прайгравацца ў два разы хутчэй\n"
     },
@@ -12758,6 +13544,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PlusSign",
+      "value": "+"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Poll",
       "value": "Апытанне"
     },
@@ -12765,6 +13556,21 @@
       "_": "types.LangPackString",
       "key": "PollAnonymous",
       "value": "Ананімнае апытанне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollDescription",
+      "value": "Апісанне (неабавязкова)\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollDescriptionEmpty",
+      "value": "Апісанне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollDescriptionInfo",
+      "value": "Апісанне будзе паказана над загалоўкам апытання.\n"
     },
     {
       "_": "types.LangPackString",
@@ -12841,6 +13647,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingAddingOff",
+      "value": "Удзельнікі не могуць прапаноўваць новыя варыянты\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingAddingOn",
       "value": "Удзельнікі могуць прапаноўваць новыя варыянты"
     },
@@ -12856,8 +13667,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingCountriesOff",
+      "value": "Карыстальнікі з усіх краін могуць галасаваць\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingCountriesOn",
       "value": "Галасаваць могуць толькі карыстальнікі з выбраных краін"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOnSpecific",
+      "value": "Толькі карыстальнікі з %1$s\n"
     },
     {
       "_": "types.LangPackString",
@@ -12871,8 +13692,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingDurationOn",
+      "value": "Галасаванне заканчваецца а %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResults",
+      "value": "Хаваць вынікі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResultsOff",
+      "value": "Вынікі паказваюцца падчас галасавання\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResultsOn",
+      "value": "Вынікі паказваюцца пасля закрыцця галасавання\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingMembers",
       "value": "Толькі падпісчыкі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembersOff",
+      "value": "Непадпісаныя карыстальнікі могуць галасаваць\n"
     },
     {
       "_": "types.LangPackString",
@@ -12886,6 +13732,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingMultipleOff",
+      "value": "Можна выбраць толькі адзін варыянт\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMultipleOn",
+      "value": "Можна выбраць некалькі варыянтаў\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingQuiz",
       "value": "Рэжым віктарыны"
     },
@@ -12896,8 +13752,23 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingQuizOff",
+      "value": "Уключыце, каб задаць правільны адказ\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingQuizOn",
+      "value": "Выберыце адзіны правільны адказ\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingRevoting",
       "value": "Змена голасу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevotingOff",
+      "value": "Галасаваць можна толькі адзін раз\n"
     },
     {
       "_": "types.LangPackString",
@@ -12911,6 +13782,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingShowVotersOff",
+      "value": "Галасы ананімныя\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingShowVotersOn",
       "value": "Паказваць імёны каля варыянтаў"
     },
@@ -12918,6 +13794,11 @@
       "_": "types.LangPackString",
       "key": "PollSettingShuffle",
       "value": "Выпадковае чаргаванне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffleOff",
+      "value": "Удзельнікі бачаць варыянты ў аднолькавым парадку\n"
     },
     {
       "_": "types.LangPackString",
@@ -12980,6 +13861,11 @@
       "_": "types.LangPackString",
       "key": "PremiumReactionsLocked",
       "value": "Падпішыцеся на **Telegram Premium**, каб выкарыстоўваць рэакцыі ніжэй."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PremiumRequired",
+      "value": "Для гэтай функцыі патрэбна падпіска **Telegram Premium**."
     },
     {
       "_": "types.LangPackString",
@@ -13168,8 +14054,48 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PrivacyAudioContacts",
+      "value": "Толькі кантакты могуць бачыць вашу захаваную музыку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PrivacyAudioContactsExcept",
+      "value": "Толькі кантакты (%1$s) могуць бачыць вашу захаваную музыку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PrivacyAudioEverybody",
+      "value": "Усе могуць бачыць вашу захаваную музыку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PrivacyAudioEverybodyExcept",
+      "value": "Усе (%1$s) могуць бачыць вашу захаваную музыку"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PrivacyAudioExceptionContacts",
       "value": "Бачна толькі для кантактаў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PrivacyAudioExceptionOff",
+      "value": "Схавана"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PrivacyAudioExceptionOn",
+      "value": "Бачна"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PrivacyAudioNobody",
+      "value": "Ніхто не можа бачыць вашу захаваную музыку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PrivacyAudioNobodyExcept",
+      "value": "Ніхто (%1$s) не можа бачыць вашу захаваную музыку"
     },
     {
       "_": "types.LangPackString",
@@ -13456,6 +14382,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PrivacyNoFeeContacts",
+      "value": "Толькі кантакты не плацяць за паведамленні"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PrivacyNoFeeContactsExcept",
+      "value": "Толькі кантакты (%1$s) не плацяць за паведамленні\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PrivacyNoFeeEverybody",
+      "value": "Усе могуць пісаць вам без платы\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PrivacyNoFeeEverybodyExcept",
+      "value": "Усе (%1$s) могуць пісаць вам без платы\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PrivacyNoFeeNobody",
+      "value": "Усе плацяць за паведамленні"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PrivacyNoFeeNobodyExcept",
+      "value": "Усе (%1$s) плацяць за паведамленні"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PrivacyOther",
       "value": "Іншае"
     },
@@ -13623,6 +14579,11 @@
       "_": "types.LangPackString",
       "key": "PrivacyShowBioEverybodyExcept",
       "value": "Усе (%1$s) могуць бачыць вашы звескі «Пра сябе»\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PrivacyShowBioExceptionContacts",
+      "value": "Бачна толькі для кантактаў"
     },
     {
       "_": "types.LangPackString",
@@ -14276,6 +15237,34 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "QReportMessage",
+      "value": "Вы ўпэўнены, што хочаце паскардзіцца на паведамленне %1$s?\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "QReportMessageUser",
+      "value": "Вы ўпэўнены, што хочаце паскардзіцца на паведамленне ад %1$s?\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "QReportMessages",
+      "value": "Вы ўпэўнены, што хочаце паскардзіцца на паведамленні %1$s?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "QReportMessagesUser",
+      "value": "Вы ўпэўнены, што хочаце паскардзіцца на паведамленні ад %1$s?"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Вы ўпэўнены, што хочаце паскардзіцца на %1$s паведамленні?",
+      "key": "QReportXMessages",
+      "many_value": "Вы ўпэўнены, што хочаце паскардзіцца на %1$s паведамленняў?",
+      "one_value": "Вы ўпэўнены, што хочаце паскардзіцца на %1$s паведамленне?",
+      "other_value": "Вы ўпэўнены, што хочаце паскардзіцца на %1$s паведамлення?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "QUnblockX",
       "value": "Разблакіраваць %1$s?"
     },
@@ -14353,6 +15342,11 @@
       "_": "types.LangPackString",
       "key": "QuizAnonymous",
       "value": "Ананімная віктарына"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "QuizDescriptionInfo",
+      "value": "Апісанне будзе паказана над загалоўкам тэста.\n"
     },
     {
       "_": "types.LangPackString",
@@ -14504,6 +15498,11 @@
       "value": "Вы ўпэўнены, што хочаце пазначыць усе чаты і згадкі як прачытаныя?"
     },
     {
+      "_": "types.LangPackString",
+      "key": "ReadDate_date",
+      "value": "Прачытана %1$s а %2$s"
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "Прачытана %1$s гадзіны таму",
       "key": "ReadDate_hours",
@@ -14536,6 +15535,16 @@
       "_": "types.LangPackString",
       "key": "ReadDate_today",
       "value": "Прачытана а %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReadDate_weekday",
+      "value": "Прачытана %1$s а %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReadDate_yesterday",
+      "value": "Прачытана ўчора а %1$s"
     },
     {
       "_": "types.LangPackString",
@@ -14579,6 +15588,11 @@
       "_": "types.LangPackString",
       "key": "RecommendedFolders",
       "value": "Рэкамендаваныя папкі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RecommendedSign",
+      "value": "рэкамендаванае"
     },
     {
       "_": "types.LangPackString",
@@ -14766,6 +15780,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ReminderSetLoginEmail",
+      "value": "Задайце эл. пошту для ўваходу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReminderSetLoginEmailHide",
+      "value": "Схаваць прапанову"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReminderSetLoginEmailText",
+      "value": "Пераканайцеся, што можаце атрымліваць коды для ўваходу"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Reminders",
       "value": "Напаміны"
     },
@@ -14946,6 +15975,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RenewedSubscription",
+      "value": "%1$s прадоўжыў(-ла) сваю падпіску"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RenewedSubscriptionUntilX",
+      "value": "%1$s прадоўжыў(-ла) падпіску да %2$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RepeatNotifications",
       "value": "Паўтараць апавяшчэнні"
     },
@@ -14967,6 +16006,11 @@
     {
       "_": "types.LangPackString",
       "key": "RepliesBot",
+      "value": "Адказы"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RepliesTitle",
       "value": "Адказы"
     },
     {
@@ -15071,6 +16115,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ReportFalsePositive",
+      "value": "Паведаміць, што гэта не спам"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReportFalsePositiveOk",
+      "value": "Мадэратары Telegram разгледзяць вашу справаздачу. Дзякуй!"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ReportMessage",
       "value": "Паскардзіцца на паведамленні %1$s"
     },
@@ -15127,6 +16181,11 @@
       "_": "types.LangPackString",
       "key": "RequestFollowChannelX",
       "value": "Запытаць у кіраўнікоў канала дазвол на далучэнне вас да %1$s?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RequestJoinChannel",
+      "value": "Запыт на далучэнне да канала"
     },
     {
       "_": "types.LangPackString",
@@ -15208,6 +16267,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ResetPassword",
+      "value": "Скінуць пароль"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ResetPasswordWait",
       "value": "Вы нядаўна запыталі скід пароля, які быў скасаваны.\nПачакайце %1$s перад новым запытам."
     },
@@ -15220,6 +16284,11 @@
       "_": "types.LangPackString",
       "key": "ResetStatsHint",
       "value": "Вы хочаце скінуць вашу статыстыку выкарыстання сеткі?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ResolveNoGalleryAccess",
+      "value": "Адкрыць налады"
     },
     {
       "_": "types.LangPackString",
@@ -15238,13 +16307,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RestoreEmailTroubleText2",
+      "value": "Калі ў вас няма доступу да электроннай пошты для аднаўлення, застаецца або ўспомніць пароль, або чакаць 7 дзён, пакуль ваш пароль не будзе скінуты."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RestoreEmailTroubleUnknown",
       "value": "Праблемы з доступам да электроннай пошты?"
     },
     {
       "_": "types.LangPackString",
+      "key": "RestorePasswordNoEmailText2",
+      "value": "Вы не задалі электронную пошту для аднаўлення, калі наладжвалі пароль, таму вам застаецца або ўспомніць ваш пароль, або чакаць 7 дзён, пакуль пароль не будзе скінуты."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RestorePasswordNoEmailTitle",
       "value": "Шкада"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RestorePasswordResetIn",
+      "value": "Вы можаце скінуць ваш пароль праз %1$s."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RestorePasswordResetPasswordOk",
+      "value": "Ваш пароль двухэтапнай праверкі быў скінуты."
     },
     {
       "_": "types.LangPackString",
@@ -15360,6 +16449,11 @@
       "_": "types.LangPackString",
       "key": "RestrictedByXOnDate",
       "value": "Абмежаваў(-ла) %1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RestrictedContent",
+      "value": "Абмежаванае змесціва"
     },
     {
       "_": "types.LangPackString",
@@ -15513,6 +16607,21 @@
       "_": "types.LangPackString",
       "key": "RightStoriesPost",
       "value": "Публікаваць гісторыі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RightSwipeEdgeAnimation",
+      "value": "Жэст «назад», як у сістэме"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RightSwipeEdgeAnimationInfo",
+      "value": "Калі ўключана, анімацыя будзе прытрымлівацца напрамку пальца пры змахванні з правага краю экрана."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RightTags",
+      "value": "Рэдагаваць тэгі удзельнікаў"
     },
     {
       "_": "types.LangPackString",
@@ -15765,6 +16874,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ScamMark",
+      "value": "МАХЛЯРСТВА"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ScanQR",
       "value": "Сканаваць QR-код"
     },
@@ -15796,7 +16910,7 @@
     {
       "_": "types.LangPackString",
       "key": "ScanQRLinkHint",
-      "value": "Перайдзіце ў «Налады — Прылады — Сканаваць QR-код», каб увайсці праз QR-код."
+      "value": "Перайдзіце ў Налады > Прылады > Прывязаць прыладу, каб увайсці праз QR-код."
     },
     {
       "_": "types.LangPackString",
@@ -15860,6 +16974,11 @@
       "many_value": "~%1$s вынікаў",
       "one_value": "~%1$s вынік",
       "other_value": "~%1$s выніку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SearchCountry",
+      "value": "Пошук…\n"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -16135,6 +17254,11 @@
       "value": "Адправіць як файл"
     },
     {
+      "_": "types.LangPackString",
+      "key": "SendAsOption",
+      "value": "Адправіць як..."
+    },
+    {
       "_": "types.LangPackStringPluralized",
       "few_value": "Адправіць як %1$s файлы",
       "key": "SendAsXFiles",
@@ -16367,6 +17491,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SendingSmsCode",
+      "value": "Мы адпраўляем SMS з кодам актывацыі на ваш тэлефон **%1$s** …"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SendingVideo",
       "value": "адпраўляе відэа"
     },
@@ -16374,6 +17503,11 @@
       "_": "types.LangPackString",
       "key": "SendingVoice",
       "value": "адпраўляе голас"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SensitiveContent",
+      "value": "Далікатнае змесціва"
     },
     {
       "_": "types.LangPackString",
@@ -16547,6 +17681,21 @@
       "_": "types.LangPackString",
       "key": "SessionSecretChats",
       "value": "Сакрэтныя чаты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshot",
+      "value": "Даныя сеансу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshotDesc",
+      "value": "Адправіць асабістыя даныя для аўтарызацыі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshotWarning",
+      "value": "**Увага!**\n\nЗдымак экрана, які вы збіраецеся адправіць, змяшчае доступ да вашага ўліковага запісу Telegram.\n\nНе адпраўляйце і не перасылайце яго нікому, калі вы не ведаеце, што робіце.\n"
     },
     {
       "_": "types.LangPackString",
@@ -17989,6 +19138,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncHintUnavailable2",
+      "value": "Націсніце Налады > Дазволы праграмы  і ўключыце «Кантакты», каб дазволіць **%1$s** доступ да вашых кантактаў, каб знайсці іх у Telegram."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncLearnMore",
       "value": "Палітыка прыватнасці"
     },
@@ -18789,6 +19943,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TouchYourSensorWeak",
+      "value": "Дакраніцеся да сканера (слабога)"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TransferOwnershipAlert",
       "value": "Крыху пачакайце…"
     },
@@ -18939,6 +20098,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TranslationFailed",
+      "value": "Не ўдалося перакласці."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TranslationMoreCreate",
       "value": "Стварыць"
     },
@@ -18956,6 +20120,11 @@
       "_": "types.LangPackString",
       "key": "TranslationMoreTitle",
       "value": "Ваша мова адсутнічае?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TranslationPaste",
+      "value": "Уставіць пераклад"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -19206,6 +20375,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UnlockByBiometrics",
+      "value": "Разблакіруйце праз біяметрыю"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UnlockByFingerprint",
       "value": "Дакраніцеся да датчыка, каб разблакіраваць"
     },
@@ -19325,6 +20499,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UseBiometrics",
+      "value": "Выкарыстайце біяметрыю"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UseBiometricsWeak",
+      "value": "Выкарыстайце біяметрыю (слабую)"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UseHqRoundVideos",
       "value": "Запісваць у высокай якасці"
     },
@@ -19414,6 +20598,14 @@
       "value": "ID карыстальніка"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Паведамленне %2$s за %1$s **зоркі** за адно",
+      "key": "UserMessagesPaid",
+      "many_value": "Паведамленне %2$s за %1$s **зорак** за адно",
+      "one_value": "Паведамленне %2$s за %1$s **зорку** за адно",
+      "other_value": "Паведамленне %2$s за %1$s **зоркі** за адно"
+    },
+    {
       "_": "types.LangPackString",
       "key": "UserNewChatRetricted",
       "value": "%1$s прымае новыя чаты толькі ад кантактаў і карыстальнікаў **Telegram Premium**."
@@ -19437,6 +20629,11 @@
       "_": "types.LangPackString",
       "key": "UserRestrictionsEmbedLinks",
       "value": "Замацоўваць спасылкі"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UserRestrictionsReactToMessages",
+      "value": "Пакідаць рэакцыі"
     },
     {
       "_": "types.LangPackString",
@@ -19597,6 +20794,11 @@
       "_": "types.LangPackString",
       "key": "VideoChatScheduledFor",
       "value": "Відэачат запланаваны на %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "VideoErrorLog",
+      "value": "Журнал памылак"
     },
     {
       "_": "types.LangPackString",
@@ -20010,6 +21212,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WaitingResultsPoll",
+      "value": "Вынікі будуць паказаны пасля закрыцця галасавання\n"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "WaitingResultsQuiz",
+      "value": "Вынікі будуць паказаны пасля спынення тэста\n"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Wallpaper",
       "value": "Фонавы відарыс"
     },
@@ -20210,6 +21422,11 @@
       "_": "types.LangPackString",
       "key": "XAcceptedToChannel",
       "value": "%1$s прыняты(-а) у канал"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "XAcceptedToChannelBy",
+      "value": "%2$s прыняў(-ла) ў канал карыстальніка %1$s"
     },
     {
       "_": "types.LangPackString",
@@ -20566,8 +21783,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "YouAcceptedToChannelBy",
+      "value": "%1$s прыняў(-ла) вас ў канал"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "YouAcceptedToGroup",
       "value": "Вас прынялі ў суполку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "YouAcceptedToGroupBy",
+      "value": "\n%1$s прыняў(-ла) вас ў суполку"
     },
     {
       "_": "types.LangPackString",
@@ -20873,6 +22100,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "biometrics_fail",
+      "value": "Невядомыя біяметрычныя даныя"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "biometrics_hint3",
+      "value": "Дадайце біяметрычныя даныя, перайшоўшы ў сістэмныя Налады > Бяспека > Біяметрыя"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "c_bubble_chatBackground",
       "value": "Суцэльны фон чата, які ўжываецца, калі фонавы відарыс не зададзены.\n\nКалі значэнне колеру пустое, ужываецца **background**."
     },
@@ -21007,6 +22244,14 @@
       "value": "%1$s цяпер прымае паведамленні каналу"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%2$s цяпер прымае за кожнае паведамленне па %1$s зоркі",
+      "key": "channel_enable_dm_paid",
+      "many_value": "%2$s цяпер прымае за кожнае паведамленне па %1$s зорак",
+      "one_value": "%2$s цяпер прымае за кожнае паведамленне па %1$s зорцы",
+      "other_value": "%2$s цяпер прымае за кожнае паведамленне па %1$s зоркі"
+    },
+    {
       "_": "types.LangPackString",
       "key": "channel_user_add",
       "value": "%1$s далучыўся(-лася) да канала"
@@ -21065,6 +22310,16 @@
       "_": "types.LangPackString",
       "key": "email_InvalidNumber_text",
       "value": "Мой мабільны аператар: (увядзіце назву)\nЯ спрабую скарыстаць мой мабільны нумар тэлефона: %1$s\nАле Telegram кажа, што ён памылковы. Дапамажыце."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "email_LoginDeadEnd_subject",
+      "value": "SMS для Telegram X не адпраўлена: %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "email_LoginDeadEnd_text",
+      "value": "Мой інтэрнэт-правайдар: (увядзіце тут назву)\n\nЯ спрабую выкарыстоўваць нумар мабільнага тэлефона: %1$s\nАле Telegram не можа адправіць мне SMS з кодам пацверджання. Дапамажыце.\n\nНіжэй паказаныя падрабязнасці, якія могуць дапамагчы зразумець праблему.\nПамылка: %3$s\n%2$s"
     },
     {
       "_": "types.LangPackString",
@@ -21273,8 +22528,70 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_ActionChecklistItem",
+      "value": "«%1$s»"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparator",
+      "value": ", "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistItemSeparatorLast",
+      "value": " і "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasks",
+      "value": "%1$s адзначыў(-ла) %2$s і %3$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s задачы як выкананую",
+      "key": "format_ActionChecklistMarkTasksDone",
+      "many_value": "%1$s задач як выкананую",
+      "one_value": "%1$s задачу як выкананую",
+      "other_value": "%1$s задачы як выкананую"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s задачы як нявыкананыя",
+      "key": "format_ActionChecklistMarkTasksNotDone",
+      "many_value": "%1$s задач як нявыкананыя",
+      "one_value": "%1$s задачу як нявыкананую",
+      "other_value": "%1$s задачы як нявыкананыя"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasksOut",
+      "value": "Вы адзначылі %1$s і %2$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s задачы як выкананыя",
+      "key": "format_ActionChecklistMarkTasksOutDone",
+      "many_value": "%1$s задач як выкананыя",
+      "one_value": "%1$s задачу як выкананую",
+      "other_value": "%1$s задачы як выкананыя"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s задачы як нявыкананыя",
+      "key": "format_ActionChecklistMarkTasksOutNotDone",
+      "many_value": "%1$s задач як нявыкананыя",
+      "one_value": "%1$s задачу як нявыкананую",
+      "other_value": "%1$s задачы як нявыкананыя"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_EncryptedDescription",
       "value": "• %1$s\n• %2$s\n• %3$s\n• %4$s "
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_GiveawayDateTime",
+      "value": "%1$s а %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -21438,6 +22755,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_folderAndFilter",
+      "value": "%1$s / %2$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_giveawayInfo",
       "value": "%1$s: %2$s"
     },
@@ -21563,6 +22885,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "format_notificationTitleSecret",
+      "value": "🔒️ %1$s"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "format_notificationTitleShort",
       "value": "%1$s (%2$s)"
     },
@@ -21585,6 +22912,11 @@
       "_": "types.LangPackString",
       "key": "format_peopleNamesAndOthers",
       "value": "%1$s %2$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_percentage",
+      "value": "%1$d%%"
     },
     {
       "_": "types.LangPackString",
@@ -21615,6 +22947,14 @@
       "_": "types.LangPackString",
       "key": "format_plusPremium",
       "value": "+Premium"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s зоркі",
+      "key": "format_refundedStars",
+      "many_value": "%1$s зорак",
+      "one_value": "%1$s зорку",
+      "other_value": "%1$s зоркі"
     },
     {
       "_": "types.LangPackString",
@@ -22146,6 +23486,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "login_DeadEnd",
+      "value": "Мы не змаглі адправіць SMS з кодам пацверджання на ваш нумар тэлефона. __Звяжыцеся з намі__, калі вам патрэбна дапамога."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "login_FirstName",
       "value": "Імя"
     },
@@ -22349,7 +23694,7 @@
     {
       "_": "types.LangPackString",
       "key": "modified_weekday",
-      "value": "зменена %1$s а %2$s"
+      "value": "зменена а %1$s а %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -22375,6 +23720,16 @@
       "_": "types.LangPackString",
       "key": "network_LookupAttemptProxy",
       "value": "Падлучаемся да іншага проксі…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "network_LookupFailed",
+      "value": "Маршруты не знойдзены, злучаецца наўпрост…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "network_LookupFailedProxy",
+      "value": "Маршруты не знойдзены, выкарыстоўваецца папярэдні проксі…"
     },
     {
       "_": "types.LangPackString",
@@ -22447,6 +23802,14 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "few_value": "праслухана %1$s гадзіны таму",
+      "key": "opened_voice_hours",
+      "many_value": "праслухана %1$s гадзін таму",
+      "one_value": "праслухана %1$s гадзіну таму",
+      "other_value": "праслухана %1$s гадзіны таму"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "few_value": "праслухана %1$s хвіліны таму",
       "key": "opened_voice_minutes",
       "many_value": "праслухана %1$s хвілін таму",
@@ -22457,6 +23820,14 @@
       "_": "types.LangPackString",
       "key": "opened_voice_now",
       "value": "праслухана толькі што"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "праслухана %1$s секунды таму",
+      "key": "opened_voice_seconds",
+      "many_value": "праслухана %1$s секунд таму",
+      "one_value": "праслухана %1$s секунду таму",
+      "other_value": "праслухана %1$s секунды таму"
     },
     {
       "_": "types.LangPackString",
@@ -22597,6 +23968,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "passcode_biometrics",
+      "value": "Разблакаваць праз біяметрыю"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "passcode_confirm_invisible",
       "value": "%1$s (нябачны)"
     },
@@ -22637,6 +24013,14 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "few_value": "рэакцыя пакінута %1$s гадзіны таму",
+      "key": "reacted_hours",
+      "many_value": "рэакцыя пакінута %1$s гадзін таму",
+      "one_value": "рэакцыя пакінута %1$s гадзіну таму",
+      "other_value": "рэакцыя пакінута %1$s гадзіны таму"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "few_value": "рэакцыя пакінута %1$s хвіліны таму",
       "key": "reacted_minutes",
       "many_value": "рэакцыя пакінута %1$s хвілін таму",
@@ -22647,6 +24031,14 @@
       "_": "types.LangPackString",
       "key": "reacted_now",
       "value": "рэакцыя пакінута толькі што"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "рэакцыя пакінута %1$s секунды таму",
+      "key": "reacted_seconds",
+      "many_value": "рэакцыя пакінута %1$s секунд таму",
+      "one_value": "рэакцыя пакінута %1$s секунду таму",
+      "other_value": "рэакцыя пакінута %1$s секунды таму"
     },
     {
       "_": "types.LangPackString",
@@ -22725,12 +24117,12 @@
     {
       "_": "types.LangPackString",
       "key": "session_LastActive_weekday",
-      "value": "апошняя актыўнасць: %1$s %2$s"
+      "value": "апошняя актыўнасць: %1$s, %2$s"
     },
     {
       "_": "types.LangPackString",
       "key": "session_LastActive_yesterday",
-      "value": "апошняя актыўнасць: учора ў %1$s"
+      "value": "апошняя актыўнасць: учора а %1$s"
     },
     {
       "_": "types.LangPackString",
@@ -23064,6 +24456,14 @@
       "value": "прагледжана толькі што"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "прагледжана %1$s секунды таму",
+      "key": "viewed_seconds",
+      "many_value": "прагледжана %1$s секунд таму",
+      "one_value": "прагледжана %1$s секунду таму",
+      "other_value": "прагледжана %1$s секунды таму"
+    },
+    {
       "_": "types.LangPackString",
       "key": "viewed_today",
       "value": "прагледжана сёння а %1$s"
@@ -23327,6 +24727,14 @@
       "many_value": "%1$s перасланых паведамленняў",
       "one_value": "%1$s перасланае паведамленне",
       "other_value": "%1$s перасланых паведамленняў"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Будуць абраныя %1$s пераможцы",
+      "key": "xFutureWinners",
+      "many_value": "Будуць абраныя %1$s пераможцаў",
+      "one_value": "Будзе абраны %1$s пераможца",
+      "other_value": "Будзе абрана %1$s пераможцы"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -23615,6 +25023,14 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s запыты",
+      "key": "xPRs",
+      "many_value": "%1$s запытаў",
+      "one_value": "%1$s запыт",
+      "other_value": "%1$s запыты"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "few_value": "Былі абраныя %1$s пераможцы",
       "key": "xPastWinners",
       "many_value": "Былі абраныя %1$s пераможцаў",
@@ -23684,6 +25100,14 @@
       "many_value": "%1$s уласцівасцей",
       "one_value": "%1$s уласцівасць",
       "other_value": "%1$s уласцівасцей"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s рэакцыі",
+      "key": "xQuickReactionCount",
+      "many_value": "%1$s рэакцый",
+      "one_value": "%1$s рэакцыя",
+      "other_value": "%1$s рэакцыі"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -23995,5 +25419,5 @@
       "other_value": "%1$s гадоў"
     }
   ],
-  "version": 1643546
+  "version": 1643549
 }
