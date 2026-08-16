@@ -145,6 +145,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionNewCreatorPending",
+      "value": "如果 {from} 7 天后仍未返回，则 {user} 将成为新的所有者。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionOpenGiftButton",
       "value": "打开礼物"
     },
@@ -3075,6 +3080,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "GiftTransferConfirmDescription",
+      "value": "你是否要花费 {amount} 将 {gift} 的所有权转让给 {peer}？"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "GiftTransferConfirmDescriptionFree",
       "value": "您想要将 **{gift}** 的所有权转让给 **{peer}** 吗？"
     },
@@ -3415,8 +3425,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "LeaveBasicGroupDescription",
+      "value": "如果您离开，**{nextOwner}** 将在1 周后成为 **{group}** 的新所有者。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "LeaveGroupAppointOwner",
       "value": "指定另一位所有者"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "LeaveGroupDescription",
+      "value": "如果您离开，**{nextOwner}** 将在1 周后成为 **{group}** 的新所有者。"
     },
     {
       "_": "types.LangPackString",
@@ -6994,5 +7014,5 @@
       "value": "您的姓名"
     }
   ],
-  "version": 277731
+  "version": 284522
 }
