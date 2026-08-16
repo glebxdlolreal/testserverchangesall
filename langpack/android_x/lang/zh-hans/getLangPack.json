@@ -85,6 +85,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedPollOption",
+      "value": "%1$s 将 “%2$s” 添加到投票中"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOptionMsg",
+      "value": "%1$s 向投票活动 “%3$s” 添加了选项 “%2$s”"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOption",
+      "value": "您已将 “%1$s” 添加到投票中"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionAddedPollOutOptionMsg",
+      "value": "您向投票活动 “%2$s” 添加了选项 “%1$s”"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionChannelChangedPhoto",
       "value": "频道头像已被更换"
     },
@@ -174,6 +194,11 @@
       "other_value": "%2$s 已将 %1$s 标记为已完成"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkDoneTasksOut",
+      "other_value": "您将 %1$s 个任务标记为已完成"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionChecklistMarkNotDone",
       "value": "%1$s 将 %2$s 标记为未完成"
@@ -189,6 +214,11 @@
       "other_value": "%2$s 已将 %1$s 标记为未完成"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionChecklistMarkNotDoneTasksOut",
+      "other_value": "您将 %1$s 个任务标记为未完成"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ActionChecklistMarkOut",
       "value": "您将 %1$s 标记为已完成，并将 %2$s 标记为未完成"
@@ -202,6 +232,21 @@
       "_": "types.LangPackString",
       "key": "ActionCreatedManagedBot",
       "value": "您已创建 %1$s 机器人供 %2$s 管理"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOption",
+      "value": "%1$s 已移除投票活动中的选项  \"%2$s\""
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOptionMsg",
+      "value": "%1$s 已移除投票活动 ”%3$s“ 中的选项 ”%2$s“"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionDeletedPollOutOption",
+      "value": "您移除了投票选项 “%1$s”"
     },
     {
       "_": "types.LangPackString",
@@ -242,6 +287,16 @@
       "_": "types.LangPackString",
       "key": "ActionMutePerson",
       "value": "将 %1$s 关闭通知"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPaidMessagesRefunded",
+      "other_value": "%2$s 已为 %1$s 条消息退还 %3$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "ActionPaidMessagesRefundedOut",
+      "other_value": "您已为 %1$s 条消息退还 %2$s"
     },
     {
       "_": "types.LangPackString",
@@ -3640,6 +3695,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatRestrictedOther",
+      "value": "\n群组管理员已禁止您发送贴纸和 GIF。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatRestrictedPhoto",
       "value": "群组管理员已禁止您发送照片。"
     },
@@ -4527,6 +4587,11 @@
       "_": "types.LangPackString",
       "key": "CountryCode",
       "value": "国家代码"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CountryLimit",
+      "other_value": "您最多可以选择 %1$s 个国家。"
     },
     {
       "_": "types.LangPackString",
@@ -5982,6 +6047,11 @@
       "_": "types.LangPackString",
       "key": "EncryptionKeyDescription",
       "value": "这是您与“%1$s”私密对话加密密钥的可视化图片。\n\n如果这张图片看起来和“%1$s”设备上的图片完全一致，端到端加密则是安全的。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EndsInDuration",
+      "value": "将于 %1$s 结束"
     },
     {
       "_": "types.LangPackString",
@@ -12620,6 +12690,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollDescription",
+      "value": "简介（可选）"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollDescriptionEmpty",
+      "value": "添加简介 (可选)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollDescriptionInfo",
+      "value": "描述将显示在投票标题上方。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollDiscard",
       "value": "放弃投票"
     },
@@ -12685,13 +12770,103 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingAdding",
+      "value": "允许添加选项"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingAddingOff",
+      "value": "参与者不能提出新的方案"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingAddingOn",
+      "value": "参与者可以提出新的选项"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingAnonymous",
       "value": "匿名投票"
     },
     {
       "_": "types.LangPackString",
+      "key": "PollSettingCountries",
+      "value": "按国家限制"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOff",
+      "value": "所有国家的用户都可以投票"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOn",
+      "value": "只有所选国家的用户才能投票"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingCountriesOnSpecific",
+      "value": "仅限来自 %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDuration",
+      "value": "限制时长"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDurationOff",
+      "value": "在指定时间自动关闭投票"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingDurationOn",
+      "value": "投票将于 %1$s 结束"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResults",
+      "value": "隐藏结果"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResultsOff",
+      "value": "投票结果将在投票后公布。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingHideResultsOn",
+      "value": "投票结束后，结果将显示。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembers",
+      "value": "仅限订阅者"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembersOff",
+      "value": "未订阅用户也可以投票"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMembersOn",
+      "value": "只有在 24 小时前加入的订阅者才能投票"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PollSettingMultiple",
       "value": "多项选择"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMultipleOff",
+      "value": "只能选择一个选项。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingMultipleOn",
+      "value": "可选择多个选项"
     },
     {
       "_": "types.LangPackString",
@@ -12702,6 +12877,61 @@
       "_": "types.LangPackString",
       "key": "PollSettingQuizInfo",
       "value": "问答模式下的投票仅有一个正确答案，且用户无法撤回其选择。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingQuizOff",
+      "value": "启用以设置正确答案"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingQuizOn",
+      "value": "请选择唯一正确的答案"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevoting",
+      "value": "允许重新投票"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevotingOff",
+      "value": "参与者只能投票一次。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingRevotingOn",
+      "value": "投票者可以更改投票选择"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVoters",
+      "value": "显示投票者名单"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVotersOff",
+      "value": "投票人匿名"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShowVotersOn",
+      "value": "在每个选项上显示投票者名称"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffle",
+      "value": "随机选项"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffleOff",
+      "value": "所有投票者看到的选项顺序相同"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PollSettingShuffleOn",
+      "value": "每位投票者的答案以随机顺序显示"
     },
     {
       "_": "types.LangPackString",
@@ -14167,6 +14397,11 @@
       "_": "types.LangPackString",
       "key": "QuizAnonymous",
       "value": "匿名问答"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "QuizDescriptionInfo",
+      "value": "描述将显示在测验标题上方。"
     },
     {
       "_": "types.LangPackString",
@@ -16317,6 +16552,21 @@
       "_": "types.LangPackString",
       "key": "SessionSecretChats",
       "value": "私密聊天"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshot",
+      "value": "会话快照"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshotDesc",
+      "value": "发送私人授权资料"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshotWarning",
+      "value": "**警告！**\n\n您即将发送的快照包含可访问您 Telegram 账号的信息。\n\n除非您清楚自己在做什么，否则请勿将其发送或转发给任何人。"
     },
     {
       "_": "types.LangPackString",
@@ -19660,6 +19910,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "WaitingResultsPoll",
+      "value": "投票结束后，结果将立即公布。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "WaitingResultsQuiz",
+      "value": "测验结束后将公布结果。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Wallpaper",
       "value": "壁纸"
     },
@@ -20625,6 +20885,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "error_CHANNEL_PRIVATE",
+      "value": "聊天无法进入"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "error_CHATLISTS_TOO_MUCH",
       "value": "抱歉，您的共享文件夹太多了。"
     },
@@ -20761,6 +21026,21 @@
     {
       "_": "types.LangPackStringPluralized",
       "key": "format_ActionChecklistMarkTasksNotDone",
+      "other_value": "%1$s 个任务未完成"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "format_ActionChecklistMarkTasksOut",
+      "value": "你已标记 %1$s 和 %2$s"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksOutDone",
+      "other_value": "%1$s 个任务已完成"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "format_ActionChecklistMarkTasksOutNotDone",
       "other_value": "%1$s 个任务未完成"
     },
     {
@@ -21820,6 +22100,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "network_LookupFailed",
+      "value": "没有找到路线，直接连接中…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "network_LookupFailedProxy",
+      "value": "未找到可用路由，正在使用之前的代理…"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "network_Updating",
       "value": "刷新中……"
     },
@@ -22065,6 +22355,11 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "key": "reacted_hours",
+      "other_value": "%1$s 小时前作出回应"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "key": "reacted_minutes",
       "other_value": "%1$s 分钟前作出了回应"
     },
@@ -22072,6 +22367,11 @@
       "_": "types.LangPackString",
       "key": "reacted_now",
       "value": "刚刚作出回应"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "reacted_seconds",
+      "other_value": "%1$s 秒前作出回应"
     },
     {
       "_": "types.LangPackString",
@@ -23044,5 +23344,5 @@
       "other_value": "%1$s 年"
     }
   ],
-  "version": 1643480
+  "version": 1643584
 }
