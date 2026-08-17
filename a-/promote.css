@@ -626,7 +626,7 @@ a:hover img.emoji {
   background: var(--bg-color);
   text-align: left;
   padding: 7px 0;
-  box-shadow: 0 0 2px 1px rgba(0, 0, 0, .15);
+  box-shadow: 0 0 2px 1px var(--input-border-color);
   border: none;
   transition: all .2s ease;
   visibility: hidden;
@@ -1897,7 +1897,7 @@ input.pr-form-control:focus {
 }
 .pr-form-control-wrap.pr-preview-ad-wrap:after,
 .pr-form-control-wrap.pr-preview-ad-bot-wrap:after {
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .15);
+  box-shadow: inset 0 0 0 1px var(--input-border-color);
 }
 .pr-preview-ad-wrap .pr-preview-ad-empty {
   position: absolute;
@@ -1919,7 +1919,7 @@ input.pr-form-control:focus {
   line-height: 17px;
   font-weight: 500;
   background: #b5c0c8;
-  background: rgba(0, 0, 0, .15);
+  background: var(--input-border-color);
   -webkit-backdrop-filter: blur(25px);
   backdrop-filter: blur(25px);
   box-shadow: none;
@@ -2021,7 +2021,7 @@ input.pr-form-control:focus {
 }
 .pr-preview-ad-message .ad-msg-bubble {
   position: relative;
-  background: var(--bg-color);
+  background: #fff; /* keep hardcoded */
   max-width: 100%;
   padding: 7px 10px;
   border-radius: 10px 10px 10px 0;
@@ -2353,7 +2353,7 @@ input.pr-form-control:focus {
   font-size: 16px;
   line-height: 19px;
   word-break: break-word;
-  color: var(--text-color);
+  color: #222; /* keep hardcoded */
 }
 .pr-preview-ad-wrap .pr-preview-ad-message .ad-msg-text {
   font-size: 14px;
@@ -2749,7 +2749,7 @@ a.pr-preview-ad-search-item:focus {
   width: 132px;
   height: 6px;
   border-radius: 3px;
-  background: var(--surface-color);
+  background: var(--photo-bg-color);
   margin: 7px 0 13px;
 }
 .pr-preview-ad-search-item.empty .pr-preview-ad-item-content:after {
