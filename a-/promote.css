@@ -19,6 +19,8 @@ body {
   --accent-color: #119af5;
   --accent-bghover: #2a96ef;
   --accent-bgactive: #2a96ef;
+  --def-btn-color: #f0f6fa;
+  --accent-btn-text-color: #fff;
   --input-border-color: #d9d9d9;
   --input-focus-color: #35a3f6;
   --danger-color: #d75959;
@@ -36,6 +38,10 @@ body {
   transition: none !important;
 }
 
+.nav > li > a:hover,
+.nav > li > a:focus {
+  background-color: var(--def-btn-color);
+}
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus,
@@ -4461,7 +4467,7 @@ a.ad-declined:focus {
 }
 .pr-pagination .pagination > li > a:hover,
 .pr-pagination .pagination > li > a:focus {
-  background-color: #f0f6fa;
+  background-color: var(--def-btn-color);
   text-decoration: none;
 }
 .pr-pagination .pagination > .active > a,
@@ -5166,14 +5172,14 @@ body.rtl .pr-review-ad-buttons .btn.dropdown-toggle:after {
 .pr-tabs > li > .pr-dropdown:hover,
 .pr-tabs > li.pr-dropdown-wrap.open > .pr-dropdown,
 .pr-radio-tab > .tab-label:hover {
-  background-color: #f0f6fa;
+  background-color: var(--def-btn-color);
 }
 .pr-tabs li.active > a,
 .pr-tabs li.active > .pr-dropdown,
 .pr-tabs > li.pr-dropdown-wrap.active.open > .pr-dropdown,
 .pr-radio-tab .radio-hidden:checked ~ .tab-label {
   background: var(--accent-color);
-  color: #fff;
+  color: var(--accent-btn-text-color);
 }
 .pr-tabs li.active > .pr-dropdown .pr-dropdown-label {
   color: #fff;
