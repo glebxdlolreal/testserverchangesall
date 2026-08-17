@@ -12,6 +12,7 @@ body {
   --bg-color: #fff;
   --alt-bg-color: #f2f5f7;
   --photo-bg-color: #efefef;
+  --divider-color: #ebebeb;
   --text-color: #222;
   --link-color: #0288db;
   --link-bghover: #e6f1f7;
@@ -3757,7 +3758,7 @@ fieldset.pr-form-control-wrap .checkbox-item-block {
     width: 330px;
   }
   .pr-form .pr-form-footer {
-    border-top: 1px solid #ebebeb;
+    border-top: 1px solid var(--divider-color);
     margin-top: 20px;
   }
   .pr-form .pr-form-footer-column {
