@@ -3408,6 +3408,9 @@ fieldset.pr-form-control-wrap .checkbox-item-block {
   color: transparent;
   max-width: 100%;
 }
+.pr-theme-switching .pr-placeholder-label:before {
+  transition: none !important;
+}
 .pr-placeholder-label:after {
   display: inline-block;
   content: attr(data-placeholder);
