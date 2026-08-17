@@ -1786,6 +1786,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "BiometricsStrong",
+      "value": "Silna (czujnik **klasy 3**)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "BiometricsWeak",
+      "value": "Słaba (czujnik **klasy 2**)"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "Birthdate",
       "value": "Urodziny"
     },
@@ -2243,6 +2253,11 @@
       "_": "types.LangPackString",
       "key": "CancelAccountResetInfo",
       "value": "Ktoś z dostępem do twojego numeru telefonu **%1$s** zażądał usunięcia twojego konta Telegrama i zresetowania hasła weryfikacji dwustopniowej.\n\nJeśli to nie ty, wprowadź kod, który właśnie wysłaliśmy ci SMS-em na twój numer, możesz to również anulować, **zmieniając swój numer telefonu** na numer, który kontrolujesz."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CancelBiometrics",
+      "value": "Anuluj"
     },
     {
       "_": "types.LangPackString",
@@ -4334,8 +4349,33 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ConfirmReportBtn",
+      "value": "Zgłoś"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ConfirmYourBiometrics",
+      "value": "Potwierdź swoją biometrię"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ConfirmYourBiometricsStrong",
+      "value": "Potwierdź swoją biometrię (silna)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ConfirmYourBiometricsWeak",
+      "value": "Potwierdź swoją biometrię (słaba)"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ConfirmYourFingerprint",
       "value": "Potwierdź odcisk palca"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ConfirmYourFingerprintWeak",
+      "value": "Potwierdź twój odcisk palca (słaba)"
     },
     {
       "_": "types.LangPackString",
@@ -4515,6 +4555,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CopiedDisplayName",
+      "value": "Nazwę wyświetlaną skopiowano do schowka"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CopiedHashtag",
       "value": "Hashtag został skopiowany do schowka"
     },
@@ -4567,6 +4612,11 @@
       "_": "types.LangPackString",
       "key": "CopyCoordinates",
       "value": "Kopiuj współrzędne"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CopyDisplayName",
+      "value": "Kopiuj nazwę wyświetlaną"
     },
     {
       "_": "types.LangPackString",
@@ -5343,6 +5393,11 @@
       "_": "types.LangPackString",
       "key": "DisableAutoNightModeDesc",
       "value": "Zmiana bieżącego motywu wyłączy automatyczny tryb nocny.\n\nMożna go później włączyć w Ustawienia » Motywy i czaty."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "DisableHlsVideo",
+      "value": "Wyłącz odtwarzanie wideo HLS"
     },
     {
       "_": "types.LangPackString",
@@ -10244,6 +10299,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "MediaAd",
+      "value": "Reklama "
+    },
+    {
+      "_": "types.LangPackString",
       "key": "MediaAndFiles",
       "value": "Multimedia i pliki"
     },
@@ -10261,6 +10321,11 @@
       "_": "types.LangPackString",
       "key": "MediaHapticForward",
       "value": "Przekaż"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "MediaRecommendation",
+      "value": "Zalecenie"
     },
     {
       "_": "types.LangPackString",
@@ -12220,6 +12285,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PaidMedia",
+      "value": "Płatna treść"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PaidX",
       "value": "Zapłacono %1$s"
     },
@@ -12263,6 +12333,21 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PasscodeBiometrics",
+      "value": "Biometria"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PasscodeBiometricsStrong",
+      "value": "Biometria (silna)"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PasscodeBiometricsWeak",
+      "value": "Biometria (słaba)"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PasscodeFingerprint",
       "value": "Odcisk palca"
     },
@@ -12295,6 +12380,11 @@
       "_": "types.LangPackString",
       "key": "PasscodeItem",
       "value": "Blokada kodem dostępu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PasscodeMismatchBiometrics",
+      "value": "Dane biometryczne nie pasują"
     },
     {
       "_": "types.LangPackString",
@@ -14227,6 +14317,39 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "QReportChat",
+      "value": "Zgłosić %1$s?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "QReportMessage",
+      "value": "Na pewno chcesz zgłosić wiadomość użytkownika %1$s?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "QReportMessageUser",
+      "value": "Na pewno chcesz zgłosić wiadomość od %1$s?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "QReportMessages",
+      "value": "Na pewno chcesz zgłosić wiadomości użytkownika %1$s?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "QReportMessagesUser",
+      "value": "Na pewno chcesz zgłosić wiadomości od %1$s?"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Na pewno chcesz zgłosić %1$s wiadomości?",
+      "key": "QReportXMessages",
+      "many_value": "Na pewno chcesz zgłosić %1$s wiadomości?",
+      "one_value": "Na pewno chcesz zgłosić %1$s wiadomość?",
+      "other_value": "Na pewno chcesz zgłosić %1$s wiadomości?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "QUnblockX",
       "value": "Odblokować %1$s?"
     },
@@ -14966,8 +15089,48 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ReportAd",
+      "value": "Zgłoś reklamę"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReportAdFail",
+      "value": "Wystąpił błąd podczas zgłaszania tej reklamy."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReportAdHidden",
+      "value": "Nie będziesz już widzieć żadnych reklam."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReportAdOk",
+      "value": "Reklama zostanie sprawdzona przez moderatorów."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReportAdPolicy",
+      "value": "Poznaj nasze [Zasady i wytyczne dotyczące reklam w Telegramie](https://ads.telegram.org/guidelines)."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReportAdPremiumRequired",
+      "value": "Aby ukryć reklamy potrzebna jest subskrypcja **Telegram Premium**."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReportAdSubtitle",
+      "value": "Co jest nie tak z tą reklamą?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ReportChat",
       "value": "Zgłoś %1$s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReportChatAlertBtn",
+      "value": "Zgłoś"
     },
     {
       "_": "types.LangPackString",
@@ -14978,6 +15141,16 @@
       "_": "types.LangPackString",
       "key": "ReportChatPhoto",
       "value": "Zgłosić zdjęcie %1$s?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReportChatReasonOptional",
+      "value": "Opis"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ReportChatReasonRequired",
+      "value": "Opis (wymagany)"
     },
     {
       "_": "types.LangPackString",
@@ -16530,6 +16703,31 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SessionSnapshot",
+      "value": "Migawka sesji"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshotDesc",
+      "value": "Wyślij prywatne dane autoryzacyjne"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshotInfo",
+      "value": "Migawki sesji to archiwa zawierające wszystkie twoje dane autoryzacyjne, których nigdy nikomu nie wolno ci udostępniać. Czy chcesz je usunąć?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshotWarning",
+      "value": "**Uwaga!**\n\nMigawka, którą zamierzasz wysłać, zawiera dostęp do twojego konta Telegrama.\n\nNie wysyłaj i nie przekazuj jej nikomu, chyba że wiesz, co robisz."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshots",
+      "value": "Migawki sesji"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SessionSystem",
       "value": "Wersja systemu"
     },
@@ -17297,6 +17495,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SimilarBots",
+      "value": "Podobne boty"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SimilarChannels",
       "value": "Podobne kanały"
     },
@@ -17903,13 +18106,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncContactsProgress",
+      "value": "Przesyłanie kontaktów…"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncHint",
       "value": "Kontakty na twoim urządzeniu \n(numery telefonów, imiona i nazwiska) \nbędą bezproblemowo przesyłane na serwery Telegrama, dzięki czemu będzie można je znaleźć w sekcji Kontakty w Telegram X lub otrzymać powiadomienie o dołączeniu. \n \nGdy usuniesz kontakt z urządzenia podczas synchronizacji, zostanie on również usunięty z listy kontaktów na serwerach Telegrama.\n \nMożesz zawsze wyłączyć synchronizację lub wyczyścić dane na serwerach Telegrama, wybierając Ustawienia » Prywatność i bezpieczeństwo » Usuń zsynchronizowane kontakty. \n \nAby włączyć synchronizację, musisz również zezwolić Telegram X na dostęp do kontaktów na twoim urządzeniu."
     },
     {
       "_": "types.LangPackString",
       "key": "SyncHint3",
-      "value": "Kontakty na twoim urządzeniu (numery telefonów, imiona i nazwiska)\nbędą stale przesyłane na serwery Telegrama, dzięki czemu będzie można je znaleźć w sekcji **Kontakty** w **%1$s** lub otrzymać powiadomienie o dołączeniu.\n\nDane nie są udostępniane stronom trzecim. Gdy usuniesz kontakt z urządzenia podczas synchronizacji, zostanie on również usunięty z listy kontaktów na serwerach **Telegrama**.\n\nMożesz zawsze wyłączyć synchronizację lub wyczyścić dane na serwerach Telegrama, wybierając **Ustawienia » Prywatność i bezpieczeństwo » Usuń zsynchronizowane kontakty**.\n\nAby włączyć synchronizację, musisz również zezwolić **%1$s** na dostęp do kontaktów na twoim urządzeniu."
+      "value": "Kontakty na twoim urządzeniu (numery telefonów, imiona i nazwiska) będą stale przesyłane na serwery **Telegrama**, dzięki czemu będzie można je znaleźć w sekcji **Kontakty** lub otrzymać powiadomienie o dołączeniu.\n\nDane są przesyłane wyłącznie do **Telegrama** i nigdy nie są udostępniane stronom trzecim. Gdy usuniesz kontakt z urządzenia podczas synchronizacji, zostanie on również usunięty z listy kontaktów na serwerach **Telegrama**.\n\nMożesz zawsze wyłączyć synchronizację lub wyczyścić dane na serwerach **Telegrama**, wybierając **Ustawienia » Prywatność i bezpieczeństwo » Usuń zsynchronizowane kontakty**.\n\nAby włączyć synchronizację, musisz również zezwolić **%1$s** na dostęp do kontaktów na twoim urządzeniu."
     },
     {
       "_": "types.LangPackString",
@@ -18030,6 +18238,11 @@
       "_": "types.LangPackString",
       "key": "TabSharedGroups",
       "value": "Grupy"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "TabSimilarBots",
+      "value": "Podobne"
     },
     {
       "_": "types.LangPackString",
@@ -18728,6 +18941,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "TouchYourSensorWeak",
+      "value": "Dotknij swojego czujnika (słaba)"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "TransferOwnershipAlert",
       "value": "Poczekaj chwilę…"
     },
@@ -19155,6 +19373,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "UnlockByBiometrics",
+      "value": "Użyj biometrii do odblokowania"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "UnlockByFingerprint",
       "value": "Dotknij czytnika, aby odblokować"
     },
@@ -19271,6 +19494,16 @@
       "_": "types.LangPackString",
       "key": "UploadingPhotoWait",
       "value": "Przesyłanie zdjęcia, proszę czekać…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UseBiometrics",
+      "value": "Użyj swojej biometrii"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "UseBiometricsWeak",
+      "value": "Użyj swojej biometrii (słaba)"
     },
     {
       "_": "types.LangPackString",
@@ -20765,6 +20998,16 @@
       "many_value": "%1$s lat",
       "one_value": "%1$s rok",
       "other_value": "%1$s roku"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "biometrics_fail",
+      "value": "Nieznane dane biometryczne"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "biometrics_hint3",
+      "value": "Dodaj biometrię w Ustawieniach systemu » Bezpieczeństwo » Biometria."
     },
     {
       "_": "types.LangPackString",
@@ -22611,6 +22854,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "passcode_biometrics",
+      "value": "Odblokuj za pomocą biometrii"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "passcode_confirm_invisible",
       "value": "%1$s (niewidoczny)"
     },
@@ -23163,6 +23411,14 @@
       "many_value": "%1$s zablokowanych",
       "one_value": "%1$s zablokowany",
       "other_value": "%1$s zablokowanych"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s użytkowników miesięcznie",
+      "key": "xBotUsers",
+      "many_value": "%1$s użytkowników miesięcznie",
+      "one_value": "%1$s użytkownik miesięcznie",
+      "other_value": "%1$s użytkownika miesięcznie"
     },
     {
       "_": "types.LangPackStringPluralized",
@@ -23808,6 +24064,14 @@
     },
     {
       "_": "types.LangPackStringPluralized",
+      "few_value": "%1$s podobne boty",
+      "key": "xSimilarBots",
+      "many_value": "%1$s podobnych botów",
+      "one_value": "%1$s podobny bot",
+      "other_value": "%1$s podobnego bota"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
       "few_value": "%1$s podobne kanały",
       "key": "xSimilarChannels",
       "many_value": "%1$s podobnych kanałów",
@@ -23999,5 +24263,5 @@
       "other_value": "%1$s roku"
     }
   ],
-  "version": 1642601
+  "version": 1644167
 }
