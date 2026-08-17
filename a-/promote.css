@@ -10,6 +10,8 @@ body {
 }
 body {
   --bg-color: #fff;
+  --alt-bg-color: #f2f5f7;
+  --photo-bg-color: #efefef;
   --text-color: #222;
   --link-color: #0288db;
   --link-bghover: #e6f1f7;
@@ -17,6 +19,9 @@ body {
   --accent-color: #119af5;
   --accent-bghover: #2a96ef;
   --accent-bgactive: #2a96ef;
+  --input-border-color: #d9d9d9;
+  --input-focus-color: #35a3f6;
+  --danger-color: #d75959;
 }
 :root {
   color-scheme: light;
@@ -197,7 +202,7 @@ button.pr-link-btn {
 .pr-del-btn,
 a.pr-del-btn,
 button.pr-del-btn {
- background-color: #d75959;
+ background-color: var(--danger-color);
 }
 .pr-del-btn:hover,
 .pr-del-btn:focus,
@@ -414,7 +419,7 @@ textarea.form-control {
 input.form-control[disabled],
 textarea.form-control[disabled] {
   cursor: text;
-  background-color: #fff;
+  background-color: var(--bg-color);
 }
 .input.pr-form-control {
   overflow: auto;
@@ -598,7 +603,7 @@ a:hover img.emoji {
 .select {
   position: relative;
   box-shadow: inset 0 -1px 0 #f0f0f0;
-  background-color: #ffffff;
+  background-color: var(--bg-color);
   cursor: text;
 }
 .select .items-list {
@@ -606,7 +611,7 @@ a:hover img.emoji {
   left: 0;
   right: 0;
   margin: -1px 0;
-  background: #fff;
+  background: var(--bg-color);
   text-align: left;
   padding: 7px 0;
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, .15);
@@ -685,7 +690,7 @@ a:hover img.emoji {
   position: relative;
   display: inline-block;
   color: #525252;
-  background-color: #efefef;
+  background-color: var(--photo-bg-color);
   padding: 4px 10px 3px;
   margin: 3px 5px 2px 0;
   border-radius: 4px;
@@ -864,7 +869,7 @@ a:hover img.emoji {
   left: -1px;
 }
 .pr-dropdown-wrap.open .pr-form-control {
-  box-shadow: inset 0 0 0 2px #35a3f6;
+  box-shadow: inset 0 0 0 2px var(--input-focus-color);
 }
 .pr-dropdown-wrap.input-dropdown .input {
   padding-right: 40px;
@@ -1039,7 +1044,7 @@ a:hover img.emoji {
   height: 24px;
   margin: -2px 0;
   border-radius: 12px;
-  background: #efefef;
+  background: var(--photo-bg-color);
   text-align: center;
   user-select: none;
 }
@@ -1240,7 +1245,7 @@ body.rtl .pr-header-auth {
   width: 32px;
   height: 32px;
   border-radius: 16px;
-  background: #efefef;
+  background: var(--photo-bg-color);
   text-align: center;
   overflow: hidden;
   margin: 0 0 0 18px;
@@ -1361,7 +1366,7 @@ body.rtl .pr-review-header-dd .pr-dropdown-label:after {
 }
 .pr-search-input-wrap {
   margin: 5px 0;
-  box-shadow: inset 0 0 0 1px #d9d9d9;
+  box-shadow: inset 0 0 0 1px var(--input-border-color);
   border-radius: 6px;
   transition: box-shadow .2s ease;
   position: relative;
@@ -1399,7 +1404,7 @@ body.rtl .pr-search-input-wrap:before {
   left: auto;
 }
 .pr-search-input-wrap.field-focused {
-  box-shadow: inset 0 0 0 2px #35a3f6;
+  box-shadow: inset 0 0 0 2px var(--input-focus-color);
 }
 .pr-search-input {
   height: auto;
@@ -1539,7 +1544,7 @@ input.pr-form-control {
   font-size: 14px;
   line-height: 18px;
   padding: 11px 13px;
-  box-shadow: inset 0 0 0 1px #d9d9d9;
+  box-shadow: inset 0 0 0 1px var(--input-border-color);
   border-radius: 6px;
   transition: box-shadow .2s ease;
   height: auto;
@@ -1550,12 +1555,12 @@ textarea.pr-form-control {
 }
 .pr-form-control:focus,
 input.pr-form-control:focus {
-  box-shadow: inset 0 0 0 2px #35a3f6;
+  box-shadow: inset 0 0 0 2px var(--input-focus-color);
 }
 .pr-form-select .select {
   font-size: 15px;
   line-height: 18px;
-  box-shadow: inset 0 0 0 1px #d9d9d9;
+  box-shadow: inset 0 0 0 1px var(--input-border-color);
   border-radius: 6px;
   transition: box-shadow .2s ease;
   height: auto;
@@ -1985,7 +1990,7 @@ input.pr-form-control:focus {
   font-size: 16px;
   line-height: 37px;
   color: #999;
-  background: #efefef;
+  background: var(--photo-bg-color);
   overflow: hidden;
 }
 .pr-preview-ad-message .ad-msg-photo:before {
@@ -2004,7 +2009,7 @@ input.pr-form-control:focus {
 }
 .pr-preview-ad-message .ad-msg-bubble {
   position: relative;
-  background: #fff;
+  background: var(--bg-color);
   max-width: 100%;
   padding: 7px 10px;
   border-radius: 10px 10px 10px 0;
@@ -2073,7 +2078,7 @@ input.pr-form-control:focus {
   position: relative;
   font-size: 14px;
   line-height: 18px;
-  background: #fff;
+  background: var(--bg-color);
   padding: 12px 16px;
   color: var(--text-color);
   overflow: hidden;
@@ -2249,7 +2254,7 @@ input.pr-form-control:focus {
   background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%228%22%20height%3D%2216%22%20viewBox%3D%220%200%208%2016%22%3E%3Cdefs%3E%3Cfilter%20id%3D%22spread%22%20x%3D%22-50%25%22%20y%3D%22-50%25%22%20width%3D%22200%25%22%20height%3D%22200%25%22%3E%3CfeMorphology%20in%3D%22SourceAlpha%22%20operator%3D%22dilate%22%20radius%3D%221%22%20result%3D%22spread%22%2F%3E%3CfeFlood%20flood-color%3D%22%23dbdfe2%22%20result%3D%22color%22%2F%3E%3CfeComposite%20in%3D%22color%22%20in2%3D%22spread%22%20operator%3D%22in%22%20result%3D%22coloredSpread%22%2F%3E%3CfeMerge%3E%3CfeMergeNode%20in%3D%22coloredSpread%22%2F%3E%3CfeMergeNode%20in%3D%22SourceGraphic%22%2F%3E%3C%2FfeMerge%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Cg%3E%3Cpath%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%20d%3D%22M%200.33%200%20L%200.4%203.17%20C%200.4%205.6%200.67%208.67%202%2010.67%20C%203%2012.17%204.35%2013.13%205.7%2013.7%20C%205.8%2013.75%206%2013.95%206%2014.25%20C%206%2014.34%206%2014.43%206%2014.56%20C%206%2014.7%205.86%2015%205.53%2015%20C%205.32%2015%203.14%2015%20-1%2015%20L%20-1%200%20L%200.33%200%20Z%22%20transform%3D%22matrix%28-1%200%200%201%207%200%29%22%20filter%3D%22url%28%23spread%29%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E') no-repeat;
 }
 .pr-review-ad-preview.colorless .pr-preview-ad-bottombox .ad-msg-bottombox {
-  background: #fff;
+  background: var(--bg-color);
   box-shadow: 0 0 0 1px #dbdfe2;
   color: #222;
 }
@@ -2587,7 +2592,7 @@ input.pr-form-control:focus {
 }
 
 .pr-preview-ad-search-wrap {
-  background-color: #fff;
+  background-color: var(--bg-color);
   border-radius: 6px;
 }
 .pr-preview-ad-search-wrap .pr-preview-ad-empty {
@@ -2834,7 +2839,7 @@ form > .sanim > .form-group {
   margin-left: 10px;
 }
 .form-group-divider {
-  border-bottom: 1px solid #d9d9d9;
+  border-bottom: 1px solid var(--input-border-color);
   text-align: center;
   height: 10px;
   margin: -5px auto 32px;
@@ -2845,7 +2850,7 @@ form > .sanim > .form-group {
   color: #a8a8a8;
   font-size: 14px;
   line-height: 16px;
-  background: #fff;
+  background: var(--bg-color);
   padding: 0 7px;
   display: inline-block;
   font-weight: 600;
@@ -2937,7 +2942,7 @@ form > .sanim > .form-group {
 }
 .field-invalid > .pr-form-control-msg > .pr-form-control-msg-text {
   font-weight: 500;
-  color: #d75959;
+  color: var(--danger-color);
 }
 .pr-form .form-group.form-group-no-label {
   padding-top: 0;
@@ -3075,7 +3080,7 @@ form > .sanim > .form-group {
 .pr-budget-amount-wrap {
   padding: 12px 15px;
   border-radius: 8px;
-  background: #f2f5f7;
+  background: var(--alt-bg-color);
   text-align: center;
   margin: 0 auto;
 }
@@ -3141,7 +3146,7 @@ form > .sanim > .form-group {
 
 .pr-account-button-wrap {
   display: block;
-  box-shadow: inset 0 0 0 1px #d9d9d9;
+  box-shadow: inset 0 0 0 1px var(--input-border-color);
   border-radius: 6px;
   transition: box-shadow .2s ease;
   color: inherit;
@@ -3154,7 +3159,7 @@ a.pr-account-button-wrap {
 .pr-account-button-wrap.current,
 a.pr-account-button-wrap:hover,
 a.pr-account-button-wrap:focus-visible {
-  box-shadow: inset 0 0 0 2px #35a3f6;
+  box-shadow: inset 0 0 0 2px var(--input-focus-color);
   color: inherit;
   text-decoration: none;
 }
@@ -3165,7 +3170,7 @@ a.pr-account-button-wrap:focus-visible {
   width: 36px;
   height: 36px;
   border-radius: 18px;
-  background: #efefef;
+  background: var(--photo-bg-color);
   text-align: center;
   overflow: hidden;
   margin: 11px 15px;
@@ -3249,7 +3254,7 @@ a.pr-account-button-wrap:focus-visible {
   right: 0;
   top: 0;
   bottom: 0;
-  box-shadow: inset 0 0 0 1px #d9d9d9;
+  box-shadow: inset 0 0 0 1px var(--input-border-color);
   background-color: transparent;
   border-radius: 6px;
   transition: box-shadow .2s ease;
@@ -3257,13 +3262,13 @@ a.pr-account-button-wrap:focus-visible {
   z-index: 1;
 }
 .field-focused .pr-form-control-wrap:after {
-  box-shadow: inset 0 0 0 2px #35a3f6;
+  box-shadow: inset 0 0 0 2px var(--input-focus-color);
 }
 .field-invalid .pr-form-control-wrap:after {
-  box-shadow: inset 0 0 0 1px #d75959;
+  box-shadow: inset 0 0 0 1px var(--danger-color);
 }
 .field-focused.field-invalid .pr-form-control-wrap:after {
-  box-shadow: inset 0 0 0 2px #d75959;
+  box-shadow: inset 0 0 0 2px var(--danger-color);
 }
 .pr-form-control-wrap .pr-form-control-prefix {
   position: absolute;
@@ -3437,10 +3442,10 @@ fieldset.pr-form-control-wrap .checkbox-item-block {
   color: #2481cc;
 }
 .field-invalid .pr-placeholder-label:after {
-  color: #d75959;
+  color: var(--danger-color);
 }
 .field-focused.field-invalid .pr-placeholder-label:after {
-  color: #d75959;
+  color: var(--danger-color);
 }
 .pr-form-control-amount .pr-placeholder-label + .pr-form-control-prefix {
   opacity: 0;
@@ -3507,7 +3512,7 @@ fieldset.pr-form-control-wrap .checkbox-item-block {
   width: 24px;
   height: 24px;
   border-radius: 15px;
-  background: #efefef;
+  background: var(--photo-bg-color);
   text-align: center;
   overflow: hidden;
   margin: 8px;
@@ -3643,7 +3648,7 @@ fieldset.pr-form-control-wrap .checkbox-item-block {
   opacity: 0;
   visibility: hidden;
   transition: all .2s ease;
-  background: #fff;
+  background: var(--bg-color);
 }
 .pr-draft-btn-wrap.saved .pr-draft-saved {
   opacity: 1;
@@ -4056,7 +4061,7 @@ fieldset.pr-form-control-wrap .checkbox-item-block {
 }
 .pr-table-sticky > thead > tr > td,
 .pr-table-sticky > thead > tr > th {
-  background-color: #fff;
+  background-color: var(--bg-color);
   position: -webkit-sticky;
   position: sticky;
   z-index: 1;
@@ -4112,15 +4117,15 @@ fieldset.pr-form-control-wrap .checkbox-item-block {
 }
 /*.pr-table > tbody > tr:nth-child(even) > td,
 .pr-table > tbody > tr:nth-child(even) > th {
-  background-color: #f2f5f7;
+  background-color: var(--alt-bg-color);
 }
 .pr-table > thead + tbody > tr:nth-child(odd) > td,
 .pr-table > thead + tbody > tr:nth-child(odd) > th {
-  background-color: #f2f5f7;
+  background-color: var(--alt-bg-color);
 }*/
 .pr-table > tbody > tr:nth-child(odd) > td,
 .pr-table > tbody > tr:nth-child(odd) > th {
-  background-color: #f2f5f7;
+  background-color: var(--alt-bg-color);
 }
 /*.pr-table > thead + tbody > tr:nth-child(even) > td,
 .pr-table > thead + tbody > tr:nth-child(even) > th,*/
@@ -4350,7 +4355,7 @@ a.pr-acc-link:hover .pr-acc-name {
 .ad-declined,
 a.ad-declined:hover,
 a.ad-declined:focus {
-  color: #d75959;
+  color: var(--danger-color);
 }
 
 .pr-load-more-wrap {
@@ -4402,7 +4407,7 @@ a.ad-declined:focus {
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
   padding: 6px 15px;
-  box-shadow: inset 0 0 0 1px #d9d9d9;
+  box-shadow: inset 0 0 0 1px var(--input-border-color);
   background-color: transparent;
   transition: all .2s ease;
   text-transform: none;
@@ -4411,7 +4416,7 @@ a.ad-declined:focus {
   pointer-events: none;
 }
 .pr-radio-button > .pr-radio-btn:active:hover {
-  box-shadow: inset 0 0 0 1px #d9d9d9;
+  box-shadow: inset 0 0 0 1px var(--input-border-color);
 }
 .pr-radio-button > input.radio:checked ~ .pr-radio-btn {
   box-shadow: inset 0 0 0 1px var(--accent-color);
@@ -4857,7 +4862,7 @@ a.ad-declined:focus {
   color: #249106;
 }
 .pr-status-declined {
-  color: #d75959;
+  color: var(--danger-color);
 }
 .pr-review-owner-actions {
   font-size: 14px;
@@ -4939,15 +4944,15 @@ a.ad-declined:focus {
 }
 .pr-review-ad-buttons .pr-btn.pr-btn-selected {
   color: var(--accent-color);
-  background: #fff;
+  background: var(--bg-color);
   box-shadow: inset 0 0 0 1px var(--accent-color);
 }
 .pr-review-ad-buttons .pr-btn.pr-btn-disabled {
   cursor: default;
 }
 .pr-review-ad-buttons .pr-del-btn.pr-btn-selected {
-  color: #d75959;
-  box-shadow: inset 0 0 0 1px #d75959;
+  color: var(--danger-color);
+  box-shadow: inset 0 0 0 1px var(--danger-color);
 }
 .pr-review-ad-buttons .review-btn {
   flex-grow: 1;
@@ -4974,7 +4979,7 @@ a.ad-declined:focus {
   padding: 6px 8px;
   font-weight: 500;
   color: var(--text-color);
-  background-color: #fff;
+  background-color: var(--bg-color);
   box-shadow: inset 0 0 0 1px rgba(0,0,0,.14);
   transition: all .2s ease;
 }
@@ -5208,8 +5213,8 @@ body.rtl .pr-review-ad-buttons .btn.dropdown-toggle:after {
   box-shadow: 0 0 0 0.5px var(--accent-color);
 }
 .pr-decline-block:before {
-  background-color: #d75959;
-  box-shadow: 0 0 0 0.5px #d75959;
+  background-color: var(--danger-color);
+  box-shadow: 0 0 0 0.5px var(--danger-color);
 }
 .pr-info-block-header,
 .pr-decline-block-header {
@@ -5218,7 +5223,7 @@ body.rtl .pr-review-ad-buttons .btn.dropdown-toggle:after {
   padding-bottom: 4px;
 }
 .pr-decline-block-header {
-  color: #d75959;
+  color: var(--danger-color);
 }
 .pr-decline-reason {
   font-weight: 500;
@@ -5313,7 +5318,7 @@ a.pr-popup-account:hover {
   height: 75px;
   border-radius: 38px;
   margin: 0 auto 10px;
-  background: #efefef;
+  background: var(--photo-bg-color);
   text-align: center;
   overflow: hidden;
   user-select: none;
@@ -5505,7 +5510,7 @@ a.pr-popup-account:hover {
   --cell-height: 16px;
   position: relative;
   max-width: 620px;
-  box-shadow: inset 0 0 0 1px #d9d9d9;
+  box-shadow: inset 0 0 0 1px var(--input-border-color);
   border-radius: 6px;
 }
 .pr-schedule-table-wrap.with-labels {
@@ -5843,7 +5848,7 @@ a.pr-popup-account:hover {
   transition: all .3s ease;
 }
 .chart_wrap_loading {
-  background-color: #fff;
+  background-color: var(--bg-color);
   color: #7A8A93;
   font-size: 16px;
   text-align: center;
@@ -5897,7 +5902,7 @@ a.pr-popup-account:hover {
   color: #249106;
 }
 .pr-amount-decr {
-  color: #d75959;
+  color: var(--danger-color);
 }
 
 .amount-currency.currency-euro {
@@ -5959,7 +5964,7 @@ a.pr-popup-account:hover {
   word-wrap: break-word;
   margin: 15px;
   border-radius: 4px;
-  background: #fff;
+  background: var(--bg-color);
   box-shadow: 0 0 12px rgba(0, 0, 0, .3);
 }
 .popup section {
@@ -6268,7 +6273,7 @@ a.pr-popup-account:hover {
   padding: 19px 23px;
   margin: auto 0;
   border-radius: 6px;
-  background: #fff;
+  background: var(--bg-color);
   box-shadow: 0 0 12px rgba(0, 0, 0, .3);
   flex-shrink: 1;
   max-width: 90%;
