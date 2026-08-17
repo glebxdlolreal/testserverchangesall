@@ -626,7 +626,7 @@ a:hover img.emoji {
   background: var(--bg-color);
   text-align: left;
   padding: 7px 0;
-  box-shadow: 0 0 2px 1px var(--input-border-color);
+  box-shadow: 0 0 0 1px var(--input-border-color), 0 0 2px 1px rgba(0, 0, 0, .15);
   border: none;
   transition: all .2s ease;
   visibility: hidden;
@@ -2408,7 +2408,7 @@ input.pr-form-control:focus {
   --preview-gradient-colors: var(--preview-gradient-3colors, var(--preview-gradient-2color, var(--preview-color1) 0% 100%));
   display: block;
   position: relative;
-  color: var(--text-color);
+  color: #222; /* keep hardcoded */
   border-radius: 6px;
   font-size: 13px;
   line-height: 15px;
@@ -2416,6 +2416,9 @@ input.pr-form-control:focus {
   margin: 1px -2px;
   overflow: hidden;
   z-index: 0;
+}
+.pr-preview-ad-message .ad-msg-link-preview tg-link {
+  color: #0288db; /* keep hardcoded */
 }
 .pr-preview-ad-message .ad-msg-link-preview:hover {
   text-decoration: none;
