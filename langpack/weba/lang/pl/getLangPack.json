@@ -155,6 +155,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedToCommunity",
+      "value": "Użytkownik {from} dodał ten czat do społeczności {community}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionAttachMenuBotAllowed",
       "value": "Zezwalasz temu botowi na wysyłanie ci wiadomości po dodaniu go do menu załączników."
     },
@@ -760,6 +765,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionRemovedFromCommunity",
+      "value": "Użytkownik {from} usunął ten czat ze społeczności"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionRemovedPhoto",
       "value": "Użytkownik {from} usunął zdjęcie grupy"
     },
@@ -1197,6 +1207,36 @@
       "_": "types.LangPackString",
       "key": "ActionSuggestedVideoTitle",
       "value": "Proponowane wideo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLChanged",
+      "value": "Użytkownik {from} ustawił auto-usuwanie wiadomości na {time} po wysłaniu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLChannelChanged",
+      "value": "Wiadomości w tym kanale będą automatycznie usuwane {time} po wysłaniu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLChannelDisabled",
+      "value": "Wiadomości na tym kanale już nie będą automatycznie usuwane"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLDisabled",
+      "value": "Użytkownik {from} wyłączył automatyczne usuwanie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLYouChanged",
+      "value": "Ustawiono automatyczne usuwanie wiadomości na {time} po wysłaniu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLYouDisabled",
+      "value": "Wyłączono automatyczne usuwanie"
     },
     {
       "_": "types.LangPackString",
@@ -2255,6 +2295,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AudioAddToProfile",
+      "value": "Dodaj do profilu"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AudioPause",
       "value": "Wstrzymaj audio"
     },
@@ -2277,6 +2322,21 @@
       "_": "types.LangPackString",
       "key": "AudioPlayerPrevious",
       "value": "Poprzedni utwór"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioRemoveFromProfile",
+      "value": "Usuń z profilu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioSaveToMyProfileSaved",
+      "value": "Utwór został dodany do twojego profilu."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioSaveToMyProfileUnsaved",
+      "value": "Utwór został usunięty z twojego profilu."
     },
     {
       "_": "types.LangPackString",
@@ -2325,8 +2385,73 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeDays",
+      "value": "d"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeHours",
+      "value": "g"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeMinutes",
+      "value": "m"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeMonths",
+      "value": "m"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeSeconds",
+      "value": "s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeWeeks",
+      "value": "t"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeYears",
+      "value": "r"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AutoDeleteConfirm",
       "value": "Zatwierdź"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteGlobalAction",
+      "value": "{from} używa zegara samozniszczenia dla wszystkich czatów.\nWszystkie nowe wiadomości na tym czacie zostaną automatycznie usunięte {time} po wysłaniu."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteGlobalActionFromYou",
+      "value": "Ustawiasz zegar samozniszczenia dla wszystkich czatów.\nWszystkie nowe wiadomości na tym czacie zostaną automatycznie usunięte {time} po wysłaniu."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteIn",
+      "value": "Auto-usunięcie za {time}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteMessages",
+      "value": "Auto-usuwanie wiadomości"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteSetInfo",
+      "value": "Wiadomości na tym czacie są automatycznie usuwane {time} po wysłaniu."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteSettingsInfo",
+      "value": "Automatycznie usuwaj wiadomości dla wszystkich po pewnym czasie we wszystkich nowo rozpoczętych czatach."
     },
     {
       "_": "types.LangPackString",
@@ -3699,6 +3824,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatTypeCommunity",
+      "value": "Społeczność"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatTypeFallback",
       "value": "Czat"
     },
@@ -3933,6 +4063,72 @@
       "_": "types.LangPackString",
       "key": "CommonSelect",
       "value": "Zaznacz"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatNotAccessible",
+      "value": "Ten czat jest niedostępny."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "{count} czaty",
+      "key": "CommunityChatsCount",
+      "many_value": "{count} czatów",
+      "one_value": "{count} czat",
+      "other_value": "{count} czatu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatsYouAreIn",
+      "value": "Czaty, w których jesteś"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatsYouCanJoin",
+      "value": "Czaty, do których możesz poprosić o dołączenie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatsYouCanView",
+      "value": "Czaty, które możesz przeglądać"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityJoinChatConfirm",
+      "value": "Napewno chcesz dołączyć do tego czatu?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNoChatsFound",
+      "value": "Nie znaleziono czatów"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityOpenPanel",
+      "value": "Pokaż czaty społeczności"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySearchChats",
+      "value": "Szukaj czatów"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChat",
+      "value": "Pokaż jako jeden czat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChatHint",
+      "value": "Zgrupuj wszystkie czaty społeczności w jednym elemencie na liście czatów."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Społeczność z {count} czatami",
+      "key": "CommunityWithChats",
+      "many_value": "Społeczność z {count} czatami",
+      "one_value": "Społeczność z {count} czatem",
+      "other_value": "Społeczność z {count} czatem"
     },
     {
       "_": "types.LangPackString",
@@ -4344,6 +4540,21 @@
       "_": "types.LangPackString",
       "key": "Copy",
       "value": "Kopiuj"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CopyAsHtml",
+      "value": "Kopiuj jako HTML"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CopyAsMarkdown",
+      "value": "Kopiuj jako Markdown"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CopyAsText",
+      "value": "Kopiuj jako tekst"
     },
     {
       "_": "types.LangPackString",
@@ -5253,6 +5464,26 @@
       "_": "types.LangPackString",
       "key": "EnterPriceInStars",
       "value": "Wpisz cenę w Gwiazdkach"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralContextMenuNotice",
+      "value": "Tylko ty widzisz tę wiadomość. Zniknie ona po ponownym uruchomieniu aplikacji."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralOnlyVisible",
+      "value": "Widoczna tylko dla ciebie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralOnlyVisibleToBot",
+      "value": "Widoczna tylko dla {bot}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralReplyUnavailable",
+      "value": "Wiadomość nie jest już dostępna"
     },
     {
       "_": "types.LangPackString",
@@ -7999,6 +8230,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "JoinRequestAcceptAll",
+      "value": "Dodaj wszystkie"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "JoinRequestAcceptAllDescription",
       "value": "Czy na pewno chcesz zatwierdzić wszystkie prośby?"
     },
@@ -8006,6 +8242,11 @@
       "_": "types.LangPackString",
       "key": "JoinRequestAcceptAllTitle",
       "value": "Zatwierdzić wszystkie prośby?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "JoinRequestDismissAll",
+      "value": "Odrzuć wszystkie"
     },
     {
       "_": "types.LangPackString",
@@ -10640,6 +10881,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumPreviewRichFormatting",
+      "value": "Narzędzia formatowania"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PremiumPreviewRichFormattingDescription",
+      "value": "Dodawaj do wiadomości nagłówki, tabele, multimedia oraz treści generowane przez AI."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumPreviewStickers",
       "value": "Naklejki Premium"
     },
@@ -11748,6 +11999,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorFormula",
+      "value": "Równanie"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorFormulaPrompt",
+      "value": "Wpisz równanie…"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorFormulaToBlock",
+      "value": "Konwertuj na równanie blokowe"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorFormulaToInline",
+      "value": "Konwertuj na równanie liniowe"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichEditorHeading",
       "value": "Nagłówek"
     },
@@ -12596,8 +12867,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SetAutoDeleteTimer",
+      "value": "Ustaw auto-usuwanie"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SetColor",
       "value": "Ustaw kolor"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SetCustomTime",
+      "value": "Ustaw własny czas"
     },
     {
       "_": "types.LangPackString",
@@ -15328,5 +15609,5 @@
       "value": "Twoja nazwa"
     }
   ],
-  "version": 284894
+  "version": 285346
 }
