@@ -30,6 +30,12 @@ body {
   --danger-color: #d75959;
   --success-color: #27931e;
   --warning-color: #e67f0b;
+  --success-bg-color: #e0efde;
+  --warning-bg-color: #fdf0e2;
+  --danger-bg-color: #f5d8d8;
+  --link-bg-color: #dceefb;
+  --tooltip-bg-color: #202426;
+  --fade-color: #fff;
 }
 :root {
   color-scheme: light;
@@ -143,6 +149,7 @@ a.csv_link {
 .open > .dropdown-toggle.btn-default {
   color: var(--link-color);
   background-color: var(--link-bghover);
+  text-decoration: none;
   box-shadow: none;
 }
 .btn-default.btn-danger {
@@ -162,7 +169,8 @@ a.csv_link {
   color: var(--text-color);
   background-color: var(--surface-color);
 }
-.btn.csv_link {
+.btn.csv_link,
+.chart_csv_export_wrap .csv_link {
   border-radius: 17px;
   transition: background-color .2s ease;
 }
@@ -1791,7 +1799,7 @@ input.pr-form-control:focus {
   left: 0; right: 0;
   top: 0; bottom: 0;
   border-radius: 8px;
-  background-color: #202426;
+  background-color: var(--tooltip-bg-color);
   opacity: 0.85;
   z-index: -1;
 }
@@ -3356,7 +3364,7 @@ a.pr-account-button-wrap:focus-visible {
   line-height: 16px;
   font-weight: 500;
   color: var(--warning-color);
-  background-color: #f8e8da;
+  background-color: var(--warning-bg-color);
   border-radius: 4px;
   padding: 2px 7px;
   text-align: center;
@@ -4481,6 +4489,7 @@ a.ad-declined:focus {
   padding: 5px 12px;
   border-radius: 16px;
   color: var(--link-color);
+  background-color: transparent;
   border: none;
 }
 .pr-pagination .pagination > li {
@@ -4670,7 +4679,7 @@ a.ad-declined:focus {
 .pr-ad-status-colored .ad-status.ad-in-review,
 .pr-ad-info-label > .ad-reports-badge {
   color: var(--warning-color) !important;
-  background-color: #fdf0e2;
+  background-color: var(--warning-bg-color);
 }
 .ad-rp-chip {
   display: inline-block;
@@ -4682,24 +4691,24 @@ a.ad-declined:focus {
   line-height: 15px;
   font-weight: 600;
   color: var(--text-color);
-  background-color: #eceff3;
+  background-color: var(--surface-color);
   white-space: nowrap;
 }
 .ad-rp-chip.rp-h {
-  color: #1b7015;
-  background-color: #e0efde;
+  color: var(--success-color);
+  background-color: var(--success-bg-color);
 }
 .ad-rp-chip.rp-b {
-  color: #0b6cae;
-  background-color: #dceefb;
+  color: var(--link-color);
+  background-color: var(--link-bg-color);
 }
 .ad-rp-chip.rp-m {
-  color: #8a4a00;
-  background-color: #fdf0e2;
+  color: var(--warning-color);
+  background-color: var(--warning-bg-color);
 }
 .ad-rp-chip.rp-l {
-  color: #9f2424;
-  background-color: #f5d8d8;
+  color: var(--danger-color);
+  background-color: var(--danger-bg-color);
 }
 .pr-ad-status-colored .ad-status.ad-stopped {
   display: none;
@@ -4707,23 +4716,23 @@ a.ad-declined:focus {
 .pr-review-similar-status .ad-approved,
 .pr-ad-status-colored .ad-status.ad-approved {
   color: var(--success-color) !important;
-  background-color: #e0efde;
+  background-color: var(--success-bg-color);
 }
 .pr-review-similar-status .ad-declined,
 .pr-ad-status-colored .ad-status.ad-declined {
   color: var(--danger-color) !important;
-  background-color: #f5d8d8;
+  background-color: var(--danger-bg-color);
 }
 .pr-review-ad-preview-status.pr-ad-status-colored .ad-status.ad-in-review {
-  background-color: #e78a39;
+  background-color: var(--warning-color);
   color: #fff !important;
 }
 .pr-review-ad-preview-status.pr-ad-status-colored .ad-status.ad-approved {
-  background-color: #43b43a;
+  background-color: var(--success-color);
   color: #fff !important;
 }
 .pr-review-ad-preview-status.pr-ad-status-colored .ad-status.ad-declined {
-  background-color: #d64d4d;
+  background-color: var(--danger-color);
   color: #fff !important;
 }
 .pr-review-target-overview {
@@ -4921,7 +4930,7 @@ a.ad-declined:focus {
   width: 4px;
   height: 4px;
   border-radius: 2px;
-  background-color: #c0cbd2;
+  background-color: var(--text-muted-color);
   position: absolute;
   left: -12px;
   top: 8px;
@@ -5694,15 +5703,15 @@ a.pr-popup-account:hover {
   right: 0;
   top: 0;
   height: 7px;
-  background: -moz-linear-gradient(top, rgba(255,255,255,1) 15%, rgba(255,255,255,0) 100%);
-  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 15%, rgba(255,255,255,0) 100%);
-  background: linear-gradient(to bottom, rgba(255,255,255,1) 15%, rgba(255,255,255,0) 100%);
+  background: -moz-linear-gradient(top, var(--fade-color) 15%, transparent 100%);
+  background: -webkit-linear-gradient(top, var(--fade-color) 15%, transparent 100%);
+  background: linear-gradient(to bottom, var(--fade-color) 15%, transparent 100%);
   z-index: 1;
 }
 .date-picker-body:after {
-  background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 85%);
-  background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 85%);
-  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 85%);
+  background: -moz-linear-gradient(top, transparent 0%, var(--fade-color) 85%);
+  background: -webkit-linear-gradient(top, transparent 0%, var(--fade-color) 85%);
+  background: linear-gradient(to bottom, transparent 0%, var(--fade-color) 85%);
   bottom: 0;
   top: auto;
 }
@@ -6363,7 +6372,7 @@ a.pr-popup-account:hover {
 
 .chart_csv_export_wrap {
   position: relative;
-  margin-top: -44px;
+  margin-top: -42px;
   float: right;
   z-index: 20;
 }
