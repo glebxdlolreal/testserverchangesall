@@ -1170,6 +1170,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionTTLChannelChanged",
+      "value": "I messaggi in questo canale saranno eliminati automaticamente dopo {time}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLChannelDisabled",
+      "value": "I messaggi in questo canale non saranno più eliminati automaticamente"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLDisabled",
+      "value": "{from} ha disattivato il timer di autoeliminazione"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLYouDisabled",
+      "value": "Hai disattivato il timer di autoeliminazione"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionTopicClosed",
       "value": "{from} ha chiuso {topic}"
     },
@@ -2205,6 +2225,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AudioAddToProfile",
+      "value": "Aggiungi al profilo"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AudioPause",
       "value": "Metti in pausa l'audio"
     },
@@ -2227,6 +2252,21 @@
       "_": "types.LangPackString",
       "key": "AudioPlayerPrevious",
       "value": "Traccia precedente"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioRemoveFromProfile",
+      "value": "Rimuovi dal profilo"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioSaveToMyProfileSaved",
+      "value": "Audio aggiunto al tuo profilo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioSaveToMyProfileUnsaved",
+      "value": "Audio rimosso dal tuo profilo."
     },
     {
       "_": "types.LangPackString",
@@ -2275,8 +2315,63 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeDays",
+      "value": "g"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeHours",
+      "value": "h"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeMinutes",
+      "value": "m"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeMonths",
+      "value": "M"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeSeconds",
+      "value": "s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeWeeks",
+      "value": "S"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeYears",
+      "value": "a"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AutoDeleteConfirm",
       "value": "Conferma"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteIn",
+      "value": "Si autoelimina tra {time}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteMessages",
+      "value": "Autoelimina i messaggi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteSetInfo",
+      "value": "I messaggi in questa chat saranno eliminati automaticamente {time} dopo l’invio."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteSettingsInfo",
+      "value": "Elimina automaticamente i messaggi per tutti, dopo un certo periodo, in tutte le nuove chat che inizi."
     },
     {
       "_": "types.LangPackString",
@@ -3861,6 +3956,53 @@
       "value": "Seleziona"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityChatsCount",
+      "one_value": "{count} chat",
+      "other_value": "{count} chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatsYouAreIn",
+      "value": "Chat a cui partecipi"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatsYouCanJoin",
+      "value": "Chat a cui puoi richiedere l'accesso"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatsYouCanView",
+      "value": "Chat che puoi vedere"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNoChatsFound",
+      "value": "Nessuna chat trovata"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySearchChats",
+      "value": "Cerca chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChat",
+      "value": "Mostra come chat unica"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChatHint",
+      "value": "Raggruppa tutte le chat della community in un unico elemento nella lista chat."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityWithChats",
+      "one_value": "Community con {count} chat",
+      "other_value": "Community con {count} chat"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ComposerEmbeddedMessageSuggestedPostDescription",
       "value": "Tocca per offrire un prezzo per pubblicare"
@@ -4266,6 +4408,21 @@
       "_": "types.LangPackString",
       "key": "Copy",
       "value": "Copia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CopyAsHtml",
+      "value": "Copia come HTML"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CopyAsMarkdown",
+      "value": "Copia come markdown"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CopyAsText",
+      "value": "Copia come testo"
     },
     {
       "_": "types.LangPackString",
@@ -5159,6 +5316,21 @@
       "_": "types.LangPackString",
       "key": "EnterPriceInStars",
       "value": "Inserisci prezzo in stelle"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralContextMenuNotice",
+      "value": "Solo tu puoi vedere questo messaggio. Scomparirà al prossimo accesso."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralOnlyVisible",
+      "value": "Visibile solo a te"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralOnlyVisibleToBot",
+      "value": "Visibile solo a {bot}"
     },
     {
       "_": "types.LangPackString",
@@ -7803,6 +7975,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "JoinRequestAcceptAll",
+      "value": "Aggiungi tutto"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "JoinRequestAcceptAllDescription",
       "value": "Vuoi davvero accettare tutte le richieste?"
     },
@@ -7810,6 +7987,11 @@
       "_": "types.LangPackString",
       "key": "JoinRequestAcceptAllTitle",
       "value": "Accettare tutte le richieste?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "JoinRequestDismissAll",
+      "value": "Rifiuta tutto"
     },
     {
       "_": "types.LangPackString",
@@ -10370,6 +10552,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumPreviewRichFormatting",
+      "value": "Strumenti di formattazione"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PremiumPreviewRichFormattingDescription",
+      "value": "Aggiungi titoli, tabelle, media inline e contenuti IA ai messaggi."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumPreviewStickers",
       "value": "Sticker Premium"
     },
@@ -12299,6 +12491,11 @@
       "_": "types.LangPackString",
       "key": "SetAsAdmin",
       "value": "Rendi amministratore"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SetAutoDeleteTimer",
+      "value": "Imposta autoeliminazione"
     },
     {
       "_": "types.LangPackString",
@@ -15012,5 +15209,5 @@
       "value": "Il tuo nome"
     }
   ],
-  "version": 284894
+  "version": 285343
 }
