@@ -155,6 +155,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedToCommunity",
+      "value": "{from} añadió este chat a {community}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionAttachMenuBotAllowed",
       "value": "Al añadir este bot a tu menú de adjuntos, autorizaste que te envíe mensajes."
     },
@@ -730,6 +735,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionRemovedFromCommunity",
+      "value": "{from} quitó este chat de la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionRemovedPhoto",
       "value": "{from} eliminó la foto del grupo"
     },
@@ -1167,6 +1177,36 @@
       "_": "types.LangPackString",
       "key": "ActionSuggestedVideoTitle",
       "value": "Video sugerido"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLChanged",
+      "value": "{from} estableció la autoeliminación en {time}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLChannelChanged",
+      "value": "Los mensajes en este canal se eliminarán automáticamente en {time}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLChannelDisabled",
+      "value": "Los mensajes en este canal ya no se eliminarán automáticamente"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLDisabled",
+      "value": "{from} desactivó la autoeliminación"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLYouChanged",
+      "value": "Estableciste la autoeliminación en {time}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLYouDisabled",
+      "value": "Desactivaste la autoeliminación"
     },
     {
       "_": "types.LangPackString",
@@ -2205,6 +2245,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AudioAddToProfile",
+      "value": "Añadir al perfil"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AudioPause",
       "value": "Pausar audio"
     },
@@ -2227,6 +2272,21 @@
       "_": "types.LangPackString",
       "key": "AudioPlayerPrevious",
       "value": "Audio anterior"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioRemoveFromProfile",
+      "value": "Quitar del perfil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioSaveToMyProfileSaved",
+      "value": "Audio añadido a tu perfil."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioSaveToMyProfileUnsaved",
+      "value": "Audio quitado de tu perfil."
     },
     {
       "_": "types.LangPackString",
@@ -2275,8 +2335,73 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeDays",
+      "value": "d"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeHours",
+      "value": "h"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeMinutes",
+      "value": "m"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeMonths",
+      "value": "m"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeSeconds",
+      "value": "s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeWeeks",
+      "value": "W"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeYears",
+      "value": "a"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AutoDeleteConfirm",
       "value": "Confirmar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteGlobalAction",
+      "value": "{from} usa la autoeliminación para todos los chats.\nTodos los mensajes nuevos en este chat se autoeliminarán {time} después de ser enviados."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteGlobalActionFromYou",
+      "value": "Configuraste la autoeliminación para todos los chats.\nTodos los mensajes nuevos en este chat se autoeliminarán {time} después de ser enviados."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteIn",
+      "value": "Se autoelimina en {time}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteMessages",
+      "value": "Autoeliminar mensajes"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteSetInfo",
+      "value": "Los mensajes en este chat se eliminan automáticamente tras {time} desde su envío."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteSettingsInfo",
+      "value": "Elimina automáticamente mensajes después de un tiempo, para todos, en los chats que inicias."
     },
     {
       "_": "types.LangPackString",
@@ -3633,6 +3758,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatTypeCommunity",
+      "value": "Comunidad"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatTypeFallback",
       "value": "Chat"
     },
@@ -3859,6 +3989,68 @@
       "_": "types.LangPackString",
       "key": "CommonSelect",
       "value": "Elegir"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatNotAccessible",
+      "value": "Este chat no es accesible."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityChatsCount",
+      "one_value": "{count} chat",
+      "other_value": "{count} chats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatsYouAreIn",
+      "value": "Chats en los que estás"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatsYouCanJoin",
+      "value": "Chats a los que puedes solicitar unirte"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatsYouCanView",
+      "value": "Chats que puedes ver"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityJoinChatConfirm",
+      "value": "¿Quieres unirte a este chat?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNoChatsFound",
+      "value": "No se encontraron chats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityOpenPanel",
+      "value": "Mostrar chats de la comunidad"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySearchChats",
+      "value": "Buscar chats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChat",
+      "value": "Mostrar como un chat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChatHint",
+      "value": "Agrupa todos los chats de la comunidad en un solo ítem en la lista de chats."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityWithChats",
+      "one_value": "Comunidad con {count} chat",
+      "other_value": "Comunidad con {count} chats"
     },
     {
       "_": "types.LangPackString",
@@ -4266,6 +4458,21 @@
       "_": "types.LangPackString",
       "key": "Copy",
       "value": "Copiar"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CopyAsHtml",
+      "value": "Copiar como HTML"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CopyAsMarkdown",
+      "value": "Copiar como Markdown"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CopyAsText",
+      "value": "Copiar como texto"
     },
     {
       "_": "types.LangPackString",
@@ -5164,6 +5371,21 @@
       "_": "types.LangPackString",
       "key": "EphemeralContextMenuNotice",
       "value": "Sólo tú ves este mensaje. Desaparecerá cuando vuelvas a iniciar sesión."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralOnlyVisible",
+      "value": "Visible sólo para ti"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralOnlyVisibleToBot",
+      "value": "Sólo visible para {bot}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralReplyUnavailable",
+      "value": "El mensaje ya no está disponible"
     },
     {
       "_": "types.LangPackString",
@@ -7808,6 +8030,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "JoinRequestAcceptAll",
+      "value": "Añadir todo"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "JoinRequestAcceptAllDescription",
       "value": "¿Quieres aceptar todas las solicitudes?"
     },
@@ -7815,6 +8042,11 @@
       "_": "types.LangPackString",
       "key": "JoinRequestAcceptAllTitle",
       "value": "¿Aceptar todas las solicitudes?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "JoinRequestDismissAll",
+      "value": "Rechazar todo"
     },
     {
       "_": "types.LangPackString",
@@ -10375,6 +10607,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumPreviewRichFormatting",
+      "value": "Formato enriquecido"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumPreviewStickers",
       "value": "Stickers premium"
     },
@@ -11461,6 +11698,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorFormula",
+      "value": "Fórmula"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichEditorFormulaPrompt",
       "value": "Pon la fórmula…"
     },
@@ -12322,8 +12564,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SetAutoDeleteTimer",
+      "value": "Establecer autoeliminación"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SetColor",
       "value": "Usar un color"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SetCustomTime",
+      "value": "Tiempo personalizado"
     },
     {
       "_": "types.LangPackString",
@@ -15032,5 +15284,5 @@
       "value": "Tu nombre"
     }
   ],
-  "version": 285345
+  "version": 285357
 }
