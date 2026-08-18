@@ -17203,8 +17203,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SessionSnapshotInfo",
+      "value": "Snapshots de sessão são arquivos com todos os seus dados de autorização que nunca devem ser compartilhados com ninguém. Gostaria de apagá-los?"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SessionSnapshotWarning",
       "value": "**Aviso!**\n\nO snapshot que você está prestes a enviar contém acesso à sua conta do Telegram.\n\nNão envie ou encaminhe para ninguém, a menos que você saiba o que está fazendo."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SessionSnapshots",
+      "value": "Snapshots de Sessão"
     },
     {
       "_": "types.LangPackString",
@@ -18556,13 +18566,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SyncContactsProgress",
+      "value": "Enviando contatos…"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SyncHint",
       "value": "Contatos no seu dispositivo\n(números de telefone, nomes e sobrenomes)\nserão enviados automaticamente aos servidores do Telegram para você encontrá-los na seção Contatos do Telegram X ou receber uma notificação quando eles entrarem no Telegram.\n\nSe você apagar um contato do seu dispositivo enquanto a sincronização estiver ativada, ele também será removido da sua lista de contatos nos servidores do Telegram.\n\nVocê pode desativar a sincronização ou apagar os dados armazenados nos servidores do Telegram a qualquer momento em Configurações > Privacidade e Segurança > Apagar Contatos Sincronizados.\n\nPara ativar a sincronização, você também precisará permitir que o Telegram X acesse os contatos do seu dispositivo."
     },
     {
       "_": "types.LangPackString",
       "key": "SyncHint3",
-      "value": "Contatos no seu dispositivo (números, nomes e sobrenomes) serão enviados continuamente aos servidores do Telegram para você encontrá-los na seção **Contatos** de **%1$s** ou receber uma notificação quando eles entrarem no Telegram.\n\nOs dados não são compartilhados com terceiros. Quando você apaga um contato do seu dispositivo com a sincronização ativada, ele também será removido da sua lista de contatos nos servidores do **Telegram**.\n\nVocê pode desativar a sincronização ou apagar os dados armazenados nos servidores do Telegram a qualquer momento em **Configurações > Privacidade e Segurança > Apagar Contatos Sincronizados**.\n\nPara ativar a sincronização, você também precisa permitir que **%1$s** acesse os contatos do seu dispositivo."
+      "value": "Os contatos do seu dispositivo (números, nomes e sobrenomes) serão enviados continuamente para os servidores do **Telegram** para que você possa encontrá-los na seção **Contatos** ou receber uma notificação quando eles entrarem.\n\nOs dados são enviados apenas para o **Telegram** e nunca são compartilhados com terceiros. Quando você apagar um contato do seu dispositivo enquanto a sincronização estiver ativada, ele também será apagado dos servidores do **Telegram**.\n\nVocê pode desativar a sincronização a qualquer momento ou apagar os dados dos servidores do **Telegram** em **Configurações > Privacidade e Segurança > Apagar Contatos Sincronizados**.\n\nPara ativar a sincronização, você também precisa permitir que o **%1$s** acesse os contatos do seu dispositivo."
     },
     {
       "_": "types.LangPackString",
@@ -24379,5 +24394,5 @@
       "other_value": "%1$s anos"
     }
   ],
-  "version": 1643459
+  "version": 1644305
 }
