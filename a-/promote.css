@@ -30,12 +30,6 @@ body {
   --danger-color: #d75959;
   --success-color: #27931e;
   --warning-color: #e67f0b;
-  --success-bg-color: #e0efde;
-  --warning-bg-color: #fdf0e2;
-  --danger-bg-color: #f5d8d8;
-  --link-bg-color: #dceefb;
-  --tooltip-bg-color: #202426;
-  --fade-color: #fff;
 }
 :root {
   color-scheme: light;
@@ -95,7 +89,10 @@ tg-link:hover {
 
 .btn,
 a.btn,
-button.btn {
+button.btn,
+.csv_link,
+a.csv_link {
+  display: inline-block;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
@@ -131,13 +128,18 @@ button.btn-lg {
 .btn-primary:active {
   background-color: var(--accent-bghover);
 }
-.btn-default {
+.btn-default,
+.csv_link,
+a.csv_link {
   background-color: transparent;
   color: var(--link-color);
 }
 .btn-default:hover,
 .btn-default:focus,
 .btn-default:active,
+.csv_link:hover,
+.csv_link:focus,
+.csv_link:active,
 .open > .dropdown-toggle.btn-default {
   color: var(--link-color);
   background-color: var(--link-bghover);
@@ -1789,7 +1791,7 @@ input.pr-form-control:focus {
   left: 0; right: 0;
   top: 0; bottom: 0;
   border-radius: 8px;
-  background-color: var(--tooltip-bg-color);
+  background-color: #202426;
   opacity: 0.85;
   z-index: -1;
 }
@@ -3354,7 +3356,7 @@ a.pr-account-button-wrap:focus-visible {
   line-height: 16px;
   font-weight: 500;
   color: var(--warning-color);
-  background-color: var(--warning-bg-color);
+  background-color: #f8e8da;
   border-radius: 4px;
   padding: 2px 7px;
   text-align: center;
@@ -4668,7 +4670,7 @@ a.ad-declined:focus {
 .pr-ad-status-colored .ad-status.ad-in-review,
 .pr-ad-info-label > .ad-reports-badge {
   color: var(--warning-color) !important;
-  background-color: var(--warning-bg-color);
+  background-color: #fdf0e2;
 }
 .ad-rp-chip {
   display: inline-block;
@@ -4680,24 +4682,24 @@ a.ad-declined:focus {
   line-height: 15px;
   font-weight: 600;
   color: var(--text-color);
-  background-color: var(--surface-color);
+  background-color: #eceff3;
   white-space: nowrap;
 }
 .ad-rp-chip.rp-h {
-  color: var(--success-color);
-  background-color: var(--success-bg-color);
+  color: #1b7015;
+  background-color: #e0efde;
 }
 .ad-rp-chip.rp-b {
-  color: var(--link-color);
-  background-color: var(--link-bg-color);
+  color: #0b6cae;
+  background-color: #dceefb;
 }
 .ad-rp-chip.rp-m {
-  color: var(--warning-color);
-  background-color: var(--warning-bg-color);
+  color: #8a4a00;
+  background-color: #fdf0e2;
 }
 .ad-rp-chip.rp-l {
-  color: var(--danger-color);
-  background-color: var(--danger-bg-color);
+  color: #9f2424;
+  background-color: #f5d8d8;
 }
 .pr-ad-status-colored .ad-status.ad-stopped {
   display: none;
@@ -4705,23 +4707,23 @@ a.ad-declined:focus {
 .pr-review-similar-status .ad-approved,
 .pr-ad-status-colored .ad-status.ad-approved {
   color: var(--success-color) !important;
-  background-color: var(--success-bg-color);
+  background-color: #e0efde;
 }
 .pr-review-similar-status .ad-declined,
 .pr-ad-status-colored .ad-status.ad-declined {
   color: var(--danger-color) !important;
-  background-color: var(--danger-bg-color);
+  background-color: #f5d8d8;
 }
 .pr-review-ad-preview-status.pr-ad-status-colored .ad-status.ad-in-review {
-  background-color: var(--warning-color);
+  background-color: #e78a39;
   color: #fff !important;
 }
 .pr-review-ad-preview-status.pr-ad-status-colored .ad-status.ad-approved {
-  background-color: var(--success-color);
+  background-color: #43b43a;
   color: #fff !important;
 }
 .pr-review-ad-preview-status.pr-ad-status-colored .ad-status.ad-declined {
-  background-color: var(--danger-color);
+  background-color: #d64d4d;
   color: #fff !important;
 }
 .pr-review-target-overview {
@@ -4919,7 +4921,7 @@ a.ad-declined:focus {
   width: 4px;
   height: 4px;
   border-radius: 2px;
-  background-color: var(--text-muted-color);
+  background-color: #c0cbd2;
   position: absolute;
   left: -12px;
   top: 8px;
@@ -5692,15 +5694,15 @@ a.pr-popup-account:hover {
   right: 0;
   top: 0;
   height: 7px;
-  background: -moz-linear-gradient(top, var(--fade-color) 15%, transparent 100%);
-  background: -webkit-linear-gradient(top, var(--fade-color) 15%, transparent 100%);
-  background: linear-gradient(to bottom, var(--fade-color) 15%, transparent 100%);
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 15%, rgba(255,255,255,0) 100%);
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 15%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 15%, rgba(255,255,255,0) 100%);
   z-index: 1;
 }
 .date-picker-body:after {
-  background: -moz-linear-gradient(top, transparent 0%, var(--fade-color) 85%);
-  background: -webkit-linear-gradient(top, transparent 0%, var(--fade-color) 85%);
-  background: linear-gradient(to bottom, transparent 0%, var(--fade-color) 85%);
+  background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 85%);
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 85%);
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 85%);
   bottom: 0;
   top: auto;
 }
