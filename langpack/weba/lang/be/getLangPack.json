@@ -155,6 +155,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedToCommunity",
+      "value": "{from} дадаў(-ла) гэты чат у {community}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionAttachMenuBotAllowed",
       "value": "Вы дазволілі гэтаму боту адпраўляць вам паведамленні, калі дадалі яго ў меню далучэнняў."
     },
@@ -760,6 +765,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionRemovedFromCommunity",
+      "value": "{from} выдаліў(-ла) гэты чат з супольнасці"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionRemovedPhoto",
       "value": "{from} выдаліў(-ла) фота суполкі"
     },
@@ -1197,6 +1207,36 @@
       "_": "types.LangPackString",
       "key": "ActionSuggestedVideoTitle",
       "value": "Прапанаваць відэа"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLChanged",
+      "value": "{from} задаў(-ла) таймер аўтавыдалення на {time}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLChannelChanged",
+      "value": "Паведамленні ў гэтым канале будуць аўтаматычна выдаляцца праз {time}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLChannelDisabled",
+      "value": "Паведамленні ў гэтым канале больш не будуць аўтаматычна выдаляцца"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLDisabled",
+      "value": "{from} адключыў(-ла) таймер аўтавыдалення"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLYouChanged",
+      "value": "Вы задалі таймер аўтавыдалення на {time}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLYouDisabled",
+      "value": "Вы адключылі таймер аўтавыдалення"
     },
     {
       "_": "types.LangPackString",
@@ -2255,6 +2295,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AudioAddToProfile",
+      "value": "Дадаць у профіль"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AudioPause",
       "value": "Прыпыніць аўдыя"
     },
@@ -2277,6 +2322,21 @@
       "_": "types.LangPackString",
       "key": "AudioPlayerPrevious",
       "value": "Папярэдні трэк"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioRemoveFromProfile",
+      "value": "Выдаліць з профілю"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioSaveToMyProfileSaved",
+      "value": "Аўдыя дададзена ў ваш профіль."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioSaveToMyProfileUnsaved",
+      "value": "Аўдыя выдалена з вашага профілю."
     },
     {
       "_": "types.LangPackString",
@@ -2325,8 +2385,73 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeDays",
+      "value": "д"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeHours",
+      "value": "гадз"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeMinutes",
+      "value": "хв"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeMonths",
+      "value": "м"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeSeconds",
+      "value": "сек"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeWeeks",
+      "value": "н"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeYears",
+      "value": "г"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AutoDeleteConfirm",
       "value": "Пацвердзіць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteGlobalAction",
+      "value": "{from} выкарыстоўвае таймер самазнішчэння ва ўсіх чатах.\nУсе наступныя паведамленні ў гэтым чаце будуць выдаляцца праз {time} пасля адпраўлення."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteGlobalActionFromYou",
+      "value": "Вы задаяце таймер на самазнішчэнне для ўсіх чатаў.\nУсе новыя паведамленні ў гэтым чаце будуць аўтаматычна выдаляцца праз {time} пасля адпраўкі."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteIn",
+      "value": "Аўтавыдаленне праз {time}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteMessages",
+      "value": "Аўтавыдаленне паведамленняў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteSetInfo",
+      "value": "Паведамленні ў гэтым чаце аўтаматычна выдаляюцца праз {time} пасля іх адпраўкі."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteSettingsInfo",
+      "value": "Аўтаматычна выдаляць для ўсіх паведамленні ў новых чатах, пачатых вамі, па сканчэнні зададзенага перыяду часу."
     },
     {
       "_": "types.LangPackString",
@@ -3699,6 +3824,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatTypeCommunity",
+      "value": "Супольнасць"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatTypeFallback",
       "value": "Чат"
     },
@@ -3933,6 +4063,72 @@
       "_": "types.LangPackString",
       "key": "CommonSelect",
       "value": "Выбраць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatNotAccessible",
+      "value": "Гэты чат недаступны."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "{count} чаты",
+      "key": "CommunityChatsCount",
+      "many_value": "{count} чатаў",
+      "one_value": "{count} чат",
+      "other_value": "{count} чата"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatsYouAreIn",
+      "value": "Чаты, у якіх вы ўдзельнічаеце"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatsYouCanJoin",
+      "value": "Чаты, куды можна падаць запыт на далучэнне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatsYouCanView",
+      "value": "Чаты, якія можна праглядзець"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityJoinChatConfirm",
+      "value": "Хочаце далучыцца да гэтага чата?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNoChatsFound",
+      "value": "Чаты не знойдзены"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityOpenPanel",
+      "value": "Паказваць як асобныя чаты"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySearchChats",
+      "value": "Пошук чатаў"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChat",
+      "value": "Паказваць як адзін чат"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChatHint",
+      "value": "Згрупаваць усе чаты супольнасці ў адзін элемент у спісе чатаў."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "few_value": "Супольнасць з {count} чатамі",
+      "key": "CommunityWithChats",
+      "many_value": "Супольнасць з {count} чатамі",
+      "one_value": "Супольнасць з {count} чатам",
+      "other_value": "Супольнасць з {count} чатамі"
     },
     {
       "_": "types.LangPackString",
@@ -4344,6 +4540,21 @@
       "_": "types.LangPackString",
       "key": "Copy",
       "value": "Капіяваць"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CopyAsHtml",
+      "value": "Скапіяваць як HTML"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CopyAsMarkdown",
+      "value": "Скапіяваць як разметку"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CopyAsText",
+      "value": "Скапіяваць як тэкст"
     },
     {
       "_": "types.LangPackString",
@@ -5253,6 +5464,26 @@
       "_": "types.LangPackString",
       "key": "EnterPriceInStars",
       "value": "Увядзіце цану ў зорках"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralContextMenuNotice",
+      "value": "Толькі вы бачыце гэта паведамленне. У наступны раз, калі вы ўвойдзеце, яно знікне."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralOnlyVisible",
+      "value": "Бачна толькі вам"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralOnlyVisibleToBot",
+      "value": "Бачна толькі {bot}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralReplyUnavailable",
+      "value": "Паведамленне больш недаступнае"
     },
     {
       "_": "types.LangPackString",
@@ -7999,6 +8230,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "JoinRequestAcceptAll",
+      "value": "Прыняць усе"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "JoinRequestAcceptAllDescription",
       "value": "Вы ўпэўнены, што хочаце прыняць усе запыты?"
     },
@@ -8006,6 +8242,11 @@
       "_": "types.LangPackString",
       "key": "JoinRequestAcceptAllTitle",
       "value": "Прыняць усе запыты?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "JoinRequestDismissAll",
+      "value": "Адхіліць усе"
     },
     {
       "_": "types.LangPackString",
@@ -10640,6 +10881,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumPreviewRichFormatting",
+      "value": "Пашыранае фарматаванне"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PremiumPreviewRichFormattingDescription",
+      "value": "Фарматуйце свае паведамленні з дапамогай загалоўкаў, спісаў, цытат і іншых карысных блокаў."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumPreviewStickers",
       "value": "Эксклюзіўныя стыкеры"
     },
@@ -11748,6 +11999,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorFormula",
+      "value": "Матэматычны выраз"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorFormulaPrompt",
+      "value": "Увядзіце матэматычны выраз..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorFormulaToBlock",
+      "value": "Пераўтварыць у блокавы мат. выраз"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorFormulaToInline",
+      "value": "Пераўтварыць у лінейны мат. выраз"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichEditorHeading",
       "value": "Загаловак"
     },
@@ -12606,8 +12877,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SetAutoDeleteTimer",
+      "value": "Задаць аўтавыдаленне"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SetColor",
       "value": "Задаць колер"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SetCustomTime",
+      "value": "Задаць уласны час"
     },
     {
       "_": "types.LangPackString",
@@ -15348,5 +15629,5 @@
       "value": "Ваша імя"
     }
   ],
-  "version": 284894
+  "version": 285237
 }
