@@ -1170,6 +1170,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionTTLChanged",
+      "value": "{from} авто-жою уақытын орнатты: {time}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLChannelChanged",
+      "value": "Осы арнадағы хаттар {time} ішінде өздігінен жойылады"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLChannelDisabled",
+      "value": "Осы арнадағы хаттар енді өздігінен жойылмайды"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLDisabled",
+      "value": "{from} авто-жою таймерін өшірді"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLYouChanged",
+      "value": "Хаттар {time} өте өздігінен жойылады"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLYouDisabled",
+      "value": "Авто-жою таймерін өшірдіңіз"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionTopicClosed",
       "value": "{from} {topic} жапты"
     },
@@ -2205,6 +2235,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AudioAddToProfile",
+      "value": "Бейінге қосу"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AudioPause",
       "value": "Аудионы тоқтату"
     },
@@ -2227,6 +2262,21 @@
       "_": "types.LangPackString",
       "key": "AudioPlayerPrevious",
       "value": "Алдыңғы трек"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioRemoveFromProfile",
+      "value": "Бейіннен жою"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioSaveToMyProfileSaved",
+      "value": "Аудио бейініңізге қосылды."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioSaveToMyProfileUnsaved",
+      "value": "Аудио бейініңізден жойылды."
     },
     {
       "_": "types.LangPackString",
@@ -2277,6 +2327,36 @@
       "_": "types.LangPackString",
       "key": "AutoDeleteConfirm",
       "value": "Растау"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteGlobalAction",
+      "value": "{from} авто-жою таймерін орнатқан.\nЧаттағы жаңа хат {time} өткенде жойылады."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteGlobalActionFromYou",
+      "value": "Барлық чатқа авто-жою таймерін қостыңыз.\nЖаңа жіберілген хаттар {time} кейін жойылады."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteIn",
+      "value": "{time} ішінде авто-жою"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteMessages",
+      "value": "Хатты авто-жою"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteSetInfo",
+      "value": "Чатқа жіберілген хат {time} кейін жойылады."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteSettingsInfo",
+      "value": "Авто-жоюды қоссаңыз, чаттағы хаттар белгілі бір уақыттан кейін жойылады."
     },
     {
       "_": "types.LangPackString",
@@ -3861,6 +3941,53 @@
       "value": "Таңдау"
     },
     {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityChatsCount",
+      "one_value": "{count} чат",
+      "other_value": "{count} чат"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatsYouAreIn",
+      "value": "Сіз бар чаттар"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatsYouCanJoin",
+      "value": "Өтініш арқылы қосылатын чаттар"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatsYouCanView",
+      "value": "Сіз көре алатын чаттар"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNoChatsFound",
+      "value": "Чат табылмады"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySearchChats",
+      "value": "Чат іздеу"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChat",
+      "value": "Бір чат қып көрсету"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChatHint",
+      "value": "Барлық бірлестік чатын чаттар тізіміндегі бір элементке топтастырыңыз."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityWithChats",
+      "one_value": "{count} чаты бар бірлестік",
+      "other_value": "{count} чаты бар бірлестік"
+    },
+    {
       "_": "types.LangPackString",
       "key": "ComposerEmbeddedMessageSuggestedPostDescription",
       "value": "Бағаны ұсыну үшін басыңыз"
@@ -5159,6 +5286,21 @@
       "_": "types.LangPackString",
       "key": "EnterPriceInStars",
       "value": "Бағаны жұлдызбен көрсету"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralContextMenuNotice",
+      "value": "Бұл хатты тек сіз көресіз. Ол қайта кіргеннен кейін жоғалады."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralOnlyVisible",
+      "value": "Тек сізге көрінеді"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralOnlyVisibleToBot",
+      "value": "Тек {bot} көреді"
     },
     {
       "_": "types.LangPackString",
@@ -7803,6 +7945,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "JoinRequestAcceptAll",
+      "value": "Бәрін қосу"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "JoinRequestAcceptAllDescription",
       "value": "Барлық өтінішті қабылдайсыз ба?"
     },
@@ -7810,6 +7957,11 @@
       "_": "types.LangPackString",
       "key": "JoinRequestAcceptAllTitle",
       "value": "Өтінішті қабылдайсыз ба?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "JoinRequestDismissAll",
+      "value": "Бәрін қабылдамау"
     },
     {
       "_": "types.LangPackString",
@@ -10370,6 +10522,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumPreviewRichFormatting",
+      "value": "Пішімдеу құралдары"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PremiumPreviewRichFormattingDescription",
+      "value": "Хатқа тақырып, кесте, тізім, медиа және ЖИ контентін қосу."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumPreviewStickers",
       "value": "Premium стикер"
     },
@@ -11456,6 +11618,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorFormula",
+      "value": "Формула"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichEditorHeading",
       "value": "Тақырып"
     },
@@ -12302,8 +12469,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SetAutoDeleteTimer",
+      "value": "Авто-жоюды орнату"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SetColor",
       "value": "Түс орнату"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SetCustomTime",
+      "value": "Басқа уақыт орнату"
     },
     {
       "_": "types.LangPackString",
@@ -15012,5 +15189,5 @@
       "value": "Атыңыз"
     }
   ],
-  "version": 284894
+  "version": 285532
 }
