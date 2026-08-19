@@ -155,6 +155,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedToCommunity",
+      "value": "{from} ha afegit el xat a {community}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionAttachMenuBotAllowed",
       "value": "Vau permetre que aquest bot us enviés missatges quan l'afegireu al menú d'adjunts."
     },
@@ -730,6 +735,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionRemovedFromCommunity",
+      "value": "{from} ha eliminat el xat de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionRemovedPhoto",
       "value": "{from} ha eliminat la foto del grup"
     },
@@ -1167,6 +1177,36 @@
       "_": "types.LangPackString",
       "key": "ActionSuggestedVideoTitle",
       "value": "Vídeo suggerit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLChanged",
+      "value": "{from} ha definit l'autodestrucció en {time}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLChannelChanged",
+      "value": "Els missatges del canal s'eliminaran automàticament d'aquí a {time}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLChannelDisabled",
+      "value": "Els missatges del canal ja no s'eliminaran automàticament"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLDisabled",
+      "value": "{from} ha desactivat l'autodestrucció"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLYouChanged",
+      "value": "Heu definit l'autodestrucció de missatges en {time}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLYouDisabled",
+      "value": "Heu desactivat l'autodestrucció"
     },
     {
       "_": "types.LangPackString",
@@ -2205,6 +2245,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AudioAddToProfile",
+      "value": "Afegeix al perfil"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AudioPause",
       "value": "Pausa l'àudio"
     },
@@ -2227,6 +2272,21 @@
       "_": "types.LangPackString",
       "key": "AudioPlayerPrevious",
       "value": "Tema anterior"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioRemoveFromProfile",
+      "value": "Elimina del perfil"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioSaveToMyProfileSaved",
+      "value": "S'ha afegit l'àudio al vostre perfil."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioSaveToMyProfileUnsaved",
+      "value": "S'ha eliminat l'àudio del vostre perfil."
     },
     {
       "_": "types.LangPackString",
@@ -2275,8 +2335,73 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeDays",
+      "value": "d"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeHours",
+      "value": "h"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeMinutes",
+      "value": "min"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeMonths",
+      "value": "m"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeSeconds",
+      "value": "s"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeWeeks",
+      "value": "set"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeYears",
+      "value": "a"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AutoDeleteConfirm",
       "value": "Confirma"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteGlobalAction",
+      "value": "{from} té l'autodestrucció activada a tots els xats.\nTots els missatges nous d'aquest xat s'eliminaran automàticament {time} després d'enviar-los."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteGlobalActionFromYou",
+      "value": "Heu activat l'autodestrucció a tots els xats.\nTots els missatges nous d'aquest xat s'eliminaran automàticament {time} després d'enviar-los."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteIn",
+      "value": "Autodestrucció: {time}"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteMessages",
+      "value": "Autodestrucció de missatges"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteSetInfo",
+      "value": "Els missatges d'aquest xat s'eliminaran automàticament {time} després d'enviar-se."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteSettingsInfo",
+      "value": "Elimina automàticament els missatges per a tothom després de cert temps a tots els xats nous."
     },
     {
       "_": "types.LangPackString",
@@ -3633,6 +3758,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatTypeCommunity",
+      "value": "Comunitat"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatTypeFallback",
       "value": "Xat"
     },
@@ -3859,6 +3989,68 @@
       "_": "types.LangPackString",
       "key": "CommonSelect",
       "value": "Selecciona"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatNotAccessible",
+      "value": "No es pot accedir al xat."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityChatsCount",
+      "one_value": "{count} xat",
+      "other_value": "{count} xats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatsYouAreIn",
+      "value": "Xats en què esteu"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatsYouCanJoin",
+      "value": "Xats a què podeu demanar unir-vos"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatsYouCanView",
+      "value": "Xats que podeu veure"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityJoinChatConfirm",
+      "value": "Us voleu unir al xat?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNoChatsFound",
+      "value": "No hi ha cap xat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityOpenPanel",
+      "value": "Mostra els xats de la comunitat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySearchChats",
+      "value": "Cerqueu xats"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChat",
+      "value": "Mostra com a un xat"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChatHint",
+      "value": "Agrupa tots els xats de la comunitat en un element a la llista de xats."
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityWithChats",
+      "one_value": "Comunitat amb {count} xat",
+      "other_value": "Comunitat amb {count} xats"
     },
     {
       "_": "types.LangPackString",
@@ -4266,6 +4458,21 @@
       "_": "types.LangPackString",
       "key": "Copy",
       "value": "Copia"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CopyAsHtml",
+      "value": "Copia com a HTML"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CopyAsMarkdown",
+      "value": "Copia com a Markdown"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CopyAsText",
+      "value": "Copia com a text"
     },
     {
       "_": "types.LangPackString",
@@ -5159,6 +5366,26 @@
       "_": "types.LangPackString",
       "key": "EnterPriceInStars",
       "value": "Introduïu un preu en estrelles"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralContextMenuNotice",
+      "value": "Ningú més pot veure aquest missatge. Desapareixerà en tornar a iniciar la sessió."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralOnlyVisible",
+      "value": "Ningú més el pot veure"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralOnlyVisibleToBot",
+      "value": "Només {bot} el pot veure"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralReplyUnavailable",
+      "value": "El missatge ja no es troba disponible"
     },
     {
       "_": "types.LangPackString",
@@ -7803,6 +8030,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "JoinRequestAcceptAll",
+      "value": "Accepta-ho tot"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "JoinRequestAcceptAllDescription",
       "value": "Segur que voleu acceptar totes les sol·licituds?"
     },
@@ -7810,6 +8042,11 @@
       "_": "types.LangPackString",
       "key": "JoinRequestAcceptAllTitle",
       "value": "Accepteu les sol·licituds?"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "JoinRequestDismissAll",
+      "value": "Declina-ho tot"
     },
     {
       "_": "types.LangPackString",
@@ -10370,6 +10607,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumPreviewRichFormatting",
+      "value": "Format enriquit"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "PremiumPreviewRichFormattingDescription",
+      "value": "Formateu els missatges amb capçaleres, llistes, cites i altres blocs enriquits."
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumPreviewStickers",
       "value": "Adhesius prèmium"
     },
@@ -11456,6 +11703,26 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorFormula",
+      "value": "Equació"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorFormulaPrompt",
+      "value": "Introduïu una equació..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorFormulaToBlock",
+      "value": "Converteix a equació en bloc"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorFormulaToInline",
+      "value": "Converteix a equació en línia"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichEditorHeading",
       "value": "Capçalera"
     },
@@ -12302,8 +12569,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SetAutoDeleteTimer",
+      "value": "Estableix l'autodestrucció"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SetColor",
       "value": "Estableix un color"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SetCustomTime",
+      "value": "Personalitza la durada"
     },
     {
       "_": "types.LangPackString",
@@ -15012,5 +15289,5 @@
       "value": "El vostre nom"
     }
   ],
-  "version": 284894
+  "version": 285606
 }
