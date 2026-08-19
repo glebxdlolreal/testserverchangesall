@@ -155,6 +155,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionAddedToCommunity",
+      "value": "{from} 已將此聊天室加入到 {community}"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionAttachMenuBotAllowed",
       "value": "當您將其加入到附件選單時，即您允許此機器人向您傳送訊息。"
     },
@@ -712,6 +717,11 @@
       "_": "types.LangPackString",
       "key": "ActionPinnedTextYou",
       "value": "您已置頂「{text}」"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionRemovedFromCommunity",
+      "value": "{from} 已將此聊天室從社群中移除"
     },
     {
       "_": "types.LangPackString",
@@ -2300,6 +2310,41 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeDays",
+      "value": "天"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeHours",
+      "value": "時"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeMinutes",
+      "value": "分"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeMonths",
+      "value": "月"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeSeconds",
+      "value": "秒"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeWeeks",
+      "value": "週"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteBadgeYears",
+      "value": "年"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AutoDeleteConfirm",
       "value": "確認"
     },
@@ -3680,6 +3725,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ChatTypeCommunity",
+      "value": "社群"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ChatTypeFallback",
       "value": "聊天室"
     },
@@ -3905,6 +3955,16 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityChatNotAccessible",
+      "value": "此群組無法存取。"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityChatsCount",
+      "other_value": "{count} 個聊天室"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityChatsYouAreIn",
       "value": "已加入的聊天室"
     },
@@ -3920,8 +3980,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityJoinChatConfirm",
+      "value": "您想加入此聊天室嗎？"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "CommunityNoChatsFound",
       "value": "找不到聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityOpenPanel",
+      "value": "顯示社群聊天室"
     },
     {
       "_": "types.LangPackString",
@@ -4347,6 +4417,21 @@
       "_": "types.LangPackString",
       "key": "Copy",
       "value": "複製"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CopyAsHtml",
+      "value": "複製為 HTML"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CopyAsMarkdown",
+      "value": "複製為 Markdown"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CopyAsText",
+      "value": "複製為文字"
     },
     {
       "_": "types.LangPackString",
@@ -5247,6 +5332,11 @@
       "_": "types.LangPackString",
       "key": "EphemeralOnlyVisibleToBot",
       "value": "僅 {bot} 可見"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralReplyUnavailable",
+      "value": "訊息已不存在"
     },
     {
       "_": "types.LangPackString",
@@ -10385,6 +10475,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumPreviewRichFormattingDescription",
+      "value": "透過標題、清單、引文及其他豐富區塊來格式化您的訊息。"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumPreviewStickers",
       "value": "優質貼圖"
     },
@@ -11462,6 +11557,21 @@
       "_": "types.LangPackString",
       "key": "RichEditorFormula",
       "value": "公式"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorFormulaPrompt",
+      "value": "輸入公式..."
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorFormulaToBlock",
+      "value": "轉換為區塊公式"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "RichEditorFormulaToInline",
+      "value": "轉換為內嵌公式"
     },
     {
       "_": "types.LangPackString",
@@ -15009,5 +15119,5 @@
       "value": "您的姓名"
     }
   ],
-  "version": 285693
+  "version": 285926
 }
