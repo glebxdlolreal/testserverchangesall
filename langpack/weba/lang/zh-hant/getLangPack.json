@@ -1155,6 +1155,36 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "ActionTTLChanged",
+      "value": "{from} 設定新訊息在 {time}後自動刪除"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLChannelChanged",
+      "value": "新訊息將在 {time}後自動刪除"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLChannelDisabled",
+      "value": "新訊息將不再自動刪除"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLDisabled",
+      "value": "{from} 停用了自動刪除計時器"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLYouChanged",
+      "value": "您設定新訊息在 {time}後自動刪除"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "ActionTTLYouDisabled",
+      "value": "您停用了自動刪除計時器"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ActionTopicClosed",
       "value": "{from} 關閉了話題「{topic}」"
     },
@@ -2180,6 +2210,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "AudioAddToProfile",
+      "value": "加入到資料頁"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "AudioPause",
       "value": "暫停音樂"
     },
@@ -2202,6 +2237,21 @@
       "_": "types.LangPackString",
       "key": "AudioPlayerPrevious",
       "value": "上一首"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioRemoveFromProfile",
+      "value": "從資料頁中移除"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioSaveToMyProfileSaved",
+      "value": "音訊已加入到您的個人資料頁。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AudioSaveToMyProfileUnsaved",
+      "value": "音訊已從您的個人資料頁中移除。"
     },
     {
       "_": "types.LangPackString",
@@ -2252,6 +2302,36 @@
       "_": "types.LangPackString",
       "key": "AutoDeleteConfirm",
       "value": "確認"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteGlobalAction",
+      "value": "{from} 對所有聊天套用了自動刪除計時器。\n此聊天中的所有新消息將在發送 {time}後自動刪除。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteGlobalActionFromYou",
+      "value": "您為所有聊天設置了自動刪除計時器。 \n此聊天中的所有新訊息將在傳送 {time}後自動刪除。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteIn",
+      "value": "{time}之後自動刪除"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteMessages",
+      "value": "自動刪除訊息"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteSetInfo",
+      "value": "此聊天中傳送的新訊息，系統會在 {time}後將其自動刪除。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "AutoDeleteSettingsInfo",
+      "value": "在您發起新聊天的一段時間後，自動刪除所有人的訊息。"
     },
     {
       "_": "types.LangPackString",
@@ -3825,6 +3905,46 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "CommunityChatsYouAreIn",
+      "value": "已加入的聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatsYouCanJoin",
+      "value": "可申請加入的聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityChatsYouCanView",
+      "value": "可查看的聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityNoChatsFound",
+      "value": "找不到聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunitySearchChats",
+      "value": "搜尋聊天室"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChat",
+      "value": "以單一聊天室顯示"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "CommunityShowAsOneChatHint",
+      "value": "將所有社群聊天室彙整為聊天室清單中的單一項目。"
+    },
+    {
+      "_": "types.LangPackStringPluralized",
+      "key": "CommunityWithChats",
+      "other_value": "包含 {count} 個聊天室的社群"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "ComposerEmbeddedMessageSuggestedPostDescription",
       "value": "點擊提供發布價格"
     },
@@ -5112,6 +5232,21 @@
       "_": "types.LangPackString",
       "key": "EnterPriceInStars",
       "value": "輸入星星價格"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralContextMenuNotice",
+      "value": "只有您能看到此訊息。下次登入後，訊息就會消失。"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralOnlyVisible",
+      "value": "僅您自己可見"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "EphemeralOnlyVisibleToBot",
+      "value": "僅 {bot} 可見"
     },
     {
       "_": "types.LangPackString",
@@ -7705,6 +7840,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "JoinRequestAcceptAll",
+      "value": "全部批准"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "JoinRequestAcceptAllDescription",
       "value": "您確定要接受所有請求嗎？"
     },
@@ -7712,6 +7852,11 @@
       "_": "types.LangPackString",
       "key": "JoinRequestAcceptAllTitle",
       "value": "接受所有請求？"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "JoinRequestDismissAll",
+      "value": "全部拒絕"
     },
     {
       "_": "types.LangPackString",
@@ -10235,6 +10380,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "PremiumPreviewRichFormatting",
+      "value": "格式化工具"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "PremiumPreviewStickers",
       "value": "優質貼圖"
     },
@@ -11310,6 +11460,11 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "RichEditorFormula",
+      "value": "公式"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "RichEditorHeading",
       "value": "標題"
     },
@@ -12150,8 +12305,18 @@
     },
     {
       "_": "types.LangPackString",
+      "key": "SetAutoDeleteTimer",
+      "value": "設定自動刪除"
+    },
+    {
+      "_": "types.LangPackString",
       "key": "SetColor",
       "value": "設定顏色"
+    },
+    {
+      "_": "types.LangPackString",
+      "key": "SetCustomTime",
+      "value": "自訂時間"
     },
     {
       "_": "types.LangPackString",
@@ -14844,5 +15009,5 @@
       "value": "您的姓名"
     }
   ],
-  "version": 284894
+  "version": 285693
 }
