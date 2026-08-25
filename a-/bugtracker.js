@@ -3523,7 +3523,6 @@ var Issue = {
     $commentsWrap.on('click.curPage', '.bt-comments-more', Issue.eLoadMore);
     $commentsWrap.on('click.curPage', '.bt-select-comment-btn', Issue.eStartCommentSelection);
     $commentsWrap.on('mousedown.curPage', '.bt-comment-select-wrap', Issue.eRememberCommentSelectShift);
-    $commentsWrap.on('click.curPage', '.bt-comment-select-wrap', Issue.eShiftClickCommentSelect);
     $commentsWrap.on('change.curPage', '.bt-comment-select-checkbox', Issue.eSelectComment);
     $commentsWrap.on('click.curPage', '.bt-deselect-comment-btn', Issue.eDeselectComment);
     $commentsWrap.on('click.curPage', '.bt-deselect-all-comments-btn', Issue.eDeselectAllComments);
@@ -3762,14 +3761,6 @@ var Issue = {
   },
   eRememberCommentSelectShift: function(e) {
     $(this).data('shiftKey', !!e.shiftKey);
-  },
-  eShiftClickCommentSelect: function(e) {
-    var $checkbox = $('.bt-comment-select-checkbox', this);
-    if (!e.shiftKey || e.target == $checkbox[0]) {
-      return;
-    }
-    e.preventDefault();
-    $checkbox.prop('checked', !$checkbox.prop('checked')).trigger('change');
   },
   eSelectComment: function(e) {
     e.stopImmediatePropagation();
