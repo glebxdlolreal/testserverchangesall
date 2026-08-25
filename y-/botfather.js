@@ -509,6 +509,41 @@ var BotSettings = {
   init() {
     var cont = Aj.ajContainer;
 
+    Aj.state.dirtyText = {};
+    Aj.state.initialTextValues = BotSettings.captureTextValues();
+
+    WebApp.MainButton.setText('Save');
+    WebApp.MainButton.onClick(BotSettings.commitTextChanges);
+    Aj.onUnload(() => {
+      WebApp.MainButton.hide();
+      WebApp.MainButton.offClick(BotSettings.commitTextChanges);
+    });
+
+    $(cont).on('input.curPage', 'input[name="allowed_url[]"], input[name=privacy_url], input[name=web_login], .js-native-app-field1, .js-native-app-field2', function () {
+      $(this).removeClass('error');
+      BotSettings.markDirty();
+    });
+    $(cont).on('change.curPage', 'input[name="allowed_url[]"], input[name=privacy_url], input[name=web_login], .js-native-app-field1, .js-native-app-field2', function () {
+      BotSettings.dryRun();
+    });
+
+    $(cont).on('click.curPage', '.js-delete-allowed-url', function () {
+      $(this).parent('.tm-row').remove();
+      BotSettings.updateAddButtons();
+      BotSettings.markDirty();
+    });
+
+    $(cont).on('click.curPage', '.js-delete-native-app', function () {
+      var $entry = $(this).closest('.js-native-app-entry');
+      var hash = $entry.data('hash');
+      if (hash) {
+        $entry.addClass('js-native-app-pending-delete').hide();
+      } else {
+        $entry.remove();
+      }
+      BotSettings.markDirty();
+    });
+
     $('.js-add-allowed-url').on('click', function () {
       var field_type = this.dataset.type;
       var container = field_type == 'redirect_uri' ? '.js-redirect-uris' : '.js-trusted-origins';
@@ -516,6 +551,8 @@ var BotSettings = {
         <input type="url" class="form-control tm-input" name="allowed_url[]" data-type="${field_type}" placeholder="Enter URL" autocomplete="off" spellcheck="false" />
         <span class="icon-before icon-delete-item js-delete-allowed-url"></span>
       </div>`);
+      BotSettings.updateAddButtons();
+      BotSettings.markDirty();
     });
 
     $('.tm-row-toggle').on('click', function () {
@@ -628,63 +665,6 @@ var BotSettings = {
       WebApp.HapticFeedback.impactOccurred('soft');
     });
 
-    Aj.state.privacyUrlDebounce = debounce();
-    function submitPrivacy() {
-      var val = $('input[name=privacy_url]').val();
-      Aj.apiRequest('changeSettings', {
-        settings: {
-          privacy_policy_url: val,
-        },
-        bid: Aj.state.botId,
-      }, res => {
-        if (res.error) {
-          $('.hint-text[data-for=privacy]').text('URL is invalid').toggleClass('hint-text-error', true);
-        } else {
-          $('.hint-text[data-for=privacy]').text('');
-        }
-      })
-    }
-    $('input[name=privacy_url]').on('input', () => {
-      Aj.state.privacyUrlDebounce(submitPrivacy, 600);
-    });
-    $('input[name=privacy_url]').on('change', () => {
-      Aj.state.privacyUrlDebounce(submitPrivacy, 0);
-    });
-
-    $(cont).on('click.curPage', '.js-delete-allowed-url', function () {
-      $(this).parent('.tm-row').remove();
-      BotSettings.updateAllowedUrls();
-    });
-
-    $(cont).on('change.curPage', 'input[name="allowed_url[]"]', BotSettings.updateAllowedUrls);
-    $(cont).on('input.curPage', 'input[name="allowed_url[]"]', function () {
-      $(this).removeClass('error');
-    });
-
-    Aj.state.webLoginDebounce = debounce();
-    function submitWebLogic() {
-      var val = $('input[name=web_login]').val();
-      Aj.apiRequest('changeSettings', {
-        settings: {
-          domain: val,
-        },
-        bid: Aj.state.botId,
-      }, res => {
-        if (res.error) {
-          $('.hint-text[data-for=web_login]').text('Domain is invalid').toggleClass('hint-text-error', true);
-        } else {
-          $('.js-migrate-oauth-section').toggleClass('hidden', !!val);
-          $('.hint-text[data-for=web_login]').text('').toggleClass('hint-text-error', false);
-        }
-      })
-    }
-    $('input[name=web_login]').on('input', () => {
-      Aj.state.webLoginDebounce(submitWebLogic, 600);
-    });
-    $('input[name=web_login]').on('change', () => {
-      Aj.state.webLoginDebounce(submitWebLogic, 0);
-    });
-
     $('.js-group-admin-rights-toggle .tm-toggle').on('click', function (event) {
       event.stopPropagation();
 
@@ -782,27 +762,7 @@ var BotSettings = {
     $(cont).on('click.curPage', '.js-add-native-app-platform', function () {
       var platform = this.dataset.platform;
       BotSettings.addNativeAppEntry(platform);
-    });
-
-    $(cont).on('click.curPage', '.js-delete-native-app', function () {
-      var $entry = $(this).closest('.js-native-app-entry');
-      var hash = $entry.data('hash');
-      if (hash) {
-        Aj.apiRequest('removeNativeApp', { bid: Aj.state.botId, app_hash: hash }, res => {
-          if (res.error) {
-            TWebApp.showErrorToast(res.error);
-            return;
-          }
-          $entry.remove();
-        });
-      } else {
-        $entry.remove();
-      }
-    });
-
-    $(cont).on('change.curPage', '.js-native-app-field1, .js-native-app-field2', function () {
-      var $entry = $(this).closest('.js-native-app-entry');
-      BotSettings.submitNativeApp($entry);
+      BotSettings.markDirty();
     });
 
     $('.js-login-alg-item').on('click', function () {
@@ -812,6 +772,8 @@ var BotSettings = {
       $(this).parent().toggleClass('selected');
       botChangeSettings('oauth_alg', value);
     });
+
+    BotSettings.updateAddButtons();
   },
 
   addNativeAppEntry(platform) {
@@ -843,70 +805,258 @@ var BotSettings = {
     WebApp.HapticFeedback.impactOccurred('soft');
   },
 
-  submitNativeApp($entry) {
-    var platform = $entry.data('platform');
-    var field1 = $entry.find('.js-native-app-field1').val()?.trim();
-    var field2 = $entry.find('.js-native-app-field2').val()?.trim();
+  captureTextValues() {
+    var values = {};
+    values.allowed_urls = [];
+    $('input[name="allowed_url[]"]').each(function () {
+      values.allowed_urls.push({type: this.dataset.type, url: this.value});
+    });
+    values.privacy_url = $('input[name=privacy_url]').val() ?? '';
+    values.web_login = $('input[name=web_login]').val() ?? '';
+    values.native_apps = [];
+    $('.js-native-app-entry').each(function () {
+      var $e = $(this);
+      values.native_apps.push({
+        platform: $e.data('platform'),
+        hash: $e.data('hash') || '',
+        field1: $e.find('.js-native-app-field1').val() ?? '',
+        field2: $e.find('.js-native-app-field2').val() ?? '',
+        pending_delete: $e.hasClass('js-native-app-pending-delete'),
+      });
+    });
+    return values;
+  },
 
-    if (!field1 || !field2) return;
+  textValuesEqual(a, b) {
+    if (a.allowed_urls.length !== b.allowed_urls.length) return false;
+    for (var i = 0; i < a.allowed_urls.length; i++) {
+      if (a.allowed_urls[i].url !== b.allowed_urls[i].url ||
+          a.allowed_urls[i].type !== b.allowed_urls[i].type) return false;
+    }
+    if (a.privacy_url !== b.privacy_url) return false;
+    if (a.web_login !== b.web_login) return false;
+    if (a.native_apps.length !== b.native_apps.length) return false;
+    for (var i = 0; i < a.native_apps.length; i++) {
+      if (a.native_apps[i].field1 !== b.native_apps[i].field1 ||
+          a.native_apps[i].field2 !== b.native_apps[i].field2 ||
+          a.native_apps[i].platform !== b.native_apps[i].platform ||
+          !!a.native_apps[i].hash !== !!b.native_apps[i].hash ||
+          a.native_apps[i].pending_delete !== b.native_apps[i].pending_delete) return false;
+    }
+    return true;
+  },
 
-    var oldHash = $entry.data('hash') || '';
-    var params = { bid: Aj.state.botId, platform: platform, app_hash: oldHash };
-    if (platform == 'android') {
-      params.package_name = field1;
-      params.sha256_fingerprint = field2;
+  markDirty() {
+    var current = BotSettings.captureTextValues();
+    if (BotSettings.textValuesEqual(current, Aj.state.initialTextValues)) {
+      WebApp.MainButton.hide();
     } else {
-      params.team_id = field1;
-      params.bundle_id = field2;
+      WebApp.MainButton.show();
+    }
+  },
+
+  dryRun() {
+    var current = BotSettings.captureTextValues();
+    if (BotSettings.textValuesEqual(current, Aj.state.initialTextValues)) {
+      WebApp.MainButton.hide();
+      return;
+    }
+    WebApp.MainButton.show();
+
+    if (current.allowed_urls.length) {
+      Aj.apiRequest('setAllowedUrls', {
+        allowed_urls: current.allowed_urls,
+        bid: Aj.state.botId,
+        dry_run: 1,
+      }, res => {
+        if (res.allowed_urls) {
+          $('input[name="allowed_url[]"]').each(function (i) {
+            var item = res.allowed_urls[i];
+            if (!item) return;
+            if (item.error) {
+              $(this).addClass('error');
+            } else {
+              $(this).removeClass('error');
+            }
+          });
+        }
+      });
     }
 
-    $entry.find('.js-native-app-field1, .js-native-app-field2').removeClass('error');
+    var settings = {};
+    if ($('input[name=privacy_url]').length && current.privacy_url !== Aj.state.initialTextValues.privacy_url) {
+      settings.privacy_policy_url = current.privacy_url;
+    }
+    if ($('input[name=web_login]').length && current.web_login !== Aj.state.initialTextValues.web_login) {
+      settings.domain = current.web_login;
+    }
+    if (!$.isEmptyObject(settings)) {
+      Aj.apiRequest('changeSettings', {
+        settings: settings,
+        bid: Aj.state.botId,
+        dry_run: 1,
+      }, res => {
+        if (res.error) {
+          if (settings.privacy_policy_url !== undefined) {
+            $('.hint-text[data-for=privacy]').text('URL is invalid').toggleClass('hint-text-error', true);
+          }
+          if (settings.domain !== undefined) {
+            $('.hint-text[data-for=web_login]').text('Domain is invalid').toggleClass('hint-text-error', true);
+          }
+        } else {
+          $('.hint-text[data-for=privacy]').text('');
+          $('.hint-text[data-for=web_login]').text('').toggleClass('hint-text-error', false);
+        }
+      });
+    }
 
-    Aj.apiRequest('addNativeApp', params, res => {
-      if (res.error) {
-        TWebApp.showErrorToast(res.error);
-        if (res.field == 'field1') $entry.find('.js-native-app-field1').addClass('error');
-        if (res.field == 'field2') $entry.find('.js-native-app-field2').addClass('error');
-        return;
+    $('.js-native-app-entry').each(function () {
+      var $entry = $(this);
+      if ($entry.hasClass('js-native-app-pending-delete')) return;
+      var field1 = $entry.find('.js-native-app-field1').val()?.trim();
+      var field2 = $entry.find('.js-native-app-field2').val()?.trim();
+      if (!field1 && !field2) return;
+      var platform = $entry.data('platform');
+      var oldHash = $entry.data('hash') || '';
+      var params = { bid: Aj.state.botId, platform: platform, app_hash: oldHash, dry_run: 1 };
+      if (platform == 'android') {
+        params.package_name = field1;
+        params.sha256_fingerprint = field2;
+      } else {
+        params.team_id = field1;
+        params.bundle_id = field2;
       }
-      if (res.ok && res.native_app_url) {
-        $entry.data('hash', res.hash);
-        $entry.attr('data-hash', res.hash);
-        var $urlRow = $entry.find('.js-native-app-url-row');
-        $urlRow.show();
-        $urlRow.find('.js-native-app-url-value').text(res.native_app_url);
-        $urlRow.find('.copy-btn').attr('data-value', res.native_app_url);
-        TWebApp.showSuccessToast(l('WEB_NATIVE_APP_REGISTERED'));
-      }
+      $entry.find('.js-native-app-field1, .js-native-app-field2').removeClass('error');
+      Aj.apiRequest('addNativeApp', params, res => {
+        if (res.error) {
+          if (res.field == 'field1') $entry.find('.js-native-app-field1').addClass('error');
+          if (res.field == 'field2') $entry.find('.js-native-app-field2').addClass('error');
+        }
+      });
     });
   },
 
-  updateAllowedUrls() {
-    var inputAllowedUrls = [];
-    $('input[name="allowed_url[]"]').each(function () {
-      var url = URL.parse(this.value)?.href || this.value;
-      inputAllowedUrls.push({type: this.dataset.type, url: url})
-    });
+  commitTextChanges() {
+    var current = BotSettings.captureTextValues();
+    if (BotSettings.textValuesEqual(current, Aj.state.initialTextValues)) {
+      WebApp.MainButton.hide();
+      return;
+    }
+    WebApp.MainButton.showProgress();
 
-    var reqNumber = (Aj.state.allowedUrlsReq || 0) + 1;
-    Aj.state.allowedUrlsReq = reqNumber;
+    var pending = 0;
+    var errors = [];
 
+    function done() {
+      pending--;
+      if (pending > 0) return;
+      WebApp.MainButton.hideProgress();
+      if (errors.length) {
+        TWebApp.showErrorToast(errors[0]);
+      } else {
+        Aj.state.initialTextValues = BotSettings.captureTextValues();
+        WebApp.MainButton.hide();
+        TWebApp.showSuccessToast('Saved');
+      }
+    }
+
+    pending++;
     Aj.apiRequest('setAllowedUrls', {
-      allowed_urls: inputAllowedUrls,
+      allowed_urls: current.allowed_urls,
       bid: Aj.state.botId,
     }, res => {
-      if (reqNumber != Aj.state.allowedUrlsReq) {
-        return;
+      if (res.error) {
+        errors.push(res.error);
       }
-      if (res.allowed_urls) {
-        $('input[name="allowed_url[]"]').each(function (i) {
-          $(this).val(res.allowed_urls[i].url);
-          if (res.allowed_urls[i].error) {
-            $(this).addClass('error');
+      done();
+    });
+
+    var settings = {};
+    if ($('input[name=privacy_url]').length && current.privacy_url !== Aj.state.initialTextValues.privacy_url) {
+      settings.privacy_policy_url = current.privacy_url;
+    }
+    if ($('input[name=web_login]').length && current.web_login !== Aj.state.initialTextValues.web_login) {
+      settings.domain = current.web_login;
+    }
+    if (!$.isEmptyObject(settings)) {
+      pending++;
+      Aj.apiRequest('changeSettings', {
+        settings: settings,
+        bid: Aj.state.botId,
+      }, res => {
+        if (res.error) {
+          errors.push(res.error);
+        } else {
+          if (settings.domain !== undefined) {
+            $('.js-migrate-oauth-section').toggleClass('hidden', !!current.web_login);
           }
-        })
+        }
+        done();
+      });
+    }
+
+    $('.js-native-app-pending-delete').each(function () {
+      var $entry = $(this);
+      var hash = $entry.data('hash');
+      if (hash) {
+        pending++;
+        Aj.apiRequest('removeNativeApp', { bid: Aj.state.botId, app_hash: hash }, res => {
+          if (res.error) {
+            errors.push(res.error);
+          } else {
+            $entry.remove();
+          }
+          done();
+        });
       }
-    })
+    });
+
+    $('.js-native-app-entry').not('.js-native-app-pending-delete').each(function () {
+      var $entry = $(this);
+      var field1 = $entry.find('.js-native-app-field1').val()?.trim();
+      var field2 = $entry.find('.js-native-app-field2').val()?.trim();
+      if (!field1 || !field2) return;
+      var platform = $entry.data('platform');
+      var oldHash = $entry.data('hash') || '';
+      var params = { bid: Aj.state.botId, platform: platform, app_hash: oldHash };
+      if (platform == 'android') {
+        params.package_name = field1;
+        params.sha256_fingerprint = field2;
+      } else {
+        params.team_id = field1;
+        params.bundle_id = field2;
+      }
+      pending++;
+      Aj.apiRequest('addNativeApp', params, res => {
+        if (res.error) {
+          errors.push(res.error);
+          if (res.field == 'field1') $entry.find('.js-native-app-field1').addClass('error');
+          if (res.field == 'field2') $entry.find('.js-native-app-field2').addClass('error');
+        } else if (res.native_app_url) {
+          $entry.data('hash', res.hash);
+          $entry.attr('data-hash', res.hash);
+          var $urlRow = $entry.find('.js-native-app-url-row');
+          $urlRow.show();
+          $urlRow.find('.js-native-app-url-value').text(res.native_app_url);
+          $urlRow.find('.copy-btn').attr('data-value', res.native_app_url);
+        }
+        done();
+      });
+    });
+
+    if (pending === 0) {
+      WebApp.MainButton.hideProgress();
+    }
+  },
+
+  updateAddButtons() {
+    $('.js-add-allowed-url').each(function () {
+      var type = this.dataset.type;
+      var count = $('input[name="allowed_url[]"]').filter(function () {
+        return this.dataset.type == type;
+      }).length;
+      $(this).toggleClass('hidden', count >= 20);
+    });
   },
 
   eClickSpoiler() {
