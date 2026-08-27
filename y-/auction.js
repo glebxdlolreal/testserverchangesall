@@ -5295,11 +5295,21 @@ var PaymentInvoice = {
     if (!$popup.length) return;
     PaymentInvoice.startTimer();
     PaymentInvoice.initQR();
-    PaymentInvoice.initWalletConnect();
-    PaymentInvoice.restoreSession();
     PaymentInvoice.initCopyButtons();
     PaymentInvoice.startPolling();
     $('.tm-main').on('click', '.js-cancel-payment', PaymentInvoice.cancelInvoice);
+    if (Aj.state.appKitUrl) {
+      var s = document.createElement('script');
+      s.src = Aj.state.appKitUrl;
+      s.async = true;
+      s.onload = function() { PaymentInvoice.onAppKitLoaded(); };
+      document.head.appendChild(s);
+    }
+  },
+
+  onAppKitLoaded: function() {
+    PaymentInvoice.initWalletConnect();
+    PaymentInvoice.restoreSession();
   },
  
   cancelInvoice: function() {
