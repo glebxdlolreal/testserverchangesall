@@ -9,6 +9,13 @@ window.Graph = {
             data: chart
         });
     },
+    getBgColor: function (isDarkMode) {
+        var bg = getComputedStyle(document.documentElement).getPropertyValue('--tchart-bg-color');
+        if (!bg) {
+            bg = isDarkMode ? '#242f3e' : '#ffffff';
+        }
+        return bg.trim();
+    },
     units: {}
 };
 
@@ -288,7 +295,7 @@ window.Graph = {
             }
 
             if (hasGapsInData || hasUnfocusedColumns) {
-                ctx.fillStyle = this.isDarkMode ? '#242f3e' : '#fff';
+                ctx.fillStyle = Graph.getBgColor(this.isDarkMode);
                 ctx.fillRect(0, 0, dims.w * dpi, dims.h * dpi);
             }
 
@@ -1374,7 +1381,7 @@ window.Graph = {
             var xwDetail = this.opts.data.detailPeriodLen * xScale;
 
             if (hash != this.cached) {
-                ctx.fillStyle = this.isDarkMode ? '#242f3e' : '#fff';
+                ctx.fillStyle = Graph.getBgColor(this.isDarkMode);
                 ctx.fillRect(0, 0, dims.w * dpi, dims.h * dpi);
 
                 var xw;
@@ -1474,7 +1481,7 @@ window.Graph = {
 
             //tooltip selection
             if (state.barInd > -1 && !mini) {
-                this.opts.ctx.fillStyle = this.isDarkMode ? 'rgba(36, 47, 62, 0.5)' : 'rgba(255, 255, 255, 0.5)';
+                this.opts.ctx.fillStyle = Graph.getBgColor(this.isDarkMode) + '80';
                 this.opts.ctx.globalAlpha = state.barO;
                 this.opts.ctx.fillRect(0, 0, dims.w * dpi, dims.h * dpi);
                 var yStart = 0;
@@ -3794,7 +3801,7 @@ window.Graph = {
 
                 if (isNotSpecialAndChangedSubchart) {
                     if (zoomMorph > 0 && zoomMorph < 1) {
-                        ctx.fillStyle = this.isDarkMode ? '#242f3e' : '#fff';
+                        ctx.fillStyle = Graph.getBgColor(this.isDarkMode);
                         ctx.globalAlpha = this.opts.data.subchart.show ? zoomMorph : 1 - zoomMorph;
                         ctx.fillRect((dims.graph.l) * dpi, (dims.handle.t - 1) * dpi, (dims.graph.w) * dpi, (dims.handle.h + 2) * dpi);
                         ctx.globalAlpha = 1;
@@ -4235,7 +4242,7 @@ window.Graph = {
             this.$canvas.width = dims.w * dpi;
             this.$canvas.height = dims.h * dpi;
             this.cached = '';
-            this.ctx.fillStyle = this.isDarkMode ? '#242f3e' : '#fff';
+            this.ctx.fillStyle = Graph.getBgColor(this.isDarkMode);
             this.ctx.fillRect(0, 0, dims.w * dpi, dims.h * dpi);
         },
 

@@ -563,6 +563,14 @@ var BotSettings = {
       }
     });
 
+    $('.js-cbm-dd-item').on('click', function () {
+      var value = this.dataset.value;
+      $('.js-cbm-value').text(this.text);
+      $('li.selected:has(.js-cbm-dd-item)').toggleClass('selected');
+      $(this).parent().toggleClass('selected');
+      botChangeSettings('cbm', value);
+    });
+
     function updateAccessUsersUI(label, plusLabel, clearVisible) {
       var $status = $('.js-access-users-status');
       var $pill = $('.js-access-users-pill');
