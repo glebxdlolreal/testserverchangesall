@@ -454,8 +454,8 @@ var Main = {
     }
     if (e.type == 'change') {
       if (new_value.length && !is_invalid) {
-        if ($fieldEl.attr('data-ton-for')) {
-          this.value = formatNumber(float_value, 2, '.', '');
+        if ($fieldEl.attr('data-decimals')) {
+          this.value = formatNumber(float_value, parseInt($fieldEl.attr('data-decimals')), '.', '');
         } else {
           this.value = Main.wrapTonAmount(float_value, true);
         }
