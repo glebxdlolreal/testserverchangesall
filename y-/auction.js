@@ -472,11 +472,14 @@ var Main = {
         $('.' + usdForClass).html(Main.wrapUsdAmount(field_value));
       }
       if (tonForClass = $fieldEl.attr('data-ton-for')) {
-        var tonValue = field_value !== false && Aj.state.tonRate
+        var $tonForm = $fieldEl.closest('form');
+        var isTonMethod = $tonForm.find('input[name="payment_method"]:checked').val() == 'ton' ||
+                          !$tonForm.find('input[name="payment_method"]').length;
+        var tonValue = isTonMethod && field_value !== false && Aj.state.tonRate
           ? Main.wrapTonAmount(field_value / Aj.state.tonRate, false, 4)
           : '';
         $('.' + tonForClass).html(tonValue);
-        var $tonHint = $fieldEl.closest('form').find('.js-ton-price-hint');
+        var $tonHint = $tonForm.find('.js-ton-price-hint');
         if (tonValue) {
           $tonHint.show();
         } else {
