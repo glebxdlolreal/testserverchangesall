@@ -94,7 +94,7 @@
       + '&scope='         + encodeURIComponent(scope.join(' '));
 
     if (opts.nonce) {
-      authUrl += '&nonce=' + opts.nonce;
+      authUrl += '&nonce=' + encodeURIComponent(opts.nonce);
     }
 
     if (opts.lang) {
@@ -163,7 +163,7 @@
       query_params += '&client_id=' + clientId;
       query_params += '&response_type=id_token';
       if (opts.nonce) {
-        query_params += '&nonce=' + opts.nonce;
+        query_params += '&nonce=' + encodeURIComponent(opts.nonce);
       }
 
       var result = await fetch(INAPP_URL + '?' + query_params);
