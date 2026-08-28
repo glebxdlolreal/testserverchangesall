@@ -454,32 +454,20 @@ var Main = {
     }
     if (e.type == 'change') {
       if (new_value.length && !is_invalid) {
-        if ($fieldEl.attr('data-decimals')) {
-          this.value = formatNumber(float_value, parseInt($fieldEl.attr('data-decimals')), '.', '');
+        if ($fieldEl.attr('data-ton-for')) {
+          this.value = formatNumber(float_value, 2, '.', '');
         } else {
           this.value = Main.wrapTonAmount(float_value, true);
         }
       }
     }
     if (e.type == 'input') {
-      var forClass, usdForClass, tonForClass;
+      var forClass, usdForClass;
       if (forClass = $fieldEl.attr('data-for')) {
         $('.' + forClass).html(Main.wrapTonAmount(field_value));
       }
       if (usdForClass = $fieldEl.attr('data-usd-for')) {
         $('.' + usdForClass).html(Main.wrapUsdAmount(field_value));
-      }
-      if (tonForClass = $fieldEl.attr('data-ton-for')) {
-        var tonValue = field_value !== false && Aj.state.tonRate
-          ? Main.wrapTonAmount(field_value / Aj.state.tonRate, false, 4)
-          : '';
-        $('.' + tonForClass).html(tonValue);
-        var $tonHint = $fieldEl.closest('form').find('.js-ton-price-hint');
-        if (tonValue) {
-          $tonHint.show();
-        } else {
-          $tonHint.hide();
-        }
       }
     }
   },
