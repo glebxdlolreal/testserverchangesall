@@ -162,6 +162,9 @@
       query_params += '&origin=' + encodeURIComponent(location.origin);
       query_params += '&client_id=' + clientId;
       query_params += '&response_type=id_token';
+      if (opts.nonce) {
+        query_params += '&nonce=' + opts.nonce;
+      }
 
       var result = await fetch(INAPP_URL + '?' + query_params);
       result = (await result.json());
