@@ -462,12 +462,24 @@ var Main = {
       }
     }
     if (e.type == 'input') {
-      var forClass, usdForClass;
+      var forClass, usdForClass, tonForClass;
       if (forClass = $fieldEl.attr('data-for')) {
         $('.' + forClass).html(Main.wrapTonAmount(field_value));
       }
       if (usdForClass = $fieldEl.attr('data-usd-for')) {
         $('.' + usdForClass).html(Main.wrapUsdAmount(field_value));
+      }
+      if (tonForClass = $fieldEl.attr('data-ton-for')) {
+        var tonValue = field_value !== false && Aj.state.tonRate
+          ? Main.wrapTonAmount(field_value / Aj.state.tonRate, false, 4)
+          : '';
+        $('.' + tonForClass).html(tonValue);
+        var $tonHint = $fieldEl.closest('form').find('.js-ton-price-hint');
+        if (tonValue) {
+          $tonHint.show();
+        } else {
+          $tonHint.hide();
+        }
       }
     }
   },
