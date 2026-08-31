@@ -1013,13 +1013,12 @@ a.tm-row:hover,
   background: var(--table-bg-hover-color);
 }
 
+.tm-row.tm-row-toggle.tm-row-toggle-disabled {
+  pointer-events: none;
+}
 .tm-row.tm-row-toggle.tm-row-toggle-disabled .tm-toggle {
   cursor: default;
   opacity: 0.5;
-}
-.tm-row.tm-row-toggle.tm-row-toggle-disabled:hover {
-  cursor: default;
-  background: none;
 }
 
 .tm-row.tm-field {
