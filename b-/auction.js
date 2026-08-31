@@ -454,7 +454,11 @@ var Main = {
     }
     if (e.type == 'change') {
       if (new_value.length && !is_invalid) {
-        this.value = Main.wrapTonAmount(float_value, true);
+        if ($fieldEl.attr('data-ton-for')) {
+          this.value = formatNumber(float_value, 2, '.', '');
+        } else {
+          this.value = Main.wrapTonAmount(float_value, true);
+        }
       }
     }
     if (e.type == 'input') {
@@ -467,15 +471,25 @@ var Main = {
       }
     }
   },
-  wrapTonAmount: function(value, field_format) {
+  wrapTonAmount: function(value, field_format, precision) {
     if (!value) {
       return '';
     }
-    var dec = (Math.floor(value * 1000000) % 1000000) + '';
+    var p = precision || 6;
+    var mult = Math.pow(10, p);
+    var dec = (Math.floor(value * mult) % mult) + '';
+    while (dec.length < p) dec = '0' + dec;
     while (dec.substr(-1) == '0') {
       dec = dec.slice(0, -1);
     }
-    return formatNumber(value, dec.length, '.', field_format ? '' : ',');
+    var formatted = formatNumber(value, dec.length, '.', field_format ? '' : ',');
+    if (dec.length && !field_format) {
+      var dotIndex = formatted.lastIndexOf('.');
+      if (dotIndex >= 0) {
+        formatted = formatted.substr(0, dotIndex) + '<span class="mini-frac">' + formatted.substr(dotIndex) + '</span>';
+      }
+    }
+    return formatted;
   },
   wrapUsdAmount: function(value, field_format) {
     value = Math.round(value * Aj.state.tonRate * 100) / 100;
@@ -3403,13 +3417,33 @@ var Ads = {
       $form.field('amount_value').focus();
       return;
     }
+    var payment_method = 'usdt_ton';
+    var $method = $form.find('input[name="payment_method"]:checked');
+    if ($method.length) {
+      payment_method = $method.val();
+    }
     Aj.apiRequest('initAdsRechargeRequest', {
       account: account,
-      amount: amount
+      amount: amount,
+      payment_method: payment_method
     }, function(result) {
+      if (result.need_verify) {
+        return Verify.showPopup(result);
+      }
+      if (result.need_ton) {
+        if (Aj.globalState.tonConnectUI) {
+          Aj.globalState.tonConnectUI.openModal();
+        }
+        return;
+      }
       if (result.error) {
         return showAlert(result.error);
       }
+      if (result.evm) {
+        location.reload();
+        return;
+      }
+      var popupTextKey = result.usd ? 'WEB_POPUP_QR_ADS_RECHARGE_USD_TEXT' : 'WEB_POPUP_QR_ADS_RECHARGE_TEXT';
       Wallet.sendTransaction({
         request: {
           method: 'getAdsRechargeLink',
@@ -3418,7 +3452,7 @@ var Ads = {
           }
         },
         title: l('WEB_POPUP_QR_ADS_RECHARGE_HEADER'),
-        description: l('WEB_POPUP_QR_ADS_RECHARGE_TEXT', {
+        description: l(popupTextKey, {
           amount: '<span class="icon-before icon-ton-text js-amount_fee">' + result.amount + '</span>'
         }),
         qr_label: result.item_title,
@@ -5261,11 +5295,21 @@ var PaymentInvoice = {
     if (!$popup.length) return;
     PaymentInvoice.startTimer();
     PaymentInvoice.initQR();
-    PaymentInvoice.initWalletConnect();
-    PaymentInvoice.restoreSession();
     PaymentInvoice.initCopyButtons();
     PaymentInvoice.startPolling();
     $('.tm-main').on('click', '.js-cancel-payment', PaymentInvoice.cancelInvoice);
+    if (Aj.state.appKitUrl) {
+      var s = document.createElement('script');
+      s.src = Aj.state.appKitUrl;
+      s.async = true;
+      s.onload = function() { PaymentInvoice.onAppKitLoaded(); };
+      document.head.appendChild(s);
+    }
+  },
+
+  onAppKitLoaded: function() {
+    PaymentInvoice.initWalletConnect();
+    PaymentInvoice.restoreSession();
   },
  
   cancelInvoice: function() {
@@ -5570,6 +5614,9 @@ var PaymentInvoice = {
   },
  
   startPolling: function() {
+    if (Aj.state.invoiceNoPoll) {
+      return;
+    }
     clearTimeout(PaymentInvoice._pollTimeout);
     PaymentInvoice._pollTimeout = setTimeout(function() {
       PaymentInvoice.poll();

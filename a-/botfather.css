@@ -597,6 +597,14 @@ i.icon {
   overflow: clip;
   text-overflow: ellipsis;
 }
+.tm-main-intro-header.beta:after {
+  content: 'beta';
+  font-size: 0.7em;
+  font-weight: normal;
+  color: var(--text-color);
+  position: absolute;
+  margin: -6px 0 0 4px;
+}
 .tm-main-intro-text {
   font-size: 13px;
   --line-height: 17px;
@@ -1011,14 +1019,6 @@ a.tm-row:hover,
 .tm-row.tm-row-add:hover,
 .tm-row.dropdown-toggle:hover {
   background: var(--table-bg-hover-color);
-}
-
-.tm-row.tm-row-toggle.tm-row-toggle-disabled {
-  pointer-events: none;
-}
-.tm-row.tm-row-toggle.tm-row-toggle-disabled .tm-toggle {
-  cursor: default;
-  opacity: 0.5;
 }
 
 .tm-row.tm-field {
