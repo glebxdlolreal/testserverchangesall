@@ -2023,6 +2023,20 @@ var SimpleSpoiler = {
 
 var BotServerless = {
   init() {
+    // "Get access" on the Serverless landing page (only present for users
+    // without access). Puts the user into the waitlist; the waitlist cron
+    // grants access asynchronously. Reload to reflect the new state.
+    $('.js-serverless-get-access').on('click', function () {
+      var bid = this.dataset.bid || Aj.state.botId;
+      Aj.apiRequest('requestServerlessAccess', { bid: bid }, (res) => {
+        if (res.error) {
+          TWebApp.showErrorToast(res.error);
+        } else {
+          Aj.onUnload(() => TWebApp.showSuccessToast(l('WEB_SERVERLESS_REQUEST_SENT')));
+          Aj.location('/botfather/bot/' + Aj.state.botId + '/cloud');
+        }
+      });
+    });
     $('.js-serverless-toggle').on('click', function () {
       var toggleEl = this.querySelector('.tm-toggle');
       var isOn = toggleEl.classList.contains('tm-toggle-on');
