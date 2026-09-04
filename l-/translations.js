@@ -6317,7 +6317,7 @@ var StatsGraphs = {
             chart = root.parentNode.__chart__ || root.parentNode.chart || root.parentNode._chart || $(root.parentNode).data('chart') || $(root.parentNode).data('graph');
           }
           if (!chart) return;
-          var width = isCompact ? Math.round(root.clientWidth) : 704;
+          var width = isCompact ? Math.round(this.clientWidth) : 704;
           if (!width) return;
           var dimensions = {width: width};
           if (!isCompact) dimensions.height = 300;
