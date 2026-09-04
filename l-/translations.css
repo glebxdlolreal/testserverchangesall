@@ -6130,6 +6130,27 @@ a.outdated {
 .language-popup {
   min-width: 290px;
 }
+/* Keep the new-language controls geometrically identical in both themes. */
+.language-popup .textfield-item input.form-control,
+.language-popup .form-control-dropdown-select {
+  box-sizing: border-box;
+  border: 1px solid var(--input-border-color);
+  border-radius: 4px;
+  padding: 10px 12px 9px;
+}
+.language-popup .form-control-dropdown-select {
+  padding-right: 40px;
+}
+.language-popup .textfield-item input.form-control:focus,
+.language-popup .form-control-dropdown-select:focus {
+  border-color: var(--input-focus-color);
+}
+.language-popup .textfield-item-underline {
+  display: none;
+}
+.language-popup .textfield-item.is-invalid input.form-control {
+  border-color: var(--danger-color);
+}
 .language-popup form {
   margin: 30px 0 -20px;
 }
