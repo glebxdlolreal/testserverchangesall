@@ -1,10 +1,3 @@
-(function() {
-  window.TrInitAfterAj = function(init) {
-    if (window.Aj) return init();
-    setTimeout(function() { window.TrInitAfterAj(init); }, 0);
-  };
-})();
-
 (function($) {
   $.fn.initDropdown = function(options) {
     return this.map(function() {
@@ -18,7 +11,6 @@
           $field.val('').trigger('datachange');
         }
         $dd.toggleClass('open', open);
-        $select.attr('aria-expanded', open ? 'true' : 'false');
       }
 
       function onFocus() {
@@ -54,414 +46,23 @@
   }
 })(jQuery);
 
-/* Compact popup focus handling layers over shared popup behavior. */
-var PopupA11y = {
-  registered: false,
-  stack: [],
-  init: function() {
-    if (this.registered) return;
-    this.registered = true;
-    var self = this;
-    $(document).on('popup:open.tr-popup-a11y', '.popup-container, .popup', function(e) {
-      if (!self.compact()) return;
-      if (self.root(this) !== self.root(e.target)) return;
-      self.open(this);
-    }).on('popup:close.tr-popup-a11y', '.popup-container, .popup', function(e) {
-      if (!self.compact()) return;
-      if (self.root(this) !== self.root(e.target)) return;
-      self.close(this);
-    }).on('keydown.tr-popup-a11y', function(e) {
-      if (!self.compact() || e.key !== 'Tab') return;
-      var root = self.top();
-      if (!root) return;
-      var focusable = self.focusable(root);
-      if (!focusable.length) return;
-      var first = focusable[0], last = focusable[focusable.length - 1];
-      var active = document.activeElement;
-      var inside = active === root || $.contains(root, active);
-      if (!inside) {
-        e.preventDefault();
-        (e.shiftKey ? last : first).focus();
-      } else if (e.shiftKey && active === first) {
-        e.preventDefault(); last.focus();
-      } else if (!e.shiftKey && active === last) {
-        e.preventDefault(); first.focus();
-      }
-    });
-    $(window).on('resize.tr-popup-a11y orientationchange.tr-popup-a11y', function() { self.refresh(); });
-    if (window.visualViewport) $(window.visualViewport).on('resize.tr-popup-a11y scroll.tr-popup-a11y', function() { self.refresh(); });
-    Aj.onUnload(function() {
-      self.stack = $.grep(self.stack, function(record) { return document.documentElement.contains(record.root); });
-    });
-  },
-  compact: function() {
-    return !window.matchMedia || window.matchMedia('(max-width: 991px)').matches;
-  },
-  refresh: function() {
-    if (!this.compact()) return;
-    var height = window.visualViewport && window.visualViewport.height || window.innerHeight;
-    $('.popup-container:visible').each(function() {
-      var popup = $('.popup', this).first()[0];
-      if (popup) popup.style.setProperty('--tr-visible-vh', Math.round(height) + 'px');
-    });
-  },
-  root: function(el) {
-    var $el = $(el);
-    // popup:open/close bubbles from both nodes; always track the container so
-    // one dialog cannot create two focus-stack records.
-    return $el.closest('.popup-container')[0] || $el.closest('.popup')[0] || el;
-  },
-  focusable: function(root) {
-    return $(root).find('a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[contenteditable="true"],[tabindex]:not([tabindex="-1"])').filter(':visible').toArray();
-  },
-  top: function() {
-    for (var i = this.stack.length - 1; i >= 0; i--) {
-      if (document.documentElement.contains(this.stack[i].root) && $(this.stack[i].root).is(':visible')) return this.stack[i].root;
-    }
-    return null;
-  },
-  open: function(el) {
-    this.stack = $.grep(this.stack, function(record) { return document.documentElement.contains(record.root) && $(record.root).is(':visible'); });
-    var root = this.root(el);
-    for (var i = 0; i < this.stack.length; i++) if (this.stack[i].root === root) return;
-    var labelled = root.getAttribute('aria-labelledby') || root.querySelector('h1[id],h2[id],h3[id],h4[id],h5[id]');
-    if (!root.getAttribute('role')) root.setAttribute('role', 'dialog');
-    root.setAttribute('aria-modal', 'true');
-    if (labelled && !root.getAttribute('aria-labelledby')) {
-      if (!labelled.id) labelled.id = 'tr-popup-title-' + this.stack.length;
-      root.setAttribute('aria-labelledby', labelled.id);
-    }
-    this.stack.push({root: root, origin: document.activeElement});
-    this.refresh();
-    var first = this.focusable(root)[0];
-    if (first) setTimeout(function() { if (document.documentElement.contains(first)) first.focus(); }, 0);
-  },
-  close: function(el) {
-    var root = this.root(el), record = null;
-    for (var i = this.stack.length - 1; i >= 0; i--) {
-      if (this.stack[i].root === root) { record = this.stack[i]; break; }
-    }
-    if (!record) return;
-    // A parent close can tear down a nested dialog in the same lifecycle.
-    // Prune all contained records while retaining the parent's origin.
-    this.stack = $.grep(this.stack, function(item) {
-      return item.root !== root && !$.contains(root, item.root);
-    });
-    var prior = this.top();
-    var target = record.origin;
-    if ((!target || typeof target.focus !== 'function' || !document.documentElement.contains(target) ||
-         !$(target).is(':visible') || root === target || $.contains(root, target)) && prior) {
-      target = this.focusable(prior)[0];
-    }
-    if (target && document.documentElement.contains(target)) setTimeout(function() { target.focus(); }, 0);
-  }
-};
-TrInitAfterAj(function() { PopupA11y.init(); });
-
-var TrCompactScrollLock = {
-  depth: 0,
-  scrollY: 0,
-  bodyStyles: null,
-  htmlStyles: null,
-  mediaQuery: null,
-  installBreakpoint: function() {
-    if (this.mediaQuery || !window.matchMedia) return;
-    this.mediaQuery = window.matchMedia('(max-width: 991px)');
-    var self = this;
-    var onChange = function(e) {
-      if (typeof Nav !== 'undefined') Nav.stopDrawerTransition();
-      if (e.matches) {
-        var field = document.querySelector('.tr-search-field');
-        var value = field ? (field.value || field.textContent || field.getAttribute('data-value') || '') : '';
-        if (field && (value || document.activeElement === field)) $('.tr-search').addClass('tr-search-open');
-      } else {
-        while (self.depth) self.unlock();
-        $('body').removeClass('tr-drawer-open');
-        $('.tr-drawer-backdrop').prop('hidden', true);
-        $('.tr-compact-nav-toggle').attr({'aria-expanded': 'false', 'aria-label': 'Open navigation'});
-        $('.tr-search').removeClass('tr-search-open');
-        if (typeof Search !== 'undefined') Search._scrollLocked = false;
-        if (typeof EmojiSearch !== 'undefined') {
-          EmojiSearch._scrollLocked = false;
-          var emojiState = EmojiSearch._state;
-          if (emojiState && emojiState.$searchEmojiPanel && emojiState.$searchEmojiPanel.unblockBodyScroll) emojiState.$searchEmojiPanel.unblockBodyScroll();
-        }
-      }
-      if (typeof Nav !== 'undefined') Nav.syncDrawerA11y();
-    };
-    this.breakpointListener = onChange;
-    if (this.mediaQuery.addEventListener) this.mediaQuery.addEventListener('change', onChange);
-    else if (this.mediaQuery.addListener) this.mediaQuery.addListener(onChange);
-  },
-  compact: function() {
-    return !window.matchMedia || window.matchMedia('(max-width: 991px)').matches;
-  },
-  lock: function() {
-    this.installBreakpoint();
-    if (!this.compact()) return false;
-    if (this.depth++) return true;
-    var body = document.body;
-    var html = document.documentElement;
-    this.scrollY = window.pageYOffset || html.scrollTop || 0;
-    this.bodyStyles = {
-      position: body.style.position,
-      top: body.style.top,
-      left: body.style.left,
-      right: body.style.right,
-      width: body.style.width,
-      boxSizing: body.style.boxSizing,
-      overflow: body.style.overflow,
-      paddingRight: body.style.paddingRight,
-    };
-    this.htmlStyles = {scrollbarGutter: html.style.scrollbarGutter};
-    var scrollbarWidth = Math.max(0, window.innerWidth - html.clientWidth);
-    html.style.scrollbarGutter = 'stable';
-    body.style.position = 'fixed';
-    body.style.top = (-this.scrollY) + 'px';
-    body.style.left = '0';
-    body.style.right = '0';
-    body.style.width = '100%';
-    body.style.boxSizing = 'border-box';
-    body.style.overflow = 'hidden';
-    if (scrollbarWidth) body.style.paddingRight = scrollbarWidth + 'px';
-    body.classList.add('tr-scroll-locked');
-    return true;
-  },
-  unlock: function() {
-    if (!this.depth) return;
-    if (--this.depth) return;
-    var body = document.body;
-    var html = document.documentElement;
-    var y = this.scrollY;
-    var bodyStyles = this.bodyStyles || {};
-    var htmlStyles = this.htmlStyles || {};
-    body.classList.remove('tr-scroll-locked');
-    body.style.position = bodyStyles.position || '';
-    body.style.top = bodyStyles.top || '';
-    body.style.left = bodyStyles.left || '';
-    body.style.right = bodyStyles.right || '';
-    body.style.width = bodyStyles.width || '';
-    body.style.boxSizing = bodyStyles.boxSizing || '';
-    body.style.overflow = bodyStyles.overflow || '';
-    body.style.paddingRight = bodyStyles.paddingRight || '';
-    html.style.scrollbarGutter = htmlStyles.scrollbarGutter || '';
-    window.scrollTo(0, y);
-    this.bodyStyles = this.htmlStyles = null;
-  }
-};
-
-var TrMotion = {
-  installed: false,
-  active: function() {
-    return TrCompactScrollLock.compact() && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  },
-  install: function() {
-    if (this.installed) return;
-    this.installed = true;
-    var self = this;
-    ['animate', 'fadeIn', 'fadeOut', 'fadeToggle', 'slideDown', 'slideUp', 'slideToggle'].forEach(function(name) {
-      var original = $.fn[name];
-      if (!original || original._trMotionWrapped) return;
-      var wrapped = function() {
-        if (!self.active()) return original.apply(this, arguments);
-        var args = Array.prototype.slice.call(arguments);
-        if (name === 'animate') {
-          if (args[1] && typeof args[1] === 'object') args[1] = $.extend({}, args[1], {duration: 0});
-          else if (typeof args[1] !== 'undefined') args[1] = 0;
-        } else if (typeof args[0] === 'number') {
-          args[0] = 0;
-        }
-        return original.apply(this, args);
-      };
-      wrapped._trMotionWrapped = true;
-      $.fn[name] = wrapped;
-    });
-  }
-};
-
-var TrSemanticAudit = {
-  selectors: '.key-usage-header,.comment-reply-link,.comment-delele-btn,.comment-restore-btn,.comment-delete-all-btn,.key-suggestion-delete,.key-suggestion-delete-all,.key-suggestion-comment,.key-suggestion-edit,.key-suggestion-like,.key-suggestion-dislike,.mark-as-translated-btn,.key-add-suggestion-header-wrap,.tr-emoji-keywords-suggestion-btn,.tr-emoji-keywords-suggestion-header .tr-back,.tr-emoji-keyword-new .tr-back,.tr-search-emoji-icon,.tr-key-block-close,.langpack-enable,.app-release',
-  imeSelector: '.tr-search-field,.key-add-suggestion-field,.comment-field,.tr-emoji-keyword-add-form [contenteditable="true"]',
-  imeCapture: null,
-  mutationObserver: null,
-  init: function() {
-    var self = this;
-    Aj.onLoad(function() {
-      TrMotion.install();
-      self.apply();
-      self.bindIme();
-    });
-    $(document).off('keydown.tr-semantic').on('keydown.tr-semantic', self.selectors + ':not(button):not([href])', function(e) {
-      if (e.key !== 'Enter' && e.key !== ' ') return;
-      e.preventDefault();
-      $(this).trigger('click');
-    });
-    $(document).off('keydown.tr-row-selection').on('keydown.tr-row-selection', '.tr-plain-key-row[tabindex="0"]', function(e) {
-      if (e.key !== 'Enter' && e.key !== ' ') return;
-      if ($(e.target).closest('a,button,input,select,textarea,[contenteditable="true"]').length) return;
-      e.preventDefault();
-      e.stopPropagation();
-      $('.tr-row-select', this).first().trigger('click');
-    }).off('click.tr-row-selection', '.tr-row-select').on('click.tr-row-selection', '.tr-row-select', function() {
-      var $row = $(this).closest('.tr-plain-key-row');
-      setTimeout(function() {
-        if ($row.length) $row.attr('aria-selected', $row.hasClass('selected') || $('.tr-row-select', $row).attr('aria-pressed') === 'true' ? 'true' : 'false');
-      }, 0);
-    });
-    $(document).off('click.tr-release-detail').on('click.tr-release-detail', '.app-release', function(e) {
-      if (window.matchMedia && !window.matchMedia('(max-width: 991px)').matches) return;
-      e.preventDefault();
-      e.stopPropagation();
-      var $item = $(this), open = !$item.hasClass('detail-open');
-      $item.siblings('.app-release').removeClass('detail-open').attr('aria-expanded', 'false');
-      $item.toggleClass('detail-open', open).attr('aria-expanded', open ? 'true' : 'false');
-    });
-    if (window.MutationObserver && document.body && !self.mutationObserver) {
-      self.mutationObserver = new MutationObserver(function(records) {
-        for (var i = 0; i < records.length; i++) if (records[i].addedNodes && records[i].addedNodes.length) { self.apply(); break; }
-      });
-      self.mutationObserver.observe(document.body, {childList: true, subtree: true});
-    }
-  },
-  apply: function() {
-    var self = this;
-    $(self.selectors).each(function() {
-      var $el = $(this);
-      if (this.tagName === 'BUTTON' || this.tagName === 'A' && this.getAttribute('href')) return;
-      if (!$el.attr('role')) $el.attr('role', 'button');
-      if (!$el.attr('tabindex')) $el.attr('tabindex', '0');
-      if (!$el.attr('aria-label')) $el.attr('aria-label', $.trim($el.text()) || 'Action');
-    });
-    $('.key-usage-header').each(function() {
-      var $el = $(this), $key = $el.parents('.tr-key-full-block');
-      $el.attr('aria-expanded', $('.key-usage-lines-wrap', $key).is(':visible') ? 'true' : 'false');
-    });
-    $('.app-release').each(function() {
-      var $el = $(this);
-      $el.attr('aria-expanded', $el.hasClass('detail-open') ? 'true' : 'false');
-      if (!$el.attr('aria-label')) $el.attr('aria-label', $el.attr('data-title') || [$el.attr('data-since'), $el.attr('data-until')].filter(Boolean).join(' – ') || 'Release details');
-    });
-    $('.tr-back').each(function() { if (!this.getAttribute('aria-label')) this.setAttribute('aria-label', 'Back'); });
-    $('.tr-header-tab > a').each(function() {
-      var selected = $(this).hasClass('active') || $(this).parent().hasClass('active');
-      this.setAttribute('role', 'tab');
-      this.setAttribute('aria-selected', selected ? 'true' : 'false');
-    });
-    $('.key-add-suggestion-field,.comment-field,.tr-emoji-keyword-add-form [contenteditable="true"],.tr-search-field[contenteditable="true"]').each(function() {
-      var $field = $(this);
-      if (!$field.attr('role')) $field.attr('role', 'textbox');
-      if (!$field.attr('aria-multiline')) $field.attr('aria-multiline', $field.is('.tr-search-field') ? 'false' : 'true');
-      if (!$field.attr('aria-label')) $field.attr('aria-label', $field.attr('data-placeholder') || $field.attr('placeholder') || 'Text');
-    });
-    $('.tr-plain-key-row').each(function() {
-      var $row = $(this);
-      if (!$row.find('.tr-row-select').length) return;
-      $row.attr({role: $row.attr('role') || 'group', tabindex: '0', 'aria-selected': $row.hasClass('selected') || $row.find('.tr-row-select').attr('aria-pressed') === 'true' ? 'true' : 'false'});
-      if (!$row.attr('aria-label') && $row.attr('data-key')) $row.attr('aria-label', $row.attr('data-key'));
-    });
-    $('input.file-upload').each(function() {
-      if (!this.getAttribute('aria-label')) {
-        var label = $(this).closest('[data-label]').attr('data-label') || 'Upload file';
-        this.setAttribute('aria-label', label);
-      }
-    });
-    $('.key-suggestion-like,.key-suggestion-dislike').each(function() {
-      var $counters = $(this).closest('.key-suggestion-counters');
-      $(this).attr('aria-pressed', $(this).hasClass('key-suggestion-like') ? ($counters.hasClass('liked') ? 'true' : 'false') : ($counters.hasClass('disliked') ? 'true' : 'false'));
-    });
-  },
-  bindIme: function() {
-    var self = this;
-    $(document).off('compositionstart.tr-ime', self.imeSelector).on('compositionstart.tr-ime', self.imeSelector, function() {
-      $(this).data('tr-composing', true);
-    }).off('compositionend.tr-ime', self.imeSelector).on('compositionend.tr-ime', self.imeSelector, function() {
-      var field = this;
-      var state = Aj.state;
-      var route = Aj.location().href;
-      var generation = TrResponsiveLifecycle.generation;
-      $(field).data('tr-composing', false);
-      setTimeout(function() {
-        if (state === Aj.state && route === Aj.location().href && generation === TrResponsiveLifecycle.generation &&
-            document.documentElement.contains(field) && $(field).is(self.imeSelector)) {
-          $(field).trigger('input').trigger('contentchange');
-        }
-      }, 0);
-    });
-    if (!self.imeCapture) {
-      self.imeCapture = function(e) {
-        if (e.isComposing || e.inputType === 'insertCompositionText' || $(e.target).data('tr-composing')) e.stopImmediatePropagation();
-      };
-      document.addEventListener('input', self.imeCapture, true);
-    }
-  }
-};
-TrInitAfterAj(function() { TrSemanticAudit.init(); });
-
 
 var Nav = {
-  _registered: false,
-  _scrollY: 0,
-  _returnFocus: null,
-  _drawerTransitionTimer: 0,
-  _languagesDataGeneration: 0,
-  _favoriteGenerations: {},
-  _activationGeneration: 0,
   init: function() {
-    if (Nav._registered) {
-      Nav.bind();
-      return;
-    }
-    Nav._registered = true;
-    Nav.bind();
-    Aj.onLoad(Nav.bind);
+    Aj.onLoad(function(state) {
+      $('.tr-menu-items .active').map(function() {
+        var $sectionEl = $(this).parents('.tr-menu-section');
+        var $selectedItemEl = $('.tr-menu-selected > .tr-menu-item', $sectionEl);
+        $selectedItemEl.css('marginTop', $(this).position().top);
+      });
+      $('.tr-menu-header').on('click', Nav.eToggleMenuSection);
+      $(document).on('mouseover.curPage', '.languages-link', Nav.loadLanguagesData);
+      $(document).on('click.curPage', '.languages-link', Nav.openLanguages);
+      $(document).on('click.curPage', '.langpack-enable', Nav.enableLangPack);
+    });
     Aj.onUnload(function(state) {
-      Nav._languagesDataGeneration++;
-      Nav._activationGeneration++;
-      Nav._favoriteGenerations = {};
-      if (state) {
-        delete state.languagesData;
-        delete state.languagesDataRequestGeneration;
-      }
-      $(document).off('.tr-nav').off('keydown.tr-nav-global');
-      Nav.closeDrawer(null, true);
+      $('.tr-menu-header').off('click', Nav.eToggleMenuSection);
     });
-  },
-  bind: function() {
-    TrCompactScrollLock.installBreakpoint();
-    Nav.bindCurrentMenu();
-    Nav.syncDrawerA11y();
-    $(document).off('.tr-nav').on('click.tr-nav', '.tr-menu-header', Nav.eToggleMenuSection)
-      .on('keydown.tr-nav', '.tr-search-filter-item[role="option"]:not([href]), .tr-languages-filter[role="option"]:not([href]), .languages-link[role="button"], .languages-link a[role="button"], .header-search-btn[role="button"]', Nav.onOptionKeyDown)
-      .on('mouseover.tr-nav focusin.tr-nav', '.languages-link', Nav.loadLanguagesData)
-      .on('click.tr-nav', '.languages-link', Nav.openLanguages)
-      .on('click.tr-nav', '.langpack-enable', Nav.enableLangPack)
-      .on('click.tr-nav', '.header-auth-name', function() {
-        var button = this;
-        setTimeout(function() { $(button).attr('aria-expanded', $(button).parent().hasClass('open') ? 'true' : 'false'); }, 0);
-      })
-      .on('click.tr-nav', '.tr-compact-nav-toggle', Nav.toggleDrawer)
-      .on('click.tr-nav', '.tr-compact-search,.header-search-btn', Nav.openSearch)
-      .on('click.tr-nav', '.tr-search-close', Nav.closeSearch)
-      .on('click.tr-nav', '.tr-drawer-backdrop', Nav.closeDrawer)
-      .on('click.tr-nav', '#tr-mobile-drawer a[href]:not(.languages-link)', Nav.closeDrawerForNavigation)
-      .on('click.tr-nav', '.tr-compact-back', Nav.goBack);
-    $(document).off('keydown.tr-nav-global').on('keydown.tr-nav-global', Nav.onGlobalKeyDown);
-  },
-  bindCurrentMenu: function() {
-    if (window.matchMedia && window.matchMedia('(max-width: 991px)').matches && !$('body').hasClass('tr-drawer-open')) {
-      return;
-    }
-    $('.tr-menu-items .active').each(function() {
-      var $sectionEl = $(this).parents('.tr-menu-section');
-      if (!$sectionEl.is(':visible')) return;
-      $('.tr-menu-selected > .tr-menu-item', $sectionEl).css('marginTop', $(this).position().top);
-    });
-  },
-  onOptionKeyDown: function(e) {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      this.click();
-    }
   },
   eToggleMenuSection: function(e) {
     var $sectionEl = $(this).parents('.tr-menu-section');
@@ -482,115 +83,6 @@ var Nav = {
 
     $('.tr-menu-items', $sectionEl).prepareSlideY();
     $sectionEl.toggleClass('tr-menu-section-collapsed', state);
-    $sectionEl.find('> .tr-menu-header-wrap > .tr-menu-header').attr('aria-expanded', state ? 'false' : 'true');
-  },
-  toggleDrawer: function(e) {
-    if (e) {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-    }
-    if ($('body').hasClass('tr-drawer-open')) {
-      Nav.closeDrawer(e);
-    } else {
-      Nav.openDrawer(e);
-    }
-  },
-  openDrawer: function(e) {
-    Nav._scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
-    Nav._returnFocus = Nav.visibleNavToggle();
-    Nav.startDrawerTransition();
-    TrCompactScrollLock.lock();
-    $('body').addClass('tr-drawer-open');
-    Nav.setDrawerHidden(false);
-    $('.tr-drawer-backdrop').prop('hidden', false);
-    $('.tr-compact-nav-toggle').attr({'aria-expanded': 'true', 'aria-label': 'Close navigation'});
-    Nav.bindCurrentMenu();
-    var first = document.querySelector('#tr-mobile-drawer a, #tr-mobile-drawer button');
-    var route = Aj.location().href;
-    var state = Aj.state;
-    if (first) setTimeout(function(){ if (state === Aj.state && route === Aj.location().href && document.documentElement.contains(first)) first.focus(); }, 0);
-  },
-  closeDrawer: function(e, silent) {
-    if (e) {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-    }
-    if (silent) Nav.stopDrawerTransition();
-    if (!$('body').hasClass('tr-drawer-open')) return;
-    if (!silent) Nav.startDrawerTransition();
-    $('body').removeClass('tr-drawer-open');
-    Nav.setDrawerHidden(TrCompactScrollLock.compact());
-    $('.tr-drawer-backdrop').prop('hidden', true);
-    $('.tr-compact-nav-toggle').attr({'aria-expanded': 'false', 'aria-label': 'Open navigation'});
-    TrCompactScrollLock.unlock();
-    if (!silent) {
-      var focusTarget = Nav.visibleNavToggle() || Nav._returnFocus;
-      if (focusTarget && document.contains(focusTarget)) focusTarget.focus();
-    }
-    Nav._returnFocus = null;
-  },
-  startDrawerTransition: function() {
-    Nav.stopDrawerTransition();
-    $('body').addClass('tr-drawer-transition');
-    Nav._drawerTransitionTimer = setTimeout(Nav.stopDrawerTransition, 240);
-  },
-  stopDrawerTransition: function() {
-    if (Nav._drawerTransitionTimer) clearTimeout(Nav._drawerTransitionTimer);
-    Nav._drawerTransitionTimer = 0;
-    $('body').removeClass('tr-drawer-transition');
-  },
-  openSearch: function(e) {
-    if ($('.tr-search-emoji-panel').length && window.EmojiSearch) {
-      EmojiSearch.eOpen(e);
-    } else if (window.Search) {
-      Search.eOpen(e);
-    }
-  },
-  closeSearch: function(e) {
-    if ($('.tr-search-emoji-panel').length && window.EmojiSearch) {
-      EmojiSearch.close(e);
-    } else if (window.Search) {
-      Search.close(e);
-    }
-  },
-  closeDrawerForNavigation: function() {
-    Nav.closeDrawer(null, true);
-  },
-  setDrawerHidden: function(hidden) {
-    var drawer = document.getElementById('tr-mobile-drawer');
-    if (!drawer) return;
-    if (hidden) drawer.setAttribute('aria-hidden', 'true'); else drawer.removeAttribute('aria-hidden');
-    drawer.inert = !!hidden;
-  },
-  syncDrawerA11y: function() {
-    Nav.setDrawerHidden(TrCompactScrollLock.compact() && !$('body').hasClass('tr-drawer-open'));
-  },
-  visibleNavToggle: function() {
-    var nodes = document.querySelectorAll('.tr-compact-nav-toggle');
-    for (var i = 0; i < nodes.length; i++) if ($(nodes[i]).is(':visible') && nodes[i].getClientRects().length) return nodes[i];
-    return null;
-  },
-  goBack: function(e) {
-    /* Let the rendered parent link drive navigation. */
-    if (e) e.stopImmediatePropagation();
-    Nav.closeDrawer(null, true);
-  },
-  onGlobalKeyDown: function(e) {
-    if (e.key === 'Escape') {
-      if ($('body').hasClass('tr-drawer-open')) {
-        Nav.closeDrawer(e);
-      }
-      if ($('.tr-search').hasClass('tr-search-open') && window.Search) Search.close();
-      return;
-    }
-    if (e.key !== 'Tab' || !$('body').hasClass('tr-drawer-open')) return;
-    var drawer = document.getElementById('tr-mobile-drawer');
-    if (!drawer) return;
-    var focusable = drawer.querySelectorAll('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])');
-    if (!focusable.length) return;
-    var first = focusable[0], last = focusable[focusable.length - 1];
-    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   },
   openFilePopup: function(e) {
     e.stopImmediatePropagation();
@@ -609,7 +101,6 @@ var Nav = {
       var lang_pack = $(this).data('value');
       var filtered = Aj.state.langFilters[lang_pack] || false;
       $(this).parent('li').toggleClass('selected', !filtered);
-      $(this).attr('aria-selected', filtered ? 'false' : 'true');
     });
   },
   toggleLanguageFilter: function(e) {
@@ -651,10 +142,8 @@ var Nav = {
   },
   reloadLanguagesData: function() {
     delete Aj.state.languagesData;
-    delete Aj.state.languagesDataError;
     return Nav.getLanguagesData(function() {
-      $('.tr-languages-results').attr('aria-busy', 'false');
-      $('.tr-languages-search-field').trigger('dataready').trigger('contentchange');
+      $('.tr-languages-search-field').trigger('contentchange');
     });
   },
   getLanguagesData: function(onDataReady) {
@@ -665,17 +154,9 @@ var Nav = {
       return _data;
     }
     Aj.state.languagesData = false;
-    var requestRoute = Aj.location().href;
-    var requestState = Aj.state;
-    var requestGeneration = ++Nav._languagesDataGeneration;
-    Aj.state.languagesDataRequestGeneration = requestGeneration;
     Aj.apiRequest('getLanguages', {
       lang: Aj.state.curLang
     }, function(result) {
-      if (requestGeneration !== Nav._languagesDataGeneration || requestState !== Aj.state || Aj.location().href !== requestRoute) {
-        if (requestState && requestState.languagesDataRequestGeneration === requestGeneration) delete requestState.languagesData;
-        return;
-      }
       if (result.data) {
         for (var i = 0; i < result.data.length; i++) {
           var item = result.data[i];
@@ -685,13 +166,7 @@ var Nav = {
           }
         }
         Aj.state.languagesData = result.data;
-        delete Aj.state.languagesDataRequestGeneration;
         onDataReady && onDataReady();
-      } else {
-        Aj.state.languagesData = [];
-        Aj.state.languagesDataError = result.error || 'Unable to load languages.';
-        delete Aj.state.languagesDataRequestGeneration;
-        onDataReady && onDataReady(false);
       }
     });
     return false;
@@ -729,39 +204,22 @@ var Nav = {
     var el = this;
     var lang = this.value;
     var fav  = this.checked;
-    var previousFav = !fav;
-    var langItems = Aj.state.languagesData || [];
-    for (var i = 0; i < langItems.length; i++) {
-      if (langItems[i].lang == lang) {
-        previousFav = !!langItems[i].fav;
-        langItems[i].fav = fav;
-        break;
-      }
-    }
-    var requestRoute = Aj.location().href;
-    var requestState = Aj.state;
-    var requestGeneration = (Nav._favoriteGenerations[lang] || 0) + 1;
-    Nav._favoriteGenerations[lang] = requestGeneration;
     Aj.apiRequest('toggleLanguageFavorite', {
       lang: lang,
       fav:  fav ? 1 : 0
     }, function(result) {
-      if (requestGeneration !== Nav._favoriteGenerations[lang] || requestState !== Aj.state || Aj.location().href !== requestRoute || !document.documentElement.contains(el)) return;
       if (result.error) {
-        $('.tr-languages-status').text(result.error);
         showAlert(result.error);
-        var lang_items = Aj.state.languagesData || [];
+        var lang_items = Aj.state.languagesData;
         for (var i = 0; i < lang_items.length; i++) {
           var item = lang_items[i];
           if (item.lang == lang) {
-            item.fav = previousFav;
-            el.checked = previousFav;
+            el.checked = !!item.fav;
             break;
           }
         }
       } else if (result.ok) {
-        $('.tr-languages-status').text('');
-        var lang_items = Aj.state.languagesData || [];
+        var lang_items = Aj.state.languagesData;
         var fav_items = [];
         var cur_lang = Aj.state.curLang;
         var cur_lang_item = false;
@@ -801,15 +259,16 @@ var Nav = {
     });
   },
   openLanguages: function(e) {
-    Nav._returnFocus = Nav.visibleNavToggle() || (e && e.currentTarget);
-    Nav.closeDrawer(e, true);
-    var returnFocus = Nav._returnFocus || Nav.visibleNavToggle();
-    if (returnFocus && document.contains(returnFocus)) returnFocus.focus();
-    var $field, $results;
+    if ($('.tr-container').hasClass('mobile-view')) {
+      var href = $(this).attr('data-href');
+      if (href) {
+        document.location = href;
+        return true;
+      }
+    }
     $('#languages-popup-container').one('popup:open', function(popup) {
-      $field = $('.tr-languages-search-field');
+      $field   = $('.tr-languages-search-field');
       $results = $('.tr-languages-results');
-      $results.attr('aria-busy', 'true');
       Nav.initLanguageFilter();
       $field.initSearch({
         $results: $results,
@@ -829,10 +288,9 @@ var Nav = {
           } else {
             available = true;
           }
-          return (!Aj.unauth ? '<label class="checkbox-item"><input type="checkbox" class="checkbox" name="lang" value="' + item.lang + '" aria-label="Favorite ' + cleanHTML(item.name) + '"' + (item.fav ? ' checked' : '') + (item.def_fav ? ' disabled' : '') + '><span class="checkbox-input ripple-handler"><span class="ripple-mask"><span class="ripple"></span></span><span class="checkbox-input-icon"></span></span></label>' : '') + '<div class="tr-badges">' + Nav.getLanguageBadges(item) + '</div><a href="' + Nav.languageHref(item.lang) + '" class="tr-languages-result' + (item.def ? ' default' : '') + '' + (!available ? ' unavailable' : '') + '" aria-label="' + cleanHTML(item.name) + (!item.def ? ' (' + cleanHTML(item.native_name) + ')' : '') + '"><span class="tr-languages-name">' + item.name + '</span>' + (!item.def ? '<span class="tr-languages-native-name" dir="auto">' + item.native_name + '</span>' : '') + '</a>';
+          return (!Aj.unauth ? '<label class="checkbox-item"><input type="checkbox" class="checkbox" name="lang" value="' + item.lang + '"' + (item.fav ? ' checked' : '') + (item.def_fav ? ' disabled' : '') + '><span class="checkbox-input ripple-handler"><span class="ripple-mask"><span class="ripple"></span></span><span class="checkbox-input-icon"></span></span></label>' : '') + '<div class="tr-badges">' + Nav.getLanguageBadges(item) + '</div><a href="' + Nav.languageHref(item.lang) + '" class="tr-languages-result' + (item.def ? ' default' : '') + '' + (!available ? ' unavailable' : '') + '"><span class="tr-languages-name">' + item.name + '</span>' + (!item.def ? '<span class="tr-languages-native-name">' + item.native_name + '</span>' : '') + '</a>';
         },
         renderNoItems: function() {
-          if (Aj.state.languagesDataError) return '<div class="tr-languages-no-results" role="alert">' + cleanHTML(Aj.state.languagesDataError) + '<br><button type="button" class="btn btn-default tr-languages-retry">Retry</button></div>';
           return '<div class="tr-languages-no-results">' + l('WEB_NO_LANGUAGES_FOUND') + '</div>';
         },
         renderLoading: function() {
@@ -840,7 +298,6 @@ var Nav = {
         },
         getData: function() {
           return Nav.getLanguagesData(function() {
-            $results.attr('aria-busy', 'false');
             $field.trigger('dataready');
             $('input[checked]', $results).trigger('hover');
           });
@@ -858,7 +315,6 @@ var Nav = {
       $results.on('click', '.search-item a[href]', preventDefault);
       $results.on('mousedown', '.checkbox-item', stopImmediatePropagation);
       $results.on('change', '.checkbox', Nav.toggleLanguageFavorite);
-      $results.on('click', '.tr-languages-retry', function(e) { e.preventDefault(); $results.attr('aria-busy', 'true'); Nav.reloadLanguagesData(); });
       $results.initRipple();
       Nav.reloadLanguagesData();
     });
@@ -869,10 +325,8 @@ var Nav = {
       $results.off('click', '.search-item a[href]', preventDefault);
       $results.off('mousedown', '.checkbox-item', stopImmediatePropagation);
       $results.off('change', '.checkbox', Nav.toggleLanguageFavorite);
-      $results.off('click', '.tr-languages-retry');
       $results.destroyRipple();
       $field.destroySearch();
-      if (returnFocus && document.contains(returnFocus) && $(returnFocus).is(':visible')) returnFocus.focus();
     });
     openPopup('#languages-popup-container', {closeByClickOutside: '.popup-body'});
     $(this).parents('.open').find('.dropdown-toggle').dropdown('toggle');
@@ -901,14 +355,11 @@ var Nav = {
     var lang_name = $(this).data('lang-name');
     var lang = $(this).data('lang');
     var confirm_text = l('WEB_ACTIVATE_LANGPACK_CONFIRM_TEXT', {lang_pack: cleanHTML(lang_pack_name), lang: cleanHTML(lang_name)});
-    var requestRoute = Aj.location().href;
-    var requestGeneration = ++Nav._activationGeneration;
     showConfirm(confirm_text, function() {
         Aj.apiRequest('activateLangPack', {
           lang_pack: lang_pack,
           lang: lang
         }, function(result) {
-          if (requestGeneration !== Nav._activationGeneration || Aj.location().href !== requestRoute) return;
           if (result.error) {
             showAlert(result.error);
           }
@@ -919,58 +370,35 @@ var Nav = {
     }, l('WEB_ACTIVATE_LANGPACK_CONFIRM_BUTTON'));
   }
 };
-TrInitAfterAj(function() { Nav.init(); });
 
 var Header = {
   init: function() {
     Aj.onLoad(function(state) {
-      $(window).off('scroll.tr-header').on('scroll.tr-header', Header.onScroll);
+      $(window).on('scroll', Header.onScroll);
     });
     Aj.onUnload(function(state) {
-      $(window).off('scroll.tr-header');
+      $(window).off('scroll', Header.onScroll);
     });
   },
   onScroll: function() {
-    if (window.matchMedia && window.matchMedia('(max-width: 991px)').matches) {
-      $('header').css('marginLeft', '');
-      return;
-    }
     var scrollLeft = $(window).scrollLeft();
     $('header').css('marginLeft', -scrollLeft);
   }
 };
 
 var Search = {
-  _generation: 0,
-  _registered: false,
-  _scrollLocked: false,
-  _touchScrollStart: 0,
   init: function() {
-    if (Search._registered) return;
-    Search._registered = true;
     Aj.onLoad(function(state) {
-      Search._generation++;
       var $field = $('.tr-search-field');
       var $results = $('.tr-search-results');
-      $('.header-search-btn,.tr-compact-search').off('click.tr-search').on('click.tr-search', Search.eOpen);
-      $('.tr-search-filter-where').off('click.tr-search').on('click.tr-search', '.tr-search-filter-item', Search.eChangeWhere);
-      $('.tr-search-filter-lang').off('click.tr-search').on('click.tr-search', '.tr-search-filter-item', Search.eChangeLang);
-      $('.tr-search-filter-langpack').off('click.tr-search').on('click.tr-search', '.tr-search-filter-item', Search.eChangeLangpack);
-      $('.tr-search-reset').off('click.tr-search').on('click.tr-search', Search.eClearField);
-      $('.tr-search-close').off('click.tr-search').on('click.tr-search', Search.close);
-      $(document).off('click.tr-search-retry').on('click.tr-search-retry', '.tr-search-retry', Search.eRetryData);
-      $('.tr-search-binding').off('click.tr-search').on('click.tr-search', function(e) {
-        e.preventDefault();
-        Search.bindingModeOff();
-        $field.trigger('datachange');
-      });
-      $('.tr-search-field-wrap').off('mousedown.tr-search').on('mousedown.tr-search', Search.eOpen);
-      $field.off('blur.tr-search').on('blur.tr-search', Search.onScroll);
-      $('.tr-search-results,.tr-search-filters').off('.tr-search-scroll')
-        .on('touchstart.tr-search-scroll', Search.eLockScroll)
-        .on('touchmove.tr-search-scroll', Search.eLockScroll)
-        .on('touchend.tr-search-scroll touchcancel.tr-search-scroll', Search.eUnlockScroll)
-        .on('wheel.tr-search-scroll', Search.eLockScroll);
+      $('.header-search-btn').on('click', Search.eOpen);
+      $('.tr-search-filter-where').on('click', '.tr-search-filter-item', Search.eChangeWhere);
+      $('.tr-search-filter-lang').on('click', '.tr-search-filter-item', Search.eChangeLang);
+      $('.tr-search-filter-langpack').on('click', '.tr-search-filter-item', Search.eChangeLangpack);
+      $('.tr-search-filter-wrap .dropdown-menu').on('mouseover mouseout', Search.eLockScroll);
+      $('.tr-search-reset').on('click', Search.eClearField);
+      $('.tr-search-field-wrap').on('mousedown', Search.eOpen);
+      $field.on('blur', Search.onScroll);
       $field.initSearch({
         $results: $results,
         $enter: $('.tr-search-enter'),
@@ -1051,11 +479,9 @@ var Search = {
             key_hl = query;
             val_hl = query;
           }
-          return '<a href="' + cleanAttr(href) + '" class="tr-search-result"><div class="tr-def-value">' + wrapLangValue(item.def_value, false, val_hl) + '</div><div class="tr-lang-key">' + Search.wrapHighlight(item.key, key_hl) + (!Aj.state.searchLangpack && Aj.state.langpackNames[item.lang_pack] ? '<span class="key-langpack">' + cleanHTML(Aj.state.langpackNames[item.lang_pack]) + '</span>' : '') + '</div>' + (item.value ? '<div class="tr-value">' + wrapLangValue(item.value, item.rtl, val_hl) + '</div>' : '') + '</a>';
+          return '<a href="' + href + '" class="tr-search-result"><div class="tr-def-value">' + wrapLangValue(item.def_value, false, val_hl) + '</div><div class="tr-lang-key">' + Search.wrapHighlight(item.key, key_hl) + (!Aj.state.searchLangpack && Aj.state.langpackNames[item.lang_pack] ? '<span class="key-langpack">' + Aj.state.langpackNames[item.lang_pack] + '</span>' : '') + '</div>' + (item.value ? '<div class="tr-value">' + wrapLangValue(item.value, item.rtl, val_hl) + '</div>' : '') + '</div></a>';
         },
         renderNoItems: function() {
-          var error = Search.getDataError(Aj.state.searchLang, Aj.state.searchLangpack);
-          if (error) return '<div class="tr-search-no-results" role="alert">' + cleanHTML(error) + '<br><button type="button" class="btn btn-default tr-search-retry" data-lang="' + cleanAttr(Aj.state.searchLang) + '" data-langpack="' + cleanAttr(Aj.state.searchLangpack || '') + '">Retry</button></div>';
           return '<div class="tr-search-no-results">' + l('WEB_NO_TRANSLATIONS_FOUND') + '</div>';
         },
         renderLoading: function() {
@@ -1084,7 +510,6 @@ var Search = {
           }
         },
         onInput: function() {
-          if ($(this).data('tr-composing')) return;
           Search.updateField();
         },
         onOpen: function(item) {
@@ -1102,19 +527,18 @@ var Search = {
       $(window).on('scroll', Search.onScroll);
     });
     Aj.onUnload(function(state) {
-      Search._generation++;
       var $field = $('.tr-search-field');
       var $results = $('.tr-search-results');
       $field.destroySearch();
-      $('.header-search-btn,.tr-compact-search').off('.tr-search');
-      $('.tr-search-filter-where,.tr-search-filter-lang,.tr-search-filter-langpack').off('.tr-search');
-      $('.tr-search-reset,.tr-search-close').off('.tr-search');
-      $('.tr-search-binding').off('.tr-search');
-      $('.tr-search-field-wrap').off('.tr-search');
-      $('.tr-search-results,.tr-search-filters').off('.tr-search-scroll');
-      $field.off('.tr-search');
+      $('.header-search-btn').off('click', Search.eFocus);
+      $('.tr-search-filter-where').off('click', '.tr-search-filter-item', Search.eChangeWhere);
+      $('.tr-search-filter-lang').off('click', '.tr-search-filter-item', Search.eChangeLang);
+      $('.tr-search-filter-langpack').off('click', '.tr-search-filter-item', Search.eChangeLangpack);
+      $('.tr-search-filter-wrap .dropdown-menu').off('mouseover mouseout', Search.eLockScroll);
+      $('.tr-search-reset').off('click', Search.eClearField);
+      $('.tr-search-field-wrap').off('mousedown', Search.eOpen);
+      $field.off('blur', Search.onScroll);
       $(window).off('scroll', Search.onScroll);
-      Search.releaseScrollLock();
     });
   },
   simplify: function(str) {
@@ -1256,9 +680,7 @@ var Search = {
   },
   updateSearchFilter: function($filter, value, text) {
     $('li.selected', $filter).removeClass('selected');
-    $('a.tr-search-filter-item', $filter).attr('aria-selected', 'false');
     $('a.tr-search-filter-item[data-value="' + value + '"]', $filter).parent('li').addClass('selected');
-    $('a.tr-search-filter-item[data-value="' + value + '"]', $filter).attr('aria-selected', 'true');
     $('.tr-search-filter', $filter).text(text);
   },
   eChangeWhere: function() {
@@ -1340,7 +762,6 @@ var Search = {
     var $field = $('.tr-search-field');
     $('.tr-search').addClass('tr-search-binding-mode');
     Aj.state.searchModeBinding = true;
-    Aj.state.binding = true;
     Aj.state.searchBindToWrapEl = $wrapEl;
     Aj.state.searchBindTo = bind_to;
     Aj.state.searchBindPrevLangpack = Aj.state.searchLangpack;
@@ -1352,7 +773,6 @@ var Search = {
     var $field = $('.tr-search-field');
     $('.tr-search').removeClass('tr-search-binding-mode');
     Aj.state.searchModeBinding = false;
-    Aj.state.binding = false;
     delete Aj.state.searchBindToWrapEl;
     delete Aj.state.searchBindTo;
     if (Aj.state.searchBindPrevLangpack) {
@@ -1362,51 +782,17 @@ var Search = {
     }
   },
   eOpen: function(e) {
-    if (e && $(e.target).closest('.tr-search-close').length) return;
-    e && e.preventDefault();
     Search.focus();
-  },
-  close: function(e) {
-    e && e.preventDefault();
-    if (Aj.state && Aj.state.searchModeBinding) Search.bindingModeOff();
-    $('.tr-search').removeClass('tr-search-open tr-search-binding-mode');
-    Search.releaseScrollLock();
-    if (Aj.state) Aj.state.searchModeBinding = false;
-    var btn = document.querySelector('.tr-compact-search, .header-search-btn');
-    if (btn && window.matchMedia && window.matchMedia('(max-width: 991px)').matches) btn.focus();
   },
   focus: function(e) {
     $('.tr-search').addClass('tr-search-open');
-    var route = Aj.location().href;
-    var state = Aj.state;
-    setTimeout(function(){ if (state === Aj.state && route === Aj.location().href) $('.tr-search-field').first().focus(); }, 100);
+    setTimeout(function(){ $('.tr-search-field').focus(); }, 100);
   },
   eLockScroll: function(e) {
-    var el = this;
-    var oe = e.originalEvent || e;
-    if (e.type === 'touchstart') {
-      Search._touchScrollStart = oe.touches && oe.touches[0] ? oe.touches[0].clientY : 0;
-      return;
-    }
-    var delta = e.type === 'wheel' ? oe.deltaY : Search._touchScrollStart - (oe.touches && oe.touches[0] ? oe.touches[0].clientY : Search._touchScrollStart);
-    if (!delta) return;
-    var atTop = el.scrollTop <= 0;
-    var atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 1;
-    if (el.scrollHeight <= el.clientHeight || (delta < 0 && atTop) || (delta > 0 && atBottom)) {
-      e.preventDefault();
-    }
-  },
-  eUnlockScroll: function() {
-    Search._touchScrollStart = 0;
+    $('body').css('overflow', (e.type == 'mouseover' ? 'hidden' : ''));
   },
   eClearField: function(e) {
-    if ($(this).data('tr-composing')) return;
     $('.tr-search-field').val('').trigger('input');
-  },
-  releaseScrollLock: function() {
-    if (!Search._scrollLocked) return;
-    Search._scrollLocked = false;
-    TrCompactScrollLock.unlock();
   },
   wrapQKeys: function(item_key) {
     return [Search.simplify(item_key)];
@@ -1449,72 +835,24 @@ var Search = {
         item._values = Search.wrapQValues(item.value, item.def_value);
       }
       Search._data[data_key] = data;
-      delete Search._errors[data_key];
     }
   },
   clearData: function(lang, lang_pack) {
     var data_key = lang + '_' + lang_pack;
-    if (!lang_pack) {
-      var prefix = lang + '_';
-      Object.keys(Search._data).forEach(function(key) { if (key.indexOf(prefix) === 0) delete Search._data[key]; });
-      Object.keys(Search._dataRequests).forEach(function(key) { if (key.indexOf(prefix) === 0) delete Search._dataRequests[key]; });
-      Object.keys(Search._errors).forEach(function(key) { if (key.indexOf(prefix) === 0) delete Search._errors[key]; });
-      return;
-    }
     delete Search._data[data_key];
-    delete Search._dataRequests[data_key];
-    delete Search._errors[data_key];
     delete Search._data[lang + '_'];
-    delete Search._dataRequests[lang + '_'];
-    delete Search._errors[lang + '_'];
-  },
-  getDataError: function(lang, lang_pack) {
-    var error = Search._errors[lang + '_' + lang_pack];
-    return error && error.message || '';
-  },
-  eRetryData: function(e) {
-    e.preventDefault();
-    var $button = $(this), lang = $button.attr('data-lang'), lang_pack = $button.attr('data-langpack') || '';
-    Search.clearData(lang, lang_pack);
-    var $field = $button.closest('.screenshot-key-edit-results').length ? $('.screenshot-key-edit-field', Aj.layer) : $('.tr-search-field');
-    $field.trigger('datachange');
   },
   getData: function(lang, lang_pack, onDataReady) {
-    var generation = Search._generation;
-    var route = Aj.location().href;
-    var state = Aj.state;
     var data_key = lang + '_' + lang_pack;
     var _data = Search._data[data_key];
-    var request = Search._dataRequests[data_key];
-    var error = Search._errors[data_key];
-    if (error && (error.state !== state || error.route !== route)) {
-      delete Search._errors[data_key];
-      delete Search._data[data_key];
-      _data = undefined;
-    }
-    var current = function() {
-      return generation === Search._generation && state === Aj.state && route === Aj.location().href;
-    };
     if (_data === false) {
-      if (request && request.generation === generation && request.state === state && request.route === route) return false;
-      delete Search._dataRequests[data_key];
-      delete Search._data[data_key];
+      return false;
     } else if (_data) {
       return Search._data[data_key];
     }
     if (!lang_pack) {
-      var aggregate_key = data_key;
-      request = {generation: generation, state: state, route: route};
-      Search._dataRequests[aggregate_key] = request;
-      Search._data[aggregate_key] = false;
+      Search._data[data_key] = false;
       var checkReady = function() {
-        if (!current()) {
-          if (Search._dataRequests[aggregate_key] === request) {
-            delete Search._dataRequests[aggregate_key];
-            if (Search._data[aggregate_key] === false) delete Search._data[aggregate_key];
-          }
-          return false;
-        }
         var langpacks = Aj.state.langpackList;
         var data = [];
         var ready_count = 0;
@@ -1528,12 +866,7 @@ var Search = {
           }
         }
         if (ready_count == langpacks.length) {
-          Search._data[aggregate_key] = data;
-          for (var e = 0; e < langpacks.length; e++) {
-            var childError = Search._errors[lang + '_' + langpacks[e]];
-            if (childError) { Search._errors[aggregate_key] = childError; break; }
-          }
-          if (Search._dataRequests[aggregate_key] === request) delete Search._dataRequests[aggregate_key];
+          Search._data[lang + '_'] = data;
           onDataReady && onDataReady();
           return data;
         }
@@ -1550,26 +883,16 @@ var Search = {
       }
       return checkReady();
     } else {
-      request = {generation: generation, state: state, route: route};
-      Search._dataRequests[data_key] = request;
       Search._data[data_key] = false;
       Aj.apiRequest('getLangPackFull', {
         lang: lang,
         lang_pack: lang_pack,
       }, function(result) {
-        if (Search._dataRequests[data_key] !== request) return;
-        delete Search._dataRequests[data_key];
-        if (!current()) {
-          if (Search._data[data_key] === false) delete Search._data[data_key];
-          return;
-        }
         if (result.data) {
           Search.applyData(lang, result.data, result.rtl);
           onDataReady && onDataReady();
         } else {
-          Search._data[data_key] = [];
-          Search._errors[data_key] = {message: result.error || 'Unable to load translations.', state: state, route: route};
-          onDataReady && onDataReady(false);
+          delete Search._data[data_key];
         }
       });
     }
@@ -1598,9 +921,6 @@ var Search = {
     }
     var case_sensitive = $('.case-sensitive-cbx').prop('checked') ? 1 : 0;
     var use_regexp = $('.use-regexp-cbx').prop('checked') ? 1 : 0;
-    var requestGuard = TrResponsiveLifecycle.requestGuard('Search.replace', btn[0], function() {
-      return [Aj.state.curLang, Aj.state.searchLangpack, Aj.state.searchWhere, query, find, replace, case_sensitive, use_regexp].join('\u0001');
-    });
     btn.prop('disabled', true);
     btn.html(l('WEB_REPLACE_PROCESSING'));
     Aj.apiRequest('searchForReplace', {
@@ -1613,7 +933,6 @@ var Search = {
       case_sensitive: case_sensitive,
       use_regexp: use_regexp
     }, function(result) {
-      if (!requestGuard()) return;
       btn.prop('disabled', false);
       btn.html(l('WEB_FIND_PHRASES_BUTTON'));
       if (result.error) {
@@ -1631,49 +950,10 @@ var Search = {
     });
     $('.tr-keys-blocks').html('');
   },
-  _data: {},
-  _dataRequests: {},
-  _errors: {}
+  _data: {}
 };
 
 var Screenshots = {
-  pageUploadGeneration: 0,
-  pageUploadXhr: null,
-  isCompactTouch: function() {
-    return !!(window.matchMedia && window.matchMedia('(max-width: 991px)').matches &&
-      (navigator.maxTouchPoints > 0 || 'ontouchstart' in window));
-  },
-  sortableSync: function() {
-    var compact = Screenshots.isCompactTouch();
-    $('.tr-screenshots').each(function() {
-      var $screens = $(this);
-      var active = $screens.hasClass('ui-sortable');
-      if (compact) {
-        if (active) $screens.sortable('destroy');
-        return;
-      }
-      if (!active) {
-        $screens.sortable({
-          cursor: 'move',
-          distance: 3,
-          items: '> [data-screenshot-id]',
-          opacity: 0.95,
-          revert: 200,
-          tolerance: 'pointer',
-          zIndex: 99,
-        });
-      }
-      $screens.off('sortupdate.curPage', Screenshots.orderChanged)
-        .on('sortupdate.curPage', Screenshots.orderChanged);
-      if (Aj.state.selection) $screens.sortable('option', 'disabled', true);
-    });
-  },
-  sortableRefresh: function() {
-    $('.tr-screenshots').each(function() {
-      var $screens = $(this);
-      if ($screens.hasClass('ui-sortable')) $screens.sortable('refresh');
-    });
-  },
   eUpload: function(e) {
     var file = this.files && this.files[0] || null;
     var section = $(this).attr('data-section') || '';
@@ -1687,33 +967,11 @@ var Screenshots = {
   upload: function(file, section, source, screenshot_id, lang_pack) {
     var data = new FormData();
     data.append('file', file);
-    var route = Aj.location().href;
-    var state = Aj.state;
-    var lifecycleGeneration = TrResponsiveLifecycle.generation;
-    var layer = screenshot_id && Aj.layerState ? Aj.layerState : null;
-    var requestGeneration = layer ? ++layer.requestGeneration : 0;
-    var pageGeneration = layer ? 0 : ++Screenshots.pageUploadGeneration;
-    if (layer && layer.uploadXhr && typeof layer.uploadXhr.abort === 'function') layer.uploadXhr.abort();
-    if (!layer && Screenshots.pageUploadXhr && typeof Screenshots.pageUploadXhr.abort === 'function') Screenshots.pageUploadXhr.abort();
-    var isCurrent = function() {
-      return state === Aj.state && Aj.location().href === route && TrResponsiveLifecycle.isCurrent(lifecycleGeneration) &&
-        (layer ? (Aj.layerState === layer && layer.requestGeneration === requestGeneration) : pageGeneration === Screenshots.pageUploadGeneration);
-    };
-    var $uploadStatus = layer ? $('.tr-upload-status', layer.$bodyEl) : $('.tr-upload-status').first();
-    if (!$uploadStatus.length) {
-      var $uploadRoot = layer ? layer.$bodyEl : $('.tr-screenshot-upload-row,.tr-value-upload-photo').first();
-      if ($uploadRoot && $uploadRoot.length) $uploadStatus = $('<span class="tr-upload-status" role="status" aria-live="polite"></span>').appendTo($uploadRoot);
-    }
-    var setUploadStatus = function(text, busy) {
-      if (!$uploadStatus.length || !isCurrent()) return;
-      $uploadStatus.attr('aria-busy', busy ? 'true' : 'false').text(text || '');
-    };
-    setUploadStatus(l('WEB_TRANSLATIONS_LOADING') + ' 0%', true);
     if (screenshot_id && Aj.layerState) {
       Aj.layerState.$imgEl.fadeHide();
       Aj.layerState.$layerEl.fadeHide();
     }
-    var uploadXhr = $.ajax({
+    $.ajax({
       url: 'https://telegra.ph/upload?source=translations_screenshot',
       type: 'POST',
       data: data,
@@ -1724,19 +982,20 @@ var Screenshots = {
       xhr: function() {
         var xhr = new XMLHttpRequest();
         xhr.upload.addEventListener('progress', function(event) {
-          if (event.lengthComputable) setUploadStatus(l('WEB_TRANSLATIONS_LOADING') + ' ' + Math.round(event.loaded / event.total * 100) + '%', true);
+          if (event.lengthComputable) {
+            console.log('progress', event.loaded, event.total);
+            // onProgress && onProgress(event.loaded, event.total);
+          }
         });
         return xhr;
       },
       beforeSend: function(xhr) {
+        console.log('progress', 0, 1);
+        // onProgress && onProgress(0, 1);
       },
       success: function (data) {
-        if (!isCurrent()) return;
-        if (layer && layer.uploadXhr === uploadXhr) layer.uploadXhr = null;
-        if (!layer && Screenshots.pageUploadXhr === uploadXhr) Screenshots.pageUploadXhr = null;
-        setUploadStatus('', false);
         if (data.error) {
-          if (screenshot_id && Aj.layerState === layer && layer.requestGeneration === requestGeneration) {
+          if (screenshot_id && Aj.layerState) {
             Aj.layerState.$imgEl.fadeShow();
             Aj.layerState.$layerEl.fadeShow();
           }
@@ -1749,38 +1008,29 @@ var Screenshots = {
               screenshot_id: screenshot_id,
               file_data: data.file_data
             }, function(result) {
-              if (!isCurrent()) return;
               if (result.error) {
-                if (Aj.layerState === layer && layer.requestGeneration === requestGeneration) {
+                if (Aj.layerState) {
                   Aj.layerState.$imgEl.fadeShow();
                   Aj.layerState.$layerEl.fadeShow();
                 }
                 return showAlert(result.error);
               }
-              if (Aj.layerState === layer && layer.requestGeneration === requestGeneration && result.src) {
+              if (Aj.layerState && result.src) {
                 var $imgEl = Aj.layerState.$imgEl.clone();
-                $imgEl.attr('src', result.src).addClass('ohide').one('load', function() {
-                  if (isCurrent()) {
+                $imgEl.attr('src', result.src).addClass('ohide').insertBefore(Aj.layerState.$imgEl).one('load', function() {
+                  if (Aj.layerState) {
                     Aj.layerState.$imgEl.remove();
                     Aj.layerState.$imgEl = $imgEl;
-                    $imgEl.off('.curLayer')
-                      .on('load.curLayer', ScreenshotLayer.layerUpdate)
-                      .on('error.curLayer', ScreenshotLayer.onImageError);
-                    if (layer.resizeObserver) layer.resizeObserver.observe($imgEl.get(0));
                     Aj.layerState.$layerEl.css('backgroundImage', 'url(\'' + result.src + '\')');
-                    ScreenshotLayer.onImageLoading(true, layer);
+                    ScreenshotLayer.onImageLoading(true);
                     $imgEl.fadeShow();
                     Aj.layerState.$layerEl.fadeShow();
                   }
                 }).one('error', function() {
-                  if (isCurrent() && Aj.layerState.$imgEl) {
-                    $imgEl.remove();
-                    Aj.layerState.$bodyEl.removeClass('screenshot-image-error');
-                    Aj.layerState.imageError = false;
+                  if (Aj.layerState && Aj.layerState.$imgEl) {
                     Aj.layerState.$imgEl.fadeShow();
-                    Aj.layerState.$layerEl.fadeShow();
                   }
-                }).insertBefore(Aj.layerState.$imgEl);
+                });
               }
             });
           } else {
@@ -1790,13 +1040,12 @@ var Screenshots = {
               section: section,
               file_data: data.file_data
             }, function(result) {
-              if (!isCurrent()) return;
               if (result.error) {
                 return showAlert(result.error);
               }
               if (result.row) {
                 $(result.row).insertBefore('.tr-screenshot-upload-row');
-                Screenshots.sortableRefresh();
+                $('.tr-screenshots').sortable('refresh');
               }
               if (result.id) {
                 var url = Aj.location();
@@ -1808,24 +1057,13 @@ var Screenshots = {
         }
       },
       error: function (xhr) {
-        if (!isCurrent()) return;
-        if (layer && layer.uploadXhr === uploadXhr) layer.uploadXhr = null;
-        if (!layer && Screenshots.pageUploadXhr === uploadXhr) Screenshots.pageUploadXhr = null;
-        setUploadStatus(xhr.statusText || '', false);
-        if (screenshot_id && Aj.layerState === layer && layer.requestGeneration === requestGeneration) {
+        if (screenshot_id && Aj.layerState) {
           Aj.layerState.$imgEl.fadeShow();
           Aj.layerState.$layerEl.fadeShow();
         }
         showAlert('Network error');
       }
     });
-    if (layer) layer.uploadXhr = uploadXhr;
-    else Screenshots.pageUploadXhr = uploadXhr;
-  },
-  cancelPageUpload: function() {
-    Screenshots.pageUploadGeneration++;
-    if (Screenshots.pageUploadXhr && typeof Screenshots.pageUploadXhr.abort === 'function') Screenshots.pageUploadXhr.abort();
-    Screenshots.pageUploadXhr = null;
   },
   orderChanged: function() {
     var screenshot_ids = [];
@@ -1833,23 +1071,18 @@ var Screenshots = {
       var screenshot_id = $(this).attr('data-screenshot-id');
       screenshot_ids.push(screenshot_id);
     });
-    var route = Aj.location().href;
-    var state = Aj.state;
-    var generation = TrResponsiveLifecycle.generation;
     Aj.apiRequest('saveScreenshotsOrder', {
       lang_pack: Aj.state.curLangpack,
       section: Aj.state.curSection,
       screenshot_ids: screenshot_ids.join(',')
     }, function(result) {
-      if (state !== Aj.state || Aj.location().href !== route || !TrResponsiveLifecycle.isCurrent(generation)) return;
       if (result.error) {
         showAlert(result.error);
       }
     });
   },
   eScreenshotClick: function(e) {
-    var $select = $(e.target).closest('.tr-screenshot-select-hit, .tr-selected-icon');
-    if (!$select.size()) {
+    if (!Aj.state.selection && !$(e.target).closest('.tr-selected-icon').size()) {
       return;
     }
     Screenshots.screenshotSelect($(this));
@@ -1858,8 +1091,6 @@ var Screenshots = {
   },
   screenshotSelect($screenEl) {
     $screenEl.toggleClass('selected');
-    var selected = $screenEl.hasClass('selected');
-    $('.tr-screenshot-select-hit', $screenEl).attr('aria-pressed', selected ? 'true' : 'false');
     Screenshots.updateSelected();
   },
   updateSelected() {
@@ -1868,15 +1099,10 @@ var Screenshots = {
     var newSelection = selectedCount > 0;
     var $selectorBtn = $('.move-selected-btn');
     $selectorBtn.text($selectorBtn.attr('data-label').replace('%s', selectedCount));
-    $selectorBtn.attr('aria-label', $selectorBtn.text());
-    $('.tr-screenshot-select-hit', '.tr-screenshot-row[data-screenshot-id]').attr('aria-pressed', 'false');
-    $('.tr-screenshot-select-hit', $selectedEls).attr('aria-pressed', 'true');
     if (!Aj.state.selection !== !newSelection) {
       Aj.state.selection = newSelection;
       $('.tr-header-section-selector').fadeToggle(newSelection);
-      var $screens = $('.tr-screenshots');
-      if ($screens.hasClass('ui-sortable')) $screens.sortable('option', 'disabled', newSelection);
-      $screens.toggleClass('selection', newSelection);
+      $('.tr-screenshots').sortable('option', 'disabled', newSelection).toggleClass('selection', newSelection);
     }
   },
   eEditScreenshotsSection: function(e) {
@@ -1888,8 +1114,6 @@ var Screenshots = {
         $(this).parents('li').hasClass('selected')) {
       return;
     }
-    var route = Aj.location().href;
-    var generation = TrResponsiveLifecycle.generation;
     $selectedEls.each(function() {
       var $screenEl = $(this);
       var screenshotId = $screenEl.attr('data-screenshot-id');
@@ -1899,12 +1123,11 @@ var Screenshots = {
         screenshot_id: screenshotId,
         section: section
       }, function(result) {
-        if (Aj.location().href !== route || !TrResponsiveLifecycle.isCurrent(generation) || !document.documentElement.contains($screenEl[0])) return;
         if (!result.error) {
           $screenEl.remove();
           var $screenEls = $('.tr-screenshot-row[data-screenshot-id]');
           $('.tr-header-counter').text($screenEls.size() || '');
-          Screenshots.sortableRefresh();
+          $('.tr-screenshots').sortable('refresh');
           Screenshots.updateSelected();
         }
       });
@@ -1916,7 +1139,7 @@ var Screenshots = {
     if (!selectedCount) return;
     $selectedEls.prependTo('.tr-screenshots').removeClass('selected');
     Screenshots.orderChanged();
-    Screenshots.sortableRefresh();
+    $('.tr-screenshots').sortable('refresh');
     Screenshots.updateSelected();
   },
   eSendScreenshotsToBottom: function(e) {
@@ -1925,7 +1148,7 @@ var Screenshots = {
     if (!selectedCount) return;
     $selectedEls.insertBefore('.tr-screenshot-upload-row').removeClass('selected');
     Screenshots.orderChanged();
-    Screenshots.sortableRefresh();
+    $('.tr-screenshots').sortable('refresh');
     Screenshots.updateSelected();
   },
   onScroll: function() {
@@ -1965,17 +1188,18 @@ var Recognizer = {
     text = text.replace(/\n/g, ' ');
     return text;
   },
-  getTextFromImage: function(img, x, y, width, height, onComplete, onProgress, onError) {
+  getTextFromImage: function(img, x, y, width, height, onComplete, onProgress) {
     var crop_canvas = document.createElement('canvas');
-    var w = width, h = height;
     crop_canvas.width = width;
     crop_canvas.height = height;
     crop_canvas.getContext('2d').drawImage(img, x, y, width, height, 0, 0, width, height);
     Tesseract.recognize(crop_canvas)
     .progress(function(message) {
       onProgress && onProgress(message);
+      console.log(message);
     })
     .then(function(result) {
+      console.log(result);
       var block = result.blocks[0];
       var coords = false;
       var lr_padding = 7, tb_padding = 10;
@@ -1995,8 +1219,6 @@ var Recognizer = {
       }
       var text = Recognizer.fixRecognizedText(result.text);
       onComplete && onComplete(text, coords);
-    }).catch(function(error) {
-      onError && onError(error);
     });
   }
 }
@@ -2012,7 +1234,6 @@ var ScreenshotLayer = {
       var $imgBgEl = $('.screenshot-full-bg', Aj.layer);
       var $layerEl = $('.screenshot-layer', Aj.layer);
       var $layerWrapEl = $('.screenshot-layer-wrap', Aj.layer);
-      var $sideWrapEl = $('.screenshot-side-wrap', Aj.layer);
       var $searchFieldEl = $('.screenshot-key-edit-field', Aj.layerEl);
       var $searchResultsEl = $('.screenshot-key-edit-results', Aj.layerEl);
 
@@ -2023,46 +1244,25 @@ var ScreenshotLayer = {
       layerState.$imgBgEl = $imgBgEl;
       layerState.$layerEl = $layerEl;
       layerState.$layerWrapEl = $layerWrapEl;
-      layerState.$sideWrapEl = $sideWrapEl;
       layerState.$searchFieldEl = $searchFieldEl;
       layerState.canEditScreenshot = options.can_edit_screenshot || false;
       layerState.canEditPhrases = options.can_edit_phrases || false;
       layerState.$keyEl = null;
       layerState.keyCoords = null;
       layerState.drawing = false;
-      layerState.pointerId = null;
-      layerState.pointerCaptureTarget = null;
-      layerState.ocrGeneration = 0;
-      layerState.requestGeneration = 0;
-      layerState.imgTimeout = null;
-      layerState.imageError = false;
-      layerState.resizeObserver = null;
       layerState.editMode = false;
+
+      ScreenshotLayer.onImageLoading();
 
       Aj.layer.addClass('popup-no-close');
       Aj.layer.one('popup:open.curLayer', ScreenshotLayer.layerUpdate);
       $(document).on('keydown', ScreenshotLayer.onKeyDown);
-      $(window).on('resize orientationchange', ScreenshotLayer.layerUpdate);
-      if (window.visualViewport) $(window.visualViewport).on('resize scroll', ScreenshotLayer.layerUpdate);
-      $imgEl.on('load.curLayer', ScreenshotLayer.layerUpdate);
-      $imgEl.on('error.curLayer', ScreenshotLayer.onImageError);
-      if (window.ResizeObserver) {
-        layerState.resizeObserver = new ResizeObserver(ScreenshotLayer.layerUpdate);
-        layerState.resizeObserver.observe($bodyEl.get(0));
-        layerState.resizeObserver.observe($imgEl.get(0));
-      }
-      ScreenshotLayer.onImageLoading();
+      $(window).on('resize', ScreenshotLayer.layerUpdate);
       Aj.layer.on('click.curLayer', '.screenshot-close-btn', function() {
         closePopup();
       });
       Aj.layer.on('click.curLayer', '.screenshot-key', ScreenshotLayer.eOpenEdit);
       Aj.layer.on('click.curLayer', '.screenshot-key-remove', ScreenshotLayer.eRemoveScreenshotKey);
-      Aj.layer.on('keydown.curLayer', '.screenshot-key-remove', function(e) {
-        if (e.key !== 'Enter' && e.key !== ' ') return;
-        e.preventDefault();
-        e.stopPropagation();
-        $(this).trigger('click');
-      });
       Aj.layer.on('click.curLayer', '.screenshot-remove-btn', ScreenshotLayer.removeScreenshot.pbind(screenshot_id));
       Aj.layer.on('click.curLayer', '.sections-select-item', ScreenshotLayer.eEditScreenshotSection);
       Aj.layer.on('click.curLayer', '.screenshot-key-edit-close', ScreenshotLayer.closeEdit);
@@ -2073,16 +1273,13 @@ var ScreenshotLayer = {
         autosize($('.screenshot-description-field', Aj.layer));
       });
       Aj.layer.on('mouseover.curLayer mouseout.curLayer', '.key-hover', ScreenshotLayer.eKeyHover);
-      Aj.layer.on('keydown.curLayer', '.screenshot-key, .screenshot-key-row', ScreenshotLayer.onKeyTarget);
       if (layerState.canEditPhrases) {
         $searchFieldEl.initSearch({
           $results: $searchResultsEl,
           renderItem: function(item, query) {
-            return '<div class="screenshot-key-row"><div class="screenshot-key-value-default">' + wrapLangValue(item.def_value, item.rtl, query) + '</div><div class="screenshot-key-lang-key">' + Search.wrapHighlight(item.key, query) + '</div></div>';
+            return '<div class="screenshot-key-row"><div class="screenshot-key-value-default">' + wrapLangValue(item.def_value, item.rtl, query) + '</div><div class="screenshot-key-lang-key">' + Search.wrapHighlight(item.key, query) + '</div></div></div>';
           },
           renderNoItems: function() {
-            var error = Search.getDataError(Aj.state.curLang, Aj.layerState.screenshotLangpack);
-            if (error) return '<div class="screenshot-keys-no-results" role="alert">' + cleanHTML(error) + '<br><button type="button" class="btn btn-default tr-search-retry" data-lang="' + cleanAttr(Aj.state.curLang) + '" data-langpack="' + cleanAttr(Aj.layerState.screenshotLangpack) + '">Retry</button></div>';
             return '<div class="screenshot-keys-no-results">' + l('WEB_NO_TRANSLATIONS_FOUND') + '</div>';
           },
           renderLoading: function() {
@@ -2113,12 +1310,7 @@ var ScreenshotLayer = {
             ScreenshotLayer.closeEdit();
           }
         });
-        if (window.PointerEvent) {
-          $layerEl.on('pointerdown.curLayer', ScreenshotLayer.eDrawKey);
-          $layerEl.on('lostpointercapture.curLayer', ScreenshotLayer.eDrawKey);
-        } else {
-          $layerEl.on('mousedown.curLayer touchstart.curLayer', ScreenshotLayer.eDrawFallback);
-        }
+        $layerEl.on('mousedown', ScreenshotLayer.eDrawKey);
         $('input.file-upload', $layerEl).on('change', Screenshots.eUpload);
       }
 
@@ -2133,45 +1325,26 @@ var ScreenshotLayer = {
       });
     });
     Aj.onLayerUnload(function(layerState) {
-      clearTimeout(layerState.imgTimeout);
-      clearTimeout(layerState.hoverTimeout);
-      layerState.imgTimeout = null;
-      layerState.ocrGeneration++;
-      layerState.requestGeneration++;
-      if (layerState.uploadXhr && typeof layerState.uploadXhr.abort === 'function') layerState.uploadXhr.abort();
-      layerState.uploadXhr = null;
-      if (layerState.pointerCaptureTarget && layerState.pointerCaptureTarget.releasePointerCapture &&
-          layerState.pointerId != null) {
-        try { layerState.pointerCaptureTarget.releasePointerCapture(layerState.pointerId); } catch (ignore) {}
-      }
+      clearTimeout(Aj.layerState.imgTimeout);
+      clearTimeout(Aj.layerState.hoverTimeout);
       $(document).off('keydown', ScreenshotLayer.onKeyDown);
-      $(window).off('resize orientationchange', ScreenshotLayer.layerUpdate);
-      if (window.visualViewport) $(window.visualViewport).off('resize scroll', ScreenshotLayer.layerUpdate);
-      layerState.$imgEl.off('.curLayer');
-      if (layerState.resizeObserver) layerState.resizeObserver.disconnect();
+      $(window).off('resize', ScreenshotLayer.layerUpdate);
       if (layerState.canEditPhrases) {
         layerState.$searchFieldEl.destroySearch();
-        layerState.$layerEl.off('.curLayer');
-        $(document).off('.screenshotDrawing');
+        layerState.$layerEl.off('mousedown', ScreenshotLayer.eDrawKey);
+        $(document).off('mousemove mouseup', ScreenshotLayer.eDrawKey);
         $('input.file-upload', layerState.$layerEl).off('change', Screenshots.eUpload);
       }
     });
   },
-  onImageLoading: function(full, expectedState) {
-    if (!Aj.layerState || (expectedState && Aj.layerState !== expectedState)) return;
-    var layerState = Aj.layerState;
-    var img = layerState.$imgEl && layerState.$imgEl.get(0);
-    if (!img) return;
+  onImageLoading: function(full) {
+    if (!Aj.layerState) return;
+    var img = Aj.layerState.$imgEl.get(0);
     if (img.naturalWidth && img.naturalHeight) {
-      clearTimeout(layerState.imgTimeout);
-      layerState.imgTimeout = null;
-      layerState.$imgEl.attr('aria-busy', 'false');
-      layerState.imageError = false;
-      layerState.$bodyEl.removeClass('screenshot-image-error');
-      layerState.$bodyEl.removeClass('ohide');
+      Aj.layerState.$bodyEl.removeClass('ohide');
       ScreenshotLayer.layerUpdate();
       if (full) {
-        $('.screenshot-key', layerState.$layerEl).each(function() {
+        $('.screenshot-key', Aj.layerState.$layerEl).each(function() {
           var $keyEl = $(this),
               coords = $keyEl.attr('data-coordinates').split(',');
           ScreenshotLayer.updateScreenshotKeyPosition($keyEl, coords);
@@ -2179,74 +1352,26 @@ var ScreenshotLayer = {
       }
       return;
     }
-    clearTimeout(layerState.imgTimeout);
-    layerState.imgTimeout = setTimeout(ScreenshotLayer.onImageLoading, 50, full, layerState);
-  },
-  onImageError: function() {
-    if (!Aj.layerState) return;
-    var layerState = Aj.layerState;
-    clearTimeout(layerState.imgTimeout);
-    layerState.imgTimeout = null;
-    layerState.imageError = true;
-    layerState.$bodyEl.removeClass('ohide').addClass('screenshot-image-error');
-    $('.screenshot-image-error-message', Aj.layer).text(l('WEB_SCREENSHOT_NOT_EXISTS'));
-    layerState.$imgEl.attr('aria-busy', 'false');
+    Aj.layerState.imgTimeout = setTimeout(ScreenshotLayer.onImageLoading, 50, full);
   },
   layerUpdate: function() {
     if (!Aj.layerState) return;
-    var layerState = Aj.layerState;
-    var $imgEl = layerState.$imgEl;
-    var $imgBgEl = layerState.$imgBgEl;
-    var $layerWrapEl = layerState.$layerWrapEl;
-    var $layerEl = layerState.$layerEl;
-    var img = $imgEl && $imgEl.get(0);
-    if (!img) return;
-    var compact = window.matchMedia && window.matchMedia('(max-width: 991px)').matches;
-    if (!compact && layerState.$sideWrapEl) {
-      layerState.$sideWrapEl.css({position: '', left: '', right: '', top: '', bottom: '', width: '', height: ''});
-    }
-    var rect = compact ? img.getBoundingClientRect() : null;
-    var width = compact ? rect.width : $imgEl.width();
-    var height = compact ? rect.height : $imgEl.height();
-    if (!width || !height) return;
-    var halfWidth = compact ? width / 2 : parseFloat($imgEl.css('width')) / 2;
+    var $imgEl = Aj.layerState.$imgEl;
+    var $imgBgEl = Aj.layerState.$imgBgEl;
+    var $layerWrapEl = Aj.layerState.$layerWrapEl;
+    var $layerEl = Aj.layerState.$layerEl;
+    var width = $imgEl.width();
+    var height = $imgEl.height();
+    var halfWidth = parseFloat($imgEl.css('width')) / 2;
     $imgBgEl.width(width).height(height);
     $layerWrapEl.width(width).height(height);
-    if (compact) {
-      var bodyEl = layerState.$bodyEl && layerState.$bodyEl.get(0);
-      if (!bodyEl) return;
-      var bodyRect = bodyEl.getBoundingClientRect();
-      var compactPosition = {
-        left: (rect.left - bodyRect.left) + 'px',
-        top: (rect.top - bodyRect.top) + 'px',
-        right: 'auto',
-        bottom: 'auto'
-      };
-      $imgBgEl.css(compactPosition);
-      $layerWrapEl.css(compactPosition);
-      if (layerState.$sideWrapEl) {
-        var viewport = window.visualViewport;
-        var viewportTop = viewport ? viewport.offsetTop : 0;
-        var viewportHeight = viewport ? viewport.height : (window.innerHeight || document.documentElement.clientHeight);
-        var viewportBottom = viewportTop + viewportHeight;
-        layerState.$sideWrapEl.css({
-          position: 'fixed',
-          left: bodyRect.left + 'px',
-          right: 'auto',
-          top: Math.max(viewportTop, bodyRect.top + bodyRect.height * .6) + 'px',
-          bottom: Math.max(0, viewportBottom - bodyRect.bottom) + 'px',
-          width: bodyRect.width + 'px',
-          height: 'auto'
-        });
-      }
-    }
     $layerEl.css('backgroundSize', width + 'px ' + height + 'px');
     $('.screenshot-body-left', Aj.layer).css('marginRight', halfWidth + 'px');
     $('.screenshot-body-right', Aj.layer).css('marginLeft', halfWidth + 'px');
   },
   addScreenshotKey: function(coords) {
     if (!Aj.layerState) return;
-    var $keyEl = $('<div class="screenshot-key key-hover screenshot-key-drawable screenshot-key-new" role="button" tabindex="0" aria-label="Screenshot key region"><span class="screenshot-key-hit" aria-hidden="true"></span><div class="key-box"><div class="key-label"></div></div></div>');
+    var $keyEl = $('<div class="screenshot-key key-hover screenshot-key-drawable screenshot-key-new"><div class="key-box"><div class="key-label"></div></div></div>');
     if (coords) {
       $keyEl.attr('data-coordinates', coords.join(','));
     }
@@ -2279,44 +1404,18 @@ var ScreenshotLayer = {
       paddingTop: (top * ratio * 100) + '%',
       paddingRight: (right * 100) + '%',
       paddingBottom: (bottom * ratio * 100) + '%',
-      '--tr-key-center-x': ((left + coords[2] / 2) * 100) + '%',
-      '--tr-key-center-y': ((top + coords[3] / 2) * 100) + '%',
-      '--tr-key-hit-width': (coords[2] * 100) + '%',
-      '--tr-key-hit-height': (coords[3] * 100) + '%',
       opacity: ScreenshotLayer.screenshotKeyIsAllowedSize(coords) ? 1 : 0
     });
-    $keyEl.toggleClass('key-right', left + coords[2] / 2 > .5);
     $keyEl.attr('data-coordinates', coords.join(','));
   },
-  keyAccessibleLabel: function(lang_key, lang_item) {
-    var label = lang_key || 'Screenshot key region';
-    if (lang_item && typeof lang_item.def_value !== 'undefined') {
-      var value = $.trim($('<div>').html(wrapLangValue(lang_item.def_value)).text());
-      if (value) label += ': ' + value;
-    }
-    var status = [];
-    if (lang_item && lang_item.modified) status.push('Modified');
-    if (lang_item && lang_item.untranslated) status.push('Untranslated');
-    if (lang_item && lang_item.status) status.push(String(lang_item.status));
-    if (status.length) label += ' — ' + status.join(', ');
-    return label;
-  },
   fixScreenshotKeyCoordinates: function(coords, precision) {
-    var x = Number(coords[0]), y = Number(coords[1]), w = Number(coords[2]), h = Number(coords[3]);
-    x = isFinite(x) ? x : 0;
-    y = isFinite(y) ? y : 0;
-    w = isFinite(w) ? w : 0;
-    h = isFinite(h) ? h : 0;
+    var x = coords[0], y = coords[1], w = coords[2], h = coords[3];
     if (w < 0) { x += w; w = -w; }
     if (h < 0) { y += h; h = -h; }
     if (x < 0) { w += x; x = 0; }
     if (y < 0) { h += y; y = 0; }
     if (x + w > 1) { w = 1 - x; }
     if (y + h > 1) { h = 1 - y; }
-    x = Math.max(0, Math.min(1, x));
-    y = Math.max(0, Math.min(1, y));
-    w = Math.max(0, Math.min(1 - x, w));
-    h = Math.max(0, Math.min(1 - y, h));
     if (typeof precision !== 'undefined') {
       var p = Math.pow(10, precision);
       x = Math.round(x * p) / p;
@@ -2329,30 +1428,9 @@ var ScreenshotLayer = {
   eDrawKey: function(e) {
     var layerState = Aj.layerState;
     if (!layerState) return;
-    if (e.type === 'pointerdown' && (e.pointerId == null || e.isPrimary === false)) return;
-    if (e.type === 'pointerdown' && $(e.target).closest('.screenshot-key').length) return;
-    if (e.type === 'pointerdown' && layerState.drawing) return;
-    if ((e.type === 'pointercancel' || e.type === 'lostpointercapture') &&
-        layerState.drawing && (e.pointerId == null || layerState.pointerId === e.pointerId)) {
-      if (layerState.pointerCaptureTarget && layerState.pointerCaptureTarget.releasePointerCapture &&
-          layerState.pointerId != null) {
-        try { layerState.pointerCaptureTarget.releasePointerCapture(layerState.pointerId); } catch (ignore) {}
-      }
-      if (layerState.$keyEl && layerState.$keyEl.hasClass('screenshot-key-new')) {
-        layerState.$keyEl.remove();
-      }
-      layerState.$keyEl = null;
-      layerState.keyCoords = null;
-      layerState.pointerId = null;
-      layerState.pointerCaptureTarget = null;
-      layerState.drawing = false;
-      layerState.editMode = false;
-      layerState.ocrGeneration++;
-      layerState.$layerWrapEl.removeClass('screenshot-layer-mode-edit');
-      $('.screenshot-key-drawing, .screenshot-key-recognizing', Aj.layer).addClass('ohide');
-      $(document).off('.screenshotDrawing');
-      Aj.layer.removeClass('popup-no-close');
-      return;
+    if (e.type == 'mousedown') {
+      if ($(e.target).closest('.screenshot-key').length) return;
+      if (layerState.drawing) return;
     }
     e.preventDefault();
     e.stopPropagation();
@@ -2362,18 +1440,10 @@ var ScreenshotLayer = {
     var $layerWrapEl = layerState.$layerWrapEl;
     var $keyEl = layerState.$keyEl;
 
-    var layerNode = $layerEl && $layerEl.get(0);
-    if (!layerNode) return;
-    var layerRect = layerNode.getBoundingClientRect();
-    var normalizedX, normalizedY;
-    if (e.type === 'pointerdown' || e.type === 'pointermove') {
-      if (!layerRect.width || !layerRect.height) return;
-      var relX = e.clientX - layerRect.left;
-      var relY = e.clientY - layerRect.top;
-      normalizedX = Math.max(0, Math.min(1, relX / layerRect.width));
-      normalizedY = Math.max(0, Math.min(1, relY / layerRect.height));
-    }
-    if (e.type == 'pointerdown') {
+    var parentOffset = $layerEl.offset();
+    var relX = e.pageX - parentOffset.left;
+    var relY = e.pageY - parentOffset.top;
+    if (e.type == 'mousedown') {
       if (layerState.editMode && !layerState.drawing) {
         ScreenshotLayer.closeEdit();
         layerState.editMode = true;
@@ -2384,31 +1454,24 @@ var ScreenshotLayer = {
         $('.screenshot-key-edit-field', Aj.layer).val('').trigger('input').prop('disabled', true);
       }
       var coords = [
-        normalizedX,
-        normalizedY,
+        relX / $layerEl.width(),
+        relY / $layerEl.height(),
         0,
         0
       ];
       layerState.$keyEl = ScreenshotLayer.addScreenshotKey(coords);
       layerState.keyCoords = coords;
       layerState.drawing = true;
-      layerState.pointerId = e.pointerId;
       Aj.layer.addClass('popup-no-close');
-      layerState.pointerCaptureTarget = e.currentTarget;
-      if (layerState.pointerCaptureTarget && layerState.pointerCaptureTarget.setPointerCapture) {
-        try { layerState.pointerCaptureTarget.setPointerCapture(e.pointerId); } catch (ignore) {}
-      }
-      if (window.PointerEvent) $(document).on('pointermove.screenshotDrawing pointerup.screenshotDrawing pointercancel.screenshotDrawing', ScreenshotLayer.eDrawKey);
-      else $(document).on('mousemove.screenshotDrawing mouseup.screenshotDrawing touchmove.screenshotDrawing touchend.screenshotDrawing touchcancel.screenshotDrawing', ScreenshotLayer.eDrawFallback);
+      $(document).on('mousemove mouseup', ScreenshotLayer.eDrawKey);
       Search.getData(Aj.state.curLang, Aj.layerState.screenshotLangpack);
     }
-    else if (e.type == 'pointermove') {
+    else if (e.type == 'mousemove') {
       if (!layerState.drawing) return;
-      if (layerState.pointerId !== e.pointerId) return;
       if ($keyEl && layerState.keyCoords) {
         var coords = layerState.keyCoords;
-        coords[2] = normalizedX - coords[0];
-        coords[3] = normalizedY - coords[1];
+        coords[2] = relX / $layerEl.width() - coords[0];
+        coords[3] = relY / $layerEl.height() - coords[1];
         ScreenshotLayer.updateScreenshotKeyPosition($keyEl, coords);
         if (!layerState.editMode &&
             ScreenshotLayer.screenshotKeyIsAllowedSize(coords)) {
@@ -2421,9 +1484,8 @@ var ScreenshotLayer = {
         }
       }
     }
-    else if (e.type == 'pointerup' || e.type == 'pointercancel' || e.type == 'lostpointercapture') {
+    else if (e.type == 'mouseup') {
       if (!layerState.drawing) return;
-      if (e.pointerId != null && layerState.pointerId !== e.pointerId) return;
       if ($keyEl && layerState.keyCoords) {
         var coords = layerState.keyCoords;
         coords = ScreenshotLayer.fixScreenshotKeyCoordinates(coords, 6);
@@ -2445,15 +1507,8 @@ var ScreenshotLayer = {
           var y = coords[1] * img.naturalHeight;
           var width = coords[2] * img.naturalWidth;
           var height = coords[3] * img.naturalHeight;
-          var ocrGeneration = ++layerState.ocrGeneration;
-          var ocrRoute = Aj.location().href;
-          var ocrState = Aj.state;
           Recognizer.getTextFromImage(img, x, y, width, height, function(text, coords) {
-            if (!Aj.layerState || Aj.layerState !== layerState ||
-                Aj.state !== ocrState || Aj.location().href !== ocrRoute ||
-                layerState.screenshotId !== Aj.layerState.screenshotId ||
-                ocrGeneration !== layerState.ocrGeneration ||
-                $keyEl !== layerState.$keyEl) return;
+            if (!Aj.layerState || $keyEl !== Aj.layerState.$keyEl) return;
             $('.screenshot-key-recognizing', Aj.layer).addClass('ohide');
             $('.screenshot-key-edit-results', Aj.layer).removeClass('ohide');
             if (coords) {
@@ -2481,92 +1536,27 @@ var ScreenshotLayer = {
               var lang_key = found_item.key;
               ScreenshotLayer.addKeyToScreenshot($keyEl, lang_key, found_item, coords);
             }
-          }, null, function() {
-            if (!Aj.layerState || Aj.layerState !== layerState || Aj.state !== ocrState || Aj.location().href !== ocrRoute || ocrGeneration !== layerState.ocrGeneration || $keyEl !== layerState.$keyEl) return;
-            $('.screenshot-key-recognizing', Aj.layer).addClass('ohide');
-            $('.screenshot-key-edit-results', Aj.layer).removeClass('ohide');
-            $keyEl.removeClass('active');
-            ScreenshotLayer.initKeysSearch($keyEl);
           });
         }
         layerState.keyCoords = null;
-        if (e.type === 'pointerup' && layerState.pointerCaptureTarget &&
-            layerState.pointerCaptureTarget.releasePointerCapture) {
-          try { layerState.pointerCaptureTarget.releasePointerCapture(e.pointerId); } catch (ignore) {}
-        }
-        layerState.pointerId = null;
-        layerState.pointerCaptureTarget = null;
-        $(document).off('.screenshotDrawing');
+        $(document).off('mousemove mouseup', ScreenshotLayer.eDrawKey);
         setTimeout(function() {
-          if (Aj.layerState === layerState) Aj.layer.removeClass('popup-no-close');
+          Aj.layer.removeClass('popup-no-close');
         }, 10);
-      } else {
-        if (layerState.pointerCaptureTarget && layerState.pointerCaptureTarget.releasePointerCapture &&
-            layerState.pointerId != null) {
-          try { layerState.pointerCaptureTarget.releasePointerCapture(layerState.pointerId); } catch (ignore) {}
-        }
-        layerState.drawing = false;
-        layerState.keyCoords = null;
-        layerState.$keyEl = null;
-        layerState.pointerId = null;
-        layerState.pointerCaptureTarget = null;
-        layerState.ocrGeneration++;
-        $(document).off('.screenshotDrawing');
-        if (Aj.layerState === layerState) Aj.layer.removeClass('popup-no-close');
       }
     }
   },
-  eDrawFallback: function(e) {
-    var oe = e.originalEvent || e, touch = oe.touches && oe.touches[0] || oe.changedTouches && oe.changedTouches[0];
-    if (e.type.indexOf('touch') === 0 && !touch) return;
-    var synthetic = {
-      type: e.type === 'mousedown' ? 'pointerdown' : (e.type === 'touchstart' ? 'pointerdown' : e.type === 'mousemove' || e.type === 'touchmove' ? 'pointermove' : e.type === 'touchcancel' ? 'pointercancel' : 'pointerup'),
-      pointerId: touch ? touch.identifier + 1 : 1,
-      isPrimary: true,
-      clientX: touch ? touch.clientX : oe.clientX,
-      clientY: touch ? touch.clientY : oe.clientY,
-      target: oe.target,
-      currentTarget: e.currentTarget,
-      preventDefault: function() { e.preventDefault(); },
-      stopPropagation: function() { e.stopPropagation(); }
-    };
-    ScreenshotLayer.eDrawKey(synthetic);
-  },
-  cancelDrawing: function() {
-    var layerState = Aj.layerState;
-    if (!layerState || !layerState.drawing) return false;
-    if (layerState.pointerCaptureTarget && layerState.pointerCaptureTarget.releasePointerCapture && layerState.pointerId != null) {
-      try { layerState.pointerCaptureTarget.releasePointerCapture(layerState.pointerId); } catch (ignore) {}
-    }
-    if (layerState.$keyEl && layerState.$keyEl.hasClass('screenshot-key-new')) layerState.$keyEl.remove();
-    layerState.$keyEl = null;
-    layerState.keyCoords = null;
-    layerState.pointerId = null;
-    layerState.pointerCaptureTarget = null;
-    layerState.drawing = false;
-    layerState.editMode = false;
-    layerState.ocrGeneration++;
-    if (layerState.$layerWrapEl) layerState.$layerWrapEl.removeClass('screenshot-layer-mode-edit');
-    $('.screenshot-key-drawing,.screenshot-key-recognizing', Aj.layer).addClass('ohide');
-    $(document).off('.screenshotDrawing');
-    Aj.layer.removeClass('popup-no-close');
-    return true;
-  },
   addKeyToScreenshot: function($keyEl, lang_key, lang_item, coords, old_lang_key) {
-    if (!Aj.layerState) return;
-    var layerState = Aj.layerState;
-    var requestGuard = TrResponsiveLifecycle.requestGuard('Screenshot.addKey', $keyEl[0], [layerState.screenshotLangpack, lang_key, layerState.screenshotId, old_lang_key || '', coords.join(',')].join('\u0001'), layerState);
     Aj.apiRequest('addKeyToScreenshot', {
-      lang_pack: layerState.screenshotLangpack,
+      lang_pack: Aj.layerState.screenshotLangpack,
       lang_key: lang_key,
-      screenshot_id: layerState.screenshotId,
+      screenshot_id: Aj.layerState.screenshotId,
       remove_lang_key: old_lang_key,
       x: coords[0],
       y: coords[1],
       w: coords[2],
       h: coords[3]
     }, function(result) {
-      if (!requestGuard()) return;
       if (!result.ok) {
         ScreenshotLayer.applyScreenshotKey($keyEl, lang_key);
       } else if (old_lang_key) {
@@ -2625,16 +1615,11 @@ var ScreenshotLayer = {
         }
         ScreenshotLayer.updateScreenshotKeyPosition($keyEl, coords);
       } else {
-        $keyEl.attr({
-          'data-key': lang_key,
-          role: 'button',
-          tabindex: '0',
-          'aria-label': ScreenshotLayer.keyAccessibleLabel(lang_key, lang_item)
-        });
+        $keyEl.attr('data-key', lang_key);
         $('.key-label', $keyEl).html(wrapLangValue(lang_item.def_value));
         var $keys = $('.screenshot-layer-keys', Aj.layer);
         var base_url = $keys.attr('data-key-base-url') || '';
-        $('<a href="' + cleanAttr(base_url + lang_key) + '" class="screenshot-key-row key-hover" data-key="' + cleanAttr(lang_key) + '"><span class="screenshot-key-remove close" role="button" tabindex="0" aria-label="Remove screenshot key"></span><div class="screenshot-key-value-default">' + wrapLangValue(lang_item.value) + '</div><div class="screenshot-key-lang-key">' + cleanHTML(lang_key) + '</div></a>').appendTo($keys);
+        $('<a href="' + Search.wrapHighlight(base_url + lang_key) + '" class="screenshot-key-row key-hover" data-key="' + Search.wrapHighlight(lang_key) + '"><span class="screenshot-key-remove close"></span><div class="screenshot-key-value-default">' + wrapLangValue(lang_item.value) + '</div><div class="screenshot-key-lang-key">' + Search.wrapHighlight(lang_key) + '</div></div></a>').appendTo($keys);
         ScreenshotLayer.sortKeysByCoordinates();
         var $keysList = $('.screenshot-keys-list', Aj.layer);
         var $keysCounterEl = $('.tr-header-counter', $keysList);
@@ -2642,7 +1627,6 @@ var ScreenshotLayer = {
         $keysCounterEl.text(++keys_count || '');
         $keysList.fadeToggle(keys_count > 0);
       }
-      $keyEl.attr({role: 'button', tabindex: '0', 'aria-label': ScreenshotLayer.keyAccessibleLabel(lang_key, lang_item)});
       $keyEl.removeClass('screenshot-key-new');
       ScreenshotLayer.keyHover(lang_key, true, true);
       clearTimeout(Aj.layerState.hoverTimeout);
@@ -2664,19 +1648,15 @@ var ScreenshotLayer = {
     e.stopImmediatePropagation();
     var $keyEl = $(this).parents('.screenshot-key-row');
     var lang_key = $keyEl.attr('data-key');
-    var layerState = Aj.layerState;
-    if (!layerState) return;
-    var screenshot_id = layerState.screenshotId;
+    var screenshot_id = Aj.layerState.screenshotId;
     if (lang_key) {
       var confirm_text = l('WEB_REMOVE_SCREENSHOT_KEY_CONFIRM_TEXT', {lang_key: cleanHTML(lang_key), n: screenshot_id});
       showConfirm(confirm_text, function() {
-        var requestGuard = TrResponsiveLifecycle.requestGuard('Screenshot.removeKey', $keyEl[0], [layerState.screenshotLangpack, lang_key, screenshot_id].join('\u0001'), layerState);
           Aj.apiRequest('removeKeyFromScreenshot', {
-            lang_pack: layerState.screenshotLangpack,
+            lang_pack: Aj.layerState.screenshotLangpack,
             lang_key: lang_key,
             screenshot_id: screenshot_id
           }, function(result) {
-            if (!requestGuard()) return;
             if (result.ok) {
               ScreenshotLayer.applyScreenshotKey($keyEl, lang_key);
             }
@@ -2688,21 +1668,17 @@ var ScreenshotLayer = {
     }
   },
   removeScreenshot: function(screenshot_id) {
-    var layerState = Aj.layerState;
-    if (!layerState) return;
     var confirm_text = l('WEB_REMOVE_SCREENSHOT_CONFIRM_TEXT', {n: screenshot_id});
     showConfirm(confirm_text, function() {
-      var requestGuard = TrResponsiveLifecycle.requestGuard('Screenshot.remove', null, [layerState.screenshotLangpack, screenshot_id].join('\u0001'), layerState);
       Aj.apiRequest('removeScreenshot', {
-        lang_pack: layerState.screenshotLangpack,
+        lang_pack: Aj.layerState.screenshotLangpack,
         screenshot_id: screenshot_id
       }, function(result) {
-        if (!requestGuard()) return;
         if (result.error) {
           return showAlert(result.error);
         }
         $('.tr-screenshot-row[data-screenshot-id="' + screenshot_id + '"]').remove();
-        Screenshots.sortableRefresh();
+        $('.tr-screenshots').sortable('refresh');
         closePopup(Aj.layer);
       });
     }, l('WEB_REMOVE_SCREENSHOT_CONFIRM_BUTTON'));
@@ -2710,28 +1686,23 @@ var ScreenshotLayer = {
   eEditScreenshotSection: function(e) {
     if (!Aj.layerState) return;
     e.stopPropagation();
-    var $button = $(this), section = $button.attr('data-section');
-    if ($button.parents('li').hasClass('selected') || $button.attr('aria-busy') === 'true') {
+    var section = $(this).attr('data-section');
+    if ($(this).parents('li').hasClass('selected')) {
       return;
     }
-    $button.attr('aria-busy', 'true').prop('disabled', true);
-    var layerState = Aj.layerState;
-    var requestGuard = TrResponsiveLifecycle.requestGuard('Screenshot.editSection', Aj.layer && Aj.layer[0], [layerState.screenshotLangpack, layerState.screenshotId, section].join('\u0001'), layerState);
     Aj.apiRequest('editScreenshotSection', {
-      lang_pack: layerState.screenshotLangpack,
+      lang_pack: Aj.layerState.screenshotLangpack,
       lang: Aj.state.curLang,
-      screenshot_id: layerState.screenshotId,
+      screenshot_id: Aj.layerState.screenshotId,
       section: section
     }, function(result) {
-      if (!requestGuard()) return;
-      $button.removeAttr('aria-busy').prop('disabled', false);
-      if (result.error) return showAlert(result.error);
+      if (!Aj.layerState) return;
       if (result.sections_html) {
         $('.screenshot-sections', Aj.layer).html(result.sections_html);
       }
       if (section != Aj.state.curSection) {
-        $('.tr-screenshot-row[data-screenshot-id="' + layerState.screenshotId + '"]').remove();
-        Screenshots.sortableRefresh();
+        $('.tr-screenshot-row[data-screenshot-id="' + Aj.layerState.screenshotId + '"]').remove();
+        $('.tr-screenshots').sortable('refresh');
       }
     });
   },
@@ -2773,14 +1744,7 @@ var ScreenshotLayer = {
   },
   openEdit: function($keyEl) {
     if (!Aj.layerState) return;
-    if (!Aj.layerState.canEditPhrases) {
-      var key = $keyEl.attr('data-key');
-      var href = $('.screenshot-key-row', Aj.layer).filter(function() {
-        return $(this).attr('data-key') === key;
-      }).attr('href');
-      if (href) Aj.setLocation(href);
-      return;
-    }
+    if (!Aj.layerState.canEditPhrases) return;
     var layerState = Aj.layerState;
     $keyEl.addClass('active');
     ScreenshotLayer.updateLayerHover();
@@ -2795,7 +1759,6 @@ var ScreenshotLayer = {
     if (!Aj.layerState) return;
     var layerState = Aj.layerState;
     if (layerState.drawing) return;
-    layerState.ocrGeneration++;
     if (layerState.$keyEl) {
       if (layerState.$keyEl.hasClass('screenshot-key-new')) {
         layerState.$keyEl.remove();
@@ -2826,15 +1789,11 @@ var ScreenshotLayer = {
     if (form.description.defaultValue == form.description.value) {
       return false;
     }
-    var layerState = Aj.layerState;
-    if (!layerState) return false;
-    var requestGuard = TrResponsiveLifecycle.requestGuard('Screenshot.description', form, [layerState.screenshotLangpack, layerState.screenshotId, form.description.value].join('\u0001'), layerState);
     Aj.apiRequest('editScreenshotDescription', {
-      lang_pack: layerState.screenshotLangpack,
-      screenshot_id: layerState.screenshotId,
+      lang_pack: Aj.layerState.screenshotLangpack,
+      screenshot_id: Aj.layerState.screenshotId,
       description: form.description.value
     }, function(result) {
-      if (!requestGuard()) return;
       if (result.error) {
         return showAlert(result.error);
       }
@@ -2854,31 +1813,7 @@ var ScreenshotLayer = {
       this.blur();
     }
   },
-  onKeyTarget: function(e) {
-    if (e.key !== 'Enter' && e.key !== ' ') return;
-    if ($(e.target).closest('input, textarea, button, a').length &&
-        !$(e.target).is('.screenshot-key, .screenshot-key-row')) return;
-    e.preventDefault();
-    e.stopPropagation();
-    if ($(this).hasClass('screenshot-key-row')) {
-      var href = $(this).attr('href');
-      if (href) Aj.setLocation(href);
-    } else {
-      ScreenshotLayer.eOpenEdit.call(this, e);
-    }
-  },
   onKeyDown: function(e) {
-    if (e.key === 'Escape' && Aj.layerState && Aj.layerState.drawing) {
-      e.preventDefault();
-      e.stopPropagation();
-      ScreenshotLayer.cancelDrawing();
-      return;
-    }
-    if (e.key === 'Escape' && Aj.layerState && Aj.layerState.editMode) {
-      e.preventDefault();
-      ScreenshotLayer.closeEdit();
-      return;
-    }
     if ((e.which == Keys.LEFT || e.which == Keys.RIGHT) &&
         $(e.target).closest('input, textarea, .input').size()) {
       return;
@@ -2924,9 +1859,6 @@ function getBR() {
 function cleanHTML(value) {
   return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/\n/g, getBR());
 }
-function cleanAttr(value) {
-  return cleanHTML(String(value == null ? '' : value)).replace(/'/g, '&#39;');
-}
 function cleanRE(value) {
   return value.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&");
 }
@@ -2960,28 +1892,13 @@ function preventDefault(e) {
 
 
 var LoadMore = {
-  registered: false,
-  generation: 0,
-  requests: [],
   init: function() {
-    if (LoadMore.registered) return;
-    LoadMore.registered = true;
     Aj.onLoad(function(state) {
-      LoadMore.generation++;
-      state.loadMoreGeneration = LoadMore.generation;
-      $(document).off('click.tr-loadmore').on('click.tr-loadmore', '.load-more-btn', LoadMore.onClick);
-      $(window).off('scroll.tr-loadmore resize.tr-loadmore orientationchange.tr-loadmore').on('scroll.tr-loadmore resize.tr-loadmore orientationchange.tr-loadmore', LoadMore.onScroll);
-      if (window.visualViewport) $(window.visualViewport).off('resize.tr-loadmore scroll.tr-loadmore').on('resize.tr-loadmore scroll.tr-loadmore', LoadMore.onScroll);
+      $(document).on('click.curPage', '.load-more-btn', LoadMore.onClick);
+      $(window).on('scroll', LoadMore.onScroll);
     });
     Aj.onUnload(function(state) {
-      LoadMore.generation++;
-      $.each(LoadMore.requests, function(i, record) {
-        if (record && record.xhr && record.xhr.abort) record.xhr.abort();
-      });
-      LoadMore.requests = [];
-      $(document).off('.tr-loadmore');
-      $(window).off('.tr-loadmore');
-      if (window.visualViewport) $(window.visualViewport).off('.tr-loadmore');
+      $(window).off('scroll', LoadMore.onScroll);
     });
   },
   onClick: function() {
@@ -2998,31 +1915,17 @@ var LoadMore = {
     });
   },
   load: function($loadMore) {
-    if (!$loadMore || !$loadMore.length || !document.documentElement.contains($loadMore[0])) return;
     var offset = $loadMore.data('offset');
     if (!offset) {
       $loadMore.remove();
-      return;
     }
-    var generation = LoadMore.generation;
-    var href = Aj.location().href;
-    var state = Aj.state;
-    var requestKey = href + '|' + offset + '|' + ($loadMore.data('offset-data') || '');
-    if ($loadMore.data('loading') || $loadMore.data('request-key') === requestKey) {
+    if ($loadMore.data('loading')) {
       return;
     }
     var $loadMoreBtn = $('.load-more-btn', $loadMore);
-    $loadMoreBtn.data('old-text', $loadMoreBtn.text()).text('Loading').attr({'aria-busy': 'true', 'aria-live': 'polite'}).addClass('dots-animated');
-    $loadMore.data({'loading': true, 'request-key': requestKey});
-    var requestRecord = {xhr: null, key: requestKey};
-    LoadMore.requests.push(requestRecord);
-    var clearRequestState = function() {
-      /* Do not clear a newer request marker from a stale callback. */
-      if ($loadMore.data('request-key') === requestKey) {
-        $loadMore.data('loading', false).removeData('request-key');
-      }
-    };
-    var request = $.ajax(href, {
+    $loadMoreBtn.data('old-text', $loadMoreBtn.text()).text('Loading').addClass('dots-animated');
+    $loadMore.data('loading', true);
+    $.ajax(Aj.location().href, {
       type: 'POST',
       data: {
         offset: offset,
@@ -3032,51 +1935,34 @@ var LoadMore = {
       dataType: 'json',
       xhrFields: {withCredentials: true},
       success: function(result) {
-        if (generation !== LoadMore.generation || state !== Aj.state || Aj.location().href !== href || !document.documentElement.contains($loadMore[0])) return;
-        clearRequestState();
+        $loadMore.data('loading', false);
         if (result.more_html) {
           var $loadMoreCont = $loadMore.parents('.load-more-container');
           if (!$loadMoreCont.size()) {
-            return;
+            console.warn('.load-more-container not found!');
           }
           $loadMore.remove();
           $loadMoreCont.append(result.more_html);
         } else {
           var $loadMoreBtn = $('.load-more-btn', $loadMore);
-          $loadMoreBtn.text($loadMoreBtn.data('old-text')).removeAttr('aria-busy').removeClass('dots-animated');
+          $loadMoreBtn.text($loadMoreBtn.data('old-text')).removeClass('dots-animated');
         }
       },
       error: function(xhr) {
-        if (generation !== LoadMore.generation || state !== Aj.state || Aj.location().href !== href || !document.documentElement.contains($loadMore[0])) return;
-        clearRequestState();
+        $loadMore.data('loading', false);
         var $loadMoreBtn = $('.load-more-btn', $loadMore);
-        $loadMoreBtn.text($loadMoreBtn.data('old-text')).removeAttr('aria-busy').removeClass('dots-animated');
-      },
-      complete: function() {
-        LoadMore.requests = $.grep(LoadMore.requests, function(record) {
-          return record !== requestRecord;
-        });
-        clearRequestState();
+        $loadMoreBtn.text($loadMoreBtn.data('old-text')).removeClass('dots-animated');
       }
     });
-    requestRecord.xhr = request;
   }
-};
+}
 
 var LangKey = {
-  makeRequestGuard: function($block, identity) {
-    if (!$block || !$block.length) return function() { return false; };
-    var block = $block[0];
-    var blockIdentity = function() {
-      return [$block.attr('data-lang'), $block.attr('data-langpack'), $block.attr('data-section'), $block.attr('data-key'), identity || ''].join('\u0001');
-    };
-    return TrResponsiveLifecycle.requestGuard('LangKey', block, blockIdentity);
-  },
   init: function($blockEl) {
     $('input.file-upload', $blockEl).on('change', Screenshots.eUpload);
     $('.key-add-suggestion-field', $blockEl).on('focus.curBlock blur.curBlock keyup.curBlock change.curBlock input.curBlock', LangKey.eUpdateAddSuggestionField);
-    $('.key-add-suggestion-header-wrap', $blockEl).off('click.curBlock').on('click.curBlock', LangKey.eToggleSuggestionForm);
-    $('.add-suggestion-form .form-cancel-btn', $blockEl).off('click.curBlock').on('click.curBlock', LangKey.eHideSuggestionForm);
+    $('.key-add-suggestion-header-wrap', $blockEl).on('click', LangKey.eToggleSuggestionForm);
+    $('.add-suggestion-form .form-cancel-btn', $blockEl).on('click', LangKey.eHideSuggestionForm);
     $('.key-description-form', $blockEl).on('submit', LangKey.eSubmitDescriptionForm);
     $('.key-description-field', $blockEl).on('blur', LangKey.eSubmitDescriptionForm);
     $('.key-description-field', $blockEl).on('keydown', LangKey.eCancelDescriptionForm);
@@ -3087,8 +1973,6 @@ var LangKey = {
     $('.tr-key-block-close', $blockEl).on('click', LangKeys.eCloseKey);
     $blockEl.on('click.curBlock', '.sections-select-item', LangKey.eToggleKeySection);
     $blockEl.on('click.curBlock', '.key-suggestion-value-wrap', LangKey.eToggleSuggestion);
-    $blockEl.on('click.curBlock', '.key-suggestion-collapse', LangKey.eToggleSuggestion);
-    $blockEl.on('keydown.curBlock', '.key-suggestion-collapse', LangKey.onSuggestionKeyDown);
     $blockEl.on('click.curBlock', '.key-suggestion-like', LangKey.eLikeSuggestion.pbind('liked'));
     $blockEl.on('click.curBlock', '.key-suggestion-dislike', LangKey.eLikeSuggestion.pbind('disliked'));
     $blockEl.on('click.curBlock', '.key-suggestion-comment', LangKey.eCommentSuggestion);
@@ -3097,14 +1981,7 @@ var LangKey = {
     $blockEl.on('click.curBlock', '.key-suggestion-delete', LangKey.eDeleteSuggestion);
     $blockEl.on('click.curBlock', '.key-suggestion-restore', LangKey.eRestoreSuggestion);
     $blockEl.on('click.curBlock', '.key-suggestion-delete-all', LangKey.eDeleteAllSuggestions);
-    $blockEl.off('click.curBlock', '.mark-as-translated-btn').on('click.curBlock', '.mark-as-translated-btn', LangKey.eMarkAsTranslated);
-    $blockEl.off('keydown.tr-key-action-a11y').on('keydown.tr-key-action-a11y', '.mark-as-translated-btn,.key-add-suggestion-header-wrap', function(e) {
-      if (e.key !== 'Enter' && e.key !== ' ') return;
-      if (this.tagName === 'BUTTON' || this.tagName === 'A') return;
-      e.preventDefault();
-      e.stopPropagation();
-      $(this).trigger('click');
-    });
+    $blockEl.on('click.curBlock', '.mark-as-translated-btn', LangKey.eMarkAsTranslated);
     $blockEl.on('click.curBlock', '.key-default', LangKey.eToggleHistory);
     $blockEl.on('click.curBlock', '.key-usage-header', LangKey.eToggleUsage);
     $blockEl.on('click.curBlock', '.comments-show-all', LangKey.eShowAllSuggestionComments);
@@ -3139,12 +2016,10 @@ var LangKey = {
     $('.key-restore-btn', $blockEl).off('click', LangKey.restoreLangKey);
     $('.tr-key-block-close', $blockEl).off('click', LangKeys.eCloseKey);
     $('div.key-add-suggestion-field').destroyTextarea();
-    $blockEl.off('.tr-key-action-a11y');
     $blockEl.off('.curBlock');
   },
   eUpdateAddSuggestionField: function(e) {
     var $fieldEl = $(this);
-    if ($fieldEl.data('tr-composing')) return;
     if (e.type == 'focus' || e.type == 'focusin') {
       LangKey.updateAddSuggestionField($fieldEl, true);
     } else if (e.type == 'blur' || e.type == 'focusout') {
@@ -3168,7 +2043,6 @@ var LangKey = {
   },
   eUpdateCommentField: function(e) {
     var $fieldEl = $(this);
-    if ($fieldEl.data('tr-composing')) return;
     if (e.type == 'focus' || e.type == 'focusin') {
       if (!Aj.needAuth()) {
         LangKey.updateCommentField($fieldEl, true);
@@ -3205,7 +2079,6 @@ var LangKey = {
     var section = $keyBlock.attr('data-section');
     var suggestion_id = $wrap.attr('data-suggestion-id');
     var reply_to_id = $replyWrapEl.attr('data-comment-id');
-    var requestGuard = LangKey.makeRequestGuard($keyBlock, 'comment\u0001' + suggestion_id + '\u0001' + (reply_to_id || ''));
     Aj.apiRequest('suggestionAddComment', {
       lang: lang,
       lang_pack: lang_pack,
@@ -3215,7 +2088,6 @@ var LangKey = {
       reply_to_id: reply_to_id,
       text: form.text.value
     }, function(result) {
-      if (!requestGuard()) return;
       if (result.error) {
         return showAlert(result.error);
       }
@@ -3280,7 +2152,6 @@ var LangKey = {
     var lang_key = $keyBlock.attr('data-key');
     var section = $keyBlock.attr('data-section');
     var $wrapEl = $form.parents('.tr-key-row-wrap');
-    var requestGuard = LangKey.makeRequestGuard($keyBlock, 'suggestion\u0001' + lang_key);
     var params = {
       lang: lang,
       lang_pack: lang_pack,
@@ -3306,7 +2177,6 @@ var LangKey = {
       }
     }
     Aj.apiRequest('addSuggestion', params, function(result) {
-      if (!requestGuard()) return;
       if (!result.error) {
         LangKey.hideSuggestionForm();
         if (result.suggestion_html) {
@@ -3353,13 +2223,6 @@ var LangKey = {
     var $wrapEl = $(this).parents('.key-suggestion-wrap');
     LangKey.toggleSuggestion($wrapEl);
   },
-  onSuggestionKeyDown: function(e) {
-    if (e.target && e.target.tagName === 'BUTTON') return;
-    if (e.key !== 'Enter' && e.key !== ' ') return;
-    e.preventDefault();
-    e.stopPropagation();
-    LangKey.eToggleSuggestion.call(this, e);
-  },
   toggleSuggestion: function($wrapEl, state, no_anim, callback) {
     if ($wrapEl.hasClass('key-suggestion-custom')) {
       return;
@@ -3370,13 +2233,11 @@ var LangKey = {
     var $commentsEl = $('.key-suggestion-comments-wrap', $wrapEl);
     if (no_anim) {
       $wrapEl.animOff().toggleClass('key-suggestion-collapsed', !state).animOn();
-      $('.key-suggestion-collapse', $wrapEl).attr('aria-expanded', state ? 'true' : 'false');
       callback && callback();
     } else {
       if ($wrapEl.hasClass('key-suggestion-collapsed') !== !state) {
         $commentsEl.prepareSlideY(callback);
         $wrapEl.toggleClass('key-suggestion-collapsed', !state);
-        $('.key-suggestion-collapse', $wrapEl).attr('aria-expanded', state ? 'true' : 'false');
       } else {
         callback && callback();
       }
@@ -3430,13 +2291,11 @@ var LangKey = {
     var $keyBlock = $(form).parents('.tr-key-full-block');
     var lang_pack = $keyBlock.attr('data-langpack');
     var lang_key = $keyBlock.attr('data-key');
-    var requestGuard = LangKey.makeRequestGuard($keyBlock, 'description\u0001' + lang_key + '\u0001' + form.description.value);
     Aj.apiRequest('editKeyDescription', {
       lang_pack: lang_pack,
       lang_key: lang_key,
       description: form.description.value
     }, function(result) {
-      if (!requestGuard()) return;
       if (result.error) {
         return showAlert(result.error);
       }
@@ -3462,7 +2321,6 @@ var LangKey = {
     var lang_pack = $blockEl.attr('data-langpack');
     var lang_key = $blockEl.attr('data-key');
     var section = $blockEl.attr('data-section');
-    var requestGuard = LangKey.makeRequestGuard($blockEl, 'remove');
     var confirm_text = l('WEB_REMOVE_LANG_KEY_CONFIRM_TEXT', {lang_key: cleanHTML(lang_key)});
     showConfirm(confirm_text, function() {
       Aj.apiRequest('removeLangKey', {
@@ -3471,7 +2329,6 @@ var LangKey = {
         section: section,
         lang_key: lang_key
       }, function(result) {
-        if (!requestGuard()) return;
         var $wrapEl = $blockEl.parents('.tr-key-row-wrap');
         if ($wrapEl.size()) {
           LangKeys.closeKey($wrapEl);
@@ -3495,7 +2352,6 @@ var LangKey = {
     var lang_pack = $blockEl.attr('data-langpack');
     var lang_key = $blockEl.attr('data-key');
     var section = $blockEl.attr('data-section');
-    var requestGuard = LangKey.makeRequestGuard($blockEl, 'restore');
     var confirm_text = l('WEB_RESTORE_LANG_KEY_CONFIRM_TEXT', {lang_key: cleanHTML(lang_key)});
     showConfirm(confirm_text, function() {
       Aj.apiRequest('restoreLangKey', {
@@ -3504,7 +2360,6 @@ var LangKey = {
         section: section,
         lang_key: lang_key
       }, function(result) {
-        if (!requestGuard()) return;
         if (result.content_html) {
           LangKey.destroy($('.tr-key-full-block'));
           $('.tr-content').html(result.content_html);
@@ -3536,9 +2391,7 @@ var LangKey = {
       lang_key: lang_key,
       important: important ? 1 : 0
     };
-    var requestGuard = LangKey.makeRequestGuard($blockEl, 'important\u0001' + (important ? 1 : 0));
     var callback = function(result) {
-      if (!requestGuard()) return;
       if (result.confirm_hash) {
         showConfirm(result.confirm_text, function() {
           params.confirm_hash = result.confirm_hash;
@@ -3566,7 +2419,6 @@ var LangKey = {
     var lang_key = $keyData.attr('data-key');
     var suggestion_id = $wrapEl.attr('data-suggestion-id');
     var comment_id = $commentEl.attr('data-comment-id');
-    var requestGuard = LangKey.makeRequestGuard($keyData, 'delete-comment\u0001' + suggestion_id + '\u0001' + comment_id);
     Aj.apiRequest('suggestionDeleteComment', {
       lang_pack: lang_pack,
       lang: lang,
@@ -3574,7 +2426,6 @@ var LangKey = {
       suggestion_id: suggestion_id,
       comment_id: comment_id
     }, function(result) {
-      if (!requestGuard()) return;
       if (result.ok) {
         $('.key-suggestion-counters .key-suggestion-comment', $wrapEl).text(result.comments || '');
         $commentEl.addClass('comment-deleted');
@@ -3593,7 +2444,6 @@ var LangKey = {
     var lang_key = $keyData.attr('data-key');
     var suggestion_id = $wrapEl.attr('data-suggestion-id');
     var comment_id = $commentEl.attr('data-comment-id');
-    var requestGuard = LangKey.makeRequestGuard($keyData, 'restore-comment\u0001' + suggestion_id + '\u0001' + comment_id);
     Aj.apiRequest('suggestionRestoreComment', {
       lang_pack: lang_pack,
       lang: lang,
@@ -3601,7 +2451,6 @@ var LangKey = {
       suggestion_id: suggestion_id,
       comment_id: comment_id
     }, function(result) {
-      if (!requestGuard()) return;
       if (result.ok) {
         $('.key-suggestion-counters .key-suggestion-comment', $wrapEl).text(result.comments || '');
         $commentEl.removeClass('comment-deleted');
@@ -3613,15 +2462,12 @@ var LangKey = {
   },
   eDeleteAllSuggestionComments: function(e) {
     var $curCommentEl = $(this).parents('.js-comment-wrap');
-    var $keyData = $(this).parents('.js-key-data');
     var author = $curCommentEl.attr('data-author');
-    var requestGuard = LangKey.makeRequestGuard($keyData, 'delete-comments\u0001' + author);
     Aj.apiRequest('suggestionDeleteAllComments', {
       lang: Aj.state.curLang,
       author: author,
       confirm_only: 1
     }, function(result) {
-      if (!requestGuard()) return;
       if (result.error) {
         return showAlert(result.error);
       }
@@ -3631,7 +2477,6 @@ var LangKey = {
             lang: Aj.state.curLang,
             author: author
           }, function(result) {
-            if (!requestGuard()) return;
             if (result.ok) {
               $('.js-comment-wrap').each(function() {
                 var $commentEl = $(this);
@@ -3651,7 +2496,7 @@ var LangKey = {
   },
   eReplySuggestionComment: function(e) {
     if (Aj.needAuth()) return false;
-    var $replyEl = $('<div class="comment-reply"><button type="button" class="comment-reply-cancel close" aria-label="Cancel reply"></button><div class="comment-head"></div></div>');
+    var $replyEl = $('<div class="comment-reply"><div class="comment-reply-cancel close"></div><div class="comment-head"></div></div>');
     var $replyWrapEl = $('<div class="comment-reply-wrap shide"><div class="comment-form-reply"></div></div>');
     var $wrapEl = $(this).parents('.key-suggestion-wrap');
     var $commentEl = $(this).parents('.key-suggestion-comment-wrap');
@@ -3674,25 +2519,18 @@ var LangKey = {
   eToggleKeySection: function(e) {
     e.preventDefault();
     e.stopPropagation();
-    var $button = $(this);
-    if ($button.attr('aria-busy') === 'true') return;
-    var section = $button.attr('data-section');
-    var $keyBlock = $button.parents('.tr-key-full-block');
+    var section = $(this).attr('data-section');
+    var $keyBlock = $(this).parents('.tr-key-full-block');
     var lang = $keyBlock.attr('data-lang');
     var lang_pack = $keyBlock.attr('data-langpack');
     var lang_key = $keyBlock.attr('data-key');
-    var method = $button.parents('li').hasClass('selected') ? 'removeKeyFromSection' : 'addKeyToSection';
-    var requestGuard = LangKey.makeRequestGuard($keyBlock, 'section\u0001' + section + '\u0001' + method);
-    $button.attr('aria-busy', 'true').prop('disabled', true);
+    var method = $(this).parents('li').hasClass('selected') ? 'removeKeyFromSection' : 'addKeyToSection';
     Aj.apiRequest(method, {
       lang_pack: lang_pack,
       lang: lang,
       section: section,
       lang_key: lang_key
     }, function(result) {
-      if (!requestGuard()) return;
-      $button.removeAttr('aria-busy').prop('disabled', false);
-      if (result.error) return showAlert(result.error);
       if (result.sections_html) {
         $('.key-default-sections').html(result.sections_html);
       }
@@ -3710,20 +2548,11 @@ var LangKey = {
     var lang_key = $keyBlock.attr('data-key');
     var section = $keyBlock.attr('data-section');
     var suggestion_id = $wrap.attr('data-suggestion-id');
-    var previous = {
+    var likes = {
       likes: +$('.key-suggestion-like', $counters).text() || 0,
       dislikes: +$('.key-suggestion-dislike', $counters).text() || 0,
-      state: $counters.hasClass('liked') ? 'liked' : ($counters.hasClass('disliked') ? 'disliked' : '')
-    };
-    var voteGeneration = ($wrap.data('vote-generation') || 0) + 1;
-    $wrap.data('vote-generation', voteGeneration);
-    $counters.attr('aria-busy', 'true');
-    var likes = {
-      likes: previous.likes,
-      dislikes: previous.dislikes,
       state: state
     };
-    var requestGuard = LangKey.makeRequestGuard($keyBlock, 'like\u0001' + suggestion_id + '\u0001' + state);
     var method;
     if (state == 'liked') {
       if ($counters.hasClass('liked')) {
@@ -3757,10 +2586,7 @@ var LangKey = {
       lang_key: lang_key,
       suggestion_id: suggestion_id
     }, function(result) {
-      if (!requestGuard() || $wrap.data('vote-generation') !== voteGeneration) return;
-      $counters.removeAttr('aria-busy');
       if (result.error) {
-        LangKey.updateSuggestionLikes($counters, previous);
         return showAlert(result.error);
       }
       LangKey.updateSuggestionLikes($counters, result);
@@ -3775,8 +2601,6 @@ var LangKey = {
     if (likes.state) {
       $counters.addClass(likes.state);
     }
-    $('.key-suggestion-like', $counters).attr('aria-pressed', likes.state === 'liked' ? 'true' : 'false');
-    $('.key-suggestion-dislike', $counters).attr('aria-pressed', likes.state === 'disliked' ? 'true' : 'false');
     var likes_score = likes.likes - likes.dislikes;
     $counters.parents('.key-suggestion-wrap').toggleClass('key-suggestion-disliked', likes_score < -1 || likes.likes && likes_score < 0);
   },
@@ -3821,8 +2645,6 @@ var LangKey = {
     var section = $keyBlock.attr('data-section');
     var lang_key = $keyBlock.attr('data-key');
     var suggestion_id = $wrap.attr('data-suggestion-id');
-    var requestGeneration = TrResponsiveLifecycle.generation;
-    var requestKey = [lang, lang_pack, section, lang_key, suggestion_id].join('/');
     var params = {
       lang: lang,
       lang_pack: lang_pack,
@@ -3840,9 +2662,6 @@ var LangKey = {
       }
     }
     Aj.apiRequest('suggestionApply', params, function(result) {
-      if (!TrResponsiveLifecycle.isCurrent(requestGeneration) || !$wrap.closest('html').length ||
-          [$keyBlock.attr('data-lang'), $keyBlock.attr('data-langpack'), $keyBlock.attr('data-section'),
-           $keyBlock.attr('data-key'), $wrap.attr('data-suggestion-id')].join('/') !== requestKey) return;
       if (result.error) {
         return showAlert(result.error);
       }
@@ -3850,10 +2669,10 @@ var LangKey = {
         Search.clearData(lang, lang_pack);
         LangKey.editSuggestion($wrap, true);
         LangKey.clearHistory($wrap.parents('.tr-key-full-block'));
-        $('.key-suggestion-wrap.key-suggestion-applied', $keyBlock).removeClass('key-suggestion-applied');
-        $('.key-suggestion-wrap.key-suggestion-custom', $keyBlock).slideHide('remove');
-        $wrap.clone().addClass('key-suggestion-applied shide').prependTo($('.key-suggestions', $keyBlock)).slideShow();
-        $('.key-default-value .tr-value-untranslated', $keyBlock).fadeHide();
+        $('.key-suggestion-wrap.key-suggestion-applied').removeClass('key-suggestion-applied');
+        $('.key-suggestion-wrap.key-suggestion-custom').slideHide('remove');
+        $wrap.clone().addClass('key-suggestion-applied shide').prependTo('.key-suggestions').slideShow();
+        $('.key-default-value .tr-value-untranslated').fadeHide();
         $wrap.slideHide('remove');
         if (result.row_html && params.inline) {
           var $newWrapEl = $(result.row_html);
@@ -3875,7 +2694,6 @@ var LangKey = {
     var lang_pack = $keyBlock.attr('data-langpack');
     var section = $keyBlock.attr('data-section');
     var lang_key = $keyBlock.attr('data-key');
-    var requestGuard = LangKey.makeRequestGuard($keyBlock, 'translated');
     var confirm_text = l('WEB_MARK_AS_TRANSLATED_CONFIRM_TEXT', {lang_key: cleanHTML(lang_key)});
     showConfirm(confirm_text, function() {
       Aj.apiRequest('markAsTranslated', {
@@ -3884,7 +2702,6 @@ var LangKey = {
         section: section,
         lang_key: lang_key
       }, function(result) {
-        if (!requestGuard()) return;
         if (result.error) {
           return showAlert(result.error);
         }
@@ -3906,7 +2723,6 @@ var LangKey = {
     var section = $keyData.attr('data-section');
     var lang_key = $keyData.attr('data-key');
     var suggestion_id = $wrap.attr('data-suggestion-id');
-    var requestGuard = LangKey.makeRequestGuard($keyData, 'delete-suggestion\u0001' + suggestion_id);
     var params = {
       lang: lang,
       lang_pack: lang_pack,
@@ -3924,7 +2740,6 @@ var LangKey = {
       }
     }
     Aj.apiRequest('suggestionDelete', params, function(result) {
-      if (!requestGuard()) return;
       if (result.error) {
         return showAlert(result.error);
       }
@@ -3952,7 +2767,6 @@ var LangKey = {
     var section = $keyData.attr('data-section');
     var lang_key = $keyData.attr('data-key');
     var suggestion_id = $wrap.attr('data-suggestion-id');
-    var requestGuard = LangKey.makeRequestGuard($keyData, 'restore-suggestion\u0001' + suggestion_id);
     var params = {
       lang: lang,
       lang_pack: lang_pack,
@@ -3970,7 +2784,6 @@ var LangKey = {
       }
     }
     Aj.apiRequest('suggestionRestore', params, function(result) {
-      if (!requestGuard()) return;
       if (result.error) {
         return showAlert(result.error);
       }
@@ -3990,15 +2803,12 @@ var LangKey = {
   eDeleteAllSuggestions: function(e) {
     e.preventDefault();
     var $curWrap = $(this).parents('.js-suggestion-wrap');
-    var $keyData = $(this).parents('.js-key-data');
     var author = $curWrap.attr('data-author');
-    var requestGuard = LangKey.makeRequestGuard($keyData, 'delete-suggestions\u0001' + author);
     Aj.apiRequest('suggestionDeleteAll', {
       lang: Aj.state.curLang,
       author: author,
       confirm_only: 1
     }, function(result) {
-      if (!requestGuard()) return;
       if (result.error) {
         return showAlert(result.error);
       }
@@ -4008,7 +2818,6 @@ var LangKey = {
             lang: Aj.state.curLang,
             author: author
           }, function(result) {
-            if (!requestGuard()) return;
             if (result.ok) {
               $('.js-suggestion-wrap').each(function() {
                 var $wrap = $(this);
@@ -4038,8 +2847,6 @@ var LangKey = {
     var lang_key = $keyBlock.attr('data-key');
     var suggestion_id = $wrap.attr('data-suggestion-id');
     var comment_id = $(this).data('highlight-comment');
-    var requestGeneration = TrResponsiveLifecycle.generation;
-    var requestKey = [lang, lang_pack, section, lang_key, suggestion_id].join('/');
     if (comment_id) {
       $(this).data('highlight-comment', 0);
     }
@@ -4050,9 +2857,6 @@ var LangKey = {
       lang_key: lang_key,
       suggestion_id: suggestion_id
     }, function(result) {
-      if (!TrResponsiveLifecycle.isCurrent(requestGeneration) || !$wrap.closest('html').length ||
-          [ $keyBlock.attr('data-lang'), $keyBlock.attr('data-langpack'), $keyBlock.attr('data-section'),
-            $keyBlock.attr('data-key'), $wrap.attr('data-suggestion-id') ].join('/') !== requestKey) return;
       if (result.error) {
         return showAlert(result.error);
       }
@@ -4083,26 +2887,17 @@ var LangKey = {
     }
   },
   eToggleHistory: function(e) {
-    if ($(e.target).closest('form.key-description-form,a,.diff-btn').size()) {
+    if ($(e.target).closest('form.key-description-form,a').size()) {
       return;
     }
     e.preventDefault();
     e.stopPropagation();
     var $defaultEl = $(this);
-    var $toggle = $('.key-default-toggle', $defaultEl);
-    var setHistoryState = function(expanded) {
-      $toggle.attr({
-        'aria-expanded': expanded ? 'true' : 'false',
-        'aria-label': expanded ? 'Hide history' : 'Show history'
-      });
-    };
     var $keyBlock = $defaultEl.parents('.tr-key-full-block');
     var $historyWrapEL = $('.key-history-wrap', $keyBlock);
     var $history = $('.key-history', $historyWrapEL);
     if ($history.size()) {
-      var expanded = !$history.is(':visible');
       $history.slideToggle();
-      setHistoryState(expanded);
     } else {
       if ($historyWrapEL.data('loading')) {
         return;
@@ -4110,24 +2905,16 @@ var LangKey = {
       $historyWrapEL.html('<div class="key-history"><div class="tr-key-history-row"><div class="tr-key-history-row-loading dots-animated">' + l('WEB_TRANSLATIONS_LOADING') + '</div></div></div>');
       $('.key-history', $historyWrapEL).addClass('shide').slideShow();
       $historyWrapEL.data('loading', true);
-      setHistoryState(true);
       var lang = $keyBlock.attr('data-lang');
       var lang_pack = $keyBlock.attr('data-langpack');
       var lang_key = $keyBlock.attr('data-key');
-      var requestGeneration = TrResponsiveLifecycle.generation;
-      var requestKey = [lang, lang_pack, lang_key].join('/');
       Aj.apiRequest('getKeyHistory', {
         lang: lang,
         lang_pack: lang_pack,
         lang_key: lang_key
       }, function(result) {
-        if (!TrResponsiveLifecycle.isCurrent(requestGeneration) ||
-            !$keyBlock.closest('html').length ||
-            [$keyBlock.attr('data-lang'), $keyBlock.attr('data-langpack'), $keyBlock.attr('data-key')].join('/') !== requestKey) return;
         $historyWrapEL.data('loading', false);
         if (result.error) {
-          $historyWrapEL.empty();
-          setHistoryState(false);
           return showAlert(result.error);
         }
         if (result.history_html) {
@@ -4147,10 +2934,8 @@ var LangKey = {
     var $keyBlock = $usageEl.parents('.tr-key-full-block');
     var $linesWrapEL = $('.key-usage-lines-wrap', $keyBlock);
     var $releasesWrapEL = $('.app-releases', $keyBlock);
-    var expanded = !$linesWrapEL.is(':visible');
     $linesWrapEL.slideToggle();
     $releasesWrapEL.toggleClass('open');
-    $usageEl.attr('aria-expanded', expanded ? 'true' : 'false');
     return false;
   },
   eBindingOpen: function(e) {
@@ -4193,8 +2978,6 @@ var LangKey = {
     var $bindingsEl = $(this).parents('.binding-items');
     var bind_lang_pack = $bindingsEl.attr('data-langpack');
     var bind_lang_key = $bindingsEl.attr('data-key');
-    var requestGeneration = TrResponsiveLifecycle.generation;
-    var requestKey = [lang, lang_pack, section, lang_key, bind_lang_pack, bind_lang_key].join('/');
     if (lang_key && bind_lang_key) {
       Aj.apiRequest('bindKeys', {
         lang_pack: lang_pack,
@@ -4204,14 +2987,11 @@ var LangKey = {
         lang_pack2: bind_lang_pack,
         lang_key2: bind_lang_key
       }, function(result) {
-        if (!TrResponsiveLifecycle.isCurrent(requestGeneration) || !$keyBlock.closest('html').length ||
-            [$keyBlock.attr('data-lang'), $keyBlock.attr('data-langpack'), $keyBlock.attr('data-section'),
-             $keyBlock.attr('data-key'), $bindingsEl.attr('data-langpack'), $bindingsEl.attr('data-key')].join('/') !== requestKey) return;
         if (result.error) {
           return showAlert(result.error);
         }
         if (result.bindings_html) {
-          var $oldBindings = $('.binding-items', $keyBlock);
+          $oldBindings = $('.binding-items');
           $(result.bindings_html).insertAfter($oldBindings);
           $oldBindings.remove();
         }
@@ -4229,8 +3009,6 @@ var LangKey = {
     var $bindingsEl = $(this).parents('.binding-items');
     var bind_lang_pack = $bindingsEl.attr('data-langpack');
     var bind_lang_key = $bindingsEl.attr('data-key');
-    var requestGeneration = TrResponsiveLifecycle.generation;
-    var requestKey = [lang, lang_pack, section, lang_key, bind_lang_pack, bind_lang_key].join('/');
     Aj.apiRequest('unbindKey', {
       lang_pack: lang_pack,
       lang: lang,
@@ -4239,14 +3017,11 @@ var LangKey = {
       lang_pack2: bind_lang_pack,
       lang_key2: bind_lang_key
     }, function(result) {
-      if (!TrResponsiveLifecycle.isCurrent(requestGeneration) || !$keyBlock.closest('html').length ||
-          [$keyBlock.attr('data-lang'), $keyBlock.attr('data-langpack'), $keyBlock.attr('data-section'),
-           $keyBlock.attr('data-key'), $bindingsEl.attr('data-langpack'), $bindingsEl.attr('data-key')].join('/') !== requestKey) return;
       if (result.error) {
         return showAlert(result.error);
       }
       if (result.bindings_html) {
-        var $oldBindings = $('.binding-items', $keyBlock);
+        $oldBindings = $('.binding-items');
         $(result.bindings_html).insertAfter($oldBindings);
         $oldBindings.remove();
       }
@@ -4267,21 +3042,13 @@ var LangKey = {
 };
 
 var LangKeys = {
-  requestGeneration: 0,
   init: function() {
     $('.tr-content').on('change.curPage', '.tr-key-row input.file-upload', Screenshots.eUpload);
     $('.tr-content').on('click.curPage', '.tr-key-row input.file-upload', stopImmediatePropagation);
     $('.tr-content').on('click.curPage', '.tr-key-row[data-href]', LangKeys.eOpenKey);
-    $('.tr-content').on('keydown.curPage', '.tr-key-row[data-href]', function(e) {
-      if (e.key !== 'Enter' && e.key !== ' ') return;
-      if ($(e.target).closest('a,button,input,select,textarea,[contenteditable="true"]').length) return;
-      e.preventDefault();
-      LangKeys.eOpenKey.call(this, e);
-    });
     LoadMore.init();
   },
   destroy: function() {
-    LangKeys.requestGeneration++;
     $('.tr-content').off('.curPage');
   },
   eOpenKey: function(e) {
@@ -4317,11 +3084,6 @@ var LangKeys = {
     if (!section) {
       section = cur_section;
     }
-    var routeGeneration = TrResponsiveLifecycle.generation;
-    var routeHref = Aj.location().href;
-    var openGeneration = ++LangKeys.requestGeneration;
-    var wrapEl = $wrapEl[0];
-    var rowEl = $rowEl[0];
     $('.tr-content').addClass('open');
     $(document).off('click.curPage', LangKeys.eCloseKeyOutside);
     $(document).off('keydown.curPage', LangKeys.onKeyDown);
@@ -4334,12 +3096,6 @@ var LangKeys = {
       lang_key: lang_key,
       bind: bind
     }, function(result) {
-      if (openGeneration !== LangKeys.requestGeneration ||
-          !TrResponsiveLifecycle.isCurrent(routeGeneration) || Aj.location().href !== routeHref ||
-          !wrapEl || !rowEl || !document.documentElement.contains(wrapEl) ||
-          !$.contains(wrapEl, rowEl)) {
-        return;
-      }
       if (!$('.tr-content').hasClass('open')) {
         return;
       }
@@ -4416,7 +3172,6 @@ var LangKeys = {
   },
   closeKey: function($wrapEl, reopen, callback) {
     if (!reopen) {
-      LangKeys.requestGeneration++;
       $(document).off('click.curPage', LangKeys.eCloseKeyOutside);
       $(document).off('keydown.curPage', LangKeys.onKeyDown);
     }
@@ -4481,46 +3236,24 @@ var LangKeys = {
 };
 
 var Share = {
-  registered: false,
-  generation: 0,
   init: function() {
-    if (Share.registered) return;
-    Share.registered = true;
     Aj.onLoad(function(state) {
-      Share.generation++;
-      $(document).off('.tr-share').on('click.tr-share', '.tr-share-link-copy', Share.copyLink).on('click.tr-share', '.tr-share-link', Share.selectLink);
+      $(document).on('click.curPage', '.tr-share-link-copy', Share.copyLink);
+      $(document).on('click.curPage', '.tr-share-link', Share.selectLink);
     });
-    Aj.onUnload(function() { Share.generation++; $(document).off('.tr-share'); });
   },
   selectLink: function() {
     $('.tr-share-link').focus().select();
   },
-  copyLink: function(e) {
-    if (e) { e.preventDefault(); e.stopPropagation(); }
+  copyLink: function() {
     Share.selectLink();
-    var input = $('.tr-share-link').get(0), value = input ? input.value : '';
-    var generation = Share.generation;
-    var done = function(ok) {
-      if (generation !== Share.generation || !input || !document.documentElement.contains(input)) return;
-      var $status = $('.tr-share-link-copied');
-      if (ok) {
-        $('.tr-share-link-copy').fadeHide();
-        $status.text($status.data('copied-text') || $status.text()).attr('data-state', 'copied').fadeShow();
-      } else {
-        input.focus();
-        input.select();
-        $status.text($status.data('failed-text') || 'Copy failed — press Ctrl/Cmd+C to copy').attr('data-state', 'failed').fadeShow();
-      }
-      $status.attr('role', 'status');
-      if (ok) setTimeout(function() { if (generation === Share.generation) { $('.tr-share-link-copy').fadeShow(); $status.fadeHide(); } }, 2000);
-    };
-    if (navigator.clipboard && window.isSecureContext && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(value).then(function() { done(true); }, function() { done(false); });
-    } else {
-      var ok = false;
-      try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
-      done(ok);
-    }
+    document.execCommand('copy');
+    $('.tr-share-link-copy').fadeHide();
+    $('.tr-share-link-copied').fadeShow();
+    setTimeout(function() {
+      $('.tr-share-link-copy').fadeShow();
+      $('.tr-share-link-copied').fadeHide();
+    }, 2000);
   },
   initStartLink: function() {
     Aj.onLoad(function(state) {
@@ -4535,94 +3268,24 @@ var Share = {
   }
 };
 
-/* Documentation anchors clear the fixed header. */
-var TrDocs = {
-  registered: false,
-  init: function() {
-    TrDocs.prepareAnchors();
-    if (TrDocs.registered || !window.Aj) return;
-    TrDocs.registered = true;
-    Aj.onLoad(function() {
-      TrDocs.prepareAnchors();
-    });
-  },
-  prepareAnchors: function() {
-    var header = document.querySelector('header'), height = header ? header.getBoundingClientRect().height : 56;
-    $('.tr-docs-content a.anchor').css('scroll-margin-top', (height + 16) + 'px');
-    $('.tr-docs-content [id]').css('scroll-margin-top', (height + 16) + 'px');
-  }
-};
-
-var TrA11y = {
-  labels: {
-    '.key-suggestion-collapse': 'Expand suggestion',
-    '.diff-btn': 'Show translation changes'
-  },
-  init: function() {
-    Aj.onLoad(function() {
-      $.each(TrA11y.labels, function(selector, label) {
-        $(selector).each(function() {
-          var $el = $(this);
-          if (!$el.is('button,a,input,select,textarea') && !$el.attr('role')) $el.attr({'role': 'button', 'tabindex': '0'});
-          if (!$el.attr('aria-label')) $el.attr('aria-label', label);
-        });
-      });
-      $(document).off('keydown.tr-a11y').on('keydown.tr-a11y', '[role="button"][tabindex="0"]', function(e) {
-        if (e.key !== 'Enter' && e.key !== ' ') return;
-        if ($(e.target).is('a,button,input,select,textarea')) return;
-        e.preventDefault();
-        this.click();
-      });
-    });
-    Aj.onUnload(function() { $(document).off('.tr-a11y'); });
-  }
-};
-TrInitAfterAj(function() { TrA11y.init(); });
-
 var UnreleasedKeys = {
-  registered: false,
   init: function() {
-    if (UnreleasedKeys.registered) return;
-    UnreleasedKeys.registered = true;
     Aj.onLoad(function(state) {
-      var $rows = $('.tr-unreleased-keys');
-      $(document).off('click.tr-unreleased keydown.tr-unreleased');
-      if (!$rows.length) return;
-      $(document)
-        .on('click.tr-unreleased', '.tr-unreleased-keys .tr-plain-key-row', UnreleasedKeys.toggleRow)
-        .on('click.tr-unreleased', '.tr-unreleased-keys .tr-row-select', UnreleasedKeys.toggleControl)
-        .on('click.tr-unreleased', '.tr-unreleased-header .push-selected-btn', UnreleasedKeys.pushSelected)
-        .on('click.tr-unreleased', '.tr-unreleased-header .push-btn', UnreleasedKeys.pushAll);
+      $(document).on('click.curPage', '.tr-plain-key-row', UnreleasedKeys.toggleRow);
+      $(document).on('click.curPage', '.push-selected-btn', UnreleasedKeys.pushSelected);
+      $(document).on('click.curPage', '.push-btn', UnreleasedKeys.pushAll);
     });
-    Aj.onUnload(function() { $(document).off('.tr-unreleased'); });
   },
   toggleRow: function(e) {
-    if ($(e.target).closest('a,button,input,select,textarea').length) return;
-    e.preventDefault();
-    UnreleasedKeys.setSelected($(this));
+    $(this).toggleClass('selected');
     UnreleasedKeys.updateButtonsState();
-  },
-  toggleControl: function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    var $row = $(this).closest('.tr-plain-key-row');
-    UnreleasedKeys.setSelected($row);
-    UnreleasedKeys.updateButtonsState();
-  },
-  setSelected: function($row, selected) {
-    if (typeof selected === 'undefined') selected = !$row.hasClass('selected');
-    $row.toggleClass('selected', selected);
-    $row.attr('aria-selected', selected ? 'true' : 'false');
-    $('.tr-row-select', $row).attr('aria-pressed', selected ? 'true' : 'false');
   },
   updateButtonsState: function() {
-    var $root = $('.tr-unreleased-keys');
-    var selected_cnt = $('.tr-plain-key-row-wrap:not(.shide) .tr-plain-key-row.selected', $root).size();
-    $('.tr-unreleased-header .push-selected-btn').fadeToggle(selected_cnt > 0);
-    $('.tr-unreleased-header .tr-selection-status').text(selected_cnt ? selected_cnt + ' selected' : '');
+    var selected_cnt = $('.tr-plain-key-row-wrap:not(.shide) .tr-plain-key-row.selected').size();
+    $('.push-selected-btn').fadeToggle(selected_cnt > 0);
   },
   pushSelected: function(e) {
-    var $rows = $('.tr-unreleased-keys .tr-plain-key-row.selected');
+    var $rows = $('.tr-plain-key-row.selected');
     if (!$rows.size()) return;
     showConfirm(l('WEB_PUSH_SELECTED_PHRASES_CONFIRM_TEXT'), function() {
       var grouped_rows = LangKeys.groupKeyRows($rows);
@@ -4630,7 +3293,7 @@ var UnreleasedKeys = {
     }, l('WEB_PUSH_SELECTED_PHRASES_CONFIRM_BUTTON'));
   },
   pushAll: function(e) {
-    var $rows = $('.tr-unreleased-keys .tr-plain-key-row');
+    var $rows = $('.tr-plain-key-row');
     if (!$rows.size()) return;
     showConfirm(l('WEB_PUSH_ALL_PHRASES_CONFIRM_TEXT'), function() {
       var grouped_rows = LangKeys.groupKeyRows($rows);
@@ -4639,25 +3302,24 @@ var UnreleasedKeys = {
   },
   hideRows: function($rows) {
     var $rowsWrap = $rows.parents('.tr-plain-key-row-wrap');
-    var $counterEl = $('.tr-unreleased-header .tr-header-counter');
-    var cnt = $('.tr-unreleased-keys .tr-plain-key-row-wrap:not(.shide)').not($rowsWrap).size();
+    var $counterEl = $('section.content .tr-header-counter');
+    var cnt = $('.tr-plain-key-row-wrap:not(.shide)').not($rowsWrap).size();
     $counterEl.text(cnt || '');
     if ($rows.size() > 3) {
       $rowsWrap.remove();
     } else {
       $rowsWrap.slideHide('remove');
     }
-    $('.tr-unreleased-keys .tr-plain-key-row-empty-wrap').fadeToggle(!cnt);
+    $('.tr-plain-key-row-empty-wrap').fadeToggle(!cnt);
     UnreleasedKeys.updateButtonsState();
   },
   toggleProcessing: function(show) {
-    $('.tr-unreleased-header .tr-header-processing').fadeToggle(show);
-    $('.tr-unreleased-header .tr-selection-status').text(show ? l('WEB_PROCESSING') : '');
+    $('.tr-header-processing').fadeToggle(show);
     if (!show) {
-      var $counterEl = $('.tr-unreleased-header .tr-header-counter');
-      $('.tr-unreleased-header .tr-header-buttons').fadeToggle(!!$counterEl.text());
+      var $counterEl = $('section.content .tr-header-counter');
+      $('.tr-header-buttons').fadeToggle(!!$counterEl.text());
     } else {
-      $('.tr-unreleased-header .tr-header-buttons').fadeToggle(false);
+      $('.tr-header-buttons').fadeToggle(false);
     }
   },
   pushToProduction: function(keys_list) {
@@ -4669,8 +3331,6 @@ var UnreleasedKeys = {
     Aj.state.pushProcessing = true;
     UnreleasedKeys.toggleProcessing(true);
     var keys_item = keys_list.shift();
-    var generation = TrResponsiveLifecycle.generation;
-    var route = Aj.location().href;
     var lang_keys = keys_item.$rows.map(function() {
       return $(this).attr('data-key');
     }).get().join(',');
@@ -4679,11 +3339,10 @@ var UnreleasedKeys = {
       lang: keys_item.lang,
       lang_keys: lang_keys
     }, function(result) {
-      if (!TrResponsiveLifecycle.isCurrent(generation) || Aj.location().href !== route) return;
       if (result.ok) {
         UnreleasedKeys.hideRows(keys_item.$rows);
         setTimeout(function() {
-          if (Aj.state.pushProcessing && TrResponsiveLifecycle.isCurrent(generation) && Aj.location().href === route) {
+          if (Aj.state.pushProcessing) {
             UnreleasedKeys.pushToProduction(keys_list);
           }
         }, 500);
@@ -4697,50 +3356,37 @@ var UnreleasedKeys = {
 };
 
 var Languages = {
-  generation: 0,
   init: function() {
     Aj.onLoad(function(state) {
-      Languages.generation++;
-      $(document).off('change.tr-languages').on('change.tr-languages', '.tr-languages-table .checkbox', Languages.toggleLanguage);
+      $(document).on('click.curPage', '.tr-languages-table .checkbox', Languages.toggleLanguage);
     });
-    Aj.onUnload(function() { Languages.generation++; $(document).off('.tr-languages'); });
   },
   toggleLanguage: function(e) {
     e.preventDefault();
     e.stopImmediatePropagation();
-    var checkbox = this;
     if (!this.checked) {
       return false;
     }
     var $td = $(this).parents('td');
-    var generation = Languages.generation;
-    var route = Aj.location().href;
-    $(checkbox).prop('checked', false);
     showConfirm(l('WEB_ENABLE_LANGUAGE_CONFIRM_TEXT'), function() {
-      Languages.enableLanguage($td, checkbox, generation, route);
+      Languages.enableLanguage($td);
     }, l('WEB_ENABLE_LANGUAGE_CONFIRM_BUTTON'));
   },
-  enableLanguage: function($td, checkbox, generation, route) {
+  enableLanguage: function($td) {
     var lang = $td.attr('data-lang');
     var lang_pack = $td.attr('data-langpack');
-    var requestGeneration = ($td.data('enable-generation') || 0) + 1;
-    $td.data('enable-generation', requestGeneration).attr('aria-busy', 'true');
-    $(checkbox).prop('disabled', true);
     Aj.apiRequest('enableLanguage', {
       lang: lang,
       lang_pack: lang_pack
     }, function(result) {
-      if (generation !== Languages.generation || Aj.location().href !== route || !document.documentElement.contains($td[0]) || $td.data('enable-generation') !== requestGeneration) return;
-      $td.removeAttr('aria-busy');
       if (result.ok) {
         $td.removeClass('prepare').removeClass('ready');
         if ($td.hasClass('unavailable')) {
           $td.removeClass('unavailable').addClass('attention');
         }
-        $('.checkbox', $td).prop('checked', true).prop('disabled', true).attr('aria-label', 'Enabled');
+        $('.checkbox', $td).prop('checked', true).prop('disabled', true);
       }
       if (result.error) {
-        $(checkbox).prop('checked', false).prop('disabled', false);
         return showAlert(result.error);
       }
     });
@@ -4748,46 +3394,25 @@ var Languages = {
 };
 
 var Members = {
-  generation: 0,
-  addGenerations: {},
-  pendingAdds: {},
   init: function() {
     Aj.onLoad(function(state) {
-      Members.generation++;
-      Members.addGenerations = {};
-      Members.pendingAdds = {};
-      $('.tr-members-add-form').off('submit.tr-members').on('submit.tr-members', Members.eSubmitAddForm);
-      $(document).off('click.tr-members').on('click.tr-members', '.delete-member-btn', Members.eDeleteMember).on('click.tr-members', '.add-member-btn', Members.eAddMember);
+      $('.tr-members-add-form').on('submit', Members.eSubmitAddForm);
+      $(document).on('click.curPage', '.delete-member-btn', Members.eDeleteMember);
+      $(document).on('click.curPage', '.add-member-btn', Members.eAddMember);
     });
     Aj.onUnload(function(state) {
-      Members.generation++;
-      Members.addGenerations = {};
-      Members.pendingAdds = {};
-      $('.tr-members-add-form').off('.tr-members');
-      $(document).off('.tr-members');
+      $('.tr-members-add-form').off('submit', Members.eSubmitAddForm);
     });
   },
   eSubmitAddForm: function(e) {
     e.preventDefault();
     var form = this;
-    var $form = $(form);
-    if ($form.data('request-pending')) return;
     var $blockEl = $(this).parents('.tr-members-block');
     var level = $blockEl.attr('data-level');
-    var generation = Members.generation;
-    var route = Aj.location().href;
-    var requestGeneration = ($form.data('request-generation') || 0) + 1;
-    $form.data('request-generation', requestGeneration).data('request-pending', true).attr('aria-busy', 'true');
-    var $submitButtons = $form.find('[type="submit"], button:not([type])').prop('disabled', true);
     Aj.apiRequest('rightsAddMember', {
       level: level,
       query: this.query.value
     }, function(result) {
-      if (generation !== Members.generation || Aj.location().href !== route ||
-          !document.documentElement.contains(form) || !document.documentElement.contains($blockEl[0]) ||
-          $form.data('request-generation') !== requestGeneration) return;
-      $form.removeData('request-pending').removeAttr('aria-busy');
-      $submitButtons.prop('disabled', false);
       if (result.member_html) {
         $(result.member_html).addClass('shide').prependTo($('.tr-members', $blockEl)).slideShow();
         $('.tr-header-counter', $blockEl).text($('.tr-member-row-wrap', $blockEl).size() || '');
@@ -4800,81 +3425,43 @@ var Members = {
     });
   },
   eAddMember: function() {
-    if (this.disabled) return;
     var level = $(this).attr('data-level');
-    var $rowEl = $(this).parents('.tr-member-row-wrap');
-    var member_id = $rowEl.attr('data-member-id');
-    Members.addMember(level, member_id, this);
-  },
-  addMember: function(level, member_id, button) {
-    var generation = Members.generation;
-    var route = Aj.location().href;
-    var $button = $(button);
-    var $candidate = $button.parents('.tr-member-row-wrap');
     var $blockEl = $('.tr-members-block').filter(function() {
       return this.getAttribute('data-level') == level;
-    }).first();
-    if (!$blockEl.length || ($button.length && $button.prop('disabled'))) return false;
-    var actionKey = level + ':' + member_id;
-    if (Members.pendingAdds[actionKey]) return false;
-    var requestGeneration = (Members.addGenerations[actionKey] || 0) + 1;
-    Members.addGenerations[actionKey] = requestGeneration;
-    Members.pendingAdds[actionKey] = true;
-    if ($button.length) $button.prop('disabled', true).attr('aria-busy', 'true');
-    if ($candidate.length) $candidate.attr('aria-busy', 'true');
+    });
+    var $rowEl = $(this).parents('.tr-member-row-wrap');
+    var member_id = $rowEl.attr('data-member-id');
+    Members.addMember(level, member_id);
+  },
+  addMember: function(level, member_id) {
     Aj.apiRequest('rightsAddMember', {
       level: level,
       member_id: member_id,
     }, function(result) {
-      if (generation !== Members.generation || Aj.location().href !== route ||
-          !document.documentElement.contains($blockEl[0]) ||
-          Members.addGenerations[actionKey] !== requestGeneration) return;
-      delete Members.pendingAdds[actionKey];
-      if ($button.length && document.documentElement.contains($button[0])) $button.removeAttr('aria-busy');
-      if ($candidate.length && document.documentElement.contains($candidate[0])) $candidate.removeAttr('aria-busy');
       if (result.member_html) {
         $('.tr-member-row-wrap').filter(function() {
           return this.getAttribute('data-member-id') == member_id;
         }).find('.add-member-btn').fadeHide();
-        var hasMember = $('.tr-member-row-wrap', $blockEl).filter(function() {
-          return this.getAttribute('data-member-id') == member_id;
-        }).length;
-        if (!hasMember) {
-          $(result.member_html).addClass('shide').appendTo($('.tr-members', $blockEl)).slideShow();
-        }
+        var $blockEl = $('.tr-members-block').filter(function() {
+          return this.getAttribute('data-level') == level;
+        });
+        $(result.member_html).addClass('shide').appendTo($('.tr-members', $blockEl)).slideShow();
         $('.tr-header-counter', $blockEl).text($('.tr-member-row-wrap', $blockEl).size() || '');
       }
       if (result.error) {
-        if ($button.length && document.documentElement.contains($button[0])) $button.prop('disabled', false);
         return showAlert(result.error);
       }
-      if (!result.member_html && $button.length && document.documentElement.contains($button[0])) $button.prop('disabled', false);
     });
-    return true;
   },
   eDeleteMember: function() {
-    if (this.disabled) return;
-    var button = this;
-    var $button = $(button);
     var $blockEl = $(this).parents('.tr-members-block');
     var level = $blockEl.data('level');
     var $rowEl = $(this).parents('.tr-member-row-wrap');
     var member_id = $rowEl.attr('data-member-id');
-    var generation = Members.generation;
-    var route = Aj.location().href;
-    var requestGeneration = ($button.data('request-generation') || 0) + 1;
-    $button.data('request-generation', requestGeneration).prop('disabled', true).attr('aria-busy', 'true');
-    $rowEl.attr('aria-busy', 'true');
     Aj.apiRequest('rightsDeleteMember', {
       level: level,
       member_id: member_id,
     }, function(result) {
-      if (generation !== Members.generation || Aj.location().href !== route ||
-          !document.documentElement.contains(button) || !document.documentElement.contains($rowEl[0]) ||
-          !document.documentElement.contains($blockEl[0]) || !$.contains($rowEl[0], button) ||
-          $button.data('request-generation') !== requestGeneration) return;
-      $button.removeAttr('aria-busy');
-      $rowEl.removeAttr('aria-busy');
       if (result.ok) {
         $rowEl.slideHide(function() {
           $(this).remove();
@@ -4885,17 +3472,13 @@ var Members = {
         }).find('.add-member-btn').fadeShow();
       }
       if (result.error) {
-        $button.prop('disabled', false);
         return showAlert(result.error);
       }
-      if (!result.ok) $button.prop('disabled', false);
     });
   }
 };
 
 var ImportKeys = {
-  generation: 0,
-  xhr: null,
   eUpload: function(e) {
     var file = this.files && this.files[0] || null;
     if (!file) return;
@@ -4903,13 +3486,6 @@ var ImportKeys = {
     this.value = '';
   },
   upload: function(file) {
-    var generation = ++ImportKeys.generation;
-    var route = Aj.location().href;
-    var state = Aj.state;
-    var $uploadRow = $('.tr-upload-row').first();
-    var isCurrent = function() {
-      return generation === ImportKeys.generation && state === Aj.state && Aj.location().href === route && $uploadRow.length && document.documentElement.contains($uploadRow[0]);
-    };
     var data = new FormData();
     data.append('method', 'importFile');
     data.append('lang', Aj.state.curLang);
@@ -4928,22 +3504,18 @@ var ImportKeys = {
       xhr: function() {
         var xhr = new XMLHttpRequest();
         xhr.upload.addEventListener('progress', function(event) {
-          if (event.lengthComputable && isCurrent()) {
-            ImportKeys.onProgress(event.loaded, event.total, $uploadRow);
+          if (event.lengthComputable) {
+            ImportKeys.onProgress(event.loaded, event.total);
           }
         });
         return xhr;
       },
       beforeSend: function(xhr) {
-        ImportKeys.xhr = xhr;
-        if (isCurrent()) ImportKeys.onProgress(0, 1, $uploadRow);
+        ImportKeys.onProgress(0, 1);
       },
       success: function (result) {
-        if (!isCurrent()) return;
-        ImportKeys.xhr = null;
-        $uploadRow.attr('data-label', l('WEB_IMPORT_UPLOAD_FILE')).attr('aria-busy', 'false');
-        $('.tr-upload-row-progress', $uploadRow).width(0);
-        $('.tr-upload-status', $uploadRow).text('');
+        $('.tr-upload-row').attr('data-label', l('WEB_IMPORT_UPLOAD_FILE'));
+        $('.tr-upload-row-progress').width(0);
         if (result.error) {
           return showAlert(result.error);
         }
@@ -4958,54 +3530,27 @@ var ImportKeys = {
         }
       },
       error: function (xhr) {
-        if (!isCurrent()) return;
-        ImportKeys.xhr = null;
-        $uploadRow.attr('data-label', l('WEB_IMPORT_UPLOAD_FILE')).attr('aria-busy', 'false');
-        $('.tr-upload-row-progress', $uploadRow).width(0);
-        $('.tr-upload-status', $uploadRow).text('Upload failed');
+        $('.tr-upload-row').attr('data-label', l('WEB_IMPORT_UPLOAD_FILE'));
+        $('.tr-upload-row-progress').width(0);
         showAlert('Network error');
       }
     });
     $('.tr-keys-blocks').html('');
   },
-  cancel: function() {
-    ImportKeys.generation++;
-    if (ImportKeys.xhr && typeof ImportKeys.xhr.abort === 'function') ImportKeys.xhr.abort();
-    ImportKeys.xhr = null;
-  },
-  onProgress: function(loaded, total, $row) {
-    $row = $row && $row.length ? $row : $('.tr-upload-row').first();
+  onProgress: function(loaded, total) {
     var progress = total ? loaded / total : 0;
     progress = Math.max(0, Math.min(progress, 1)) * 100;
-    var label = progress >= 100 ? l('WEB_IMPORT_PROCESSING') : l('WEB_IMPORT_UPLOADING', {percent: Math.round(progress)});
-    $row.attr('data-label', label).attr('aria-busy', progress < 100 ? 'true' : 'false');
-    $('.tr-upload-status', $row).text(label);
-    $('.tr-upload-row-progress', $row).width(progress + '%');
+    $('.tr-upload-row').attr('data-label', progress >= 100 ? l('WEB_IMPORT_PROCESSING') : l('WEB_IMPORT_UPLOADING', {percent: Math.round(progress)}));
+    $('.tr-upload-row-progress').width(progress + '%');
   },
   toggleRow: function(e) {
-    if (e && $(e.target).closest('a,button,input,select,textarea').length) return;
-    if (e) e.preventDefault();
-    ImportKeys.setSelected($(this));
+    $(this).toggleClass('selected');
     var $blockEl = $(this).parents('.tr-keys-block');
     ImportKeys.updateButtonsState($blockEl);
-  },
-  toggleControl: function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    var $row = $(this).closest('.tr-plain-key-row');
-    ImportKeys.setSelected($row);
-    ImportKeys.updateButtonsState($row.parents('.tr-keys-block'));
-  },
-  setSelected: function($row, selected) {
-    if (typeof selected === 'undefined') selected = !$row.hasClass('selected');
-    $row.toggleClass('selected', selected);
-    $row.attr('aria-selected', selected ? 'true' : 'false');
-    $('.tr-row-select', $row).attr('aria-pressed', selected ? 'true' : 'false');
   },
   updateButtonsState: function($blockEl) {
     var selected_cnt = $('.tr-plain-key-row.selected', $blockEl).size();
     $('.selected-btn', $blockEl).fadeToggle(selected_cnt > 0);
-    $('.tr-selection-status', $blockEl).text(selected_cnt ? selected_cnt + ' selected' : '');
   },
   addSelected: function(e) {
     var $rows = $('.tr-add-keys-block .tr-plain-key-row.selected');
@@ -5091,7 +3636,6 @@ var ImportKeys = {
     var $blockEl = $rows.parents('.tr-keys-block');
     $('.tr-header-buttons', $blockEl).fadeToggle(!show);
     $('.tr-header-processing', $blockEl).fadeToggle(show);
-    $('.tr-selection-status', $blockEl).text(show ? l('WEB_PROCESSING') : '');
   },
   affectRows: function(method, keys_list, keys_item, lang_keys, affected_cnt) {
     if (!keys_list.length) {
@@ -5110,9 +3654,6 @@ var ImportKeys = {
     ImportKeys.toggleProcessing($rows, true);
     var lang_pack = keys_item.lang_pack;
     var lang = keys_item.lang;
-    var generation = ImportKeys.generation;
-    var routeGeneration = TrResponsiveLifecycle.generation;
-    var route = Aj.location().href;
     Aj.apiRequest(method, {
       lang_pack: lang_pack,
       lang: lang,
@@ -5120,7 +3661,6 @@ var ImportKeys = {
       lang_keys: lang_keys.join(','),
       affected_cnt: affected_cnt || 0
     }, function(result) {
-      if (generation !== ImportKeys.generation || !TrResponsiveLifecycle.isCurrent(routeGeneration) || Aj.location().href !== route) return;
       if (result.lang_keys) {
         Search.clearData(lang, lang_pack);
         ImportKeys.hideAffectedRows($rows, result.lang_keys);
@@ -5143,7 +3683,7 @@ var ImportKeys = {
     $.each(lang_keys, function(i, lang_key) {
       langKeysMap[lang_key] = true;
     });
-    var $affectedRows = $rows.filter(function() {
+    $affectedRows = $rows.filter(function() {
       return !!langKeysMap[$(this).attr('data-key')];
     });
     ImportKeys.hideRows($affectedRows);
@@ -5154,14 +3694,8 @@ var ImportKeys = {
 };
 
 var LangEditLayer = {
-  generation: 0,
   init: function() {
     Aj.onLayerLoad(function(layerState) {
-      LangEditLayer.generation++;
-      layerState.routeHref = Aj.location().href;
-      layerState.routeGeneration = TrResponsiveLifecycle.generation;
-      layerState.validationGeneration = 0;
-      layerState.submitPending = false;
       var renderItem = function(item) {
         return item.title + (item.rtl ? '<b class="small"><small>RTL</small></b>' : '') + '<span class="small">(' + item.locale + ')</span>';
       };
@@ -5192,34 +3726,25 @@ var LangEditLayer = {
       $('form', Aj.layer).on('submit', LangEditLayer.eSubmitForm);
     });
     Aj.onLayerUnload(function(layerState) {
-      LangEditLayer.generation++;
-      clearTimeout(layerState && layerState.lcTimeout);
       $('.language-locale', Aj.layer).destroyDropdown();
       $('.language-code', Aj.layer).off('input keyup', LangEditLayer.onCodeKeyUp);
       $('form', Aj.layer).off('submit', LangEditLayer.eSubmitForm);
     });
   },
   onCodeKeyUp: function() {
-    var layer = Aj.layer;
-    var layerState = Aj.layerState;
-    clearTimeout(layerState.lcTimeout);
-    var generation = ++layerState.validationGeneration;
-    layerState.lcTimeout = setTimeout(function() {
-      var short_name = $('.language-code', layer).val();
-      LangEditLayer.checkShortName(short_name, layer, layerState, generation);
+    clearTimeout(Aj.layerState.lcTimeout);
+    Aj.layerState.lcTimeout = setTimeout(function() {
+      var short_name = $('.language-code', Aj.layer).val();
+      LangEditLayer.checkShortName(short_name);
     }, 300);
   },
-  checkShortName: function(short_name, layer, layerState, generation) {
-    layer = layer || Aj.layer;
-    layerState = layerState || Aj.layerState;
-    generation = generation || ++layerState.validationGeneration;
-    var $checkStatus = $('.language-code-check-status', layer);
-    var $languageCodeItem = $('.language-code', layer).parents('.textfield-item');
+  checkShortName: function(short_name) {
+    $checkStatus = $('.language-code-check-status', Aj.layer);
+    $languageCodeItem = $('.language-code', Aj.layer).parents('.textfield-item');
     Aj.apiRequest('checkLanguage', {
       short_name: short_name,
-      official: layerState.official
+      official: Aj.layerState.official
     }, function(result) {
-      if (Aj.layer !== layer || Aj.layerState !== layerState || layerState.validationGeneration !== generation || layerState.routeHref !== Aj.location().href || !TrResponsiveLifecycle.isCurrent(layerState.routeGeneration) || $('.language-code', layer).val() !== short_name) return;
       if (result.error) {
         $languageCodeItem.addClass('is-invalid');
         $checkStatus.html(result.error).slideShow();
@@ -5233,25 +3758,22 @@ var LangEditLayer = {
   },
   eSubmitForm: function(e) {
     e.preventDefault();
-    var layer = Aj.layer;
-    var layerState = Aj.layerState;
-    if (layerState.submitPending) return false;
-    var cur_lang = layerState.curLang;
+    var cur_lang = Aj.layerState.curLang;
     if (!cur_lang) {
-      var $languageCode = $('.language-code', layer);
+      var $languageCode = $('.language-code', Aj.layer);
       var short_name    = $languageCode.val();
       if (!short_name || !Aj.layerState.lastShortNameCheck) {
         $languageCode.focus();
         return false;
       }
     }
-    var $languageName = $('.language-name', layer);
+    var $languageName = $('.language-name', Aj.layer);
     var lang_name     = $languageName.val();
     if (!lang_name) {
       $languageName.focus();
       return false;
     }
-    var $languageNativeName = $('.language-native-name', layer);
+    var $languageNativeName = $('.language-native-name', Aj.layer);
     var lang_native_name    = $languageNativeName.val();
     if (!lang_native_name) {
       $languageNativeName.focus();
@@ -5260,16 +3782,11 @@ var LangEditLayer = {
     if (!cur_lang) {
       var lang_locale = Aj.layerState.languageLocale;
       if (!lang_locale) {
-        $('.language-locale .form-control-dropdown-select', layer).focus();
+        $('.language-locale .form-control-dropdown-select', Aj.layer).focus();
         return false;
       }
     }
-    var lang_base_lang = layerState.languageBaseLang;
-    var routeHref = layerState.routeHref || Aj.location().href;
-    var routeGeneration = layerState.routeGeneration;
-    layerState.submitPending = true;
-    var generation = ++LangEditLayer.generation;
-    var complete = function() { if (Aj.layer === layer && Aj.layerState === layerState && generation === LangEditLayer.generation) layerState.submitPending = false; };
+    var lang_base_lang = Aj.layerState.languageBaseLang;
     if (cur_lang) {
       Aj.apiRequest('editLanguage', {
         lang: cur_lang,
@@ -5277,13 +3794,11 @@ var LangEditLayer = {
         lang_native_name: lang_native_name,
         lang_base_lang: lang_base_lang
       }, function(result) {
-        if (Aj.layer !== layer || Aj.layerState !== layerState || generation !== LangEditLayer.generation || routeHref !== Aj.location().href || !TrResponsiveLifecycle.isCurrent(routeGeneration)) return;
-        complete();
         if (result.error) {
           showAlert(result.error);
         }
         if (result.ok) {
-          closePopup(layer);
+          closePopup(Aj.layer);
           if (result.href) {
             Aj.location(result.href);
           }
@@ -5296,15 +3811,13 @@ var LangEditLayer = {
         lang_native_name: lang_native_name,
         lang_locale: lang_locale,
         lang_base_lang: lang_base_lang,
-        official: layerState.official
+        official: Aj.layerState.official
       }, function(result) {
-        if (Aj.layer !== layer || Aj.layerState !== layerState || generation !== LangEditLayer.generation || routeHref !== Aj.location().href || !TrResponsiveLifecycle.isCurrent(routeGeneration)) return;
-        complete();
         if (result.error) {
           showAlert(result.error);
         }
         if (result.ok) {
-          closePopup(layer);
+          closePopup(Aj.layer);
           if (result.href) {
             Aj.location(result.href);
           }
@@ -5315,19 +3828,10 @@ var LangEditLayer = {
 };
 
 var TeamAddLayer = {
-  generation: 0,
   init: function() {
     Aj.onLayerLoad(function(layerState) {
-      TeamAddLayer.generation++;
-      layerState.teamLayer = Aj.layer;
-      layerState.routeHref = Aj.location().href;
-      layerState.routeGeneration = TrResponsiveLifecycle.generation;
-      layerState.teamSearchGeneration = 0;
-      layerState.teamSearchState = 'idle';
-      layerState.teamSearchStatus = $('.tr-team-add-status', Aj.layer);
-      var $field   = $('.tr-team-add-search-field');
-      var $results = $('.tr-team-add-results');
-      layerState.teamSearchField = $field;
+      $field   = $('.tr-team-add-search-field');
+      $results = $('.tr-team-add-results');
       $field.initSearch({
         $results: $results,
         emptyQueryEnabled: true,
@@ -5336,109 +3840,68 @@ var TeamAddLayer = {
           return false;
         },
         renderItem: function(item, query) {
-          return '<div class="tr-member-row" data-member-id="' + item.id + '"><div class="tr-member-photo">' + item.photo + '</div><div class="tr-member-body' + (!item.info.length ? ' tr-member-name-only' : '') + '"><div class="tr-member-name">' + item.title + '</div><div class="tr-member-info">' + item.info + '</div></div><div class="tr-member-buttons"><button type="button" class="btn btn-primary btn-sm tr-team-candidate-add" data-member-id="' + item.id + '">' + (layerState.addLabel || 'Add') + '</button></div></div>';
+          return '<div class="tr-member-row"><div class="tr-member-photo">' + item.photo + '</div><div class="tr-member-body' + (!item.info.length ? ' tr-member-name-only' : '') + '"><div class="tr-member-name">' + item.title + '</div><div class="tr-member-info">' + item.info + '</div></div></div>';
         },
-        renderNoItems: function() {
-          var retry = layerState.teamSearchState === 'error' ? ' <button type="button" class="btn btn-default btn-sm tr-team-add-retry">Retry</button>' : '';
-          return '<div class="tr-languages-no-results" role="status">' + (layerState.teamSearchState === 'error' ? 'Network error' : l('WEB_NO_LANGUAGES_FOUND')) + retry + '</div>';
-        },
+        // renderNoItems: function() {
+        //   return '<div class="tr-languages-no-results">' + l('WEB_NO_LANGUAGES_FOUND') + '</div>';
+        // },
         getData: function() {
-          return TeamAddLayer.getCandidatesData(layerState);
+          return TeamAddLayer.getCandidatesData();
         },
         onSelect: function(item) {
-          if (Members.addMember(layerState.level, item.id)) {
-            closePopup(layerState.teamLayer);
-          }
+          Members.addMember(Aj.layerState.level, item.id);
+          closePopup(Aj.layer);
         },
         onInput: function(value) {
-          layerState.foundCandidate = false;
-          layerState.teamSearchState = value ? 'loading' : 'idle';
-          layerState.teamSearchStatus.text(value ? 'Loading candidates' : '');
-          $field.trigger('datachange');
-          clearTimeout(layerState.searchTimeout);
-          layerState.searchTimeout = setTimeout(TeamAddLayer.searchMember, 600, value);
+          Aj.layerState.foundCandidate = false;
+          $('.tr-team-add-search-field').trigger('datachange');
+          clearTimeout(Aj.layerState.searchTimeout);
+          Aj.layerState.searchTimeout = setTimeout(TeamAddLayer.searchMember, 600, value);
         }
       });
-      layerState.teamLayer.on('click.team-add', '.tr-team-candidate-add', function(e) {
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        if (Members.addMember(layerState.level, $(this).attr('data-member-id'), this)) {
-          closePopup(layerState.teamLayer);
-        }
-      });
-      layerState.teamLayer.on('click.team-add', '.tr-team-add-retry', function(e) {
-        e.preventDefault();
-        TeamAddLayer.searchMember($field.val() || '');
-      });
-      layerState.teamLayer.one('popup:open', function() {
+      Aj.layer.one('popup:open', function() {
         $field.focus();
       });
     });
     Aj.onLayerUnload(function(layerState) {
-      TeamAddLayer.generation++;
-      clearTimeout(layerState && layerState.searchTimeout);
-      if (layerState && layerState.teamLayer) layerState.teamLayer.off('.team-add');
-      if (layerState && layerState.teamSearchField) layerState.teamSearchField.destroySearch();
+      clearTimeout(Aj.layerState.searchTimeout);
+      $field.destroySearch();
     });
   },
   searchMember: function(query) {
-    var layer = Aj.layer;
-    var layerState = Aj.layerState;
-    if (!layer || !layerState) return;
-    var routeHref = layerState.routeHref || Aj.location().href;
-    var routeGeneration = layerState.routeGeneration;
-    var generation = ++layerState.teamSearchGeneration;
-    layerState.teamSearchState = 'loading';
-    if (layerState.teamSearchStatus) layerState.teamSearchStatus.text('Loading candidates');
-    $('.tr-team-add-results', layer).attr('aria-busy', 'true');
     Aj.apiRequest('rightsSearchMember', {
-      level: layerState.level,
+      level: Aj.layerState.level,
       query: query
     }, function(result) {
-      if (Aj.layer !== layer || Aj.layerState !== layerState || layerState.teamSearchGeneration !== generation || routeHref !== Aj.location().href || !TrResponsiveLifecycle.isCurrent(routeGeneration)) return;
-      layerState.teamSearchState = result.error ? 'error' : (result.candidate ? 'populated' : 'empty');
-      if (layerState.teamSearchStatus) layerState.teamSearchStatus.text(result.error ? 'Network error' : (result.candidate ? 'Candidates loaded' : 'No candidates found'));
-      $('.tr-team-add-results', layer).attr('aria-busy', 'false');
-      if (result.error) {
-        $('.tr-team-add-search-field', layer).trigger('datachange');
-        return;
-      }
-      if (layerState && result.candidate) {
+      if (Aj.layerState && result.candidate) {
         var item = result.candidate;
-        if (layerState.candidatesDataMap[item.id]) {
-          layerState.candidatesDataMap[item.id]._values.unshift(query);
+        if (Aj.layerState.candidatesDataMap[item.id]) {
+          Aj.layerState.candidatesDataMap[item.id]._values.unshift(query);
         } else {
           item._values = [query];
-          layerState.foundCandidate = item;
+          Aj.layerState.foundCandidate = item;
         }
-      } else {
-        layerState.foundCandidate = false;
+        $('.tr-team-add-search-field').trigger('datachange');
       }
-      $('.tr-team-add-search-field', layer).trigger('datachange');
     });
   },
-  getCandidatesData: function(layerState) {
-    layerState = layerState || Aj.layerState;
-    if (!layerState || !layerState.candidatesDataMap) {
-      if (!layerState) return [];
-      layerState.candidatesDataMap = {};
-      var data = layerState.candidatesData || [];
+  getCandidatesData: function() {
+    if (!Aj.layerState.candidatesDataMap) {
+      Aj.layerState.candidatesDataMap = {};
+      var data = Aj.layerState.candidatesData;
       for (var i = 0; i < data.length; i++) {
         var item = data[i];
         item._values = [item.name.toLowerCase()];
-        layerState.candidatesDataMap[item.id] = item;
+        Aj.layerState.candidatesDataMap[item.id] = item;
       }
     }
-    return (layerState.foundCandidate ? [layerState.foundCandidate] : []).concat(layerState.candidatesData || []);
+    return (Aj.layerState.foundCandidate ? [Aj.layerState.foundCandidate] : []).concat(Aj.layerState.candidatesData);
   }
 };
 
 var ImportTranslationsLayer = {
   init: function() {
     Aj.onLayerLoad(function(layerState) {
-      layerState.routeHref = Aj.location().href;
-      layerState.routeGeneration = TrResponsiveLifecycle.generation;
-      layerState.requestGeneration = 0;
       $('.search-phrases-btn', Aj.layer).on('click', ImportTranslationsLayer.searchPhrases);
       $('.import-phrases-btn', Aj.layer).on('click', ImportTranslationsLayer.importPhrases);
       Aj.onBeforeLayerUnload(function () {
@@ -5449,7 +3912,6 @@ var ImportTranslationsLayer = {
       });
     });
     Aj.onLayerUnload(function(layerState) {
-      if (layerState) layerState.requestGeneration = (layerState.requestGeneration || 0) + 1;
       $('.search-phrases-btn', Aj.layer).off('click', ImportTranslationsLayer.searchPhrases);
       $('.import-phrases-btn', Aj.layer).off('click', ImportTranslationsLayer.importPhrases);
     });
@@ -5459,7 +3921,6 @@ var ImportTranslationsLayer = {
     Aj.layerState.isImport = false;
     Aj.layerState.inProgress = true;
     Aj.layerState.phrasesCount = 0;
-    Aj.layerState.requestGeneration++;
     $('.langs-progress', Aj.layer).html(l('WEB_IMPORT_POPUP_LANGUAGES_PROCESSED', {n: 0, total: Aj.layerState.langsCount}));
     $('.phrases-progress', Aj.layer).html(l('WEB_IMPORT_POPUP_PHRASES_PROCESSED', {n: Aj.layerState.phrasesCount}));
     ImportTranslationsLayer.importTranslations();
@@ -5471,53 +3932,43 @@ var ImportTranslationsLayer = {
     Aj.layerState.isImport = true;
     Aj.layerState.inProgress = true;
     Aj.layerState.importedCount = 0;
-    Aj.layerState.requestGeneration++;
     $('.phrases-progress', Aj.layer).html(l('WEB_IMPORT_POPUP_PHRASES_IMPORTED', {n: Aj.layerState.importedCount, total: Aj.layerState.phrasesCount}));
     ImportTranslationsLayer.importTranslations();
     $('.import-phrases-btn', Aj.layer).addClass('hide');
     $('.popup-cancel-btn', Aj.layer).html(l('WEB_IMPORT_CANCEL_BUTTON'));
   },
   importTranslations: function(lang_code) {
-    var layer = Aj.layer;
-    var layerState = Aj.layerState;
-    if (!layer || !layerState) return;
-    var requestGeneration = layerState.requestGeneration;
-    var routeHref = layerState.routeHref || Aj.location().href;
-    var routeGeneration = layerState.routeGeneration;
     Aj.apiRequest('importTranslations', {
-      lang_pack: layerState.curLangpack,
+      lang_pack: Aj.layerState.curLangpack,
       lang: lang_code || '',
-      search_only: layerState.isImport ? 0 : 1,
-      phrases_cnt: layerState.isImport ? layerState.importedCount : layerState.phrasesCount
+      search_only: Aj.layerState.isImport ? 0 : 1,
+      phrases_cnt: Aj.layerState.isImport ? Aj.layerState.importedCount : Aj.layerState.phrasesCount
     }, function(result) {
-      if (Aj.layer !== layer || Aj.layerState !== layerState || layerState.requestGeneration !== requestGeneration || routeHref !== Aj.location().href || !TrResponsiveLifecycle.isCurrent(routeGeneration)) return;
       if (result.error) {
-        layerState.inProgress = false;
-        $('.langs-progress, .phrases-progress', layer).attr('role', 'alert').text(result.error);
         return showAlert(result.error);
       }
       if (Aj.layer) {
-        if (layerState.isImport) {
-          if (typeof result.phrases_cnt !== 'undefined') {
-            layerState.importedCount = result.phrases_cnt;
-            $('.phrases-progress', layer).html(l('WEB_IMPORT_POPUP_PHRASES_IMPORTED', {n: layerState.importedCount, total: layerState.phrasesCount}));
+        if (Aj.layerState.isImport) {
+          if (result.phrases_cnt) {
+            Aj.layerState.importedCount = result.phrases_cnt;
+            $('.phrases-progress', Aj.layer).html(l('WEB_IMPORT_POPUP_PHRASES_IMPORTED', {n: Aj.layerState.importedCount, total: Aj.layerState.phrasesCount}));
           }
         } else {
-          if (typeof result.langs_total !== 'undefined') {
+          if (result.langs_total) {
             $('.langs-progress', Aj.layer).html(l('WEB_IMPORT_POPUP_LANGUAGES_PROCESSED', {n: result.langs_cnt, total: result.langs_total}));
           }
-          if (typeof result.phrases_cnt !== 'undefined') {
-            layerState.phrasesCount = result.phrases_cnt;
-            $('.phrases-progress', layer).html(l('WEB_IMPORT_POPUP_PHRASES_PROCESSED', {n: layerState.phrasesCount}));
+          if (result.phrases_cnt) {
+            Aj.layerState.phrasesCount = result.phrases_cnt;
+            $('.phrases-progress', Aj.layer).html(l('WEB_IMPORT_POPUP_PHRASES_PROCESSED', {n: Aj.layerState.phrasesCount}));
           }
         }
         if (result.next_lang) {
           ImportTranslationsLayer.importTranslations(result.next_lang);
         } else {
-          $('.popup-cancel-btn', layer).html(l('WEB_IMPORT_CLOSE_BUTTON'));
-          layerState.inProgress = false;
-          if (!layerState.isImport) {
-            $('.import-phrases-btn', layer).fadeShow();
+          $('.popup-cancel-btn', Aj.layer).html(l('WEB_IMPORT_CLOSE_BUTTON'));
+          Aj.layerState.inProgress = false;
+          if (!Aj.layerState.isImport) {
+            $('.import-phrases-btn', Aj.layer).fadeShow();
           }
         }
       }
@@ -5532,30 +3983,13 @@ function strEmojiToHex(emoji, trim_ef0f) {
 }
 
 var EmojiSearch = {
-  _registered: false,
-  _state: null,
-  _suggestionsMode: false,
-  generation: 0,
-  _scrollLocked: false,
   init: function(suggestions_mode) {
-    EmojiSearch._suggestionsMode = !!suggestions_mode;
-    if (EmojiSearch._registered) return;
-    EmojiSearch._registered = true;
     Aj.onLoad(function(state) {
-      /* Initialize only on emoji routes. */
-      if (!state || !state.emojiGroupedList || !$('.tr-emoji-keyword-add-form').length) return;
-      EmojiSearch.generation++;
-      state.emojiGeneration = EmojiSearch.generation;
-      EmojiSearch._state = state;
-      var $suggestionHeader = $('.tr-emoji-keywords-suggestion-header');
-      var suggestionHeaderText = l('WEB_EMOJI_KEYWORD_SUGGESTIONS_HEADER');
-      $suggestionHeader.attr('data-label', suggestionHeaderText).contents().filter(function() { return this.nodeType === 3; }).last().replaceWith(document.createTextNode(suggestionHeaderText));
       var $field = $('.tr-search-field');
       var $panel = $('.tr-search-emoji-panel');
       state.$esResults = $('.tr-emoji-keywords');
-      $('.header-search-btn,.tr-compact-search').off('click.esearch').on('click.esearch', EmojiSearch.eOpen);
-      $('.tr-search-reset').off('click.esearch').on('click.esearch', EmojiSearch.eClearField);
-      $('.tr-search-close').off('click.esearch').on('click.esearch', EmojiSearch.close);
+      $('.header-search-btn').on('click', EmojiSearch.eOpen);
+      $('.tr-search-reset').on('click', EmojiSearch.eClearField);
       $('.tr-search-field-wrap').on('mousedown.esearch', '.tr-search-emoji-icon,.tr-search-filters', stopImmediatePropagation);
       $('.tr-search-field-wrap').on('mousedown.esearch', EmojiSearch.eOpen);
       $('.tr-search-emoji-icon').on('click.esearch', EmojiSearch.eToggleMode);
@@ -5564,18 +3998,10 @@ var EmojiSearch = {
       $('.tr-emoji-keyword-new .tr-back').on('click', EmojiSearch.eCancel);
       $('.tr-emoji-keywords-suggestion-btn').on('click', EmojiSearch.eSuggestionsOpen);
       $('.tr-emoji-keywords-suggestion-header .tr-back').on('click', EmojiSearch.eSuggestionsClose);
-      $(document).off('keydown.esearch-a11y').on('keydown.esearch-a11y', '.tr-emoji-keywords-suggestion-btn,.tr-emoji-keywords-suggestion-header .tr-back,.tr-emoji-keyword-new .tr-back', EmojiSearch.onControlKeyDown);
       state.$esResults.on('click.esearch', '.tr-emoji-add,.keyword-def', EmojiSearch.eEmojiAdd);
       state.$esResults.on('click.esearch', '.tr-emoji-delete', EmojiSearch.eEmojiDelete);
-      state.$esResults.on('keydown.esearch', '.tr-emoji-delete', function(e) { if (e.which == 13 || e.which == 32) { e.preventDefault(); EmojiSearch.eEmojiDelete.call(this, e); } });
-      state.$esResults.on('click.esearch', '.tr-emoji-keyword-expand', EmojiSearch.eKeywordToggle);
-      state.$esResults.on('click.esearch', '.tr-emoji-keyword-wrap', function(e) {
-        if ($(e.target).closest('button,.keyword-md,.keyword-def').length) return;
-        var trigger = $('.tr-emoji-keyword-expand', this).get(0);
-        if (trigger) EmojiSearch.eKeywordToggle.call(trigger, e);
-      });
+      state.$esResults.on('click.esearch', '.tr-emoji-keyword-wrap', EmojiSearch.eKeywordToggle);
       state.$esResults.on('click.esearch', '.keyword-md,.emoji-md', EmojiSearch.eEmojiKeywordSelect);
-      state.$esResults.on('keydown.esearch', '.keyword-md,.emoji-md', function(e) { if (e.which == 13 || e.which == 32) { e.preventDefault(); EmojiSearch.eEmojiKeywordSelect.call(this, e); } });
       $field.on('blur', EmojiSearch.onScroll);
       state.keywords = {};
       state.searchData = [];
@@ -5654,44 +4080,44 @@ var EmojiSearch = {
           return strEmojiToHex(str.toLowerCase());
         },
         renderItem: function(item, query) {
-          var delete_btn = Aj.state.canEdit ? '<button type="button" aria-label="' + (item.s ? 'Decline keyword suggestion' : 'Delete emoji keyword') + '" class="tr-emoji-delete' + (item.s ? ' decline' : '') + ' close"></button>' : '';
-          var add_btn = '<button type="button" class="btn btn-primary btn-sm tr-emoji-add need-auth">' + l('WEB_EMOJI_KEYWORD_ADD_BUTTON') + '</button>';
-          var expand_btn = '<button type="button" class="tr-emoji-keyword-expand" aria-expanded="false" aria-label="Expand emoji keywords"></button>';
+          var delete_btn = Aj.state.canEdit ? '<div class="tr-emoji-delete' + (item.s ? ' decline' : '') + ' close"></div>' : '';
+          var add_btn = '<button class="btn btn-primary btn-sm tr-emoji-add need-auth">' + l('WEB_EMOJI_KEYWORD_ADD_BUTTON') + '</button>';
+          console.log(item);
           var sugg_header = item.s && !Aj.state.suggestionsMode ? '<h4 class="tr-emoji-keyword-subheader">' + l('WEB_EMOJI_KEYWORD_SUGGESTIONS_HEADER') + '</h4>' : '';
           if (Aj.state.byEmojiMode) {
             var html = '', keywords = [];
             var emoji_html = EmojiSearch.emojiHtml(item.e);
             for (var i = 0; i < item.k.length; i++) {
-              var keyword_html = '<span role="button" tabindex="0" class="keyword-md">' + Search.wrapHighlight(item.k[i], query, false, true) + '</span>';
+              var keyword_html = '<span class="keyword-md">' + Search.wrapHighlight(item.k[i], query, false, true) + '</span>';
               html += '<div class="tr-emoji-keyword by-emoji">' + delete_btn + add_btn + '<div class="tr-emoji">' + emoji_html + '</div><div class="tr-keyword">' + keyword_html + '</div></div>';
               keywords.push(keyword_html);
             }
             if (keywords.length > 1) {
-              return sugg_header + '<div class="tr-emoji-keyword-wrap collapsed">' + expand_btn + '<div class="tr-emoji-keyword-multi"><div class="tr-emoji-keyword by-emoji">' + delete_btn + add_btn + '<div class="tr-emoji">' + emoji_html + '</div><div class="tr-keyword">' + keywords.join('<br>\n') + '</div></div></div><div class="tr-emoji-keyword-by-one by-emoji">' + html + '</div></div>';
+              return sugg_header + '<div class="tr-emoji-keyword-wrap collapsed"><div class="tr-emoji-keyword-multi"><div class="tr-emoji-keyword by-emoji">' + delete_btn + add_btn + '<div class="tr-emoji">' + emoji_html + '</div><div class="tr-keyword">' + keywords.join('<br>\n') + '</div></div></div><div class="tr-emoji-keyword-by-one by-emoji">' + html + '</div></div>';
             } else if (!keywords.length) {
               var def_keywords = Aj.state.defKeywords && Aj.state.defKeywords[strEmojiToHex(item.e)] || [];
               var def_keywords_htmls = [];
               for (var i = 0; i < def_keywords.length; i++) {
-                var keyword_html = '<span role="button" tabindex="0" class="keyword-def">' + Search.wrapHighlight(def_keywords[i], query, false, true) + '</span>';
+                var keyword_html = '<span class="keyword-def">' + Search.wrapHighlight(def_keywords[i], query, false, true) + '</span>';
                 def_keywords_htmls.push(keyword_html);
               }
-              return sugg_header + '<div class="tr-emoji-keyword-wrap collapsed">' + expand_btn + '<div class="tr-emoji-keyword by-emoji">' + add_btn + '<div class="tr-emoji">' + emoji_html + '</div><div class="tr-keyword default">' + def_keywords_htmls.join('<br>\n') + '</div></div></div>';
+              return sugg_header + '<div class="tr-emoji-keyword-wrap collapsed"><div class="tr-emoji-keyword by-emoji">' + add_btn + '<div class="tr-emoji">' + emoji_html + '</div><div class="tr-keyword default">' + def_keywords_htmls.join('<br>\n') + '</div></div></div>';
             } else {
-              return sugg_header + '<div class="tr-emoji-keyword-wrap collapsed">' + expand_btn + html + '</div>';
+              return sugg_header + '<div class="tr-emoji-keyword-wrap collapsed">' + html + '</div>';
             }
           } else {
             var html = '', emojis = [];
             var query_hex = strEmojiToHex(query);
-            var keyword_html = '<span role="button" tabindex="0" class="keyword-md">' + Search.wrapHighlight(item.k, query, false, true) + '</span>';
+            var keyword_html = '<span class="keyword-md">' + Search.wrapHighlight(item.k, query, false, true) + '</span>';
             for (var i = 0; i < item.e.length; i++) {
               var emoji_html = EmojiSearch.emojiHtml(item.e[i]);
               html += '<div class="tr-emoji-keyword by-keyword">' + delete_btn + add_btn + '<div class="tr-emoji">' + emoji_html + '</div><div class="tr-keyword">' + keyword_html + '</div></div>';
               emojis.push(emoji_html);
             }
             if (emojis.length > 1) {
-              return sugg_header + '<div class="tr-emoji-keyword-wrap collapsed">' + expand_btn + '<div class="tr-emoji-keyword-multi"><div class="tr-emoji-keyword by-keyword">' + delete_btn + add_btn + '<div class="tr-emoji">' + emojis.join('') + '</div><div class="tr-keyword">' + keyword_html + '</div></div></div><div class="tr-emoji-keyword-by-one by-keyword">' + html + '</div></div>';
+              return sugg_header + '<div class="tr-emoji-keyword-wrap collapsed"><div class="tr-emoji-keyword-multi"><div class="tr-emoji-keyword by-keyword">' + delete_btn + add_btn + '<div class="tr-emoji">' + emojis.join('') + '</div><div class="tr-keyword">' + keyword_html + '</div></div></div><div class="tr-emoji-keyword-by-one by-keyword">' + html + '</div></div>';
             } else {
-              return sugg_header + '<div class="tr-emoji-keyword-wrap collapsed">' + expand_btn + html + '</div>';
+              return sugg_header + '<div class="tr-emoji-keyword-wrap collapsed">' + html + '</div>';
             }
           }
         },
@@ -5747,21 +4173,15 @@ var EmojiSearch = {
       $(window).on('scroll', EmojiSearch.onScroll);
       EmojiSearch.toggleNewKeyword(false);
       EmojiSearch.toggleMode(state.canEdit);
-      if (EmojiSearch._suggestionsMode) {
+      if (suggestions_mode) {
         EmojiSearch.toggleSuggestions(true);
       }
     });
     Aj.onUnload(function(state) {
-      EmojiSearch.generation++;
-      EmojiSearch.releaseScrollLock();
-      var cleanupState = EmojiSearch._state || state;
-      if (cleanupState && cleanupState.$searchEmojiPanel && cleanupState.$searchEmojiPanel.unblockBodyScroll) cleanupState.$searchEmojiPanel.unblockBodyScroll();
-      if (!cleanupState || !cleanupState.$esResults) return;
       var $field = $('.tr-search-field');
       $field.destroySearch();
-      $('.header-search-btn,.tr-compact-search').off('click.esearch');
-      $('.tr-search-close').off('click.esearch');
-      $('.tr-search-reset').off('click.esearch');
+      $('.header-search-btn').off('click', EmojiSearch.eFocus);
+      $('.tr-search-reset').off('click', EmojiSearch.eClearField);
       $('.tr-search-field-wrap').off('.esearch');
       $('.tr-search-emoji-icon').off('.esearch');
       $('.tr-emoji-keyword-add-form').off('submit', EmojiSearch.eSubmit);
@@ -5769,15 +4189,13 @@ var EmojiSearch = {
       $('.tr-emoji-keyword-new .tr-back').off('click', EmojiSearch.eCancel);
       $('.tr-emoji-keywords-suggestion-btn').off('click', EmojiSearch.eSuggestionsOpen);
       $('.tr-emoji-keywords-suggestion-header .tr-back').off('click', EmojiSearch.eSuggestionsClose);
-      $(document).off('keydown.esearch-a11y');
-      cleanupState.$esResults.off('.esearch');
+      state.$esResults.off('.esearch');
       $field.off('blur', EmojiSearch.onScroll);
-      if (cleanupState.$searchEmojiPanel) cleanupState.$searchEmojiPanel.off('mousedown');
-      if (cleanupState.$emojiPanel) cleanupState.$emojiPanel.off('mousedown');
-      if (cleanupState.$keywordField) cleanupState.$keywordField.destroyTextarea();
-      if (cleanupState.$emojiField) cleanupState.$emojiField.destroyTextarea();
+      state.$searchEmojiPanel.off('mousedown');
+      state.$emojiPanel.off('mousedown');
+      state.$keywordField.destroyTextarea();
+      state.$emojiField.destroyTextarea();
       $(window).off('scroll', EmojiSearch.onScroll);
-      EmojiSearch._state = null;
     });
   },
   toggleNewKeyword: function(opened) {
@@ -5811,13 +4229,6 @@ var EmojiSearch = {
     e.preventDefault();
     e.stopImmediatePropagation();
     EmojiSearch.toggleSuggestions(false);
-  },
-  onControlKeyDown: function(e) {
-    if (e.key !== 'Enter' && e.key !== ' ') return;
-    if (this.tagName === 'BUTTON') return;
-    e.preventDefault();
-    e.stopPropagation();
-    $(this).trigger('click');
   },
   updateSuggestionsButton: function(cnt) {
     $('.tr-emoji-keywords-suggestion-btn').html(l('WEB_EMOJI_KEYWORD_SUGGESTIONS', {n: cnt})).toggleClass('hide', !cnt);
@@ -5858,7 +4269,7 @@ var EmojiSearch = {
       html += '<h4 class="emoji-group-header">' + group.t + '</h4>';
       html += '<div class="emoji-group">';
       for (var i = 0; i < emojis.length; i++) {
-        html += '<button type="button" class="emoji-btn" aria-label="' + cleanHTML(emojis[i]) + '">' + EmojiSearch.emojiHtml(emojis[i], true) + '</button>';
+        html += '<div class="emoji-btn">' + EmojiSearch.emojiHtml(emojis[i], true) + '</div>';
       }
       for (i = 0; i < 30; i++) {
         html += '<div class="emoji-btn-hidden"></div>';
@@ -5882,6 +4293,7 @@ var EmojiSearch = {
     var hex = strEmojiToHex(emoji);
     var data = Aj.state.emojiByHex[hex];
     if (!data) {
+      console.warn('No hex found: ' + emoji);
       return cleanHTML(emoji);
     }
     // var emoji_url = '//telegram.org/img/emoji/40/' + data.img_hex + '.png';
@@ -5902,9 +4314,7 @@ var EmojiSearch = {
   },
   updateSearchFilter: function($filter, value, text) {
     $('li.selected', $filter).removeClass('selected');
-    $('a.tr-search-filter-item', $filter).attr('aria-selected', 'false');
     $('a.tr-search-filter-item[data-value="' + value + '"]', $filter).parent('li').addClass('selected');
-    $('a.tr-search-filter-item[data-value="' + value + '"]', $filter).attr('aria-selected', 'true');
     $('.tr-search-filter', $filter).text(text);
   },
   toggleMode: function(by_emoji) {
@@ -5915,17 +4325,9 @@ var EmojiSearch = {
     Aj.state.byEmojiMode = !!by_emoji;
     $('.tr-search-field').trigger('datachange');
     $('.tr-search-field-wrap').toggleClass('by-emoji', Aj.state.byEmojiMode);
-    $('.tr-search-emoji-icon').attr('aria-pressed', Aj.state.byEmojiMode ? 'true' : 'false');
   },
   eOpen: function(e) {
     EmojiSearch.focus();
-  },
-  close: function(e) {
-    e && e.preventDefault();
-    $('.tr-search').removeClass('tr-search-open');
-    EmojiSearch.releaseScrollLock();
-    var btn = document.querySelector('.tr-compact-search, .header-search-btn');
-    if (btn && window.matchMedia && window.matchMedia('(max-width: 991px)').matches) btn.focus();
   },
   eToggleMode: function(e) {
     e.stopImmediatePropagation();
@@ -5934,19 +4336,11 @@ var EmojiSearch = {
     EmojiSearch.toggleMode(!Aj.state.byEmojiMode);
   },
   eKeywordToggle: function(e) {
-    var $trigger = $(this), $wrap = $trigger.closest('.tr-emoji-keyword-wrap').toggleClass('collapsed');
-    var expanded = !$wrap.hasClass('collapsed');
-    $trigger.attr({'aria-expanded': expanded ? 'true' : 'false', 'aria-label': expanded ? 'Collapse emoji keywords' : 'Expand emoji keywords'});
+    $(this).toggleClass('collapsed');
   },
   focus: function(e) {
     $('.tr-search').addClass('tr-search-open');
-    var state = Aj.state, route = Aj.location().href, generation = EmojiSearch.generation;
-    setTimeout(function(){ if (state === Aj.state && route === Aj.location().href && generation === EmojiSearch.generation && EmojiSearch._state === state) $('.tr-search-field').first().focus(); }, 100);
-  },
-  releaseScrollLock: function() {
-    if (!EmojiSearch._scrollLocked) return;
-    EmojiSearch._scrollLocked = false;
-    TrCompactScrollLock.unlock();
+    setTimeout(function(){ $('.tr-search-field').focus(); }, 100);
   },
   eClearField: function(e) {
     $('.tr-search-field').value('').trigger('input');
@@ -5960,15 +4354,12 @@ var EmojiSearch = {
       return false;
     }
     var method = !Aj.state.canEdit ? 'suggestEmojiKeywords' : 'addEmojiKeywords';
-    var layerGeneration = EmojiSearch.generation;
-    var route = Aj.location().href;
     Aj.apiRequest(method, {
       lang: Aj.state.curLang,
       from_version: Aj.state.keywordsVersion,
       keyword: keyword,
       emoji: emoji
     }, function(result) {
-      if (layerGeneration !== EmojiSearch.generation || Aj.location().href !== route || EmojiSearch._state !== Aj.state) return;
       if (result.error) {
         showAlert(result.error);
       }
@@ -6001,7 +4392,6 @@ var EmojiSearch = {
     EmojiSearch.toggleNewKeyword(false);
   },
   eEmojiAdd: function(e) {
-    e.preventDefault();
     e.stopImmediatePropagation();
     if (Aj.needAuth()) return false;
     var $emojiForm = $('.tr-emoji-keyword-add-form');
@@ -6029,7 +4419,6 @@ var EmojiSearch = {
     }
   },
   eEmojiKeywordSelect: function(e) {
-    e.preventDefault();
     e.stopImmediatePropagation();
     var value = $(this).text();
     $('.tr-search-field').value(value);
@@ -6040,7 +4429,6 @@ var EmojiSearch = {
     }
   },
   eEmojiDelete: function(e) {
-    e.preventDefault();
     e.stopImmediatePropagation();
     var $keyword = $(this).parents('.tr-emoji-keyword');
     var keyword = $keyword.find('.tr-keyword').text();
@@ -6049,8 +4437,6 @@ var EmojiSearch = {
     $emoji_clone.find('.emoji-md + .emoji-md').before(' ');
     var emoji = $emoji.text();
     var decline = $(this).hasClass('decline');
-    var layerGeneration = EmojiSearch.generation;
-    var route = Aj.location().href;
     var decline_func = function() {
       var method = decline ? 'declineKeywordSuggestions' : 'deleteEmojiKeywords';
       Aj.apiRequest(method, {
@@ -6059,7 +4445,6 @@ var EmojiSearch = {
         keyword: keyword,
         emoji: emoji
       }, function(result) {
-        if (layerGeneration !== EmojiSearch.generation || Aj.location().href !== route || EmojiSearch._state !== Aj.state) return;
         if (result.error) {
           showAlert(result.error);
         }
@@ -6087,14 +4472,10 @@ var EmojiSearch = {
   },
   getSuggestions: function(query) {
     if (!Aj.state.canEdit) return;
-    var layerGeneration = EmojiSearch.generation;
-    var route = Aj.location().href;
-    var state = Aj.state;
     Aj.apiRequest('getEmojiSuggestions', {
       lang: Aj.state.curLang,
       query: query || ''
     }, function(result) {
-      if (layerGeneration !== EmojiSearch.generation || Aj.location().href !== route || EmojiSearch._state !== state) return;
       if (result.sdiff) {
         if (!query) {
           Aj.state.suggestionsLoaded = true;
@@ -6258,191 +4639,6 @@ var EmojiSearch = {
   _data: {}
 };
 
-var StatsGraphs = {
-  registered: false,
-  resizeObserver: null,
-  mutationObserver: null,
-  mutationSuppressed: false,
-  resizeFrame: 0,
-  mediaQuery: null,
-  init: function() {
-    if (StatsGraphs.registered) return;
-    StatsGraphs.registered = true;
-    Aj.onLoad(function() {
-      StatsGraphs.bind();
-    });
-    Aj.onUnload(function() {
-      StatsGraphs.unbind();
-    });
-  },
-  bind: function() {
-    StatsGraphs.unbind();
-    var blocks = $('.tr-graph-block');
-    if (!blocks.length) return;
-    var route = Aj.location().href;
-    var state = Aj.state;
-    var compact = function() {
-      return !window.matchMedia || window.matchMedia('(max-width: 991px)').matches;
-    };
-    var applyA11y = function(isCompact) {
-      blocks.find('.rickshaw_graph').each(function() {
-        var $graph = $(this);
-        if (isCompact) {
-          if (!$graph.data('tr-stats-a11y')) $graph.data('tr-stats-a11y', {role: this.getAttribute('role'), tabindex: this.getAttribute('tabindex'), label: this.getAttribute('aria-label')});
-          $graph.attr({role: 'img', tabindex: '0', 'aria-label': l('WEB_STATISTICS_HEADER')});
-        } else {
-          var prior = $graph.data('tr-stats-a11y');
-          if (!prior) return;
-          if (prior.role == null) $graph.removeAttr('role'); else $graph.attr('role', prior.role);
-          if (prior.tabindex == null) $graph.removeAttr('tabindex'); else $graph.attr('tabindex', prior.tabindex);
-          if (prior.label == null) $graph.removeAttr('aria-label'); else $graph.attr('aria-label', prior.label);
-          $graph.removeData('tr-stats-a11y');
-        }
-      });
-    };
-    applyA11y(compact());
-    StatsGraphs.resize = function() {
-      if (StatsGraphs.resizeFrame) return;
-      var frame = window.requestAnimationFrame || function(callback) { return window.setTimeout(callback, 0); };
-      StatsGraphs.resizeFrame = frame(function() {
-        StatsGraphs.resizeFrame = 0;
-        if (state !== Aj.state || route !== Aj.location().href) return;
-        var isCompact = compact();
-        applyA11y(isCompact);
-        StatsGraphs.mutationSuppressed = true;
-        try { blocks.each(function() {
-          var root = this.querySelector('.rickshaw_graph, .chart, .chart_wrap') || this;
-          var chart = root.__chart__ || root.chart || root._chart || $(root).data('chart') || $(root).data('graph');
-          if (!chart && root.parentNode) {
-            chart = root.parentNode.__chart__ || root.parentNode.chart || root.parentNode._chart || $(root.parentNode).data('chart') || $(root.parentNode).data('graph');
-          }
-          if (!chart) return;
-          var width = isCompact ? Math.round(this.clientWidth) : 704;
-          if (!width) return;
-          var dimensions = {width: width};
-          if (!isCompact) dimensions.height = 300;
-          if (typeof chart.onResize === 'function') {
-            if ('ww' in chart) chart.ww = null;
-            chart.onResize();
-          } else if (chart.graph && typeof chart.graph.configure === 'function') {
-            chart.graph.configure(dimensions);
-            if (typeof chart.graph.render === 'function') chart.graph.render();
-          } else if (typeof chart.resize === 'function') {
-            if (chart.resize.length) chart.resize(dimensions);
-            else chart.resize();
-          } else if (typeof chart.configure === 'function') {
-            chart.configure(dimensions);
-          }
-        }); } finally { StatsGraphs.mutationSuppressed = false; }
-      });
-    };
-    StatsGraphs.resize();
-    if (window.ResizeObserver) {
-      StatsGraphs.resizeObserver = new ResizeObserver(StatsGraphs.resize);
-      blocks.each(function() { StatsGraphs.resizeObserver.observe(this); });
-    }
-    if (window.MutationObserver) {
-      StatsGraphs.mutationObserver = new MutationObserver(function(records) {
-        if (StatsGraphs.mutationSuppressed) return;
-        for (var i = 0; i < records.length; i++) {
-          var nodes = records[i].addedNodes || [];
-          for (var j = 0; j < nodes.length; j++) {
-            if (nodes[j].nodeType === 1 && ($(nodes[j]).is('.rickshaw_graph,.chart,.chart_wrap') || $(nodes[j]).find('.rickshaw_graph,.chart,.chart_wrap').length)) {
-              StatsGraphs.resize();
-              return;
-            }
-          }
-        }
-      });
-      blocks.each(function() { StatsGraphs.mutationObserver.observe(this, {childList: true, subtree: true}); });
-    }
-    if (window.matchMedia) {
-      StatsGraphs.mediaQuery = window.matchMedia('(max-width: 991px)');
-      if (StatsGraphs.mediaQuery.addEventListener) StatsGraphs.mediaQuery.addEventListener('change', StatsGraphs.resize);
-      else if (StatsGraphs.mediaQuery.addListener) StatsGraphs.mediaQuery.addListener(StatsGraphs.resize);
-    }
-    $(window).on('resize.tr-stats orientationchange.tr-stats', StatsGraphs.resize);
-    if (window.visualViewport) $(window.visualViewport).on('resize.tr-stats scroll.tr-stats', StatsGraphs.resize);
-  },
-  unbind: function() {
-    $(window).off('.tr-stats');
-    if (window.visualViewport) $(window.visualViewport).off('.tr-stats');
-    if (StatsGraphs.resizeObserver) StatsGraphs.resizeObserver.disconnect();
-    if (StatsGraphs.mutationObserver) StatsGraphs.mutationObserver.disconnect();
-    if (StatsGraphs.mediaQuery) {
-      if (StatsGraphs.mediaQuery.removeEventListener) StatsGraphs.mediaQuery.removeEventListener('change', StatsGraphs.resize);
-      else if (StatsGraphs.mediaQuery.removeListener) StatsGraphs.mediaQuery.removeListener(StatsGraphs.resize);
-    }
-    if (StatsGraphs.resizeFrame) {
-      if (window.cancelAnimationFrame) window.cancelAnimationFrame(StatsGraphs.resizeFrame);
-      else window.clearTimeout(StatsGraphs.resizeFrame);
-    }
-    StatsGraphs.resizeObserver = StatsGraphs.mutationObserver = StatsGraphs.mediaQuery = null;
-    StatsGraphs.mutationSuppressed = false;
-    StatsGraphs.resizeFrame = 0;
-    StatsGraphs.resize = null;
-  }
-};
-
-var TrResponsiveLifecycle = {
-  generation: 0,
-  registered: false,
-  stateKeys: ['curLang', 'curLangData', 'curLangpack', 'curSection', 'selection', 'isSearchPage', 'isReplacePage', 'binding', 'searchModeBinding', 'importId', 'replaceId', 'searchLang', 'searchLangpack', 'searchQuery', 'searchWhere', 'searchBindToWrapEl', 'searchBindTo', 'searchBindPrevLangpack', 'searchBindPrevValue', 'searchTimeout', 'searchData', 'languagesData', 'languagesDataError', 'languagesDataRequestGeneration', 'loadMoreGeneration', 'trRouteGeneration', 'canEdit', 'defKeywords', 'emojiGroupedList', 'emojiHexList', 'emojiByHex', 'emojiGeneration', 'emojiMode', 'emojiRE', 'emojiScroll', 'initKeywords', 'keywords', 'keywordsVersion', 'emojis', 'emojiSearchData', 'suggestionData', 'suggestionEmojiData', 'suggestionEmojis', 'suggestionKeywords', 'suggestionsLoaded', 'suggestionsMode', 'byEmojiMode', '$esResults', '$searchEmojiPanel', '$emojiPanel', '$keywordField', '$emojiField'],
-  init: function() {
-    if (this.registered || !window.Aj) return;
-    this.registered = true;
-    var self = this;
-    Aj.onLoad(function(state) {
-      self.generation++;
-      state = state || Aj.state || {};
-      if (typeof state.curLang === 'undefined') state.curLang = '';
-      if (typeof state.curLangpack === 'undefined') state.curLangpack = '';
-      if (typeof state.curSection === 'undefined') state.curSection = '';
-      if (typeof state.selection === 'undefined') state.selection = false;
-      if (typeof state.isSearchPage === 'undefined') state.isSearchPage = false;
-      if (typeof state.isReplacePage === 'undefined') state.isReplacePage = false;
-      if (typeof state.binding === 'undefined') state.binding = false;
-      if (typeof state.searchModeBinding === 'undefined') state.searchModeBinding = false;
-      state.trRouteGeneration = self.generation;
-      if (window.TrThemeToggle) TrThemeToggle.init();
-      $('.tr-header-tabs').each(function() {
-        var active = this.querySelector('.tr-header-tab.active, .tr-header-tab a.active');
-        if (active && active.scrollIntoView) active.scrollIntoView({block: 'nearest', inline: 'nearest'});
-      });
-    });
-    Aj.onUnload(function(state) {
-      self.generation++;
-      Screenshots.cancelPageUpload();
-      if (state) {
-        self.stateKeys.forEach(function(key) { delete state[key]; });
-        state.trRouteGeneration = self.generation;
-      }
-      $('.tr-search').removeClass('tr-search-open tr-search-binding-mode');
-      $('body').removeClass('tr-drawer-open tr-scroll-locked');
-      $('.screenshot-layer,.screenshot-layer-wrap').removeClass('active hover screenshot-layer-mode-edit');
-      while (TrCompactScrollLock.depth) TrCompactScrollLock.unlock();
-    });
-  },
-  isCurrent: function(generation) {
-    return generation === this.generation;
-  },
-  requestGuard: function(component, el, identity, layer) {
-    var self = this;
-    var route = Aj.location().href;
-    var state = Aj.state;
-    var generation = this.generation;
-    var expected = typeof identity === 'function' ? identity() : identity;
-    return function() {
-      if (generation !== self.generation || state !== Aj.state || route !== Aj.location().href) return false;
-      if (layer && Aj.layerState !== layer) return false;
-      if (el && (!document.documentElement.contains(el))) return false;
-      if (typeof identity === 'function' && identity() !== expected) return false;
-      return true;
-    };
-  }
-};
-TrInitAfterAj(function() { TrResponsiveLifecycle.init(); });
-
 
 
 
@@ -6466,3 +4662,12 @@ TrInitAfterAj(function() { TrResponsiveLifecycle.init(); });
 new Date;k.setMilliseconds(k.getMilliseconds()+864E5*d.expires);d.expires=k}d.expires=d.expires?d.expires.toUTCString():"";try{var g=JSON.stringify(c);/^[\{\[]/.test(g)&&(c=g)}catch(p){}c=e.write?e.write(c,b):encodeURIComponent(String(c)).replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g,decodeURIComponent);b=encodeURIComponent(String(b));b=b.replace(/%(23|24|26|2B|5E|60|7C)/g,decodeURIComponent);b=b.replace(/[\(\)]/g,escape);g="";for(var l in d)d[l]&&(g+="; "+l,!0!==d[l]&&(g+="="+
 d[l]));return document.cookie=b+"="+c+g}b||(g={});l=document.cookie?document.cookie.split("; "):[];for(var h=/(%[0-9A-Z]{2})+/g,n=0;n<l.length;n++){var q=l[n].split("="),f=q.slice(1).join("=");'"'===f.charAt(0)&&(f=f.slice(1,-1));try{k=q[0].replace(h,decodeURIComponent);f=e.read?e.read(f,k):e(f,k)||f.replace(h,decodeURIComponent);if(this.json)try{f=JSON.parse(f)}catch(p){}if(b===k){g=f;break}b||(g[k]=f)}catch(p){}}return g}}a.set=a;a.get=function(b){return a.call(a,b)};a.getJSON=function(){return a.apply({json:!0},
 [].slice.call(arguments))};a.defaults={};a.remove=function(b,c){a(b,"",m(c,{expires:-1}))};a.withConverter=h;return a}return h(function(){})});
+
+
+
+
+
+
+
+
+
