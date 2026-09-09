@@ -1561,3 +1561,245 @@ var Issues = {
     $a.attr('href', original_href);
   }
 };
+
+var Claim = {
+  tonProof: '',
+  walletRaw: false,
+  walletAddress: false,
+  submitted: false,
+  init: function(options) {
+    Claim.tonProof = options.ton_proof || '';
+    Claim.walletRaw = options.wallet_raw || false;
+    Claim.walletAddress = options.wallet_address || false;
+    Claim.submitted = !!options.submitted;
+    Aj.onLoad(function(state) {
+      Claim.initTonConnect();
+      $(document).on('click.curPage', '.cc-connect-btn', Claim.eConnectWallet);
+      $(document).on('click.curPage', '.cc-change-wallet-btn', Claim.eChangeWallet);
+      $(document).on('click.curPage', '.cc-edit-btn', Claim.eEditForm);
+      $(document).on('click.curPage', '.cc-continue-btn', Claim.eShowSummary);
+      $(document).on('click.curPage', '.cc-summary-edit-btn', Claim.eHideSummary);
+      $(document).on('click.curPage', '.cc-submit-btn', Claim.eSubmit);
+      Claim.updateWalletUI();
+    });
+  },
+  initTonConnect: function() {
+    var tonConnectUI = Aj.globalState.tonConnectUI;
+    if (tonConnectUI) {
+      return;
+    }
+    tonConnectUI = Aj.globalState.tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+      manifestUrl: location.origin + '/tonconnect-manifest.json',
+      actionsConfiguration: {
+        modals: ['before'],
+        notifications: [],
+        returnStrategy: 'back'
+      },
+      enableAndroidBackHandler: false,
+      uiPreferences: {
+        theme: 'LIGHT',
+        borderRadius: 's'
+      }
+    });
+    tonConnectUI.setConnectRequestParameters({
+      value: { tonProof: Claim.tonProof }
+    });
+    tonConnectUI.onStatusChange(function(wallet) {
+      if (wallet &&
+          wallet.account &&
+          wallet.connectItems &&
+          wallet.connectItems.tonProof &&
+          wallet.connectItems.tonProof.proof) {
+        Aj.apiRequest('claimVerifyWallet', {
+          account: JSON.stringify(wallet.account),
+          proof: JSON.stringify(wallet.connectItems.tonProof.proof)
+        }, function(result) {
+          if (result && result.verified) {
+            Claim.walletRaw = result.raw_address;
+            Claim.walletAddress = result.address;
+            Claim.updateWalletUI();
+          } else {
+            Claim.disconnect();
+            Claim.showWalletError(result && result.error ? result.error : l('WEB_CLAIM_ERROR_WALLET_VERIFY'));
+          }
+        });
+      } else if (wallet && wallet.account) { // connected without a fresh ton_proof (e.g. restored)
+        if (!Claim.walletRaw || wallet.account.address != Claim.walletRaw) {
+          Claim.disconnect();
+        }
+      }
+    });
+  },
+  eConnectWallet: function(e) {
+    e.preventDefault();
+    Claim.openWalletModal();
+  },
+  eChangeWallet: function(e) {
+    e.preventDefault();
+    var tonConnectUI = Aj.globalState.tonConnectUI;
+    if (tonConnectUI && tonConnectUI.connected) {
+      tonConnectUI.disconnect().then(function() {
+        Claim.openWalletModal();
+      });
+    } else {
+      Claim.openWalletModal();
+    }
+  },
+  openWalletModal: function() {
+    var tonConnectUI = Aj.globalState.tonConnectUI;
+    if (tonConnectUI) {
+      tonConnectUI.openModal();
+    }
+  },
+  disconnect: function() {
+    var tonConnectUI = Aj.globalState.tonConnectUI;
+    if (tonConnectUI && tonConnectUI.connected) {
+      tonConnectUI.disconnect().catch(function() {});
+    }
+  },
+  updateWalletUI: function() {
+    var $wallet = $('.cc-wallet');
+    if (!$wallet.length) {
+      return;
+    }
+    if (Claim.walletAddress) {
+      $('.cc-wallet-notconnected', $wallet).addClass('hide');
+      $('.cc-wallet-connected', $wallet).removeClass('hide');
+      $('.cc-wallet-address', $wallet).text(Claim.walletAddress);
+    } else {
+      $('.cc-wallet-connected', $wallet).addClass('hide');
+      $('.cc-wallet-notconnected', $wallet).removeClass('hide');
+    }
+  },
+  eEditForm: function(e) {
+    e.preventDefault();
+    $('.cc-submitted').addClass('hide');
+    $('.cc-form-wrap').removeClass('hide');
+  },
+  eShowSummary: function(e) {
+    e.preventDefault();
+    var errors = Claim.validate();
+    Claim.showErrors(errors);
+    if (!$.isEmptyObject(errors)) {
+      return;
+    }
+    $('.cc-form').addClass('hide');
+    $('.cc-summary').html(Claim.buildSummary()).removeClass('hide');
+  },
+  eHideSummary: function(e) {
+    e.preventDefault();
+    $('.cc-summary').addClass('hide').html('');
+    $('.cc-form').removeClass('hide');
+  },
+  eSubmit: function(e) {
+    e.preventDefault();
+    var $btn = $(this);
+    if ($btn.data('submitting')) {
+      return;
+    }
+    $btn.data('submitting', true);
+    Aj.apiRequest('claimSubmit', {
+      full_name:   Claim.fieldValue('full_name'),
+      country:     Claim.fieldValue('country'),
+      street:      Claim.fieldValue('street'),
+      city_region: Claim.fieldValue('city_region'),
+      postal_code: Claim.fieldValue('postal_code')
+    }, function(result) {
+      $btn.data('submitting', false);
+      if (result && result.ok) {
+        location.reload();
+        return;
+      }
+      if (result && result.errors) {
+        Claim.showErrors(result.errors);
+      } else {
+        Claim.showFormError(result && result.error ? result.error : 'Server error');
+      }
+      $('.cc-summary').addClass('hide').html('');
+      $('.cc-form').removeClass('hide');
+    });
+  },
+  fieldValue: function(name) {
+    return $.trim($('.cc-form [name='+name+']').val() || '');
+  },
+  validate: function() {
+    var errors = {};
+    if (!/^[A-Za-z .'\-]{2,100}$/.test(Claim.fieldValue('full_name'))) {
+      errors.full_name = l('WEB_CLAIM_ERROR_FULL_NAME');
+    }
+    if (!Claim.fieldValue('country')) {
+      errors.country = l('WEB_CLAIM_ERROR_COUNTRY');
+    }
+    if (!/^[\x20-\x7E]{1,200}$/.test(Claim.fieldValue('street'))) {
+      errors.street = l('WEB_CLAIM_ERROR_STREET');
+    }
+    if (!/^[\x20-\x7E]{1,200}$/.test(Claim.fieldValue('city_region'))) {
+      errors.city_region = l('WEB_CLAIM_ERROR_CITY');
+    }
+    if (!/^[A-Za-z0-9 \-]{1,20}$/.test(Claim.fieldValue('postal_code'))) {
+      errors.postal_code = l('WEB_CLAIM_ERROR_POSTAL');
+    }
+    if (!Claim.walletAddress) {
+      errors.wallet = l('WEB_CLAIM_ERROR_WALLET');
+    }
+    return errors;
+  },
+  showErrors: function(errors) {
+    $('.cc-form .form-group').removeClass('has-error');
+    $('.cc-form .cc-field-error').addClass('hide').text('');
+    Claim.hideFormError();
+    if (!errors) {
+      return;
+    }
+    var selectors = {
+      full_name:   '#cc-full-name',
+      country:     '#cc-country',
+      street:      '#cc-street',
+      city_region: '#cc-city',
+      postal_code: '#cc-postal',
+      wallet:      '.cc-wallet'
+    };
+    for (var name in errors) {
+      var $group = $(selectors[name]).closest('.form-group');
+      if (!$group.length) {
+        continue;
+      }
+      $group.addClass('has-error');
+      $group.find('.cc-field-error').first().removeClass('hide').text(errors[name]);
+    }
+  },
+  showWalletError: function(text) {
+    Claim.showErrors({wallet: text});
+  },
+  showFormError: function(text) {
+    $('.cc-form-error').removeClass('hide').text(text);
+  },
+  hideFormError: function() {
+    $('.cc-form-error').addClass('hide').text('');
+  },
+  buildSummary: function() {
+    var rows = [
+      [l('WEB_CLAIM_FULL_NAME_LABEL'), Claim.fieldValue('full_name')],
+      [l('WEB_CLAIM_COUNTRY_LABEL'), $('.cc-form select[name=country] option:selected').text() || Claim.fieldValue('country')],
+      [l('WEB_CLAIM_STREET_LABEL'), Claim.fieldValue('street')],
+      [l('WEB_CLAIM_CITY_LABEL'), Claim.fieldValue('city_region')],
+      [l('WEB_CLAIM_POSTAL_LABEL'), Claim.fieldValue('postal_code')],
+      [l('WEB_CLAIM_WALLET_LABEL'), Claim.walletAddress]
+    ];
+    var rows_html = '';
+    for (var i = 0; i < rows.length; i++) {
+      var text_class = i == rows.length - 1 ? ' cc-wallet-address' : '';
+      rows_html += '<div class="cd-userform"><div class="cd-userform-label">'+Claim.escapeHtml(rows[i][0])+'</div><div class="cd-userform-text'+text_class+'">'+Claim.escapeHtml(rows[i][1])+'</div></div>';
+    }
+    return '<div class="cd-header">'+Claim.escapeHtml(l('WEB_CLAIM_SUMMARY_TITLE'))+'</div>'+
+      '<p class="cc-hint">'+Claim.escapeHtml(l('WEB_CLAIM_SUMMARY_HINT'))+'</p>'+
+      rows_html+
+      '<div class="cc-form-buttons">'+
+        '<button type="button" class="btn btn-default btn-lg cc-summary-edit-btn">'+Claim.escapeHtml(l('WEB_CLAIM_EDIT_BUTTON'))+'</button>'+
+        '<button type="button" class="btn btn-primary btn-lg cc-submit-btn">'+Claim.escapeHtml(l('WEB_CLAIM_SUBMIT_BUTTON'))+'</button>'+
+      '</div>';
+  },
+  escapeHtml: function(text) {
+    return String(text == null ? '' : text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+};

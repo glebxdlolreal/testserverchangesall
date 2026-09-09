@@ -2947,3 +2947,77 @@ button.cd-header-right-btn {
     padding-right: 8px;
   }
 }
+
+.cc-intro {
+  margin: 15px 0 0;
+}
+.cc-intro ol {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+.cc-intro li {
+  margin: 4px 0;
+}
+.cc-hint {
+  color: #70767b;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 6px 0 0;
+}
+.cc-field-error {
+  color: #cb2020;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 6px 0 0;
+}
+.cc-form-error {
+  color: #cb2020;
+  font-size: 14px;
+  line-height: 21px;
+  margin: 0 0 15px;
+}
+.cc-form select.form-control {
+  border: none;
+  border-radius: 0;
+  box-shadow: inset 0 -1px 0 #f0f0f0;
+  padding: 12px 24px 12px 0;
+  height: auto;
+  background: #fff url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='18' height='18'%3E%3Cpath fill='%2370767b' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") no-repeat right center;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.cc-form select.form-control:focus {
+  box-shadow: inset 0 -1px 0 #238fe1;
+}
+.cc-wallet-verified {
+  color: #70767b;
+  font-size: 13px;
+}
+.cc-wallet-address {
+  font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+  word-break: break-all;
+}
+.cc-change-wallet-btn {
+  color: #0086d3;
+  display: inline-block;
+  margin-top: 8px;
+}
+.cc-change-wallet-btn:hover,
+.cc-change-wallet-btn:focus {
+  color: #0086d3;
+}
+.cc-form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 25px;
+}
+.cc-submitted .cc-form-buttons {
+  margin-top: 20px;
+}
+.cd-content.cc-content {
+  max-width: 480px;
+  margin: 0 auto 75px;
+  padding: 0 15px;
+  box-sizing: border-box;
+}

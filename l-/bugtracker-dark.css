@@ -14,10 +14,9 @@
 }
 
 @property --bt-theme-hole-radius {
-  /* Percentages avoid zoom-scaled pixel interpolation. */
-  syntax: '<percentage>';
+  syntax: '<length>';
   inherits: false;
-  initial-value: 0%;
+  initial-value: 0px;
 }
 
 .bt-theme-toggle {
@@ -101,29 +100,6 @@ html.bt-theme-switching body * {
   mask-mode: alpha;
 }
 :root.bt-theme-reveal::view-transition-new(root) { z-index: 1; }
-
-/* Shrink the dark snapshot into the toggle. */
-:root.bt-theme-collapse::view-transition-old(root) {
-  z-index: 9999;
-  transform: none;
-  will-change: auto;
-  -webkit-mask-image: radial-gradient(
-    circle at var(--bt-theme-origin-x) var(--bt-theme-origin-y),
-    #000 0,
-    #000 var(--bt-theme-hole-radius),
-    transparent calc(var(--bt-theme-hole-radius) + 1px)
-  );
-  mask-image: radial-gradient(
-    circle at var(--bt-theme-origin-x) var(--bt-theme-origin-y),
-    #000 0,
-    #000 var(--bt-theme-hole-radius),
-    transparent calc(var(--bt-theme-hole-radius) + 1px)
-  );
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  mask-mode: alpha;
-}
-:root.bt-theme-collapse::view-transition-new(root) { z-index: 1; }
 
 /* Theme toggle icon morph animation. */
 @keyframes bt-icon-out {
