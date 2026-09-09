@@ -1317,7 +1317,8 @@ button.cd-edit-btn {
   margin-top: 7px;
   text-transform: uppercase;
 }
-a.cd-entries-button {
+a.cd-entries-button,
+.cd-claim-wallet-connect-btn {
   display: block;
   font-size: 13px;
   font-weight: 500;
@@ -2976,18 +2977,6 @@ button.cd-header-right-btn {
   line-height: 18px;
   margin: 6px 0 0;
 }
-.cd-claim-field-error {
-  color: #cb2020;
-  font-size: 13px;
-  line-height: 18px;
-  margin: 6px 0 0;
-}
-.cd-claim-form-error {
-  color: #cb2020;
-  font-size: 14px;
-  line-height: 21px;
-  margin: 0 0 15px;
-}
 .cd-claim-form select.form-control {
   border: none;
   border-radius: 0;
@@ -3005,14 +2994,14 @@ button.cd-header-right-btn {
   font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
   word-break: break-all;
 }
+.cd-claim-submitted {
+  margin-bottom: 25px;
+}
 .cd-claim-form-buttons {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 8px;
   margin-top: 25px;
-}
-.cd-claim-submitted .cd-claim-form-buttons {
-  margin-top: 20px;
 }
 .cd-content.cd-claim-content {
   max-width: 480px;
