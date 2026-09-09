@@ -2948,35 +2948,47 @@ button.cd-header-right-btn {
   }
 }
 
-.cc-intro {
-  margin: 15px 0 0;
+.cd-claim-intro {
+  margin: 0 0 25px;
 }
-.cc-intro ol {
-  margin: 8px 0 0;
+.cd-claim-intro p {
+  margin: 0;
+}
+.cd-claim-intro ol {
+  margin: 10px 0 0;
   padding-left: 20px;
 }
-.cc-intro li {
+.cd-claim-intro li {
   margin: 4px 0;
 }
-.cc-hint {
+.cd-claim-intro ol + p {
+  margin-top: 10px;
+}
+.cd-claim-form .form-group label {
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+.cd-claim-hint {
   color: #70767b;
   font-size: 13px;
   line-height: 18px;
   margin: 6px 0 0;
 }
-.cc-field-error {
+.cd-claim-field-error {
   color: #cb2020;
   font-size: 13px;
   line-height: 18px;
   margin: 6px 0 0;
 }
-.cc-form-error {
+.cd-claim-form-error {
   color: #cb2020;
   font-size: 14px;
   line-height: 21px;
   margin: 0 0 15px;
 }
-.cc-form select.form-control {
+.cd-claim-form select.form-control {
   border: none;
   border-radius: 0;
   box-shadow: inset 0 -1px 0 #f0f0f0;
@@ -2986,38 +2998,38 @@ button.cd-header-right-btn {
   -webkit-appearance: none;
   appearance: none;
 }
-.cc-form select.form-control:focus {
+.cd-claim-form select.form-control:focus {
   box-shadow: inset 0 -1px 0 #238fe1;
 }
-.cc-wallet-verified {
+.cd-claim-wallet-verified {
   color: #70767b;
   font-size: 13px;
 }
-.cc-wallet-address {
+.cd-claim-wallet-address {
   font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
   word-break: break-all;
 }
-.cc-change-wallet-btn {
+.cd-claim-change-wallet-btn {
   color: #0086d3;
   display: inline-block;
   margin-top: 8px;
 }
-.cc-change-wallet-btn:hover,
-.cc-change-wallet-btn:focus {
+.cd-claim-change-wallet-btn:hover,
+.cd-claim-change-wallet-btn:focus {
   color: #0086d3;
 }
-.cc-form-buttons {
+.cd-claim-form-buttons {
   display: flex;
   justify-content: flex-end;
   gap: 8px;
   margin-top: 25px;
 }
-.cc-submitted .cc-form-buttons {
+.cd-claim-submitted .cd-claim-form-buttons {
   margin-top: 20px;
 }
-.cd-content.cc-content {
+.cd-content.cd-claim-content {
   max-width: 480px;
   margin: 0 auto 75px;
-  padding: 0 15px;
+  padding: 15px 15px 0;
   box-sizing: border-box;
 }

@@ -1574,12 +1574,12 @@ var Claim = {
     Claim.submitted = !!options.submitted;
     Aj.onLoad(function(state) {
       Claim.initTonConnect();
-      $(document).on('click.curPage', '.cc-connect-btn', Claim.eConnectWallet);
-      $(document).on('click.curPage', '.cc-change-wallet-btn', Claim.eChangeWallet);
-      $(document).on('click.curPage', '.cc-edit-btn', Claim.eEditForm);
-      $(document).on('click.curPage', '.cc-continue-btn', Claim.eShowSummary);
-      $(document).on('click.curPage', '.cc-summary-edit-btn', Claim.eHideSummary);
-      $(document).on('click.curPage', '.cc-submit-btn', Claim.eSubmit);
+      $(document).on('click.curPage', '.cd-claim-connect-btn', Claim.eConnectWallet);
+      $(document).on('click.curPage', '.cd-claim-change-wallet-btn', Claim.eChangeWallet);
+      $(document).on('click.curPage', '.cd-claim-edit-btn', Claim.eEditForm);
+      $(document).on('click.curPage', '.cd-claim-continue-btn', Claim.eShowSummary);
+      $(document).on('click.curPage', '.cd-claim-summary-edit-btn', Claim.eHideSummary);
+      $(document).on('click.curPage', '.cd-claim-submit-btn', Claim.eSubmit);
       Claim.updateWalletUI();
     });
   },
@@ -1658,23 +1658,23 @@ var Claim = {
     }
   },
   updateWalletUI: function() {
-    var $wallet = $('.cc-wallet');
+    var $wallet = $('.cd-claim-wallet');
     if (!$wallet.length) {
       return;
     }
     if (Claim.walletAddress) {
-      $('.cc-wallet-notconnected', $wallet).addClass('hide');
-      $('.cc-wallet-connected', $wallet).removeClass('hide');
-      $('.cc-wallet-address', $wallet).text(Claim.walletAddress);
+      $('.cd-claim-wallet-notconnected', $wallet).addClass('hide');
+      $('.cd-claim-wallet-connected', $wallet).removeClass('hide');
+      $('.cd-claim-wallet-address', $wallet).text(Claim.walletAddress);
     } else {
-      $('.cc-wallet-connected', $wallet).addClass('hide');
-      $('.cc-wallet-notconnected', $wallet).removeClass('hide');
+      $('.cd-claim-wallet-connected', $wallet).addClass('hide');
+      $('.cd-claim-wallet-notconnected', $wallet).removeClass('hide');
     }
   },
   eEditForm: function(e) {
     e.preventDefault();
-    $('.cc-submitted').addClass('hide');
-    $('.cc-form-wrap').removeClass('hide');
+    $('.cd-claim-submitted').addClass('hide');
+    $('.cd-claim-form-wrap').removeClass('hide');
   },
   eShowSummary: function(e) {
     e.preventDefault();
@@ -1683,13 +1683,13 @@ var Claim = {
     if (!$.isEmptyObject(errors)) {
       return;
     }
-    $('.cc-form').addClass('hide');
-    $('.cc-summary').html(Claim.buildSummary()).removeClass('hide');
+    $('.cd-claim-form').addClass('hide');
+    $('.cd-claim-summary').html(Claim.buildSummary()).removeClass('hide');
   },
   eHideSummary: function(e) {
     e.preventDefault();
-    $('.cc-summary').addClass('hide').html('');
-    $('.cc-form').removeClass('hide');
+    $('.cd-claim-summary').addClass('hide').html('');
+    $('.cd-claim-form').removeClass('hide');
   },
   eSubmit: function(e) {
     e.preventDefault();
@@ -1715,12 +1715,12 @@ var Claim = {
       } else {
         Claim.showFormError(result && result.error ? result.error : 'Server error');
       }
-      $('.cc-summary').addClass('hide').html('');
-      $('.cc-form').removeClass('hide');
+      $('.cd-claim-summary').addClass('hide').html('');
+      $('.cd-claim-form').removeClass('hide');
     });
   },
   fieldValue: function(name) {
-    return $.trim($('.cc-form [name='+name+']').val() || '');
+    return $.trim($('.cd-claim-form [name='+name+']').val() || '');
   },
   validate: function() {
     var errors = {};
@@ -1745,19 +1745,19 @@ var Claim = {
     return errors;
   },
   showErrors: function(errors) {
-    $('.cc-form .form-group').removeClass('has-error');
-    $('.cc-form .cc-field-error').addClass('hide').text('');
+    $('.cd-claim-form .form-group').removeClass('has-error');
+    $('.cd-claim-form .cd-claim-field-error').addClass('hide').text('');
     Claim.hideFormError();
     if (!errors) {
       return;
     }
     var selectors = {
-      full_name:   '#cc-full-name',
-      country:     '#cc-country',
-      street:      '#cc-street',
-      city_region: '#cc-city',
-      postal_code: '#cc-postal',
-      wallet:      '.cc-wallet'
+      full_name:   '#cd-claim-full-name',
+      country:     '#cd-claim-country',
+      street:      '#cd-claim-street',
+      city_region: '#cd-claim-city',
+      postal_code: '#cd-claim-postal',
+      wallet:      '.cd-claim-wallet'
     };
     for (var name in errors) {
       var $group = $(selectors[name]).closest('.form-group');
@@ -1765,22 +1765,22 @@ var Claim = {
         continue;
       }
       $group.addClass('has-error');
-      $group.find('.cc-field-error').first().removeClass('hide').text(errors[name]);
+      $group.find('.cd-claim-field-error').first().removeClass('hide').text(errors[name]);
     }
   },
   showWalletError: function(text) {
     Claim.showErrors({wallet: text});
   },
   showFormError: function(text) {
-    $('.cc-form-error').removeClass('hide').text(text);
+    $('.cd-claim-form-error').removeClass('hide').text(text);
   },
   hideFormError: function() {
-    $('.cc-form-error').addClass('hide').text('');
+    $('.cd-claim-form-error').addClass('hide').text('');
   },
   buildSummary: function() {
     var rows = [
       [l('WEB_CLAIM_FULL_NAME_LABEL'), Claim.fieldValue('full_name')],
-      [l('WEB_CLAIM_COUNTRY_LABEL'), $('.cc-form select[name=country] option:selected').text() || Claim.fieldValue('country')],
+      [l('WEB_CLAIM_COUNTRY_LABEL'), $('.cd-claim-form select[name=country] option:selected').text() || Claim.fieldValue('country')],
       [l('WEB_CLAIM_STREET_LABEL'), Claim.fieldValue('street')],
       [l('WEB_CLAIM_CITY_LABEL'), Claim.fieldValue('city_region')],
       [l('WEB_CLAIM_POSTAL_LABEL'), Claim.fieldValue('postal_code')],
@@ -1788,15 +1788,15 @@ var Claim = {
     ];
     var rows_html = '';
     for (var i = 0; i < rows.length; i++) {
-      var text_class = i == rows.length - 1 ? ' cc-wallet-address' : '';
+      var text_class = i == rows.length - 1 ? ' cd-claim-wallet-address' : '';
       rows_html += '<div class="cd-userform"><div class="cd-userform-label">'+Claim.escapeHtml(rows[i][0])+'</div><div class="cd-userform-text'+text_class+'">'+Claim.escapeHtml(rows[i][1])+'</div></div>';
     }
     return '<div class="cd-header">'+Claim.escapeHtml(l('WEB_CLAIM_SUMMARY_TITLE'))+'</div>'+
-      '<p class="cc-hint">'+Claim.escapeHtml(l('WEB_CLAIM_SUMMARY_HINT'))+'</p>'+
+      '<p class="cd-claim-hint">'+Claim.escapeHtml(l('WEB_CLAIM_SUMMARY_HINT'))+'</p>'+
       rows_html+
-      '<div class="cc-form-buttons">'+
-        '<button type="button" class="btn btn-default btn-lg cc-summary-edit-btn">'+Claim.escapeHtml(l('WEB_CLAIM_EDIT_BUTTON'))+'</button>'+
-        '<button type="button" class="btn btn-primary btn-lg cc-submit-btn">'+Claim.escapeHtml(l('WEB_CLAIM_SUBMIT_BUTTON'))+'</button>'+
+      '<div class="cd-claim-form-buttons">'+
+        '<button type="button" class="btn btn-default btn-lg cd-claim-summary-edit-btn">'+Claim.escapeHtml(l('WEB_CLAIM_EDIT_BUTTON'))+'</button>'+
+        '<button type="button" class="btn btn-primary btn-lg cd-claim-submit-btn">'+Claim.escapeHtml(l('WEB_CLAIM_SUBMIT_BUTTON'))+'</button>'+
       '</div>';
   },
   escapeHtml: function(text) {
