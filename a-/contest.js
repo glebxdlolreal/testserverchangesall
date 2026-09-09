@@ -1781,8 +1781,8 @@ var Claim = {
     var rows = [
       [l('WEB_CLAIM_FULL_NAME_LABEL'), Claim.fieldValue('full_name')],
       [l('WEB_CLAIM_COUNTRY_LABEL'), $('.cd-claim-form select[name=country] option:selected').text() || Claim.fieldValue('country')],
-      [l('WEB_CLAIM_STREET_LABEL'), Claim.fieldValue('street')],
       [l('WEB_CLAIM_CITY_LABEL'), Claim.fieldValue('city_region')],
+      [l('WEB_CLAIM_STREET_LABEL'), Claim.fieldValue('street')],
       [l('WEB_CLAIM_POSTAL_LABEL'), Claim.fieldValue('postal_code')],
       [l('WEB_CLAIM_WALLET_LABEL'), Claim.walletAddress]
     ];
