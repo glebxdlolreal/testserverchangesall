@@ -131,15 +131,15 @@ var BotUsernames = {
       if (Aj.state.edit) return;
       var row = this;
       var username = row.dataset.username;
-      var isActive = row.dataset.active == '1';
       var isExpired = row.dataset.expired == '1';
       var type = row.dataset.type;
 
-      if (isExpired) {
+      if (type == 'additional') {
         BotUsernames.askRemove(username);
         return;
       }
 
+      var isActive = row.dataset.active == '1';
       var buttons = [
         {type: 'cancel'},
         {
@@ -148,13 +148,6 @@ var BotUsernames = {
           type: 'default',
         },
       ];
-      if (type == 'additional') {
-        buttons.push({
-          id: 'remove',
-          text: uncleanHTML(l('WEB_USERNAMES_REMOVE_BTN')),
-          type: 'destructive',
-        });
-      }
 
       WebApp.showPopup({
         title: uncleanHTML(l(isActive ? 'WEB_USERNAMES_DEACTIVATE_TITLE' : 'WEB_USERNAMES_ACTIVATE_TITLE')),
@@ -170,9 +163,6 @@ var BotUsernames = {
             }
             Aj.location(window.location.pathname);
           });
-        }
-        if (result == 'remove') {
-          BotUsernames.askRemove(username);
         }
       });
     });
