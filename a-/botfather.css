@@ -3306,3 +3306,71 @@ section {display:flex;flex-direction:column;align-items:center;justify-content:c
   text-decoration: none;
 }
 
+
+.tm-row .tm-row-value {
+  flex-shrink: 1;
+}
+.js-username-row .tm-row-value {
+  font-weight: 400;
+  color: var(--header-color);
+}
+.tm-username-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background-color: var(--accent-color);
+  position: relative;
+}
+.tm-username-icon:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 15px;
+  height: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z' fill='%23ffffff'/%3E%3C/svg%3E");
+}
+.tm-username-icon-off {
+  background-color: #C4C9CF;
+}
+.tm-username-icon-off:after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M17 7h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.43-.98 2.63-2.31 2.98l1.46 1.46C20.88 15.71 22 13.98 22 12c0-2.76-2.24-5-5-5zm-1 4h-2.19l2 2H16v-2zM2 4.27l3.11 3.11C3.29 8.12 2 9.91 2 12c0 2.76 2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1 0-1.59 1.21-2.9 2.76-3.07L8.73 11H8v2h2.73L13 15.02V17h2l3.18 3.18 1.41-1.41L3.41 2.86 2 4.27z' fill='%23ffffff'/%3E%3C/svg%3E");
+}
+.js-usernames-list:not(.list-prevent-edit) .tm-row:after {
+  display: none;
+}
+.js-usernames-list:not(.list-prevent-edit) .tm-row {
+  min-height: 42px;
+  cursor: grab;
+}
+.js-usernames-list:not(.list-prevent-edit) .tm-row-add {
+  visibility: hidden;
+  margin-top: -42px;
+}
+
+.tm-input-readonly {
+  color: #8794A1 !important;
+  background-color: transparent !important;
+  cursor: default;
+}
+.tm-section .tm-field {
+  width: 100%;
+}
+
+.js-username-row .tm-icon {
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+.js-username-row .tm-row-desc {
+  padding-right: 36px;
+}
