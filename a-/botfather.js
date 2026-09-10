@@ -134,7 +134,7 @@ var BotUsernames = {
       var isExpired = row.dataset.expired == '1';
       var type = row.dataset.type;
 
-      if (type == 'additional') {
+      if (type == 'additional' || type == 'plain') {
         BotUsernames.askRemove(username);
         return;
       }
