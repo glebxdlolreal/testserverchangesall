@@ -156,7 +156,7 @@ var BotUsernames = {
       }, (result) => {
         if (result == 'toggle') {
           var active = !isActive;
-          Aj.apiRequest('toggleBotUsername', { bid: Aj.state.botId, username: username, active: active }, res => {
+          Aj.apiRequest('toggleBotUsername', { bid: Aj.state.botId, username: username, active: active ? 1 : 0 }, res => {
             if (res.error) {
               TWebApp.showErrorToast(res.error);
               return;
