@@ -793,7 +793,7 @@ var NewAd = {
       fv.picture = true;
       if (target_type == 'users') {
         var placement = $form.field('placement').value();
-        if (placement == 'video_banner') {
+        if (placement == 'video_banner' || placement == 'bot_banner') {
           fv.media = false;
           fv.button = false;
         }

@@ -131,9 +131,11 @@ var BotUsernames = {
       if (Aj.state.edit) return;
       var row = this;
       var username = row.dataset.username;
-      var isExpired = row.dataset.expired == '1';
       var type = row.dataset.type;
 
+      if (type == 'none') {
+        return;
+      }
       if (type == 'additional' || type == 'plain') {
         BotUsernames.askRemove(username);
         return;
