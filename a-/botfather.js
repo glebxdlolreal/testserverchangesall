@@ -48,7 +48,7 @@ var CreateBot = {
     $('input[name=username]').on('input', (ev) => {
       var $hint = $('.hint-text[data-for=username]');
       $hint.attr('class', 'hint-text hint-text-loading');
-      $hint.text('Checking username');
+      $hint.text(l('WEB_USERNAME_CHECKING'));
       usernameDebounce(CreateBot.checkUsername, 400);
     })
 
@@ -58,13 +58,13 @@ var CreateBot = {
     var $input = $('input[name=username]');
     var value = $input.val();
     $hint.attr('class', 'hint-text hint-text-loading');
-    $hint.text('Checking username');
+    $hint.text(l('WEB_USERNAME_CHECKING'));
     Aj.apiRequest('checkBotUsername', { username: value }, res => {
       if ($input.val() !== value) return;
       if (res.ok) {
         Aj.state.username_valid = true;
         $hint.attr('class', 'hint-text hint-text-success');
-        $hint.text(value + ' is available.');
+        $hint.text(l('WEB_USERNAME_AVAILABLE', {username: value}));
       } else {
         Aj.state.username_valid = false;
         $hint.attr('class', 'hint-text hint-text-error');
