@@ -1198,19 +1198,8 @@ a.bt-comment-reply-content:focus {
   margin: 0 -17px 10px;
   border-radius: 8px;
   background: #f1f6fb;
-  padding-left: 2px;
   overflow: hidden;
   transition: background .15s ease;
-}
-.bt-pinned-comment:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 2px;
-  background: #2b8bd9;
-  pointer-events: none;
 }
 .bt-pinned-comment:hover,
 .bt-pinned-comment.highlight {

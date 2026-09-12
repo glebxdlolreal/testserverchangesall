@@ -3631,14 +3631,16 @@ var Issue = {
     });
   },
   syncPinnedComments: function(context) {
-    var comment_id = $('.bt-pinned-comment-content', Aj.layer).attr('data-comment-link');
+    var $pinned = $('.bt-pinned-comment-content', Aj.layer);
+    var comment_id = $pinned.attr('data-comment-link');
+    var pin_title = $pinned.attr('title') || '';
     var $context = $(context || Aj.layer);
     $context.find('.bt-comment').add($context.filter('.bt-comment')).each(function() {
       var $comment = $(this);
       var pinned = !!comment_id && $comment.attr('data-comment-id') == comment_id;
       $comment.toggleClass('bt-comment-pinned', pinned);
       $('.bt-comment-date', $comment).toggleClass('has-pin', pinned);
-      $('.bt-comment-pin-badge', $comment).toggleClass('hide', !pinned);
+      $('.bt-comment-pin-badge', $comment).toggleClass('hide', !pinned).attr('title', pinned ? pin_title : '');
       $('.bt-pin-comment-btn', $comment).parent().toggleClass('hide', pinned);
       $('.bt-unpin-comment-btn', $comment).parent().toggleClass('hide', !pinned);
     });
