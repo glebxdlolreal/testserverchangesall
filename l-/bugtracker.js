@@ -4978,14 +4978,9 @@ var Issue = {
     if (typeof result.pinned_html !== 'undefined') {
       Issue.updatePinnedPanel(result.pinned_html);
     }
-    if (result.unpinned_comment_ids) {
-      $.each(result.unpinned_comment_ids, function(i, unpinned_comment_id) {
-        $('.bt-comment[data-comment-id]', Aj.layer).each(function() {
-          if ($(this).attr('data-comment-id') == unpinned_comment_id) {
-            $(this).removeClass('bt-comment-pinned');
-            $('.bt-comment-pin-badge', this).remove();
-          }
-        });
+    if (result.unpinned_html) {
+      $.each(result.unpinned_html, function(comment_id, comment_html) {
+        Issue.replaceCommentHtml(comment_id, comment_html);
       });
     }
     if (result.toast) {

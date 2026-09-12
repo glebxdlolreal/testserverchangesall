@@ -1376,7 +1376,7 @@ a.bt-comment-reply-content:hover, a.bt-comment-reply-content:focus {
 .bt-pinned-comment {
   position: relative;
   margin: 0 -8px 14px;
-  border-radius: 8px;
+  border-radius: 12px;
   background: #157ed51f;
   border-left: 2.8px solid #2b8bd9;
   color: var(--text-primary);
@@ -1447,11 +1447,11 @@ a.bt-comment-reply-content:hover, a.bt-comment-reply-content:focus {
 }
 .bt-pinned-comment-unpin {
   position: absolute;
-  top: 7px;
+  top: 4px;
   right: 14px;
-  width: 24px;
-  height: 24px;
-  border-radius: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
   cursor: pointer;
   transition: background-color .15s ease;
 }
@@ -1461,9 +1461,9 @@ a.bt-comment-reply-content:hover, a.bt-comment-reply-content:focus {
   content: '';
   left: 50%;
   top: 50%;
-  width: 10px;
+  width: 12px;
   height: 2px;
-  margin: -1px 0 0 -5px;
+  margin: -1px 0 0 -6px;
   border-radius: 1px;
   background: var(--text-secondary);
   transition: background-color .15s ease;
@@ -1475,11 +1475,11 @@ a.bt-comment-reply-content:hover, a.bt-comment-reply-content:focus {
   transform: rotate(-45deg);
 }
 .bt-pinned-comment-unpin:hover {
-  background: rgba(239, 101, 143, .15);
+  background: rgba(254, 79, 84, .12);
 }
 .bt-pinned-comment-unpin:hover:before,
 .bt-pinned-comment-unpin:hover:after {
-  background: #ef658f;
+  background: #c2513e;
 }
 .bt-comment-pin-badge {
   display: inline-block;
