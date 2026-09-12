@@ -488,6 +488,46 @@ html.bt-theme-dark .bt-markdown hr {
   border-color: var(--bt-dark-border);
 }
 
+html.bt-theme-dark .bt-pinned-comment-content {
+  background: var(--bt-dark-card-bg-hover);
+  border-left-color: var(--bt-dark-text-accent);
+  color: var(--bt-dark-text-primary);
+}
+html.bt-theme-dark a.bt-pinned-comment-content:hover,
+html.bt-theme-dark a.bt-pinned-comment-content:focus {
+  background: rgba(76, 178, 255, .12);
+}
+html.bt-theme-dark .bt-pinned-comment-icon use,
+html.bt-theme-dark .bt-comment-pin-badge use {
+  fill: var(--bt-dark-text-accent);
+}
+html.bt-theme-dark .bt-pinned-comment-thumb {
+  background-color: var(--bt-dark-border);
+}
+html.bt-theme-dark .bt-pinned-comment-label,
+html.bt-theme-dark .bt-comment-pin-badge {
+  color: var(--bt-dark-text-accent);
+}
+html.bt-theme-dark .bt-pinned-comment-text {
+  color: var(--bt-dark-text-secondary);
+}
+html.bt-theme-dark .bt-pinned-comment-author {
+  color: var(--bt-dark-text-primary);
+}
+html.bt-theme-dark .bt-pinned-comment-unpin use {
+  fill: var(--bt-dark-text-secondary);
+}
+html.bt-theme-dark .bt-pinned-comment-unpin:hover {
+  background: rgba(76, 178, 255, .15);
+}
+html.bt-theme-dark .bt-pinned-comment-unpin:hover use {
+  fill: var(--bt-dark-text-accent);
+}
+html.bt-theme-dark .bt-comment-pinned {
+  background: rgba(76, 178, 255, .07);
+  box-shadow: inset 2px 0 0 var(--bt-dark-text-accent);
+}
+
 html.bt-theme-dark .bt-layer-content,
 html.bt-theme-dark .popup {
   color: var(--bt-dark-text-primary);

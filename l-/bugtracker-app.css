@@ -1373,6 +1373,118 @@ a.bt-comment-reply-content:hover, a.bt-comment-reply-content:focus {
   background-size: cover;
 }
 
+.bt-pinned-comment {
+  position: relative;
+  margin: 0 0 10px;
+}
+.bt-pinned-comment-content {
+  display: flex;
+  align-items: flex-start;
+  padding: 8px 32px 8px 12px;
+  border-radius: 8px;
+  background: #157ed51f;
+  border-left: 2.8px solid #2b8bd9;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+a.bt-pinned-comment-content:hover,
+a.bt-pinned-comment-content:focus {
+  color: inherit;
+  text-decoration: none;
+}
+.bt-pinned-comment-icon {
+  flex: none;
+  margin: 3px 10px 0 0;
+}
+.bt-pinned-comment-icon .icon {
+  width: 15px;
+  height: 15px;
+}
+.bt-pinned-comment-icon use {
+  fill: var(--text-accent);
+}
+.bt-pinned-comment-thumb {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  margin: 3px 10px 0 0;
+  border-radius: 4px;
+  background: #2b3947 no-repeat center;
+  background-size: cover;
+}
+.bt-pinned-comment-body {
+  min-width: 0;
+}
+.bt-pinned-comment-label {
+  display: block;
+  font-size: 13px;
+  line-height: 17px;
+  font-weight: 600;
+  color: var(--text-accent);
+}
+.bt-pinned-comment-text {
+  display: block;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-secondary);
+  max-height: 60px;
+  overflow: hidden;
+}
+.bt-pinned-comment-author {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.bt-pinned-comment-author:after {
+  content: ':';
+}
+.bt-pinned-comment-unpin {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  width: 24px;
+  height: 24px;
+  margin-top: -12px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.bt-pinned-comment-unpin .icon {
+  display: block;
+  width: 12px;
+  height: 12px;
+  margin: 6px auto;
+}
+.bt-pinned-comment-unpin use {
+  fill: var(--text-secondary);
+}
+.bt-pinned-comment-unpin:hover {
+  background: rgba(76, 178, 255, .15);
+}
+.bt-pinned-comment-unpin:hover use {
+  fill: var(--text-accent);
+}
+.bt-comment-pin-badge {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: top;
+  margin-left: 6px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--text-accent);
+}
+.bt-comment-pin-badge .icon {
+  width: 12px;
+  height: 12px;
+  margin-right: 3px;
+}
+.bt-comment-pin-badge use {
+  fill: var(--text-accent);
+}
+.bt-comment-pinned {
+  background: rgba(76, 178, 255, .07);
+  box-shadow: inset 2px 0 0 #2b8bd9;
+}
+
 .bt-comment-reply-file {
   color: #539dd9;
 

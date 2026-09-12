@@ -3519,6 +3519,9 @@ var Issue = {
     $commentsWrap.on('click.curPage', '.bt-edit-comment-btn', Issue.eEditComment);
     $commentsWrap.on('click.curPage', '.bt-comment-edit-cancel', Issue.eCancelEditComment);
     $commentsWrap.on('click.curPage', 'a[data-comment-link]', Issue.eCommentHighlight);
+    $commentsWrap.on('click.curPage', '.bt-pin-comment-btn', Issue.ePinComment);
+    $commentsWrap.on('click.curPage', '.bt-unpin-comment-btn', Issue.eUnpinComment);
+    $commentsWrap.on('click.curPage', '.bt-pinned-comment-unpin', Issue.eUnpinPinnedComment);
     $commentsWrap.on('click.curPage', '.bt-toggle-comment-form', Issue.eOpenComments);
     $commentsWrap.on('click.curPage', '.bt-comments-more', Issue.eLoadMore);
     $commentsWrap.on('click.curPage', '.bt-select-comment-btn', Issue.eStartCommentSelection);
@@ -4859,6 +4862,77 @@ var Issue = {
       }
     });
     return false;
+  },
+  ePinComment: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var $btn = $(this);
+    $btn.parents('.open').find('.dropdown-toggle').dropdown('toggle');
+    Issue.submitPinComment($btn.parents('.bt-comment').attr('data-comment-id'), false, $btn);
+    return false;
+  },
+  eUnpinComment: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var $btn = $(this);
+    $btn.parents('.open').find('.dropdown-toggle').dropdown('toggle');
+    Issue.submitPinComment($btn.parents('.bt-comment').attr('data-comment-id'), true, $btn);
+    return false;
+  },
+  eUnpinPinnedComment: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var $btn = $(this);
+    var comment_id = $btn.parents('.bt-pinned-comment').find('.bt-pinned-comment-content').attr('data-comment-link');
+    Issue.submitPinComment(comment_id, true, $btn);
+    return false;
+  },
+  submitPinComment: function(comment_id, unpin, $btn) {
+    var issue_id = Aj.layerState.issueId;
+    if ($btn.data('submiting') || !comment_id || !issue_id) {
+      return false;
+    }
+    $btn.data('submiting', true);
+    Aj.apiRequest(unpin ? 'unpinComment' : 'pinComment', {
+      issue_id: issue_id,
+      comment_id: comment_id
+    }, function(result) {
+      $btn.data('submiting', false);
+      if (result.error) {
+        return showAlert(result.error);
+      }
+      Issue.applyPinResult(result);
+    });
+  },
+  applyPinResult: function(result) {
+    if (result.comment_id && result.comment_html) {
+      Issue.replaceCommentHtml(result.comment_id, result.comment_html);
+    }
+    var $pinned = $('.bt-pinned-comment', Aj.layer);
+    if (result.pinned_html) {
+      var $pinnedEl = $(result.pinned_html);
+      if ($pinned.size()) {
+        $pinned.replaceWith($pinnedEl);
+      } else {
+        $('.bt-comments-header', Aj.layer).after($pinnedEl);
+      }
+    } else if ($pinned.size()) {
+      $pinned.remove();
+    }
+    if (result.unpinned_comment_id) {
+      $('.bt-comment[data-comment-id]', Aj.layer).each(function() {
+        if ($(this).attr('data-comment-id') == result.unpinned_comment_id) {
+          $(this).removeClass('bt-comment-pinned');
+          $('.bt-comment-pin-badge', this).remove();
+        }
+      });
+    }
+    if (result.toast) {
+      showToast(result.toast, 3500);
+    }
+    if (Aj.state.isWebApp) {
+      WebApp.HapticFeedback.impactOccurred('soft');
+    }
   },
   eDeleteIssue: function(e) {
     var $btn     = $(this);
