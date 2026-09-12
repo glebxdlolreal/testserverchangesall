@@ -3522,6 +3522,7 @@ var Issue = {
     $commentsWrap.on('click.curPage', '.bt-pin-comment-btn', Issue.ePinComment);
     $commentsWrap.on('click.curPage', '.bt-unpin-comment-btn', Issue.eUnpinComment);
     $commentsWrap.on('click.curPage', '.bt-pinned-comment-unpin', Issue.eUnpinPinnedComment);
+    $commentsWrap.on('click.curPage', '.bt-comment-pin-badge', Issue.ePinBadgeClick);
     $commentsWrap.on('click.curPage', '.bt-toggle-comment-form', Issue.eOpenComments);
     $commentsWrap.on('click.curPage', '.bt-comments-more', Issue.eLoadMore);
     $commentsWrap.on('click.curPage', '.bt-select-comment-btn', Issue.eStartCommentSelection);
@@ -4885,6 +4886,20 @@ var Issue = {
     var $btn = $(this);
     var comment_id = $btn.parents('.bt-pinned-comment').find('.bt-pinned-comment-content').attr('data-comment-link');
     Issue.submitPinComment(comment_id, true, $btn);
+    return false;
+  },
+  ePinBadgeClick: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var $pinned = $('.bt-pinned-comment', Aj.layer);
+    if (!$pinned.size()) {
+      return false;
+    }
+    $pinned.scrollIntoView({position: 'top', padding: 15});
+    $pinned.highlight(1500);
+    if (Aj.state.isWebApp) {
+      WebApp.HapticFeedback.impactOccurred('soft');
+    }
     return false;
   },
   submitPinComment: function(comment_id, unpin, $btn) {

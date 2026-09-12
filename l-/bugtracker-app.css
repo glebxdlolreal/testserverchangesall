@@ -1392,6 +1392,9 @@ a.bt-pinned-comment-content:focus {
   color: inherit;
   text-decoration: none;
 }
+.bt-pinned-comment.highlight .bt-pinned-comment-content {
+  background: rgba(76, 178, 255, .15);
+}
 .bt-pinned-comment-icon {
   flex: none;
   margin: 3px 10px 0 0;
@@ -1478,10 +1481,17 @@ a.bt-pinned-comment-content:focus {
 }
 .bt-comment-pin-badge {
   display: inline-block;
+  margin-left: 4px;
   font-size: 12px;
   line-height: 18px;
   font-weight: 500;
   color: var(--text-accent);
+  cursor: pointer;
+}
+.bt-comment-pin-badge:hover,
+.bt-comment-pin-badge:focus {
+  color: var(--text-accent);
+  text-decoration: none;
 }
 .bt-comment-pinned {
   background: rgba(76, 178, 255, .07);
@@ -2126,7 +2136,8 @@ a.bt-pinned-comment-content:focus {
   color: var(--text-secondary);
 }
 
-.bt-comment .bt-comment-date.has-edited {
+.bt-comment .bt-comment-date.has-edited,
+.bt-comment .bt-comment-date.has-pin {
   display: inline-block;
   margin-right: 0;
   vertical-align: baseline;

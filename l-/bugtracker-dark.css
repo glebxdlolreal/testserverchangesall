@@ -507,6 +507,14 @@ html.bt-theme-dark .bt-pinned-comment-label,
 html.bt-theme-dark .bt-comment-pin-badge {
   color: var(--bt-dark-text-accent);
 }
+html.bt-theme-dark .bt-comment-pin-badge:hover,
+html.bt-theme-dark .bt-comment-pin-badge:focus {
+  color: var(--bt-dark-text-accent);
+  text-decoration: none;
+}
+html.bt-theme-dark .bt-pinned-comment.highlight .bt-pinned-comment-content {
+  background: rgba(76, 178, 255, .12);
+}
 html.bt-theme-dark .bt-pinned-comment-text {
   color: var(--bt-dark-text-secondary);
 }
