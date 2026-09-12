@@ -497,8 +497,7 @@ html.bt-theme-dark a.bt-pinned-comment-content:hover,
 html.bt-theme-dark a.bt-pinned-comment-content:focus {
   background: rgba(76, 178, 255, .12);
 }
-html.bt-theme-dark .bt-pinned-comment-icon use,
-html.bt-theme-dark .bt-comment-pin-badge use {
+html.bt-theme-dark .bt-pinned-comment-icon use {
   fill: var(--bt-dark-text-accent);
 }
 html.bt-theme-dark .bt-pinned-comment-thumb {
@@ -514,14 +513,16 @@ html.bt-theme-dark .bt-pinned-comment-text {
 html.bt-theme-dark .bt-pinned-comment-author {
   color: var(--bt-dark-text-primary);
 }
-html.bt-theme-dark .bt-pinned-comment-unpin use {
-  fill: var(--bt-dark-text-secondary);
+html.bt-theme-dark .bt-pinned-comment-unpin:before,
+html.bt-theme-dark .bt-pinned-comment-unpin:after {
+  background: var(--bt-dark-text-secondary);
 }
 html.bt-theme-dark .bt-pinned-comment-unpin:hover {
-  background: rgba(76, 178, 255, .15);
+  background: rgba(239, 101, 143, .12);
 }
-html.bt-theme-dark .bt-pinned-comment-unpin:hover use {
-  fill: var(--bt-dark-text-accent);
+html.bt-theme-dark .bt-pinned-comment-unpin:hover:before,
+html.bt-theme-dark .bt-pinned-comment-unpin:hover:after {
+  background: var(--bt-dark-danger);
 }
 html.bt-theme-dark .bt-comment-pinned {
   background: rgba(76, 178, 255, .07);

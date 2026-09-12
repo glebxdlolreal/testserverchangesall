@@ -1448,43 +1448,40 @@ a.bt-pinned-comment-content:focus {
   margin-top: -12px;
   border-radius: 12px;
   cursor: pointer;
+  transition: background-color .15s ease;
 }
-.bt-pinned-comment-unpin .icon {
-  display: block;
-  width: 12px;
-  height: 12px;
-  margin: 6px auto;
-  transform: scale(.5);
-  transform-origin: 0 0;
+.bt-pinned-comment-unpin:before,
+.bt-pinned-comment-unpin:after {
+  position: absolute;
+  content: '';
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 2px;
+  margin: -1px 0 0 -5px;
+  border-radius: 1px;
+  background: var(--text-secondary);
+  transition: background-color .15s ease;
 }
-.bt-pinned-comment-unpin use {
-  fill: var(--text-secondary);
+.bt-pinned-comment-unpin:before {
+  transform: rotate(45deg);
+}
+.bt-pinned-comment-unpin:after {
+  transform: rotate(-45deg);
 }
 .bt-pinned-comment-unpin:hover {
-  background: rgba(76, 178, 255, .15);
+  background: rgba(239, 101, 143, .15);
 }
-.bt-pinned-comment-unpin:hover use {
-  fill: var(--text-accent);
+.bt-pinned-comment-unpin:hover:before,
+.bt-pinned-comment-unpin:hover:after {
+  background: #ef658f;
 }
 .bt-comment-pin-badge {
-  display: inline-flex;
-  align-items: center;
-  vertical-align: top;
-  margin-left: 6px;
+  display: inline-block;
   font-size: 12px;
   line-height: 18px;
   font-weight: 500;
   color: var(--text-accent);
-}
-.bt-comment-pin-badge .icon {
-  width: 12px;
-  height: 12px;
-  margin-right: 3px;
-  transform: scale(.75);
-  transform-origin: 0 0;
-}
-.bt-comment-pin-badge use {
-  fill: var(--text-accent);
 }
 .bt-comment-pinned {
   background: rgba(76, 178, 255, .07);

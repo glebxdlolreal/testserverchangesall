@@ -1270,43 +1270,40 @@ a.bt-pinned-comment-content:focus {
   margin-top: -12px;
   border-radius: 12px;
   cursor: pointer;
+  transition: background-color .15s ease;
 }
-.bt-pinned-comment-unpin .icon {
-  display: block;
-  width: 12px;
-  height: 12px;
-  margin: 6px auto;
-  transform: scale(.5);
-  transform-origin: 0 0;
+.bt-pinned-comment-unpin:before,
+.bt-pinned-comment-unpin:after {
+  position: absolute;
+  content: '';
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 2px;
+  margin: -1px 0 0 -5px;
+  border-radius: 1px;
+  background: #a3a6a9;
+  transition: background-color .15s ease;
 }
-.bt-pinned-comment-unpin use {
-  fill: #a3a6a9;
+.bt-pinned-comment-unpin:before {
+  transform: rotate(45deg);
+}
+.bt-pinned-comment-unpin:after {
+  transform: rotate(-45deg);
 }
 .bt-pinned-comment-unpin:hover {
-  background: rgba(43, 139, 217, .12);
+  background: #fcdfde;
 }
-.bt-pinned-comment-unpin:hover use {
-  fill: #2b8bd9;
+.bt-pinned-comment-unpin:hover:before,
+.bt-pinned-comment-unpin:hover:after {
+  background: #d14e4e;
 }
 .bt-comment-pin-badge {
-  display: inline-flex;
-  align-items: center;
-  vertical-align: top;
-  margin-left: 6px;
+  display: inline-block;
   font-size: 12px;
   line-height: 18px;
   font-weight: 500;
   color: #2b8bd9;
-}
-.bt-comment-pin-badge .icon {
-  width: 12px;
-  height: 12px;
-  margin-right: 3px;
-  transform: scale(.75);
-  transform-origin: 0 0;
-}
-.bt-comment-pin-badge use {
-  fill: #2b8bd9;
 }
 .bt-comment-pinned {
   background: #f2f7fd;
@@ -4193,7 +4190,7 @@ a.bt-card-action-user:focus {
 }
 
 .bt-action-pin .bt-card-action-icon {
-  background-image: url('data:image/svg+xml,%3Csvg%20height%3D%2230%22%20viewBox%3D%220%200%2030%2030%22%20width%3D%2230%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20transform%3D%22scale%281.25%29%22%20d%3D%22M14%204v5c0%201.12.37%202.16%201%203H9c.65-.86%201-1.9%201-3V4h4m3-2H7c-.55%200-1%20.45-1%201s.45%201%201%201h1v5c0%201.66-1.34%203-3%203v2h5.97v7l1%201%201-1v-7H19v-2c-1.66%200-3-1.34-3-3V4h1c.55%200%201-.45%201-1s-.45-1-1-1z%22%2F%3E%3C%2Fsvg%3E');
+  background-image: url('data:image/svg+xml,%3Csvg%20height%3D%2230%22%20viewBox%3D%220%200%2030%2030%22%20width%3D%2230%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20transform%3D%22scale%281.1%29%22%20d%3D%22M14%204v5c0%201.12.37%202.16%201%203H9c.65-.86%201-1.9%201-3V4h4m3-2H7c-.55%200-1%20.45-1%201s.45%201%201%201h1v5c0%201.66-1.34%203-3%203v2h5.97v7l1%201%201-1v-7H19v-2c-1.66%200-3-1.34-3-3V4h1c.55%200%201-.45%201-1s-.45-1-1-1z%22%2F%3E%3C%2Fsvg%3E');
 }
 
 
