@@ -3556,9 +3556,9 @@ var Issue = {
     if (!comment_id) {
       return;
     }
-    var $link = $(e.target).closest('a');
-    if ($link.size() &&
-        !$link.is(this)) {
+    var $inner = $(e.target).closest('a, .bt-copy');
+    if ($inner.size() &&
+        !$inner.is(this)) {
       return true;
     }
     e.preventDefault();
@@ -3939,15 +3939,15 @@ var Issue = {
             $comments.prepend('<div class="cd-list-empty-wrap"><div class="cd-list-empty">' + l('WEB_NO_COMMENTS') + '</div></div>');
           }
         }, 220);
+        if (typeof result.pinned_html !== 'undefined') {
+          Issue.updatePinnedPanel(result.pinned_html);
+        }
       }
       if (result.header_cnts) {
         Issue.updateHeaderCounters(result.header_cnts);
       }
       if (typeof result.counters_html !== 'undefined') {
         Filters.updateIssueCounters(selection.issue_id, result.counters_html);
-      }
-      if (typeof result.pinned_html !== 'undefined') {
-        Issue.updatePinnedPanel(result.pinned_html);
       }
       if (is_active_issue) {
         Issue.requestCommentsUpdate();
@@ -4443,6 +4443,7 @@ var Issue = {
         if (issue_id != $form.field('issue_id').value() ||
             team     != $form.field('team').value() ||
             ghost    != $form.field('ghost').value()) {
+          $comments.data('loading', false);
           return false;
         }
         if (result.comments_html) {
@@ -4458,8 +4459,8 @@ var Issue = {
           Filters.updateIssueCounters(issue_id, result.counters_html);
         }
         Issue.highlightComment(comment_id, true);
-        $comments.data('loading', false);
       }
+      $comments.data('loading', false);
     });
   },
   scrollDown: function(timeout) {
@@ -4664,6 +4665,12 @@ var Issue = {
         return showAlert(result.error);
       }
       if (edit_comment_id) {
+        var $edit_form = $('.cd-comment-form', Aj.layer);
+        if (!$edit_form.size() ||
+            issue_id != $edit_form.field('issue_id').value() ||
+            team != $edit_form.field('team').value()) {
+          return false;
+        }
         if (result.comment_html) {
           Issue.replaceCommentHtml(edit_comment_id, result.comment_html);
         }
@@ -4826,6 +4833,7 @@ var Issue = {
     var $comment   = $btn.parents('.bt-comment');
     var comment_id = $comment.attr('data-comment-id');
     var issue_id   = Aj.layerState.issueId;
+    var mode       = Issue.getCurrentCommentsMode();
     $btn.parents('.open').find('.dropdown-toggle').dropdown('toggle');
     if ($btn.data('submiting') || !comment_id || !issue_id) {
       return false;
@@ -4841,7 +4849,9 @@ var Issue = {
         $comment.removeClass('deleted');
         return showAlert(result.error);
       }
-      if (typeof result.pinned_html !== 'undefined') {
+      if (typeof result.pinned_html !== 'undefined' &&
+          Issue.getCurrentIssueId() == issue_id &&
+          Issue.getCurrentCommentsMode() == mode) {
         Issue.updatePinnedPanel(result.pinned_html);
       }
       if (result.header_cnts) {
@@ -4859,6 +4869,7 @@ var Issue = {
     var $comment   = $btn.parents('.bt-comment');
     var comment_id = $comment.attr('data-comment-id');
     var issue_id   = Aj.layerState.issueId;
+    var mode       = Issue.getCurrentCommentsMode();
     if ($btn.data('submiting') || !comment_id || !issue_id) {
       return false;
     }
@@ -4873,7 +4884,9 @@ var Issue = {
         $comment.addClass('deleted');
         return showAlert(result.error);
       }
-      if (typeof result.pinned_html !== 'undefined') {
+      if (typeof result.pinned_html !== 'undefined' &&
+          Issue.getCurrentIssueId() == issue_id &&
+          Issue.getCurrentCommentsMode() == mode) {
         Issue.updatePinnedPanel(result.pinned_html);
       }
       if (result.header_cnts) {
@@ -4925,6 +4938,7 @@ var Issue = {
   },
   submitPinComment: function(comment_id, unpin, $btn) {
     var issue_id = Aj.layerState.issueId;
+    var mode = Issue.getCurrentCommentsMode();
     if ($btn.data('submiting') || !comment_id || !issue_id) {
       return false;
     }
@@ -4936,6 +4950,10 @@ var Issue = {
       $btn.data('submiting', false);
       if (result.error) {
         return showAlert(result.error);
+      }
+      if (Issue.getCurrentIssueId() != issue_id ||
+          Issue.getCurrentCommentsMode() != mode) {
+        return false;
       }
       Issue.applyPinResult(result);
     });
@@ -4960,12 +4978,14 @@ var Issue = {
     if (typeof result.pinned_html !== 'undefined') {
       Issue.updatePinnedPanel(result.pinned_html);
     }
-    if (result.unpinned_comment_id) {
-      $('.bt-comment[data-comment-id]', Aj.layer).each(function() {
-        if ($(this).attr('data-comment-id') == result.unpinned_comment_id) {
-          $(this).removeClass('bt-comment-pinned');
-          $('.bt-comment-pin-badge', this).remove();
-        }
+    if (result.unpinned_comment_ids) {
+      $.each(result.unpinned_comment_ids, function(i, unpinned_comment_id) {
+        $('.bt-comment[data-comment-id]', Aj.layer).each(function() {
+          if ($(this).attr('data-comment-id') == unpinned_comment_id) {
+            $(this).removeClass('bt-comment-pinned');
+            $('.bt-comment-pin-badge', this).remove();
+          }
+        });
       });
     }
     if (result.toast) {

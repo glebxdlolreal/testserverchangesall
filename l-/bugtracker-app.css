@@ -1380,6 +1380,7 @@ a.bt-comment-reply-content:hover, a.bt-comment-reply-content:focus {
   background: #157ed51f;
   border-left: 2.8px solid #2b8bd9;
   color: var(--text-primary);
+  transition: background .15s ease;
 }
 .bt-pinned-comment:hover,
 .bt-pinned-comment.highlight {
@@ -1401,7 +1402,7 @@ a.bt-comment-reply-content:hover, a.bt-comment-reply-content:focus {
   transform: scale(.9375);
   transform-origin: 0 0;
 }
-.bt-pinned-comment-icon use {
+.bt-pinned-comment-icon .icon use {
   fill: var(--text-accent);
 }
 .bt-pinned-comment-body {
@@ -1424,7 +1425,7 @@ a.bt-comment-reply-content:hover, a.bt-comment-reply-content:focus {
   font-size: 14px;
   line-height: 20px;
   color: var(--text-primary);
-  max-height: 60px;
+  max-height: 72px;
   overflow: hidden;
   word-break: break-word;
 }
@@ -1446,11 +1447,10 @@ a.bt-comment-reply-content:hover, a.bt-comment-reply-content:focus {
 }
 .bt-pinned-comment-unpin {
   position: absolute;
-  top: 50%;
+  top: 7px;
   right: 6px;
   width: 24px;
   height: 24px;
-  margin-top: -12px;
   border-radius: 12px;
   cursor: pointer;
   transition: background-color .15s ease;
