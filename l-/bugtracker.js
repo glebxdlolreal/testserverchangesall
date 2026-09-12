@@ -3453,6 +3453,7 @@ var Issue = {
   BULK_DELETE_AUTHOR_LIMIT: 16,
   COMMENT_SELECTION_LIMIT: 100,
   bulkDeleteJobs: {},
+  pinRequests: {},
   init: function(options) {
     options = options || {};
     var $form = $('.cd-comment-form', Aj.layer);
@@ -3584,6 +3585,63 @@ var Issue = {
     $('div.input[contenteditable]', context).initTextarea();
     Issue.syncBulkDeleteUi();
     Issue.syncCommentSelection(context);
+    Issue.syncPinnedComments(context);
+  },
+  commentsRequest: function(method, params, callback) {
+    var $wrap = $('.bt-comments-wrap', Aj.layer);
+    var issue_id = Issue.getCurrentIssueId();
+    var owns_view = issue_id == params.issue_id &&
+        (typeof params.team === 'undefined' || (params.team ? 'team' : 'public') == Issue.getCurrentCommentsMode());
+    var state = $wrap.data('pinState') || {request: 0};
+    if (owns_view) {
+      $wrap.data('pinState', state);
+    }
+    var request = owns_view ? ++state.request : 0;
+    var mutation = method != 'loadComments' && method != 'getPinnedComment' && method != 'addComment';
+    Aj.apiRequest(method, params, function(result) {
+      var current = owns_view &&
+          issue_id == Issue.getCurrentIssueId() &&
+          $wrap[0] == $('.bt-comments-wrap', Aj.layer)[0];
+      var applied = current && request == state.request &&
+          !result.error && typeof result.pinned_html === 'string';
+      if (applied) {
+        Issue.updatePinnedPanel(result.pinned_html);
+      }
+      if (callback) {
+        callback(result);
+      }
+      if (current && $wrap[0] == $('.bt-comments-wrap', Aj.layer)[0]) {
+        Issue.syncPinnedComments();
+        if (mutation && !applied) {
+          Issue.refreshPinnedComment();
+        }
+      }
+    });
+  },
+  refreshPinnedComment: function() {
+    var $form = $('.cd-comment-form', Aj.layer);
+    var issue_id = Issue.getCurrentIssueId();
+    if (!issue_id || !$form.size() || Aj.layerState.issueDeleted) {
+      return;
+    }
+    Issue.commentsRequest('getPinnedComment', {
+      issue_id: issue_id,
+      team: $form.field('team').value(),
+      ghost: $form.field('ghost').value()
+    });
+  },
+  syncPinnedComments: function(context) {
+    var comment_id = $('.bt-pinned-comment-content', Aj.layer).attr('data-comment-link');
+    var $context = $(context || Aj.layer);
+    $context.find('.bt-comment').add($context.filter('.bt-comment')).each(function() {
+      var $comment = $(this);
+      var pinned = !!comment_id && $comment.attr('data-comment-id') == comment_id;
+      $comment.toggleClass('bt-comment-pinned', pinned);
+      $('.bt-comment-date', $comment).toggleClass('has-pin', pinned);
+      $('.bt-comment-pin-badge', $comment).toggleClass('hide', !pinned);
+      $('.bt-pin-comment-btn', $comment).parent().toggleClass('hide', pinned);
+      $('.bt-unpin-comment-btn', $comment).parent().toggleClass('hide', !pinned);
+    });
   },
   getCommentSelection: function() {
     if (!Aj.layerState || !Aj.layerState.commentSelection) {
@@ -3910,8 +3968,9 @@ var Issue = {
     selection.deleting = true;
     Issue.syncCommentSelection();
     $('.bt-comment.selected', Aj.layer).addClass('bt-comment-selection-deleting');
-    Aj.apiRequest('deleteSelectedComments', {
+    Issue.commentsRequest('deleteSelectedComments', {
       issue_id: selection.issue_id,
+      team: 0,
       comment_ids: comment_ids.join(',')
     }, function(result) {
       var deleted_ids = result.deleted_ids || [];
@@ -3939,9 +3998,6 @@ var Issue = {
             $comments.prepend('<div class="cd-list-empty-wrap"><div class="cd-list-empty">' + l('WEB_NO_COMMENTS') + '</div></div>');
           }
         }, 220);
-        if (typeof result.pinned_html !== 'undefined') {
-          Issue.updatePinnedPanel(result.pinned_html);
-        }
       }
       if (result.header_cnts) {
         Issue.updateHeaderCounters(result.header_cnts);
@@ -4036,7 +4092,7 @@ var Issue = {
     }
     var $form = $('.cd-comment-form', Aj.layer);
     var ghost = $form.size() ? $form.field('ghost').value() : 0;
-    Aj.apiRequest('loadComments', {
+    Issue.commentsRequest('loadComments', {
       issue_id: issue_id,
       team: 0,
       ghost: ghost
@@ -4054,9 +4110,6 @@ var Issue = {
       }
       if (typeof load_result.counters_html !== 'undefined') {
         Filters.updateIssueCounters(issue_id, load_result.counters_html);
-      }
-      if (typeof load_result.pinned_html !== 'undefined') {
-        Issue.updatePinnedPanel(load_result.pinned_html);
       }
       if (load_result.comments_html) {
         var commentsEl = $('.bt-comments', Aj.layer);
@@ -4084,6 +4137,7 @@ var Issue = {
       return;
     }
     var params = $.extend({}, job.params);
+    params.team = 0;
     if (job.before_id) {
       params.before_id = job.before_id;
     }
@@ -4093,7 +4147,7 @@ var Issue = {
     if (job.message) {
       params.message = job.message;
     }
-    Aj.apiRequest(job.method, params, function(result) {
+    Issue.commentsRequest(job.method, params, function(result) {
       var job = Issue.getBulkDeleteJob(issue_id);
       if (!job) {
         return;
@@ -4278,7 +4332,7 @@ var Issue = {
       if (after) {
         Issue.requestCommentsUpdate();
       }
-      Aj.apiRequest('loadComments', {
+      Issue.commentsRequest('loadComments', {
         issue_id: issue_id,
         team: team,
         ghost: ghost,
@@ -4353,6 +4407,7 @@ var Issue = {
     clearTimeout(Aj.layerState.updateTo);
     var $moreEl = $('.bt-comments-more[data-after]', Aj.layer);
     if (!$moreEl.size() || !$moreEl.hasClass('cd-autoload')) {
+      Issue.refreshPinnedComment();
       Issue.requestCommentsUpdate();
       return false;
     }
@@ -4368,7 +4423,7 @@ var Issue = {
     }
 
     var _load = function(issue_id, team, ghost, after) {
-      Aj.apiRequest('loadComments', {
+      Issue.commentsRequest('loadComments', {
         issue_id: issue_id,
         team: team,
         ghost: ghost,
@@ -4432,7 +4487,7 @@ var Issue = {
       return false;
     }
 
-    Aj.apiRequest('loadComments', {
+    Issue.commentsRequest('loadComments', {
       issue_id: issue_id,
       team: team,
       ghost: ghost,
@@ -4658,7 +4713,7 @@ var Issue = {
       params.team = team;
       params.after_id = after;
     }
-    Aj.apiRequest(method, params, function(result) {
+    Issue.commentsRequest(method, params, function(result) {
       $form.data('submiting', false);
       $button.prop('disabled', false);
       if (result.error) {
@@ -4673,9 +4728,6 @@ var Issue = {
         }
         if (result.comment_html) {
           Issue.replaceCommentHtml(edit_comment_id, result.comment_html);
-        }
-        if (typeof result.pinned_html !== 'undefined') {
-          Issue.updatePinnedPanel(result.pinned_html);
         }
         if (typeof result.counters_html !== 'undefined') {
           Filters.updateIssueCounters(issue_id, result.counters_html);
@@ -4833,14 +4885,13 @@ var Issue = {
     var $comment   = $btn.parents('.bt-comment');
     var comment_id = $comment.attr('data-comment-id');
     var issue_id   = Aj.layerState.issueId;
-    var mode       = Issue.getCurrentCommentsMode();
     $btn.parents('.open').find('.dropdown-toggle').dropdown('toggle');
     if ($btn.data('submiting') || !comment_id || !issue_id) {
       return false;
     }
     $comment.addClass('deleted');
     $btn.data('submiting', true);
-    Aj.apiRequest('deleteComment', {
+    Issue.commentsRequest('deleteComment', {
       issue_id: issue_id,
       comment_id: comment_id
     }, function(result) {
@@ -4848,11 +4899,6 @@ var Issue = {
       if (result.error) {
         $comment.removeClass('deleted');
         return showAlert(result.error);
-      }
-      if (typeof result.pinned_html !== 'undefined' &&
-          Issue.getCurrentIssueId() == issue_id &&
-          Issue.getCurrentCommentsMode() == mode) {
-        Issue.updatePinnedPanel(result.pinned_html);
       }
       if (result.header_cnts) {
         Issue.updateHeaderCounters(result.header_cnts);
@@ -4869,13 +4915,12 @@ var Issue = {
     var $comment   = $btn.parents('.bt-comment');
     var comment_id = $comment.attr('data-comment-id');
     var issue_id   = Aj.layerState.issueId;
-    var mode       = Issue.getCurrentCommentsMode();
     if ($btn.data('submiting') || !comment_id || !issue_id) {
       return false;
     }
     $comment.removeClass('deleted');
     $btn.data('submiting', true);
-    Aj.apiRequest('restoreComment', {
+    Issue.commentsRequest('restoreComment', {
       issue_id: issue_id,
       comment_id: comment_id
     }, function(result) {
@@ -4883,11 +4928,6 @@ var Issue = {
       if (result.error) {
         $comment.addClass('deleted');
         return showAlert(result.error);
-      }
-      if (typeof result.pinned_html !== 'undefined' &&
-          Issue.getCurrentIssueId() == issue_id &&
-          Issue.getCurrentCommentsMode() == mode) {
-        Issue.updatePinnedPanel(result.pinned_html);
       }
       if (result.header_cnts) {
         Issue.updateHeaderCounters(result.header_cnts);
@@ -4903,7 +4943,7 @@ var Issue = {
     e.stopImmediatePropagation();
     var $btn = $(this);
     $btn.parents('.open').find('.dropdown-toggle').dropdown('toggle');
-    Issue.submitPinComment($btn.parents('.bt-comment').attr('data-comment-id'), false, $btn);
+    Issue.submitPinComment($btn.parents('.bt-comment').attr('data-comment-id'), false);
     return false;
   },
   eUnpinComment: function(e) {
@@ -4911,7 +4951,7 @@ var Issue = {
     e.stopImmediatePropagation();
     var $btn = $(this);
     $btn.parents('.open').find('.dropdown-toggle').dropdown('toggle');
-    Issue.submitPinComment($btn.parents('.bt-comment').attr('data-comment-id'), true, $btn);
+    Issue.submitPinComment($btn.parents('.bt-comment').attr('data-comment-id'), true);
     return false;
   },
   eUnpinPinnedComment: function(e) {
@@ -4919,7 +4959,7 @@ var Issue = {
     e.stopImmediatePropagation();
     var $btn = $(this);
     var comment_id = $btn.parents('.bt-pinned-comment').find('.bt-pinned-comment-content').attr('data-comment-link');
-    Issue.submitPinComment(comment_id, true, $btn);
+    Issue.submitPinComment(comment_id, true);
     return false;
   },
   ePinBadgeClick: function(e) {
@@ -4936,30 +4976,35 @@ var Issue = {
     }
     return false;
   },
-  submitPinComment: function(comment_id, unpin, $btn) {
-    var issue_id = Aj.layerState.issueId;
-    var mode = Issue.getCurrentCommentsMode();
-    if ($btn.data('submiting') || !comment_id || !issue_id) {
+  submitPinComment: function(comment_id, unpin) {
+    var issue_id = Issue.getCurrentIssueId();
+    var $wrap = $('.bt-comments-wrap', Aj.layer);
+    var key = issue_id + '_' + Issue.getCurrentCommentsMode();
+    if (Issue.pinRequests[key] || !comment_id || !issue_id) {
       return false;
     }
-    $btn.data('submiting', true);
-    Aj.apiRequest(unpin ? 'unpinComment' : 'pinComment', {
+    Issue.pinRequests[key] = true;
+    Issue.commentsRequest(unpin ? 'unpinComment' : 'pinComment', {
       issue_id: issue_id,
       comment_id: comment_id
     }, function(result) {
-      $btn.data('submiting', false);
+      delete Issue.pinRequests[key];
+      if ($wrap[0] != $('.bt-comments-wrap', Aj.layer)[0] || Issue.getCurrentIssueId() != issue_id) {
+        return;
+      }
       if (result.error) {
         return showAlert(result.error);
-      }
-      if (Issue.getCurrentIssueId() != issue_id ||
-          Issue.getCurrentCommentsMode() != mode) {
-        return false;
       }
       Issue.applyPinResult(result);
     });
   },
   updatePinnedPanel: function(pinned_html) {
-    var $pinned = $('.bt-pinned-comment', Aj.layer);
+    var $wrap = $('.bt-comments-wrap', Aj.layer);
+    if ($wrap.data('pinnedHtml') === pinned_html) {
+      return;
+    }
+    $wrap.data('pinnedHtml', pinned_html);
+    var $pinned = $('.bt-pinned-comment', $wrap);
     if (pinned_html) {
       var $pinnedEl = $(pinned_html);
       if ($pinned.size()) {
@@ -4972,17 +5017,6 @@ var Issue = {
     }
   },
   applyPinResult: function(result) {
-    if (result.comment_id && result.comment_html) {
-      Issue.replaceCommentHtml(result.comment_id, result.comment_html);
-    }
-    if (typeof result.pinned_html !== 'undefined') {
-      Issue.updatePinnedPanel(result.pinned_html);
-    }
-    if (result.unpinned_html) {
-      $.each(result.unpinned_html, function(comment_id, comment_html) {
-        Issue.replaceCommentHtml(comment_id, comment_html);
-      });
-    }
     if (result.toast) {
       showToast(result.toast, 3500);
     }

@@ -1198,8 +1198,19 @@ a.bt-comment-reply-content:focus {
   margin: 0 -17px 10px;
   border-radius: 8px;
   background: #f1f6fb;
-  border-left: 2px solid #2b8bd9;
+  padding-left: 2px;
+  overflow: hidden;
   transition: background .15s ease;
+}
+.bt-pinned-comment:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background: #2b8bd9;
+  pointer-events: none;
 }
 .bt-pinned-comment:hover,
 .bt-pinned-comment.highlight {
@@ -1242,10 +1253,13 @@ a.bt-comment-reply-content:focus {
   color: #000;
 }
 .bt-pinned-comment-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
   font-size: 14px;
   line-height: 20px;
   color: #000;
-  max-height: 72px;
+  max-height: 60px;
   overflow: hidden;
   word-break: break-word;
 }

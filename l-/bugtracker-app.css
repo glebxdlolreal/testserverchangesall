@@ -1378,9 +1378,20 @@ a.bt-comment-reply-content:hover, a.bt-comment-reply-content:focus {
   margin: 0 -8px 14px;
   border-radius: 12px;
   background: #157ed51f;
-  border-left: 2.8px solid #2b8bd9;
+  padding-left: 3px;
+  overflow: hidden;
   color: var(--text-primary);
   transition: background .15s ease;
+}
+.bt-pinned-comment:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  background: #2b8bd9;
+  pointer-events: none;
 }
 .bt-pinned-comment:hover,
 .bt-pinned-comment.highlight {
@@ -1422,10 +1433,13 @@ a.bt-comment-reply-content:hover, a.bt-comment-reply-content:focus {
   color: var(--text-primary);
 }
 .bt-pinned-comment-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
   font-size: 14px;
   line-height: 20px;
   color: var(--text-primary);
-  max-height: 72px;
+  max-height: 60px;
   overflow: hidden;
   word-break: break-word;
 }
