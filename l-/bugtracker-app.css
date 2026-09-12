@@ -1399,6 +1399,8 @@ a.bt-pinned-comment-content:focus {
 .bt-pinned-comment-icon .icon {
   width: 15px;
   height: 15px;
+  transform: scale(.9375);
+  transform-origin: 0 0;
 }
 .bt-pinned-comment-icon use {
   fill: var(--text-accent);
@@ -1452,6 +1454,8 @@ a.bt-pinned-comment-content:focus {
   width: 12px;
   height: 12px;
   margin: 6px auto;
+  transform: scale(.5);
+  transform-origin: 0 0;
 }
 .bt-pinned-comment-unpin use {
   fill: var(--text-secondary);
@@ -1476,6 +1480,8 @@ a.bt-pinned-comment-content:focus {
   width: 12px;
   height: 12px;
   margin-right: 3px;
+  transform: scale(.75);
+  transform-origin: 0 0;
 }
 .bt-comment-pin-badge use {
   fill: var(--text-accent);
