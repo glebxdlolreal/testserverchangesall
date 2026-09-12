@@ -1375,7 +1375,7 @@ a.bt-comment-reply-content:hover, a.bt-comment-reply-content:focus {
 
 .bt-pinned-comment {
   position: relative;
-  margin: 0 0 10px;
+  margin: 0 -8px 14px;
   border-radius: 8px;
   background: #157ed51f;
   border-left: 2.8px solid #2b8bd9;
@@ -1389,7 +1389,7 @@ a.bt-comment-reply-content:hover, a.bt-comment-reply-content:focus {
 .bt-pinned-comment-content {
   display: flex;
   align-items: flex-start;
-  padding: 8px 32px 8px 12px;
+  padding: 8px 40px 8px 20px;
   cursor: pointer;
 }
 .bt-pinned-comment-icon {
@@ -1432,7 +1432,7 @@ a.bt-comment-reply-content:hover, a.bt-comment-reply-content:focus {
 .bt-pinned-comment .bt-issue-files {
   display: flex;
   flex-wrap: wrap;
-  padding: 2px 12px 8px 37px;
+  padding: 2px 12px 8px 45px;
 }
 .bt-pinned-comment .bt-issue-files:empty {
   display: none;
@@ -1448,7 +1448,7 @@ a.bt-comment-reply-content:hover, a.bt-comment-reply-content:focus {
 .bt-pinned-comment-unpin {
   position: absolute;
   top: 7px;
-  right: 6px;
+  right: 14px;
   width: 24px;
   height: 24px;
   border-radius: 12px;
