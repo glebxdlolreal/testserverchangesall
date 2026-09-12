@@ -2650,11 +2650,11 @@ var Filters = {
     e.preventDefault();
     e.stopImmediatePropagation();
     var value = $(this).data('value');
-    if ($(this).hasClass('selected')) value += '-asc';
     var $sortWrap = $(this).parents('.bt-sort-wrap');
+    if ($sortWrap.data('value') == value) value += '-asc';
     $sortWrap.data('value', value);
-    $('.bt-sort-item.selected', $sortWrap).removeClass('selected');
-    $(this).addClass('selected');
+    $('.selected', $sortWrap).removeClass('selected');
+    $(this).closest(Aj.state.isWebApp ? 'li' : '.bt-sort-item').addClass('selected');
     Filters.updateForm();
   },
   eTabFilterChange: function(e) {
@@ -2843,11 +2843,16 @@ var Filters = {
   updateForm: function(just_reload) {
     var params = Filters.getFormParams();
     var href = Filters.getFormHref(params);
+    clearTimeout(Aj.state.searchTimeout);
+    if (Aj.state.searchXhr) {
+      Aj.state.searchXhr.abort();
+      Aj.state.searchXhr = null;
+      Aj.hideProgress();
+    }
     if (!just_reload && Aj.state.curFormHref == href) {
       return;
     }
     var now = +(new Date), min_delay = 1000;
-    clearTimeout(Aj.state.searchTimeout);
     if (Aj.state.lastSearch) {
       var delay = now - Aj.state.lastSearch;
       if (delay < min_delay) {
@@ -2855,9 +2860,6 @@ var Filters = {
         Aj.state.searchTimeout = setTimeout(Filters.updateForm, delay_left);
         return;
       }
-    }
-    if (Aj.state.searchXhr) {
-      Aj.state.searchXhr.abort();
     }
     Aj.state.lastSearch = +(new Date);
     Aj.showProgress();
