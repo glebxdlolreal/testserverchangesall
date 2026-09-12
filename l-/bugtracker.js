@@ -3518,7 +3518,7 @@ var Issue = {
     $commentsWrap.on('click.curPage', '.bt-reply-btn', Issue.eReplyComment);
     $commentsWrap.on('click.curPage', '.bt-edit-comment-btn', Issue.eEditComment);
     $commentsWrap.on('click.curPage', '.bt-comment-edit-cancel', Issue.eCancelEditComment);
-    $commentsWrap.on('click.curPage', 'a[data-comment-link]', Issue.eCommentHighlight);
+    $commentsWrap.on('click.curPage', '[data-comment-link]', Issue.eCommentHighlight);
     $commentsWrap.on('click.curPage', '.bt-pin-comment-btn', Issue.ePinComment);
     $commentsWrap.on('click.curPage', '.bt-unpin-comment-btn', Issue.eUnpinComment);
     $commentsWrap.on('click.curPage', '.bt-pinned-comment-unpin', Issue.eUnpinPinnedComment);
@@ -3553,11 +3553,17 @@ var Issue = {
   },
   eCommentHighlight: function(e) {
     var comment_id = $(this).attr('data-comment-link');
-    if (comment_id) {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      Issue.highlightComment(comment_id);
+    if (!comment_id) {
+      return;
     }
+    var $link = $(e.target).closest('a');
+    if ($link.size() &&
+        !$link.is(this)) {
+      return true;
+    }
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    Issue.highlightComment(comment_id);
   },
   highlightComment: function(comment_id, noload) {
     var found = false;
@@ -3940,6 +3946,9 @@ var Issue = {
       if (typeof result.counters_html !== 'undefined') {
         Filters.updateIssueCounters(selection.issue_id, result.counters_html);
       }
+      if (typeof result.pinned_html !== 'undefined') {
+        Issue.updatePinnedPanel(result.pinned_html);
+      }
       if (is_active_issue) {
         Issue.requestCommentsUpdate();
       }
@@ -4045,6 +4054,9 @@ var Issue = {
       }
       if (typeof load_result.counters_html !== 'undefined') {
         Filters.updateIssueCounters(issue_id, load_result.counters_html);
+      }
+      if (typeof load_result.pinned_html !== 'undefined') {
+        Issue.updatePinnedPanel(load_result.pinned_html);
       }
       if (load_result.comments_html) {
         var commentsEl = $('.bt-comments', Aj.layer);
@@ -4655,6 +4667,9 @@ var Issue = {
         if (result.comment_html) {
           Issue.replaceCommentHtml(edit_comment_id, result.comment_html);
         }
+        if (typeof result.pinned_html !== 'undefined') {
+          Issue.updatePinnedPanel(result.pinned_html);
+        }
         if (typeof result.counters_html !== 'undefined') {
           Filters.updateIssueCounters(issue_id, result.counters_html);
         }
@@ -4826,6 +4841,9 @@ var Issue = {
         $comment.removeClass('deleted');
         return showAlert(result.error);
       }
+      if (typeof result.pinned_html !== 'undefined') {
+        Issue.updatePinnedPanel(result.pinned_html);
+      }
       if (result.header_cnts) {
         Issue.updateHeaderCounters(result.header_cnts);
       }
@@ -4854,6 +4872,9 @@ var Issue = {
       if (result.error) {
         $comment.addClass('deleted');
         return showAlert(result.error);
+      }
+      if (typeof result.pinned_html !== 'undefined') {
+        Issue.updatePinnedPanel(result.pinned_html);
       }
       if (result.header_cnts) {
         Issue.updateHeaderCounters(result.header_cnts);
@@ -4919,13 +4940,10 @@ var Issue = {
       Issue.applyPinResult(result);
     });
   },
-  applyPinResult: function(result) {
-    if (result.comment_id && result.comment_html) {
-      Issue.replaceCommentHtml(result.comment_id, result.comment_html);
-    }
+  updatePinnedPanel: function(pinned_html) {
     var $pinned = $('.bt-pinned-comment', Aj.layer);
-    if (result.pinned_html) {
-      var $pinnedEl = $(result.pinned_html);
+    if (pinned_html) {
+      var $pinnedEl = $(pinned_html);
       if ($pinned.size()) {
         $pinned.replaceWith($pinnedEl);
       } else {
@@ -4933,6 +4951,14 @@ var Issue = {
       }
     } else if ($pinned.size()) {
       $pinned.remove();
+    }
+  },
+  applyPinResult: function(result) {
+    if (result.comment_id && result.comment_html) {
+      Issue.replaceCommentHtml(result.comment_id, result.comment_html);
+    }
+    if (typeof result.pinned_html !== 'undefined') {
+      Issue.updatePinnedPanel(result.pinned_html);
     }
     if (result.unpinned_comment_id) {
       $('.bt-comment[data-comment-id]', Aj.layer).each(function() {

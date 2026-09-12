@@ -1196,26 +1196,21 @@ a.bt-comment-reply-content:focus {
 .bt-pinned-comment {
   position: relative;
   margin: 0 0 10px;
+  border-radius: 8px;
+  background: #f1f6fb;
+  border-left: 2px solid #2b8bd9;
+  transition: background .15s ease;
+}
+.bt-pinned-comment:hover,
+.bt-pinned-comment.highlight {
+  background: #e9f1f9;
 }
 .bt-pinned-comment-content {
   display: flex;
   align-items: flex-start;
   padding: 8px 30px 8px 10px;
-  border-radius: 8px;
-  background: #f1f6fb;
-  border-left: 2px solid #2b8bd9;
   color: #000;
   cursor: pointer;
-  transition: background .15s ease;
-}
-a.bt-pinned-comment-content:hover,
-a.bt-pinned-comment-content:focus {
-  color: inherit;
-  text-decoration: none;
-  background: #e9f1f9;
-}
-.bt-pinned-comment.highlight .bt-pinned-comment-content {
-  background: #e9f1f9;
 }
 .bt-pinned-comment-icon {
   flex: none;
@@ -1230,39 +1225,44 @@ a.bt-pinned-comment-content:focus {
 .bt-pinned-comment-icon use {
   fill: #2b8bd9;
 }
-.bt-pinned-comment-thumb {
-  flex: none;
-  width: 34px;
-  height: 34px;
-  margin: 3px 10px 0 0;
-  border-radius: 4px;
-  background: #efefef no-repeat center;
-  background-size: cover;
-}
 .bt-pinned-comment-body {
   min-width: 0;
 }
-.bt-pinned-comment-label {
-  display: block;
+.bt-pinned-comment-head {
   font-size: 13px;
   line-height: 17px;
   font-weight: 500;
-  color: #2b8bd9;
+  margin-bottom: 1px;
 }
-.bt-pinned-comment-text {
-  display: block;
-  font-size: 14px;
-  line-height: 20px;
-  color: #70767b;
-  max-height: 60px;
-  overflow: hidden;
+.bt-pinned-comment-label {
+  color: #2b8bd9;
+  margin-right: 6px;
 }
 .bt-pinned-comment-author {
-  font-weight: 500;
   color: #000;
 }
-.bt-pinned-comment-author:after {
-  content: ':';
+.bt-pinned-comment-text {
+  font-size: 14px;
+  line-height: 20px;
+  color: #000;
+  max-height: 60px;
+  overflow: hidden;
+  word-break: break-word;
+}
+.bt-pinned-comment .bt-issue-files {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2px 10px 8px 35px;
+}
+.bt-pinned-comment .bt-issue-files:empty {
+  display: none;
+}
+.bt-pinned-comment .bt-issue-file {
+  margin: 6px 8px 0 0;
+}
+.bt-pinned-comment .bt-issue-cover {
+  width: 76px;
+  height: 60px;
 }
 .bt-pinned-comment-unpin {
   position: absolute;
@@ -4886,7 +4886,8 @@ button.bt-header-right-btn {
 
 
 .bt-issue-body a[data-link-type],
-.bt-comment-body a[data-link-type] {
+.bt-comment-body a[data-link-type],
+.bt-pinned-comment-body a[data-link-type] {
   background: #0387cc30;
   padding: 2px 6px;
   border-radius: 6px;
@@ -4898,7 +4899,8 @@ button.bt-header-right-btn {
   box-decoration-break: clone;
 }
 .bt-issue-body a[data-link-type="bug"]:before,
-.bt-comment-body a[data-link-type="bug"]:before {
+.bt-comment-body a[data-link-type="bug"]:before,
+.bt-pinned-comment-body a[data-link-type="bug"]:before {
   content: "";
   display: inline-block ;
   border-radius: 6px;

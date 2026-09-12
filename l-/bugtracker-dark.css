@@ -488,19 +488,21 @@ html.bt-theme-dark .bt-markdown hr {
   border-color: var(--bt-dark-border);
 }
 
-html.bt-theme-dark .bt-pinned-comment-content {
+html.bt-theme-dark .bt-pinned-comment {
   background: var(--bt-dark-card-bg-hover);
   border-left-color: var(--bt-dark-text-accent);
-  color: var(--bt-dark-text-primary);
 }
-html.bt-theme-dark a.bt-pinned-comment-content:hover,
-html.bt-theme-dark a.bt-pinned-comment-content:focus {
+html.bt-theme-dark .bt-pinned-comment:hover,
+html.bt-theme-dark .bt-pinned-comment.highlight {
   background: rgba(76, 178, 255, .12);
+}
+html.bt-theme-dark .bt-pinned-comment-content {
+  color: var(--bt-dark-text-primary);
 }
 html.bt-theme-dark .bt-pinned-comment-icon use {
   fill: var(--bt-dark-text-accent);
 }
-html.bt-theme-dark .bt-pinned-comment-thumb {
+html.bt-theme-dark .bt-pinned-comment .bt-issue-cover {
   background-color: var(--bt-dark-border);
 }
 html.bt-theme-dark .bt-pinned-comment-label,
@@ -512,11 +514,8 @@ html.bt-theme-dark .bt-comment-pin-badge:focus {
   color: var(--bt-dark-text-accent);
   text-decoration: none;
 }
-html.bt-theme-dark .bt-pinned-comment.highlight .bt-pinned-comment-content {
-  background: rgba(76, 178, 255, .12);
-}
 html.bt-theme-dark .bt-pinned-comment-text {
-  color: var(--bt-dark-text-secondary);
+  color: var(--bt-dark-text-primary);
 }
 html.bt-theme-dark .bt-pinned-comment-author {
   color: var(--bt-dark-text-primary);
@@ -816,7 +815,8 @@ html.bt-theme-dark .cd-comment-form-box .bt-attach-btn:before {
 html.bt-theme-dark .bt-markdown pre,
 html.bt-theme-dark .bt-markdown code,
 html.bt-theme-dark .bt-issue-body a[data-link-type],
-html.bt-theme-dark .bt-comment-body a[data-link-type] {
+html.bt-theme-dark .bt-comment-body a[data-link-type],
+html.bt-theme-dark .bt-pinned-comment-body a[data-link-type] {
   color: var(--bt-dark-text-primary);
   background: rgba(76, 178, 255, .14);
 }
