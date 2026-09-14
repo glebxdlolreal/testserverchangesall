@@ -2574,6 +2574,9 @@ var Upload = {
 
 var Filters = {
   init: function() {
+    if (window.Board && Board.isActive()) {
+      return Board.init();
+    }
     Aj.onLoad(function(state) {
       Bugtracker.formInit('.bt-main-search-form');
       $(document).on('submit.curPage', '.bt-main-search-form', preventDefault);
@@ -2633,9 +2636,16 @@ var Filters = {
       Bugtracker.updateField($filtersInput);
       $form.on('change.curPage', 'input[type="date"]', Filters.eDateChange);
       $(document).on('click.curPage', '.bt-tab-filter-btn', Filters.eTabFilterChange);
+      if (!Aj.state.isWebApp) $(document).on('click.curPage', '.bt-board-toggle', function() {
+        Aj.globalState.boardNative = {url: location.href, scrollTop: $(window).scrollTop()};
+      });
       $('.cd-content').on('click.curPage', '.bt-sort-item', Filters.eFilterChange);
       var params = Filters.getFormParams();
       state.curFormHref = Filters.getFormHref(params);
+      if (!Aj.state.isWebApp && Aj.globalState.boardReturn) {
+        if (Aj.globalState.boardNative) $(window).scrollTop(Aj.globalState.boardNative.scrollTop || 0);
+        delete Aj.globalState.boardReturn;
+      }
       Filters.updateSticky();
     });
     Aj.onUnload(function(state) {
@@ -2643,6 +2653,7 @@ var Filters = {
       var $form = $('.bt-main-search-form');
       $form.field('tags').destroySelect();
       $('.cd-content').off('.curPage');
+      if (!Aj.state.isWebApp) $(document).off('click.curPage', '.bt-board-toggle');
       $(window).off('.curPage');
     });
   },
@@ -2841,6 +2852,9 @@ var Filters = {
     return href;
   },
   updateForm: function(just_reload) {
+    if (window.Board && Board.isActive()) {
+      return Board.updateForm(just_reload);
+    }
     var params = Filters.getFormParams();
     var href = Filters.getFormHref(params);
     clearTimeout(Aj.state.searchTimeout);
@@ -2920,6 +2934,9 @@ var Filters = {
     }
   },
   load: function($loadMore) {
+    if (window.Board && Board.isActive()) {
+      return Board.loadMore($loadMore);
+    }
     var offset    = $loadMore.attr('data-offset');
     if (!offset) {
       $loadMore.remove();
@@ -2951,6 +2968,9 @@ var Filters = {
     });
   },
   updateIssue: function(issue_id, issue_html) {
+    if (window.Board && Board.isActive()) {
+      return Board.updateIssue(issue_id, issue_html);
+    }
     $('.bt-card-row[data-card-id]').each(function() {
       if ($(this).attr('data-card-id') == issue_id) {
         if (issue_html === true ||
@@ -2966,6 +2986,9 @@ var Filters = {
     });
   },
   updateIssuesCount: function(delta) {
+    if (window.Board && Board.isActive()) {
+      return Board.updateIssuesCount(delta);
+    }
     var $header = $('.bt-header[data-count]');
     var count = parseInt($header.attr('data-count')) || 0;
     count += delta;
@@ -2975,6 +2998,9 @@ var Filters = {
     }
   },
   updateIssueStatus: function(issue_id, status, status_html, is_fixed) {
+    if (window.Board && Board.isActive()) {
+      return Board.updateIssueStatus(issue_id, status, status_html, is_fixed);
+    }
     $('.bt-card-row[data-card-id]').each(function() {
       if ($(this).attr('data-card-id') == issue_id) {
         $('.bt-card-status', this).html(status_html);
@@ -2985,6 +3011,9 @@ var Filters = {
     });
   },
   updateIssueCounters: function(issue_id, counters_html) {
+    if (window.Board && Board.isActive()) {
+      return Board.updateIssueCounters(issue_id, counters_html);
+    }
     $('.bt-card-row[data-card-id]').each(function() {
       if ($(this).attr('data-card-id') == issue_id) {
         $('.bt-issue-counters', this).attr('data-transient-replies', 0).html(counters_html);
@@ -3249,7 +3278,13 @@ var EditIssue = {
         if (result.to_layer) {
           Aj.layerLocation(result.to_layer);
         }
-        if (!issue_id) {
+        if (window.Board && Board.isActive()) {
+          if (result.issue_html) {
+            Board.updateIssue(issue_id, result.issue_html);
+          } else {
+            Board.refreshIssue(issue_id);
+          }
+        } else if (!issue_id) {
           Filters.updateForm(true);
         }
       });
@@ -3404,7 +3439,7 @@ var MergeIssue = {
         !$searchForm.hasField('filters')) {
       return '';
     }
-    return JSON.stringify(Filters.getFormParams());
+    return JSON.stringify(window.Board && Board.isActive() ? Board.getOriginParams() : Filters.getFormParams());
   },
   eSubmitForm: function(e) {
     e.preventDefault();
@@ -3487,7 +3522,9 @@ var Issue = {
         });
       }
       if (layerState.foundIssueHtml) {
-        Filters.updateIssue(layerState.issueId, layerState.foundIssueHtml);
+        if (!(window.Board && Board.isActive())) {
+          Filters.updateIssue(layerState.issueId, layerState.foundIssueHtml);
+        }
       }
       if (Aj.state.isWebApp) {
         $('.bt-issue-additional-block').each(Issue.initAdditional);
@@ -5270,7 +5307,7 @@ var Dialog = {
     var $button = $(this);
     var mode = $button.attr('data-mode');
     var init_hash = $button.attr('data-init-hash');
-    var params = Filters.getFormParams();
+    var params = window.Board && Board.isActive() ? Board.getDialogParams($button) : Filters.getFormParams();
     var query = params.query || '';
     if ($button.prop('disabled')) {
       return false;
