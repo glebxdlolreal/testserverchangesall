@@ -2636,9 +2636,6 @@ var Filters = {
       Bugtracker.updateField($filtersInput);
       $form.on('change.curPage', 'input[type="date"]', Filters.eDateChange);
       $(document).on('click.curPage', '.bt-tab-filter-btn', Filters.eTabFilterChange);
-      if (!Aj.state.isWebApp) $(document).on('click.curPage', '.bt-board-toggle', function() {
-        Aj.globalState.boardNative = {url: location.href, scrollTop: $(window).scrollTop()};
-      });
       $('.cd-content').on('click.curPage', '.bt-sort-item', Filters.eFilterChange);
       var params = Filters.getFormParams();
       state.curFormHref = Filters.getFormHref(params);
@@ -2653,7 +2650,6 @@ var Filters = {
       var $form = $('.bt-main-search-form');
       $form.field('tags').destroySelect();
       $('.cd-content').off('.curPage');
-      if (!Aj.state.isWebApp) $(document).off('click.curPage', '.bt-board-toggle');
       $(window).off('.curPage');
     });
   },
@@ -2857,6 +2853,7 @@ var Filters = {
     }
     var params = Filters.getFormParams();
     var href = Filters.getFormHref(params);
+    if (window.BtView) BtView.updateLink();
     clearTimeout(Aj.state.searchTimeout);
     if (Aj.state.searchXhr) {
       Aj.state.searchXhr.abort();
