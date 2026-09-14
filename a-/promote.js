@@ -777,6 +777,7 @@ var NewAd = {
       var visible = $(this).attr('data-placement') == cur_placement;
       $(this).toggleClass('hide', !visible);
     });
+    NewAd.updateAdPreviewText($cont);
     var $form = Aj.state.$form;
     NewAd.updateFieldsVisibility();
     NewAd.updateAdTargetOverview();
@@ -1790,6 +1791,9 @@ var NewAd = {
   },
   updateAdPreviewText: function($cont) {
     $('.js-preview-wrap', $cont).each(function() {
+      if (!$(this).is(':visible')) {
+        return;
+      }
       var oneline = $('.js-preview-text', this).height() <= 20;
       $(this).toggleClass('oneline-text', oneline);
     });
