@@ -682,6 +682,13 @@
         $select.data('valueFull', selValueFull);
         options.onChange && options.onChange(selValue, selValueFull);
       }
+      function groupCount(group) {
+        var count = 0;
+        for (var i = 0; i < selectedVal.length; i++) {
+          if (selectedMap[selectedVal[i]].group == group) count++;
+        }
+        return count;
+      }
 
       function toggleDD(open) {
         $select.toggleClass('open', open);
@@ -695,13 +702,15 @@
             }
             selectedVal = [];
           }
-          else if (item.group) {
+          else if (item.group && !(options.groupLimits && options.groupLimits[item.group] > 1)) {
             for (var i = selectedVal.length - 1; i >= 0; i--) {
               if (selectedMap[selectedVal[i]].group == item.group) {
                 delete selectedMap[selectedVal[i]];
                 selectedVal.splice(i, 1);
               }
             }
+          } else if (item.group && options.groupLimits[item.group] <= groupCount(item.group)) {
+            return;
           }
           selectedVal.push(val);
           selectedMap[val] = item;
@@ -817,7 +826,9 @@
           for (var i = 0; i < data.length; i++) {
             if (data[i].hidden) continue;
             var val = (data[i].prefix || '') + data[i].val;
-            if (!selectedMap[val] || !options.multiSelect) {
+            if ((!selectedMap[val] || !options.multiSelect) &&
+                !(data[i].group && options.groupLimits && options.groupLimits[data[i].group] > 1 &&
+                  groupCount(data[i].group) >= options.groupLimits[data[i].group])) {
               filtered_data.push(data[i]);
             }
           }
@@ -2588,6 +2599,7 @@ var Filters = {
       var $filtersInput = $form.field('query');
       $filtersEl.initSelect({
         multiSelect: true,
+        groupLimits: {s: Aj.state.statusLimit || 1},
         noCloseOnSelect: false,
         searchByLastWord: true,
         selectFullMatch: true,
@@ -2782,7 +2794,7 @@ var Filters = {
       if (filter.date_filter) {
         continue;
       }
-      if (filter.group) {
+      if (filter.group && !(filter.group == 's' && Aj.state.statusLimit > 1)) {
         filters_data[filter.field] = filter.val;
       } else {
         if (!filters_data[filter.field]) {
