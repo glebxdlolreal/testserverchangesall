@@ -2039,8 +2039,8 @@ var WebsiteTheme = {
     var dark = WebsiteTheme.isDark();
     $('.bt-theme-toggle').attr({
       'aria-pressed': dark ? 'true' : 'false',
-      'aria-label': dark ? 'Switch to light theme' : 'Switch to dark theme',
-      'title': dark ? 'Light theme' : 'Dark theme'
+      'aria-label': l(dark ? 'WEB_SWITCH_TO_LIGHT_THEME' : 'WEB_SWITCH_TO_DARK_THEME'),
+      'title': l(dark ? 'WEB_LIGHT_THEME' : 'WEB_DARK_THEME')
     });
   }
 };
@@ -2708,18 +2708,16 @@ var Filters = {
     return false;
   },
   formatDateFilterLabel: function(field, value) {
-    var prefix = field == 'date_to' ? 'To' : 'From';
+    var prefix = l(field == 'date_to' ? 'WEB_DATE_FILTER_TO' : 'WEB_DATE_FILTER_FROM');
     if (!value) {
-      return '<span class="bt-date-filter-icon"></span>' + prefix;
+      return '<span class="bt-date-filter-icon"></span>' + cleanHTML(prefix);
     }
     var parts = value.split('-');
     var date = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
-    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    var label = prefix + ' ' + date.getDate() + ' ' + months[date.getMonth()];
-    if (date.getFullYear() != (new Date()).getFullYear()) {
-      label += ' ' + date.getFullYear();
-    }
-    return '<span class="bt-date-filter-icon"></span>' + label;
+    var months = l('WEB_DATE_FILTER_MONTHS_SHORT').split('|');
+    var label = l('WEB_DATE_FILTER_VALUE', {prefix: prefix, day: date.getDate(), month: months[date.getMonth()],
+      year: date.getFullYear() != (new Date()).getFullYear() ? ' ' + date.getFullYear() : ''});
+    return '<span class="bt-date-filter-icon"></span>' + cleanHTML(label);
   },
   syncDateFilterSelection: function(field, value, controls) {
     var item = Filters.getDateFilterItem(field);
