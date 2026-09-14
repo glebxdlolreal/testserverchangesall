@@ -2656,6 +2656,7 @@ var Filters = {
         delete Aj.globalState.boardReturn;
       }
       Filters.updateSticky();
+      if (window.BtView) BtView.updateLink();
     });
     Aj.onUnload(function(state) {
       Bugtracker.formDeinit('.bt-main-search-form');
@@ -2722,14 +2723,14 @@ var Filters = {
   formatDateFilterLabel: function(field, value) {
     var prefix = l(field == 'date_to' ? 'WEB_DATE_FILTER_TO' : 'WEB_DATE_FILTER_FROM');
     if (!value) {
-      return '<span class="bt-date-filter-icon"></span>' + cleanHTML(prefix);
+      return '<span class="bt-date-filter-icon"></span>' + prefix;
     }
     var parts = value.split('-');
     var date = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
     var months = l('WEB_DATE_FILTER_MONTHS_SHORT').split('|');
     var label = l('WEB_DATE_FILTER_VALUE', {prefix: prefix, day: date.getDate(), month: months[date.getMonth()],
       year: date.getFullYear() != (new Date()).getFullYear() ? ' ' + date.getFullYear() : ''});
-    return '<span class="bt-date-filter-icon"></span>' + cleanHTML(label);
+    return '<span class="bt-date-filter-icon"></span>' + label;
   },
   syncDateFilterSelection: function(field, value, controls) {
     var item = Filters.getDateFilterItem(field);
@@ -3286,11 +3287,7 @@ var EditIssue = {
           Aj.layerLocation(result.to_layer);
         }
         if (window.Board && Board.isActive()) {
-          if (result.issue_html) {
-            Board.updateIssue(issue_id, result.issue_html);
-          } else {
-            Board.refreshIssue(issue_id);
-          }
+          Board.refreshIssue(issue_id);
         } else if (!issue_id) {
           Filters.updateForm(true);
         }

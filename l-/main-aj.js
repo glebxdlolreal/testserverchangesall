@@ -552,7 +552,6 @@ function ajInit(options) {
     }
   }
 
-  // Explicit opt-in; location() continues to ignore additional arguments.
   function locationWithTransition(href, replace, transition) {
     var url = loc(href);
     var push_state = !replace;
