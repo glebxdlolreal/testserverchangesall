@@ -682,6 +682,13 @@
         $select.data('valueFull', selValueFull);
         options.onChange && options.onChange(selValue, selValueFull);
       }
+      function groupCount(group) {
+        var count = 0;
+        for (var i = 0; i < selectedVal.length; i++) {
+          if (selectedMap[selectedVal[i]].group == group) count++;
+        }
+        return count;
+      }
 
       function toggleDD(open) {
         $select.toggleClass('open', open);
@@ -695,13 +702,15 @@
             }
             selectedVal = [];
           }
-          else if (item.group) {
+          else if (item.group && !(options.groupLimits && options.groupLimits[item.group] > 1)) {
             for (var i = selectedVal.length - 1; i >= 0; i--) {
               if (selectedMap[selectedVal[i]].group == item.group) {
                 delete selectedMap[selectedVal[i]];
                 selectedVal.splice(i, 1);
               }
             }
+          } else if (item.group && options.groupLimits[item.group] <= groupCount(item.group)) {
+            return;
           }
           selectedVal.push(val);
           selectedMap[val] = item;
@@ -817,7 +826,9 @@
           for (var i = 0; i < data.length; i++) {
             if (data[i].hidden) continue;
             var val = (data[i].prefix || '') + data[i].val;
-            if (!selectedMap[val] || !options.multiSelect) {
+            if ((!selectedMap[val] || !options.multiSelect) &&
+                !(data[i].group && options.groupLimits && options.groupLimits[data[i].group] > 1 &&
+                  groupCount(data[i].group) >= options.groupLimits[data[i].group])) {
               filtered_data.push(data[i]);
             }
           }
@@ -2039,8 +2050,8 @@ var WebsiteTheme = {
     var dark = WebsiteTheme.isDark();
     $('.bt-theme-toggle').attr({
       'aria-pressed': dark ? 'true' : 'false',
-      'aria-label': dark ? 'Switch to light theme' : 'Switch to dark theme',
-      'title': dark ? 'Light theme' : 'Dark theme'
+      'aria-label': l(dark ? 'WEB_SWITCH_TO_LIGHT_THEME' : 'WEB_SWITCH_TO_DARK_THEME'),
+      'title': l(dark ? 'WEB_LIGHT_THEME' : 'WEB_DARK_THEME')
     });
   }
 };
@@ -2574,6 +2585,9 @@ var Upload = {
 
 var Filters = {
   init: function() {
+    if (window.Board && Board.isActive()) {
+      return Board.init();
+    }
     Aj.onLoad(function(state) {
       Bugtracker.formInit('.bt-main-search-form');
       $(document).on('submit.curPage', '.bt-main-search-form', preventDefault);
@@ -2585,6 +2599,7 @@ var Filters = {
       var $filtersInput = $form.field('query');
       $filtersEl.initSelect({
         multiSelect: true,
+        groupLimits: {s: Aj.state.statusLimit || 1},
         noCloseOnSelect: false,
         searchByLastWord: true,
         selectFullMatch: true,
@@ -2636,7 +2651,12 @@ var Filters = {
       $('.cd-content').on('click.curPage', '.bt-sort-item', Filters.eFilterChange);
       var params = Filters.getFormParams();
       state.curFormHref = Filters.getFormHref(params);
+      if (!Aj.state.isWebApp && Aj.globalState.boardReturn) {
+        if (Aj.globalState.boardNative) $(window).scrollTop(Aj.globalState.boardNative.scrollTop || 0);
+        delete Aj.globalState.boardReturn;
+      }
       Filters.updateSticky();
+      if (window.BtView) BtView.updateLink();
     });
     Aj.onUnload(function(state) {
       Bugtracker.formDeinit('.bt-main-search-form');
@@ -2701,17 +2721,15 @@ var Filters = {
     return false;
   },
   formatDateFilterLabel: function(field, value) {
-    var prefix = field == 'date_to' ? 'To' : 'From';
+    var prefix = l(field == 'date_to' ? 'WEB_DATE_FILTER_TO' : 'WEB_DATE_FILTER_FROM');
     if (!value) {
       return '<span class="bt-date-filter-icon"></span>' + prefix;
     }
     var parts = value.split('-');
     var date = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
-    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    var label = prefix + ' ' + date.getDate() + ' ' + months[date.getMonth()];
-    if (date.getFullYear() != (new Date()).getFullYear()) {
-      label += ' ' + date.getFullYear();
-    }
+    var months = l('WEB_DATE_FILTER_MONTHS_SHORT').split('|');
+    var label = l('WEB_DATE_FILTER_VALUE', {prefix: prefix, day: date.getDate(), month: months[date.getMonth()],
+      year: date.getFullYear() != (new Date()).getFullYear() ? ' ' + date.getFullYear() : ''});
     return '<span class="bt-date-filter-icon"></span>' + label;
   },
   syncDateFilterSelection: function(field, value, controls) {
@@ -2777,7 +2795,7 @@ var Filters = {
       if (filter.date_filter) {
         continue;
       }
-      if (filter.group) {
+      if (filter.group && !(filter.group == 's' && Aj.state.statusLimit > 1)) {
         filters_data[filter.field] = filter.val;
       } else {
         if (!filters_data[filter.field]) {
@@ -2841,8 +2859,12 @@ var Filters = {
     return href;
   },
   updateForm: function(just_reload) {
+    if (window.Board && Board.isActive()) {
+      return Board.updateForm(just_reload);
+    }
     var params = Filters.getFormParams();
     var href = Filters.getFormHref(params);
+    if (window.BtView) BtView.updateLink();
     clearTimeout(Aj.state.searchTimeout);
     if (Aj.state.searchXhr) {
       Aj.state.searchXhr.abort();
@@ -2920,6 +2942,9 @@ var Filters = {
     }
   },
   load: function($loadMore) {
+    if (window.Board && Board.isActive()) {
+      return Board.loadMore($loadMore);
+    }
     var offset    = $loadMore.attr('data-offset');
     if (!offset) {
       $loadMore.remove();
@@ -2951,6 +2976,9 @@ var Filters = {
     });
   },
   updateIssue: function(issue_id, issue_html) {
+    if (window.Board && Board.isActive()) {
+      return Board.updateIssue(issue_id, issue_html);
+    }
     $('.bt-card-row[data-card-id]').each(function() {
       if ($(this).attr('data-card-id') == issue_id) {
         if (issue_html === true ||
@@ -2966,6 +2994,9 @@ var Filters = {
     });
   },
   updateIssuesCount: function(delta) {
+    if (window.Board && Board.isActive()) {
+      return Board.updateIssuesCount(delta);
+    }
     var $header = $('.bt-header[data-count]');
     var count = parseInt($header.attr('data-count')) || 0;
     count += delta;
@@ -2975,6 +3006,9 @@ var Filters = {
     }
   },
   updateIssueStatus: function(issue_id, status, status_html, is_fixed) {
+    if (window.Board && Board.isActive()) {
+      return Board.updateIssueStatus(issue_id, status, status_html, is_fixed);
+    }
     $('.bt-card-row[data-card-id]').each(function() {
       if ($(this).attr('data-card-id') == issue_id) {
         $('.bt-card-status', this).html(status_html);
@@ -2985,6 +3019,9 @@ var Filters = {
     });
   },
   updateIssueCounters: function(issue_id, counters_html) {
+    if (window.Board && Board.isActive()) {
+      return Board.updateIssueCounters(issue_id, counters_html);
+    }
     $('.bt-card-row[data-card-id]').each(function() {
       if ($(this).attr('data-card-id') == issue_id) {
         $('.bt-issue-counters', this).attr('data-transient-replies', 0).html(counters_html);
@@ -3249,7 +3286,9 @@ var EditIssue = {
         if (result.to_layer) {
           Aj.layerLocation(result.to_layer);
         }
-        if (!issue_id) {
+        if (window.Board && Board.isActive()) {
+          Board.refreshIssue(issue_id);
+        } else if (!issue_id) {
           Filters.updateForm(true);
         }
       });
@@ -3404,7 +3443,7 @@ var MergeIssue = {
         !$searchForm.hasField('filters')) {
       return '';
     }
-    return JSON.stringify(Filters.getFormParams());
+    return JSON.stringify(window.Board && Board.isActive() ? Board.getOriginParams() : Filters.getFormParams());
   },
   eSubmitForm: function(e) {
     e.preventDefault();
@@ -3487,7 +3526,9 @@ var Issue = {
         });
       }
       if (layerState.foundIssueHtml) {
-        Filters.updateIssue(layerState.issueId, layerState.foundIssueHtml);
+        if (!(window.Board && Board.isActive())) {
+          Filters.updateIssue(layerState.issueId, layerState.foundIssueHtml);
+        }
       }
       if (Aj.state.isWebApp) {
         $('.bt-issue-additional-block').each(Issue.initAdditional);
@@ -5270,7 +5311,7 @@ var Dialog = {
     var $button = $(this);
     var mode = $button.attr('data-mode');
     var init_hash = $button.attr('data-init-hash');
-    var params = Filters.getFormParams();
+    var params = window.Board && Board.isActive() ? Board.getDialogParams($button) : Filters.getFormParams();
     var query = params.query || '';
     if ($button.prop('disabled')) {
       return false;
