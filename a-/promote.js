@@ -777,10 +777,8 @@ var NewAd = {
       var visible = $(this).attr('data-placement') == cur_placement;
       $(this).toggleClass('hide', !visible);
     });
-    NewAd.updateAdPreviewText($cont);
     var $form = Aj.state.$form;
     NewAd.updateFieldsVisibility();
-    NewAd.updateAdTargetOverview();
     NewAd.adPostCheck($form);
   },
   updateFieldsVisibility: function() {
@@ -795,11 +793,10 @@ var NewAd = {
       fv.picture = true;
       if (target_type == 'users') {
         var placement = $form.field('placement').value();
-        if (placement == 'video_banner' || placement == 'bot_banner') {
+        if (placement == 'video_banner') {
           fv.media = false;
           fv.button = false;
         }
-        fv.politic = placement != 'bot_banner';
       }
       var $mediaField = Aj.state.mediaField;
       var has_media = $mediaField.value() || $mediaField.data('has-media');
@@ -816,15 +813,10 @@ var NewAd = {
     var $mediaWrap = $('.js-field-media-wrap', $form);
     var $buttonWrap = $('.js-field-button-wrap', $form);
     var $pictureWrap = $('.js-field-picture-wrap');
-    var $politicWrap = $('.js-field-only_politic-wrap, .js-field-only_crypto-wrap, .js-field-exclude_politic-wrap, .js-field-exclude_crypto-wrap', $form);
     $textWrap.slideToggle(!!fv.text);
     $mediaWrap.slideToggle(!!fv.media);
     $pictureWrap.slideToggle(!!fv.picture);
     $buttonWrap.slideToggle(!!Aj.state.customButton && !!fv.button);
-    $politicWrap.slideToggle(!!fv.politic);
-    if (target_type == 'users' && !fv.politic) {
-      $politicWrap.find('.checkbox').prop('checked', false);
-    }
     $('.js-preview', $form).toggleClass('picture', !!fv.picture && picture_checked).toggleClass('media', !!fv.media && media_on);
   },
   onPictureChange: function() {
@@ -1791,9 +1783,6 @@ var NewAd = {
   },
   updateAdPreviewText: function($cont) {
     $('.js-preview-wrap', $cont).each(function() {
-      if (!$(this).is(':visible')) {
-        return;
-      }
       var oneline = $('.js-preview-text', this).height() <= 20;
       $(this).toggleClass('oneline-text', oneline);
     });
@@ -3050,6 +3039,7 @@ var OwnerAds = {
       state.$tableColumnsForm = $('.js-table-columns-form');
       state.$tableColumnsForm.on('change.curPage', 'input.checkbox', OwnerAds.eColumnChange);
       state.$tableColumnsForm.on('submit.curPage', preventDefault);
+      cont.on('click.curPage', '.js-submit-review-ad', OwnerAds.eSubmitAdForReview);
 
       state.$searchField.initSearch({
         $results: state.$searchResults,
@@ -3229,6 +3219,35 @@ var OwnerAds = {
     } else {
       OwnerAds.loadAdsList({offset: 0});
     }
+    return false;
+  },
+  eSubmitAdForReview: function(e) {
+    e.preventDefault();
+    var $button = $(this);
+    if ($button.prop('disabled')) {
+      return false;
+    }
+    var ad_id = $(this).attr('data-ad-id');
+    if (!ad_id) {
+      return false;
+    }
+    var params = {
+      owner_id: Aj.state.ownerId,
+      ad_id: ad_id
+    };
+    $button.prop('disabled', true);
+    Aj.apiRequest('submitAdForReview', params, function(result) {
+      $button.prop('disabled', false);
+      if (result.error) {
+        return showAlert(result.error);
+      }
+      if (result.toast) {
+        showToast(result.toast);
+      }
+      if (result.ad) {
+        OwnerAds.updateAd(result.ad);
+      }
+    });
     return false;
   },
   updateAd: function(ad) {
