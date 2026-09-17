@@ -682,6 +682,13 @@
         $select.data('valueFull', selValueFull);
         options.onChange && options.onChange(selValue, selValueFull);
       }
+      function groupCount(group) {
+        var count = 0;
+        for (var i = 0; i < selectedVal.length; i++) {
+          if (selectedMap[selectedVal[i]].group == group) count++;
+        }
+        return count;
+      }
 
       function toggleDD(open) {
         $select.toggleClass('open', open);
@@ -695,13 +702,15 @@
             }
             selectedVal = [];
           }
-          else if (item.group) {
+          else if (item.group && !(options.groupLimits && options.groupLimits[item.group] > 1)) {
             for (var i = selectedVal.length - 1; i >= 0; i--) {
               if (selectedMap[selectedVal[i]].group == item.group) {
                 delete selectedMap[selectedVal[i]];
                 selectedVal.splice(i, 1);
               }
             }
+          } else if (item.group && options.groupLimits[item.group] <= groupCount(item.group)) {
+            return;
           }
           selectedVal.push(val);
           selectedMap[val] = item;
@@ -817,7 +826,9 @@
           for (var i = 0; i < data.length; i++) {
             if (data[i].hidden) continue;
             var val = (data[i].prefix || '') + data[i].val;
-            if (!selectedMap[val] || !options.multiSelect) {
+            if ((!selectedMap[val] || !options.multiSelect) &&
+                !(data[i].group && options.groupLimits && options.groupLimits[data[i].group] > 1 &&
+                  groupCount(data[i].group) >= options.groupLimits[data[i].group])) {
               filtered_data.push(data[i]);
             }
           }
@@ -2039,8 +2050,8 @@ var WebsiteTheme = {
     var dark = WebsiteTheme.isDark();
     $('.bt-theme-toggle').attr({
       'aria-pressed': dark ? 'true' : 'false',
-      'aria-label': dark ? 'Switch to light theme' : 'Switch to dark theme',
-      'title': dark ? 'Light theme' : 'Dark theme'
+      'aria-label': l(dark ? 'WEB_SWITCH_TO_LIGHT_THEME' : 'WEB_SWITCH_TO_DARK_THEME'),
+      'title': l(dark ? 'WEB_LIGHT_THEME' : 'WEB_DARK_THEME')
     });
   }
 };
@@ -2574,6 +2585,9 @@ var Upload = {
 
 var Filters = {
   init: function() {
+    if (window.Board && Board.isActive()) {
+      return Board.init();
+    }
     Aj.onLoad(function(state) {
       Bugtracker.formInit('.bt-main-search-form');
       $(document).on('submit.curPage', '.bt-main-search-form', preventDefault);
@@ -2585,6 +2599,7 @@ var Filters = {
       var $filtersInput = $form.field('query');
       $filtersEl.initSelect({
         multiSelect: true,
+        groupLimits: {s: Aj.state.statusLimit || 1},
         noCloseOnSelect: false,
         searchByLastWord: true,
         selectFullMatch: true,
@@ -2636,7 +2651,12 @@ var Filters = {
       $('.cd-content').on('click.curPage', '.bt-sort-item', Filters.eFilterChange);
       var params = Filters.getFormParams();
       state.curFormHref = Filters.getFormHref(params);
+      if (!Aj.state.isWebApp && Aj.globalState.boardReturn) {
+        if (Aj.globalState.boardNative) $(window).scrollTop(Aj.globalState.boardNative.scrollTop || 0);
+        delete Aj.globalState.boardReturn;
+      }
       Filters.updateSticky();
+      if (window.BtView) BtView.updateLink();
     });
     Aj.onUnload(function(state) {
       Bugtracker.formDeinit('.bt-main-search-form');
@@ -2650,11 +2670,11 @@ var Filters = {
     e.preventDefault();
     e.stopImmediatePropagation();
     var value = $(this).data('value');
-    if ($(this).hasClass('selected')) value += '-asc';
     var $sortWrap = $(this).parents('.bt-sort-wrap');
+    if ($sortWrap.data('value') == value) value += '-asc';
     $sortWrap.data('value', value);
-    $('.bt-sort-item.selected', $sortWrap).removeClass('selected');
-    $(this).addClass('selected');
+    $('.selected', $sortWrap).removeClass('selected');
+    $(this).closest(Aj.state.isWebApp ? 'li' : '.bt-sort-item').addClass('selected');
     Filters.updateForm();
   },
   eTabFilterChange: function(e) {
@@ -2701,17 +2721,15 @@ var Filters = {
     return false;
   },
   formatDateFilterLabel: function(field, value) {
-    var prefix = field == 'date_to' ? 'To' : 'From';
+    var prefix = l(field == 'date_to' ? 'WEB_DATE_FILTER_TO' : 'WEB_DATE_FILTER_FROM');
     if (!value) {
       return '<span class="bt-date-filter-icon"></span>' + prefix;
     }
     var parts = value.split('-');
     var date = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
-    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    var label = prefix + ' ' + date.getDate() + ' ' + months[date.getMonth()];
-    if (date.getFullYear() != (new Date()).getFullYear()) {
-      label += ' ' + date.getFullYear();
-    }
+    var months = l('WEB_DATE_FILTER_MONTHS_SHORT').split('|');
+    var label = l('WEB_DATE_FILTER_VALUE', {prefix: prefix, day: date.getDate(), month: months[date.getMonth()],
+      year: date.getFullYear() != (new Date()).getFullYear() ? ' ' + date.getFullYear() : ''});
     return '<span class="bt-date-filter-icon"></span>' + label;
   },
   syncDateFilterSelection: function(field, value, controls) {
@@ -2777,7 +2795,7 @@ var Filters = {
       if (filter.date_filter) {
         continue;
       }
-      if (filter.group) {
+      if (filter.group && !(filter.group == 's' && Aj.state.statusLimit > 1)) {
         filters_data[filter.field] = filter.val;
       } else {
         if (!filters_data[filter.field]) {
@@ -2841,13 +2859,22 @@ var Filters = {
     return href;
   },
   updateForm: function(just_reload) {
+    if (window.Board && Board.isActive()) {
+      return Board.updateForm(just_reload);
+    }
     var params = Filters.getFormParams();
     var href = Filters.getFormHref(params);
+    if (window.BtView) BtView.updateLink();
+    clearTimeout(Aj.state.searchTimeout);
+    if (Aj.state.searchXhr) {
+      Aj.state.searchXhr.abort();
+      Aj.state.searchXhr = null;
+      Aj.hideProgress();
+    }
     if (!just_reload && Aj.state.curFormHref == href) {
       return;
     }
     var now = +(new Date), min_delay = 1000;
-    clearTimeout(Aj.state.searchTimeout);
     if (Aj.state.lastSearch) {
       var delay = now - Aj.state.lastSearch;
       if (delay < min_delay) {
@@ -2855,9 +2882,6 @@ var Filters = {
         Aj.state.searchTimeout = setTimeout(Filters.updateForm, delay_left);
         return;
       }
-    }
-    if (Aj.state.searchXhr) {
-      Aj.state.searchXhr.abort();
     }
     Aj.state.lastSearch = +(new Date);
     Aj.showProgress();
@@ -2918,6 +2942,9 @@ var Filters = {
     }
   },
   load: function($loadMore) {
+    if (window.Board && Board.isActive()) {
+      return Board.loadMore($loadMore);
+    }
     var offset    = $loadMore.attr('data-offset');
     if (!offset) {
       $loadMore.remove();
@@ -2949,6 +2976,9 @@ var Filters = {
     });
   },
   updateIssue: function(issue_id, issue_html) {
+    if (window.Board && Board.isActive()) {
+      return Board.updateIssue(issue_id, issue_html);
+    }
     $('.bt-card-row[data-card-id]').each(function() {
       if ($(this).attr('data-card-id') == issue_id) {
         if (issue_html === true ||
@@ -2964,6 +2994,9 @@ var Filters = {
     });
   },
   updateIssuesCount: function(delta) {
+    if (window.Board && Board.isActive()) {
+      return Board.updateIssuesCount(delta);
+    }
     var $header = $('.bt-header[data-count]');
     var count = parseInt($header.attr('data-count')) || 0;
     count += delta;
@@ -2973,6 +3006,9 @@ var Filters = {
     }
   },
   updateIssueStatus: function(issue_id, status, status_html, is_fixed) {
+    if (window.Board && Board.isActive()) {
+      return Board.updateIssueStatus(issue_id, status, status_html, is_fixed);
+    }
     $('.bt-card-row[data-card-id]').each(function() {
       if ($(this).attr('data-card-id') == issue_id) {
         $('.bt-card-status', this).html(status_html);
@@ -2983,6 +3019,9 @@ var Filters = {
     });
   },
   updateIssueCounters: function(issue_id, counters_html) {
+    if (window.Board && Board.isActive()) {
+      return Board.updateIssueCounters(issue_id, counters_html);
+    }
     $('.bt-card-row[data-card-id]').each(function() {
       if ($(this).attr('data-card-id') == issue_id) {
         $('.bt-issue-counters', this).attr('data-transient-replies', 0).html(counters_html);
@@ -3247,7 +3286,9 @@ var EditIssue = {
         if (result.to_layer) {
           Aj.layerLocation(result.to_layer);
         }
-        if (!issue_id) {
+        if (window.Board && Board.isActive()) {
+          Board.refreshIssue(issue_id);
+        } else if (!issue_id) {
           Filters.updateForm(true);
         }
       });
@@ -3402,7 +3443,7 @@ var MergeIssue = {
         !$searchForm.hasField('filters')) {
       return '';
     }
-    return JSON.stringify(Filters.getFormParams());
+    return JSON.stringify(window.Board && Board.isActive() ? Board.getOriginParams() : Filters.getFormParams());
   },
   eSubmitForm: function(e) {
     e.preventDefault();
@@ -3453,6 +3494,7 @@ var Issue = {
   BULK_DELETE_AUTHOR_LIMIT: 16,
   COMMENT_SELECTION_LIMIT: 100,
   bulkDeleteJobs: {},
+  pinRequests: {},
   init: function(options) {
     options = options || {};
     var $form = $('.cd-comment-form', Aj.layer);
@@ -3484,7 +3526,9 @@ var Issue = {
         });
       }
       if (layerState.foundIssueHtml) {
-        Filters.updateIssue(layerState.issueId, layerState.foundIssueHtml);
+        if (!(window.Board && Board.isActive())) {
+          Filters.updateIssue(layerState.issueId, layerState.foundIssueHtml);
+        }
       }
       if (Aj.state.isWebApp) {
         $('.bt-issue-additional-block').each(Issue.initAdditional);
@@ -3518,7 +3562,11 @@ var Issue = {
     $commentsWrap.on('click.curPage', '.bt-reply-btn', Issue.eReplyComment);
     $commentsWrap.on('click.curPage', '.bt-edit-comment-btn', Issue.eEditComment);
     $commentsWrap.on('click.curPage', '.bt-comment-edit-cancel', Issue.eCancelEditComment);
-    $commentsWrap.on('click.curPage', 'a[data-comment-link]', Issue.eCommentHighlight);
+    $commentsWrap.on('click.curPage', '[data-comment-link]', Issue.eCommentHighlight);
+    $commentsWrap.on('click.curPage', '.bt-pin-comment-btn', Issue.ePinComment);
+    $commentsWrap.on('click.curPage', '.bt-unpin-comment-btn', Issue.eUnpinComment);
+    $commentsWrap.on('click.curPage', '.bt-pinned-comment-unpin', Issue.eUnpinPinnedComment);
+    $commentsWrap.on('click.curPage', '.bt-comment-pin-badge', Issue.ePinBadgeClick);
     $commentsWrap.on('click.curPage', '.bt-toggle-comment-form', Issue.eOpenComments);
     $commentsWrap.on('click.curPage', '.bt-comments-more', Issue.eLoadMore);
     $commentsWrap.on('click.curPage', '.bt-select-comment-btn', Issue.eStartCommentSelection);
@@ -3549,11 +3597,17 @@ var Issue = {
   },
   eCommentHighlight: function(e) {
     var comment_id = $(this).attr('data-comment-link');
-    if (comment_id) {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      Issue.highlightComment(comment_id);
+    if (!comment_id) {
+      return;
     }
+    var $inner = $(e.target).closest('a, .bt-copy');
+    if ($inner.size() &&
+        !$inner.is(this)) {
+      return true;
+    }
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    Issue.highlightComment(comment_id);
   },
   highlightComment: function(comment_id, noload) {
     var found = false;
@@ -3574,6 +3628,65 @@ var Issue = {
     $('div.input[contenteditable]', context).initTextarea();
     Issue.syncBulkDeleteUi();
     Issue.syncCommentSelection(context);
+    Issue.syncPinnedComments(context);
+  },
+  commentsRequest: function(method, params, callback) {
+    var $wrap = $('.bt-comments-wrap', Aj.layer);
+    var issue_id = Issue.getCurrentIssueId();
+    var owns_view = issue_id == params.issue_id &&
+        (typeof params.team === 'undefined' || (params.team ? 'team' : 'public') == Issue.getCurrentCommentsMode());
+    var state = $wrap.data('pinState') || {request: 0};
+    if (owns_view) {
+      $wrap.data('pinState', state);
+    }
+    var request = owns_view ? ++state.request : 0;
+    var mutation = method != 'loadComments' && method != 'getPinnedComment' && method != 'addComment';
+    Aj.apiRequest(method, params, function(result) {
+      var current = owns_view &&
+          issue_id == Issue.getCurrentIssueId() &&
+          $wrap[0] == $('.bt-comments-wrap', Aj.layer)[0];
+      var applied = current && request == state.request &&
+          !result.error && typeof result.pinned_html === 'string';
+      if (applied) {
+        Issue.updatePinnedPanel(result.pinned_html);
+      }
+      if (callback) {
+        callback(result);
+      }
+      if (current && $wrap[0] == $('.bt-comments-wrap', Aj.layer)[0]) {
+        Issue.syncPinnedComments();
+        if (mutation && !applied) {
+          Issue.refreshPinnedComment();
+        }
+      }
+    });
+  },
+  refreshPinnedComment: function() {
+    var $form = $('.cd-comment-form', Aj.layer);
+    var issue_id = Issue.getCurrentIssueId();
+    if (!issue_id || !$form.size() || Aj.layerState.issueDeleted) {
+      return;
+    }
+    Issue.commentsRequest('getPinnedComment', {
+      issue_id: issue_id,
+      team: $form.field('team').value(),
+      ghost: $form.field('ghost').value()
+    });
+  },
+  syncPinnedComments: function(context) {
+    var $pinned = $('.bt-pinned-comment-content', Aj.layer);
+    var comment_id = $pinned.attr('data-comment-link');
+    var pin_title = $pinned.attr('title') || '';
+    var $context = $(context || Aj.layer);
+    $context.find('.bt-comment').add($context.filter('.bt-comment')).each(function() {
+      var $comment = $(this);
+      var pinned = !!comment_id && $comment.attr('data-comment-id') == comment_id;
+      $comment.toggleClass('bt-comment-pinned', pinned);
+      $('.bt-comment-date', $comment).toggleClass('has-pin', pinned);
+      $('.bt-comment-pin-badge', $comment).toggleClass('hide', !pinned).attr('title', pinned ? pin_title : '');
+      $('.bt-pin-comment-btn', $comment).parent().toggleClass('hide', pinned);
+      $('.bt-unpin-comment-btn', $comment).parent().toggleClass('hide', !pinned);
+    });
   },
   getCommentSelection: function() {
     if (!Aj.layerState || !Aj.layerState.commentSelection) {
@@ -3900,8 +4013,9 @@ var Issue = {
     selection.deleting = true;
     Issue.syncCommentSelection();
     $('.bt-comment.selected', Aj.layer).addClass('bt-comment-selection-deleting');
-    Aj.apiRequest('deleteSelectedComments', {
+    Issue.commentsRequest('deleteSelectedComments', {
       issue_id: selection.issue_id,
+      team: 0,
       comment_ids: comment_ids.join(',')
     }, function(result) {
       var deleted_ids = result.deleted_ids || [];
@@ -4023,7 +4137,7 @@ var Issue = {
     }
     var $form = $('.cd-comment-form', Aj.layer);
     var ghost = $form.size() ? $form.field('ghost').value() : 0;
-    Aj.apiRequest('loadComments', {
+    Issue.commentsRequest('loadComments', {
       issue_id: issue_id,
       team: 0,
       ghost: ghost
@@ -4068,6 +4182,7 @@ var Issue = {
       return;
     }
     var params = $.extend({}, job.params);
+    params.team = 0;
     if (job.before_id) {
       params.before_id = job.before_id;
     }
@@ -4077,7 +4192,7 @@ var Issue = {
     if (job.message) {
       params.message = job.message;
     }
-    Aj.apiRequest(job.method, params, function(result) {
+    Issue.commentsRequest(job.method, params, function(result) {
       var job = Issue.getBulkDeleteJob(issue_id);
       if (!job) {
         return;
@@ -4262,7 +4377,7 @@ var Issue = {
       if (after) {
         Issue.requestCommentsUpdate();
       }
-      Aj.apiRequest('loadComments', {
+      Issue.commentsRequest('loadComments', {
         issue_id: issue_id,
         team: team,
         ghost: ghost,
@@ -4337,6 +4452,7 @@ var Issue = {
     clearTimeout(Aj.layerState.updateTo);
     var $moreEl = $('.bt-comments-more[data-after]', Aj.layer);
     if (!$moreEl.size() || !$moreEl.hasClass('cd-autoload')) {
+      Issue.refreshPinnedComment();
       Issue.requestCommentsUpdate();
       return false;
     }
@@ -4352,7 +4468,7 @@ var Issue = {
     }
 
     var _load = function(issue_id, team, ghost, after) {
-      Aj.apiRequest('loadComments', {
+      Issue.commentsRequest('loadComments', {
         issue_id: issue_id,
         team: team,
         ghost: ghost,
@@ -4416,7 +4532,7 @@ var Issue = {
       return false;
     }
 
-    Aj.apiRequest('loadComments', {
+    Issue.commentsRequest('loadComments', {
       issue_id: issue_id,
       team: team,
       ghost: ghost,
@@ -4427,6 +4543,7 @@ var Issue = {
         if (issue_id != $form.field('issue_id').value() ||
             team     != $form.field('team').value() ||
             ghost    != $form.field('ghost').value()) {
+          $comments.data('loading', false);
           return false;
         }
         if (result.comments_html) {
@@ -4442,8 +4559,8 @@ var Issue = {
           Filters.updateIssueCounters(issue_id, result.counters_html);
         }
         Issue.highlightComment(comment_id, true);
-        $comments.data('loading', false);
       }
+      $comments.data('loading', false);
     });
   },
   scrollDown: function(timeout) {
@@ -4641,13 +4758,19 @@ var Issue = {
       params.team = team;
       params.after_id = after;
     }
-    Aj.apiRequest(method, params, function(result) {
+    Issue.commentsRequest(method, params, function(result) {
       $form.data('submiting', false);
       $button.prop('disabled', false);
       if (result.error) {
         return showAlert(result.error);
       }
       if (edit_comment_id) {
+        var $edit_form = $('.cd-comment-form', Aj.layer);
+        if (!$edit_form.size() ||
+            issue_id != $edit_form.field('issue_id').value() ||
+            team != $edit_form.field('team').value()) {
+          return false;
+        }
         if (result.comment_html) {
           Issue.replaceCommentHtml(edit_comment_id, result.comment_html);
         }
@@ -4813,7 +4936,7 @@ var Issue = {
     }
     $comment.addClass('deleted');
     $btn.data('submiting', true);
-    Aj.apiRequest('deleteComment', {
+    Issue.commentsRequest('deleteComment', {
       issue_id: issue_id,
       comment_id: comment_id
     }, function(result) {
@@ -4842,7 +4965,7 @@ var Issue = {
     }
     $comment.removeClass('deleted');
     $btn.data('submiting', true);
-    Aj.apiRequest('restoreComment', {
+    Issue.commentsRequest('restoreComment', {
       issue_id: issue_id,
       comment_id: comment_id
     }, function(result) {
@@ -4859,6 +4982,92 @@ var Issue = {
       }
     });
     return false;
+  },
+  ePinComment: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var $btn = $(this);
+    $btn.parents('.open').find('.dropdown-toggle').dropdown('toggle');
+    Issue.submitPinComment($btn.parents('.bt-comment').attr('data-comment-id'), false);
+    return false;
+  },
+  eUnpinComment: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var $btn = $(this);
+    $btn.parents('.open').find('.dropdown-toggle').dropdown('toggle');
+    Issue.submitPinComment($btn.parents('.bt-comment').attr('data-comment-id'), true);
+    return false;
+  },
+  eUnpinPinnedComment: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var $btn = $(this);
+    var comment_id = $btn.parents('.bt-pinned-comment').find('.bt-pinned-comment-content').attr('data-comment-link');
+    Issue.submitPinComment(comment_id, true);
+    return false;
+  },
+  ePinBadgeClick: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var $pinned = $('.bt-pinned-comment', Aj.layer);
+    if (!$pinned.size()) {
+      return false;
+    }
+    $pinned.scrollIntoView({position: 'top', padding: 15});
+    $pinned.highlight(1500);
+    if (Aj.state.isWebApp) {
+      WebApp.HapticFeedback.impactOccurred('soft');
+    }
+    return false;
+  },
+  submitPinComment: function(comment_id, unpin) {
+    var issue_id = Issue.getCurrentIssueId();
+    var $wrap = $('.bt-comments-wrap', Aj.layer);
+    var key = issue_id + '_' + Issue.getCurrentCommentsMode();
+    if (Issue.pinRequests[key] || !comment_id || !issue_id) {
+      return false;
+    }
+    Issue.pinRequests[key] = true;
+    Issue.commentsRequest(unpin ? 'unpinComment' : 'pinComment', {
+      issue_id: issue_id,
+      comment_id: comment_id
+    }, function(result) {
+      delete Issue.pinRequests[key];
+      if ($wrap[0] != $('.bt-comments-wrap', Aj.layer)[0] || Issue.getCurrentIssueId() != issue_id) {
+        return;
+      }
+      if (result.error) {
+        return showAlert(result.error);
+      }
+      Issue.applyPinResult(result);
+    });
+  },
+  updatePinnedPanel: function(pinned_html) {
+    var $wrap = $('.bt-comments-wrap', Aj.layer);
+    if ($wrap.data('pinnedHtml') === pinned_html) {
+      return;
+    }
+    $wrap.data('pinnedHtml', pinned_html);
+    var $pinned = $('.bt-pinned-comment', $wrap);
+    if (pinned_html) {
+      var $pinnedEl = $(pinned_html);
+      if ($pinned.size()) {
+        $pinned.replaceWith($pinnedEl);
+      } else {
+        $('.bt-comments-header', Aj.layer).after($pinnedEl);
+      }
+    } else if ($pinned.size()) {
+      $pinned.remove();
+    }
+  },
+  applyPinResult: function(result) {
+    if (result.toast) {
+      showToast(result.toast, 3500);
+    }
+    if (Aj.state.isWebApp) {
+      WebApp.HapticFeedback.impactOccurred('soft');
+    }
   },
   eDeleteIssue: function(e) {
     var $btn     = $(this);
@@ -5102,7 +5311,7 @@ var Dialog = {
     var $button = $(this);
     var mode = $button.attr('data-mode');
     var init_hash = $button.attr('data-init-hash');
-    var params = Filters.getFormParams();
+    var params = window.Board && Board.isActive() ? Board.getDialogParams($button) : Filters.getFormParams();
     var query = params.query || '';
     if ($button.prop('disabled')) {
       return false;
