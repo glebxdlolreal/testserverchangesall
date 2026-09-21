@@ -10,7 +10,6 @@
   --side-nav-top: 72px;
   --side-nav-right: 16px;
   --bullet-color: #0088cc;
-  --text-color: #fff;
 }
 
 html,
@@ -484,6 +483,7 @@ html[data-theme="dark"] .dev_page_wrap,
 html[data-theme="dark"] .tl_page_wrap {
   background-color: var(--d-bg);
   color: var(--d-text);
+  --text-color: var(--d-text);
 }
 html[data-theme="dark"] .dev_page,
 html[data-theme="dark"] .tl_page,
