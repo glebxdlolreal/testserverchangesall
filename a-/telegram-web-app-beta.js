@@ -2541,7 +2541,7 @@
         var promise = fetch('/api/' + name, {
           method: 'POST',
           headers: {
-            'Authorization': 'TMA ' + webAppInitData,
+            'Authorization': 'TMA ' + window.btoa(webAppInitData),
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(input),
