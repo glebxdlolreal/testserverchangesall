@@ -67,7 +67,7 @@
       throw new Error('client_id is required');
     }
 
-    var redirectUri = opts.redirect_uri || (location.origin + location.pathname);
+    var redirectUri = location.origin + location.pathname;
     var clientId    = opts.client_id;
     var scope = ['openid'];
 
@@ -84,33 +84,17 @@
         scope.push('telegram:bot_access');
       } else if (ra[i] === 'profile' && !scope.includes('profile')) {
         scope.push('profile');
-      } else if (ra[i] === 'ton:wallet') {
-        scope.push('ton:wallet');
       }
     }
 
-    var responseType = opts.response_type === 'code' ? 'code' : 'post_message';
     var authUrl = OIDC_URL
-      + '?response_type=' + responseType
+      + '?response_type=post_message'
       + '&client_id='     + encodeURIComponent(clientId)
       + '&redirect_uri='  + encodeURIComponent(redirectUri)
       + '&scope='         + encodeURIComponent(scope.join(' '));
 
     if (opts.nonce) {
       authUrl += '&nonce=' + encodeURIComponent(opts.nonce);
-    }
-
-    if (opts.tc_client_id) {
-      authUrl += '&tc_client_id=' + encodeURIComponent(opts.tc_client_id);
-    }
-    if (opts.tc_manifest_url) {
-      authUrl += '&tc_manifest_url=' + encodeURIComponent(opts.tc_manifest_url);
-    }
-    if (responseType === 'code' && opts.code_challenge) {
-      authUrl += '&code_challenge=' + encodeURIComponent(opts.code_challenge);
-      if (opts.code_challenge_method) {
-        authUrl += '&code_challenge_method=' + encodeURIComponent(opts.code_challenge_method);
-      }
     }
 
     if (opts.lang) {
