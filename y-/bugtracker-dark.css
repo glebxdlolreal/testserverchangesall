@@ -488,6 +488,50 @@ html.bt-theme-dark .bt-markdown hr {
   border-color: var(--bt-dark-border);
 }
 
+html.bt-theme-dark .bt-pinned-comment {
+  background: var(--bt-dark-card-bg-hover);
+}
+html.bt-theme-dark .bt-pinned-comment:hover,
+html.bt-theme-dark .bt-pinned-comment.highlight {
+  background: rgba(76, 178, 255, .12);
+}
+html.bt-theme-dark .bt-pinned-comment-content {
+  color: var(--bt-dark-text-primary);
+}
+html.bt-theme-dark .bt-pinned-comment-icon .icon use {
+  fill: var(--bt-dark-text-accent);
+}
+html.bt-theme-dark .bt-pinned-comment-label,
+html.bt-theme-dark .bt-comment-pin-badge {
+  color: var(--bt-dark-text-accent);
+}
+html.bt-theme-dark .bt-comment-pin-badge:hover,
+html.bt-theme-dark .bt-comment-pin-badge:focus {
+  color: var(--bt-dark-text-accent);
+  text-decoration: none;
+}
+html.bt-theme-dark .bt-pinned-comment-text {
+  color: var(--bt-dark-text-primary);
+}
+html.bt-theme-dark .bt-pinned-comment-author {
+  color: var(--bt-dark-text-primary);
+}
+html.bt-theme-dark .bt-pinned-comment-unpin:before,
+html.bt-theme-dark .bt-pinned-comment-unpin:after {
+  background: var(--bt-dark-text-secondary);
+}
+html.bt-theme-dark .bt-pinned-comment-unpin:hover {
+  background: rgba(239, 101, 143, .12);
+}
+html.bt-theme-dark .bt-pinned-comment-unpin:hover:before,
+html.bt-theme-dark .bt-pinned-comment-unpin:hover:after {
+  background: var(--bt-dark-danger);
+}
+html.bt-theme-dark .bt-comment-pinned {
+  background: rgba(76, 178, 255, .07);
+  box-shadow: inset 2px 0 0 var(--bt-dark-text-accent);
+}
+
 html.bt-theme-dark .bt-layer-content,
 html.bt-theme-dark .popup {
   color: var(--bt-dark-text-primary);
@@ -767,7 +811,8 @@ html.bt-theme-dark .cd-comment-form-box .bt-attach-btn:before {
 html.bt-theme-dark .bt-markdown pre,
 html.bt-theme-dark .bt-markdown code,
 html.bt-theme-dark .bt-issue-body a[data-link-type],
-html.bt-theme-dark .bt-comment-body a[data-link-type] {
+html.bt-theme-dark .bt-comment-body a[data-link-type],
+html.bt-theme-dark .bt-pinned-comment-body a[data-link-type] {
   color: var(--bt-dark-text-primary);
   background: rgba(76, 178, 255, .14);
 }
