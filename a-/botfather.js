@@ -44,7 +44,7 @@ var CreateBot = {
       usernameDebounce(CreateBot.checkUsername, 0);
     });
     $('.js-upload-button').click(CreateBot.uploadUserpic);
-
+    
     $('input[name=username]').on('input', (ev) => {
       var $hint = $('.hint-text[data-for=username]');
       $hint.attr('class', 'hint-text hint-text-loading');
