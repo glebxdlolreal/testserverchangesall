@@ -34,13 +34,11 @@ var CreateBot = {
 
     Aj.onLoad(() => {
       Aj.state.username_valid = false;
-      Aj.state.additional_username_valid = true;
     });
 
     $('#bot_form').on('input', CreateBot.validateForm);
 
     var usernameDebounce = Aj.state.usernameDebounce = debounce();
-    var additionalUsernameDebounce = Aj.state.additionalUsernameDebounce = debounce();
 
     $('input[name=username]').on('change', (ev) => {
       usernameDebounce(CreateBot.checkUsername, 0);
@@ -52,14 +50,6 @@ var CreateBot = {
       $hint.attr('class', 'hint-text hint-text-loading');
       $hint.text(l('WEB_USERNAME_CHECKING'));
       usernameDebounce(CreateBot.checkUsername, 400);
-    })
-
-    $('input[name=additional_username]').on('change', (ev) => {
-      additionalUsernameDebounce(CreateBot.checkAdditionalUsername, 0);
-    });
-
-    $('input[name=additional_username]').on('input', (ev) => {
-      additionalUsernameDebounce(CreateBot.checkAdditionalUsername, 400);
     })
 
   },
@@ -77,31 +67,6 @@ var CreateBot = {
         $hint.text(l('WEB_USERNAME_AVAILABLE', {username: value}));
       } else {
         Aj.state.username_valid = false;
-        $hint.attr('class', 'hint-text hint-text-error');
-        $hint.html(res.error);
-      }
-    });
-  },
-  checkAdditionalUsername() {
-    var $hint = $('.hint-text[data-for=additional_username]');
-    var $input = $('input[name=additional_username]');
-    var value = $input.val();
-    if (!value) {
-      Aj.state.additional_username_valid = true;
-      $hint.attr('class', 'hint-text');
-      $hint.text('');
-      return;
-    }
-    $hint.attr('class', 'hint-text hint-text-loading');
-    $hint.text(l('WEB_USERNAME_CHECKING'));
-    Aj.apiRequest('checkBotAdditionalUsername', { username: value }, res => {
-      if ($input.val() !== value) return;
-      if (res.ok) {
-        Aj.state.additional_username_valid = true;
-        $hint.attr('class', 'hint-text hint-text-success');
-        $hint.text(l('WEB_USERNAME_AVAILABLE', {username: value}));
-      } else {
-        Aj.state.additional_username_valid = false;
         $hint.attr('class', 'hint-text hint-text-error');
         $hint.html(res.error);
       }
@@ -132,20 +97,11 @@ var CreateBot = {
       return;
     }
 
-    var additional_username = $('input[name="additional_username"]').val()?.trim() || '';
-    if (additional_username &&
-        !Aj.state.additional_username_valid) {
-      TWebApp.showErrorToast('Username is invalid.');
-      var additional = $('input[name="additional_username"]').focus();
-      return;
-    }
-
     WebApp.MainButton.showProgress();
     Aj.apiRequest('createBot', {
         title: title,
         about: $('textarea[name="about"]').val(),
         username: $('input[name="username"]').val(),
-        additional_username: additional_username,
         userpic: Aj.state.files?.['bot_userpic']?.photo_id || '',
     }, res => {
         WebApp.MainButton.hideProgress();
