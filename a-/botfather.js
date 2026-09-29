@@ -168,6 +168,11 @@ var BotUsernames = {
         }
       });
     });
+
+    $('.js-usernames-add-limit').on('click', function (e) {
+      e.preventDefault();
+      TWebApp.showErrorToast(l(this.dataset.errorKey));
+    });
   },
   askRemove(username) {
     WebApp.showPopup({
