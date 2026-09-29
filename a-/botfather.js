@@ -142,6 +142,11 @@ var BotUsernames = {
       }
 
       var isActive = row.dataset.active == '1';
+      if (isActive &&
+          $('.js-username-row[data-active="1"]').length == 1) {
+        TWebApp.showErrorToast(l('WEB_USERNAMES_LAST_ACTIVE'));
+        return;
+      }
       var buttons = [
         {type: 'cancel'},
         {
