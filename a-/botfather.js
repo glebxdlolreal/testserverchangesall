@@ -2747,7 +2747,7 @@ var BotConsole = {
   draft: '',
   isRunning: false,
 
-  init(functionName) {
+  init(endpointName) {
     var isMac = /Mac|iPhone|iPad/.test(navigator.platform);
     var el = document.getElementById('console-editor');
     if (!el) return;
@@ -2762,10 +2762,10 @@ var BotConsole = {
       tabSize: 2,
       lineWrapping: true,
       guardedRegion: {
-        prefix: BotConsole.getPrefix(functionName),
+        prefix: BotConsole.getPrefix(endpointName),
         suffix: '});',
         placeholder: l('WEB_CONSOLE_PLACEHOLDER'),
-        prefixClassName: functionName ? '' : 'cm-guarded-default',
+        prefixClassName: endpointName ? '' : 'cm-guarded-default',
       },
       extraKeys: {
         'Up': BotConsole.onUp,
@@ -2784,7 +2784,7 @@ var BotConsole = {
   },
 
   getPrefix(name) {
-    return (name || l('WEB_FUNCTION_NAME_PLACEHOLDER')) + '({';
+    return (name || l('WEB_ENDPOINT_NAME_PLACEHOLDER')) + '({';
   },
 
   updatePrefix(name) {
@@ -2835,10 +2835,10 @@ var BotConsole = {
     var moduleName = '';
     if (isHandler) {
       moduleName = Aj.state.handlerType;
-    } else if (Aj.state.isFunctionNew) {
-      moduleName = ($('#function-name').val() || '').trim();
+    } else if (Aj.state.isEndpointNew) {
+      moduleName = ($('#endpoint-name').val() || '').trim();
     } else {
-      moduleName = Aj.state.functionName;
+      moduleName = Aj.state.endpointName;
     }
 
     $('#console .tm-console-line').remove();
