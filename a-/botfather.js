@@ -1481,7 +1481,7 @@ var BotAppEdit = {
       WebApp.MainButton.hideProgress();
       if (res.ok) {
         Aj.onUnload(() => TWebApp.showSuccessToast(res.msg));
-        Aj.location(`/botfather/bot/${Aj.state.botId}/apps`);
+        Aj.location(`/botfather/bot/${Aj.state.botId}/apps${Aj.state.appsFrom || ''}`);
       } else if (res.error) {
         TWebApp.showErrorToast(res.error);
       }
@@ -1613,7 +1613,7 @@ var BotMainApp = {
             TWebApp.showErrorToast(res.error)
           } else {
             Aj.onUnload(() => TWebApp.showSuccessToast(res.msg));
-            Aj.location('/botfather/bot/' + Aj.state.botId + '/apps')
+            Aj.location('/botfather/bot/' + Aj.state.botId + '/apps' + (Aj.state.appsFrom || ''))
           }
         });
       });
@@ -1637,7 +1637,7 @@ var BotMainApp = {
         TWebApp.showErrorToast(res.error)
       } else {
         Aj.onUnload(() => TWebApp.showSuccessToast(res.msg));
-        Aj.location('/botfather/bot/' + Aj.state.botId + '/apps')
+        Aj.location('/botfather/bot/' + Aj.state.botId + '/apps' + (Aj.state.appsFrom || ''))
       }
     })
   }
@@ -1683,7 +1683,7 @@ var BotMenuApp = {
         }, res => {
           if (res.ok) {
             Aj.onUnload(() => TWebApp.showSuccessToast(res.msg));
-            Aj.location(`/botfather/bot/${Aj.state.botId}/apps`);
+            Aj.location(`/botfather/bot/${Aj.state.botId}/apps${Aj.state.appsFrom || ''}`);
           } else if (res.error) {
             TWebApp.showErrorToast(res.error);
           }
@@ -1723,7 +1723,7 @@ var BotMenuApp = {
       WebApp.MainButton.hideProgress();
       if (res.ok) {
         Aj.onUnload(() => TWebApp.showSuccessToast(res.msg));
-        Aj.location(`/botfather/bot/${Aj.state.botId}/apps`);
+        Aj.location(`/botfather/bot/${Aj.state.botId}/apps${Aj.state.appsFrom || ''}`);
       } else if (res.error) {
         TWebApp.showErrorToast(res.error);
       }
@@ -1864,7 +1864,7 @@ var BotLaunchScreen = {
       WebApp.MainButton.hideProgress();
       if (res.ok) {
         Aj.onUnload(() => TWebApp.showSuccessToast(res.msg));
-        Aj.location(`/botfather/bot/${Aj.state.botId}/apps`);
+        Aj.location(`/botfather/bot/${Aj.state.botId}/apps${Aj.state.appsFrom || ''}`);
       } else if (res.error) {
         TWebApp.showErrorToast(res.error);
       }
