@@ -2484,18 +2484,6 @@
       return err;
     }
 
-    function deliver(callback, err, result) {
-      if (!callback) {
-        return;
-      }
-      try {
-        callback(err, result);
-      } catch (e) {
-        // fetch's promise chain would swallow it; rethrow outside the chain
-        setTimeout(function() { throw e; }, 0);
-      }
-    }
-
     function parseEnvelope(name, response) {
       return response.text().then(function(text) {
         var data = null;
@@ -2558,9 +2546,13 @@
       }, function(e) {
         throw serverlessError('Network error calling endpoint ' + name + (e && e.message ? ': ' + e.message : ''), 0);
       }).then(function(result) {
-        deliver(callback, null, result);
+        if (callback) {
+          callback(null, result);
+        }
       }, function(err) {
-        deliver(callback, err, null);
+        if (callback) {
+          callback(err, null);
+        }
       });
     };
 
