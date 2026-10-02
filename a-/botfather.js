@@ -2415,40 +2415,79 @@ var BotCodeEditor = {
   },
 };
 
-var BotLibrary = {
+var BotLibraryCreate = {
   init() {
-    var isNew = Aj.state.isLibraryNew;
     var $input = $('#library-name');
 
-    if (isNew) {
-      $input.on('input', function() {
-        var filtered = $input.val().replace(/[^a-zA-Z0-9_\/-]/g, '');
-        if (filtered.indexOf('//') !== -1) {
-          filtered = filtered.replace(/\/+/g, '/');
-        }
-        $input.val(filtered);
-      });
-    }
+    $input.on('input', function() {
+      var filtered = $input.val().replace(/[^a-zA-Z0-9_\/-]/g, '');
+      if (filtered.indexOf('//') !== -1) {
+        filtered = filtered.replace(/\/+/g, '/');
+      }
+      $input.val(filtered);
+    });
 
+    WebApp.MainButton.setText(uncleanHTML(l('WEB_GENERIC_CONTINUE')));
+    WebApp.MainButton.show();
+    WebApp.MainButton.onClick(BotLibraryCreate.onContinue);
+    Aj.onUnload(function() {
+      WebApp.MainButton.hide();
+      WebApp.MainButton.offClick(BotLibraryCreate.onContinue);
+    });
+  },
+
+  onContinue() {
+    var name = $('#library-name').val().trim();
+    if (!name || !/^(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_-]+$/.test(name)) {
+      TWebApp.showErrorToast(l('WEB_LIBRARY_FILE_PLACEHOLDER'));
+      $('#library-name').focus();
+      return;
+    }
+    WebApp.MainButton.showProgress();
+    Aj.apiRequest('checkCloudModuleName', { bid: Aj.state.botId, module: 'lib/' + name }, function(res) {
+      WebApp.MainButton.hideProgress();
+      if (res.error) {
+        TWebApp.showErrorToast(res.error);
+        return;
+      }
+      if (!res.exists) {
+        Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/lib/' + name);
+        return;
+      }
+      WebApp.showPopup({
+        title: uncleanHTML(l('WEB_LIBRARY_EXISTS_TITLE')),
+        message: uncleanHTML(l('WEB_LIBRARY_EXISTS_BODY')),
+        buttons: [
+          { id: 'edit', text: uncleanHTML(l('WEB_LIBRARY_EXISTS_EDIT')) },
+          { type: 'cancel' },
+        ],
+      }, function(result) {
+        if (result === 'edit') {
+          Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/lib/' + name);
+        } else {
+          $('#library-name').focus();
+        }
+      });
+    });
+  },
+};
+
+var BotLibrary = {
+  init() {
     BotCodeEditor.init('library-editor', {
       apiMethod: 'saveCloudLibraryFile',
-      apiParams: isNew ? {} : { name: Aj.state.libraryPath },
+      apiParams: { name: Aj.state.libraryPath, new: Aj.state.isLibraryNew ? 1 : 0 },
       savedLangKey: 'WEB_LIBRARY_FILE_SAVED',
       saveErrorLangKey: 'WEB_LIBRARY_FILE_SAVE_ERROR',
       placeholder: l('WEB_LIBRARY_CODE_PLACEHOLDER'),
     });
 
-    if (isNew) {
-      WebApp.MainButton.offClick(BotCodeEditor.onSave);
-      WebApp.MainButton.onClick(BotLibrary.onSave);
-      Aj.onUnload(function() { WebApp.MainButton.offClick(BotLibrary.onSave); });
-    }
+    $(document).on('click.libcopy', '.js-copy-lib-path', function() {
+      navigator.clipboard.writeText(this.dataset.value);
+      TWebApp.showSuccessToast(l('WEB_GENERIC_COPY_SUCCESS'));
+    });
 
-    if (!isNew) {
-      $(document).on('click.libcopy', '.js-copy-lib-path', function() {
-        navigator.clipboard.writeText(this.dataset.value);
-        TWebApp.showSuccessToast(l('WEB_GENERIC_COPY_SUCCESS'));
-      });
+    if (!Aj.state.isLibraryNew) {
       $(document).on('click.curPage', '.js-editor-delete', function() {
         WebApp.showPopup({
           title: uncleanHTML(l('WEB_LIBRARY_DELETE_CONFIRM_TITLE')),
@@ -2470,37 +2509,6 @@ var BotLibrary = {
         });
       });
     }
-  },
-  onSave() {
-    var name = $('#library-name').val().trim();
-    if (!name || !/^(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_-]+$/.test(name)) {
-      TWebApp.showErrorToast(l('WEB_LIBRARY_FILE_PLACEHOLDER'));
-      $('#library-name').focus();
-      return;
-    }
-    var existing = Aj.state.existingLibraries || [];
-    if (existing.indexOf(name) !== -1) {
-      TWebApp.showErrorToast(l('WEB_LIBRARY_FILE_EXISTS'));
-      $('#library-name').focus();
-      return;
-    }
-
-    var code = BotCodeEditor.cm.getValue();
-    WebApp.MainButton.showProgress();
-    Aj.apiRequest('saveCloudLibraryFile', {
-      bid: Aj.state.botId,
-      name: name,
-      code: code,
-    }, function(res) {
-      WebApp.MainButton.hideProgress();
-      if (res.ok) {
-        BotCodeEditor.savedCode = code;
-        Aj.onUnload(function() { TWebApp.showSuccessToast(l('WEB_LIBRARY_FILE_SAVED')); });
-        TBackButton.onClick();
-      } else {
-        TWebApp.showErrorToast(res.error || l('WEB_LIBRARY_FILE_SAVE_ERROR'));
-      }
-    });
   },
 };
 
@@ -2760,7 +2768,7 @@ var BotConsole = {
   draft: '',
   isRunning: false,
 
-  init(endpointName) {
+  init(moduleName) {
     var isMac = /Mac|iPhone|iPad/.test(navigator.platform);
     var el = document.getElementById('console-editor');
     if (!el) return;
@@ -2775,10 +2783,10 @@ var BotConsole = {
       tabSize: 2,
       lineWrapping: true,
       guardedRegion: {
-        prefix: BotConsole.getPrefix(endpointName),
+        prefix: BotConsole.getPrefix(moduleName),
         suffix: '});',
         placeholder: l('WEB_CONSOLE_PLACEHOLDER'),
-        prefixClassName: endpointName ? '' : 'cm-guarded-default',
+        prefixClassName: moduleName ? '' : 'cm-guarded-default',
       },
       extraKeys: {
         'Up': BotConsole.onUp,
@@ -2797,13 +2805,7 @@ var BotConsole = {
   },
 
   getPrefix(name) {
-    return (name || l('WEB_ENDPOINT_NAME_PLACEHOLDER')) + '({';
-  },
-
-  updatePrefix(name) {
-    if (!BotConsole.cm || !BotConsole.guarded) return;
-    BotConsole.guarded.setPrefix(BotConsole.getPrefix(name));
-    BotConsole.guarded.setPrefixClassName(name ? '' : 'cm-guarded-default');
+    return (name || l('WEB_CONSOLE_NAME_PLACEHOLDER')) + '({';
   },
 
   onShiftEnter(cm) {
@@ -2845,14 +2847,7 @@ var BotConsole = {
 
     var editable = BotConsole.guarded.getEditable();
     var isHandler = Aj.state.consoleMethod === 'runCloudHandler';
-    var moduleName = '';
-    if (isHandler) {
-      moduleName = Aj.state.handlerType;
-    } else if (Aj.state.isEndpointNew) {
-      moduleName = ($('#endpoint-name').val() || '').trim();
-    } else {
-      moduleName = Aj.state.endpointName;
-    }
+    var moduleName = isHandler ? Aj.state.handlerType : Aj.state.endpointName;
 
     $('#console .tm-console-line').remove();
 
