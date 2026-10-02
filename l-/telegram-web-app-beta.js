@@ -2471,6 +2471,94 @@
     return gyroscope;
   })();
 
+  var Serverless = (function() {
+    var serverless = {};
+
+    function serverlessError(message, status, parameters) {
+      var err = new Error(message);
+      err.name = 'ServerlessError';
+      err.status = status;
+      if (parameters) {
+        err.parameters = parameters;
+      }
+      return err;
+    }
+
+    function deliver(promise, callback) {
+      if (callback) {
+        promise.then(function(result) {
+          callback(null, result);
+        }, function(err) {
+          callback(err, null);
+        });
+      }
+      return promise;
+    }
+
+    function parseEnvelope(name, response) {
+      return response.text().then(function(text) {
+        var data = null;
+        try {
+          data = JSON.parse(text);
+        } catch (e) {}
+        if (!data || typeof data !== 'object' || typeof data.ok !== 'boolean') {
+          throw serverlessError('Unexpected response from endpoint ' + name + ' (HTTP ' + response.status + ')', response.status);
+        }
+        if (!data.ok) {
+          var err = serverlessError(
+            data.description || 'Endpoint ' + name + ' failed (HTTP ' + response.status + ')',
+            data.error_code || response.status,
+            data.parameters);
+          err.type = data.error_type || '';
+          throw err;
+        }
+        return data.result;
+      });
+    }
+
+    serverless.call = function(name, input, callback) {
+      if (typeof input === 'function' && typeof callback === 'undefined') {
+        callback = input;
+        input = undefined;
+      }
+      if (typeof name !== 'string') {
+        console.error('[Telegram.WebApp] Serverless endpoint name is invalid', name);
+        throw Error('WebAppServerlessEndpointInvalid');
+      }
+      if (typeof input === 'undefined') {
+        input = {};
+      }
+      if (typeof input !== 'object' || input === null || Array.isArray(input)) {
+        console.error('[Telegram.WebApp] Serverless endpoint input must be an object', input);
+        throw Error('WebAppServerlessInputInvalid');
+      }
+      if (!webAppInitData.length) {
+        console.error('[Telegram.WebApp] Serverless endpoints need initData; open the app from Telegram');
+        return deliver(Promise.reject(serverlessError('initData is not available', 0)), callback);
+      }
+      if (typeof fetch !== 'function') {
+        console.error('[Telegram.WebApp] Serverless endpoints need fetch()');
+        return deliver(Promise.reject(serverlessError('fetch is not supported', 0)), callback);
+      }
+      var promise = fetch('/api/' + name, {
+        method: 'POST',
+        headers: {
+          'Authorization': 'TMA ' + window.btoa(webAppInitData),
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(input),
+        credentials: 'omit'
+      }).then(function(response) {
+        return parseEnvelope(name, response);
+      }, function(e) {
+        throw serverlessError('Network error calling endpoint ' + name + (e && e.message ? ': ' + e.message : ''), 0);
+      });
+      return deliver(promise, callback);
+    };
+
+    return serverless;
+  })();
+
   var webAppInvoices = {};
   function onInvoiceClosed(eventType, eventData) {
     if (eventData.slug && webAppInvoices[eventData.slug]) {
@@ -2802,6 +2890,10 @@
   });
   Object.defineProperty(WebApp, 'LocationManager', {
     value: LocationManager,
+    enumerable: true
+  });
+  Object.defineProperty(WebApp, 'Serverless', {
+    value: Serverless,
     enumerable: true
   });
   WebApp.isVersionAtLeast = function(ver) {
