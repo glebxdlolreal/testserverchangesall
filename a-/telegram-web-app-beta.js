@@ -2484,15 +2484,16 @@
       return err;
     }
 
-    function deliver(promise, callback) {
-      if (callback) {
-        promise.then(function(result) {
-          callback(null, result);
-        }, function(err) {
-          callback(err, null);
-        });
+    function deliver(callback, err, result) {
+      if (!callback) {
+        return;
       }
-      return promise;
+      try {
+        callback(err, result);
+      } catch (e) {
+        // fetch's promise chain would swallow it; rethrow outside the chain
+        setTimeout(function() { throw e; }, 0);
+      }
     }
 
     function parseEnvelope(name, response) {
@@ -2532,15 +2533,19 @@
         console.error('[Telegram.WebApp] Serverless endpoint input must be an object', input);
         throw Error('WebAppServerlessInputInvalid');
       }
+      if (typeof callback !== 'undefined' && typeof callback !== 'function') {
+        console.error('[Telegram.WebApp] Serverless callback must be a function', callback);
+        throw Error('WebAppServerlessCallbackInvalid');
+      }
       if (!webAppInitData.length) {
         console.error('[Telegram.WebApp] Serverless endpoints need initData; open the app from Telegram');
-        return deliver(Promise.reject(serverlessError('initData is not available', 0)), callback);
+        throw Error('WebAppServerlessInitDataUnavailable');
       }
       if (typeof fetch !== 'function') {
         console.error('[Telegram.WebApp] Serverless endpoints need fetch()');
-        return deliver(Promise.reject(serverlessError('fetch is not supported', 0)), callback);
+        throw Error('WebAppServerlessFetchUnsupported');
       }
-      var promise = fetch('/api/' + name, {
+      fetch('/api/' + name, {
         method: 'POST',
         headers: {
           'Authorization': 'TMA ' + window.btoa(webAppInitData),
@@ -2552,8 +2557,11 @@
         return parseEnvelope(name, response);
       }, function(e) {
         throw serverlessError('Network error calling endpoint ' + name + (e && e.message ? ': ' + e.message : ''), 0);
+      }).then(function(result) {
+        deliver(callback, null, result);
+      }, function(err) {
+        deliver(callback, err, null);
       });
-      return deliver(promise, callback);
     };
 
     return serverless;
