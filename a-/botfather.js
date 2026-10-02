@@ -2252,6 +2252,19 @@ var BotServerless = {
   },
 };
 
+var BotStatic = {
+  init() {
+    $(document).on('click.static', '.copy-btn', function () {
+      navigator.clipboard.writeText(this.dataset.value);
+      TWebApp.showSuccessToast(l('WEB_GENERIC_COPY_SUCCESS'));
+    });
+
+    Aj.onUnload(() => {
+      $(document).off('click.static', '.copy-btn');
+    });
+  },
+};
+
 var BotCliAccess = {
   init() {
     $('.js-spoiler').each(function () {
