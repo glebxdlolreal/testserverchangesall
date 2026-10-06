@@ -869,7 +869,7 @@ var Main = {
 var Login = {
   init: function(options) {
     Telegram.Login.init(options, function(user) {
-      if (user) {
+      if (user && !user.error) {
         Login.auth(user);
       }
     });
