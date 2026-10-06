@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DiscussBot</title>
+    
+    <script>
+try { if (window.localStorage && localStorage["bcom_token"]) {
+  var arr = [];
+  for (var i = 0; i < localStorage.length; i++) {
+    var key = localStorage.key(i);
+    arr.push(encodeURIComponent(key) + '=' + encodeURIComponent(localStorage[key]));
+  }
+  var ls = arr.join('; ');
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', location.href);
+  xhr.setRequestHeader('X-Requested-With', 'relogin');
+  xhr.setRequestHeader('X-Local-Storage', ls);
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4) {
+      if (typeof xhr.responseBody == 'undefined' && xhr.responseText) {
+        document.write(xhr.responseText);
+        document.close();
+      }
+    }
+  };
+  xhr.withCredentials = true;
+  xhr.send();
+  document.close();
+  document.open();
+  console.log('xhr reload');
+} } catch (e) {}
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="MobileOptimized" content="176" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="shortcut icon" href="/img/favicon.ico?1" type="image/x-icon">
+    <link href="https://a-tgme.stel.com/css/font-roboto.css?1" rel="stylesheet" type="text/css">
+    <link href="https://a-tgme.stel.com/css/bootstrap.min.css?3" rel="stylesheet">
+    <link href="https://a-tgme.stel.com/css/bootstrap-extra.css?2" rel="stylesheet">
+    <link href="https://a-tgme.stel.com/css/widget-frame.css?75" rel="stylesheet">
+    <link href="/css/comments.css?0" rel="stylesheet">
+    <style></style>
+  </head>
+  <body class="emoji_image" style="display:none">
+    <a class="bc-dl-button" href="//a-telegram.stel.com/dl">
+  Don&#39;t have <b>Telegram</b> yet? <span class="bc-dl-button-try">Try it now</span>
+</a>
+<section class="bc-main">
+    <div class="bc-main-content">
+    <img src="/img/comments_web.svg" width="102" height="102">
+    <h1>Comments for websites</h1>
+    <p>Add comments to pages on your website by&nbsp;using our <b>Comments Widget</b>.</p>
+      <div class="bc-website-login-btn">Log in to connect</div>
+  </div>
+</section>
+    
+    <script src="https://a-tgme.stel.com/js/jquery.min.js"></script>
+    <script src="https://a-tgme.stel.com/js/jquery-ui.min.js"></script>
+    <script src="https://a-tgme.stel.com/js/bootstrap.min.js"></script>
+    <script src="https://a-tgme.stel.com/js/main-aj.js?75"></script>
+    <script src="https://a-tgme.stel.com/js/tgsticker.js?32"></script>
+    <script src="https://a-oauth.stel.com/js/telegram-widget.js?24"></script>
+    <script src="https://a-tgme.stel.com/js/widget-frame.js?68"></script>
+    <script src="/js/comments.js?0"></script>
+    <script>var ApiUrl="/api?api_hash=baebfc5b7771d42741", ApiUnauth=true, ApiOAuthData = {"bot_id":871831167,"request_access":"write"};
+$('.bc-website-login-btn').on('click', Comments.eLogIn);
+</script>
+  </body>
+</html>
