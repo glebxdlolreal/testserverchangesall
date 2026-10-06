@@ -917,6 +917,7 @@ var Wallet = {
     Aj.globalState.tonConnectLoggedIn = options.logged_in || false;
     Aj.globalState.tonConnectProof = options.ton_proof || '';
     Aj.globalState.tonConnectVersion = options.version || 1;
+    Aj.globalState.tonConnectOauthSession = options.oauth || false;
     if (Aj.globalState.tonConnectVersion == 2) {
       var tonConnectUI = Aj.globalState.tonConnectUI;
       if (!tonConnectUI) {
@@ -1075,7 +1076,8 @@ var Wallet = {
     return false;
   },
   checkWallet: function() {
-    if (Aj.globalState.tonConnectVersion == 2) {
+    if (Aj.globalState.tonConnectVersion == 2 &&
+        !Aj.globalState.tonConnectOauthSession) {
       var authAddress = Aj.globalState.tonConnectAuthAddress,
           wallet = Aj.globalState.tonConnectUI.wallet;
       if (wallet && wallet.account) {
