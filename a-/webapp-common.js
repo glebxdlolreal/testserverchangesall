@@ -7,6 +7,9 @@ var TWebApp = {
       Aj.apiUrl = basePath + '/api?hash=' + hash;
       window.basePath = basePath;
     }
+    if (Aj.state.authPage !== true) {
+      TWebApp.authRedirectReset();
+    }
     TWebApp.initOnce();
     Aj.viewTransition = true;
 
@@ -117,6 +120,11 @@ var TWebApp = {
           Aj.apiUrl = res.api_url;
         }
         if (authPage) {
+          if (Date.now() - TWebApp.authRedirectTime() < 15000) {
+            TWebApp.showExpired();
+            return;
+          }
+          TWebApp.authRedirectMark();
           var loc = window.location;
           if (Aj.state.redirect) {
             Aj.location(Aj.state.redirect);
@@ -146,6 +154,15 @@ var TWebApp = {
       WebApp.close();
     });
     WebApp.MainButton.show();
+  },
+  authRedirectMark() {
+    try { sessionStorage.setItem('twa_auth_redirect', String(Date.now())); } catch (e) {}
+  },
+  authRedirectTime() {
+    try { return parseInt(sessionStorage.getItem('twa_auth_redirect')) || 0; } catch (e) { return 0; }
+  },
+  authRedirectReset() {
+    try { sessionStorage.removeItem('twa_auth_redirect'); } catch (e) {}
   },
   eMainButton() {
     if (Aj.layerState && Aj.layerState.onMainButton) {
