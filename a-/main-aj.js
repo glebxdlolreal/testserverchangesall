@@ -243,6 +243,8 @@ function ajInit(options) {
   }
 
   function changeLocation(url, push_state) {
+    console.log('bfnav: changeLocation', url, 'push =', push_state);
+    console.trace && console.trace('bfnav: changeLocation caller');
     if (push_state) {
       location.href = url;
     } else {
@@ -485,6 +487,8 @@ function ajInit(options) {
 
   function loadPage(link, push_state, state_go, transition) {
     var url = link.href;
+    console.log('bfnav: loadPage', url, 'push =', push_state);
+    console.trace && console.trace('bfnav: loadPage caller');
     var cur_url = curLocation.href;
     var cur_ref = curLocation.origin + curLocation.pathname + curLocation.search;
     if (link.origin != curLocation.origin) {
