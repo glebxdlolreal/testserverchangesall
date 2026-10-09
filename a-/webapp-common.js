@@ -7,9 +7,6 @@ var TWebApp = {
       Aj.apiUrl = basePath + '/api?hash=' + hash;
       window.basePath = basePath;
     }
-    if (Aj.state.authPage !== true) {
-      TWebApp.authRedirectReset();
-    }
     TWebApp.initOnce();
     Aj.viewTransition = true;
 
@@ -113,23 +110,13 @@ var TWebApp = {
   },
   checkAuth() {
     var authPage = Aj.state.authPage === true;
-    console.log('bfwebauth v2: checkAuth', 'authPage =', authPage, 'initData =', !!WebApp.initData);
     Aj.apiRequest('auth', {_auth: WebApp.initData}, res => {
-      console.log('bfwebauth v2: auth response', res.ok ? 'ok' : ('error: ' + res.error));
       if (res.ok) {
         Aj.unauth = false;
         if (res.api_url) {
           Aj.apiUrl = res.api_url;
         }
         if (authPage) {
-          var sinceLastRedirect = Date.now() - TWebApp.authRedirectTime();
-          console.log('bfwebauth v2: authPage redirect, ms since last =', sinceLastRedirect);
-          if (sinceLastRedirect < 15000) {
-            console.log('bfwebauth v2: BREAKER fired, showing expired');
-            TWebApp.showExpired();
-            return;
-          }
-          TWebApp.authRedirectMark();
           var loc = window.location;
           if (Aj.state.redirect) {
             Aj.location(Aj.state.redirect);
@@ -143,7 +130,6 @@ var TWebApp = {
           }
         }
       } else {
-        console.log('bfwebauth v2: auth failed', res.error);
         Aj.unauth = true;
         if (!authPage) {
           Aj.location(Aj.state.authHref || (window.basePath || '') + '/auth');
@@ -160,15 +146,6 @@ var TWebApp = {
       WebApp.close();
     });
     WebApp.MainButton.show();
-  },
-  authRedirectMark() {
-    try { sessionStorage.setItem('twa_auth_redirect', String(Date.now())); } catch (e) {}
-  },
-  authRedirectTime() {
-    try { return parseInt(sessionStorage.getItem('twa_auth_redirect')) || 0; } catch (e) { return 0; }
-  },
-  authRedirectReset() {
-    try { sessionStorage.removeItem('twa_auth_redirect'); } catch (e) {}
   },
   eMainButton() {
     if (Aj.layerState && Aj.layerState.onMainButton) {

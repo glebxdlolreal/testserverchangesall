@@ -127,10 +127,8 @@ function ajInit(options) {
         if (!xhr.readyState && !xhr.status) {
           // was aborted
         } else if (xhr.status == 401) {
-          console.log('bfnav: apiRequest 401, going /auth, method =', method);
           location.href = '/auth';
         } else if (xhr.readyState > 0) {
-          console.log('bfnav: apiRequest error, reloading, method =', method, 'status =', xhr.status);
           location.reload();
         }
       }
@@ -244,12 +242,9 @@ function ajInit(options) {
 
   function changeLocation(url, push_state) {
     if (url == location.href) {
-      console.log('bfnav: changeLocation same url, reloading', url);
       location.reload();
       return;
     }
-    console.log('bfnav: changeLocation', url, 'push =', push_state);
-    console.trace && console.trace('bfnav: changeLocation caller');
     if (push_state) {
       location.href = url;
     } else {
@@ -373,7 +368,6 @@ function ajInit(options) {
 
   function onResult(url, http_code, result, push_state) {
     hideProgress();
-    console.log('bfnav: onResult', url, 'http =', http_code, 'v =', result && result.v, 'need =', Aj.version, 'r =', result && result.r, 'l =', result && !!result.l);
     if (http_code != 200 || !result || !result.v || result.v != Aj.version) {
       changeLocation(url, push_state);
       return;
@@ -492,8 +486,6 @@ function ajInit(options) {
 
   function loadPage(link, push_state, state_go, transition) {
     var url = link.href;
-    console.log('bfnav: loadPage', url, 'push =', push_state);
-    console.trace && console.trace('bfnav: loadPage caller');
     var cur_url = curLocation.href;
     var cur_ref = curLocation.origin + curLocation.pathname + curLocation.search;
     if (link.origin != curLocation.origin) {
