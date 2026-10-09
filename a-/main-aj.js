@@ -127,8 +127,10 @@ function ajInit(options) {
         if (!xhr.readyState && !xhr.status) {
           // was aborted
         } else if (xhr.status == 401) {
+          console.log('bfnav: apiRequest 401, going /auth, method =', method);
           location.href = '/auth';
         } else if (xhr.readyState > 0) {
+          console.log('bfnav: apiRequest error, reloading, method =', method, 'status =', xhr.status);
           location.reload();
         }
       }
@@ -364,6 +366,7 @@ function ajInit(options) {
 
   function onResult(url, http_code, result, push_state) {
     hideProgress();
+    console.log('bfnav: onResult', url, 'http =', http_code, 'v =', result && result.v, 'need =', Aj.version, 'r =', result && result.r, 'l =', result && !!result.l);
     if (http_code != 200 || !result || !result.v || result.v != Aj.version) {
       changeLocation(url, push_state);
       return;
