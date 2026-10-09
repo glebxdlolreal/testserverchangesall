@@ -243,6 +243,11 @@ function ajInit(options) {
   }
 
   function changeLocation(url, push_state) {
+    if (url == location.href) {
+      console.log('bfnav: changeLocation same url, reloading', url);
+      location.reload();
+      return;
+    }
     console.log('bfnav: changeLocation', url, 'push =', push_state);
     console.trace && console.trace('bfnav: changeLocation caller');
     if (push_state) {
