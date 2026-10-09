@@ -113,14 +113,19 @@ var TWebApp = {
   },
   checkAuth() {
     var authPage = Aj.state.authPage === true;
+    console.log('bfwebauth v2: checkAuth', 'authPage =', authPage, 'initData =', !!WebApp.initData);
     Aj.apiRequest('auth', {_auth: WebApp.initData}, res => {
+      console.log('bfwebauth v2: auth response', res.ok ? 'ok' : ('error: ' + res.error));
       if (res.ok) {
         Aj.unauth = false;
         if (res.api_url) {
           Aj.apiUrl = res.api_url;
         }
         if (authPage) {
-          if (Date.now() - TWebApp.authRedirectTime() < 15000) {
+          var sinceLastRedirect = Date.now() - TWebApp.authRedirectTime();
+          console.log('bfwebauth v2: authPage redirect, ms since last =', sinceLastRedirect);
+          if (sinceLastRedirect < 15000) {
+            console.log('bfwebauth v2: BREAKER fired, showing expired');
             TWebApp.showExpired();
             return;
           }
@@ -138,6 +143,7 @@ var TWebApp = {
           }
         }
       } else {
+        console.log('bfwebauth v2: auth failed', res.error);
         Aj.unauth = true;
         if (!authPage) {
           Aj.location(Aj.state.authHref || (window.basePath || '') + '/auth');
