@@ -2058,7 +2058,7 @@ var WebsiteTheme = {
 
   var Bugtracker = {
   queryCardId: function(query) {
-    var matches = /^\s*#c?(\d{1,15})\s*$/i.exec(query || '');
+    var matches = /^\s*#c?(\d{1,12})\s*$/i.exec(query || '');
     return matches ? parseInt(matches[1], 10) : false;
   },
   useMobileMarkdownInput: function() {
@@ -2644,7 +2644,7 @@ var Filters = {
         },
         onEnter: function(query) {
           var card_id = Bugtracker.queryCardId(query);
-          if (card_id) {
+          if (card_id && Aj.state.searchMethod == 'searchIssues') {
             return Aj.layerLocation('c/' + card_id);
           }
           Filters.updateForm();
