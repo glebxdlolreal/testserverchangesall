@@ -1612,9 +1612,6 @@ function checkFrameSize() {
           effectEl.style.visibility = 'hidden';
         });
       }, postEl);
-      gec('.tgme_widget_message_inline_button_icon', function() {
-        TEmoji.init(this);
-      }, postEl);
       gec('.js-videosticker', function() {
         TVideoSticker.init(this, function() {
           addClass(postEl, 'media_not_supported');
@@ -1663,16 +1660,12 @@ function checkFrameSize() {
       });
     },
     wrapTextNodes: function(el) {
-      var skipTags = {TABLE: 1, TBODY: 1, THEAD: 1, TFOOT: 1, TR: 1};
       gec(el.childNodes, function() {
         if (this.nodeType == this.TEXT_NODE) {
-          if (skipTags[this.parentNode.tagName]) {
-            return;
-          }
           var text = newEl('span', 'd-text');
           this.parentNode.insertBefore(text, this);
           text.appendChild(this);
-        } else if (!this.classList.contains('tg-spoiler') && this.childNodes && !skipTags[this.tagName]) {
+        } else if (!this.classList.contains('tg-spoiler') && this.childNodes) {
           TPost.wrapTextNodes(this);
         }
       });
@@ -2600,9 +2593,6 @@ function checkFrameSize() {
         TPost.init(this, {tgs_workers_limit: 1});
         addEvent(ge('.js-poll_option', this), 'click', TWidgetPost.eSelectPollOption);
         addEvent(ge('.js-poll_vote_btn', this), 'click', TWidgetPost.eSendVotes);
-        gec('.js-poll_timer', function() {
-          TWidgetPost.initPollTimer(this);
-        }, this);
       });
       initWidgetFrame({
         auto_height: true,
@@ -2627,33 +2617,6 @@ function checkFrameSize() {
           removeClass(document.body, 'no_transitions');
         }, 100);
       }
-    },
-    initPollTimer: function(timerEl) {
-      if (!timerEl || timerEl._timerInited) return;
-      timerEl._timerInited = true;
-      var closeDate = parseInt(timerEl.getAttribute('data-close-date'));
-      var timeEl = timerEl.querySelector('.js-poll_timer_time');
-      if (!timeEl || !closeDate) return;
-      function tick() {
-        var now = Math.floor(Date.now() / 1000);
-        var remaining = closeDate - now;
-        if (remaining <= 0) {
-          timeEl.textContent = '00:00:00';
-          if (timerEl._interval) {
-            clearInterval(timerEl._interval);
-            timerEl._interval = null;
-          }
-          return;
-        }
-        var hours = Math.floor(remaining / 3600);
-        var minutes = Math.floor((remaining % 3600) / 60);
-        var seconds = remaining % 60;
-        timeEl.textContent = (hours < 10 ? '0' : '') + hours + ':' +
-                             (minutes < 10 ? '0' : '') + minutes + ':' +
-                             (seconds < 10 ? '0' : '') + seconds;
-      }
-      tick();
-      timerEl._interval = setInterval(tick, 1000);
     },
     eSelectPollOption: function(e) {
       e.preventDefault();
@@ -2716,7 +2679,6 @@ function checkFrameSize() {
           setHtml(poll_el, media_html);
           addEvent(ge('.js-poll_option', poll_el), 'click', TWidgetPost.eSelectPollOption);
           addEvent(ge('.js-poll_vote_btn', poll_el), 'click', TWidgetPost.eSendVotes);
-          gec('.js-poll_timer', TWidgetPost.initPollTimer, poll_el);
         }
         toggleClass(poll_el, 'selected', ge('.js-poll_option.selected', poll_el).length > 0);
       });

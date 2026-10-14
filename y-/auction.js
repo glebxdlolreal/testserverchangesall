@@ -101,14 +101,12 @@ var Main = {
     var $form = $(form);
     $('.form-control:has(+.form-control-hint)', $form).on('keyup change input', Main.eUpdateFieldHint);
     $('.js-amount-input', $form).on('keyup change input', Main.eUpdateAmountField);
-    $('input[name="payment_method"]', $form).on('change', Main.ePaymentMethodChanged);
     $('.js-amount-input', $form).trigger('input');
   },
   destroyForm: function(form) {
     var $form = $(form);
     $('.form-control:has(+.form-control-hint)', $form).off('keyup change input', Main.eUpdateFieldHint);
     $('.js-amount-input', $form).off('keyup change input', Main.eUpdateAmountField);
-    $('input[name="payment_method"]', $form).off('change', Main.ePaymentMethodChanged);
   },
   updateTime: function() {
     var now = Math.round(+(new Date) / 1000);
@@ -456,35 +454,20 @@ var Main = {
     }
     if (e.type == 'change') {
       if (new_value.length && !is_invalid) {
-        if ($fieldEl.attr('data-decimals')) {
-          this.value = formatNumber(float_value, parseInt($fieldEl.attr('data-decimals')), '.', '');
+        if ($fieldEl.attr('data-ton-for')) {
+          this.value = formatNumber(float_value, 2, '.', '');
         } else {
           this.value = Main.wrapTonAmount(float_value, true);
         }
       }
     }
     if (e.type == 'input') {
-      var forClass, usdForClass, tonForClass;
+      var forClass, usdForClass;
       if (forClass = $fieldEl.attr('data-for')) {
         $('.' + forClass).html(Main.wrapTonAmount(field_value));
       }
       if (usdForClass = $fieldEl.attr('data-usd-for')) {
         $('.' + usdForClass).html(Main.wrapUsdAmount(field_value));
-      }
-      if (tonForClass = $fieldEl.attr('data-ton-for')) {
-        var $tonForm = $fieldEl.closest('form');
-        var isTonMethod = $tonForm.find('input[name="payment_method"]:checked').val() == 'ton' ||
-                          !$tonForm.find('input[name="payment_method"]').length;
-        var tonValue = isTonMethod && field_value !== false && Aj.state.tonRate
-          ? Main.wrapTonAmount(field_value / Aj.state.tonRate, false, 4)
-          : '';
-        $('.' + tonForClass).html(tonValue);
-        var $tonHint = $tonForm.find('.js-ton-price-hint');
-        if (tonValue) {
-          $tonHint.show();
-        } else {
-          $tonHint.hide();
-        }
       }
     }
   },
@@ -760,16 +743,6 @@ var Main = {
     var $form = $('.js-stars-form');
     if ($form.length) {
       $form.toggleClass('ton-payment', $form.field('payment_method').value() == 'ton');
-    }
-    var $rechargeForm = $('.js-recharge-form');
-    if ($rechargeForm.length) {
-      var $tonHint = $rechargeForm.find('.js-ton-price-hint');
-      if ($rechargeForm.field('payment_method').value() == 'ton') {
-        var $input = $rechargeForm.find('.js-amount-input');
-        $input.trigger('input');
-      } else {
-        $tonHint.hide();
-      }
     }
   },
   eMainSearchClear: function(e) {
