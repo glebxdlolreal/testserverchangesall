@@ -241,10 +241,6 @@ function ajInit(options) {
   }
 
   function changeLocation(url, push_state) {
-    if (url == location.href) {
-      location.reload();
-      return;
-    }
     if (push_state) {
       location.href = url;
     } else {

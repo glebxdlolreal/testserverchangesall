@@ -2057,10 +2057,6 @@ var WebsiteTheme = {
 };
 
   var Bugtracker = {
-  queryCardId: function(query) {
-    var matches = /^\s*#c?(\d{1,12})\s*$/i.exec(query || '');
-    return matches ? parseInt(matches[1], 10) : false;
-  },
   useMobileMarkdownInput: function() {
     var isSmallDisplay = false;
     if (window.matchMedia) {
@@ -2643,10 +2639,6 @@ var Filters = {
           Bugtracker.updateField($filtersInput);
         },
         onEnter: function(query) {
-          var card_id = Bugtracker.queryCardId(query);
-          if (card_id && Aj.state.searchMethod == 'searchIssues') {
-            return Aj.layerLocation('c/' + card_id);
-          }
           Filters.updateForm();
         },
         onClear: function(query) {
