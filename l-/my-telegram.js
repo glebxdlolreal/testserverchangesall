@@ -125,7 +125,7 @@
 
   /* ---------- country picker ---------- */
   function countryFlag(iso2) {
-    if (!/^[A-Z]{2}$/.test(iso2)) return '\u{1F310}';
+    if (!/^[A-Z]{2}$/.test(iso2) || iso2 === 'FT') return '\u{1F310}';
     return String.fromCodePoint(0x1F1E6 + iso2.charCodeAt(0) - 65, 0x1F1E6 + iso2.charCodeAt(1) - 65);
   }
 
