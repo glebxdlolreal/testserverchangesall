@@ -17,7 +17,6 @@
   --success-soft: #e9f6ef;
   --warn-soft: #fff6e0;
   --warn: #b97a00;
-  --warn-callout-text: #483813;
   --danger-fg: var(--danger);
   --callout-text: var(--text-2);
   --radius: 16px;
@@ -32,7 +31,7 @@
     --line: rgba(255,255,255,.08); --accent: #3390ec; --accent-strong: #5eb0f3; --accent-hover: #5eb0f3; --accent-soft: rgba(51, 144, 236, .16);
     --danger-strong: #f06a6e; --danger-fg: #f27578; --danger-soft: #3a1d22;
     --success-soft: #16301f; --warn: #f0b54a; --warn-soft: rgba(240, 181, 74, .13);
-    --callout-text: var(--text); --warn-callout-text: var(--text);
+    --callout-text: var(--text);
     --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25); color-scheme: dark;
   }
 }
@@ -41,7 +40,7 @@
   --line: rgba(255,255,255,.08); --accent: #3390ec; --accent-strong: #5eb0f3; --accent-hover: #5eb0f3; --accent-soft: rgba(51, 144, 236, .16);
   --danger-strong: #f06a6e; --danger-fg: #f27578; --danger-soft: #3a1d22;
   --success-soft: #16301f; --warn: #f0b54a; --warn-soft: rgba(240, 181, 74, .13);
-  --callout-text: var(--text); --warn-callout-text: var(--text);
+  --callout-text: var(--text);
   --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25); color-scheme: dark;
 }
 
@@ -105,10 +104,10 @@ body {
   padding: 24px 14px 8px; outline: none; transition: border-color .15s, background .15s, box-shadow .15s;
 }
 .field > textarea { min-height: 104px; resize: vertical; padding-top: 26px; }
-.field label { position: absolute; left: 15px; top: 17.5px; line-height: 22.5px; color: var(--text-3); pointer-events: none; transition: all .15s; font-size: 15px; }
+.field label { position: absolute; left: 15px; top: 16px; color: var(--text-3); pointer-events: none; transition: all .15s; font-size: 15px; }
 .field > input:focus, .field > textarea:focus { border-color: var(--accent); background: var(--surface); box-shadow: 0 0 0 4px var(--accent-soft); }
 .field > input:focus + label, .field > input:not(:placeholder-shown) + label,
-.field > textarea:focus + label, .field > textarea:not(:placeholder-shown) + label { top: 7px; font-size: 12px; line-height: 1.5; color: var(--text-2); }
+.field > textarea:focus + label, .field > textarea:not(:placeholder-shown) + label { top: 7px; font-size: 12px; color: var(--text-2); }
 .field > input:focus + label, .field > textarea:focus + label { color: var(--accent-strong); }
 .field .hint { display: flex; justify-content: space-between; gap: 12px; font-size: 12.5px; color: var(--text-3); margin: 6px 4px 0; }
 .field.ok > input { border-color: var(--accent); }
@@ -167,7 +166,6 @@ body {
 .callout.success { background: var(--success-soft); color: var(--success); }
 .callout div > b:first-child { display: block; margin-bottom: 2px; }
 .callout p { margin: 0; color: var(--callout-text); }
-.callout.warn p { color: var(--warn-callout-text); }
 .alert-slot:empty { display: none; }
 .alert-slot .callout { margin-bottom: 18px; }
 
@@ -224,7 +222,7 @@ details.key pre { font-family: var(--mono); font-size: 11.5px; line-height: 1.55
 .auth .card { text-align: left; }
 .auth .alert-slot { text-align: left; }
 .code-input {
-  text-align: left; font-family: var(--mono) !important; font-weight: 600; letter-spacing: .12em;
+  text-align: center; font-family: var(--mono) !important; font-size: 22px !important; font-weight: 600; letter-spacing: .12em;
 }
 .resend { text-align: center; color: var(--text-3); font-size: 13.5px; margin-top: 16px; }
 .resend a { color: var(--accent-strong); text-decoration: none; cursor: pointer; }
