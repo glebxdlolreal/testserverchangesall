@@ -972,21 +972,28 @@ var Wallet = {
                 wallet.connectItems &&
                 wallet.connectItems.tonProof &&
                 wallet.connectItems.tonProof.proof) {
-              Aj.apiRequest('checkTonProofAuth', {
-                account: JSON.stringify(wallet.account),
-                device:  JSON.stringify(wallet.device),
-                proof:   JSON.stringify(wallet.connectItems.tonProof.proof)
-              }, function(result) {
-                if (result.verified) {
-                  location.reload();
-                } else {
-                  Wallet.disconnect();
-                  if (result.error) {
-                    showAlert(result.error);
+              var tonProofCheck = function(attempt) {
+                Aj.apiRequest('checkTonProofAuth', {
+                  account: JSON.stringify(wallet.account),
+                  device:  JSON.stringify(wallet.device),
+                  proof:   JSON.stringify(wallet.connectItems.tonProof.proof)
+                }, function(result) {
+                  if (result.verified) {
+                    location.reload();
+                  } else if (result.pending && attempt < 8) {
+                    setTimeout(function() {
+                      tonProofCheck(attempt + 1);
+                    }, 2000);
+                  } else {
+                    Wallet.disconnect();
+                    if (result.error) {
+                      showAlert(result.error);
+                    }
                   }
-                }
-                console.log('verified', result.verified);
-              });
+                  console.log('verified', result.verified);
+                });
+              };
+              tonProofCheck(0);
             } else {
               Wallet.checkWallet();
             }
