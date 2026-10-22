@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Guardian Bot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="MobileOptimized" content="176" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="robots" content="noindex, nofollow" />
+    <script src="https://a-tgme.stel.com/js/telegram-web-app-beta.js?92"></script>
+    <link href="/css/telegram.css?256" rel="stylesheet">
+    <style>
+      .main-container {
+        display: flex;
+        min-height: var(--tg-viewport-height);
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .btn.btn-primary {
+        width: 240px;
+        font-size: 20px;
+        border-radius: 8px;
+        padding: 14px 12px;
+        background: #21a7ea;
+        color: white;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <button class="btn btn-primary btn-block" onclick="sendResult('approved');">Approve</button>
+      <button class="btn btn-primary btn-block" onclick="sendResult('queued');">Queue</button>
+      <button class="btn btn-primary btn-block" onclick="sendResult('declined');">Decline</button>
+    </div>
+    <script>
+      Telegram.WebApp.ready();
+      function sendResult(result) {
+        var queryId = Telegram.WebApp.initDataUnsafe.chat_join_request_query_id;
+        if (!queryId) {
+          alert('No query_id');
+          return;
+        }
+        fetch('/guardtest/api', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          body: 'result=' + encodeURIComponent(result) + '&_auth=' + encodeURIComponent(Telegram.WebApp.initData)
+        }).then(function(r) { return r.json(); }).then(function(data) {
+          if (data.ok) {
+            Telegram.WebApp.close();
+          } else {
+            alert('Error: ' + (data.error || 'unknown'));
+          }
+        }).catch(function(e) {
+          alert('Request failed: ' + e);
+        });
+      }
+    </script>
+  </body>
+</html>
