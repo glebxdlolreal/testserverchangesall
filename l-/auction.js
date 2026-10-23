@@ -869,7 +869,7 @@ var Main = {
 var Login = {
   init: function(options) {
     Telegram.Login.init(options, function(user) {
-      if (user && !user.error) {
+      if (user) {
         Login.auth(user);
       }
     });
@@ -917,7 +917,6 @@ var Wallet = {
     Aj.globalState.tonConnectLoggedIn = options.logged_in || false;
     Aj.globalState.tonConnectProof = options.ton_proof || '';
     Aj.globalState.tonConnectVersion = options.version || 1;
-    Aj.globalState.tonConnectOauthSession = options.oauth || false;
     if (Aj.globalState.tonConnectVersion == 2) {
       var tonConnectUI = Aj.globalState.tonConnectUI;
       if (!tonConnectUI) {
@@ -972,28 +971,21 @@ var Wallet = {
                 wallet.connectItems &&
                 wallet.connectItems.tonProof &&
                 wallet.connectItems.tonProof.proof) {
-              var tonProofCheck = function(attempt) {
-                Aj.apiRequest('checkTonProofAuth', {
-                  account: JSON.stringify(wallet.account),
-                  device:  JSON.stringify(wallet.device),
-                  proof:   JSON.stringify(wallet.connectItems.tonProof.proof)
-                }, function(result) {
-                  if (result.verified) {
-                    location.reload();
-                  } else if (result.pending && attempt < 8) {
-                    setTimeout(function() {
-                      tonProofCheck(attempt + 1);
-                    }, 2000);
-                  } else {
-                    Wallet.disconnect();
-                    if (result.error) {
-                      showAlert(result.error);
-                    }
+              Aj.apiRequest('checkTonProofAuth', {
+                account: JSON.stringify(wallet.account),
+                device:  JSON.stringify(wallet.device),
+                proof:   JSON.stringify(wallet.connectItems.tonProof.proof)
+              }, function(result) {
+                if (result.verified) {
+                  location.reload();
+                } else {
+                  Wallet.disconnect();
+                  if (result.error) {
+                    showAlert(result.error);
                   }
-                  console.log('verified', result.verified);
-                });
-              };
-              tonProofCheck(0);
+                }
+                console.log('verified', result.verified);
+              });
             } else {
               Wallet.checkWallet();
             }
@@ -1083,8 +1075,7 @@ var Wallet = {
     return false;
   },
   checkWallet: function() {
-    if (Aj.globalState.tonConnectVersion == 2 &&
-        !Aj.globalState.tonConnectOauthSession) {
+    if (Aj.globalState.tonConnectVersion == 2) {
       var authAddress = Aj.globalState.tonConnectAuthAddress,
           wallet = Aj.globalState.tonConnectUI.wallet;
       if (wallet && wallet.account) {
