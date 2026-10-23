@@ -48,7 +48,7 @@ var CreateBot = {
     $('input[name=username]').on('input', (ev) => {
       var $hint = $('.hint-text[data-for=username]');
       $hint.attr('class', 'hint-text hint-text-loading');
-      $hint.text('Checking username');
+      $hint.text(l('WEB_USERNAME_CHECKING'));
       usernameDebounce(CreateBot.checkUsername, 400);
     })
 
@@ -58,13 +58,13 @@ var CreateBot = {
     var $input = $('input[name=username]');
     var value = $input.val();
     $hint.attr('class', 'hint-text hint-text-loading');
-    $hint.text('Checking username');
+    $hint.text(l('WEB_USERNAME_CHECKING'));
     Aj.apiRequest('checkBotUsername', { username: value }, res => {
       if ($input.val() !== value) return;
       if (res.ok) {
         Aj.state.username_valid = true;
         $hint.attr('class', 'hint-text hint-text-success');
-        $hint.text(value + ' is available.');
+        $hint.text(l('WEB_USERNAME_AVAILABLE', {username: value}));
       } else {
         Aj.state.username_valid = false;
         $hint.attr('class', 'hint-text hint-text-error');
@@ -112,6 +112,184 @@ var CreateBot = {
         if (res.error) {
           TWebApp.showErrorToast(res.error);
         }
+    });
+  }
+}
+
+var BotUsernames = {
+  init() {
+    $('.js-usernames-list').sortable({items: '.js-sortable'}).on('sortchange', function ( event, ui ) {
+      WebApp.HapticFeedback.selectionChanged();
+    });
+
+    Aj.state.edit = false;
+    $('.js-usernames-list').sortable('disable');
+
+    Aj.state.$editBtn = $('.js-usernames-edit').on('click', BotUsernames.toggleEdit);
+
+    $('.js-usernames-list').on('click', '.js-username-row', function () {
+      if (Aj.state.edit) return;
+      var row = this;
+      var username = row.dataset.username;
+      var type = row.dataset.type;
+
+      if (type == 'none') {
+        return;
+      }
+      if (type == 'additional' || type == 'plain') {
+        BotUsernames.askRemove(username);
+        return;
+      }
+
+      var isActive = row.dataset.active == '1';
+      if (isActive &&
+          $('.js-username-row[data-active="1"]').length == 1) {
+        TWebApp.showErrorToast(l('WEB_USERNAMES_LAST_ACTIVE'));
+        return;
+      }
+      var buttons = [
+        {type: 'cancel'},
+        {
+          id: 'toggle',
+          text: uncleanHTML(l(isActive ? 'WEB_USERNAMES_HIDE' : 'WEB_USERNAMES_SHOW_BTN')),
+          type: 'default',
+        },
+      ];
+
+      WebApp.showPopup({
+        title: uncleanHTML(l(isActive ? 'WEB_USERNAMES_DEACTIVATE_TITLE' : 'WEB_USERNAMES_ACTIVATE_TITLE')),
+        message: uncleanHTML(l(isActive ? 'WEB_USERNAMES_DEACTIVATE_MSG' : 'WEB_USERNAMES_ACTIVATE_MSG')),
+        buttons: buttons
+      }, (result) => {
+        if (result == 'toggle') {
+          var active = !isActive;
+          Aj.apiRequest('toggleBotUsername', { bid: Aj.state.botId, username: username, active: active ? 1 : 0 }, res => {
+            if (res.error) {
+              TWebApp.showErrorToast(res.error);
+              return;
+            }
+            Aj.location(window.location.pathname);
+          });
+        }
+      });
+    });
+
+    $('.js-usernames-add-limit').on('click', function (e) {
+      e.preventDefault();
+      TWebApp.showErrorToast(l(this.dataset.errorKey));
+    });
+  },
+  askRemove(username) {
+    WebApp.showPopup({
+      title: uncleanHTML(l('WEB_USERNAMES_REMOVE_TITLE')),
+      message: uncleanHTML(l('WEB_USERNAMES_REMOVE_CONFIRM')),
+      buttons: [
+        {type: 'cancel'},
+        {id: 'remove', text: uncleanHTML(l('WEB_USERNAMES_REMOVE_BTN')), type: 'destructive'}
+      ]
+    }, (result) => {
+      if (result == 'remove') {
+        Aj.apiRequest('removeBotUsername', { bid: Aj.state.botId, username: username }, res => {
+          if (res.error) {
+            TWebApp.showErrorToast(res.error);
+            return;
+          }
+          if (res.msg) {
+            Aj.onUnload(() => TWebApp.showSuccessToast(res.msg));
+          }
+          Aj.location(window.location.pathname);
+        });
+      }
+    });
+  },
+  toggleEdit(value) {
+    var edit = value !== undefined ? !Aj.state.edit : value;
+    Aj.state.edit = edit;
+    if (!edit) {
+      BotUsernames.submit();
+    }
+    $('.js-usernames-list').toggleClass('list-prevent-edit', !edit);
+    $('.js-usernames-list').sortable(edit ? 'enable' : 'disable');
+    Aj.state.$editBtn.text(edit ? l('WEB_COMMANDS_DONE_BTN') : l('WEB_COMMANDS_EDIT_BTN'));
+  },
+  submit() {
+    var order = $('.js-usernames-list .js-sortable').toArray().map(el => {
+      return el.dataset.username;
+    });
+    Aj.apiRequest('reorderBotUsernames', {
+      bid: Aj.state.botId,
+      order: order,
+    }, (res) => {
+      if (res.error) {
+        TWebApp.showErrorToast(res.error);
+        return;
+      }
+      Aj.location(window.location.pathname);
+    });
+  }
+}
+
+var BotUsernameCreate = {
+  init() {
+    var usernameDebounce = Aj.state.usernameDebounce = debounce();
+
+    $('input[name=username]').on('input', (ev) => {
+      var $hint = $('.hint-text[data-for=username]');
+      $hint.attr('class', 'hint-text hint-text-loading');
+      $hint.text(l('WEB_USERNAME_CHECKING'));
+      Aj.state.username_valid = false;
+      usernameDebounce(BotUsernameCreate.checkUsername, 400);
+    });
+
+    WebApp.MainButton.setText(l('WEB_USERNAMES_ADD'));
+    WebApp.MainButton.onClick(BotUsernameCreate.submit);
+    WebApp.MainButton.show();
+
+    Aj.onUnload(() => {
+      WebApp.MainButton.offClick(BotUsernameCreate.submit);
+      WebApp.MainButton.hide();
+    });
+  },
+  checkUsername() {
+    var $hint = $('.hint-text[data-for=username]');
+    var $input = $('input[name=username]');
+    var value = $input.val();
+    $hint.attr('class', 'hint-text hint-text-loading');
+    $hint.text(l('WEB_USERNAME_CHECKING'));
+    if (!value) {
+      $hint.attr('class', 'hint-text');
+      $hint.text('');
+      return;
+    }
+    Aj.apiRequest('checkBotAdditionalUsername', { bid: Aj.state.botId, username: value }, res => {
+      if ($input.val() !== value) return;
+      if (res.ok) {
+        Aj.state.username_valid = true;
+        $hint.attr('class', 'hint-text hint-text-success');
+        $hint.text(l('WEB_USERNAME_AVAILABLE', {username: value}));
+      } else {
+        Aj.state.username_valid = false;
+        $hint.attr('class', 'hint-text hint-text-error');
+        $hint.html(res.error);
+      }
+    });
+  },
+  submit() {
+    var value = $('input[name=username]').val()?.trim();
+    if (!value || !Aj.state.username_valid) {
+      TWebApp.showErrorToast(l('WEB_USERNAME_REQUIRED'));
+      $('input[name=username]').focus();
+      return;
+    }
+    WebApp.MainButton.showProgress();
+    Aj.apiRequest('addBotUsername', { bid: Aj.state.botId, username: value }, res => {
+      WebApp.MainButton.hideProgress();
+      if (res.error) {
+        TWebApp.showErrorToast(res.error);
+        return;
+      }
+      Aj.location('/botfather/bot/' + Aj.state.botId + '/usernames');
+      Aj.onUnload(() => TWebApp.showSuccessToast(res.msg));
     });
   }
 }
@@ -1303,7 +1481,7 @@ var BotAppEdit = {
       WebApp.MainButton.hideProgress();
       if (res.ok) {
         Aj.onUnload(() => TWebApp.showSuccessToast(res.msg));
-        Aj.location(`/botfather/bot/${Aj.state.botId}/apps`);
+        Aj.location(`/botfather/bot/${Aj.state.botId}/apps${Aj.state.appsFrom || ''}`);
       } else if (res.error) {
         TWebApp.showErrorToast(res.error);
       }
@@ -1435,7 +1613,7 @@ var BotMainApp = {
             TWebApp.showErrorToast(res.error)
           } else {
             Aj.onUnload(() => TWebApp.showSuccessToast(res.msg));
-            Aj.location('/botfather/bot/' + Aj.state.botId + '/apps')
+            Aj.location('/botfather/bot/' + Aj.state.botId + '/apps' + (Aj.state.appsFrom || ''))
           }
         });
       });
@@ -1459,7 +1637,7 @@ var BotMainApp = {
         TWebApp.showErrorToast(res.error)
       } else {
         Aj.onUnload(() => TWebApp.showSuccessToast(res.msg));
-        Aj.location('/botfather/bot/' + Aj.state.botId + '/apps')
+        Aj.location('/botfather/bot/' + Aj.state.botId + '/apps' + (Aj.state.appsFrom || ''))
       }
     })
   }
@@ -1505,7 +1683,7 @@ var BotMenuApp = {
         }, res => {
           if (res.ok) {
             Aj.onUnload(() => TWebApp.showSuccessToast(res.msg));
-            Aj.location(`/botfather/bot/${Aj.state.botId}/apps`);
+            Aj.location(`/botfather/bot/${Aj.state.botId}/apps${Aj.state.appsFrom || ''}`);
           } else if (res.error) {
             TWebApp.showErrorToast(res.error);
           }
@@ -1545,7 +1723,7 @@ var BotMenuApp = {
       WebApp.MainButton.hideProgress();
       if (res.ok) {
         Aj.onUnload(() => TWebApp.showSuccessToast(res.msg));
-        Aj.location(`/botfather/bot/${Aj.state.botId}/apps`);
+        Aj.location(`/botfather/bot/${Aj.state.botId}/apps${Aj.state.appsFrom || ''}`);
       } else if (res.error) {
         TWebApp.showErrorToast(res.error);
       }
@@ -1686,7 +1864,7 @@ var BotLaunchScreen = {
       WebApp.MainButton.hideProgress();
       if (res.ok) {
         Aj.onUnload(() => TWebApp.showSuccessToast(res.msg));
-        Aj.location(`/botfather/bot/${Aj.state.botId}/apps`);
+        Aj.location(`/botfather/bot/${Aj.state.botId}/apps${Aj.state.appsFrom || ''}`);
       } else if (res.error) {
         TWebApp.showErrorToast(res.error);
       }
@@ -2224,40 +2402,79 @@ var BotCodeEditor = {
   },
 };
 
-var BotLibrary = {
+var BotLibraryCreate = {
   init() {
-    var isNew = Aj.state.isLibraryNew;
     var $input = $('#library-name');
 
-    if (isNew) {
-      $input.on('input', function() {
-        var filtered = $input.val().replace(/[^a-zA-Z0-9_\/-]/g, '');
-        if (filtered.indexOf('//') !== -1) {
-          filtered = filtered.replace(/\/+/g, '/');
-        }
-        $input.val(filtered);
-      });
-    }
+    $input.on('input', function() {
+      var filtered = $input.val().replace(/[^a-zA-Z0-9_\/-]/g, '');
+      if (filtered.indexOf('//') !== -1) {
+        filtered = filtered.replace(/\/+/g, '/');
+      }
+      $input.val(filtered);
+    });
 
+    WebApp.MainButton.setText(uncleanHTML(l('WEB_GENERIC_CONTINUE')));
+    WebApp.MainButton.show();
+    WebApp.MainButton.onClick(BotLibraryCreate.onContinue);
+    Aj.onUnload(function() {
+      WebApp.MainButton.hide();
+      WebApp.MainButton.offClick(BotLibraryCreate.onContinue);
+    });
+  },
+
+  onContinue() {
+    var name = $('#library-name').val().trim();
+    if (!name || !/^(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_-]+$/.test(name)) {
+      TWebApp.showErrorToast(l('WEB_LIBRARY_FILE_PLACEHOLDER'));
+      $('#library-name').focus();
+      return;
+    }
+    WebApp.MainButton.showProgress();
+    Aj.apiRequest('checkCloudModuleName', { bid: Aj.state.botId, module: 'lib/' + name }, function(res) {
+      WebApp.MainButton.hideProgress();
+      if (res.error) {
+        TWebApp.showErrorToast(res.error);
+        return;
+      }
+      if (!res.exists) {
+        Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/lib/' + name);
+        return;
+      }
+      WebApp.showPopup({
+        title: uncleanHTML(l('WEB_LIBRARY_EXISTS_TITLE')),
+        message: uncleanHTML(l('WEB_LIBRARY_EXISTS_BODY')),
+        buttons: [
+          { id: 'edit', text: uncleanHTML(l('WEB_LIBRARY_EXISTS_EDIT')) },
+          { type: 'cancel' },
+        ],
+      }, function(result) {
+        if (result === 'edit') {
+          Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/lib/' + name);
+        } else {
+          $('#library-name').focus();
+        }
+      });
+    });
+  },
+};
+
+var BotLibrary = {
+  init() {
     BotCodeEditor.init('library-editor', {
       apiMethod: 'saveCloudLibraryFile',
-      apiParams: isNew ? {} : { name: Aj.state.libraryPath },
+      apiParams: { name: Aj.state.libraryPath, new: Aj.state.isLibraryNew ? 1 : 0 },
       savedLangKey: 'WEB_LIBRARY_FILE_SAVED',
       saveErrorLangKey: 'WEB_LIBRARY_FILE_SAVE_ERROR',
       placeholder: l('WEB_LIBRARY_CODE_PLACEHOLDER'),
     });
 
-    if (isNew) {
-      WebApp.MainButton.offClick(BotCodeEditor.onSave);
-      WebApp.MainButton.onClick(BotLibrary.onSave);
-      Aj.onUnload(function() { WebApp.MainButton.offClick(BotLibrary.onSave); });
-    }
+    $(document).on('click.libcopy', '.js-copy-lib-path', function() {
+      navigator.clipboard.writeText(this.dataset.value);
+      TWebApp.showSuccessToast(l('WEB_GENERIC_COPY_SUCCESS'));
+    });
 
-    if (!isNew) {
-      $(document).on('click.libcopy', '.js-copy-lib-path', function() {
-        navigator.clipboard.writeText(this.dataset.value);
-        TWebApp.showSuccessToast(l('WEB_GENERIC_COPY_SUCCESS'));
-      });
+    if (!Aj.state.isLibraryNew) {
       $(document).on('click.curPage', '.js-editor-delete', function() {
         WebApp.showPopup({
           title: uncleanHTML(l('WEB_LIBRARY_DELETE_CONFIRM_TITLE')),
@@ -2279,37 +2496,6 @@ var BotLibrary = {
         });
       });
     }
-  },
-  onSave() {
-    var name = $('#library-name').val().trim();
-    if (!name || !/^(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_-]+$/.test(name)) {
-      TWebApp.showErrorToast(l('WEB_LIBRARY_FILE_PLACEHOLDER'));
-      $('#library-name').focus();
-      return;
-    }
-    var existing = Aj.state.existingLibraries || [];
-    if (existing.indexOf(name) !== -1) {
-      TWebApp.showErrorToast(l('WEB_LIBRARY_FILE_EXISTS'));
-      $('#library-name').focus();
-      return;
-    }
-
-    var code = BotCodeEditor.cm.getValue();
-    WebApp.MainButton.showProgress();
-    Aj.apiRequest('saveCloudLibraryFile', {
-      bid: Aj.state.botId,
-      name: name,
-      code: code,
-    }, function(res) {
-      WebApp.MainButton.hideProgress();
-      if (res.ok) {
-        BotCodeEditor.savedCode = code;
-        Aj.onUnload(function() { TWebApp.showSuccessToast(l('WEB_LIBRARY_FILE_SAVED')); });
-        TBackButton.onClick();
-      } else {
-        TWebApp.showErrorToast(res.error || l('WEB_LIBRARY_FILE_SAVE_ERROR'));
-      }
-    });
   },
 };
 
@@ -2569,7 +2755,7 @@ var BotConsole = {
   draft: '',
   isRunning: false,
 
-  init(functionName) {
+  init(moduleName) {
     var isMac = /Mac|iPhone|iPad/.test(navigator.platform);
     var el = document.getElementById('console-editor');
     if (!el) return;
@@ -2584,10 +2770,10 @@ var BotConsole = {
       tabSize: 2,
       lineWrapping: true,
       guardedRegion: {
-        prefix: BotConsole.getPrefix(functionName),
+        prefix: BotConsole.getPrefix(moduleName),
         suffix: '});',
         placeholder: l('WEB_CONSOLE_PLACEHOLDER'),
-        prefixClassName: functionName ? '' : 'cm-guarded-default',
+        prefixClassName: moduleName ? '' : 'cm-guarded-default',
       },
       extraKeys: {
         'Up': BotConsole.onUp,
@@ -2606,13 +2792,7 @@ var BotConsole = {
   },
 
   getPrefix(name) {
-    return (name || l('WEB_FUNCTION_NAME_PLACEHOLDER')) + '({';
-  },
-
-  updatePrefix(name) {
-    if (!BotConsole.cm || !BotConsole.guarded) return;
-    BotConsole.guarded.setPrefix(BotConsole.getPrefix(name));
-    BotConsole.guarded.setPrefixClassName(name ? '' : 'cm-guarded-default');
+    return (name || l('WEB_CONSOLE_NAME_PLACEHOLDER')) + '({';
   },
 
   onShiftEnter(cm) {
@@ -2654,14 +2834,7 @@ var BotConsole = {
 
     var editable = BotConsole.guarded.getEditable();
     var isHandler = Aj.state.consoleMethod === 'runCloudHandler';
-    var moduleName = '';
-    if (isHandler) {
-      moduleName = Aj.state.handlerType;
-    } else if (Aj.state.isFunctionNew) {
-      moduleName = ($('#function-name').val() || '').trim();
-    } else {
-      moduleName = Aj.state.functionName;
-    }
+    var moduleName = isHandler ? Aj.state.handlerType : Aj.state.endpointName;
 
     $('#console .tm-console-line').remove();
 
@@ -2817,6 +2990,114 @@ var BotConsole = {
     if (type === 'inf') return 'i';
     if (type === 'log' || type === 'dbg') return '';
     return '>';
+  },
+};
+
+var BotEndpointCreate = {
+  init() {
+    var $input = $('#endpoint-name');
+
+    $input.on('input', function() {
+      var filtered = $input.val().replace(/[^a-zA-Z0-9_]/g, '');
+      if (filtered && !/^[a-zA-Z]/.test(filtered)) {
+        filtered = filtered.substring(1);
+      }
+      $input.val(filtered);
+    });
+
+    WebApp.MainButton.setText(uncleanHTML(l('WEB_GENERIC_CONTINUE')));
+    WebApp.MainButton.show();
+    WebApp.MainButton.onClick(BotEndpointCreate.onContinue);
+    Aj.onUnload(function() {
+      WebApp.MainButton.hide();
+      WebApp.MainButton.offClick(BotEndpointCreate.onContinue);
+    });
+  },
+
+  onContinue() {
+    var name = $('#endpoint-name').val().trim();
+    if (!name || !/^[a-z][a-z0-9_]{0,62}[a-z0-9]$/i.test(name)) {
+      TWebApp.showErrorToast(l('WEB_ENDPOINT_NAME_INVALID'));
+      $('#endpoint-name').focus();
+      return;
+    }
+    WebApp.MainButton.showProgress();
+    Aj.apiRequest('checkCloudModuleName', { bid: Aj.state.botId, module: 'endpoints/' + name }, function(res) {
+      WebApp.MainButton.hideProgress();
+      if (res.error) {
+        TWebApp.showErrorToast(res.error);
+        return;
+      }
+      if (!res.exists) {
+        Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/endpoint/' + name);
+        return;
+      }
+      WebApp.showPopup({
+        title: uncleanHTML(l('WEB_ENDPOINT_EXISTS_TITLE')),
+        message: uncleanHTML(l('WEB_ENDPOINT_EXISTS_BODY')),
+        buttons: [
+          { id: 'edit', text: uncleanHTML(l('WEB_ENDPOINT_EXISTS_EDIT')) },
+          { type: 'cancel' },
+        ],
+      }, function(result) {
+        if (result === 'edit') {
+          Aj.location('/botfather/bot/' + Aj.state.botId + '/serverless/endpoint/' + name);
+        } else {
+          $('#endpoint-name').focus();
+        }
+      });
+    });
+  },
+};
+
+var BotEndpoint = {
+  init() {
+    var isNew = Aj.state.isEndpointNew;
+
+    BotCodeEditor.init('endpoint-editor', {
+      apiMethod: 'saveCloudEndpoint',
+      apiParams: { name: Aj.state.endpointName, new: isNew ? 1 : 0 },
+      savedLangKey: 'WEB_ENDPOINT_SAVED',
+      saveErrorLangKey: 'WEB_ENDPOINT_SAVE_ERROR',
+    });
+
+    BotConsole.init(Aj.state.endpointName);
+
+    if (!isNew) {
+      $(document).on('click.curPage', '.js-editor-delete', function() {
+        WebApp.showPopup({
+          title: uncleanHTML(l('WEB_ENDPOINT_DELETE_CONFIRM_TITLE')),
+          message: uncleanHTML(l('WEB_ENDPOINT_DELETE_CONFIRM_BODY')),
+          buttons: [
+            { id: 'delete', text: uncleanHTML(l('WEB_EDITOR_DELETE')), type: 'destructive' },
+            { type: 'cancel' },
+          ]
+        }, function(result) {
+          if (result !== 'delete') return;
+          Aj.apiRequest('deleteCloudEndpoint', { bid: Aj.state.botId, name: Aj.state.endpointName }, function(res) {
+            if (res.ok) {
+              Aj.onUnload(function() { TWebApp.showSuccessToast(l('WEB_ENDPOINT_DELETED')); });
+              TBackButton.onClick();
+            } else {
+              TWebApp.showErrorToast(res.error);
+            }
+          });
+        });
+      });
+    }
+  },
+};
+
+var BotStatic = {
+  init() {
+    $(document).on('click.static', '.copy-btn', function () {
+      navigator.clipboard.writeText(this.dataset.value);
+      TWebApp.showSuccessToast(l('WEB_GENERIC_COPY_SUCCESS'));
+    });
+
+    Aj.onUnload(() => {
+      $(document).off('click.static', '.copy-btn');
+    });
   },
 };
 

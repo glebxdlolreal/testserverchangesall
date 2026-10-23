@@ -121,6 +121,15 @@ a:hover {
   }
 }
 
+.llm-hint {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 .tl_page_head,
 .dev_page_head {
   position: fixed;
@@ -3582,6 +3591,9 @@ a.tgme_head_dl_button:active,
   margin-left: 10px;
   vertical-align: top;
   font-weight: 500;
+}
+.tgme_page_title nobr {
+  display: inline-block;
 }
 .tgme_page_extra {
   font-size: 15px;
