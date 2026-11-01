@@ -2018,11 +2018,19 @@ a.tm-catalog-grid-more:focus {
   background-image: var(--image-url-usdt-ton-icon);
 }
 .tm-value .icon-usdt-ton:before,
-.tm-value .icon-ton-text:before {
+.tm-value .icon-ton-text:before,
+.tm-value .icon-usdt:before,
+.tm-value .icon-usdt-pol:before,
+.tm-value .icon-usdc:before,
+.tm-value .icon-usdc-base:before,
+.tm-value .icon-usdc-pol:before {
   vertical-align: middle;
 }
 .tm-value .icon-usdt-ton:before {
   margin-top: -1px;
+}
+.tm-value .icon-usdt:before {
+  margin-top: 0;
 }
 .icon-usdt:before {
   width: 13px;
