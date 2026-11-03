@@ -901,6 +901,7 @@ body.signed-out .page { grid-template-columns: 1fr; max-width: 640px; padding-to
   #app_edit_form .card-bar, #app_create_form .card-bar { gap: 10px; }
   #app_edit_form .card-bar .btn, #app_create_form .card-bar .btn { flex: 1 1 0; min-width: 0; padding: 0 10px; height: 48px; font-size: 15px; }
   #deactivate_actions, #deactivate_confirm_box .actions { flex-direction: column; align-items: stretch; gap: 10px; }
+  #deactivate_actions .btn, #deactivate_confirm_box .actions .btn { flex: none; width: 100%; height: 48px; font-size: 15px; }
   #deactivate_confirm_box .actions { flex-direction: row; }
   #deactivate_confirm_box .actions .btn { flex: 1 1 0; width: auto; min-width: 0; padding: 0 10px; height: 48px; }
   #deactivate_confirm_btn .full-label, #app_create_btn .full-label { display: none; }
