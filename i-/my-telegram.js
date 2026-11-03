@@ -348,6 +348,18 @@
     };
     w.vt.finished.then(clear, clear);
   }
+  /* the inline display:none (anti-FOUC) comes off only once the stylesheet is guaranteed loaded:
+     window load waits for it; an already-complete page (warm cache) fires at once */
+  function showSettingsMenuLater() {
+    if (document.readyState === 'complete') {
+      $all('.settings-menu').forEach(function (m) { m.style.display = ''; });
+      return;
+    }
+    window.addEventListener('load', function () {
+      $all('.settings-menu').forEach(function (m) { m.style.display = ''; });
+    }, { once: true });
+  }
+
   function initTheme() {
     initSettings();
     initEscBlur();
@@ -389,7 +401,7 @@
          it the "backdrop root" for anything inside, so the menu's blur saw only the empty bar and the page
          showed through it sharp. Out here the blur sees the page and the glass works. */
       document.body.appendChild(menu);
-      menu.style.display = ''; // inline anti-FOUC guard; the stylesheet's closed state takes over
+      showSettingsMenuLater();
       /* phones: the header links (Getting started, TDLib, API Terms) are hidden in the top bar, so the sheet
          gets a copy of them as rows with an icon and an "opens outside" arrow, between the theme row and Log
          out (user pick A). Built from the header links themselves, so they stay one list; hidden on desktop. */
