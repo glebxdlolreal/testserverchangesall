@@ -1824,11 +1824,15 @@
       /* check both fields every time so every bad field turns red at once */
       var titleOk = checkField(titleInput);
       var nameOk = checkField(nameInput);
+      /* a legacy value may violate current rules (created before they existed): it is flagged red,
+         but saving is only blocked while that rule-breaking value is the one being kept */
+      var titleStillOk = titleOk || titleInput.value === saved.title;
+      var nameStillOk = nameOk || nameInput.value === saved.name;
       /* the Save/Cancel row only exists while something has changed: it opens below the card */
       if (bar) bar.classList.toggle('open', dirty);
       if (cancelBtn) cancelBtn.classList.toggle('soft-hidden', !dirty);
       /* Save is inert until something differs from the saved values AND both fields are valid */
-      if (saveBtn) saveBtn.disabled = !dirty || !(titleOk && nameOk);
+      if (saveBtn) saveBtn.disabled = !dirty || !(titleStillOk && nameStillOk);
     }
     syncCancel();
     titleInput.addEventListener('input', syncCancel);
@@ -1962,7 +1966,7 @@
       function frame(t) {
         var dt = last ? Math.min(.05, (t - last) / 1000) : 0; last = t;
         draw(dt);
-        if (spot || (hidden && active())) raf = requestAnimationFrame(frame); else { raf = 0; last = 0; }
+        if (spot || (hidden && active())) raf = setTimeout(function () { raf = requestAnimationFrame(frame); }, 1000 / 30); else { raf = 0; last = 0; } // ambient dust: ~30 fps is plenty
       }
       function run() { if (!raf && !still && (spot || active())) { last = 0; raf = requestAnimationFrame(frame); } }
 
@@ -2462,16 +2466,16 @@
     }
     saveBtn.disabled = true;
     // a dropped file must be attached to the input as well, else the POST body goes out empty;
-    // engines without the DataTransfer constructor (old Safari) fall back to the file picker
+    // a fresh DataTransfer is built every time, so a second drop replaces the first one;
+    // engines without it (old Safari) fall back to the file picker
     function attach(file) {
-      if (input.files.length) return true; // chosen through the picker: nothing to attach
       try {
         var dt = new DataTransfer();
         dt.items.add(file);
         input.files = dt.files;
-        return !!input.files.length;
+        return true;
       } catch (e) {
-        return false;
+        return !!input.files.length; // file already in the input (picker path) is still fine
       }
     }
     function take(file) {
