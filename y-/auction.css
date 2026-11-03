@@ -6309,6 +6309,16 @@ a.tm-table-action-link:hover {
   color: var(--text-color);
   font-weight: 600;
 }
+.tm-tron-fee-hint {
+  display: none;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-color);
+  margin: 8px 19px 0;
+}
+.tm-main-form-group:has(input[name="payment_method"][value="usdt_tron"]:checked) .tm-tron-fee-hint {
+  display: block;
+}
 
 .tm-pay-wallet-label {
   text-align: center;
