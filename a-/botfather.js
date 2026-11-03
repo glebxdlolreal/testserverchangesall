@@ -714,9 +714,6 @@ var BotSettings = {
       if (field == 'btfnu') {
         botChangeSettings(field, value);
       }
-      if (field == 'btfsb') {
-        botChangeSettings(field, value);
-      }
       if (field == 'grps') {
         botChangeSettings(field, value);
       }
@@ -814,7 +811,6 @@ var BotSettings = {
 
     $('.js-threaded-mode-toggle').on('click', () => {
       $('.js-threaded-mode-nouser-toggle').toggleClass('hidden');
-      $('.js-threaded-mode-sidebar-toggle').toggleClass('hidden');
       WebApp.HapticFeedback.impactOccurred('soft');
     });
 

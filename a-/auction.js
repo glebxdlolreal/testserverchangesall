@@ -5349,7 +5349,7 @@ var PaymentInvoice = {
         $display.text('00:00');
         return;
       }
-      var pct = Math.min(100, Math.round(remaining / (Aj.state.invoiceDuration || 600) * 100));
+      var pct = Math.min(100, Math.round(remaining / 600 * 100));
       $fill.css('width', pct + '%');
       var m = Math.floor(remaining / 60);
       var s = remaining % 60;
@@ -5363,17 +5363,12 @@ var PaymentInvoice = {
     var $qrCode = $('.tm-pay-qr', '.js-main-content');
     var address = Aj.state.invoiceAddress;
     if (!address) return;
-    var uri;
-    if (Aj.state.invoiceNetwork === 'tron') {
-      uri = address;
-    } else {
-      var token = Aj.state.invoiceToken || '';
-      var chainId = Aj.state.invoiceChainId || 1;
-      uri = 'ethereum:' + token + '@' + chainId + '/transfer?address=' + address;
-      var amount = Aj.state.invoiceAmount;
-      if (amount) {
-        uri += '&uint256=' + amount;
-      }
+    var token = Aj.state.invoiceToken || '';
+    var chainId = Aj.state.invoiceChainId || 1;
+    var uri = 'ethereum:' + token + '@' + chainId + '/transfer?address=' + address;
+    var amount = Aj.state.invoiceAmount;
+    if (amount) {
+      uri += '&uint256=' + amount;
     }
     new QR.getUrl(uri, function (url) {
       $qrCode.css('backgroundImage', "url('" + url + "')");
