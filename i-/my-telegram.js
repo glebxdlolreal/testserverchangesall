@@ -257,6 +257,7 @@
       ghost.style.width = rect.width + 'px';
       ghost.style.height = rect.height + 'px';
     }
+    var placeholderText = input.getAttribute('placeholder') || '';
     function syncGhost() {
       if (!ghost || typeof country === 'undefined') return;
       var v = input.value, tpl = phoneMask(maskC()).replace(/X/g, '0');
@@ -265,6 +266,9 @@
       ghost.querySelector('.ghost-typed').textContent = v;
       ghost.querySelector('.ghost-rest').textContent = tpl.slice(v.length);
       ghost.classList.toggle('on', show);
+      // never both texts at once (some UAs keep the placeholder up while focused):
+      // the mask zeros are the placeholder whenever they are on
+      input.setAttribute('placeholder', show && v === '' ? '' : placeholderText);
     }
     window.addEventListener('resize', placeGhost);
     input.addEventListener('focus', syncGhost);
