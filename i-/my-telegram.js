@@ -2460,7 +2460,7 @@
       var mine = ++seq;
       current = null; saveBtn.disabled = true;
       if (!/\.json$/i.test(file.name) && file.type !== 'application/json') { render(file.name, 'Not a JSON file'); setError('Choose the .json key file'); return; }
-      if (file.size > 8 * 1024) { render(file.name, 'JSON file · ' + Math.round(file.size / 1024) + ' KB'); setError('Invalid service json file.'); return; }
+      if (file.size > 8096) { render(file.name, 'JSON file · ' + Math.round(file.size / 1024) + ' KB'); setError('Invalid service json file.'); return; }
       var reader = new FileReader();
       reader.onload = function () {
         if (mine !== seq) return;
