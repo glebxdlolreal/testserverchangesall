@@ -528,9 +528,22 @@ body {
 @media (max-width: 640px) { .push-tiles { grid-template-columns: 1fr; } }
 
 #app_edit_form .grid2 { margin-bottom: 7px; }
-#app_edit_form .card-bar.open { margin-top: 30.75px; }
+#app_edit_form .grid2 .field { margin-bottom: 0; }
+#app_edit_form .field .hint { position: absolute; left: 0; right: 0; top: 100%; }
+#app_edit_form .field .hint { opacity: 0; transform: translateY(4px); transition: opacity .2s ease, transform .22s cubic-bezier(.2, 0, 0, 1); }
+#app_edit_form .field:focus-within .hint, #app_edit_form .field.err .hint, #app_edit_form .field.ro .hint { opacity: 1; transform: none; }
+#app_edit_form .field.err .hint .msg { color: var(--danger); }
+/* the Save/Cancel bar only exists while something has changed: it opens below the fields,
+   growing the card smoothly (the collapsed margin equals the grid margin it collapses with) */
+#app_edit_form .card-bar {
+  max-height: 0; margin-top: 7px; opacity: 0; visibility: hidden; overflow: hidden;
+  align-items: flex-start;
+  transition: max-height .4s cubic-bezier(.4, 0, .2, 1), margin-top .4s cubic-bezier(.4, 0, .2, 1), opacity .3s ease, visibility .4s;
+}
+#app_edit_form .card-bar.open { max-height: 40px; margin-top: 30.75px; opacity: 1; visibility: visible; } /* 6px + 24.75px for the floating hint: it never meets the buttons */
 @media (max-width: 820px) {
   #app_edit_form .grid2 { row-gap: 26px; margin-bottom: 6px; }
+  #app_edit_form .card-bar.open { max-height: 48px; }
 }
 #app_edit_form .field.saved > input, #app_edit_form .field.saved > input:focus,
 #wns_form .field.saved > input, #wns_form .field.saved > input:focus { border-color: var(--accent); background: var(--surface); transition: border-color .2s ease, background-color .2s ease; }
