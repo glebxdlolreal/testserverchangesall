@@ -537,8 +537,7 @@ body {
 #app_edit_form .field.fading > input, #wns_form .field.fading > input { transition: border-color .2s ease, background-color .2s ease; }
 #app_edit_form .grid2 .field.ro { grid-column: 1 / -1; }
 @media (min-width: 821px) { #app_edit_form .grid2:has(.field.ro) { row-gap: 30px; } }
-.field.ro > input { color: var(--text-2); cursor: default; text-overflow: ellipsis; }
-.field.ro > input[data-empty] { color: var(--text-3); }
+.field.ro > input { color: var(--text-2); cursor: default; text-overflow: ellipsis; pointer-events: none; }
 .field.ro:has(> .icon-btn) > input { padding-right: 54px; }
 .field.ro > .icon-btn { position: absolute; right: 10px; top: 19px; }
 .field.ro > input:focus, #app_edit_form .field.ro > input:focus { border-color: transparent; background: var(--surface-2); box-shadow: none; }
