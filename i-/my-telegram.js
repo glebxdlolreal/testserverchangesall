@@ -389,6 +389,7 @@
          it the "backdrop root" for anything inside, so the menu's blur saw only the empty bar and the page
          showed through it sharp. Out here the blur sees the page and the glass works. */
       document.body.appendChild(menu);
+      menu.style.display = ''; // inline anti-FOUC guard; the stylesheet's closed state takes over
       /* phones: the header links (Getting started, TDLib, API Terms) are hidden in the top bar, so the sheet
          gets a copy of them as rows with an icon and an "opens outside" arrow, between the theme row and Log
          out (user pick A). Built from the header links themselves, so they stay one list; hidden on desktop. */
@@ -691,6 +692,7 @@
 
     var btn = $('#countryBtn', field);
     var pop = $('#countryPop', field);
+    pop.style.display = ''; // inline anti-FOUC guard; the stylesheet's closed state takes over
     var list = $('#countryList', field);
     var query = $('#countryQ', field);
     var search = $('#countrySearch', field);
@@ -1587,7 +1589,7 @@
       });
       c.input.addEventListener('blur', function () {
         if (c.input.value !== '') paint(c);
-        else clearFieldState(c.input);
+        else setFieldState(c.input, null, c.neutral || c.msg);
       });
     });
     initAutoGrow($('#app_desc'));
@@ -2386,10 +2388,10 @@
     if (eye && secretInput) {
       eye.addEventListener('mousedown', function (e) { e.preventDefault(); });
       eye.addEventListener('click', function () {
-        var shown = secretInput.type !== 'password';
-        secretInput.type = shown ? 'text' : 'password';
-        eye.classList.toggle('on', shown);
-        eye.title = shown ? 'Hide' : 'Show';
+        var show = secretInput.type === 'password';
+        secretInput.type = show ? 'text' : 'password';
+        eye.classList.toggle('on', show);
+        eye.title = show ? 'Hide' : 'Show';
       });
     }
 
@@ -2447,13 +2449,18 @@
       filled.hidden = true; empty.hidden = false;
     }
     saveBtn.disabled = true;
-    // a dropped file must be attached to the input as well, else the POST body goes out empty
+    // a dropped file must be attached to the input as well, else the POST body goes out empty;
+    // engines without the DataTransfer constructor (old Safari) fall back to the file picker
     function attach(file) {
+      if (input.files.length) return true; // chosen through the picker: nothing to attach
       try {
         var dt = new DataTransfer();
         dt.items.add(file);
         input.files = dt.files;
-      } catch (e) {}
+        return !!input.files.length;
+      } catch (e) {
+        return false;
+      }
     }
     function take(file) {
       if (!file) return;
@@ -2475,7 +2482,13 @@
         render(file.name, data.project_id + ' · ' + data.client_email);
         setError(null);
         current = file;
-        attach(file);
+        if (!attach(file)) {
+          // no DataTransfer here: a pasted/chosen file is fine (it is in the input already),
+          // a dropped one would be lost, so say so instead of failing silently
+          setError('Use the file picker on this browser');
+          saveBtn.disabled = true;
+          return;
+        }
         saveBtn.disabled = false;
       };
       reader.onerror = function () { if (mine !== seq) return; render(file.name, ''); setError('Could not read the file'); };
