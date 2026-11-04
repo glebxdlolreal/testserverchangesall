@@ -148,10 +148,6 @@ body {
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: -.01em; color: var(--text); text-decoration: none; }
 .brand-logo { width: 32px; height: 32px; display: block; overflow: visible; flex: none; }
 .brand-logo .logo-plane { transform-box: fill-box; transform-origin: center; }
-.crumbs { display: flex; align-items: center; gap: 8px; color: var(--text-2); font-size: 14px; }
-.crumbs svg { width: 14px; height: 14px; opacity: .6; }
-.crumbs a { color: var(--text-2); text-decoration: none; }
-.crumbs a:hover { color: var(--accent-strong); }
 .header-links { display: flex; align-items: center; gap: 2px; margin-right: 4px; }
 .header-links:has(+ .settings) { margin-right: -4px; }
 .header-links a { padding: 7px 12px; border-radius: 10px; color: var(--text-2); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .15s; }
@@ -936,7 +932,6 @@ body.signed-out .page { grid-template-columns: 1fr; max-width: 640px; padding-to
   .mob-back:focus-visible { outline: 2px solid color-mix(in srgb, var(--accent) 60%, transparent); outline-offset: 2px; }
   .grid2, .creds { grid-template-columns: 1fr; }
   .card { padding: 20px; }
-  .crumbs { display: none; }
   .legal { display: none; }
   .header-links { display: none; }
   .topbar-inner { padding: 0 16px; }
