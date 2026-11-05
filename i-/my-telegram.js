@@ -95,22 +95,480 @@
     field.classList.remove('ok', 'err');
   }
 
+  /* ---------- entrance animation ---------- */
+  /* subtle staggered rise-in of the heading + cards on page load (telegram.org style).
+     /auth: logo, title, text and card of the visible stage */
+  var AUTH_ITEMS = '.auth > div > .hero-logo, .auth > div > h1, .auth > div > p, .auth > div > .card';
+  function riseIn(items) {
+    items.forEach(function (el, i) {
+      el.animate(
+        [{ opacity: 0, transform: 'translateY(14px)' }, { opacity: 1, transform: 'none' }],
+        { duration: 460, delay: i * 70, easing: 'cubic-bezier(.2, 0, 0, 1)', fill: 'both' }
+      );
+    });
+  }
+  function motionOk() {
+    return !!Element.prototype.animate && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  }
+  function initEntrance() {
+    if (!motionOk()) return;
+    try { window.scrollTo(0, 0); } catch (e) {}
+    riseIn($all('.page section > .head, .page section > .card, .home-head, .home-card > .opt-row, ' + AUTH_ITEMS));
+  }
+
+  /* ---------- header logo: paper plane flight ----------
+     Adapted from Telegram's own intro animation (Telegram-iOS, submodules/RMIntro/Sources/core/
+     animations.c): path dx = sin(tt)*75, dy = -sin(tt)*60, scale s = (cos(tt)+1)/2,
+     scaleX = cos(tt)*s (the plane turns edge-on as it flies away). Changes for the 32px clipped
+     disc: distances scaled by the plane's own size (9.7 units / 82px texture), the path is cut at
+     100deg (plane fully outside the disc, no mirrored frames), exit and entry are separate
+     animations with eased progress and a 100ms pause between. Only the plane moves; the disc
+     stays still. Plays on hover of the logo itself (not the brand text) and on keyboard focus of
+     the brand link; never restarts mid-flight. Off under reduced motion. */
+  function rmFrames(from, to, n, ease) {
+    var K = 9.7 / 82, out = [];
+    for (var i = 0; i <= n; i++) {
+      var u = ease ? ease(i / n) : i / n;
+      var tt = (from + (to - from) * u) * Math.PI / 180, s = (Math.cos(tt) + 1) / 2;
+      out.push({ transform: 'translate(' + (Math.sin(tt) * 75 * K).toFixed(3) + 'px,' + (-Math.sin(tt) * 60 * K).toFixed(3) + 'px) scale(' + (Math.cos(tt) * s).toFixed(4) + ',' + s.toFixed(4) + ')' });
+    }
+    return out;
+  }
+
+  function initLogo() {
+    var brand = $('.brand');
+    var logo = brand && $('.brand-logo', brand);
+    if (!logo || !Element.prototype.animate) return;
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var plane = $('.logo-plane', logo);
+    /* exit moves from the first frame and keeps accelerating (progress = t^1.6) */
+    var EXIT = rmFrames(0, 100, 32, function (t) { return Math.pow(t, 1.6); });
+    var ENTRY = rmFrames(-100, 0, 24);
+    var busy = false;
+
+    function play() {
+      if (busy) return;
+      busy = true;
+      /* exit holds its last (off-disc) frame; after a short pause the entry replaces it */
+      var ex = plane.animate(EXIT, { duration: 400, fill: 'forwards' });
+      ex.onfinish = function () {
+        setTimeout(function () {
+          var en = plane.animate(ENTRY, { duration: 620, easing: 'cubic-bezier(.16, 1, .3, 1)' });
+          ex.cancel();
+          en.onfinish = en.oncancel = function () { busy = false; };
+        }, 100);
+      };
+    }
+    logo.addEventListener('pointerenter', play);
+    brand.addEventListener('focus', function () { if (brand.matches(':focus-visible')) play(); });
+  }
+
   /* ---------- theme toggle ---------- */
+  /* Circular wipe ported from bugs.telegram.org's bugtracker-theme.js (doToggle):
+     a view transition snapshot of the old theme gets a radial mask cut into it,
+     growing from the clicked button on light->dark, shrinking back into it on
+     dark->light. The matching CSS lives in my-telegram.css (theme-reveal/collapse). */
+  var WIPE_DARK_MS = 800;
+  var WIPE_LIGHT_MS = 500;
+  var WIPE_EASE = 'cubic-bezier(0.23, 1, 0.32, 1)';
+  /* the wipe in flight: { vt, anim, from, to, start, end, dark (old snapshot is light: hole grows),
+     shown (theme the DOM has now), heading (theme the wipe is going to), pending (commit of a click
+     made during the wipe, run at the end), ended } */
+  var wipe = null;
+
+  function currentTheme() {
+    var root = document.documentElement;
+    return root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  }
+
+  function commitTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    try { localStorage.setItem('theme', theme); } catch (e) {}
+  }
+
+  /* `theme-switching` turns CSS transitions off so the colours flip at once (a live page fading its
+     colours under the wipe looks muddy). It is held only for the frames around a colour change, not
+     for the whole wipe, so hovers, the theme pill and other transitions keep working during it. */
+  function holdTransitions() {
+    var root = document.documentElement;
+    root.classList.add('theme-switching');
+    root.offsetWidth;
+  }
+  function releaseTransitions() {
+    // two frames: the colour change has been styled and painted without transitions by then
+    requestAnimationFrame(function () { requestAnimationFrame(function () {
+      document.documentElement.classList.remove('theme-switching');
+    }); });
+  }
+
+  function wipeRadius(w) {
+    if (!w.anim) return w.start;
+    var p = w.anim.effect.getComputedTiming().progress;
+    if (p == null) p = w.anim.playState === 'finished' ? 1 : 0;
+    return w.from + (w.to - w.from) * p;
+  }
+
+  /* what a live layer drawn above the wipe (the api_hash spoiler dust) needs to match it: the circle in
+     viewport px and which theme shows inside / outside it. null when no wipe is on screen. The mask is a
+     radial-gradient with farthest-corner size, so 100% is the distance from the origin to the farthest
+     corner of the snapshot (the viewport). */
+  function wipeView() {
+    var w = wipe;
+    if (!w || w.ended || w.ox == null) return null;
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var far = Math.max(Math.hypot(w.ox, w.oy), Math.hypot(vw - w.ox, w.oy), Math.hypot(w.ox, vh - w.oy), Math.hypot(vw - w.ox, vh - w.oy));
+    var old = w.shown === 'dark' ? 'light' : 'dark';
+    var reveal = w.start === 0; // reveal: a hole in the old snapshot shows the live page; collapse: a disc of the old one
+    return { x: w.ox, y: w.oy, r: wipeRadius(w) / 100 * far, inside: reveal ? w.shown : old, outside: reveal ? old : w.shown };
+  }
+
+  /* run the mask from where it is now to `to` (percent). Going back uses the same ease-out curve over a
+     share of the full time, so a reversal starts at once from the current point instead of crawling. */
+  function runWipe(w, to) {
+    var from = wipeRadius(w);
+    if (w.anim) w.anim.cancel();
+    var full = w.heading === 'dark' ? WIPE_DARK_MS : WIPE_LIGHT_MS;
+    var share = Math.abs(to - from) / Math.abs(w.end - w.start);
+    w.from = from; w.to = to;
+    var anim = document.documentElement.animate({ '--theme-hole-radius': [from + '%', to + '%'] }, {
+      duration: Math.max(160, full * share),
+      easing: WIPE_EASE,
+      fill: 'forwards',
+      pseudoElement: '::view-transition-old(root)'
+    });
+    w.anim = anim;
+    anim.onfinish = function () { if (w.anim === anim) endWipe(w); };
+  }
+
+  /* the mask reached its end. A wipe that turned back ends with the old snapshot covering the page, so
+     the DOM can switch back under it unseen; then the overlay goes and the live page looks the same. */
+  function endWipe(w) {
+    if (w.ended) return;
+    w.ended = true;
+    if (w.pending) { holdTransitions(); w.pending(); w.pending = null; }
+    if (wipe === w) wipe = null;
+    try { w.vt.skipTransition(); } catch (e) {}
+  }
+
+  /* While a view transition is up, Chrome hit-tests every real click to <html> (even with
+     `::view-transition { pointer-events: none }`), so buttons under the wipe looked dead. Such a click
+     is passed on to the control whose box holds the point; the last one in document order wins, which
+     is the innermost one and the settings menu (it sits at the end of <body>). Hover cannot be routed. */
+  var themeVTs = 0;
+  var ROUTE_SEL = 'a[href], button, input, select, textarea, summary, label, [role="button"], [role="radio"], [tabindex]:not([tabindex="-1"])';
+  function controlAt(x, y) {
+    var hit = null;
+    $all(ROUTE_SEL).forEach(function (el) {
+      if (el.disabled || el.closest('[inert]')) return;
+      if (el.checkVisibility && !el.checkVisibility({ visibilityProperty: true, opacityProperty: true })) return;
+      var r = el.getBoundingClientRect();
+      if (r.width && r.height && x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) hit = el;
+    });
+    return hit;
+  }
+  document.addEventListener('click', function (e) {
+    if (!themeVTs || e.target !== document.documentElement || !e.isTrusted) return;
+    var el = controlAt(e.clientX, e.clientY);
+    if (!el) return;
+    e.stopPropagation();
+    e.preventDefault();
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName) && !/^(checkbox|radio|button|submit|reset|file)$/.test(el.type)) el.focus();
+    else el.click();
+  }, true);
+
+  /* next: the theme the page ends up in; commit: applies it (default = store that theme) */
+  function toggleTheme(btn, next, commit) {
+    var root = document.documentElement;
+    next = next || ((wipe ? wipe.heading : currentTheme()) === 'dark' ? 'light' : 'dark');
+    commit = commit || function () { commitTheme(next); };
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* a click during a wipe never restarts it: the same direction keeps going, the other one turns the
+       circle back from the point it has reached. The click's own choice is applied when the wipe ends. */
+    if (wipe) {
+      wipe.pending = commit;
+      if (next !== wipe.heading) {
+        wipe.heading = next;
+        if (wipe.anim) runWipe(wipe, next === wipe.shown ? wipe.end : wipe.start);
+      }
+      return;
+    }
+
+    if (!document.startViewTransition || reduce || next === currentTheme()) {
+      commit();
+      return;
+    }
+
+    var rect = btn.getBoundingClientRect();
+    var w = { anim: null, shown: next, heading: next, pending: null, ended: false,
+              ox: rect.left + rect.width / 2, oy: rect.top + rect.height / 2 };
+    // live layers (spoiler dust) prepare before the old snapshot is taken: they may opt out of it
+    document.dispatchEvent(new CustomEvent('themewipestart'));
+    w.start = next === 'dark' ? 0 : 102;
+    w.end = next === 'dark' ? 102 : 0;
+    w.from = w.to = w.start;
+    holdTransitions();
+    root.classList.toggle('theme-reveal', next === 'dark');
+    root.classList.remove('theme-collapse');
+    root.offsetWidth; // flush styles before the VT captures the old snapshot
+
+    w.vt = document.startViewTransition(commit);
+    wipe = w;
+    themeVTs++;
+    w.vt.updateCallbackDone.then(releaseTransitions, releaseTransitions);
+
+    w.vt.ready.then(function () {
+      if (w.ended) return;
+      try {
+        root.style.setProperty('--theme-origin-x', w.ox + 'px');
+        root.style.setProperty('--theme-origin-y', w.oy + 'px');
+        if (next !== 'dark') root.classList.add('theme-collapse');
+        root.offsetWidth;
+        /* keeps the overlay up after the mask animation finishes, so endWipe decides when it goes
+           (without it the transition could end one frame before a reversed wipe switches the DOM back) */
+        root.animate({ opacity: [1, 1] }, { duration: 60000, pseudoElement: '::view-transition' });
+        if (w.heading !== w.shown) endWipe(w); // turned back before the first frame: nothing to show
+        else runWipe(w, w.end);
+      } catch (e) { endWipe(w); }
+    }, function () {});
+
+    var cleared = false;
+    var clear = function () {
+      if (cleared) return;
+      cleared = true;
+      themeVTs--;
+      if (!w.ended) { w.ended = true; if (w.pending) w.pending(); } // ended early (tab hidden etc.)
+      if (wipe === w) wipe = null;
+      if (!wipe) {
+        root.classList.remove('theme-reveal', 'theme-collapse');
+        root.style.removeProperty('--theme-origin-x');
+        root.style.removeProperty('--theme-origin-y');
+        releaseTransitions();
+      }
+    };
+    w.vt.finished.then(clear, clear);
+  }
+  /* the inline display:none (anti-FOUC) comes off only once the stylesheet is guaranteed loaded:
+     window load waits for it; an already-complete page (warm cache) fires at once */
+  function showSettingsMenuLater() {
+    if (document.readyState === 'complete') {
+      $all('.settings-menu').forEach(function (m) { m.style.display = ''; });
+      return;
+    }
+    window.addEventListener('load', function () {
+      $all('.settings-menu').forEach(function (m) { m.style.display = ''; });
+    }, { once: true });
+  }
+
   function initTheme() {
-    $all('.theme-toggle').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var root = document.documentElement;
-        var current = root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        var next = current === 'dark' ? 'light' : 'dark';
-        root.dataset.theme = next;
-        try { localStorage.setItem('theme', next); } catch (e) {}
+    initSettings();
+    initEscBlur();
+  }
+
+  /* Esc (and Enter in one-line fields) leaves the text field (blur). When Esc already closes something
+     (country list, settings menu, /delete confirm), that comes first and the field keeps focus. */
+  function initEscBlur() {
+    var busy = false;
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') busy = !!document.querySelector('.phone-field.open, .settings.open, .confirm-box.open');
+    }, true);
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape' || busy || e.defaultPrevented) return;
+      var el = document.activeElement;
+      if (el && el.matches('input:not([type="checkbox"]):not([type="radio"]):not([type="file"]), textarea, select, [contenteditable="true"]')) el.blur();
+    });
+    /* Enter in a one-line field: whatever Enter does there runs first (submit the form, pick the country,
+       confirm the number); if focus is still in the same field afterwards, it leaves the field too.
+       Textareas keep Enter for a new line. */
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' || e.isComposing || e.shiftKey || e.ctrlKey || e.metaKey || e.altKey) return;
+      var el = e.target;
+      if (!el.matches || !el.matches('input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="submit"]):not([type="button"])')) return;
+      if (el.getAttribute('role') === 'combobox') return; // the country search keeps focus (Enter with no match does nothing)
+      setTimeout(function () { if (document.activeElement === el) el.blur(); }, 0);
+    });
+  }
+
+  /* Settings menu behind the gear in the top bar (private pages): the signed-in number with the avatar,
+     and the theme: Light / Dark / System. System clears the stored choice, so the page follows the OS
+     (the dark CSS already keys on :root:not([data-theme="light"]) inside prefers-color-scheme). The
+     switch reuses the circular theme wipe, starting from the pressed segment. */
+  function initSettings() {
+    $all('.settings').forEach(function (box) {
+      var gear = $('.gear-btn', box), menu = $('.settings-menu', box);
+      var segs = $all('[data-theme-set]', box);
+      /* the menu lives in <body>, not in the top bar: the top bar has its own backdrop-filter, which makes
+         it the "backdrop root" for anything inside, so the menu's blur saw only the empty bar and the page
+         showed through it sharp. Out here the blur sees the page and the glass works. */
+      document.body.appendChild(menu);
+      showSettingsMenuLater();
+      /* phones: the header links (Getting started, TDLib, API Terms) are hidden in the top bar, so the sheet
+         gets a copy of them as rows with an icon and an "opens outside" arrow, between the theme row and Log
+         out (user pick A). Built from the header links themselves, so they stay one list; hidden on desktop. */
+      var headerLinks = $all('.header-links a');
+      if (headerLinks.length && !$('.sm-links', menu)) {
+        var LINK_ICONS = {
+          'Getting started': '<path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2Z"/><path d="M8 7h6"/>',
+          'TDLib': '<path d="m8 8-4 4 4 4M16 8l4 4-4 4"/>',
+          'API Terms': '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>'
+        };
+        var group = document.createElement('div');
+        group.className = 'sm-links';
+        headerLinks.forEach(function (a) {
+          var row = a.cloneNode(true), label = a.textContent.trim();
+          row.className = 'sm-link';
+          row.innerHTML = '<svg class="sm-link-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (LINK_ICONS[label] || LINK_ICONS['API Terms']) + '</svg><span></span>' +
+            '<svg class="sm-link-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>';
+          $('span', row).textContent = label;
+          group.appendChild(row);
+        });
+        menu.insertBefore(group, $('.sm-logout', menu));
+      }
+      // disclosure pattern: the gear says which element it opens
+      if (!menu.id) menu.id = 'settings-menu-' + Math.random().toString(36).slice(2, 8);
+      gear.setAttribute('aria-controls', menu.id);
+      /* Phones (640px and below): the menu is a bottom sheet (user pick): full width at the bottom, a dimmed
+         backdrop behind it that closes it on tap, and a downward swipe closes it too. CSS does the layout;
+         here the desktop position is dropped, the backdrop is added and the swipe is handled. */
+      var sheetMq = window.matchMedia ? matchMedia('(max-width: 640px)') : { matches: false };
+      var backdrop = document.createElement('div');
+      backdrop.className = 'sm-backdrop';
+      backdrop.setAttribute('aria-hidden', 'true');
+      document.body.insertBefore(backdrop, menu);
+      // the tap lands on the backdrop (not the page under it), so closing never also follows a link there
+      backdrop.addEventListener('click', function () { open(false); gear.focus({ preventScroll: true }); });
+      function place() {
+        if (sheetMq.matches) { menu.style.top = menu.style.right = ''; return; }
+        var r = gear.getBoundingClientRect();
+        menu.style.top = (r.bottom + 12) + 'px';
+        menu.style.right = Math.max(8, document.documentElement.clientWidth - r.right) + 'px';
+      }
+      window.addEventListener('resize', function () { if (box.classList.contains('open')) place(); });
+      /* a choice clicked during a theme wipe is stored only when the wipe ends; until then the switch
+         shows it from here, so the pill moves at once and a click on the same segment does nothing */
+      var chosen = null;
+      function pref() {
+        if (chosen) return chosen;
+        var t = null; try { t = localStorage.getItem('theme'); } catch (e) {}
+        return t === 'light' || t === 'dark' ? t : (document.documentElement.dataset.theme || 'system');
+      }
+      function mark() {
+        var p = pref();
+        segs.forEach(function (b) { b.setAttribute('aria-checked', String(b.getAttribute('data-theme-set') === p)); });
+        // slide the pill to the selected segment
+        var seg = $('.theme-seg', menu), idx = -1;
+        segs.forEach(function (b, k) { if (b.getAttribute('data-theme-set') === p) idx = k; });
+        if (seg) { seg.style.setProperty('--i', Math.max(0, idx)); seg.style.setProperty('--on', idx < 0 ? 0 : 1); }
+        // roving tabindex: Tab reaches only the selected theme, arrows move between them
+        segs.forEach(function (b, k) { b.tabIndex = k === Math.max(0, idx) ? 0 : -1; });
+      }
+      function focusables() {
+        return $all('a[href], button:not([disabled])', menu).filter(function (el) { return el.tabIndex >= 0; });
+      }
+      function open(on) {
+        if (on) place();
+        box.classList.toggle('open', on);
+        menu.classList.toggle('open', on);
+        backdrop.classList.toggle('open', on);
+        document.documentElement.classList.toggle('sheet-open', on && sheetMq.matches); // no page scroll under the sheet
+        gear.setAttribute('aria-expanded', String(on));
+        menu.inert = !on;
+        if (on) {
+          mark();
+          // the menu sits at the end of <body>, far from the gear in tab order, so focus moves into it:
+          // the selected theme first (keyboard users land on what they most likely came for)
+          var first = segs.filter(function (b) { return b.tabIndex === 0; })[0] || focusables()[0];
+          if (first) first.focus({ preventScroll: true });
+        }
+      }
+      gear.addEventListener('click', function () { open(!box.classList.contains('open')); });
+      // outside press closes; a press inside the menu's box never does, even if it lands on <html>
+      // (as during a theme wipe, when the transition overlay is the hit target)
+      document.addEventListener('pointerdown', function (e) {
+        if (!box.classList.contains('open') || box.contains(e.target) || menu.contains(e.target) || e.target === backdrop) return;
+        var hit = [gear, menu].some(function (el) {
+          var r = el.getBoundingClientRect();
+          return e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+        });
+        if (!hit) open(false);
       });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && box.classList.contains('open')) { open(false); gear.focus({ preventScroll: true }); }
+      });
+      /* swipe down on the sheet: it follows the finger; let go past 70px (or flick down faster than
+         0.5 px/ms after 24px) and it closes, otherwise it springs back. Taps on the buttons inside are not affected (a drag starts after 6px, and from then the pointer is
+         captured by the sheet, so the release does not press a button). */
+      var drag = null;
+      menu.addEventListener('pointerdown', function (e) {
+        if (!sheetMq.matches || !menu.classList.contains('open') || e.button > 0) return;
+        drag = { y: e.clientY, dy: 0, on: false, id: e.pointerId, v: 0, ly: e.clientY, lt: e.timeStamp };
+      });
+      menu.addEventListener('pointermove', function (e) {
+        if (!drag || e.pointerId !== drag.id) return;
+        drag.dy = Math.max(0, e.clientY - drag.y);
+        // speed of the last movement (px/ms), as iOS judges a flick by how fast the finger leaves
+        var dt = e.timeStamp - drag.lt;
+        if (dt > 0) { drag.v = (e.clientY - drag.ly) / dt; drag.ly = e.clientY; drag.lt = e.timeStamp; }
+        if (!drag.on && drag.dy > 6) { drag.on = true; menu.classList.add('dragging'); try { menu.setPointerCapture(e.pointerId); } catch (err) {} }
+        if (drag.on) menu.style.transform = 'translateY(' + drag.dy + 'px)';
+      });
+      function endDrag(e) {
+        if (!drag || (e && e.pointerId !== drag.id)) return;
+        var d = drag; drag = null;
+        if (!d.on) return;
+        menu.classList.remove('dragging');
+        menu.style.transform = '';
+        var fast = d.v > 0.5 && d.dy > 24;
+        if (d.dy > 70 || fast) { open(false); gear.focus({ preventScroll: true }); }
+      }
+      menu.addEventListener('pointerup', endDrag);
+      menu.addEventListener('pointercancel', endDrag);
+      menu.addEventListener('keydown', function (e) {
+        // Tab past either end leaves the menu: it closes and focus goes back to the gear,
+        // so the next Tab continues through the page from where the menu was opened
+        if (e.key === 'Tab') {
+          var f = focusables(), i = f.indexOf(document.activeElement);
+          if ((e.shiftKey && i <= 0) || (!e.shiftKey && i === f.length - 1)) {
+            e.preventDefault(); open(false); gear.focus({ preventScroll: true });
+          }
+          return;
+        }
+        // radio group: arrows / Home / End move the selection, as native radios do
+        var at = segs.indexOf(document.activeElement);
+        if (at < 0) return;
+        var to = { ArrowRight: at + 1, ArrowDown: at + 1, ArrowLeft: at - 1, ArrowUp: at - 1, Home: 0, End: segs.length - 1 }[e.key];
+        if (to === undefined) return;
+        e.preventDefault();
+        to = (to + segs.length) % segs.length;
+        segs[to].focus({ preventScroll: true });
+        segs[to].click();
+      });
+      segs.forEach(function (b) {
+        b.addEventListener('click', function () {
+          var mode = b.getAttribute('data-theme-set');
+          if (mode === pref()) return;
+          var sys = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          var next = mode === 'system' ? sys : mode;
+          chosen = mode;
+          toggleTheme(b, next, function () {
+            if (mode === 'system') {
+              delete document.documentElement.dataset.theme;
+              try { localStorage.removeItem('theme'); } catch (e) {}
+            } else commitTheme(mode);
+            if (chosen === mode) chosen = null; // an older click's commit must not drop a newer choice
+            mark();
+          });
+          mark();
+        });
+      });
+      mark();
+      requestAnimationFrame(function () { requestAnimationFrame(function () { var seg = $('.theme-seg', menu); if (seg) seg.classList.add('ready'); }); });
     });
   }
 
   /* ---------- ripple (design ui.js) ---------- */
   function initMotion() {
-    var sel = '.btn, .chip, .icon-btn, .side a, .theme-toggle';
+    var sel = '.btn, .chip, .icon-btn, .side a, .gear-btn';
     document.addEventListener('pointerdown', function (e) {
       var el = e.target.closest(sel);
       if (!el) return;
@@ -122,12 +580,24 @@
       s.style.left = (e.clientX - r.left - d / 2) + 'px';
       s.style.top = (e.clientY - r.top - d / 2) + 'px';
       el.appendChild(s);
-      var done = function () { s.classList.add('out'); setTimeout(function () { s.remove(); }, 400); };
+      var EXPAND = 450; // must match the ripple-in keyframe duration in the CSS
+      var start = (window.performance && performance.now) ? performance.now() : Date.now();
+      var ended = false;
+      var done = function () {
+        if (ended) return;
+        ended = true;
+        var now = (window.performance && performance.now) ? performance.now() : Date.now();
+        // let the fill finish expanding before it fades, even on a fast click
+        var wait = Math.max(0, EXPAND - (now - start));
+        setTimeout(function () {
+          s.classList.add('out');
+          setTimeout(function () { s.remove(); }, 400);
+        }, wait);
+      };
       el.addEventListener('pointerup', done, { once: true });
       el.addEventListener('pointerleave', done, { once: true });
     });
   }
-
   /* ---------- country picker ---------- */
   /* Emoji flags where the system renders them (macOS/iOS/Android/Twemoji); the vendored PNGs where it
      does not (Chrome/Edge on Windows draw "US" letters instead — detected as a colourless render) and
@@ -208,14 +678,16 @@
   }
   function rawPhone(p) { var d = String(p || '').replace(/\D/g, ''); return d ? '+' + d : ''; }
 
-  /* shortest valid national number: the server's len_min when there is one, else the mask length,
-     else 5 digits. +888 stays special: ordinary numbers may be as short as 4, "0..." ones are 8. */
-  function phoneMin(c, digits) {
-    if (c[0] === 'FT') return digits && digits.charAt(0) !== '0' ? 4 : 8;
-    if (c[4]) return c[4];
-    if (c[3]) return maskDigits(c[3]);
-    return 5;
+  /* numbers printed by the server (settings menu, /delete) are raw: show them formatted */
+  function initPhoneDisplay() {
+    $all('.sm-phone, #account_phone').forEach(function (el) { el.textContent = formatPhone(el.textContent.trim()); });
+    var hint = $('#deactivate_phone_hint');
+    if (hint && !hint.textContent.trim()) {
+      var accountPhone = ($('#account_phone') || {}).textContent || '';
+      if (accountPhone) hint.textContent = 'Enter ' + accountPhone + ' to confirm';
+    }
   }
+
 
   function initPhoneField() {
     var field = $('#phoneField');
@@ -223,6 +695,7 @@
 
     var btn = $('#countryBtn', field);
     var pop = $('#countryPop', field);
+    pop.style.display = ''; // inline anti-FOUC guard; the stylesheet's closed state takes over
     var list = $('#countryList', field);
     var query = $('#countryQ', field);
     var search = $('#countrySearch', field);
@@ -524,12 +997,11 @@
     var lastValue = '';
     function format(raw, caretDigits, caretPos) {
       var max = maskDigits(phoneMask(maskC()));
-      var digits = raw.replace(/\D/g, '').slice(0, max);
+      var digits = raw.replace(/\D/g, '');
       var mask = phoneMask(maskC());
       var out;
       if (/[-()]/.test(raw)) {
-        var n = 0;
-        out = raw.replace(/\d/g, function (d) { return ++n <= max ? d : ''; });
+        out = raw;
         input.value = out;
         lastValue = out;
         if (caretPos != null && document.activeElement === input) {
@@ -538,7 +1010,7 @@
         }
         return;
       }
-      out = applyMask(digits, mask);
+      out = applyMask(digits, mask) + digits.slice(max);
       input.value = out;
       lastValue = out;
       if (caretDigits != null) {
@@ -739,8 +1211,6 @@
       if (ce) return ce;
       var d = input.value.replace(/\D/g, ''), n = d.length;
       if (!n) return 'Enter your phone number';
-      var min = phoneMin(country, d), max = maskDigits(phoneMask(country));
-      if (n < min) return 'Too short: ' + current + ' numbers have ' + (min === max ? min : min + '\u2013' + max) + ' digits';
       return '';
     };
 
@@ -926,45 +1396,74 @@
   }
 
   /* ---------- app form validation ---------- */
-  var TELEGRAM_MSG = 'Can’t contain the word “Telegram”';
-  function validateTitle(input) {
-    var value = input.value.trim();
-    if (/telegram/i.test(value.replace(/\s+/g, ''))) {
-      setFieldState(input, 'err', TELEGRAM_MSG);
-      return false;
-    }
-    if (value.length < 5) {
-      setFieldState(input, 'err', 'At least 5 characters');
-      return false;
-    }
-    setFieldState(input, 'ok', 'Looks good');
-    return true;
+  /* title: same rule as the server (trimmed, at least 5 chars, max 255); short name: 5-32
+     latin letters, digits and spaces. Neither may contain the word "Telegram" (any case,
+     also split by spaces). Shared by /apps/new and App configuration. */
+  var SHORT_NAME_MSG = '5–32 characters: latin letters, digits and spaces';
+  var TELEGRAM_MSG = 'Can\u2019t contain the word \u201cTelegram\u201d';
+  function appNameProblem(kind, v) {
+    if (/telegram/i.test(String(v).replace(/\s+/g, ''))) return TELEGRAM_MSG;
+    if (kind === 'short') return /^[A-Za-z0-9 ]{5,32}$/.test(v) ? '' : SHORT_NAME_MSG;
+    return String(v).trim().length >= 5 ? '' : 'At least 5 characters';
   }
 
-  function validateShortname(input) {
-    var value = input.value;
-    if (/telegram/i.test(value.replace(/\s+/g, ''))) {
-      setFieldState(input, 'err', TELEGRAM_MSG);
-      return false;
-    }
-    if (!/^[A-Za-z0-9 ]{5,32}$/.test(value)) {
-      setFieldState(input, 'err', '5–32 characters: latin letters, digits and spaces');
-      return false;
-    }
-    setFieldState(input, 'ok', 'Looks good');
-    return true;
+  /* textarea that grows with its text (up to its CSS max-height, then scrolls, `.scroll` drives the
+     label fade) and shows its `.count-hint` counter only in the last 10% of maxlength (red when full).
+     Used by the delete reason and the /apps/new description. */
+  function initAutoGrow(textarea) {
+    if (!textarea) return;
+    var field = fieldOf(textarea);
+    var countHint = field && $('.count-hint', field);
+    var countEl = countHint && $('.count', countHint);
+    var maxLen = +textarea.getAttribute('maxlength') || 0;
+    var fit = function () {
+      textarea.style.height = 'auto';
+      var cap = parseFloat(getComputedStyle(textarea).maxHeight) || Infinity;
+      var h = textarea.scrollHeight + 3; /* + top/bottom border */
+      textarea.style.height = Math.min(h, cap) + 'px';
+      textarea.classList.toggle('scroll', h > cap);
+      if (countEl && maxLen) {
+        var n = textarea.value.length;
+        // only in the last 10% (user: from the first character it was noise; both limits are 512 now)
+        countHint.classList.toggle('on', n >= maxLen * 0.9);
+        countHint.classList.toggle('full', n >= maxLen);
+        countEl.textContent = n + ' / ' + maxLen;
+      }
+    };
+    textarea.addEventListener('input', fit);
+    fit();
   }
 
-  function initCounter(input, max) {
-    var field = fieldOf(input);
-    if (!field) return;
-    var countEl = $('.hint .count', field);
-    if (!countEl) return;
-    var update = function () { countEl.textContent = input.value.length + ' / ' + max; };
-    input.addEventListener('input', update);
-    update();
+  /* ---------- auto-prefix fields ---------- */
+  /* A field that always starts with a fixed prefix (App URL "https://", WNS Package SID
+     "ms-app://S-1-15-2-"). Entering an empty field puts the prefix in with the caret after it; leaving with
+     nothing more takes it out; while the field has focus the prefix cannot be removed (Backspace, cut,
+     select all + delete leave only the prefix). normalize(value) returns the value with exactly one
+     prefix (pasted or doubled prefixes, damaged prefix). onChange runs after focus / blur change the value.
+     The input / blur listeners are capture ones, so the field's own handlers see the final value. */
+  function initAutoPrefix(input, prefix, normalize, onChange) {
+    var done = onChange || function () {};
+    input.addEventListener('focus', function () {
+      if (input.value !== '') return;
+      input.value = prefix;
+      // after the click has placed its caret (and only if nothing was typed in between)
+      setTimeout(function () {
+        if (input.value === prefix) input.setSelectionRange(prefix.length, prefix.length);
+      }, 0);
+      done();
+    });
+    input.addEventListener('input', function () {
+      var v = input.value, fromEnd = v.length - (input.selectionEnd || 0);
+      var n = v.replace(/\s+/g, '') === '' ? prefix : normalize(v);
+      if (n === v) return;
+      input.value = n;
+      var pos = Math.max(prefix.length, n.length - fromEnd);
+      input.setSelectionRange(pos, pos);
+    }, true);
+    input.addEventListener('blur', function () {
+      if (input.value.trim().toLowerCase() === prefix.toLowerCase()) { input.value = ''; done(); }
+    }, true);
   }
-
   /* ---------- copy buttons ---------- */
   function initCopy() {
     var CHECK_SVG = '<svg class="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M5.5 12.5l4.25 4.25L18.5 8"/></svg>';
@@ -982,8 +1481,11 @@
 
   function copyText(value, btn) {
     var done = function () {
+      clearTimeout(btn._copiedTimer);
+      btn.classList.remove('copied');
+      void btn.offsetWidth;
       btn.classList.add('copied');
-      setTimeout(function () { btn.classList.remove('copied'); }, 1500);
+      btn._copiedTimer = setTimeout(function () { btn.classList.remove('copied'); }, 1500);
     };
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(value).then(done, done);
@@ -998,7 +1500,9 @@
     }
   }
 
-  /* ---------- create app ---------- */
+  /* ---------- create app ----------
+     A field turns red once it has been left with a bad value (or the user starts fixing a red one);
+     while typing into a fresh field it stays neutral. Create is inert until everything is valid. */
   function initCreateApp() {
     var form = $('#app_create_form');
     if (!form) return;
@@ -1010,36 +1514,96 @@
       });
     });
 
+    var URL_PREFIX = 'https://';
     var titleInput = $('#app_title');
     var nameInput = $('#app_shortname');
-    var descInput = $('#app_desc');
+    var urlInput = $('#app_url');
     var alertSlot = $('#app_form_alert');
+    var createBtn = $('#app_create_btn');
 
-    initCounter(titleInput, 255);
-    initCounter(nameInput, 32);
-    if (descInput) initCounter(descInput, 512);
-
-    var touched = false;
-    function revalidate() {
-      clearAlert(alertSlot); // any edit: the old form error no longer applies
-      if (!touched) return;
-      validateTitle(titleInput);
-      validateShortname(nameInput);
+    /* URL: optional; when filled it must be a full https:// address with a public domain name.
+       Returns null when fine, else the reason. */
+    function urlProblem(v) {
+      v = v.trim();
+      if (v === '' || v.toLowerCase() === URL_PREFIX) return null;
+      if (/\s/.test(v)) return 'No spaces in the address';
+      if (v.length > 2048) return 'Up to 2048 characters';
+      if (!/^https:\/\//i.test(v)) return 'Starts with https://';
+      var u;
+      try { u = new URL(v); } catch (e) { return 'Not a valid address'; }
+      if (u.protocol !== 'https:') return 'Starts with https://';
+      if (u.username || u.password) return 'No login or password in the address';
+      var host = u.hostname.replace(/\.$/, '');
+      if (!host) return 'Add a domain, e.g. example.com';
+      if (/^\[|^\d+(\.\d+){3}$/.test(host)) return 'Use a domain name, not an IP address';
+      var labels = host.split('.');
+      if (labels.length < 2) return 'Add a domain, e.g. example.com';
+      if (host.length > 253) return 'Domain is too long';
+      var badLabel = labels.some(function (l) { return !/^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/.test(l); });
+      if (badLabel) return 'Check the domain name';
+      if (!/^([a-z]{2,63}|xn--[a-z0-9-]{1,59})$/.test(labels[labels.length - 1])) return 'Check the domain ending';
+      return null;
     }
-    titleInput.addEventListener('input', revalidate);
-    nameInput.addEventListener('input', revalidate);
+
+    var checks = [
+      { input: titleInput, ok: function (v) { return !appNameProblem('title', v); }, why: function (v) { return appNameProblem('title', v); }, msg: 'At least 5 characters' },
+      { input: nameInput, ok: function (v) { return !appNameProblem('short', v); }, why: function (v) { return appNameProblem('short', v); }, msg: SHORT_NAME_MSG },
+      { input: urlInput, ok: function (v) { return !urlProblem(v); }, why: urlProblem, msg: 'Full address with https://', neutral: 'Optional. Full address with https://' }
+    ].filter(function (c) { return c.input; });
+
+    function paint(c) {
+      var good = c.ok(c.input.value);
+      if (good) setFieldState(c.input, null, c.neutral || c.msg);
+      else setFieldState(c.input, 'err', (c.why && c.why(c.input.value)) || c.msg);
+      return good;
+    }
+
+    /* URL auto-prefix: a pasted or typed scheme is not doubled */
+    function normalizeUrl(v) {
+      var low = v.toLowerCase();
+      if (URL_PREFIX.indexOf(low) === 0) return URL_PREFIX;
+      var rest = v;
+      if (low.indexOf(URL_PREFIX) === 0) rest = v.slice(URL_PREFIX.length);
+      else {
+        var k = 0;
+        while (k < low.length && k < URL_PREFIX.length && low[k] === URL_PREFIX[k]) k++;
+        var sep = v.indexOf('://');
+        rest = sep >= 0 && sep <= 8 ? v.slice(sep + 3) : v.slice(k);
+      }
+      rest = rest.replace(/^\s+/, '');
+      var m;
+      while ((m = rest.match(/^[a-z][a-z0-9+.-]{0,9}:\/\//i))) rest = rest.slice(m[0].length);
+      return URL_PREFIX + rest;
+    }
+    if (urlInput) initAutoPrefix(urlInput, URL_PREFIX, normalizeUrl);
+    function sync() {
+      var all = true;
+      checks.forEach(function (c) { if (!c.ok(c.input.value)) all = false; });
+      if (createBtn) createBtn.disabled = !all;
+    }
+    checks.forEach(function (c) {
+      c.input.addEventListener('input', function () {
+        if (fieldOf(c.input).classList.contains('err')) paint(c);
+        clearAlert(alertSlot);
+        sync();
+      });
+      c.input.addEventListener('blur', function () {
+        if (c.input.value !== '') paint(c);
+        else setFieldState(c.input, null, c.neutral || c.msg);
+      });
+    });
+    initAutoGrow($('#app_desc'));
+    sync();
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      touched = true;
-      var okTitle = validateTitle(titleInput);
-      var okName = validateShortname(nameInput);
-      if (!okTitle) { clearAlert(alertSlot); titleInput.focus(); return; }
-      if (!okName) { clearAlert(alertSlot); nameInput.focus(); return; }
+      var firstBad = null;
+      checks.forEach(function (c) { if (!paint(c) && !firstBad) firstBad = c.input; });
+      if (firstBad) { clearAlert(alertSlot); firstBad.focus(); sync(); return; }
 
-      // like /auth: the old error stays in the bar until the answer comes
-      var btn = $('button[type="submit"]', form);
-      setBusy(btn, true);
+      // a submitted bare auto-prefix is no URL
+      if (urlInput && urlInput.value.trim().toLowerCase() === URL_PREFIX) urlInput.value = '';
+      setBusy(createBtn, true);
       var createUrl = '/apps/create';
       if (location.search.indexOf('_newapp=1') !== -1) {
         createUrl += '?_newapp=1';
@@ -1047,7 +1611,7 @@
       postForm(createUrl, formData(form)).then(function () {
         location.reload();
       }).catch(function (err) {
-        setBusy(btn, false);
+        setBusy(createBtn, false);
         var target = err.field === 'app_shortname' ? nameInput : err.field === 'app_title' ? titleInput : null;
         if (target) {
           clearAlert(alertSlot);
@@ -1060,6 +1624,152 @@
     });
   }
 
+  /* ---------- home: Development Tools tile animation ---------- */
+  /* Home, Development Tools tile: both decorative windows come alive on hover and tell one story: code
+     is typed in the editor (front) and every finished line sends a message in the app chat (back), with
+     an occasional reply. Each window is a viewport over a list (.art-code > .art-lines, .art-chat >
+     .art-feed) that scrolls up as items are added; old items go under the title bar through a soft top
+     fade. A new bubble comes up from 26px below and fades in, as Telegram iOS inserts a message
+     (ChatMessageItemView.animateInsertion: offset 1.6x the height, alpha in over 0.2 s); a new code line
+     fades in and grows linearly at a steady typing speed under a faint current-line band. Leaving the tile glides both lists back to their
+     first items, then the extra ones are dropped. Off under reduced motion. */
+  function initHomeChat() {
+    var tile = $('.opt-main');
+    if (!tile || !motionOk()) return;
+    var chatView = $('.art-chat', tile), codeView = $('.art-code', tile);
+    if (!chatView || !codeView) return;
+    function makeList(view, list, gap) {
+      var L = { view: view, list: list, base: list.children.length, y: 0 };
+      L.setY = function (v, instant) {
+        L.y = v;
+        if (instant) list.style.transition = 'none';
+        list.style.transform = v ? 'translateY(' + (-v) + 'px)' : '';
+        if (instant) { list.offsetHeight; list.style.transition = ''; }
+      };
+      L.toBottom = function () { list.classList.remove('returning'); L.setY(Math.max(0, list.offsetHeight - view.clientHeight)); };
+      // keep the list short: added items far above the view go, the list shifts by the same amount at once.
+      // The first items stay (the return glides back to them), so the added ones left must still fill the
+      // whole view plus one item; otherwise the first items creep in under the title bar (user saw the
+      // short original lines pile up at the top of the editor).
+      L.prune = function () {
+        while (list.children.length - L.base > 1) {
+          var old = list.children[L.base], h = old.offsetHeight + gap, rest = 0;
+          for (var i = L.base + 1; i < list.children.length; i++) rest += list.children[i].offsetHeight + gap;
+          if (rest < view.clientHeight + h) break;
+          old.remove();
+          L.setY(L.y - h, true);
+        }
+      };
+      // leaving: glide back to the first items while the added ones fade out (they used to vanish at once)
+      L.reset = function () {
+        list.classList.add('returning'); L.setY(0);
+        for (var i = L.base; i < list.children.length; i++) list.children[i].classList.add('gone');
+      };
+      L.unfade = function () { for (var i = L.base; i < list.children.length; i++) list.children[i].classList.remove('gone'); };
+      L.clear = function () { while (list.children.length > L.base) list.lastElementChild.remove(); list.classList.remove('returning'); };
+      return L;
+    }
+    var chat = makeList(chatView, $('.art-feed', chatView), 8);
+    var code = makeList(codeView, $('.art-lines', codeView), 7);
+    var lastCode = code.list.lastElementChild, indent = 0, run = 0;
+
+    function bubble(kind) {
+      chat.prune();
+      var b = document.createElement('i');
+      b.className = kind + ' new';
+      b.style.setProperty('--w', Math.round(28 + Math.random() * 40) + '%');
+      chat.list.appendChild(b);
+      chat.toBottom();
+      requestAnimationFrame(function () { requestAnimationFrame(function () { b.classList.remove('new'); }); });
+    }
+    function line() {
+      code.prune();
+      if (lastCode) lastCode.classList.remove('cur');
+      /* indentation walks like real code: one level in or out at a time, 0..3. The edges push back
+         (at 0 the next line goes in 70% of the time, at 3 it comes out), and a level never holds for more
+         than 2 lines in a row (user: up to 10 lines at the left edge in a row looked wrong) */
+      var r = Math.random(), next;
+      if (indent === 0) next = r < 0.7 ? 1 : 0;
+      else if (indent === 3) next = r < 0.7 ? 2 : 3;
+      else next = indent + (r < 0.38 ? -1 : r < 0.62 ? 0 : 1);
+      run = next === indent ? run + 1 : 0;
+      if (run >= 2) { next = indent === 0 ? 1 : indent === 3 ? 2 : indent + (Math.random() < 0.5 ? -1 : 1); run = 0; }
+      indent = next;
+      var b = document.createElement('b');
+      b.className = 'new cur';
+      var w = Math.round(18 + Math.random() * 52);
+      b.style.setProperty('--w', w + '%');
+      b.style.setProperty('--x', indent);
+      // steady typing speed: the duration follows the length (linear width, CSS)
+      var dur = Math.round(150 + w * 9);
+      b.style.transitionDuration = dur + 'ms, 300ms';
+      // the blue accent is typed after the grey line is done, at the same typing speed
+      var emDur = 0;
+      if (Math.random() < 0.5) {
+        var ew = Math.round(25 + Math.random() * 30);
+        var em = document.createElement('em');
+        em.style.setProperty('--w', ew + '%');
+        emDur = Math.round(150 + w * ew / 100 * 9);
+        em.style.transitionDuration = emDur + 'ms';
+        b.appendChild(em);
+        b.classList.add('typing');
+        later(function () { b.classList.remove('typing'); }, dur);
+      }
+      code.list.appendChild(b);
+      code.toBottom();
+      lastCode = b;
+      requestAnimationFrame(function () { requestAnimationFrame(function () { b.classList.remove('new'); }); });
+      return dur + emDur;
+    }
+
+    // the script: type a line (about 0.3-0.8 s by its length), send it, sometimes get a reply, then the next line
+    var timers = [], active = false, cleanup = 0;
+    function later(fn, ms) { timers.push(setTimeout(function () { if (active) fn(); }, ms)); }
+    function step() {
+      var typing = line();
+      later(function () {
+        bubble('out');
+        if (Math.random() < 0.6) later(function () { bubble('in'); }, 550 + Math.random() * 300);
+        later(step, 450 + Math.random() * 300); // short pause before the next line (was 1.1-1.6 s, user: too slow)
+      }, typing + 120); // sent as soon as the line (and its accent) is typed
+    }
+    function start() {
+      if (active) return;
+      active = true;
+      clearTimeout(cleanup);
+      chat.unfade(); code.unfade(); // back before the return finished: the added items come back
+      later(step, 250);
+    }
+    function stop() {
+      if (!active) return;
+      active = false;
+      timers.forEach(clearTimeout); timers = [];
+      if (lastCode) lastCode.classList.remove('cur', 'typing'); // a line left mid-typing still gets its accent
+      chat.reset(); code.reset();
+      clearTimeout(cleanup);
+      cleanup = setTimeout(function () {
+        if (active) return;
+        chat.clear(); code.clear();
+        lastCode = code.list.lastElementChild; indent = 0; run = 0;
+      }, 750);
+    }
+    /* Desktop: the windows come alive on hover. Touch screens have no hover (a tap opens /apps), so
+       there the story plays by itself while most of the tile is on screen and the tab is visible. */
+    var touch = window.matchMedia && matchMedia('(hover: none)').matches;
+    if (!touch || !window.IntersectionObserver) {
+      tile.addEventListener('mouseenter', start);
+      tile.addEventListener('mouseleave', stop);
+      return;
+    }
+    var seen = false;
+    function syncPlay() { if (seen && !document.hidden) start(); else stop(); }
+    new IntersectionObserver(function (entries) {
+      seen = entries[entries.length - 1].intersectionRatio >= 0.6;
+      syncPlay();
+    }, { threshold: [0, 0.6, 1] }).observe(tile);
+    document.addEventListener('visibilitychange', syncPlay);
+  }
+
   /* ---------- edit app ---------- */
   function initEditApp() {
     var form = $('#app_edit_form');
@@ -1069,14 +1779,74 @@
     var titleInput = $('#app_title');
     var nameInput = $('#app_shortname');
 
+    /* entering a field selects its whole value; the mouseup that follows the focus
+       click would otherwise collapse the selection, so it is swallowed once */
+    [titleInput, nameInput].forEach(function (el) {
+      var fresh = false;
+      el.addEventListener('focus', function () { fresh = true; el.select(); });
+      el.addEventListener('mouseup', function (e) {
+        if (fresh) { e.preventDefault(); fresh = false; }
+      });
+    });
+
+    /* same rules as /apps/new (appNameProblem): a field is red while it breaks its rule */
+    function checkField(input) {
+      var problem = appNameProblem(input === nameInput ? 'short' : 'title', input.value);
+      if (!problem) {
+        clearFieldState(input);
+        return true;
+      }
+      setFieldState(input, 'err', problem);
+      return false;
+    }
+
+    /* Cancel fades in while the title/short name differ from what was saved;
+       clicking it restores the saved values and fades out again. */
+    var cancelBtn = $('#app_cancel_btn');
+    var saveBtn = $('#app_save_btn');
+    var bar = $('.card-bar', form);
+    var flashTimer = 0;
+    var saved = { title: titleInput.value, name: nameInput.value };
+    function syncCancel() {
+      var dirty = titleInput.value !== saved.title || nameInput.value !== saved.name;
+      /* check both fields every time so every bad field turns red at once */
+      var titleOk = checkField(titleInput);
+      var nameOk = checkField(nameInput);
+      /* a legacy value may violate current rules (created before they existed): it is flagged red,
+         but saving is only blocked while that rule-breaking value is the one being kept */
+      var titleStillOk = titleOk || titleInput.value === saved.title;
+      var nameStillOk = nameOk || nameInput.value === saved.name;
+      /* the Save/Cancel row only exists while something has changed: it opens below the card */
+      if (bar) bar.classList.toggle('open', dirty);
+      if (cancelBtn) cancelBtn.classList.toggle('soft-hidden', !dirty);
+      /* Save is inert until something differs from the saved values AND both fields are valid */
+      if (saveBtn) saveBtn.disabled = !dirty || !(titleStillOk && nameStillOk);
+    }
+    syncCancel();
+    titleInput.addEventListener('input', syncCancel);
+    nameInput.addEventListener('input', syncCancel);
+    if (cancelBtn) {
+      cancelBtn.addEventListener('click', function () {
+        titleInput.value = saved.title;
+        nameInput.value = saved.name;
+        clearFieldState(titleInput);
+        clearFieldState(nameInput);
+        clearAlert(alertSlot);
+        syncCancel();
+      });
+    }
+
     $all('[data-reveal]').forEach(function (btn) {
+      var spTarget = $(btn.getAttribute('data-reveal'));
+      if (spTarget && spTarget.classList.contains('spoiler')) { initSpoiler(spTarget, btn); return; }
       btn.addEventListener('click', function () {
         var target = $(btn.getAttribute('data-reveal'));
         if (!target) return;
         var textEl = $('.vv', target) || target;
         var masked = target.classList.toggle('masked');
+        btn.classList.toggle('on', !masked);
         if (masked) {
-          textEl.textContent = '••••••••••••••••••••••••••••••••';
+          textEl.textContent = '••••••••••••••••••••••••••••••••••••••••••••';
           btn.title = 'Show';
         } else {
           textEl.textContent = target.getAttribute('data-value');
@@ -1085,39 +1855,236 @@
       });
     });
 
-    var touched = false;
-    function revalidate() {
-      clearAlert(alertSlot);
-      if (!touched) return;
-      validateTitle(titleInput);
-      validateShortname(nameInput);
+    /* Telegram iOS spoiler ("invisible ink") over a hidden value, ported from
+       submodules/InvisibleInkDustNode/Sources/InvisibleInkDustNode.swift:
+       - point particles in the text colour over the text box, birth rate = area * 0.35 per second,
+         lifetime 1 s, random direction, speed 0..20 px/s, random alpha that fades in and out over life;
+       - reveal / hide: a plain 0.25 s crossfade between the text and the dust (no growing circle).
+       The real value sits in the DOM under the dust, transparent and not selectable, so nothing can be
+       copied while hidden. Reduced motion: still dust, instant switch. */
+    function initSpoiler(target, btn) {
+      var vv = $('.vv', target);
+      /* the DOM keeps the bullet placeholder while masked: the real value enters the document only
+         on reveal and leaves again on hide, so a selection over the hidden text can never clone it.
+         Only the text node is rewritten (the canvas child survives every toggle) */
+      var maskText = vv.textContent;
+      var textNode = vv.firstChild;
+      var value = target.getAttribute('data-value') || '';
+      var cv = document.createElement('canvas');
+      cv.className = 'ink';
+      cv.setAttribute('aria-hidden', 'true');
+      vv.appendChild(cv);
+      var ctx = cv.getContext('2d');
+      var still = !motionOk();
+      var W = 0, H = 0, dpr = 1, parts = [], last = 0, raf = 0, color = '#000';
+      var hidden = true, spot = null, fade = 1;
+      // the dust only animates while it is on screen and the tab is visible (battery); the last frame stays drawn
+      var onScreen = true;
+      function active() { return onScreen && !document.hidden; }
+
+      function measure() {
+        var r = vv.getBoundingClientRect();
+        // the dust spans the whole value box, up to the eye and copy buttons (user request)
+        W = Math.max(1, r.width); H = Math.max(1, r.height);
+        dpr = window.devicePixelRatio || 1;
+        cv.style.width = W + 'px'; cv.style.height = H + 'px';
+        cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+        color = getComputedStyle(target).getPropertyValue('--text').trim() || getComputedStyle(document.body).color;
+        // steady state: as many particles as one second of births
+        var n = Math.round(W * H * 0.35);
+        parts = [];
+        for (var i = 0; i < n; i++) parts.push(spawn(Math.random()));
+        if (still) draw(0);
+      }
+      function spawn(age) {
+        var a = Math.random() * Math.PI * 2, v = Math.random() * 20;
+        return { x: Math.random() * W, y: 2 + Math.random() * (H - 4), vx: Math.cos(a) * v, vy: Math.sin(a) * v,
+                 age: age || 0, life: 1, peak: Math.random() };
+      }
+      /* dust colour per theme (--text), read in the frame the theme changes, so there is never a frame
+         of old-colour dust on the new background (it used to wait for a setTimeout: a one-frame blink) */
+      var colors = {}, shownTheme = null;
+      function themeColor(theme) {
+        var now = currentTheme();
+        if (now !== shownTheme || !colors[now]) {
+          shownTheme = now;
+          colors[now] = getComputedStyle(target).getPropertyValue('--text').trim() || getComputedStyle(document.body).color;
+        }
+        color = colors[now];
+        return colors[theme || now] || color;
+      }
+      function draw(dt) {
+        /* clear the whole bitmap in device pixels: with a fractional box (e.g. 21.5px at 100%) a clear in
+           CSS px left the last pixel row half-cleared every frame, and dots drifting there piled up into a
+           solid line under the dust */
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.clearRect(0, 0, cv.width, cv.height);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.save();
+        themeColor();
+        /* during a theme wipe the canvas is its own live layer above the wipe (see themewipestart), so each
+           dot takes the colour of the theme shown at its spot: inside or outside the circle */
+        var view = wipeView(), ox = 0, oy = 0, r2 = 0, cIn = color, cOut = color;
+        if (view) {
+          var cr = cv.getBoundingClientRect();
+          ox = view.x - cr.left; oy = view.y - cr.top; r2 = view.r * view.r;
+          cIn = themeColor(view.inside); cOut = themeColor(view.outside);
+        }
+        var s = 1.15;
+        for (var i = 0; i < parts.length; i++) {
+          var p = parts[i];
+          if (dt) {
+            p.age += dt;
+            if (p.age >= p.life) { parts[i] = p = spawn(0); }
+            p.x += p.vx * dt; p.y += p.vy * dt;
+          }
+          // alpha over life: 0 -> peak -> 0
+          var k = p.age / p.life, al = (k < .5 ? k * 2 : (1 - k) * 2) * p.peak;
+          if (still) al = p.peak * .8;
+          if (p.x < 0 || p.y < 0 || p.x > W || p.y > H) continue;
+          // soft ends: the dust thins out over the last few px instead of stopping at a hard line
+          al *= Math.min(1, p.x / 6, (W - p.x) / 10);
+          if (al <= 0.02) continue;
+          ctx.fillStyle = view ? ((p.x - ox) * (p.x - ox) + (p.y - oy) * (p.y - oy) <= r2 ? cIn : cOut) : color;
+          ctx.globalAlpha = al * fade;
+          ctx.fillRect(p.x, p.y, s, s);
+        }
+        ctx.restore();
+      }
+      function frame(t) {
+        var dt = last ? Math.min(.05, (t - last) / 1000) : 0; last = t;
+        draw(dt);
+        if (spot || (hidden && active())) raf = setTimeout(function () { raf = requestAnimationFrame(frame); }, 1000 / 30); else { raf = 0; last = 0; } // ambient dust: ~30 fps is plenty
+      }
+      function run() { if (!raf && !still && (spot || active())) { last = 0; raf = requestAnimationFrame(frame); } }
+
+      // reveal: plain crossfade (user request: no growing circle), the text fades in, the dust fades out
+      function reveal() {
+        hidden = false;
+        textNode.nodeValue = value;
+        target.classList.remove('masked');
+        btn.classList.add('on'); btn.title = 'Hide';
+        if (still) { cv.style.opacity = '0'; return; }
+        var t0 = performance.now(), from = fade;
+        spot = true; // keeps frames running while the dust fades out
+        (function down(t) {
+          if (hidden) return;
+          fade = from * Math.max(0, 1 - (t - t0) / 250);
+          if (fade > 0) requestAnimationFrame(down);
+          else { spot = null; cv.style.opacity = '0'; fade = 1; }
+        })(t0);
+        run();
+      }
+      function hide() {
+        hidden = true; spot = null;
+        textNode.nodeValue = maskText;
+        target.classList.add('masked');
+        btn.classList.remove('on'); btn.title = 'Show';
+        cv.style.opacity = '';
+        if (still) { draw(0); return; }
+        fade = 0; var t0 = performance.now();
+        (function up(t) { fade = Math.min(1, (t - t0) / 250); if (fade < 1 && hidden) requestAnimationFrame(up); })(t0);
+        run();
+      }
+
+      btn.addEventListener('click', function () {
+        if (!hidden) { hide(); return; }
+        reveal();
+      });
+      // tapping the dust reveals too, as in Telegram
+      vv.addEventListener('click', function (e) {
+        if (!hidden) return;
+        reveal();
+      });
+      measure();
+      run();
+      if (window.IntersectionObserver) new IntersectionObserver(function (es) {
+        onScreen = es[es.length - 1].isIntersecting;
+        if (onScreen && hidden) run();
+      }).observe(vv);
+      document.addEventListener('visibilitychange', function () { if (hidden && active()) run(); });
+      if (window.ResizeObserver) new ResizeObserver(function () { if (hidden) { measure(); if (!raf) draw(0); } }).observe(vv);
+      // reduced motion draws no frames: repaint the still dust when the theme changes
+      new MutationObserver(function () { if (still) draw(0); })
+        .observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+      /* Theme wipe: inside the view transition snapshot the dust would freeze, and it stays covered for the
+         whole wipe when the theme is switched back and forth. So the canvas gets its own transition layer
+         (live, above the wipe; old image hidden in CSS) and draw() colours it to match the circle. Not when
+         it sits under the sticky header or the open settings menu: that layer would paint over them. */
+      document.addEventListener('themewipestart', function () {
+        themeColor(); // the theme before the switch, for the dots outside / inside the circle
+        var r = vv.getBoundingClientRect(), live = hidden && onScreen && r.bottom > 0 && r.top < window.innerHeight;
+        $all('.topbar, .settings-menu.open').forEach(function (el) {
+          var o = el.getBoundingClientRect();
+          if (r.left < o.right && r.right > o.left && r.top < o.bottom && r.bottom > o.top) live = false;
+        });
+        cv.style.viewTransitionName = live ? 'api-ink' : '';
+      });
     }
-    titleInput.addEventListener('input', revalidate);
-    nameInput.addEventListener('input', revalidate);
+
+    /* hidden value: the dots stay selectable but never reach the clipboard (copy or drag).
+       Text selected around them is copied as usual; a selection of dots only copies nothing. */
+    function stripMasked(e) {
+      var sel = window.getSelection();
+      if (!sel || sel.isCollapsed || !document.querySelector('.masked .vv')) return;
+      var hit = false, box = document.createElement('div');
+      for (var i = 0; i < sel.rangeCount; i++) {
+        var r = sel.getRangeAt(i);
+        $all('.masked .vv').forEach(function (el) { if (r.intersectsNode(el)) hit = true; });
+        box.appendChild(r.cloneContents());
+      }
+      if (!hit) return;
+      $all('.vv', box).forEach(function (el) { el.textContent = ''; });
+      /* a partial selection clones only a text node, without its .vv wrapper */
+      var text = (box.textContent || '').replace(/•+/g, '').trim();
+      var dt = e.clipboardData || e.dataTransfer;
+      if (e.type === 'dragstart' && !text) { e.preventDefault(); return; }
+      if (e.type === 'copy' || e.type === 'cut') e.preventDefault();
+      if (dt && text) dt.setData('text/plain', text);
+    }
+    document.addEventListener('copy', stripMasked);
+    document.addEventListener('cut', stripMasked);
+    document.addEventListener('dragstart', stripMasked);
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      touched = true;
-      var okTitle = validateTitle(titleInput);
-      var okName = validateShortname(nameInput);
-      if (!okTitle) { clearAlert(alertSlot); titleInput.focus(); return; }
-      if (!okName) { clearAlert(alertSlot); nameInput.focus(); return; }
+      clearAlert(alertSlot);
+      var okTitle = checkField(titleInput);
+      var okName = checkField(nameInput);
+      if (!okTitle) { titleInput.focus(); return; }
+      if (!okName) { nameInput.focus(); return; }
 
       var btn = $('button[type="submit"]', form);
       setBusy(btn, true);
       postForm('/apps/save', formData(form)).then(function () {
         setBusy(btn, false);
-        if (alertSlot) {
-          alertSlot.innerHTML =
-            '<div class="callout success">' +
-            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg>' +
-            '<div>Saved.</div></div>';
-        }
+        /* only the fields whose value changed flash (user: one edited field, one flash) */
+        var changed = [];
+        if (titleInput.value !== saved.title) changed.push(titleInput.closest('.field'));
+        if (nameInput.value !== saved.name) changed.push(nameInput.closest('.field'));
+        saved = { title: titleInput.value, name: nameInput.value };
+        // the page heading is the app title: show the saved one at once (it used to wait for a reload)
+        var pageTitle = $('main .head h1') || $('main h1');
+        if (pageTitle) pageTitle.textContent = titleInput.value;
+        syncCancel();
+        /* no toast: the changed fields flash an accent-blue border for 1 second */
+        var both = [titleInput.closest('.field'), nameInput.closest('.field')];
+        clearTimeout(flashTimer);
+        both.forEach(function (field) { field.classList.remove('saved', 'fading'); }); // a quick second save starts over
+        changed.forEach(function (field) { field.classList.add('saved'); });
+        flashTimer = setTimeout(function () {
+          changed.forEach(function (field) {
+            field.classList.remove('saved');
+            field.classList.add('fading');
+          });
+          setTimeout(function () {
+            changed.forEach(function (field) { field.classList.remove('fading'); });
+          }, 250);
+        }, 1000);
       }).catch(function (err) {
         setBusy(btn, false);
         var target = err.field === 'app_shortname' ? nameInput : err.field === 'app_title' ? titleInput : null;
         if (target) {
-          clearAlert(alertSlot);
           setFieldState(target, 'err', err.text);
           target.focus();
         } else {
@@ -1133,26 +2100,205 @@
     if (!form) return;
 
     var confirmBox = $('#deactivate_confirm_box');
+    var phoneInput = $('#deactivate_phone_confirm');
+    var hint = $('#deactivate_phone_hint');
     var confirmBtn = $('#deactivate_confirm_btn');
     var cancelBtn = $('#deactivate_cancel_btn');
     var alertSlot = $('#deactivate_code_alert');
     var resultWrap = $('#deactivate_result_wrap');
-    var formWrap = form;
     var messageInput = $('#deactivate_message');
+    var mainActions = $('#deactivate_actions');
+
+    /* reason field: grows with the text and shows a counter near the limit */
+    initAutoGrow(messageInput);
+    /* the phone number shown on the page is the one this account is linked to */
+    var accountPhone = ($('#account_phone', form) || {}).textContent || '';
+    var accountDigits = accountPhone.replace(/\D/g, '');
     var performing = false;
 
+    function digitsOf(v) { return (v || '').replace(/\D/g, ''); }
+
+    /* strict = the field was left. While typing, a correct beginning of the number keeps the
+       neutral hint (the number to retype stays visible); the error shows only for a wrong digit
+       or an incomplete number on blur. */
+    function syncConfirm(strict) {
+      var d = digitsOf(phoneInput.value);
+      var ok = accountDigits.length > 0 && d === accountDigits;
+      var onTrack = d.length < accountDigits.length && accountDigits.indexOf(d) === 0;
+      confirmBtn.disabled = !ok;
+      if (ok) {
+        setFieldState(phoneInput, 'ok', 'Number confirmed');
+      } else if (!phoneInput.value || (onTrack && strict !== true)) {
+        clearFieldState(phoneInput);
+        hint.textContent = 'Enter ' + accountPhone + ' to confirm';
+      } else {
+        setFieldState(phoneInput, 'err', 'Number does not match this account');
+      }
+    }
+
+    function openConfirm() {
+      clearAlert(alertSlot);
+      phoneInput.value = '';
+      syncConfirm();
+      /* the main Delete button gives way to the confirm step, which unfolds in its place */
+      mainActions.classList.add('gone');
+      confirmBox.inert = false;
+      confirmBox.classList.add('open');
+      phoneInput.focus({ preventScroll: true });
+      /* once the box has finished unfolding (0.4s), glide to the very bottom of the page (user: the small
+         nudge that only brought the Yes/Cancel row into view was not enough), so the whole confirm step,
+         from "Are you sure?" to the buttons, sits at the bottom of the screen */
+      setTimeout(function () {
+        var root = document.scrollingElement || document.documentElement;
+        try { window.scrollTo({ top: root.scrollHeight, behavior: 'smooth' }); } catch (e) { window.scrollTo(0, root.scrollHeight); }
+      }, 420);
+    }
+
+    function isOpen() { return confirmBox.classList.contains('open'); }
+
+    function closeConfirm() {
+      confirmBox.classList.remove('open');
+      confirmBox.inert = true;
+      mainActions.classList.remove('gone');
+      $('button', mainActions).focus({ preventScroll: true });
+    }
+
+    /* Enter inside the confirm step must not reopen it (that wiped the typed number): with the right
+       number it deletes, same as "Yes, delete my account"; otherwise the field shows its error */
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      confirmBox.classList.remove('my-hide');
-      confirmBox.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      if (!isOpen()) { openConfirm(); return; }
+      if (!confirmBtn.disabled) confirmBtn.click();
+      else { syncConfirm(true); phoneInput.focus({ preventScroll: true }); }
     });
 
-    cancelBtn.addEventListener('click', function () {
-      confirmBox.classList.add('my-hide');
+    /* Typing the confirm number.
+       - Digits only (capped at the account number length): laid out like the account number, the
+         "+" and spaces appear at the same places as in +888 0102 4105.
+       - "+" is accepted once, at the start. "(", ")", "-" and spaces may be typed too: as soon as
+         the value has "(", ")" or "-", the user's own formatting is kept as typed (no auto layout).
+       - Only the digits are compared with the account number.
+       Paste and drop are blocked: the number has to be typed. */
+    var maxDigits = accountDigits.length;
+    /* layout template: the account number with any separator turned into a single space
+       (a shown "+1-555-010-0100" lays out as "+1 555 010 0100") */
+    var template = accountPhone.trim().replace(/[^\d+]+/g, ' ');
+    function layout(d) {
+      var out = '', k = 0;
+      for (var i = 0; i < template.length && k < d.length; i++) {
+        out += /\d/.test(template[i]) ? d[k++] : template[i];
+      }
+      return out;
+    }
+    function caretAfterDigit(str, n) {
+      if (n <= 0) return /^\+/.test(str) ? 1 : 0;
+      for (var i = 0, k = 0; i < str.length; i++) if (/\d/.test(str[i]) && ++k === n) return i + 1;
+      return str.length;
+    }
+    function ownFormat(v) { return /[()\-]/.test(v); }
+    /* filter the raw value; map[i] = cleaned length after the first i raw chars (for the caret) */
+    function clean(raw) {
+      var out = '', digits = 0, map = [0];
+      for (var i = 0; i < raw.length; i++) {
+        var ch = raw[i];
+        if (digits >= maxDigits) { map.push(out.length); continue; } /* number complete: nothing more */
+        if (/\d/.test(ch)) { out += ch; digits++; }
+        else if (ch === '+') { if (out.trim() === '') out = '+'; }
+        else if (ch === ' ') { if (out !== '' && out.slice(-1) !== ' ') out += ' '; }
+        else if (ch === '(' || ch === ')' || ch === '-') { out += ch; }
+        map.push(out.length);
+      }
+      return { v: out, map: map };
+    }
+    function reformat(rawCaret) {
+      var raw = phoneInput.value, c = clean(raw), v, pos;
+      if (ownFormat(c.v)) {
+        v = c.v; pos = c.map[Math.min(rawCaret, raw.length)];
+      } else {
+        var d = digitsOf(c.v);
+        v = d ? layout(d) : (c.v.charAt(0) === '+' ? '+' : '');
+        /* a space typed at the end is kept, so "+1 " followed by "(" gives "+1 (" */
+        if (d && c.v.slice(-1) === ' ' && v.slice(-1) !== ' ') v += ' ';
+        pos = caretAfterDigit(v, digitsOf(c.v.slice(0, c.map[Math.min(rawCaret, raw.length)])).length);
+      }
+      if (rawCaret >= raw.length) pos = v.length; /* typing at the end stays at the end */
+      phoneInput.value = v;
+      if (document.activeElement === phoneInput) phoneInput.setSelectionRange(pos, pos);
+    }
+    /* faint account number inside the field: shown while the field is focused or filled and the
+       typed value is still a correct beginning in the auto layout; hidden on error or own formatting */
+    var ghost = $('#deactivate_phone_ghost');
+    function placeGhost() {
+      if (!ghost) return;
+      var cs = getComputedStyle(phoneInput);
+      ['paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft', 'borderTopWidth', 'borderRightWidth',
+       'borderBottomWidth', 'borderLeftWidth', 'fontFamily', 'fontSize', 'fontWeight', 'letterSpacing'].forEach(function (k) { ghost.style[k] = cs[k]; });
+      // exact (fractional) size: offsetWidth/Height round 56.5px to 57px, which moves the centred
+      // zeros by a fraction of a pixel and shows up as a 1px shift at some zoom levels
+      var rect = phoneInput.getBoundingClientRect();
+      ghost.style.width = rect.width + 'px';
+      ghost.style.height = rect.height + 'px';
+    }
+    function syncGhost() {
+      if (!ghost) return;
+      var v = phoneInput.value;
+      var show = (document.activeElement === phoneInput || v !== '') && template.indexOf(v) === 0 &&
+        v.length < template.length && !fieldOf(phoneInput).classList.contains('err');
+      ghost.querySelector('.ghost-typed').textContent = v;
+      ghost.querySelector('.ghost-rest').textContent = template.slice(v.length);
+      ghost.classList.toggle('on', show);
+    }
+    window.addEventListener('resize', placeGhost);
+    phoneInput.addEventListener('beforeinput', function (e) {
+      var t = e.inputType || '';
+      if (t === 'insertFromPaste' || t === 'insertFromDrop' || t === 'insertFromPasteAsQuotation') e.preventDefault();
+    });
+    /* auto layout only: Backspace/Delete next to an inserted space removes the neighbouring digit
+       instead, otherwise the layout would put the space straight back (keydown: fires everywhere).
+       A lone "+" is deleted normally. With the user's own formatting, deletion is native. */
+    phoneInput.addEventListener('keydown', function (e) {
+      var back = e.key === 'Backspace', fwd = e.key === 'Delete';
+      if ((!back && !fwd) || e.ctrlKey || e.metaKey || e.altKey) return;
+      var s = phoneInput.selectionStart, en = phoneInput.selectionEnd, v = phoneInput.value, i = -1;
+      if (s !== en || ownFormat(v) || !digitsOf(v)) return;
+      if (back && s > 0 && v[s - 1] === ' ') { for (i = s - 1; i >= 0 && !/\d/.test(v[i]); i--); }
+      else if (fwd && s < v.length && v[s] === ' ') { for (i = s; i < v.length && !/\d/.test(v[i]); i++); if (i >= v.length) i = -1; }
+      else if (back && s === 1 && v[0] === '+') { e.preventDefault(); return; }
+      else return;
+      e.preventDefault();
+      if (i < 0) return;
+      // erasing from the end must not leave a trailing space ("+888 0102 "): with it the value is no
+      // longer a beginning of the number and the faint hint in the field disappears
+      var nv = v.slice(0, i) + v.slice(i + 1);
+      if (!/\d/.test(v.slice(i + 1))) nv = nv.replace(/ +$/, '');
+      phoneInput.value = nv;
+      reformat(Math.min(i, nv.length));
+      syncConfirm(false);
+      syncGhost();
+    });
+    phoneInput.addEventListener('paste', function (e) { e.preventDefault(); });
+    phoneInput.addEventListener('drop', function (e) { e.preventDefault(); });
+    phoneInput.addEventListener('input', function (e) {
+      // deleting: no trailing space is kept (that rule is only for a space the user types)
+      if (e.inputType && e.inputType.indexOf('delete') === 0 && / +$/.test(phoneInput.value) &&
+          phoneInput.selectionStart >= phoneInput.value.replace(/ +$/, '').length) {
+        phoneInput.value = phoneInput.value.replace(/ +$/, '');
+      }
+      reformat(Math.min(phoneInput.selectionStart, phoneInput.value.length));
+      syncConfirm(false);
+      syncGhost();
+    });
+    phoneInput.addEventListener('blur', function () { if (isOpen()) syncConfirm(true); syncGhost(); });
+    /* back in the field: drop the blur-only error while the number is still a correct beginning */
+    phoneInput.addEventListener('focus', function () { syncConfirm(false); placeGhost(); syncGhost(); });
+    cancelBtn.addEventListener('click', closeConfirm);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isOpen()) closeConfirm();
     });
 
     confirmBtn.addEventListener('click', function () {
-      if (performing) return;
+      if (performing || confirmBtn.disabled) return;
+      if (digitsOf(phoneInput.value) !== accountDigits) return;
       performing = true;
       clearAlert(alertSlot);
       setBusy(confirmBtn, true);
@@ -1162,8 +2308,26 @@
       }).then(function () {
         setBusy(confirmBtn, false);
         performing = false;
-        formWrap.classList.add('my-hide');
+        closeConfirm();
+        form.classList.add('my-hide');
+        /* the result replaces the page heading: the question and its warning are gone */
+        var head = $('#deactivate_head');
+        if (head) head.classList.add('my-hide');
         resultWrap.classList.remove('my-hide');
+        /* signed out now (user: the page still offered the account navigation): the sidebar and the mobile
+           back link go (their space stays, nothing jumps), the settings menu keeps only the theme row like
+           on /auth, and the result offers "Sign in again" */
+        document.body.classList.add('signed-out');
+        $all('.sm-account, .sm-logout').forEach(function (el) { el.remove(); });
+        if (resultWrap.animate && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          /* phones: fade only. The "Sign in again" button is position: fixed at the bottom there, and a
+             transform on this wrapper would make it the button's containing block for the 460 ms, so the
+             button showed mid-page and then jumped down (user bug) */
+          var pinned = window.matchMedia('(max-width: 520px)').matches;
+          resultWrap.animate(pinned ? [{ opacity: 0 }, { opacity: 1 }] : [{ opacity: 0, transform: 'translateY(14px)' }, { opacity: 1, transform: 'none' }],
+            { duration: 460, easing: 'cubic-bezier(.2, 0, 0, 1)' });
+        }
+        try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) { window.scrollTo(0, 0); }
       }).catch(function (err) {
         setBusy(confirmBtn, false);
         performing = false;
@@ -1172,14 +2336,210 @@
     });
   }
 
+  /* MTProto server rows: the address is plain selectable text (clicks on it never toggle the row), and a
+     text selection made elsewhere in the header or a double/triple click does not toggle it either */
+  function initServers() {
+    $all('details.server > summary').forEach(function (s) {
+      s.addEventListener('click', function (e) {
+        var sel = window.getSelection();
+        if (e.target.closest('.a') || e.detail > 1 || (sel && !sel.isCollapsed && s.contains(sel.anchorNode))) e.preventDefault();
+      });
+    });
+  }
+
+  /* ---------- WNS credentials ----------
+     Package SID auto-prefix + live rule check; the secret is a password input with an eye
+     (native masking works in every engine). The form posts normally (full page flow). */
+  function initWns() {
+    var form = $('#wns_form');
+    if (!form) return;
+
+    function sidProblem(v) {
+      v = v.trim();
+      if (!/^ms-app:\/\/S-1-15-2-/i.test(v)) return 'Starts with ms-app://S-1-15-2-';
+      var parts = v.slice(18).split('-');
+      if (parts.some(function (p) { return !/^\d+$/.test(p); })) return 'Numbers separated by "-" after the prefix';
+      if (parts.some(function (p) { return p.length > 10; })) return 'Each number has at most 10 digits';
+      if (parts.length !== 7) return 'Needs 7 numbers after ms-app://S-1-15-2- (has ' + parts.length + ')';
+      return '';
+    }
+
+    var sidInput = $('#wns_package_sid');
+    var secretInput = $('#wns_client_secret');
+    var SID_PREFIX = 'ms-app://S-1-15-2-';
+    function normalizeSid(v) {
+      v = v.replace(/\s+/g, '');
+      if (v === '') return '';
+      if (SID_PREFIX.toLowerCase().indexOf(v.toLowerCase()) === 0) return SID_PREFIX;
+      var low = v.toLowerCase(), at = low.lastIndexOf('s-1-15-2-');
+      if (at >= 0) return SID_PREFIX + v.slice(at + 9);
+      var k = 0, p = SID_PREFIX.toLowerCase();
+      while (k < low.length && k < p.length && low[k] === p[k]) k++;
+      return SID_PREFIX + v.slice(k);
+    }
+    initAutoPrefix(sidInput, SID_PREFIX, normalizeSid);
+
+    sidInput.addEventListener('input', function () {
+      if (fieldOf(sidInput).classList.contains('err') && !sidProblem(sidInput.value)) clearFieldState(sidInput);
+    });
+    sidInput.addEventListener('blur', function () {
+      var p = sidInput.value.trim() ? sidProblem(sidInput.value) : '';
+      if (p) setFieldState(sidInput, 'err', p);
+      else setFieldState(sidInput, null, 'Starts with ms-app://S-1-15-2-');
+    });
+
+    var eye = $('.eye', form);
+    if (eye && secretInput) {
+      eye.addEventListener('mousedown', function (e) { e.preventDefault(); });
+      eye.addEventListener('click', function () {
+        var show = secretInput.type === 'password';
+        secretInput.type = show ? 'text' : 'password';
+        eye.classList.toggle('on', show);
+        eye.title = show ? 'Hide' : 'Show';
+      });
+    }
+
+    form.addEventListener('submit', function (e) {
+      var p = sidProblem(sidInput.value);
+      if (p) {
+        e.preventDefault();
+        setFieldState(sidInput, 'err', p);
+        sidInput.focus();
+        return;
+      }
+      clearFieldState(sidInput);
+      if (!secretInput.value.trim()) {
+        e.preventDefault();
+        setFieldState(secretInput, 'err', 'Required');
+        secretInput.focus();
+      }
+    });
+  }
+
+  /* ---------- FCM credentials ----------
+     Drop zone with client-side pre-checks (JSON, size, service_account fields, shown without the
+     private key). The form then posts normally; the server stays the final validator. */
+  function initFcm() {
+    var form = $('#fcm_form');
+    if (!form) return;
+    var drop = $('#fcm_drop'), input = $('#fcm_service_json'), saveBtn = $('#fcm_save_btn');
+    var empty = $('.drop-empty', drop), filled = $('.drop-file', drop);
+    var nameEl = $('.drop-name', drop), subEl = $('.drop-sub', drop);
+    var replaceEl = $('.drop-replace', drop), clearEl = $('.drop-clear', drop);
+    var hint = $('.drop-hint'), hintMsg = $('.msg', hint), HINT = hintMsg.textContent;
+    var current = null, seq = 0;
+
+    function setError(msg) {
+      drop.classList.toggle('err', !!msg);
+      hint.classList.toggle('err', !!msg);
+      hintMsg.textContent = msg || HINT;
+    }
+    function render(name, sub) {
+      nameEl.textContent = name;
+      nameEl.title = name;
+      subEl.textContent = sub || '';
+      subEl.title = sub || '';
+      empty.hidden = true; filled.hidden = false;
+      replaceEl.hidden = false; clearEl.hidden = false;
+      drop.classList.add('has-file');
+      filled.classList.remove('in');
+      void filled.offsetWidth;
+      filled.classList.add('in');
+    }
+    function showEmpty() {
+      seq++; current = null; input.value = '';
+      setError(null); saveBtn.disabled = true;
+      drop.classList.remove('has-file');
+      filled.hidden = true; empty.hidden = false;
+    }
+    saveBtn.disabled = true;
+    // a dropped file must be attached to the input as well, else the POST body goes out empty;
+    // a fresh DataTransfer is built every time, so a second drop replaces the first one;
+    // engines without it (old Safari) fall back to the file picker
+    function attach(file) {
+      try {
+        var dt = new DataTransfer();
+        dt.items.add(file);
+        input.files = dt.files;
+        return true;
+      } catch (e) {
+        return !!input.files.length; // file already in the input (picker path) is still fine
+      }
+    }
+    function take(file) {
+      if (!file) return;
+      var mine = ++seq;
+      current = null; saveBtn.disabled = true;
+      if (!/\.json$/i.test(file.name) && file.type !== 'application/json') { render(file.name, 'Not a JSON file'); setError('Choose the .json key file'); return; }
+      if (file.size > 8096) { render(file.name, 'JSON file · ' + Math.round(file.size / 1024) + ' KB'); setError('Invalid service json file.'); return; }
+      var reader = new FileReader();
+      reader.onload = function () {
+        if (mine !== seq) return;
+        var data = null;
+        try { data = JSON.parse(reader.result); } catch (e) {}
+        if (!data || typeof data !== 'object') { render(file.name, 'JSON file'); setError('Invalid service json file.'); return; }
+        if (data.type !== 'service_account' || !data.project_id || !data.client_email || !data.private_key) {
+          render(file.name, data.project_id ? 'Project ' + data.project_id : 'JSON file');
+          setError('Invalid service json file.');
+          return;
+        }
+        render(file.name, data.project_id + ' · ' + data.client_email);
+        setError(null);
+        current = file;
+        if (!attach(file)) {
+          // no DataTransfer here: a pasted/chosen file is fine (it is in the input already),
+          // a dropped one would be lost, so say so instead of failing silently
+          setError('Use the file picker on this browser');
+          saveBtn.disabled = true;
+          return;
+        }
+        saveBtn.disabled = false;
+      };
+      reader.onerror = function () { if (mine !== seq) return; render(file.name, ''); setError('Could not read the file'); };
+      reader.readAsText(file);
+    }
+
+    input.addEventListener('change', function () { take(input.files && input.files[0]); });
+    clearEl.addEventListener('click', showEmpty);
+
+    function hasFiles(e) { return !!(e.dataTransfer && Array.prototype.indexOf.call(e.dataTransfer.types || [], 'Files') !== -1); }
+    var pageDepth = 0, tileDepth = 0;
+    function endDrag() { pageDepth = tileDepth = 0; drop.classList.remove('ready', 'over'); }
+    window.addEventListener('dragenter', function (e) { if (!hasFiles(e)) return; pageDepth++; drop.classList.add('ready'); });
+    window.addEventListener('dragleave', function (e) { if (!hasFiles(e)) return; if (--pageDepth <= 0) endDrag(); });
+    window.addEventListener('dragover', function (e) { if (hasFiles(e)) e.preventDefault(); });
+    window.addEventListener('drop', function (e) { if (hasFiles(e)) { e.preventDefault(); endDrag(); } });
+    drop.addEventListener('dragenter', function (e) { if (!hasFiles(e)) return; tileDepth++; drop.classList.add('over'); });
+    drop.addEventListener('dragleave', function (e) { if (!hasFiles(e)) return; if (--tileDepth <= 0) { tileDepth = 0; drop.classList.remove('over'); } });
+    drop.addEventListener('drop', function (e) {
+      e.preventDefault(); e.stopPropagation(); endDrag();
+      take(e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]);
+    });
+
+    form.addEventListener('submit', function (e) {
+      if (!current) {
+        e.preventDefault();
+        setError('Choose the .json key file');
+      }
+    });
+  }
+
   ready(function () {
+    initEntrance();
+    document.documentElement.classList.remove('anim');
+    initLogo();
     initTheme();
     initMotion();
-    initCopy();
+    initPhoneDisplay();
     initPhoneField();
     initAuth();
+    initCopy();
     initCreateApp();
+    initHomeChat();
     initEditApp();
     initDelete();
+    initServers();
+    initWns();
+    initFcm();
   });
 })();
