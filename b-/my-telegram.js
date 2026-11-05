@@ -689,15 +689,6 @@
   }
 
 
-  /* shortest valid national number: the server's len_min when there is one, else the mask length,
-     else 5 digits. +888 stays special: ordinary numbers may be as short as 4, "0..." ones are 8. */
-  function phoneMin(c, digits) {
-    if (c[0] === 'FT') return digits && digits.charAt(0) !== '0' ? 4 : 8;
-    if (c[4]) return c[4];
-    if (c[3]) return maskDigits(c[3]);
-    return 5;
-  }
-
   function initPhoneField() {
     var field = $('#phoneField');
     if (!field || typeof MyCountries === 'undefined') return;
@@ -1006,12 +997,11 @@
     var lastValue = '';
     function format(raw, caretDigits, caretPos) {
       var max = maskDigits(phoneMask(maskC()));
-      var digits = raw.replace(/\D/g, '').slice(0, max);
+      var digits = raw.replace(/\D/g, '');
       var mask = phoneMask(maskC());
       var out;
       if (/[-()]/.test(raw)) {
-        var n = 0;
-        out = raw.replace(/\d/g, function (d) { return ++n <= max ? d : ''; });
+        out = raw;
         input.value = out;
         lastValue = out;
         if (caretPos != null && document.activeElement === input) {
@@ -1020,7 +1010,7 @@
         }
         return;
       }
-      out = applyMask(digits, mask);
+      out = applyMask(digits, mask) + digits.slice(max);
       input.value = out;
       lastValue = out;
       if (caretDigits != null) {
@@ -1221,8 +1211,6 @@
       if (ce) return ce;
       var d = input.value.replace(/\D/g, ''), n = d.length;
       if (!n) return 'Enter your phone number';
-      var min = phoneMin(country, d), max = maskDigits(phoneMask(country));
-      if (n < min) return 'Too short: ' + current + ' numbers have ' + (min === max ? min : min + '\u2013' + max) + ' digits';
       return '';
     };
 
