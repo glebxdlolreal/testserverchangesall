@@ -5440,8 +5440,8 @@ var PaymentInvoice = {
     }
 
     var n = window.AppKit.networks;
-    var nets = [n.mainnet, n.base, n.polygon, n.arbitrum];
-    var byId = { 1: n.mainnet, 8453: n.base, 137: n.polygon, 42161: n.arbitrum };
+    var nets = [n.mainnet, n.base, n.polygon, n.arbitrum, n.bsc];
+    var byId = { 1: n.mainnet, 8453: n.base, 137: n.polygon, 42161: n.arbitrum, 56: n.bsc };
 
     var ethersAdapter = new window.AppKit.EthersAdapter();
 
