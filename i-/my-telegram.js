@@ -2145,7 +2145,7 @@
       var colors = {}, shownTheme = null;
       function themeColor(theme) {
         var now = currentTheme();
-        if (now !== shownTheme || !colors[now]) {
+        if (now !== shownTheme || !colors[now] || document.documentElement.classList.contains('theme-color-fade')) {
           shownTheme = now;
           colors[now] = getComputedStyle(target).getPropertyValue('--text').trim() || getComputedStyle(document.body).color;
         }
