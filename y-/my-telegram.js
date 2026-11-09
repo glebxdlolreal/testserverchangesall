@@ -781,7 +781,7 @@
       var show = (document.activeElement === input || v !== '') && fits && codeOk;
       ghost.querySelector('.ghost-typed').textContent = v;
       var rest = ghost.querySelector('.ghost-rest');
-      rest.replaceChildren();
+      rest.textContent = '';
       tpl.slice(v.length).split('').forEach(function (char) {
         if (char !== '\u2012') { rest.appendChild(document.createTextNode(char)); return; }
         var dash = document.createElement('span');
@@ -1249,7 +1249,7 @@
            (user: typing "+" used to switch the row to "Choose a country" at once). The row changes when the
            code matches a country, when no country can start with it ("Invalid country code"), or when the
            code input is left with an incomplete code. The number is not valid meanwhile (codeOk false). */
-        if (digits && document.activeElement === codeIn && prefix(digits)) { codeOk = false; current = codeIn.value; sizeCode(); }
+        if (document.activeElement === codeIn && (!digits || prefix(digits))) { codeOk = false; current = codeIn.value; sizeCode(); }
         else setUnknown(codeIn.value);
         format(input.value.replace(/\D/g, ''), null);
       }
@@ -1424,6 +1424,12 @@
       alertSlot = codeAlert;
       if (codePhone) codePhone.textContent = formatPhone(phone); // sent raw, shown formatted
       if (wrongNumber) wrongNumber.inert = !!pending;
+      if (pending) {
+        if (phoneHidden) phoneHidden.value = phone;
+        if (hashInput) hashInput.value = '';
+        stopResendCountdown();
+        if (resendLink) resendLink.classList.add('disabled');
+      }
       if (codeInput) codeInput.focus();
       if (!pending) startResendCountdown(42);
     }
@@ -2915,6 +2921,7 @@
     }
     function take(file) {
       if (!file || saving || deleting) return;
+      input.value = '';
       stateVersion++;
       var mine = ++seq;
       drop.classList.remove('saved', 'fading');
@@ -3042,8 +3049,17 @@
      Preserve the existing theme controls, and populate their account rows from the response. */
   function openHomeAfterAuth(target) {
     var url;
-    try { url = new URL(target, location.href); } catch (e) { location.href = target; return; }
-    if (!/CriOS\//.test(navigator.userAgent) || url.origin !== location.origin || url.pathname !== '/' || url.search || url.hash) {
+    try { url = new URL(target, location.href); } catch (e) { location.href = '/'; return; }
+    if (url.origin !== location.origin) {
+      location.href = '/';
+      return;
+    }
+    target = url.pathname + url.search + url.hash;
+    if (target.slice(0, 2) === '//') {
+      location.href = '/';
+      return;
+    }
+    if (!/CriOS\//.test(navigator.userAgent) || url.pathname !== '/' || url.search || url.hash) {
       location.href = target; return;
     }
     fetch(url.href, { credentials: 'same-origin', cache: 'no-store' }).then(function (r) {
