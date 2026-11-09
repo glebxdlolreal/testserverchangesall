@@ -3042,8 +3042,13 @@
      Preserve the existing theme controls, and populate their account rows from the response. */
   function openHomeAfterAuth(target) {
     var url;
-    try { url = new URL(target, location.href); } catch (e) { location.href = target; return; }
-    if (!/CriOS\//.test(navigator.userAgent) || url.origin !== location.origin || url.pathname !== '/' || url.search || url.hash) {
+    try { url = new URL(target, location.href); } catch (e) { location.href = '/'; return; }
+    if (url.origin !== location.origin) {
+      location.href = '/';
+      return;
+    }
+    target = url.pathname + url.search + url.hash;
+    if (!/CriOS\//.test(navigator.userAgent) || url.pathname !== '/' || url.search || url.hash) {
       location.href = target; return;
     }
     fetch(url.href, { credentials: 'same-origin', cache: 'no-store' }).then(function (r) {
