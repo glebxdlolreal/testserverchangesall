@@ -2,6 +2,9 @@
 (function () {
   'use strict';
 
+  // Keep the short home page scrollable in Chrome on iPhone.
+  if (/CriOS\//.test(navigator.userAgent) && /iPhone|iPod/.test(navigator.userAgent)) document.documentElement.classList.add('ios-chrome');
+
   function $(sel, root) { return (root || document).querySelector(sel); }
   function $all(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
 
@@ -19,7 +22,7 @@
     }).join('&');
     return fetch(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'X-Requested-With': 'fetch' },
       body: body,
       credentials: 'same-origin'
     }).then(function (res) {
@@ -47,10 +50,11 @@
   function setBusy(btn, busy) {
     if (!btn) return;
     if (busy) {
-      btn.setAttribute('data-label', btn.textContent);
+      btn.setAttribute('aria-busy', 'true');
       btn.disabled = true;
     } else {
       btn.disabled = false;
+      btn.removeAttribute('aria-busy');
     }
   }
 
@@ -257,8 +261,17 @@
   var themeVTs = 0;
   var ROUTE_SEL = 'a[href], button, input, select, textarea, summary, label, [role="button"], [role="radio"], [tabindex]:not([tabindex="-1"])';
   function controlAt(x, y) {
-    var hit = null;
+    var hit = null, menu = $('.settings-menu.open');
+    var inMenu = false;
+    if (menu) {
+      var bounds = menu.getBoundingClientRect();
+      inMenu = x >= bounds.left && x <= bounds.right && y >= bounds.top && y <= bounds.bottom;
+      // A sheet backdrop belongs to the menu, not the controls beneath it.
+      if (!inMenu && $('.sm-backdrop.open')) return $('.sm-backdrop.open');
+    }
     $all(ROUTE_SEL).forEach(function (el) {
+      // During a view transition blank menu space must never target an input below it.
+      if (inMenu && !menu.contains(el)) return;
       if (el.disabled || el.closest('[inert]')) return;
       if (el.checkVisibility && !el.checkVisibility({ visibilityProperty: true, opacityProperty: true })) return;
       var r = el.getBoundingClientRect();
@@ -276,77 +289,23 @@
     else el.click();
   }, true);
 
-  /* next: the theme the page ends up in; commit: applies it (default = store that theme) */
+  /* Interpolate the live page colours immediately, without a screenshot overlay. */
+  var themeFadeTimer = 0;
   function toggleTheme(btn, next, commit) {
     var root = document.documentElement;
-    next = next || ((wipe ? wipe.heading : currentTheme()) === 'dark' ? 'light' : 'dark');
+    next = next || (currentTheme() === 'dark' ? 'light' : 'dark');
     commit = commit || function () { commitTheme(next); };
     var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    /* a click during a wipe never restarts it: the same direction keeps going, the other one turns the
-       circle back from the point it has reached. The click's own choice is applied when the wipe ends. */
-    if (wipe) {
-      wipe.pending = commit;
-      if (next !== wipe.heading) {
-        wipe.heading = next;
-        if (wipe.anim) runWipe(wipe, next === wipe.shown ? wipe.end : wipe.start);
-      }
-      return;
-    }
-
-    if (!document.startViewTransition || reduce || next === currentTheme()) {
+    clearTimeout(themeFadeTimer);
+    if (reduce || next === currentTheme()) {
+      root.classList.remove('theme-color-fade');
       commit();
       return;
     }
-
-    var rect = btn.getBoundingClientRect();
-    var w = { anim: null, shown: next, heading: next, pending: null, ended: false,
-              ox: rect.left + rect.width / 2, oy: rect.top + rect.height / 2 };
-    // live layers (spoiler dust) prepare before the old snapshot is taken: they may opt out of it
-    document.dispatchEvent(new CustomEvent('themewipestart'));
-    w.start = next === 'dark' ? 0 : 102;
-    w.end = next === 'dark' ? 102 : 0;
-    w.from = w.to = w.start;
-    holdTransitions();
-    root.classList.toggle('theme-reveal', next === 'dark');
-    root.classList.remove('theme-collapse');
-    root.offsetWidth; // flush styles before the VT captures the old snapshot
-
-    w.vt = document.startViewTransition(commit);
-    wipe = w;
-    themeVTs++;
-    w.vt.updateCallbackDone.then(releaseTransitions, releaseTransitions);
-
-    w.vt.ready.then(function () {
-      if (w.ended) return;
-      try {
-        root.style.setProperty('--theme-origin-x', w.ox + 'px');
-        root.style.setProperty('--theme-origin-y', w.oy + 'px');
-        if (next !== 'dark') root.classList.add('theme-collapse');
-        root.offsetWidth;
-        /* keeps the overlay up after the mask animation finishes, so endWipe decides when it goes
-           (without it the transition could end one frame before a reversed wipe switches the DOM back) */
-        root.animate({ opacity: [1, 1] }, { duration: 60000, pseudoElement: '::view-transition' });
-        if (w.heading !== w.shown) endWipe(w); // turned back before the first frame: nothing to show
-        else runWipe(w, w.end);
-      } catch (e) { endWipe(w); }
-    }, function () {});
-
-    var cleared = false;
-    var clear = function () {
-      if (cleared) return;
-      cleared = true;
-      themeVTs--;
-      if (!w.ended) { w.ended = true; if (w.pending) w.pending(); } // ended early (tab hidden etc.)
-      if (wipe === w) wipe = null;
-      if (!wipe) {
-        root.classList.remove('theme-reveal', 'theme-collapse');
-        root.style.removeProperty('--theme-origin-x');
-        root.style.removeProperty('--theme-origin-y');
-        releaseTransitions();
-      }
-    };
-    w.vt.finished.then(clear, clear);
+    root.classList.add('theme-color-fade');
+    root.offsetWidth; // apply transition rules before changing the theme variables
+    commit();
+    themeFadeTimer = setTimeout(function () { root.classList.remove('theme-color-fade'); }, 260);
   }
   /* the inline display:none (anti-FOUC) comes off only once the stylesheet is guaranteed loaded:
      window load waits for it; an already-complete page (warm cache) fires at once */
@@ -363,6 +322,83 @@
   function initTheme() {
     initSettings();
     initEscBlur();
+    initPinnedBar();
+    initMobileHeaderFocus();
+  }
+
+  function initMobileHeaderFocus() {
+    var bar = $('.topbar');
+    if (!bar) return;
+    var touch = matchMedia('(pointer: coarse)'), blurTimer = 0;
+    function sync() {
+      var el = document.activeElement;
+      var editing = el && !el.disabled && !el.readOnly && (el.isContentEditable ||
+        el.matches('textarea, input:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="file"]):not([type="hidden"]):not([type="range"]):not([type="color"])'));
+      bar.classList.toggle('field-editing', !!(touch.matches && editing));
+    }
+    document.addEventListener('focusin', function () { clearTimeout(blurTimer); sync(); });
+    document.addEventListener('focusout', function () {
+      clearTimeout(blurTimer);
+      blurTimer = setTimeout(sync, 0);
+    });
+    if (touch.addEventListener) touch.addEventListener('change', sync);
+    else touch.addListener(sync);
+    window.addEventListener('pageshow', sync);
+    sync();
+  }
+
+  function initPinnedBar() {
+    if (!/(CriOS|FxiOS|EdgiOS|OPiOS)\//.test(navigator.userAgent)) return;
+    var bar = $('.topbar'), vv = window.visualViewport;
+    var shift = 0, quiet = 0, QUIET = 160, armedUntil = 0, ROOM = 12;
+    function typing() {
+      var el = document.activeElement;
+      return !!el && (el.tagName === 'TEXTAREA' || (el.tagName === 'INPUT' && !/^(checkbox|radio|button|submit|reset|file|hidden|range)$/.test(el.type)));
+    }
+    function setShift(px) {
+      if (px === shift) return;
+      shift = px;
+      bar.style.transform = px ? 'translateY(' + px + 'px)' : '';
+    }
+    function settle() {
+      quiet = 0;
+      if (!typing()) { setShift(0); bar.classList.remove('bar-away'); return; }
+      if (Date.now() < armedUntil) {
+        var el = document.activeElement, box = el.closest('.phone-group, .field') || el;
+        var authField = !!el.closest('.auth');
+        // On sign-in, do not add a second nudge when the field is already visible.
+        var over = Math.round(box.getBoundingClientRect().bottom - (vv.offsetTop + vv.height - (authField ? 0 : ROOM)));
+        if (over > (authField ? 8 : 1)) {
+          armedUntil = 0;
+          if (authField) {
+            var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+            window.scrollBy({ top: over, behavior: reduced ? 'auto' : 'smooth' });
+          } else window.scrollBy(0, over);
+          return;
+        }
+      }
+      var natural = bar.getBoundingClientRect().top - shift;
+      setShift(Math.round(vv.offsetTop - natural));
+      bar.classList.remove('bar-away');
+    }
+    function moved() {
+      if (!bar || !vv || !document.documentElement.classList.contains('kb-room')) return;
+      bar.classList.add('bar-away');
+      clearTimeout(quiet);
+      quiet = setTimeout(settle, QUIET);
+    }
+    function room() {
+      var on = typing();
+      document.documentElement.classList.toggle('kb-room', on);
+      if (!on && bar) { clearTimeout(quiet); setShift(0); bar.classList.remove('bar-away'); }
+    }
+    document.addEventListener('focusin', function () { room(); if (typing()) armedUntil = Date.now() + 1500; });
+    document.addEventListener('focusout', function () { setTimeout(room, 0); });
+    if (vv) {
+      vv.addEventListener('scroll', moved);
+      vv.addEventListener('resize', function () { if (typing()) armedUntil = Date.now() + 1000; moved(); });
+    }
+    window.addEventListener('scroll', moved, { passive: true });
   }
 
   /* Esc (and Enter in one-line fields) leaves the text field (blur). When Esc already closes something
@@ -385,8 +421,32 @@
       var el = e.target;
       if (!el.matches || !el.matches('input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="submit"]):not([type="button"])')) return;
       if (el.getAttribute('role') === 'combobox') return; // the country search keeps focus (Enter with no match does nothing)
+      // Keep the phone keyboard open while the sign-in request completes.
+      if (el.closest('#my_send_form') && window.matchMedia && matchMedia('(pointer: coarse)').matches) return;
       setTimeout(function () { if (document.activeElement === el) el.blur(); }, 0);
     });
+  }
+
+  function ensureSettingsLinks(menu) {
+  var headerLinks = $all('.header-links a');
+  if (headerLinks.length && !$('.sm-links', menu)) {
+    var LINK_ICONS = {
+      'Getting started': '<path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2Z"/><path d="M8 7h6"/>',
+      'TDLib': '<path d="m8 8-4 4 4 4M16 8l4 4-4 4"/>',
+      'API Terms': '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>'
+    };
+    var group = document.createElement('div');
+    group.className = 'sm-links';
+    headerLinks.forEach(function (a) {
+      var row = a.cloneNode(true), label = a.textContent.trim();
+      row.className = 'sm-link';
+      row.innerHTML = '<svg class="sm-link-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (LINK_ICONS[label] || LINK_ICONS['API Terms']) + '</svg><span></span>' +
+        '<svg class="sm-link-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>';
+      $('span', row).textContent = label;
+      group.appendChild(row);
+    });
+    menu.insertBefore(group, $('.sm-logout', menu));
+  }
   }
 
   /* Settings menu behind the gear in the top bar (private pages): the signed-in number with the avatar,
@@ -405,25 +465,7 @@
       /* phones: the header links (Getting started, TDLib, API Terms) are hidden in the top bar, so the sheet
          gets a copy of them as rows with an icon and an "opens outside" arrow, between the theme row and Log
          out (user pick A). Built from the header links themselves, so they stay one list; hidden on desktop. */
-      var headerLinks = $all('.header-links a');
-      if (headerLinks.length && !$('.sm-links', menu)) {
-        var LINK_ICONS = {
-          'Getting started': '<path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2Z"/><path d="M8 7h6"/>',
-          'TDLib': '<path d="m8 8-4 4 4 4M16 8l4 4-4 4"/>',
-          'API Terms': '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>'
-        };
-        var group = document.createElement('div');
-        group.className = 'sm-links';
-        headerLinks.forEach(function (a) {
-          var row = a.cloneNode(true), label = a.textContent.trim();
-          row.className = 'sm-link';
-          row.innerHTML = '<svg class="sm-link-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (LINK_ICONS[label] || LINK_ICONS['API Terms']) + '</svg><span></span>' +
-            '<svg class="sm-link-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>';
-          $('span', row).textContent = label;
-          group.appendChild(row);
-        });
-        menu.insertBefore(group, $('.sm-logout', menu));
-      }
+      ensureSettingsLinks(menu);
       // disclosure pattern: the gear says which element it opens
       if (!menu.id) menu.id = 'settings-menu-' + Math.random().toString(36).slice(2, 8);
       gear.setAttribute('aria-controls', menu.id);
@@ -550,15 +592,15 @@
           var sys = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
           var next = mode === 'system' ? sys : mode;
           chosen = mode;
+          mark();
           toggleTheme(b, next, function () {
             if (mode === 'system') {
               delete document.documentElement.dataset.theme;
               try { localStorage.removeItem('theme'); } catch (e) {}
             } else commitTheme(mode);
-            if (chosen === mode) chosen = null; // an older click's commit must not drop a newer choice
+            if (chosen === mode) chosen = null;
             mark();
           });
-          mark();
         });
       });
       mark();
@@ -595,6 +637,7 @@
         }, wait);
       };
       el.addEventListener('pointerup', done, { once: true });
+      el.addEventListener('pointercancel', done, { once: true });
       el.addEventListener('pointerleave', done, { once: true });
     });
   }
@@ -718,7 +761,7 @@
     }
     function maskC() { return codeOk ? country : ['', '', current.length > 1 ? current : '+1', '', 0, 0]; }
 
-    /* the mask as faint zeros ("000 000 0000") under the input; typed digits cover them one by one.
+    /* the mask as faint dashes under the input; typed digits cover them one by one.
        Box metrics are copied from the input so the zeros sit exactly under the real ones. */
     var ghost = $('#phone_ghost', field);
     function placeGhost() {
@@ -733,11 +776,19 @@
     var placeholderText = input.getAttribute('placeholder') || '';
     function syncGhost() {
       if (!ghost || typeof country === 'undefined') return;
-      var v = input.value, tpl = phoneMask(maskC()).replace(/X/g, '0');
-      var fits = /^[\d ]*$/.test(v) && v.length < tpl.length && v.replace(/\d/g, '0') === tpl.slice(0, v.length);
+      var v = input.value, tpl = phoneMask(maskC()).replace(/X/g, '\u2012');
+      var fits = /^[\d ]*$/.test(v) && v.length < tpl.length && v.replace(/\d/g, '\u2012') === tpl.slice(0, v.length);
       var show = (document.activeElement === input || v !== '') && fits && codeOk;
       ghost.querySelector('.ghost-typed').textContent = v;
-      ghost.querySelector('.ghost-rest').textContent = tpl.slice(v.length);
+      var rest = ghost.querySelector('.ghost-rest');
+      rest.textContent = '';
+      tpl.slice(v.length).split('').forEach(function (char) {
+        if (char !== '\u2012') { rest.appendChild(document.createTextNode(char)); return; }
+        var dash = document.createElement('span');
+        dash.className = 'mask-dash';
+        dash.textContent = '\u2012';
+        rest.appendChild(dash);
+      });
       ghost.classList.toggle('on', show);
       // never both texts at once (some UAs keep the placeholder up while focused):
       // the mask zeros are the placeholder whenever they are on
@@ -854,20 +905,24 @@
 
     /* keep a 24px gap between the list and the bottom of the window */
     var GAP = 24, MIN_LIST = 120, MAX_LIST = 216;
+    function viewBottom() {
+      var v = window.visualViewport;
+      return v ? v.offsetTop + v.height : window.innerHeight;
+    }
     function fitPop(noScroll) {
       list.style.maxHeight = '';
       var top = field.getBoundingClientRect().top + pop.offsetTop;
       var chrome = pop.offsetHeight - list.offsetHeight;
-      var room = window.innerHeight - GAP - top - chrome;
+      var room = viewBottom() - GAP - top - chrome;
       var h = Math.max(MIN_LIST, Math.min(MAX_LIST, room));
       list.style.maxHeight = h + 'px';
       var bottom = field.getBoundingClientRect().top + pop.offsetTop + pop.offsetHeight;
-      if (bottom + GAP > window.innerHeight && h > MIN_LIST) {
-        h = Math.max(MIN_LIST, h - (bottom + GAP - window.innerHeight));
+      if (bottom + GAP > viewBottom() && h > MIN_LIST) {
+        h = Math.max(MIN_LIST, h - (bottom + GAP - viewBottom()));
         list.style.maxHeight = h + 'px';
         bottom = field.getBoundingClientRect().top + pop.offsetTop + pop.offsetHeight;
       }
-      var over = Math.ceil(bottom + GAP - window.innerHeight);
+      var over = Math.ceil(bottom + GAP - viewBottom());
       if (over > 0 && !noScroll) {
         var spare = document.documentElement.scrollHeight - window.innerHeight - window.scrollY;
         if (spare < over) document.body.style.paddingBottom = (over - spare) + 'px';
@@ -875,6 +930,36 @@
       }
     }
     window.addEventListener('resize', function () { if (field.classList.contains('open')) fitPop(true); });
+
+    var coarse = window.matchMedia ? matchMedia('(pointer: coarse)') : { matches: false };
+    var liftT = 0;
+    function liftForKeyboard() {
+      if (!field.classList.contains('open') || document.activeElement !== query) return;
+      var v = window.visualViewport, vTop = v ? v.offsetTop : 0;
+      var bar = $('.topbar'), barH = bar ? bar.offsetHeight : 0;
+      var delta = Math.round(field.getBoundingClientRect().top - vTop - barH - 12);
+      if (delta > 0) {
+        var spare = document.documentElement.scrollHeight - window.innerHeight - window.scrollY;
+        if (spare < delta) document.body.style.paddingBottom = (parseFloat(document.body.style.paddingBottom) || 0) + (delta - spare) + 'px';
+        window.scrollBy(0, delta);
+      }
+      requestAnimationFrame(function () { fitPop(true); });
+    }
+    function scheduleLift(ms) { clearTimeout(liftT); liftT = setTimeout(liftForKeyboard, ms); }
+    query.addEventListener('focus', function () { if (coarse.matches) scheduleLift(350); });
+    if (window.visualViewport) {
+      visualViewport.addEventListener('resize', function () {
+        if (!field.classList.contains('open')) return;
+        if (coarse.matches && document.activeElement === query) scheduleLift(200); else fitPop(true);
+      });
+    }
+
+    function dropRestoredFocus() {
+      var a = document.activeElement;
+      if (a && a !== document.body && field.contains(a) && a.blur) a.blur();
+    }
+    dropRestoredFocus();
+    window.addEventListener('pageshow', function (e) { if (e.persisted) dropRestoredFocus(); });
 
     /* iOS-style scrolling for the list: no browser scrollbar; a thin overlay thumb that shows while the
        list scrolls or is hovered and fades out after; rows fade out at the top edge once scrolled. */
@@ -930,8 +1015,12 @@
       btn.setAttribute('aria-expanded', 'true');
       query.setAttribute('aria-expanded', 'true');
       render('');
-      setTimeout(function () { query.focus({ preventScroll: true }); }, 60);
+      var byTouch = openedBy === 'touch' || openedBy === 'pen';
+      openedBy = '';
+      if (!byTouch) setTimeout(function () { query.focus({ preventScroll: true }); }, 60);
+      else if (field.contains(document.activeElement) && document.activeElement.blur) document.activeElement.blur();
     }
+    var openedBy = '';
 
     function close(focusTo) {
       if (!field.classList.contains('open')) return;
@@ -947,7 +1036,9 @@
 
     var country = MyCountries.filter(function (c) { return c[0] === 'US'; })[0] || MyCountries[0];
 
-    function setFlag(iso) { flagEl.innerHTML = flagHtml(iso); }
+    function setFlag(iso) {
+      flagEl.innerHTML = iso ? flagHtml(iso) : '<svg class="country-globe" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9s-1.2 6.5-3.6 9c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3Z"/></svg>';
+    }
 
     function setCountry(c) {
       country = c;
@@ -988,12 +1079,12 @@
         var pickIt = hits.filter(function (c) { return c === country; })[0];
         if (!pickIt && dial === '+7') pickIt = hits.filter(function (c) { return c[0] === (/^[67]/.test(digits.charAt(1)) ? 'KZ' : 'RU'); })[0];
         if (!pickIt && dial === '+1') pickIt = hits.filter(function (c) { return c[0] === 'US'; })[0];
-        return { c: pickIt || hits[0], len: len };
+        return { c: pickIt || hits[0], len: dial.length - 1 };
       }
       return null;
     }
 
-    /* writes the national number: masked with spaces, or as typed when it holds - ( ) */
+    /* Writes the national number using the country mask. */
     var lastValue = '';
     function format(raw, caretDigits, caretPos) {
       var max = maskDigits(phoneMask(maskC()));
@@ -1029,13 +1120,14 @@
         var all = raw.slice(plus + 1).replace(/\D/g, '');
         var hit = countryFor(all);
         if (hit) {
-          if (hit.c !== country) setCountry(hit.c);
+          if (hit.c !== country || !codeOk) setCountry(hit.c);
           var rest = all.slice(hit.len);
           format(rest, rest.length);
           return;
         }
-        // still typing a code ("+", "+3") or one no country has ("+999"): it moves into the code input
-        input.value = raw.slice(0, plus).replace(/[^\d\-() ]/g, '');
+        // still typing a code ("+", "+3") or one no country has ("+999"): it belongs in the code input,
+        // so it moves there with the caret (the country row stays until the code is complete or invalid)
+        input.value = raw.slice(0, plus).replace(/[^\d ]/g, '');
         lastValue = input.value;
         codeIn.value = '+' + all;
         codeIn.focus();
@@ -1043,14 +1135,24 @@
         onCode(false);
         return;
       }
-      var clean = raw.replace(/[^\d\-() ]/g, '');
+      var clean = raw.replace(/[^\d ]/g, '');
       var digits = clean.replace(/\D/g, ''), max = maskDigits(phoneMask(maskC()));
+      // With an empty dial code, digits entered in the number field start with the country code.
+      if (!codeOk && !codeIn.value.replace(/\D/g, '') && digits) {
+        var international = countryFor(digits);
+        if (international) {
+          setCountry(international.c);
+          var national = digits.slice(international.len);
+          format(national, national.length);
+          return;
+        }
+      }
       if (digits.length > max && digits.length - lastValue.replace(/\D/g, '').length > 1) {
         // a whole number was pasted: own code without "+", "8 999..." (RU, KZ), trunk 0 -> national number
         var dialD = current.replace(/\D/g, '');
         var hit2 = digits.slice(0, 2) === '00' ? countryFor(digits.slice(2)) : null;
         if (hit2) {
-          if (hit2.c !== country) setCountry(hit2.c);
+          if (hit2.c !== country || !codeOk) setCountry(hit2.c);
           var r2 = digits.slice(2 + hit2.len);
           format(r2, r2.length);
           return;
@@ -1062,7 +1164,7 @@
         if (nat != null) { format(nat, nat.length); return; }
       }
       var before = raw.slice(0, caret).replace(/\D/g, '').length;
-      var cleanCaret = raw.slice(0, caret).replace(/[^\d\-() ]/g, '').length;
+      var cleanCaret = raw.slice(0, caret).replace(/[^\d ]/g, '').length;
       if (clean === lastValue && clean !== raw) {
         // only a disallowed character was typed: put the old value back, caret where it was
         input.value = lastValue;
@@ -1085,9 +1187,19 @@
       lastValue = '';
       input.value = text.slice(0, 40);
       input.setSelectionRange(input.value.length, input.value.length);
-      input.dispatchEvent(new Event('input', { bubbles: true }));
+      input.dispatchEvent(new InputEvent('input', { bubbles: true, inputType: 'insertFromPaste' }));
     });
     input.addEventListener('input', syncGhost);
+    [codeIn, input].forEach(function (el) {
+      el.addEventListener('input', function (event) {
+        if (event.inputType !== 'insertFromPaste') return;
+        requestAnimationFrame(function () {
+          if (document.activeElement !== el) return;
+          var pos = el.value.length;
+          el.setSelectionRange(pos, pos);
+        });
+      });
+    });
 
     // Backspace / Delete right next to a mask space removes the digit behind it, not just the space
     input.addEventListener('keydown', function (e) {
@@ -1133,8 +1245,10 @@
         format(input.value.replace(/\D/g, ''), null);
         if (typing && !longer(digits)) { input.focus(); input.setSelectionRange(input.value.length, input.value.length); }
       } else {
-        /* a code still being typed ("+", "+4") keeps the country row as it was until the code is complete;
-           codeOk false meanwhile, so the number cannot be sent */
+        /* a code still being typed ("+", "+4") keeps the country row as it was until the code is complete
+           (user: typing "+" used to switch the row to "Choose a country" at once). The row changes when the
+           code matches a country, when no country can start with it ("Invalid country code"), or when the
+           code input is left with an incomplete code. The number is not valid meanwhile (codeOk false). */
         if (document.activeElement === codeIn && (!digits || prefix(digits))) { codeOk = false; current = codeIn.value; sizeCode(); }
         else setUnknown(codeIn.value);
         format(input.value.replace(/\D/g, ''), null);
@@ -1162,8 +1276,10 @@
     });
     codeIn.addEventListener('mouseup', function () { if (codeIn.selectionStart === 0 && codeIn.selectionEnd === 0) codeIn.setSelectionRange(1, 1); });
 
+    btn.addEventListener('pointerdown', function (e) { openedBy = e.pointerType; });
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
+      if (e.detail === 0) openedBy = '';
       if (field.classList.contains('open')) close(); else open();
     });
     query.addEventListener('input', function () { render(query.value); });
@@ -1222,6 +1338,59 @@
     };
   }
 
+  /* Restore the pre-keyboard position after leaving the mobile sign-in fields, unless the user scrolled. */
+  function initAuthScrollRestore() {
+    if (!$('#my_send_form') || !window.matchMedia || !matchMedia('(pointer: coarse)').matches) return;
+    var session = null, pendingFocus = null, timer = 0, paddingTimer = 0, touchStart = null;
+    var chromeIOS = /CriOS\//.test(navigator.userAgent);
+    var root = document.documentElement;
+    function releaseRoom() { clearTimeout(paddingTimer); root.classList.remove('auth-scroll-restoring'); }
+    var selector = '#stage_phone input:not([type="hidden"]), #stage_code input:not([type="hidden"])';
+    function editing() { return !!document.activeElement && document.activeElement.matches(selector); }
+    function markManual() { if (session) session.manual = true; }
+    function position() { return { top: window.scrollY, viewportTop: window.visualViewport ? window.visualViewport.offsetTop : 0, manual: false }; }
+    document.addEventListener('pointerdown', function (e) {
+      if (!session && e.target.matches && e.target.matches(selector)) pendingFocus = { target: e.target, time: Date.now(), position: position() };
+    }, true);
+    document.addEventListener('focusin', function (e) {
+      if (!e.target.matches || !e.target.matches(selector)) return;
+      clearTimeout(timer);
+      releaseRoom();
+      if (!session) session = pendingFocus && pendingFocus.target === e.target && Date.now() - pendingFocus.time < 1000 ? pendingFocus.position : position();
+      pendingFocus = null;
+    });
+    document.addEventListener('focusout', function (e) {
+      if (!session || !e.target.matches || !e.target.matches(selector)) return;
+      clearTimeout(timer);
+      // Keep Chrome's keyboard scroll room until the return animation finishes.
+      if (chromeIOS && root.classList.contains('kb-room') && !session.manual) root.classList.add('auth-scroll-restoring');
+      function restore() {
+        if (!$('#my_send_form')) { session = null; releaseRoom(); return; }
+        if (!session || editing()) { releaseRoom(); return; }
+        var previous = session;
+        session = null;
+        var viewportTop = window.visualViewport ? window.visualViewport.offsetTop : 0;
+        if (previous.manual || (Math.abs(window.scrollY - previous.top) < 2 && Math.abs(viewportTop - previous.viewportTop) < 2)) { releaseRoom(); return; }
+        var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: previous.top, behavior: reduced ? 'auto' : 'smooth' });
+        if (chromeIOS && !reduced) paddingTimer = setTimeout(releaseRoom, 500);
+        else releaseRoom();
+      }
+      timer = setTimeout(restore, 120);
+    });
+    document.addEventListener('touchstart', function (e) {
+      if (!session || e.touches.length !== 1) { touchStart = null; return; }
+      touchStart = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    }, { passive: true });
+    document.addEventListener('touchmove', function (e) {
+      if (session && touchStart && e.touches.length === 1 && Math.hypot(e.touches[0].clientX - touchStart.x, e.touches[0].clientY - touchStart.y) > 6) markManual();
+    }, { passive: true });
+    document.addEventListener('wheel', markManual, { passive: true });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'PageUp' || e.key === 'PageDown' || (!editing() && /^(ArrowUp|ArrowDown|Home|End| )$/.test(e.key))) markManual();
+    });
+  }
+
   /* ---------- auth: phone + code ---------- */
   function initAuth() {
     var sendForm = $('#my_send_form');
@@ -1246,7 +1415,7 @@
     var resendText = $('#my_resend_text');
     var resendTimer = null;
 
-    function showCodeStage(phone) {
+    function showCodeStage(phone, pending) {
       if (stagePhone && stageCode) {
         stagePhone.classList.add('my-hide');
         stageCode.classList.remove('my-hide');
@@ -1254,8 +1423,15 @@
       clearAlert(sendAlert);
       alertSlot = codeAlert;
       if (codePhone) codePhone.textContent = formatPhone(phone); // sent raw, shown formatted
+      if (wrongNumber) wrongNumber.inert = !!pending;
+      if (pending) {
+        if (phoneHidden) phoneHidden.value = phone;
+        if (hashInput) hashInput.value = '';
+        stopResendCountdown();
+        if (resendLink) resendLink.classList.add('disabled');
+      }
       if (codeInput) codeInput.focus();
-      startResendCountdown(42);
+      if (!pending) startResendCountdown(42);
     }
 
     function showPhoneStage() {
@@ -1264,6 +1440,9 @@
         stagePhone.classList.remove('my-hide');
       }
       clearAlert(codeAlert);
+      if (wrongNumber) wrongNumber.inert = false;
+      if (codeInput) { codeInput.value = ''; clearFieldState(codeInput); }
+      if (hashInput) hashInput.value = '';
       alertSlot = sendAlert;
       stopResendCountdown();
     }
@@ -1295,11 +1474,24 @@
       resendTimer = setInterval(tick, 1000);
     }
 
-    function sendPassword(phone, btn, onDone) {
+    function authErrorMessage(error, fallback) {
+      return String((error && error.text) || fallback).replace(/!+\s*$/, '.');
+    }
+
+    // Keep a fast response or network failure visible long enough to avoid a one-frame flash.
+    function minimumAuthWait(request) {
+      var start = Date.now();
+      function wait() { return new Promise(function (resolve) { setTimeout(resolve, Math.max(0, 500 - (Date.now() - start))); }); }
+      return request.then(function (value) { return wait().then(function () { return value; }); },
+        function (error) { return wait().then(function () { throw error; }); });
+    }
+
+    function sendPassword(phone, btn, onDone, onError) {
       // the old error stays until the answer comes: clearing it first made the card shrink and grow back
       // on every repeated Next; the new error replaces it, success removes it
       setBusy(btn, true);
-      postForm('/auth/send_password', { phone: phone }).then(function (result) {
+      var request = postForm('/auth/send_password', { phone: phone });
+      (btn ? minimumAuthWait(request) : request).then(function (result) {
         setBusy(btn, false);
         clearAlert(alertSlot);
         if (hashInput) hashInput.value = result.random_hash;
@@ -1307,7 +1499,8 @@
         if (onDone) onDone(phone);
       }).catch(function (err) {
         setBusy(btn, false);
-        showAlert(alertSlot, err.text);
+        if (onError) onError();
+        showAlert(alertSlot, authErrorMessage(err, 'Unable to send the code. Please try again.'));
       });
     }
 
@@ -1322,6 +1515,12 @@
     phoneInput.addEventListener('input', phoneEdited);
     if (dialInput) dialInput.addEventListener('input', phoneEdited);
 
+    var nextButton = $('button[type="submit"]', sendForm);
+    if (nextButton) nextButton.addEventListener('pointerdown', function (e) {
+      // A touch on Next should not blur the active phone input and dismiss the keyboard.
+      if (e.pointerType === 'touch' && (document.activeElement === phoneInput || document.activeElement === dialInput)) e.preventDefault();
+    });
+
     sendForm.addEventListener('submit', function (e) {
       e.preventDefault();
       var phone = phoneField && phoneField.getFullPhone ? phoneField.getFullPhone() : phoneInput.value.trim();
@@ -1333,7 +1532,23 @@
         return;
       }
       clearFieldState(phoneInput);
-      sendPassword(phone, $('button[type="submit"]', sendForm), showCodeStage);
+      var touch = window.matchMedia && matchMedia('(pointer: coarse)').matches;
+      if (touch) {
+        // Focus inside this submit gesture: mobile browsers can then open the keyboard.
+        showCodeStage(phone, true);
+        var loginButton = $('button[type="submit"]', loginForm);
+        if (loginButton) loginButton.disabled = true;
+        sendPassword(phone, null, function () {
+          if (loginButton) loginButton.disabled = false;
+          if (wrongNumber) wrongNumber.inert = false;
+          startResendCountdown(42);
+        }, function () {
+          if (loginButton) loginButton.disabled = false;
+          showPhoneStage();
+        });
+      } else {
+        sendPassword(phone, $('button[type="submit"]', sendForm), showCodeStage);
+      }
     });
 
     var wrongNumber = $('#my_wrong_number');
@@ -1378,19 +1593,26 @@
 
     loginForm.addEventListener('submit', function (e) {
       e.preventDefault();
+      var btn = $('button[type="submit"]', loginForm);
+      if (btn && btn.disabled) return;
       clearAlert(alertSlot);
       if (!codeInput.value) {
         setFieldState(codeInput, 'err', 'Enter the code from the Telegram message');
         codeInput.focus();
         return;
       }
-      var btn = $('button[type="submit"]', loginForm);
       setBusy(btn, true);
-      postForm('/auth/login', formData(loginForm)).then(function () {
-        location.href = typeof MyAuthRedirect !== 'undefined' ? MyAuthRedirect : '/';
+      minimumAuthWait(postForm('/auth/login', formData(loginForm))).then(function () {
+        openHomeAfterAuth(typeof MyAuthRedirect !== 'undefined' ? MyAuthRedirect : '/');
       }).catch(function (err) {
         setBusy(btn, false);
-        setFieldState(codeInput, 'err', err.text);
+        var message = authErrorMessage(err, 'Unable to sign in. Please try again.');
+        if (err && /^(password|my_password|code)$/.test(err.field || '')) {
+          setFieldState(codeInput, 'err', message);
+        } else {
+          clearFieldState(codeInput);
+          showAlert(codeAlert, message);
+        }
       });
     });
   }
@@ -1551,9 +1773,14 @@
       { input: urlInput, ok: function (v) { return !urlProblem(v); }, why: urlProblem, msg: 'Full address with https://', neutral: 'Optional. Full address with https://' }
     ].filter(function (c) { return c.input; });
 
+    checks.forEach(function (c) {
+      var hint = $('.hint .msg', fieldOf(c.input));
+      c.neutral = hint ? hint.textContent : (c.neutral || c.msg);
+    });
+
     function paint(c) {
       var good = c.ok(c.input.value);
-      if (good) setFieldState(c.input, null, c.neutral || c.msg);
+      if (good || c.input.value === '') setFieldState(c.input, null, c.neutral || c.msg);
       else setFieldState(c.input, 'err', (c.why && c.why(c.input.value)) || c.msg);
       return good;
     }
@@ -1583,7 +1810,7 @@
     }
     checks.forEach(function (c) {
       c.input.addEventListener('input', function () {
-        if (fieldOf(c.input).classList.contains('err')) paint(c);
+        if (fieldOf(c.input).classList.contains('err') || c.input.value === '') paint(c);
         clearAlert(alertSlot);
         sync();
       });
@@ -1609,7 +1836,7 @@
         createUrl += '?_newapp=1';
       }
       postForm(createUrl, formData(form)).then(function () {
-        location.reload();
+        location.href = '/apps';
       }).catch(function (err) {
         setBusy(createBtn, false);
         var target = err.field === 'app_shortname' ? nameInput : err.field === 'app_title' ? titleInput : null;
@@ -1729,8 +1956,8 @@
       var typing = line();
       later(function () {
         bubble('out');
-        if (Math.random() < 0.6) later(function () { bubble('in'); }, 550 + Math.random() * 300);
-        later(step, 450 + Math.random() * 300); // short pause before the next line (was 1.1-1.6 s, user: too slow)
+        if (Math.random() < 0.6) later(function () { bubble('in'); }, 750 + Math.random() * 350);
+        later(step, 800 + Math.random() * 400); // give each message more time before the next line
       }, typing + 120); // sent as soon as the line (and its accent) is typed
     }
     function start() {
@@ -1781,7 +2008,8 @@
 
     /* entering a field selects its whole value; the mouseup that follows the focus
        click would otherwise collapse the selection, so it is swallowed once */
-    [titleInput, nameInput].forEach(function (el) {
+    var coarse = window.matchMedia && matchMedia('(pointer: coarse)').matches;
+    if (!coarse) [titleInput, nameInput].forEach(function (el) {
       var fresh = false;
       el.addEventListener('focus', function () { fresh = true; el.select(); });
       el.addEventListener('mouseup', function (e) {
@@ -1789,12 +2017,19 @@
       });
     });
 
-    /* same rules as /apps/new (appNameProblem): a field is red while it breaks its rule */
+    var defaultHints = new Map();
+    [titleInput, nameInput].forEach(function (input) {
+      var hint = $('.hint .msg', fieldOf(input));
+      defaultHints.set(input, hint ? hint.textContent : '');
+    });
+
+    /* Empty fields return to their neutral hint, but still block saving.
+       Valid values restore the original hint after an error. */
     function checkField(input) {
       var problem = appNameProblem(input === nameInput ? 'short' : 'title', input.value);
-      if (!problem) {
-        clearFieldState(input);
-        return true;
+      if (!problem || input.value === '') {
+        setFieldState(input, null, defaultHints.get(input));
+        return !problem;
       }
       setFieldState(input, 'err', problem);
       return false;
@@ -1837,6 +2072,7 @@
     }
 
     $all('[data-reveal]').forEach(function (btn) {
+      if (btn.classList.contains('eye')) return;
       var spTarget = $(btn.getAttribute('data-reveal'));
       if (spTarget && spTarget.classList.contains('spoiler')) { initSpoiler(spTarget, btn); return; }
       btn.addEventListener('click', function () {
@@ -1870,6 +2106,15 @@
       var maskText = vv.textContent;
       var textNode = vv.firstChild;
       var value = target.getAttribute('data-value') || '';
+      /* Give the full value its own intrinsic width. The spoiler canvas stays fixed
+         over the viewport while the revealed text can scroll all the way to its end. */
+      var scroll = document.createElement('span');
+      scroll.className = 'hash-scroll';
+      var text = document.createElement('span');
+      text.className = 'hash-text';
+      text.appendChild(textNode);
+      scroll.appendChild(text);
+      vv.appendChild(scroll);
       var cv = document.createElement('canvas');
       cv.className = 'ink';
       cv.setAttribute('aria-hidden', 'true');
@@ -1877,7 +2122,7 @@
       var ctx = cv.getContext('2d');
       var still = !motionOk();
       var W = 0, H = 0, dpr = 1, parts = [], last = 0, raf = 0, color = '#000';
-      var hidden = true, spot = null, fade = 1;
+      var hidden = true, spot = null, fade = 1, fadeGeneration = 0;
       // the dust only animates while it is on screen and the tab is visible (battery); the last frame stays drawn
       var onScreen = true;
       function active() { return onScreen && !document.hidden; }
@@ -1906,7 +2151,7 @@
       var colors = {}, shownTheme = null;
       function themeColor(theme) {
         var now = currentTheme();
-        if (now !== shownTheme || !colors[now]) {
+        if (now !== shownTheme || !colors[now] || document.documentElement.classList.contains('theme-color-fade')) {
           shownTheme = now;
           colors[now] = getComputedStyle(target).getPropertyValue('--text').trim() || getComputedStyle(document.body).color;
         }
@@ -1961,14 +2206,16 @@
       // reveal: plain crossfade (user request: no growing circle), the text fades in, the dust fades out
       function reveal() {
         hidden = false;
+        var generation = ++fadeGeneration;
         textNode.nodeValue = value;
         target.classList.remove('masked');
+        scroll.setAttribute('tabindex', '0');
         btn.classList.add('on'); btn.title = 'Hide';
         if (still) { cv.style.opacity = '0'; return; }
         var t0 = performance.now(), from = fade;
         spot = true; // keeps frames running while the dust fades out
         (function down(t) {
-          if (hidden) return;
+          if (hidden || generation !== fadeGeneration) return;
           fade = from * Math.max(0, 1 - (t - t0) / 250);
           if (fade > 0) requestAnimationFrame(down);
           else { spot = null; cv.style.opacity = '0'; fade = 1; }
@@ -1977,13 +2224,16 @@
       }
       function hide() {
         hidden = true; spot = null;
+        var generation = ++fadeGeneration;
         textNode.nodeValue = maskText;
         target.classList.add('masked');
+        scroll.scrollLeft = 0;
+        scroll.removeAttribute('tabindex');
         btn.classList.remove('on'); btn.title = 'Show';
         cv.style.opacity = '';
         if (still) { draw(0); return; }
         fade = 0; var t0 = performance.now();
-        (function up(t) { fade = Math.min(1, (t - t0) / 250); if (fade < 1 && hidden) requestAnimationFrame(up); })(t0);
+        (function up(t) { if (generation !== fadeGeneration || !hidden) return; fade = Math.min(1, (t - t0) / 250); if (fade < 1) requestAnimationFrame(up); })(t0);
         run();
       }
 
@@ -2336,24 +2586,27 @@
     });
   }
 
-  /* MTProto server rows: the address is plain selectable text (clicks on it never toggle the row), and a
-     text selection made elsewhere in the header or a double/triple click does not toggle it either */
+  /* Address clicks toggle the server row; copy buttons only copy.
+     Keep text selections elsewhere in the header and double/triple clicks from toggling the row. */
   function initServers() {
     $all('details.server > summary').forEach(function (s) {
       s.addEventListener('click', function (e) {
         var sel = window.getSelection();
-        if (e.target.closest('.a') || e.detail > 1 || (sel && !sel.isCollapsed && s.contains(sel.anchorNode))) e.preventDefault();
+        if (e.target.closest('[data-copy]') || e.detail > 1 || (sel && !sel.isCollapsed && s.contains(sel.anchorNode))) e.preventDefault();
       });
     });
   }
 
-  /* ---------- WNS credentials ----------
-     Package SID auto-prefix + live rule check; the secret is a password input with an eye
-     (native masking works in every engine). The form posts normally (full page flow). */
+  /* ---------- WNS credentials ---------- */
+  /* Package SID must look like ms-app://S-1-15-2-..., the client secret is required.
+     Same behaviour as /apps/new: neutral while typing a fresh field, red after leaving it with a bad
+     value, live re-check while red; Update is inert until both are valid. The eye reveals the secret. */
   function initWns() {
     var form = $('#wns_form');
     if (!form) return;
-
+    /* a WNS package SID is an app container SID: ms-app://S-1-15-2- and exactly seven numbers (32-bit, so
+       at most 10 digits each); it used to accept any count */
+    var SID_RULE = /^ms-app:\/\/S-1-15-2(-\d{1,10}){7}$/i;
     function sidProblem(v) {
       v = v.trim();
       if (!/^ms-app:\/\/S-1-15-2-/i.test(v)) return 'Starts with ms-app://S-1-15-2-';
@@ -2363,120 +2616,326 @@
       if (parts.length !== 7) return 'Needs 7 numbers after ms-app://S-1-15-2- (has ' + parts.length + ')';
       return '';
     }
-
-    var sidInput = $('#wns_package_sid');
-    var secretInput = $('#wns_client_secret');
+    function secretProblem(v) {
+      v = v.trim();
+      if (!v) return 'Required';
+      if (v.length < 8 || v.length > 128 || /[^\x21-\x7e]/.test(v)) return 'Use 8–128 printable ASCII characters';
+      return '';
+    }
+    var saveBtn = $('#wns_save_btn'), alertSlot = $('#wns_alert');
+    var SEALED = ($('#wns_client_secret') || form).getAttribute('data-seal') || '';
+    var checks = [
+      { input: $('#wns_package_sid'), ok: function (v) { return SID_RULE.test(v.trim()); }, why: sidProblem, msg: 'Starts with ms-app://S-1-15-2-' },
+      { input: $('#wns_client_secret'), ok: function (v) { return !secretProblem(v) && !(v === SEALED && sealed()); }, why: secretProblem, msg: 'Required', neutral: 'Keep it private' }
+    ];
+    /* Package SID auto-prefix (user, initAutoPrefix): every WNS Package SID starts with ms-app://S-1-15-2-
+       (app container SID), so the user types only the numbers. A pasted SID that already has the prefix
+       (full, or only S-1-15-2-) is not doubled, and a broken prefix (Backspace into it, a key typed
+       inside it) is restored. */
     var SID_PREFIX = 'ms-app://S-1-15-2-';
+    var sidInput = checks[0].input;
     function normalizeSid(v) {
       v = v.replace(/\s+/g, '');
       if (v === '') return '';
-      if (SID_PREFIX.toLowerCase().indexOf(v.toLowerCase()) === 0) return SID_PREFIX;
+      if (SID_PREFIX.toLowerCase().indexOf(v.toLowerCase()) === 0) return SID_PREFIX; // a cut prefix
       var low = v.toLowerCase(), at = low.lastIndexOf('s-1-15-2-');
-      if (at >= 0) return SID_PREFIX + v.slice(at + 9);
+      if (at >= 0) return SID_PREFIX + v.slice(at + 9); // pasted with the prefix: keep what follows it
+      // a damaged prefix (e.g. Backspace took its last "-"): drop the part that still matches it
       var k = 0, p = SID_PREFIX.toLowerCase();
       while (k < low.length && k < p.length && low[k] === p[k]) k++;
       return SID_PREFIX + v.slice(k);
     }
-    initAutoPrefix(sidInput, SID_PREFIX, normalizeSid);
-
-    sidInput.addEventListener('input', function () {
-      if (fieldOf(sidInput).classList.contains('err') && !sidProblem(sidInput.value)) clearFieldState(sidInput);
+    initAutoPrefix(sidInput, SID_PREFIX, normalizeSid, function () { sync(); });
+    function sealed() { return checks[1].input.hasAttribute('data-sealed'); }
+    function paint(c) {
+      var good = c.ok(c.input.value);
+      setFieldState(c.input, good ? null : 'err', good ? (c.neutral || c.msg) : ((c.why && c.why(c.input.value)) || c.msg));
+      return good;
+    }
+    /* Update is live only when something differs from the last saved values and all fields are valid */
+    var saved = checks.map(function (c) { return c.input.value; });
+    var delBtn = $('#wns_delete_btn'), hintTimer = 0;
+    var stateVersion = 0, saving = false, deleting = false;
+    function lockControls(locked) {
+      sidInput.readOnly = locked;
+      secret.readOnly = locked;
+      if (eye) eye.disabled = locked;
+    }
+    showDelete(sealed());
+    var metadataVersion = stateVersion;
+    withCreds(function (d) {
+      if (metadataVersion !== stateVersion || saving || deleting) return;
+      var sid = checks[0].input;
+      if (d && d.wns && d.wns.sid) { if (sid.value === '') sid.value = d.wns.sid; saved[0] = sid.value; showDelete(true); sync(); }
     });
-    sidInput.addEventListener('blur', function () {
-      var p = sidInput.value.trim() ? sidProblem(sidInput.value) : '';
-      if (p) setFieldState(sidInput, 'err', p);
-      else setFieldState(sidInput, null, 'Starts with ms-app://S-1-15-2-');
+    function sync() {
+      var dirty = checks.some(function (c, i) { return c.input.value !== saved[i]; });
+      saveBtn.disabled = saving || deleting || !dirty || !checks.every(function (c) { return c.ok(c.input.value); });
+      // a changed SID with the saved secret still sealed: say why Update stays off
+      var sec = checks[1].input;
+      if (sealed() && !fieldOf(sec).classList.contains('err')) {
+        setFieldState(sec, null, checks[0].input.value !== saved[0] ? 'Enter the secret again to update' : checks[1].neutral);
+      }
+    }
+    checks.forEach(function (c) {
+      c.input.addEventListener('input', function () {
+        stateVersion++;
+        clearAlert(alertSlot);
+        if (fieldOf(c.input).classList.contains('err')) paint(c);
+        sync();
+      });
+      c.input.addEventListener('blur', function (e) {
+        /* moving focus to the eye button is not "leaving" the secret */
+        if (e.relatedTarget && e.relatedTarget.classList.contains('eye')) return;
+        if (c.input.value !== '') paint(c);
+        else setFieldState(c.input, null, c.neutral || c.msg);
+      });
     });
-
-    var eye = $('.eye', form);
-    if (eye && secretInput) {
-      eye.addEventListener('mousedown', function (e) { e.preventDefault(); });
+    var eye = $('.eye', form), secret = $('#wns_client_secret');
+    if (eye && secret) {
+      eye.addEventListener('mousedown', function (e) { e.preventDefault(); }); /* keep focus in the field */
       eye.addEventListener('click', function () {
-        var show = secretInput.type === 'password';
-        secretInput.type = show ? 'text' : 'password';
-        eye.classList.toggle('on', show);
-        eye.title = show ? 'Hide' : 'Show';
+        if (saving || deleting) return;
+        var shown = secret.type === 'password';
+        secret.type = shown ? 'text' : 'password';
+        secret.classList.toggle('shown', shown);
+        eye.classList.toggle('on', shown);
+        eye.title = shown ? 'Hide' : 'Show';
+      });
+      /* while masked, the dots never reach the clipboard (same rule as api_hash): copy, cut and
+         drag of the hidden secret do nothing; once revealed it copies normally */
+      ['copy', 'cut', 'dragstart'].forEach(function (type) {
+        secret.addEventListener(type, function (e) {
+          if (!secret.classList.contains('shown')) e.preventDefault();
+        });
+      });
+      /* clearing the field hides the eye (CSS) and puts the mask back for the next value */
+      secret.addEventListener('input', function () {
+        if (secret.value === '' && secret.classList.contains('shown')) {
+          secret.type = 'password';
+          secret.classList.remove('shown'); eye.classList.remove('on'); eye.title = 'Show';
+        }
+      });
+      /* a saved secret is sealed (user): the field shows a dot placeholder instead of the value and no
+         eye, so you can see a secret is saved but not look at it (after saving, and after a reload: the
+         server writes the placeholder into the page). Entering the field drops the dots for a new secret;
+         leaving it empty brings them back. */
+      secret.addEventListener('focus', function () {
+        if (saving || deleting) { secret.blur(); return; }
+        if (!sealed()) return;
+        stateVersion++;
+        clearAlert(alertSlot);
+        secret.removeAttribute('data-sealed');
+        secret.value = '';
+        secret.dataset.wasSealed = '1';
+        setFieldState(secret, null, checks[1].neutral);
+        sync();
+      });
+      secret.addEventListener('blur', function () {
+        if (secret.value === '' && secret.dataset.wasSealed) sealSecret();
       });
     }
+    function sealSecret() {
+      if (!eye || !secret) return;
+      secret.type = 'password';
+      secret.classList.remove('shown'); eye.classList.remove('on'); eye.title = 'Show';
+      secret.value = SEALED;
+      secret.setAttribute('data-sealed', '');
+      delete secret.dataset.wasSealed;
+      setFieldState(secret, null, checks[1].neutral);
+      sync();
+    }
 
+    /* Delete is visible only while credentials are saved. Editing unsaved fields
+       does not show it. One click deletes at once (user: no "Confirm delete" step any more),
+       posting /apps/wns_cred_delete. Both fields are then emptied and the SID hint says
+       "Credentials removed" for 3 s. */
+    function showDelete(on) { if (delBtn) { delBtn.hidden = !on; delBtn.disabled = !on || saving || deleting; } }
+    if (delBtn) {
+      delBtn.addEventListener('click', function () {
+        if (delBtn.disabled || saving || deleting) return;
+        stateVersion++;
+        deleting = true;
+        clearAlert(alertSlot);
+        lockControls(true);
+        showDelete(true);
+        sync();
+        postForm('/apps/wns_cred_delete', { hash: form.elements.hash.value })
+          .then(function () {
+            deleting = false;
+            sidInput.value = '';
+            if (secret) {
+              secret.removeAttribute('data-sealed'); delete secret.dataset.wasSealed;
+              secret.type = 'password';
+              secret.value = ''; secret.classList.remove('shown');
+              if (eye) { eye.classList.remove('on'); eye.title = 'Show'; }
+            }
+            saved = ['', ''];
+            lockControls(false);
+            showDelete(false);
+            setFieldState(checks[1].input, null, checks[1].neutral);
+            setFieldState(sidInput, null, 'Credentials removed');
+            clearTimeout(hintTimer);
+            hintTimer = setTimeout(function () {
+              if (sidInput.value === '' && !fieldOf(sidInput).classList.contains('err')) setFieldState(sidInput, null, checks[0].msg);
+            }, 3000);
+            sync();
+          })
+          .catch(function (err) {
+            deleting = false;
+            lockControls(false);
+            showDelete(true);
+            sync();
+            showAlert(alertSlot, (err && err.text) || 'Could not delete. Try again.');
+          });
+      });
+
+    }
+    /* saving stays on the page (like App configuration): no redirect, both fields flash accent blue for
+       1 second and Update goes inert until something changes again */
+    var flashTimer = 0;
+    function flashSaved() {
+      var fields = checks.map(function (c) { return fieldOf(c.input); });
+      fields.forEach(function (f) { f.classList.remove('fading'); f.classList.add('saved'); });
+      clearTimeout(flashTimer);
+      flashTimer = setTimeout(function () {
+        fields.forEach(function (f) { f.classList.remove('saved'); f.classList.add('fading'); });
+        setTimeout(function () { fields.forEach(function (f) { f.classList.remove('fading'); }); }, 250);
+      }, 1000);
+    }
     form.addEventListener('submit', function (e) {
-      var p = sidProblem(sidInput.value);
-      if (p) {
-        e.preventDefault();
-        setFieldState(sidInput, 'err', p);
-        sidInput.focus();
-        return;
-      }
-      clearFieldState(sidInput);
-      if (!secretInput.value.trim()) {
-        e.preventDefault();
-        setFieldState(secretInput, 'err', 'Required');
-        secretInput.focus();
-      }
+      e.preventDefault();
+      if (saving || deleting) return;
+      var firstBad = null;
+      checks.forEach(function (c) { if (!paint(c) && !firstBad) firstBad = c.input; });
+      if (firstBad) { firstBad.focus(); return; }
+      stateVersion++;
+      saving = true;
+      clearAlert(alertSlot);
+      lockControls(true);
+      showDelete(!!saved[0]);
+      setBusy(saveBtn, true);
+      postForm(form.getAttribute('action'), formData(form)).then(function () {
+        saving = false;
+        setBusy(saveBtn, false);
+        if (document.activeElement === secret || document.activeElement === eye) document.activeElement.blur();
+        sealSecret();
+        saved = checks.map(function (c) { return c.input.value; });
+        lockControls(false);
+        showDelete(true);
+        sync();
+        flashSaved();
+      }).catch(function (err) {
+        saving = false;
+        setBusy(saveBtn, false);
+        lockControls(false);
+        showDelete(!!saved[0]);
+        sync();
+        showAlert(alertSlot, (err && err.text) || 'Could not save. Try again.');
+      });
     });
+    sync();
   }
 
-  /* ---------- FCM credentials ----------
-     Drop zone with client-side pre-checks (JSON, size, service_account fields, shown without the
-     private key). The form then posts normally; the server stays the final validator. */
+  /* saved push credentials: inlined by the server (window.MyCreds) so pages render filled at once;
+     falls back to GET /apps/creds when the page was opened some other way */
+  function withCreds(cb) {
+    if (window.MyCreds) { cb(window.MyCreds); return; }
+    fetch('/apps/creds', { credentials: 'same-origin' }).then(function (r) { return r.json(); }).then(cb).catch(function () {});
+  }
+
+  /* ---------- FCM credentials ---------- */
+  /* Service account key upload. The file is read locally only to check it: it must be JSON with
+     "type": "service_account" and a project_id, client_email and private_key. The tile shows the
+     file name and project / client email (never the key).
+     - The server remembers the saved key (name, project, email only, via GET /apps/creds), so after a
+       reload the tile shows it with "Saved" and a Replace link.
+     - Dragging a file anywhere over the page wakes the tile (solid accent border); over the tile it
+       lifts and the icon bobs. A file dropped outside the tile is ignored instead of the browser
+       opening it.
+     - Update saves in place (no redirect), the tile flashes accent blue for 1 s. */
   function initFcm() {
     var form = $('#fcm_form');
     if (!form) return;
     var drop = $('#fcm_drop'), input = $('#fcm_service_json'), saveBtn = $('#fcm_save_btn');
     var empty = $('.drop-empty', drop), filled = $('.drop-file', drop);
     var nameEl = $('.drop-name', drop), subEl = $('.drop-sub', drop);
-    var replaceEl = $('.drop-replace', drop), clearEl = $('.drop-clear', drop);
+    var replaceEl = $('.drop-replace', drop), deleteEl = $('#fcm_delete_btn');
+
+    /* Trims text to the element width with a single "…". CSS text-overflow cuts anywhere, so a cut
+       right after "." in a file name or email showed as "....", and the count changed with zoom.
+       Here trailing dots, dashes, spaces and separators are dropped before the "…". Re-fits on resize. */
+    function fitText(el, full) {
+      el.textContent = full;
+      el.title = '';
+      if (el.scrollWidth <= el.clientWidth) return;
+      el.title = full;
+      var lo = 0, hi = full.length;
+      while (lo < hi) {
+        var mid = (lo + hi + 1) >> 1;
+        el.textContent = full.slice(0, mid).replace(/[\s.\-_·@]+$/, '') + '…';
+        if (el.scrollWidth <= el.clientWidth) lo = mid; else hi = mid - 1;
+      }
+      el.textContent = full.slice(0, lo).replace(/[\s.\-_·@]+$/, '') + '…';
+    }
+    var texts = { name: '', sub: '' };
+    function refit() { fitText(nameEl, texts.name); fitText(subEl, texts.sub); }
+    /* watch the text column itself (it changes width with the window and the Replace link) */
+    if (window.ResizeObserver) new ResizeObserver(function () { if (!filled.hidden) refit(); }).observe($('.drop-meta', drop));
     var hint = $('.drop-hint'), hintMsg = $('.msg', hint), HINT = hintMsg.textContent;
-    var current = null, seq = 0;
+    var current = null, stored = null, flashTimer = 0, seq = 0, deleting = false, saving = false, stateVersion = 0, credentialVersion = 0;
+
+    function syncDelete() {
+      deleteEl.hidden = !stored;
+      deleteEl.disabled = !stored || deleting || saving;
+      input.disabled = deleting || saving;
+      saveBtn.disabled = deleting || saving || !current;
+    }
 
     function setError(msg) {
       drop.classList.toggle('err', !!msg);
       hint.classList.toggle('err', !!msg);
       hintMsg.textContent = msg || HINT;
     }
-    function render(name, sub) {
-      nameEl.textContent = name;
-      nameEl.title = name;
-      subEl.textContent = sub || '';
-      subEl.title = sub || '';
+    function render(name, sub, quiet) {
+      /* the row only slides in when it appears from the empty tile; replacing a file that is already
+         shown (Replace, or another pick / drop) swaps the text in place */
+      if (!filled.hidden) quiet = true;
+      texts.name = name; texts.sub = sub;
       empty.hidden = true; filled.hidden = false;
-      replaceEl.hidden = false; clearEl.hidden = false;
+      replaceEl.hidden = false;
+      refit();
       drop.classList.add('has-file');
+      /* replay the arrival animation on every new file */
+      /* quiet: the same file just got saved, so the row stays put (no slide-in replay) */
       filled.classList.remove('in');
-      void filled.offsetWidth;
-      filled.classList.add('in');
+      if (!quiet) { void filled.offsetWidth; filled.classList.add('in'); }
     }
-    function showEmpty() {
+    function showStored(quiet) {
       seq++; current = null; input.value = '';
       setError(null); saveBtn.disabled = true;
+      syncDelete();
+      if (stored) { render(stored.name, 'Saved · ' + stored.project + ' · ' + stored.email, quiet); return; }
       drop.classList.remove('has-file');
       filled.hidden = true; empty.hidden = false;
     }
-    saveBtn.disabled = true;
-    // a dropped file must be attached to the input as well, else the POST body goes out empty;
-    // a fresh DataTransfer is built every time, so a second drop replaces the first one;
-    // engines without it (old Safari) fall back to the file picker
-    function attach(file) {
-      try {
-        var dt = new DataTransfer();
-        dt.items.add(file);
-        input.files = dt.files;
-        return true;
-      } catch (e) {
-        return !!input.files.length; // file already in the input (picker path) is still fine
-      }
-    }
     function take(file) {
-      if (!file) return;
+      if (!file || saving || deleting) return;
+      input.value = '';
+      stateVersion++;
       var mine = ++seq;
+      drop.classList.remove('saved', 'fading');
       current = null; saveBtn.disabled = true;
+      /* the format error comes first: a non-JSON file is reported as such whatever its size;
+         a JSON file bigger than 64 KB cannot be a service account key (a real one is about 2 KB) */
       if (!/\.json$/i.test(file.name) && file.type !== 'application/json') { render(file.name, 'Not a JSON file'); setError('Choose the .json key file'); return; }
-      if (file.size > 8096) { render(file.name, 'JSON file · ' + Math.round(file.size / 1024) + ' KB'); setError('Invalid service json file.'); return; }
+      if (file.size > 64 * 1024) { render(file.name, 'JSON file · ' + Math.round(file.size / 1024) + ' KB'); setError('Invalid service json file.'); return; }
       var reader = new FileReader();
       reader.onload = function () {
-        if (mine !== seq) return;
+        if (mine !== seq || saving || deleting) return;
         var data = null;
         try { data = JSON.parse(reader.result); } catch (e) {}
+        /* a .json file that does not parse is damaged, not "not JSON" */
         if (!data || typeof data !== 'object') { render(file.name, 'JSON file'); setError('Invalid service json file.'); return; }
         if (data.type !== 'service_account' || !data.project_id || !data.client_email || !data.private_key) {
           render(file.name, data.project_id ? 'Project ' + data.project_id : 'JSON file');
@@ -2486,22 +2945,33 @@
         render(file.name, data.project_id + ' · ' + data.client_email);
         setError(null);
         current = file;
-        if (!attach(file)) {
-          // no DataTransfer here: a pasted/chosen file is fine (it is in the input already),
-          // a dropped one would be lost, so say so instead of failing silently
-          setError('Use the file picker on this browser');
-          saveBtn.disabled = true;
-          return;
-        }
         saveBtn.disabled = false;
       };
-      reader.onerror = function () { if (mine !== seq) return; render(file.name, ''); setError('Could not read the file'); };
+      reader.onerror = function () { if (mine !== seq || saving || deleting) return; render(file.name, ''); setError('Could not read the file'); };
       reader.readAsText(file);
     }
 
     input.addEventListener('change', function () { take(input.files && input.files[0]); });
-    clearEl.addEventListener('click', showEmpty);
 
+    /* The bottom Delete button only appears for a saved key, as on WNS.
+       Replace is available for every selected file, including the first unsaved selection. */
+    deleteEl.addEventListener('click', function () {
+      if (!stored || deleting || saving) return;
+      stateVersion++;
+      credentialVersion++;
+      deleting = true;
+      syncDelete();
+      postForm('/apps/fcm_service_account_delete', { hash: form.elements.hash.value })
+        .then(function () {
+          deleting = false;
+          stored = null;
+          drop.classList.remove('saved', 'fading');
+          showStored();
+        })
+        .catch(function () { deleting = false; syncDelete(); setError('Could not delete. Try again.'); });
+    });
+
+    /* drag and drop: page-wide "ready" state, tile "over" state */
     function hasFiles(e) { return !!(e.dataTransfer && Array.prototype.indexOf.call(e.dataTransfer.types || [], 'Files') !== -1); }
     var pageDepth = 0, tileDepth = 0;
     function endDrag() { pageDepth = tileDepth = 0; drop.classList.remove('ready', 'over'); }
@@ -2517,10 +2987,138 @@
     });
 
     form.addEventListener('submit', function (e) {
-      if (!current) {
-        e.preventDefault();
-        setError('Choose the .json key file');
-      }
+      e.preventDefault();
+      if (!current || saving || deleting) return;
+      stateVersion++;
+      credentialVersion++;
+      saving = true;
+      syncDelete();
+      setBusy(saveBtn, true);
+      var body = new FormData();
+      body.append('hash', ($('input[name="hash"]', form) || {}).value || '');
+      body.append('fcm_service_json', current);
+      fetch(form.getAttribute('action'), { method: 'POST', body: body, credentials: 'same-origin', headers: { 'X-Requested-With': 'fetch' } })
+        .then(function (res) { return res.json().then(function (d) { if (!res.ok) throw d; return d; }); })
+        .then(function (d) {
+          saving = false;
+          setBusy(saveBtn, false);
+          stored = d.fcm;
+          showStored(true);
+          drop.classList.remove('fading'); drop.classList.add('saved');
+          clearTimeout(flashTimer);
+          flashTimer = setTimeout(function () {
+            drop.classList.remove('saved'); drop.classList.add('fading');
+            setTimeout(function () { drop.classList.remove('fading'); }, 600);
+          }, 1000);
+        })
+        .catch(function (err) { saving = false; syncDelete(); setBusy(saveBtn, false); setError((err && err.text) || 'Could not save. Try again.'); });
+    });
+
+    syncDelete();
+    var metadataVersion = stateVersion, metadataCredentialVersion = credentialVersion;
+    withCreds(function (d) {
+      if (metadataCredentialVersion !== credentialVersion || saving || deleting || !d || !d.fcm) return;
+      stored = d.fcm;
+      syncDelete();
+      if (metadataVersion === stateVersion && seq === 0) showStored(true);
+    });
+  }
+
+  /* /apps push tiles: a saved FCM project / WNS SID replaces the generic label */
+  function initPushTiles() {
+    var tiles = $all('.push-tiles .cred');
+    if (!tiles.length) return;
+    withCreds(function (d) {
+      tiles.forEach(function (t) {
+        var link = $('.link', t), href = link ? link.getAttribute('href') : '';
+        var val = href === '/apps/fcm_service_account' ? d.fcm && d.fcm.project : href === '/apps/wns_cred' ? d.wns && d.wns.sid : null;
+        var label = $('.pv-l', t);
+        if (label && val) { label.textContent = val; label.title = val; label.classList.add('set'); }
+      });
+    });
+  }
+
+  var homeNavigationReady = false, navigationHistoryReady = false;
+  function initNavigationHistory() {
+    if (navigationHistoryReady) return;
+    navigationHistoryReady = true;
+    window.addEventListener('popstate', function () { location.reload(); });
+  }
+
+  /* After sign-in, load the home content without a browser navigation on Chrome iOS.
+     Preserve the existing theme controls, and populate their account rows from the response. */
+  function openHomeAfterAuth(target) {
+    var url;
+    try { url = new URL(target, location.href); } catch (e) { location.href = '/'; return; }
+    if (url.origin !== location.origin) {
+      location.href = '/';
+      return;
+    }
+    target = url.pathname + url.search + url.hash;
+    if (target.slice(0, 2) === '//') {
+      location.href = '/';
+      return;
+    }
+    if (!/CriOS\//.test(navigator.userAgent) || url.pathname !== '/' || url.search || url.hash) {
+      location.href = target; return;
+    }
+    fetch(url.href, { credentials: 'same-origin', cache: 'no-store' }).then(function (r) {
+      if (!r.ok || r.redirected) throw new Error('Navigate normally');
+      return r.text();
+    }).then(function (html) {
+      var doc = new DOMParser().parseFromString(html, 'text/html');
+      var home = doc.querySelector('main.home'), old = document.querySelector('main.page');
+      var account = doc.querySelector('.settings-menu .sm-account'), logout = doc.querySelector('.settings-menu .sm-logout');
+      var menu = document.querySelector('.settings-menu'), theme = menu && menu.querySelector('.sm-theme');
+      if (!home || !old || !old.querySelector('#my_send_form') || !account || !logout || !menu || !theme) throw new Error('Unexpected page');
+      var imported = document.importNode(home, true);
+      history.pushState(null, '', url.href);
+      // Blur the old field before it is detached so the keyboard can close normally.
+      if (document.activeElement && old.contains(document.activeElement)) document.activeElement.blur();
+      old.replaceWith(imported);
+      $all('.sm-account, .sm-logout', menu).forEach(function (el) { el.remove(); });
+      menu.insertBefore(document.importNode(account, true), theme);
+      menu.appendChild(document.importNode(logout, true));
+      ensureSettingsLinks(menu);
+      document.title = doc.title;
+      document.documentElement.classList.remove('kb-room', 'auth-scroll-restoring');
+      window.scrollTo(0, 0);
+      initPhoneDisplay(); initHomeChat(); initHomeNavigation(); initEntrance(); initNavigationHistory();
+    }).catch(function () { location.href = url.href; });
+  }
+
+  /* Chrome on iOS can render the outgoing home page shifted during a document navigation.
+     Keep its header in place while opening a home tile, with normal navigation as fallback. */
+  function initHomeNavigation() {
+    if (!/CriOS\//.test(navigator.userAgent) || !$('.home-card') || homeNavigationReady) return;
+    homeNavigationReady = true;
+    var busy = false;
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('.home-card a[href="/apps"], .home-card a[href="/delete"]');
+      if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || a.target || a.hasAttribute('download')) return;
+      e.preventDefault();
+      if (busy) return;
+      busy = true;
+      var destination = a.href;
+      fetch(a.href, { credentials: 'same-origin', cache: 'no-store' }).then(function (r) {
+        destination = r.url || destination;
+        if (!r.ok || r.redirected) throw new Error('Navigate normally');
+        return r.text();
+      }).then(function (html) {
+        var doc = new DOMParser().parseFromString(html, 'text/html');
+        var next = doc.querySelector('main.page'), old = document.querySelector('main.home');
+        if (!next || !old) throw new Error('Unexpected page');
+        var imported = document.importNode(next, true);
+        history.pushState(null, '', destination);
+        old.replaceWith(imported);
+        document.title = doc.title;
+        window.scrollTo(0, 0);
+        initPhoneDisplay(); initCopy(); initCreateApp(); initEditApp(); initDelete(); initServers(); initPushTiles();
+        initEntrance();
+        busy = false;
+        // Back/forward restores the requested document and its own page-specific handlers.
+        initNavigationHistory();
+      }).catch(function () { location.href = destination; });
     });
   }
 
@@ -2533,13 +3131,16 @@
     initPhoneDisplay();
     initPhoneField();
     initAuth();
+    initAuthScrollRestore();
     initCopy();
     initCreateApp();
     initHomeChat();
+    initHomeNavigation();
     initEditApp();
     initDelete();
     initServers();
     initWns();
     initFcm();
+    initPushTiles();
   });
 })();
