@@ -1424,6 +1424,12 @@
       alertSlot = codeAlert;
       if (codePhone) codePhone.textContent = formatPhone(phone); // sent raw, shown formatted
       if (wrongNumber) wrongNumber.inert = !!pending;
+    if (pending) {
+      if (phoneHidden) phoneHidden.value = phone;
+      if (hashInput) hashInput.value = '';
+      stopResendCountdown();
+      if (resendLink) resendLink.classList.add('disabled');
+    }
       if (codeInput) codeInput.focus();
       if (!pending) startResendCountdown(42);
     }
