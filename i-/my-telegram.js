@@ -1249,7 +1249,7 @@
            (user: typing "+" used to switch the row to "Choose a country" at once). The row changes when the
            code matches a country, when no country can start with it ("Invalid country code"), or when the
            code input is left with an incomplete code. The number is not valid meanwhile (codeOk false). */
-        if (digits && document.activeElement === codeIn && prefix(digits)) { codeOk = false; current = codeIn.value; sizeCode(); }
+        if (document.activeElement === codeIn && (!digits || prefix(digits))) { codeOk = false; current = codeIn.value; sizeCode(); }
         else setUnknown(codeIn.value);
         format(input.value.replace(/\D/g, ''), null);
       }
