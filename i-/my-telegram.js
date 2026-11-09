@@ -3055,6 +3055,10 @@
       return;
     }
     target = url.pathname + url.search + url.hash;
+    if (target.slice(0, 2) === '//') {
+      location.href = '/';
+      return;
+    }
     if (!/CriOS\//.test(navigator.userAgent) || url.pathname !== '/' || url.search || url.hash) {
       location.href = target; return;
     }
