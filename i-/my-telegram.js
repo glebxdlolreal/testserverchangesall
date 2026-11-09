@@ -781,7 +781,7 @@
       var show = (document.activeElement === input || v !== '') && fits && codeOk;
       ghost.querySelector('.ghost-typed').textContent = v;
       var rest = ghost.querySelector('.ghost-rest');
-      rest.replaceChildren();
+      rest.textContent = '';
       tpl.slice(v.length).split('').forEach(function (char) {
         if (char !== '\u2012') { rest.appendChild(document.createTextNode(char)); return; }
         var dash = document.createElement('span');
@@ -2921,6 +2921,7 @@
     }
     function take(file) {
       if (!file || saving || deleting) return;
+      input.value = '';
       stateVersion++;
       var mine = ++seq;
       drop.classList.remove('saved', 'fading');
