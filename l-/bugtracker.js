@@ -2362,7 +2362,7 @@ var Upload = {
     var $form = $(this).parents('form');
     var files = this.files || [];
     if (files.length > 0) {
-      Upload.addFiles($form, files);
+      Upload.addFiles($form, files, $(this).attr('data-upload-mode'));
     }
   },
   isTypeAccepted(type) {
@@ -2372,16 +2372,36 @@ var Upload = {
         type == 'image/png' ||
         type == 'video/mp4');
   },
-  addFiles: function($form, files) {
+  isLogTypeAccepted: function(fileName) {
+    return /\.(zip|txt)$/i.test(fileName || '');
+  },
+  getConfig: function($form, mode) {
+    var isLogs = mode === 'logs';
+    return {
+      isLogs: isLogs,
+      filesSelector: isLogs ? '.bt-issue-log-files' : '.bt-issue-files:not(.bt-issue-log-files)',
+      inputName: isLogs ? 'log_file' : 'file',
+      sizeLimit: isLogs ? (Aj.state.logFileSizeLimit || 5242880) : (Aj.state.fileSizeLimit || 15728640),
+      uploadUrl: isLogs ? Aj.state.logUploadUrl : Aj.state.uploadUrl,
+      accept: isLogs ? '.zip,.txt' : 'image/gif,image/jpeg,image/jpg,image/png,video/mp4'
+    };
+  },
+  addFiles: function($form, files, mode) {
     var form = $form.get(0),
-        $files = $('.bt-issue-files', $form),
+        config = Upload.getConfig($form, mode),
+        $files = $(config.filesSelector, $form),
         limit = Aj.state.fileLimit || 5,
-        size_limit = Aj.state.fileSizeLimit || 1048576,
-        alert_shown = false;
+        size_limit = config.sizeLimit,
+        alert_shown = false,
+        type_alert_shown = false;
     if (files != null) {
       files = Array.prototype.slice.apply(files);
       files.forEach(function(file) {
-        if (!Upload.isTypeAccepted(file.type)) {
+        if (config.isLogs ? !Upload.isLogTypeAccepted(file.name) : !Upload.isTypeAccepted(file.type)) {
+          if (config.isLogs && !type_alert_shown) {
+            type_alert_shown = true;
+            showAlert(Aj.state.logFileTypeError);
+          }
           return;
         }
         if (file.size > size_limit) {
@@ -2395,7 +2415,7 @@ var Upload = {
           }
           return false;
         }
-        if ($(form.file).values().length >= limit) {
+        if ($(form[config.inputName]).values().length >= limit) {
           showAlert(l('WEB_TOO_MANY_FILES', {limit: limit}));
           return false;
         }
@@ -2411,22 +2431,27 @@ var Upload = {
         var $file = $('<div class="cd-issue-file shide"></div>').append($file_delete).append($file_thumb).append($file_title).append($file_label).appendTo($files).slideShow();
         $files.trigger('update');
 
-        Upload.getThumb(file, 480, function onSuccess(thumb) {
+        var onThumb = function(thumb) {
           if (thumb) {
             var thumb_url = URL.createObjectURL(thumb);
             $file_thumb.css('background-image', "url('" + thumb_url + "')");
           }
           var xhr = Upload.uploadFile(file, thumb, function onSuccess(file) {
-            if (file.thumb_src &&
+            if (!config.isLogs &&
+                file.thumb_src &&
                 !$file_thumb.css('background-image')) {
               var thumb_src = Aj.state.uploadBaseUrl + file.thumb_src;
               $file_thumb.css('background-image', "url('" + thumb_src + "')");
             }
             if (file.src) {
               var src = Aj.state.uploadBaseUrl + file.src;
-              $file_thumb.wrap('<a href="' + src + '" class="bt-view-media" data-width="' + (file.width || '') + '" data-height="' + (file.height || '') + '" data-cover="' + (file.cover_src || '') + '"' + (file.is_video ? ' data-video' : '') + ' target="_blank" tabindex="-1" />');
+              if (config.isLogs) {
+                $file_thumb.wrap('<a href="' + src + '" target="_blank" rel="noopener" tabindex="-1" />');
+              } else {
+                $file_thumb.wrap('<a href="' + src + '" class="bt-view-media" data-width="' + (file.width || '') + '" data-height="' + (file.height || '') + '" data-cover="' + (file.cover_src || '') + '"' + (file.is_video ? ' data-video' : '') + ' target="_blank" tabindex="-1" />');
+              }
             }
-            $('<input type="hidden" name="file">').value(file.file_data).prependTo($file);
+            $('<input type="hidden">').attr('name', config.inputName).value(file.file_data).prependTo($file);
             $file_loaded.slideXHide('remove');
             $file.removeClass('file-loading').addClass('file-loaded');
           }, function onProgress(loaded, total) {
@@ -2438,10 +2463,15 @@ var Upload = {
             if (xhr.aborted) return;
             $file.slideHide('remove');
             showAlert(error);
-          });
+          }, config.uploadUrl);
           $file.data('xhr', xhr);
           $file.addClass('file-loading');
-        });
+        };
+        if (config.isLogs) {
+          onThumb(false);
+        } else {
+          Upload.getThumb(file, 480, onThumb);
+        }
       });
     }
   },
@@ -2514,14 +2544,14 @@ var Upload = {
       }
     } catch (e) { ready(); }
   },
-  uploadFile: function(file, thumb, onSuccess, onProgress, onError) {
+  uploadFile: function(file, thumb, onSuccess, onProgress, onError, uploadUrl) {
     var data = new FormData();
     data.append('file', file, file.name);
     if (thumb) {
       data.append('thumb', thumb, 'thumb.jpg');
     }
     return $.ajax({
-      url: Aj.state.uploadUrl,
+      url: uploadUrl || Aj.state.uploadUrl,
       type: 'POST',
       data: data,
       cache: false,
@@ -2555,15 +2585,23 @@ var Upload = {
     e && e.stopImmediatePropagation();
     e && e.preventDefault();
     if (Aj.needAuth()) return false;
+    var mode = $(this).attr('data-upload-mode');
+    var config = Upload.getConfig($(this.form), mode);
     var limit = Aj.state.fileLimit || 5;
-    if ($(this.form.file).values().length >= limit) {
+    if ($(this.form[config.inputName]).values().length >= limit) {
       showAlert(l('WEB_TOO_MANY_FILES', {limit: limit}));
       return false;
     }
-    $('<input type="file" accept="image/gif,image/jpeg,image/jpg,image/png,video/mp4" class="file-upload hide" multiple>').appendTo(this).click();
+    $('<input type="file" class="file-upload hide" multiple>')
+      .attr('accept', config.accept)
+      .attr('data-upload-mode', mode || '')
+      .appendTo(this)
+      .click();
   },
   eDeleteFile: function(e) {
     var $file = $(this).parents('.cd-issue-file');
+    var mode = $file.parents('.bt-issue-log-files').size() ? 'logs' : '';
+    var config = Upload.getConfig($file.parents('form'), mode);
     if ($file.hasClass('file-loading')) {
       var xhr = $file.data('xhr');
       if (xhr) {
@@ -2572,18 +2610,18 @@ var Upload = {
       }
     }
     $file.slideHide('remove');
-    $file.parents('.bt-issue-files').trigger('update');
+    $file.parents(config.filesSelector).trigger('update');
   },
   cleanFiles: function(context) {
-    var $files = $('.bt-issue-files', context);
     $('.cd-issue-file.file-loading', context).each(function() {
+      var $file = $(this);
       var xhr = $file.data('xhr');
       if (xhr) {
         xhr.aborted = true;
         xhr.abort();
       }
     });
-    $files.empty().trigger('update');
+    $('.bt-issue-files, .bt-issue-log-files', context).empty().trigger('update');
   }
 };
 
@@ -3228,6 +3266,8 @@ var EditIssue = {
     ];
     var files = $(form.file).values();
     values.push(files.join(';'));
+    var log_files = $(form.log_file).values();
+    values.push(log_files.join(';'));
     for (var i = 0; i < Aj.layerState.tagFields.length; i++) {
       var field   = Aj.layerState.tagFields[i];
       var tag_ids = $form.field(field).data('value') || [];
@@ -3249,6 +3289,8 @@ var EditIssue = {
     var additional  = $form.field('additional').value();
     var type        = $form.field('type').value();
     var files       = $(this.file).values();
+    var log_files   = $(this.log_file).values();
+    var original_log_files = $(this.original_log_file).values();
 
     if (!title.length) {
       $form.field('title').focus();
@@ -3260,6 +3302,10 @@ var EditIssue = {
     }
     var limit = Aj.state.fileLimit || 5;
     if (files.length > limit) {
+      showAlert(l('WEB_TOO_MANY_FILES', {limit: limit}));
+      return false;
+    }
+    if (log_files.length > limit) {
       showAlert(l('WEB_TOO_MANY_FILES', {limit: limit}));
       return false;
     }
@@ -3277,6 +3323,10 @@ var EditIssue = {
       additional: additional,
       type: type
     };
+    if (issue_id) {
+      params.log_files = log_files.join(';');
+      params.original_log_files = original_log_files.join(';');
+    }
     for (var i = 0; i < Aj.layerState.tagFields.length; i++) {
       var field   = Aj.layerState.tagFields[i];
       var tag_ids = $form.field(field).data('value');
@@ -3506,9 +3556,12 @@ var Issue = {
   init: function(options) {
     options = options || {};
     var $form = $('.cd-comment-form', Aj.layer);
+    var $logsForm = $('.cd-issue-logs-section-form', Aj.layer);
     Aj.onLayerLoad(function(layerState) {
       Bugtracker.formInit($form);
+      Bugtracker.formInit($logsForm);
       layerState.issue_id = $form.field('issue_id').value();
+      Aj.layer.on('submit.curPage', '.cd-issue-logs-section-form', Issue.eSubmitIssueLogsForm);
       Aj.layer.on('click.curPage', '.cd-issue-like.bt-active-btn', Issue.eLikeIssue.pbind('liked'));
       Aj.layer.on('click.curPage', '.cd-issue-dislike.bt-active-btn', Issue.eLikeIssue.pbind('disliked'));
       Aj.layer.on('click.curPage', 'a.bt-header-label', Issue.eSwitchTab);
@@ -3517,6 +3570,7 @@ var Issue = {
       Aj.layer.on('click.curPage', '.bt-issue-copy-link', Issue.eCopyLink);
       Aj.layer.on('click.curPage', '.bt-delete-issue-btn', Issue.eDeleteIssue);
       Aj.layer.on('click.curPage', '.bt-restore-issue-btn', Issue.eRestoreIssue);
+      Aj.layer.on('click.curPage', '.bt-toggle-logs-btn', Issue.eToggleLogs);
       Aj.layer.on('click.curPage', '.bt-delete-comment-btn', Issue.eDeleteIssueComment);
       Aj.layer.on('click.curPage', '.bt-restore-comment-btn', Issue.eRestoreIssueComment);
       Aj.layer.on('click.curPage', Issue.eCommentSelectionClickAway);
@@ -3544,6 +3598,7 @@ var Issue = {
     });
     Aj.onLayerUnload(function(layerState) {
       Bugtracker.formDeinit($form);
+      Bugtracker.formDeinit($logsForm);
       $('.bt-comments-wrap', Aj.layer).off('.curPage');
       $('div.input[contenteditable]', Aj.layer).destroyTextarea();
       $(window).off('focus blur', Issue.onFocusChange);
@@ -3585,6 +3640,22 @@ var Issue = {
     $commentsWrap.on('click.curPage', '.bt-deselect-all-comments-btn', Issue.eDeselectAllComments);
     $commentsWrap.on('click.curPage', '.bt-delete-selected-comments-btn', Issue.eDeleteSelectedComments);
     $commentsWrap.on('click.curPage', '.bt-comment-selection-cancel', Issue.eCancelCommentSelection);
+  },
+  eToggleLogs: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var $button = $(this);
+    if ($button.data('submiting')) return false;
+    $button.data('submiting', true);
+    Aj.apiRequest('setIssueLogsEnabled', {
+      issue_id: Aj.layerState.issueId,
+      enabled: $(this).attr('data-enabled')
+    }, function(result) {
+      $button.data('submiting', false);
+      if (result.error) return showAlert(result.error);
+      if (result.to_layer) Aj.layerLocation(result.to_layer);
+    });
+    return false;
   },
   initAdditional: async function($b) {
     await Promise.resolve();
@@ -4721,6 +4792,43 @@ var Issue = {
     });
     return false;
   },
+  eSubmitIssueLogsForm: function(e) {
+    e.preventDefault();
+    var $form = $(this);
+    var $button = $('.cd-submit-issue-btn', this);
+    var issue_id = $form.field('issue_id').value();
+    var log_files = $(this.log_file).values();
+    var original_log_files = $(this.original_log_file).values();
+    if ($('.file-loading', this).size()) {
+      showAlert(l('WEB_UPLOADING_IN_PROGRESS'));
+      return false;
+    }
+    var limit = Aj.state.fileLimit || 5;
+    if (log_files.length > limit) {
+      showAlert(l('WEB_TOO_MANY_FILES', {limit: limit}));
+      return false;
+    }
+    if ($form.data('submiting')) {
+      return false;
+    }
+    $form.data('submiting', true);
+    $button.prop('disabled', true);
+    Aj.apiRequest('editIssueLogs', {
+      issue_id: issue_id,
+      log_files: log_files.join(';'),
+      original_log_files: original_log_files.join(';')
+    }, function(result) {
+      $form.data('submiting', false);
+      $button.prop('disabled', false);
+      if (result.error) {
+        return showAlert(result.error);
+      }
+      if (result.to_layer) {
+        Aj.layerLocation(result.to_layer);
+      }
+    });
+    return false;
+  },
   eSubmitCommentForm: function(e) {
     e.preventDefault();
     var form        = this;
@@ -4733,16 +4841,22 @@ var Issue = {
     var team        = $form.field('team').value();
     var text        = $form.field('text').value();
     var files       = $(this.file).values();
+    var log_files   = $(this.log_file).values();
+    var original_log_files = $(this.original_log_file).values();
     if ($('.file-loading', this).size()) {
       showAlert(l('WEB_UPLOADING_IN_PROGRESS'));
       return false;
     }
-    if (!text.length && !files.length) {
+    if (!text.length && !files.length && !log_files.length) {
       $form.field('text').focus();
       return false;
     }
     var limit = Aj.state.fileLimit || 5;
     if (files.length > limit) {
+      showAlert(l('WEB_TOO_MANY_FILES', {limit: limit}));
+      return false;
+    }
+    if (log_files.length > limit) {
       showAlert(l('WEB_TOO_MANY_FILES', {limit: limit}));
       return false;
     }
@@ -4757,10 +4871,12 @@ var Issue = {
     var params = {
       issue_id: issue_id,
       text: text,
-      files: files.join(';')
+      files: files.join(';'),
+      log_files: log_files.join(';')
     };
     if (edit_comment_id) {
       params.comment_id = edit_comment_id;
+      params.original_log_files = original_log_files.join(';');
     } else {
       params.reply_to_id = reply_to_id;
       params.team = team;
@@ -4889,13 +5005,21 @@ var Issue = {
     $formEl.field('edit_comment_id').value(comment_id);
     $formEl.field('text').value($messageEl.val()).trigger('input');
 
-    var $filesWrap = $('.bt-issue-files', $formEl);
+    var $filesWrap = $('.bt-issue-files:not(.bt-issue-log-files)', $formEl);
     var filesHtml = '';
     var $editFiles = $('.bt-comment-edit-files .bt-issue-files', $commentEl);
     if ($editFiles.size()) {
       filesHtml = $editFiles.eq(0).html();
     }
     $filesWrap.html(filesHtml).trigger('update');
+
+    var $logFilesWrap = $('.bt-issue-log-files', $formEl);
+    var logFilesHtml = '';
+    var $editLogFiles = $('.bt-comment-edit-log-files .bt-issue-log-files', $commentEl);
+    if ($editLogFiles.size()) {
+      logFilesHtml = $editLogFiles.eq(0).html();
+    }
+    $logFilesWrap.html(logFilesHtml).trigger('update');
 
     $('.bt-comment.editing', Aj.layer).removeClass('editing');
     $commentEl.addClass('editing');
