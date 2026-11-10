@@ -2280,6 +2280,14 @@ a.cd-issue-file:hover {
   display: none;
   margin-left: 10px;
 }
+.bt-attach-btn-label-short {
+  display: none;
+  margin-left: 10px;
+}
+@media (max-width: 579px) {
+  .bt-comments-footer-form .bt-attach-btn-label { display: none; }
+  .bt-comments-footer-form .bt-attach-btn-label-short { display: inline; }
+}
 .btn-primary.bt-attach-btn:before {
   background-image: url("data:image/svg+xml,%3Csvg width='16' height='18' viewBox='0 0 16 18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m8.554 6.442c.393 0 .711.318.711.711v6.326c0 .682.553 1.235 1.235 1.235.682 0 1.235-.553 1.235-1.235v-7.419c0-1.467-1.19-2.657-2.657-2.657-1.467 0-2.657 1.19-2.657 2.657v8.228c0 2.252 1.826 4.078 4.078 4.078 2.252 0 4.078-1.826 4.078-4.078v-4.628-.224c0-.393.318-.711.711-.711.393 0 .711.318.711.711v.224 4.609c0 3.038-2.462 5.5-5.5 5.5-3.038 0-5.5-2.462-5.5-5.5v-8.191c0-2.252 1.826-4.078 4.078-4.078 2.252 0 4.078 1.826 4.078 4.078v7.382c0 1.467-1.19 2.657-2.657 2.657-1.467 0-2.657-1.19-2.657-2.657v-6.307c0-.393.318-.711.711-.711z' fill='%23fff' fill-rule='evenodd' stroke='%23fff' stroke-width='.2' transform='matrix(-.707 -.707 .707 -.707 7.228 24.006)'/%3E%3C/svg%3E");
 }
