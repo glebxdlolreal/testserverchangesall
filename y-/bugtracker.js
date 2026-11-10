@@ -2373,7 +2373,7 @@ var Upload = {
         type == 'video/mp4');
   },
   isLogTypeAccepted: function(fileName) {
-    return /\.(zip|txt)$/i.test(fileName || '');
+    return /\.zip$/i.test(fileName || '');
   },
   getConfig: function($form, mode) {
     var isLogs = mode === 'logs';
@@ -2383,7 +2383,7 @@ var Upload = {
       inputName: isLogs ? 'log_file' : 'file',
       sizeLimit: isLogs ? (Aj.state.logFileSizeLimit || 5242880) : (Aj.state.fileSizeLimit || 15728640),
       uploadUrl: isLogs ? Aj.state.logUploadUrl : Aj.state.uploadUrl,
-      accept: isLogs ? '.zip,.txt' : 'image/gif,image/jpeg,image/jpg,image/png,video/mp4'
+      accept: isLogs ? '.zip' : 'image/gif,image/jpeg,image/jpg,image/png,video/mp4'
     };
   },
   addFiles: function($form, files, mode) {
