@@ -2436,34 +2436,37 @@ var Upload = {
             var thumb_url = URL.createObjectURL(thumb);
             $file_thumb.css('background-image', "url('" + thumb_url + "')");
           }
-          var xhr = Upload.uploadFile(file, thumb, function onSuccess(file) {
+          var onSuccess = function(uploaded_file) {
             if (!config.isLogs &&
-                file.thumb_src &&
+                uploaded_file.thumb_src &&
                 !$file_thumb.css('background-image')) {
-              var thumb_src = Aj.state.uploadBaseUrl + file.thumb_src;
+              var thumb_src = Aj.state.uploadBaseUrl + uploaded_file.thumb_src;
               $file_thumb.css('background-image', "url('" + thumb_src + "')");
             }
-            if (file.src) {
-              var src = Aj.state.uploadBaseUrl + file.src;
+            if (uploaded_file.src) {
+              var src = Aj.state.uploadBaseUrl + uploaded_file.src;
               if (config.isLogs) {
                 $file_thumb.wrap('<a href="' + src + '" target="_blank" rel="noopener" tabindex="-1" />');
               } else {
-                $file_thumb.wrap('<a href="' + src + '" class="bt-view-media" data-width="' + (file.width || '') + '" data-height="' + (file.height || '') + '" data-cover="' + (file.cover_src || '') + '"' + (file.is_video ? ' data-video' : '') + ' target="_blank" tabindex="-1" />');
+                $file_thumb.wrap('<a href="' + src + '" class="bt-view-media" data-width="' + (uploaded_file.width || '') + '" data-height="' + (uploaded_file.height || '') + '" data-cover="' + (uploaded_file.cover_src || '') + '"' + (uploaded_file.is_video ? ' data-video' : '') + ' target="_blank" tabindex="-1" />');
               }
             }
-            $('<input type="hidden">').attr('name', config.inputName).value(file.file_data).prependTo($file);
+            $('<input type="hidden">').attr('name', config.inputName).value(uploaded_file.file_data).prependTo($file);
             $file_loaded.slideXHide('remove');
             $file.removeClass('file-loading').addClass('file-loaded');
-          }, function onProgress(loaded, total) {
+          };
+          var onProgress = function(loaded, total) {
             var progress = total ? loaded / total : 0;
             progress = Math.max(0, Math.min(progress, 1));
             $file_loaded.attr('data-loaded', 'Uploading... ' + wrapSize(progress * file.size) + '\xa0/\xa0');
             $('.circle-progress', $file_thumb).attr('stroke-dashoffset', 106 * (1 - progress));
-          }, function onError(error) {
+          };
+          var onError = function(error) {
             if (xhr.aborted) return;
             $file.slideHide('remove');
             showAlert(error);
-          }, config.uploadUrl);
+          };
+          var xhr = config.isLogs ? Upload.uploadLogFile(file, $form, onSuccess, onProgress, onError, config.uploadUrl) : Upload.uploadFile(file, thumb, onSuccess, onProgress, onError, config.uploadUrl);
           $file.data('xhr', xhr);
           $file.addClass('file-loading');
         };
@@ -2544,11 +2547,46 @@ var Upload = {
       }
     } catch (e) { ready(); }
   },
-  uploadFile: function(file, thumb, onSuccess, onProgress, onError, uploadUrl) {
+  uploadLogFile: function(file, $form, onSuccess, onProgress, onError, uploadUrl) {
+    var is_comment = $form.hasClass('cd-comment-form');
+    var auth_request = false;
+    var upload_request = false;
+    var request = {
+      aborted: false,
+      abort: function() {
+        request.aborted = true;
+        if (auth_request) {
+          auth_request.abort();
+        }
+        if (upload_request) {
+          upload_request.aborted = true;
+          upload_request.abort();
+        }
+      }
+    };
+    auth_request = Aj.apiRequest('getLogUploadAuth', {
+      issue_id: $form.field('issue_id').value(),
+      target: is_comment ? 'comment' : 'issue',
+      comment_id: is_comment ? ($form.field('edit_comment_id').value() || 0) : 0,
+      team: is_comment ? ($form.field('team').value() || 0) : 0
+    }, function(result) {
+      if (request.aborted) return;
+      if (result.error || !result.log_upload_auth) {
+        onError && onError(result.error || 'Access denied');
+        return;
+      }
+      upload_request = Upload.uploadFile(file, false, onSuccess, onProgress, onError, uploadUrl, result.log_upload_auth);
+    });
+    return request;
+  },
+  uploadFile: function(file, thumb, onSuccess, onProgress, onError, uploadUrl, logUploadAuth) {
     var data = new FormData();
     data.append('file', file, file.name);
     if (thumb) {
       data.append('thumb', thumb, 'thumb.jpg');
+    }
+    if (logUploadAuth) {
+      data.append('log_upload_auth', logUploadAuth);
     }
     return $.ajax({
       url: uploadUrl || Aj.state.uploadUrl,
