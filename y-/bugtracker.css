@@ -1449,6 +1449,11 @@ a.bt-comment-reply-content:focus {
   pointer-events: none;
   cursor: auto;
 }
+.bt-dropdown-wrap ul.dropdown-menu > li > .bt-dropdown-item.bt-delete-issue-btn,
+.bt-dropdown-wrap ul.dropdown-menu > li > a.bt-dropdown-item.bt-delete-issue-btn:hover,
+.bt-dropdown-wrap ul.dropdown-menu > li > a.bt-dropdown-item.bt-delete-issue-btn:focus {
+  color: #c8375f;
+}
 
 .bt-issue-tags .bt-status-dd-wrap span.dropdown-menu > ul.dropdown-menu,
 .header-auth-item .bt-dropdown-wrap span.dropdown-menu > ul.dropdown-menu,
@@ -2261,7 +2266,6 @@ a.cd-issue-file:hover {
   margin-top: 7px;
 }
 .bt-attach-btn {
-  float: right;
   overflow: hidden;
   position: relative;
 }
