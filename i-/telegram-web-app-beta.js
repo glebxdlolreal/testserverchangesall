@@ -2138,127 +2138,419 @@
     return locationManager;
   })();
 
-  // Keeps browser media APIs working on web clients that control camera and microphone access: the access state
-  // is taken from the client, access granted during the session is applied after the user reloads the Mini App.
-  // Web clients report support in the answer to the check, until then browser APIs work as before
-  (function() {
+  var MediaAccessManager = (function() {
     var mediaDevices = navigator.mediaDevices || null;
     var permissions = navigator.permissions || null;
     var nativeGetUserMedia = mediaDevices && mediaDevices.getUserMedia;
     var nativeEnumerateDevices = mediaDevices && mediaDevices.enumerateDevices;
     var nativeQuery = permissions && permissions.query;
-    if (!isIframe ||
-        window.TelegramWebviewProxy !== undefined ||
-        !initParams.tgWebAppData ||
-        !nativeGetUserMedia) {
-      return;
-    }
+    var isWebClient = isIframe &&
+      window.TelegramWebviewProxy === undefined &&
+      !!initParams.tgWebAppData;
 
+    var isInited = false;
     var isClientAccess = false;
     var isReloadRequired = false;
+    var isCheckSent = false;
+    // The client answered supported=false or didn't answer in time
+    var isCheckFailed = false;
+    var isBrowserChecking = false;
     var accessStatus = {
       camera: 'not_requested',
       microphone: 'not_requested'
+    };
+    // Devices the current document was loaded with, as the client's answers tell: a new allow attribute applies
+    // only after a reload. Used for the reload warning and the state reported by permissions.query and enumerateDevices
+    var loadedAccess = {
+      camera: false,
+      microphone: false
     };
     var deviceKinds = {
       camera: 'videoinput',
       microphone: 'audioinput'
     };
-    var accessRequestCallback = false;
+    var initCallbacks = [];
+    var initTimeout = 1000;
+    var initTo = false;
+    var accessRequest = false;
+    var accessRequestTimeout = 60000;
+    var accessRequestTo = false;
     var pendingAccessRequests = [];
     var stateListeners = [];
 
-    WebView.onEvent('media_access_checked', onMediaAccessChecked);
-    WebView.onEvent('media_access_requested', onMediaAccessRequested);
-    WebView.onEvent('media_access_changed', onMediaAccessChanged);
+    var mediaAccessManager = {};
+    Object.defineProperty(mediaAccessManager, 'isInited', {
+      get: function(){ return isInited; },
+      enumerable: true
+    });
+    Object.defineProperty(mediaAccessManager, 'cameraStatus', {
+      get: function(){ return accessStatus.camera; },
+      enumerable: true
+    });
+    Object.defineProperty(mediaAccessManager, 'microphoneStatus', {
+      get: function(){ return accessStatus.microphone; },
+      enumerable: true
+    });
+    Object.defineProperty(mediaAccessManager, 'isReloadRequired', {
+      get: function(){ return isReloadRequired; },
+      enumerable: true
+    });
 
     function applyAccessState(eventData) {
       eventData = eventData || {};
+      isReloadRequired = isClientAccess && !!eventData.reload_required;
       for (var kind in accessStatus) {
         var status = eventData[kind];
         if (status == 'granted' || status == 'denied' ||
             status == 'not_requested' || status == 'unavailable') {
           accessStatus[kind] = status;
         }
+        if (isClientAccess && accessStatus[kind] == 'granted' && !isReloadRequired) {
+          loadedAccess[kind] = true;
+        }
       }
-      isReloadRequired = !!eventData.reload_required;
+      isInited = true;
       for (var i = 0; i < stateListeners.length; i++) {
         stateListeners[i]();
+      }
+      runInitCallbacks();
+    }
+    function runInitCallbacks() {
+      clearTimeout(initTo);
+      var callbacks = initCallbacks;
+      initCallbacks = [];
+      for (var i = 0; i < callbacks.length; i++) {
+        callbacks[i]();
       }
     }
     function onMediaAccessChecked(eventType, eventData) {
       eventData = eventData || {};
-      if (eventData.supported) {
-        isClientAccess = true;
-        applyAccessState(eventData);
+      if (!eventData.supported) {
+        isCheckFailed = true;
+        if (initCallbacks.length) {
+          checkBrowserAccess();
+        }
+        return;
       }
+      isClientAccess = true;
+      applyAccessState(eventData);
+      receiveWebViewEvent('mediaAccessManagerUpdated');
     }
     function onMediaAccessRequested(eventType, eventData) {
       if (!isClientAccess) {
         return;
       }
       applyAccessState(eventData);
-      var callback = accessRequestCallback;
-      accessRequestCallback = false;
-      if (callback) {
-        callback();
-      }
-      var pending = pendingAccessRequests;
-      pendingAccessRequests = [];
-      for (var i = 0; i < pending.length; i++) {
-        pending[i]();
-      }
+      finishAccessRequest(true);
     }
     function onMediaAccessChanged(eventType, eventData) {
       if (!isClientAccess) {
         return;
       }
       applyAccessState(eventData);
+      receiveWebViewEvent('mediaAccessManagerUpdated');
     }
 
-    function requestAccess(params, callback) {
-      var isRequestNeeded = false;
-      for (var kind in accessStatus) {
-        if (params[kind] && accessStatus[kind] == 'not_requested') {
-          isRequestNeeded = true;
-        }
+    function sendCheck() {
+      if (isCheckSent) {
+        return;
       }
-      if (!isRequestNeeded) {
+      isCheckSent = true;
+      WebView.postEvent('web_app_check_media_access', false);
+    }
+
+    // Only MediaAccessManager waits for the answer to the check, browser media APIs don't
+    function ensureInited(callback) {
+      if (isInited) {
         callback();
         return;
       }
-      if (accessRequestCallback) {
-        pendingAccessRequests.push(function() {
-          requestAccess(params, callback);
-        });
+      initCallbacks.push(callback);
+      if (!initParams.tgWebAppData || isCheckFailed) {
+        checkBrowserAccess();
         return;
       }
-      accessRequestCallback = callback;
-      WebView.postEvent('web_app_request_media_access', false, {
-        camera: params.camera,
-        microphone: params.microphone
+      sendCheck();
+      if (!initTo) {
+        initTo = setTimeout(function() {
+          console.warn('[Telegram.WebApp] Media access check was not answered, browser permissions are used.');
+          isCheckFailed = true;
+          checkBrowserAccess();
+        }, initTimeout);
+      }
+    }
+
+    function isAccessGranted(params) {
+      for (var kind in accessStatus) {
+        if (params[kind] && accessStatus[kind] != 'granted') {
+          return false;
+        }
+      }
+      return true;
+    }
+    function isAccessRequestNeeded(params) {
+      for (var kind in accessStatus) {
+        if (!params[kind]) {
+          continue;
+        }
+        if (isClientAccess ? accessStatus[kind] == 'not_requested' : accessStatus[kind] != 'granted') {
+          return true;
+        }
+      }
+      return false;
+    }
+    function isAccessApplied(kind) {
+      return accessStatus[kind] == 'granted' && loadedAccess[kind];
+    }
+
+    // Clients that support the check answer every request, the timeout only keeps calls from waiting forever
+    // if the answer is lost. A late answer still updates the statuses
+    function requestAccess(params, callback) {
+      ensureInited(function() {
+        if (!isAccessRequestNeeded(params)) {
+          callback();
+          return;
+        }
+        if (accessRequest) {
+          pendingAccessRequests.push({params: params, callback: callback});
+          return;
+        }
+        accessRequest = {params: params, callback: callback};
+        if (!isClientAccess) {
+          requestBrowserAccess(params);
+          return;
+        }
+        accessRequestTo = setTimeout(function() {
+          console.warn('[Telegram.WebApp] Media access request timed out.');
+          finishAccessRequest(false);
+        }, accessRequestTimeout);
+        WebView.postEvent('web_app_request_media_access', false, {
+          camera: params.camera,
+          microphone: params.microphone
+        });
       });
     }
 
+    // After an answer queued requests are sent in turn, after a timeout they finish with the current statuses
+    function finishAccessRequest(isAnswered) {
+      clearTimeout(accessRequestTo);
+      var request = accessRequest;
+      var pending = pendingAccessRequests;
+      accessRequest = false;
+      pendingAccessRequests = [];
+      if (request) {
+        request.callback();
+        receiveWebViewEvent('mediaAccessRequested', {
+          camera: accessStatus.camera,
+          microphone: accessStatus.microphone,
+          reloadRequired: isReloadRequired
+        });
+      }
+      if (isAnswered) {
+        receiveWebViewEvent('mediaAccessManagerUpdated');
+      }
+      for (var i = 0; i < pending.length; i++) {
+        if (isAnswered) {
+          requestAccess(pending[i].params, pending[i].callback);
+        } else {
+          pending[i].callback();
+        }
+      }
+    }
+
+    function checkBrowserAccess() {
+      clearTimeout(initTo);
+      if (isBrowserChecking) {
+        return;
+      }
+      isBrowserChecking = true;
+      if (!nativeGetUserMedia) {
+        applyBrowserState({camera: 'unavailable', microphone: 'unavailable'});
+        return;
+      }
+      Promise.all([
+        queryBrowserPermission('camera'),
+        queryBrowserPermission('microphone')
+      ]).then(function(statuses) {
+        applyBrowserState({camera: statuses[0], microphone: statuses[1]});
+      });
+    }
+
+    // A late supported=true switches to the client, browser state after that is ignored
+    function applyBrowserState(state) {
+      if (isClientAccess) {
+        return;
+      }
+      applyAccessState(state);
+      receiveWebViewEvent('mediaAccessManagerUpdated');
+    }
+
+    function queryBrowserPermission(kind) {
+      if (!nativeQuery) {
+        return Promise.resolve('not_requested');
+      }
+      try {
+        return nativeQuery.call(permissions, {name: kind}).then(function(permissionStatus) {
+          if (permissionStatus.addEventListener) {
+            permissionStatus.addEventListener('change', function() {
+              var state = {};
+              state[kind] = statusFromPermissionState(permissionStatus.state);
+              applyBrowserState(state);
+            });
+          }
+          return statusFromPermissionState(permissionStatus.state);
+        }, function() {
+          return 'not_requested';
+        });
+      } catch (e) {
+        return Promise.resolve('not_requested');
+      }
+    }
+
+    function requestBrowserAccess(params) {
+      var kinds = [];
+      for (var kind in accessStatus) {
+        if (params[kind] && accessStatus[kind] != 'granted') {
+          kinds.push(kind);
+        }
+      }
+      var onAccessState = function(state) {
+        if (!isClientAccess) {
+          applyAccessState(state);
+        }
+        finishAccessRequest(true);
+      };
+      if (!nativeGetUserMedia) {
+        onAccessState(getKindsState(kinds, 'unavailable'));
+        return;
+      }
+      requestBrowserKinds(kinds, onAccessState);
+    }
+
+    function requestBrowserKinds(kinds, callback) {
+      var constraints = {};
+      for (var i = 0; i < kinds.length; i++) {
+        constraints[kinds[i] == 'camera' ? 'video' : 'audio'] = true;
+      }
+      nativeGetUserMedia.call(mediaDevices, constraints).then(function(stream) {
+        var tracks = stream.getTracks();
+        for (var i = 0; i < tracks.length; i++) {
+          tracks[i].stop();
+        }
+        callback(getKindsState(kinds, 'granted'));
+      }, function(error) {
+        var errorName = error && error.name;
+        if (errorName == 'NotFoundError' && kinds.length > 1) {
+          requestBrowserKinds(kinds.slice(0, 1), function(state) {
+            requestBrowserKinds(kinds.slice(1), function(restState) {
+              for (var kind in restState) {
+                state[kind] = restState[kind];
+              }
+              callback(state);
+            });
+          });
+        } else if (errorName == 'NotFoundError' || errorName == 'OverconstrainedError') {
+          callback(getKindsState(kinds, 'unavailable'));
+        } else if (errorName == 'NotAllowedError' || errorName == 'SecurityError') {
+          callback(getKindsState(kinds, 'denied'));
+        } else {
+          callback({});
+        }
+      });
+    }
+
+    function getKindsState(kinds, status) {
+      var state = {};
+      for (var i = 0; i < kinds.length; i++) {
+        state[kinds[i]] = status;
+      }
+      return state;
+    }
+
+    function statusFromPermissionState(state) {
+      if (state == 'granted' || state == 'denied') {
+        return state;
+      }
+      return 'not_requested';
+    }
+
+    mediaAccessManager.init = function(callback) {
+      ensureInited(function() {
+        if (callback) {
+          callback();
+        }
+      });
+      return mediaAccessManager;
+    };
+    mediaAccessManager.requestAccess = function(params, callback) {
+      params = params || {};
+      if (!params.camera && !params.microphone) {
+        console.error('[Telegram.WebApp] Camera or microphone access should be requested');
+        throw Error('WebAppMediaAccessParamInvalid');
+      }
+      params = {
+        camera: !!params.camera,
+        microphone: !!params.microphone
+      };
+      requestAccess(params, function() {
+        if (callback) {
+          callback(isAccessGranted(params));
+        }
+      });
+      return mediaAccessManager;
+    };
+    mediaAccessManager.openSettings = function() {
+      ensureInited(function() {
+        if (!isClientAccess) {
+          console.warn('[Telegram.WebApp] Media access settings are not supported on this platform.');
+          return;
+        }
+        WebView.postEvent('web_app_open_media_access_settings', false);
+      });
+      return mediaAccessManager;
+    };
+
+    // Only the client's statuses are checked here: a granted device goes to the browser, which rejects it
+    // if the document was loaded without it in the allow attribute
     function getAccessError(params) {
       var errorName = false;
+      var isReloadNeeded = false;
       for (var kind in accessStatus) {
-        if (!params[kind] || accessStatus[kind] == 'granted') {
+        if (!params[kind]) {
           continue;
         }
         if (accessStatus[kind] == 'unavailable') {
           return 'NotFoundError';
         }
-        errorName = 'NotAllowedError';
+        if (accessStatus[kind] != 'granted') {
+          errorName = 'NotAllowedError';
+        } else if (!loadedAccess[kind]) {
+          isReloadNeeded = true;
+        }
       }
-      if (!errorName && isReloadRequired) {
+      if (!errorName && isReloadNeeded) {
         console.warn('[Telegram.WebApp] Media access will be applied after the Mini App is reloaded.');
-        errorName = 'NotAllowedError';
       }
       return errorName;
     }
 
-    mediaDevices.getUserMedia = function(constraints) {
+    // Plain assignment fails silently when the prototype is frozen, an own property can still be defined
+    function replaceMethod(object, name, method) {
+      try {
+        object[name] = method;
+        if (object[name] !== method) {
+          Object.defineProperty(object, name, {
+            value: method,
+            writable: true,
+            enumerable: true,
+            configurable: true
+          });
+        }
+      } catch (e) {}
+      return object[name] === method;
+    }
+
+    function getUserMedia(constraints) {
       var params = {
         camera: !!(constraints && constraints.video),
         microphone: !!(constraints && constraints.audio)
@@ -2276,34 +2568,46 @@
           nativeGetUserMedia.call(mediaDevices, constraints).then(resolve, reject);
         });
       });
-    };
+    }
 
-    if (nativeEnumerateDevices) {
-      mediaDevices.enumerateDevices = function() {
-        return nativeEnumerateDevices.call(mediaDevices).then(function(devices) {
-          return isClientAccess ? addPlaceholderDevices(devices) : devices;
+    // Keeps browser media APIs working on web clients that control access: they follow the client state,
+    // access granted during the session is applied after the user reloads the Mini App
+    function installMediaDevicesShim() {
+      if (!nativeGetUserMedia) {
+        return;
+      }
+      if (!replaceMethod(mediaDevices, 'getUserMedia', getUserMedia)) {
+        console.warn('[Telegram.WebApp] navigator.mediaDevices.getUserMedia can\'t be replaced, camera and microphone access isn\'t controlled by Telegram.');
+        return;
+      }
+
+      if (nativeEnumerateDevices) {
+        replaceMethod(mediaDevices, 'enumerateDevices', function() {
+          return nativeEnumerateDevices.call(mediaDevices).then(function(devices) {
+            return isClientAccess ? addPlaceholderDevices(devices) : devices;
+          });
         });
-      };
-    }
+      }
 
-    if (nativeQuery) {
-      permissions.query = function(descriptor) {
-        var name = descriptor && descriptor.name;
-        var permissionStatus = isClientAccess && (name == 'camera' || name == 'microphone') ?
-          createPermissionStatus(name) : null;
-        if (!permissionStatus) {
-          return nativeQuery.call(permissions, descriptor);
+      if (nativeQuery) {
+        replaceMethod(permissions, 'query', function(descriptor) {
+          var name = descriptor && descriptor.name;
+          var permissionStatus = isClientAccess && (name == 'camera' || name == 'microphone') ?
+            createPermissionStatus(name) : null;
+          if (!permissionStatus) {
+            return nativeQuery.call(permissions, descriptor);
+          }
+          return Promise.resolve(permissionStatus);
+        });
+      }
+
+      var legacyMethods = ['getUserMedia', 'webkitGetUserMedia', 'mozGetUserMedia'];
+      for (var i = 0; i < legacyMethods.length; i++) {
+        if (typeof navigator[legacyMethods[i]] === 'function') {
+          replaceMethod(navigator, legacyMethods[i], function(constraints, successCallback, errorCallback) {
+            mediaDevices.getUserMedia(constraints).then(successCallback, errorCallback);
+          });
         }
-        return Promise.resolve(permissionStatus);
-      };
-    }
-
-    var legacyMethods = ['getUserMedia', 'webkitGetUserMedia', 'mozGetUserMedia'];
-    for (var i = 0; i < legacyMethods.length; i++) {
-      if (typeof navigator[legacyMethods[i]] === 'function') {
-        navigator[legacyMethods[i]] = function(constraints, successCallback, errorCallback) {
-          mediaDevices.getUserMedia(constraints).then(successCallback, errorCallback);
-        };
       }
     }
 
@@ -2323,7 +2627,7 @@
       for (var kind in deviceKinds) {
         var status = accessStatus[kind];
         if (status != 'not_requested' &&
-            !(status == 'granted' && isReloadRequired)) {
+            !(status == 'granted' && !isAccessApplied(kind))) {
           continue;
         }
         var hasDevice = false;
@@ -2334,56 +2638,125 @@
           }
         }
         if (!hasDevice) {
-          result.push({deviceId: '', groupId: '', kind: deviceKinds[kind], label: ''});
+          result.push(createPlaceholderDevice(deviceKinds[kind]));
         }
       }
       return result;
     }
 
-    function permissionStateFromStatus(status) {
-      if (status == 'granted') {
+    // The same as an entry the browser returns before access is granted: InputDeviceInfo with empty fields
+    function createPlaceholderDevice(kind) {
+      var getInfo = function() {
+        return {deviceId: '', kind: kind, label: '', groupId: ''};
+      };
+      var DeviceInfo = window.InputDeviceInfo || window.MediaDeviceInfo;
+      if (!DeviceInfo) {
+        return getInfo();
+      }
+      try {
+        var device = Object.create(DeviceInfo.prototype);
+        var info = getInfo();
+        for (var key in info) {
+          Object.defineProperty(device, key, {
+            value: info[key],
+            enumerable: true
+          });
+        }
+        // methods of the prototype read the browser's internal state, which this object doesn't have
+        Object.defineProperty(device, 'toJSON', {
+          value: getInfo
+        });
+        if (DeviceInfo.prototype.getCapabilities) {
+          Object.defineProperty(device, 'getCapabilities', {
+            value: function(){ return {}; }
+          });
+        }
+        return device;
+      } catch (e) {
+        return getInfo();
+      }
+    }
+
+    // Access granted, but not applied until a reload, is reported as prompt, the same as for enumerateDevices
+    function getPermissionState(kind) {
+      if (isAccessApplied(kind)) {
         return 'granted';
       }
-      if (status == 'not_requested') {
+      var status = accessStatus[kind];
+      if (status == 'not_requested' || status == 'granted') {
         return 'prompt';
       }
       return 'denied';
     }
 
+    // A status is updated only after a change handler is added to it, so polling permissions.query doesn't
+    // keep every returned status
     function createPermissionStatus(kind) {
       try {
         var permissionStatus = new EventTarget();
-        var state = permissionStateFromStatus(accessStatus[kind]);
-        permissionStatus.onchange = null;
+        var addEventListener = permissionStatus.addEventListener;
+        var onchange = null;
+        var isWatched = false;
+        var watch = function() {
+          if (isWatched) {
+            return;
+          }
+          isWatched = true;
+          var state = permissionStatus.state;
+          stateListeners.push(function() {
+            var newState = permissionStatus.state;
+            if (newState == state) {
+              return;
+            }
+            state = newState;
+            var event = new Event('change');
+            if (onchange) {
+              onchange.call(permissionStatus, event);
+            }
+            permissionStatus.dispatchEvent(event);
+          });
+        };
         Object.defineProperty(permissionStatus, 'name', {
           value: kind,
           enumerable: true
         });
         Object.defineProperty(permissionStatus, 'state', {
-          get: function(){ return state; },
+          get: function(){ return getPermissionState(kind); },
           enumerable: true
         });
-        stateListeners.push(function() {
-          var newState = permissionStateFromStatus(accessStatus[kind]);
-          if (newState == state) {
-            return;
-          }
-          state = newState;
-          var event = new Event('change');
-          if (typeof permissionStatus.onchange === 'function') {
-            permissionStatus.onchange(event);
-          }
-          permissionStatus.dispatchEvent(event);
+        Object.defineProperty(permissionStatus, 'onchange', {
+          get: function(){ return onchange; },
+          set: function(handler) {
+            onchange = typeof handler === 'function' ? handler : null;
+            if (onchange) {
+              watch();
+            }
+          },
+          enumerable: true
         });
+        permissionStatus.addEventListener = function(type) {
+          if (type == 'change') {
+            watch();
+          }
+          return addEventListener.apply(permissionStatus, arguments);
+        };
         return permissionStatus;
       } catch (e) {
         return null;
       }
     }
 
-    WebView.postEvent('web_app_check_media_access', false, {
-      shim_installed: true
-    });
+    WebView.onEvent('media_access_checked', onMediaAccessChecked);
+    WebView.onEvent('media_access_requested', onMediaAccessRequested);
+    WebView.onEvent('media_access_changed', onMediaAccessChanged);
+    // Web clients get the check right away, so the wrapped browser APIs switch to the client as soon as possible;
+    // other platforms get it on the first use of MediaAccessManager
+    if (isWebClient) {
+      installMediaDevicesShim();
+      sendCheck();
+    }
+
+    return mediaAccessManager;
   })();
 
   var Accelerometer = (function() {
@@ -3138,6 +3511,10 @@
   });
   Object.defineProperty(WebApp, 'LocationManager', {
     value: LocationManager,
+    enumerable: true
+  });
+  Object.defineProperty(WebApp, 'MediaAccessManager', {
+    value: MediaAccessManager,
     enumerable: true
   });
   Object.defineProperty(WebApp, 'Serverless', {
