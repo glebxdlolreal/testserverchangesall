@@ -1,11 +1,14 @@
 window.WebApp = window.Telegram && window.Telegram.WebApp || null;
 
 var TWebApp = {
-  init(basePath = '') {
+  init(basePath = '', bootstrapApiUrl = '') {
     if (basePath) {
       var hash = Aj.apiUrl.split('hash=')[1] || '';
       Aj.apiUrl = basePath + '/api?hash=' + hash;
       window.basePath = basePath;
+    }
+    if (bootstrapApiUrl) {
+      Aj.apiUrl = bootstrapApiUrl;
     }
     TWebApp.initOnce();
     Aj.viewTransition = true;
