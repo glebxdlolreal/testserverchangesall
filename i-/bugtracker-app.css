@@ -1669,6 +1669,12 @@ a.bt-comment-reply-content:hover, a.bt-comment-reply-content:focus {
   cursor: auto;
 }
 
+.bt-dropdown-wrap ul.dropdown-menu > li > .bt-dropdown-item.bt-delete-issue-btn,
+.bt-dropdown-wrap ul.dropdown-menu > li > a.bt-dropdown-item.bt-delete-issue-btn:hover,
+.bt-dropdown-wrap ul.dropdown-menu > li > a.bt-dropdown-item.bt-delete-issue-btn:focus {
+  color: #ef658f;
+}
+
 .bt-issue-tags .bt-status-dd-wrap span.dropdown-menu > ul.dropdown-menu, .header-auth-item .bt-dropdown-wrap span.dropdown-menu > ul.dropdown-menu, .bt-search-tab-wrap.bt-dropdown-wrap span.dropdown-menu > ul.dropdown-menu {
   max-height: none;
 }
@@ -2315,6 +2321,21 @@ a.cd-issue-file:hover {
   margin-right: 14px;
   float: left;
   position: relative;
+}
+
+.bt-issue-log-files .cd-issue-file-thumb {
+  background-image: url('/img/log-file.svg');
+  background-size: 30px 30px;
+}
+.bt-private-logs {
+  margin-top: 14px;
+}
+.bt-private-logs > .bt-header {
+  margin: 0 0 3px;
+  text-transform: none;
+}
+.bt-comment .bt-private-logs > .bt-header {
+  display: none;
 }
 
 .cd-issue-file-thumb:before {
