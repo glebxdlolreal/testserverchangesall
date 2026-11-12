@@ -1072,7 +1072,6 @@ var Screenshots = {
       screenshot_ids.push(screenshot_id);
     });
     Aj.apiRequest('saveScreenshotsOrder', {
-      lang: Aj.state.curLang || 'en',
       lang_pack: Aj.state.curLangpack,
       section: Aj.state.curSection,
       screenshot_ids: screenshot_ids.join(',')
