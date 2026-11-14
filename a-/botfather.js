@@ -455,6 +455,61 @@ var BotProfile = {
   }
 }
 
+var BotProfileWidget = {
+  init() {
+    if (!$('.js-profile-widget-html').length) {
+      return;
+    }
+    $('.js-profile-widget-save').on('click', BotProfileWidget.submit);
+    $('.js-profile-widget-delete').on('click', BotProfileWidget.eClickDelete);
+  },
+  submit() {
+    var html = $('.js-profile-widget-html').val() || '';
+    if (!html.trim()) {
+      TWebApp.showErrorToast(l('WEB_PROFILE_WIDGET_HTML_REQUIRED', 'Widget HTML is required.'));
+      return;
+    }
+    Aj.apiRequest('updateProfileWidget', {
+      bid: Aj.state.botId,
+      html: html,
+      allow_queries: $('.js-profile-widget-allow-queries').prop('checked') ? 1 : 0,
+    }, res => {
+      if (res.error) {
+        TWebApp.showErrorToast(res.error);
+      } else {
+        Aj.onUnload(() => TWebApp.showSuccessToast(res.msg));
+        Aj.reload();
+      }
+    });
+  },
+  eClickDelete() {
+    WebApp.showPopup({
+      title: uncleanHTML(l('WEB_PROFILE_WIDGET_DELETE_TITLE', 'Delete profile widget')),
+      message: uncleanHTML(l('WEB_PROFILE_WIDGET_DELETE_CONFIRM', 'The profile widget will be removed from this bot.')),
+      buttons: [
+        {
+          id: 'delete',
+          text: uncleanHTML(l('WEB_PROFILE_WIDGET_POPUP_DELETE', 'Delete')),
+          type: 'destructive',
+        },
+        {
+          type: 'cancel',
+        },
+      ]
+    }, (result) => {
+      if (result !== 'delete') return;
+      Aj.apiRequest('deleteProfileWidget', { bid: Aj.state.botId }, res => {
+        if (res.error) {
+          TWebApp.showErrorToast(res.error);
+        } else {
+          Aj.onUnload(() => TWebApp.showSuccessToast(res.msg));
+          Aj.reload();
+        }
+      });
+    });
+  }
+}
+
 var BotCommandsList = {
   init() {
     $('.js-edit-command-list').sortable({items: '.js-sortable'}).on('sortchange', function( event, ui ) {
