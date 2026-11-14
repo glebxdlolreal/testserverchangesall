@@ -457,51 +457,53 @@ var BotProfile = {
 
 var BotProfileWidget = {
   init() {
-    $('.js-save-profile-widget').on('click', BotProfileWidget.eSaveClick);
-    $('.js-delete-profile-widget').on('click', BotProfileWidget.eDeleteClick);
-  },
-  setStatus(installed, size) {
-    var text = installed ? 'Installed, compressed payload ' + size + ' bytes' : 'Not installed';
-    $('.js-profile-widget-status').text(text).attr('data-size', installed ? size : 0);
-    $('.js-delete-profile-widget-field').toggle(installed);
-  },
-  eSaveClick() {
-    var pw_html = $('textarea[name=pw_html]').val();
-    if (!pw_html) {
-      TWebApp.showErrorToast('Widget HTML is empty.');
+    if (!$('.js-profile-widget').length) {
       return;
     }
-    Aj.apiRequest('updateProfileWidget', {
+    $('.js-profile-widget-save').on('click', BotProfileWidget.eSave);
+    $('.js-profile-widget-delete').on('click', BotProfileWidget.eDelete);
+  },
+  eSave() {
+    var html = $('textarea[name=profile_widget_html]').val();
+    if (!html.trim()) {
+      TWebApp.showErrorToast('The widget HTML must not be empty');
+      return;
+    }
+    var model = {
       bid: Aj.state.botId,
-      pw_html: pw_html,
-      pw_allow_queries: $('input[name=pw_allow_queries]').is(':checked') ? 1 : 0,
-    }, res => {
+      html: html,
+      allow_queries: $('input[name=profile_widget_allow_queries]').prop('checked') ? 1 : '',
+    };
+    Aj.apiRequest('saveProfileWidget', model, res => {
+      if (res.ok) {
+        TWebApp.showSuccessToast(res.msg);
+        Aj.location();
+      }
       if (res.error) {
         TWebApp.showErrorToast(res.error);
-        return;
       }
-      BotProfileWidget.setStatus(true, res.size);
-      TWebApp.showSuccessToast(res.msg);
     });
   },
-  eDeleteClick() {
+  eDelete() {
     WebApp.showPopup({
-      message: 'Delete the profile widget? The widget will disappear from the bot profile.',
+      title: 'Delete Profile Widget',
+      message: 'The profile widget will be removed from the bot profile. Pair data of viewers is kept.',
       buttons: [
-        { id: 'delete', text: 'Delete', type: 'destructive' },
         { type: 'cancel' },
+        { id: 'delete', text: 'Delete', type: 'destructive' },
       ]
     }, button_id => {
-      if (button_id !== 'delete') return;
-      Aj.apiRequest('deleteProfileWidget', {
-        bid: Aj.state.botId,
-      }, res => {
+      if (button_id != 'delete') {
+        return;
+      }
+      Aj.apiRequest('deleteProfileWidget', { bid: Aj.state.botId }, res => {
+        if (res.ok) {
+          TWebApp.showSuccessToast('Profile widget deleted');
+          Aj.location();
+        }
         if (res.error) {
           TWebApp.showErrorToast(res.error);
-          return;
         }
-        BotProfileWidget.setStatus(false, 0);
-        TWebApp.showSuccessToast(res.msg);
       });
     });
   }
