@@ -456,92 +456,52 @@ var BotProfile = {
 }
 
 var BotProfileWidget = {
-  cm: null,
-  savedHtml: '',
-
   init() {
-    var editorEl = document.getElementById('profile-widget-editor');
-    if (!editorEl) {
-      return;
-    }
-
-    BotProfileWidget.savedHtml = Aj.state.editorCode || '';
-    BotProfileWidget.cm = CodeMirror(editorEl, {
-      value: BotProfileWidget.savedHtml,
-      mode: 'xml',
-      theme: 'custom',
-      lineNumbers: true,
-      matchBrackets: true,
-      autoCloseBrackets: true,
-      indentUnit: 2,
-      tabSize: 2,
-      lineWrapping: true,
-      placeholder: l('WEB_PROFILE_WIDGET_HTML_PLACEHOLDER', 'Paste widget HTML here'),
-    });
-
-    WebApp.MainButton.setText(uncleanHTML(l('WEB_EDITOR_SAVE')));
-    WebApp.MainButton.show();
-    WebApp.MainButton.onClick(BotProfileWidget.onSave);
-
-    Aj.onUnload(function() {
-      WebApp.MainButton.hide();
-      WebApp.MainButton.offClick(BotProfileWidget.onSave);
-    });
-
-    Aj.onBeforeUnload(function() {
-      if (BotProfileWidget.cm && BotProfileWidget.cm.getValue() !== BotProfileWidget.savedHtml) {
-        return uncleanHTML(l('WEB_UNSAVED_CHANGES'));
-      }
-    });
-
-    $(document).on('click.curPage', '.js-profile-widget-delete', BotProfileWidget.eClickDelete);
+    $('.js-save-profile-widget').on('click', BotProfileWidget.eSaveClick);
+    $('.js-delete-profile-widget').on('click', BotProfileWidget.eDeleteClick);
   },
-
-  onSave() {
-    var html = BotProfileWidget.cm ? BotProfileWidget.cm.getValue() : '';
-    if (!html.trim()) {
-      TWebApp.showErrorToast(l('WEB_PROFILE_WIDGET_HTML_REQUIRED', 'Widget HTML is required.'));
+  setStatus(installed, size) {
+    var text = installed ? 'Installed, compressed payload ' + size + ' bytes' : 'Not installed';
+    $('.js-profile-widget-status').text(text).attr('data-size', installed ? size : 0);
+    $('.js-delete-profile-widget-field').toggle(installed);
+  },
+  eSaveClick() {
+    var pw_html = $('textarea[name=pw_html]').val();
+    if (!pw_html) {
+      TWebApp.showErrorToast('Widget HTML is empty.');
       return;
     }
-    WebApp.MainButton.showProgress();
     Aj.apiRequest('updateProfileWidget', {
       bid: Aj.state.botId,
-      html: html,
+      pw_html: pw_html,
+      pw_allow_queries: $('input[name=pw_allow_queries]').is(':checked') ? 1 : 0,
     }, res => {
-      WebApp.MainButton.hideProgress();
       if (res.error) {
         TWebApp.showErrorToast(res.error);
-      } else {
-        BotProfileWidget.savedHtml = html;
-        Aj.onUnload(() => TWebApp.showSuccessToast(res.msg));
-        Aj.reload();
+        return;
       }
+      BotProfileWidget.setStatus(true, res.size);
+      TWebApp.showSuccessToast(res.msg);
     });
   },
-
-  eClickDelete() {
+  eDeleteClick() {
     WebApp.showPopup({
-      title: uncleanHTML(l('WEB_PROFILE_WIDGET_DELETE_TITLE', 'Delete profile widget')),
-      message: uncleanHTML(l('WEB_PROFILE_WIDGET_DELETE_CONFIRM', 'The profile widget will be removed from this bot.')),
+      message: 'Delete the profile widget? The widget will disappear from the bot profile.',
       buttons: [
-        {
-          id: 'delete',
-          text: uncleanHTML(l('WEB_PROFILE_WIDGET_POPUP_DELETE', 'Delete')),
-          type: 'destructive',
-        },
-        {
-          type: 'cancel',
-        },
+        { id: 'delete', text: 'Delete', type: 'destructive' },
+        { type: 'cancel' },
       ]
-    }, (result) => {
-      if (result !== 'delete') return;
-      Aj.apiRequest('deleteProfileWidget', { bid: Aj.state.botId }, res => {
+    }, button_id => {
+      if (button_id !== 'delete') return;
+      Aj.apiRequest('deleteProfileWidget', {
+        bid: Aj.state.botId,
+      }, res => {
         if (res.error) {
           TWebApp.showErrorToast(res.error);
-        } else {
-          Aj.onUnload(() => TWebApp.showSuccessToast(res.msg));
-          TBackButton.onClick();
+          return;
         }
+        BotProfileWidget.setStatus(false, 0);
+        TWebApp.showSuccessToast(res.msg);
       });
     });
   }
