@@ -196,7 +196,7 @@ window.PremiumApp = (function() {
     picker.inFlight = true;
     Aj.apiRequest('getPeerRequest', {
       flow: current.flow,
-      webapp_req_id: current.requestId
+      request_id: current.peerRequestId
     }, function(result) {
       if (!picker || picker.serial !== current.serial || picker.cancelled) {
         return;
@@ -226,7 +226,7 @@ window.PremiumApp = (function() {
     }
     var current = picker;
     try {
-      webApp().requestChat(current.requestId, function(sent) {
+      webApp().requestChat(current.webappRequestId, function(sent) {
         if (!picker || picker.serial !== current.serial || picker.cancelled) {
           return;
         }
@@ -259,7 +259,8 @@ window.PremiumApp = (function() {
       flow: flow,
       chatType: chatType || '',
       button: button,
-      requestId: '',
+      webappRequestId: '',
+      peerRequestId: 0,
       startedAt: Date.now(),
       serial: ++pickerSequence,
       timer: null,
@@ -276,11 +277,12 @@ window.PremiumApp = (function() {
       if (!picker || picker.serial !== current.serial || picker.cancelled) {
         return;
       }
-      if (result.error || !result.webapp_req_id) {
+      if (result.error || !result.webapp_req_id || !result.request_id) {
         finishPickerWithError('Unable to prepare the Telegram picker. Please try again.');
         return;
       }
-      picker.requestId = result.webapp_req_id;
+      picker.webappRequestId = result.webapp_req_id;
+      picker.peerRequestId = result.request_id;
       picker.startedAt = Date.now();
       requestNativePeer();
     });
