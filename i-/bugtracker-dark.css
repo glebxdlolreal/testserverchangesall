@@ -649,8 +649,16 @@ html.bt-theme-dark .bt-merge-target-title.private {
   color: var(--bt-dark-success);
   background-color: rgba(91, 173, 87, .16);
 }
+html.bt-theme-dark .bt-card-type.vt3,
+html.bt-theme-dark .bt-type-dd.vt3,
+html.bt-theme-dark .bt-merge-card-title.vt3,
+html.bt-theme-dark .bt-merge-target-title.vt3 {
+  color: #b79cfa;
+  background-color: rgba(138, 92, 246, .18);
+}
 html.bt-theme-dark .bt-type-dd-wrap .bt-dropdown-item .bt-card-type.internal,
-html.bt-theme-dark .bt-type-dd-wrap .bt-dropdown-item .bt-card-type.private {
+html.bt-theme-dark .bt-type-dd-wrap .bt-dropdown-item .bt-card-type.private,
+html.bt-theme-dark .bt-type-dd-wrap .bt-dropdown-item .bt-card-type.vt3 {
   background-color: transparent;
 }
 html.bt-theme-dark .bt-select-query .select .search-item .select-list-item.c-aqua,
@@ -727,6 +735,11 @@ html.bt-theme-dark .bt-card-action .bt-status.c-green,
 html.bt-theme-dark .bt-select-query .select .selected-item.c-green,
 html.bt-theme-dark .bt-select-query .select .selected-item.private {
   background-color: #5bad57;
+  color: var(--bt-dark-text-primary);
+}
+html.bt-theme-dark .bt-select-query .select .search-item .select-list-item.vt3,
+html.bt-theme-dark .bt-select-query .select .selected-item.vt3 {
+  background-color: #887feb;
   color: var(--bt-dark-text-primary);
 }
 
