@@ -149,6 +149,9 @@ window.PremiumLottie = (function() {
     if (player.poster) {
       player.poster.style.display = '';
     }
+    if (player.target.classList) {
+      player.target.classList.remove('is-ready');
+    }
   }
 
   function destroy() {
@@ -175,6 +178,9 @@ window.PremiumLottie = (function() {
     player.context.putImageData(image, 0, 0);
     if (player.poster) {
       player.poster.style.display = 'none';
+    }
+    if (player.target.classList) {
+      player.target.classList.add('is-ready');
     }
     return true;
   }
@@ -232,7 +238,7 @@ window.PremiumLottie = (function() {
           removed: false
         };
         player.context = player.canvas.getContext('2d');
-        player.canvas.className = 'pm-lottie-canvas';
+        player.canvas.className = 'js-lottie-canvas';
         target.appendChild(player.canvas);
         players.push(player);
         Promise.all([

@@ -1044,7 +1044,7 @@ var Screenshots = {
                 return showAlert(result.error);
               }
               if (result.row) {
-                $(result.row).insertAfter('.tr-screenshot-upload-row');
+                $(result.row).insertBefore('.tr-screenshot-upload-row');
                 $('.tr-screenshots').sortable('refresh');
               }
               if (result.id) {
@@ -1138,7 +1138,7 @@ var Screenshots = {
     var $selectedEls = $('.tr-screenshot-row[data-screenshot-id].selected');
     var selectedCount = $selectedEls.size();
     if (!selectedCount) return;
-    $selectedEls.insertAfter('.tr-screenshot-upload-row').removeClass('selected');
+    $selectedEls.prependTo('.tr-screenshots').removeClass('selected');
     Screenshots.orderChanged();
     $('.tr-screenshots').sortable('refresh');
     Screenshots.updateSelected();
@@ -1147,7 +1147,7 @@ var Screenshots = {
     var $selectedEls = $('.tr-screenshot-row[data-screenshot-id].selected');
     var selectedCount = $selectedEls.size();
     if (!selectedCount) return;
-    $selectedEls.appendTo('.tr-screenshots').removeClass('selected');
+    $selectedEls.insertBefore('.tr-screenshot-upload-row').removeClass('selected');
     Screenshots.orderChanged();
     $('.tr-screenshots').sortable('refresh');
     Screenshots.updateSelected();
