@@ -6,47 +6,251 @@ window.PremiumApp = (function() {
   var POLL_TIMEOUT = 120000;
   var picker = null;
   var pickerSequence = 0;
-  var mainAction = false;
+  var mainButtonHandler = null;
+  var mainButtonMode = false;
+  var pressDelegate = null;
+  var bound = [];
 
   function webApp() {
     return window.Telegram && window.Telegram.WebApp;
   }
 
-  function showMessage(text, isError) {
-    var element = document.getElementById('pm-message');
+  function on(element, eventName, handler) {
     if (!element) {
       return;
     }
-    element.textContent = text;
-    element.className = isError ? 'pm-message pm-message-error' : 'pm-message';
-    element.hidden = false;
+    element.addEventListener(eventName, handler, false);
+    bound.push([element, eventName, handler]);
+  }
+
+  function bind(selector, eventName, handler) {
+    var elements = document.querySelectorAll(selector);
+    for (var i = 0; i < elements.length; i++) {
+      on(elements[i], eventName, handler);
+    }
+  }
+
+  function unbindAll() {
+    for (var i = 0; i < bound.length; i++) {
+      bound[i][0].removeEventListener(bound[i][1], bound[i][2], false);
+    }
+    bound = [];
+  }
+
+  // ===== Theme and platform classes on <html> =====
+
+  function applyBridgeClasses() {
+    var app = webApp();
+    var root = document.documentElement;
+    if (!app) {
+      return;
+    }
+    var dark = app.colorScheme === 'dark';
+    root.classList.toggle('theme-dark', dark);
+    root.classList.toggle('theme-light', !dark);
+    var platform = app.platform || '';
+    root.classList.remove('platform-ios', 'platform-android', 'platform-desktop');
+    if (platform === 'ios') {
+      root.classList.add('platform-ios');
+    } else if (platform === 'android') {
+      root.classList.add('platform-android');
+    } else if (platform) {
+      root.classList.add('platform-desktop');
+    }
+    if (app.setHeaderColor) {
+      app.setHeaderColor('bg_color');
+    }
+    if (app.setBackgroundColor) {
+      app.setBackgroundColor('bg_color');
+    }
+  }
+
+  // ===== Toasts =====
+
+  function showMessage(text, isError) {
+    var region = document.querySelector('.toast-region');
     var live = document.getElementById('pm-live');
+    if (region) {
+      var toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = text;
+      region.appendChild(toast);
+      setTimeout(function() {
+        toast.classList.add('is-leaving');
+        setTimeout(function() {
+          if (toast.parentNode) {
+            toast.parentNode.removeChild(toast);
+          }
+        }, 220);
+      }, 3400);
+    }
     if (live) {
       live.textContent = text;
     }
   }
 
   function clearMessage() {
-    var element = document.getElementById('pm-message');
-    if (element) {
-      element.hidden = true;
-      element.textContent = '';
+    var region = document.querySelector('.toast-region');
+    if (region) {
+      while (region.firstChild) {
+        region.removeChild(region.firstChild);
+      }
     }
   }
+
+  // ===== Haptics =====
+
+  function hapticSelection() {
+    var app = webApp();
+    if (app && app.HapticFeedback && app.isVersionAtLeast('6.1')) {
+      try {
+        app.HapticFeedback.selectionChanged();
+      } catch (error) {}
+    }
+  }
+
+  function hapticNotify(type) {
+    var app = webApp();
+    if (app && app.HapticFeedback && app.isVersionAtLeast('6.1')) {
+      try {
+        app.HapticFeedback.notificationOccurred(type);
+      } catch (error) {}
+    }
+  }
+
+  // ===== Native MainButton =====
+
+  function mainButtonAvailable() {
+    var app = webApp();
+    return !!(app && app.MainButton && app.isVersionAtLeast && app.isVersionAtLeast('6.0'));
+  }
+
+  function mainButtonSet(text) {
+    var app = webApp();
+    if (!app) {
+      return;
+    }
+    app.MainButton.setParams({
+      text: text,
+      is_visible: true,
+      is_active: true,
+      color: '#7356f6',
+      text_color: '#ffffff'
+    });
+  }
+
+  function hideMainButton() {
+    var app = webApp();
+    if (app && app.MainButton) {
+      if (mainButtonHandler) {
+        app.MainButton.offClick(mainButtonHandler);
+      }
+      app.MainButton.hide();
+    }
+    mainButtonHandler = null;
+    mainButtonMode = false;
+    document.documentElement.classList.remove('has-main-button');
+  }
+
+  function ctaButton() {
+    return document.getElementById('pm-cta');
+  }
+
+  function ctaCurrentUrl() {
+    var button = ctaButton();
+    return button ? button.getAttribute('data-invoice-url') : '';
+  }
+
+  function ctaCurrentFlow() {
+    var button = ctaButton();
+    var flow = button ? button.getAttribute('data-result-flow') : '';
+    return flow || inferResultFlow();
+  }
+
+  function ctaClick() {
+    var url = ctaCurrentUrl();
+    if (url) {
+      openInvoice(url, ctaCurrentFlow());
+    }
+  }
+
+  function ctaUpdate(text, url) {
+    var button = ctaButton();
+    if (!button) {
+      return;
+    }
+    if (text) {
+      button.textContent = text;
+    }
+    if (url) {
+      button.setAttribute('data-invoice-url', url);
+    }
+    if (mainButtonMode) {
+      mainButtonSet(text || button.textContent);
+    }
+  }
+
+  function ctaInit() {
+    var button = ctaButton();
+    if (!button) {
+      return false;
+    }
+    if (mainButtonAvailable()) {
+      mainButtonMode = 'cta';
+      mainButtonSet(button.textContent);
+      mainButtonHandler = ctaClick;
+      webApp().MainButton.onClick(mainButtonHandler);
+      document.documentElement.classList.add('has-main-button');
+    } else {
+      button.hidden = false;
+      var bar = document.createElement('div');
+      bar.className = 'cta-bar';
+      button.parentNode.insertBefore(bar, button);
+      bar.appendChild(button);
+    }
+    return true;
+  }
+
+  function resultButtonInit() {
+    if (!mainButtonAvailable()) {
+      return;
+    }
+    var pathname = window.location.pathname;
+    if (pathname.indexOf('/premiumbot/result/') !== 0) {
+      return;
+    }
+    mainButtonMode = 'result';
+    mainButtonSet('BACK TO PREMIUM');
+    mainButtonHandler = function() {
+      Aj.location('/premiumbot');
+    };
+    webApp().MainButton.onClick(mainButtonHandler);
+    document.documentElement.classList.add('has-main-button');
+  }
+
+  // ===== Invoices =====
 
   function setButtonBusy(button, busy) {
     if (!button) {
       return;
     }
     button.disabled = !!busy;
-    if (busy) {
-      button.classList.add('is-loading');
-    } else {
-      button.classList.remove('is-loading');
+    button.classList.toggle('is-loading', !!busy);
+    if (mainButtonMode === 'cta') {
+      var app = webApp();
+      if (app) {
+        if (busy) {
+          app.MainButton.showProgress(false);
+          app.MainButton.disable();
+        } else {
+          app.MainButton.hideProgress();
+          app.MainButton.enable();
+        }
+      }
     }
   }
 
-  function openInvoice(url) {
+  function openInvoice(url, resultFlow) {
     var app = webApp();
     if (!app || !url) {
       return;
@@ -69,7 +273,8 @@ window.PremiumApp = (function() {
       app.openInvoice(url, function(status) {
         setButtonBusy(button, false);
         if (status === 'paid') {
-          Aj.location('/premiumbot/result/paid');
+          hapticNotify('success');
+          Aj.location('/premiumbot/result/paid/' + (resultFlow || 'premium'));
           return;
         }
         if (status === 'pending') {
@@ -77,6 +282,7 @@ window.PremiumApp = (function() {
           return;
         }
         if (status === 'failed') {
+          hapticNotify('error');
           showMessage('Payment failed. You can retry with the same option.', true);
           return;
         }
@@ -88,59 +294,140 @@ window.PremiumApp = (function() {
     }
   }
 
-  function fallbackToBot(flow, button) {
-    var app = webApp();
-    if (!app) {
-      return;
+  // ===== Plan and gift-card selection (radio -> CTA) =====
+
+  function onPlanOptionChange(input) {
+    var url = input.getAttribute('data-invoice-url');
+    var text = input.getAttribute('data-cta-text');
+    if (url && text) {
+      ctaUpdate(text, url);
     }
-    var username = window.Aj && Aj.state.botUsername ? Aj.state.botUsername : 'PremiumBot';
-    var baseUrl = 'https://t.me/' + username;
-    if (flow === 'gift') {
-      app.openTelegramLink(baseUrl + '?start=gift');
-      return;
+    hapticSelection();
+  }
+
+  // ===== Giveaway matrix (duration x winners -> option) =====
+
+  function giveawayMatrix() {
+    return document.querySelector('.js-gw-matrix');
+  }
+
+  function giveawayOptions() {
+    var matrix = giveawayMatrix();
+    if (!matrix) {
+      return [];
     }
-    var commands = {
-      stars_gift: '/stars',
-      premium_giveaway: '/giveaway',
-      stars_giveaway: '/stars_giveaway'
-    };
-    var command = commands[flow] || '/status';
-    var openBot = function() {
-      app.openTelegramLink(baseUrl);
-    };
-    if (app.isVersionAtLeast('6.2')) {
-      app.showPopup({
-        title: 'Continue in @' + username,
-        message: 'Send ' + command + ' to @' + username + ' to use this flow in the existing bot chat.',
-        buttons: [
-          {id: 'open', type: 'default', text: 'Open @' + username},
-          {id: 'cancel', type: 'cancel'}
-        ]
-      }, function(buttonId) {
-        if (buttonId === 'open') {
-          openBot();
-        }
+    var nodes = matrix.querySelectorAll('.js-gw-option');
+    var records = [];
+    for (var i = 0; i < nodes.length; i++) {
+      records.push({
+        months: nodes[i].getAttribute('data-months'),
+        stars: nodes[i].getAttribute('data-stars'),
+        users: nodes[i].getAttribute('data-users'),
+        boosts: nodes[i].getAttribute('data-boosts'),
+        price: nodes[i].getAttribute('data-price'),
+        ctaText: nodes[i].getAttribute('data-cta-text'),
+        url: nodes[i].getAttribute('data-invoice-url')
       });
-    } else {
-      var container = button ? button.closest('.pm-picker') : null;
-      var status = container ? container.querySelector('.pm-picker-status') : null;
-      if (status) {
-        status.textContent = 'Send ' + command + ' to @' + username + ' to use this flow in the existing bot chat.';
-        status.appendChild(document.createElement('br'));
-        var link = document.createElement('a');
-        link.href = baseUrl;
-        link.className = 'pm-secondary pm-link';
-        link.textContent = 'Open @' + username;
-        link.addEventListener('click', function(event) {
-          event.preventDefault();
-          openBot();
-        }, false);
-        status.appendChild(link);
-      } else {
-        openBot();
+    }
+    return records;
+  }
+
+  function giveawayChecked(name) {
+    var input = document.querySelector('.js-gw-' + name + ':checked');
+    return input ? input.value : '';
+  }
+
+  function giveawayFind(records, flow, dur, users) {
+    for (var i = 0; i < records.length; i++) {
+      var durValue = flow === 'premium' ? records[i].months : records[i].stars;
+      if (durValue === dur && records[i].users === users) {
+        return records[i];
       }
     }
+    return null;
   }
+
+  function giveawayUsersFor(records, flow, dur) {
+    var users = {};
+    for (var i = 0; i < records.length; i++) {
+      var durValue = flow === 'premium' ? records[i].months : records[i].stars;
+      if (durValue === dur) {
+        users[records[i].users] = records[i];
+      }
+    }
+    return users;
+  }
+
+  function giveawayFill(template, record) {
+    var text = template;
+    if (record) {
+      text = text.split('{users}').join(record.users)
+        .split('{boosts}').join(record.boosts)
+        .split('{price}').join(record.price)
+        .split('{stars}').join(record.stars);
+    }
+    return text;
+  }
+
+  function giveawayUpdate() {
+    var matrix = giveawayMatrix();
+    if (!matrix) {
+      return;
+    }
+    var flow = matrix.getAttribute('data-flow') || 'premium';
+    var records = giveawayOptions();
+    var users = giveawayChecked('users');
+    var durInputs = document.querySelectorAll('.js-gw-dur');
+    var anyEnabled = false;
+    for (var i = 0; i < durInputs.length; i++) {
+      var record = giveawayFind(records, flow, durInputs[i].value, users);
+      var priceSpans = document.querySelectorAll('.js-gw-dur-price[data-dur="' + durInputs[i].value + '"]');
+      for (var p = 0; p < priceSpans.length; p++) {
+        priceSpans[p].textContent = record ? record.price : '—';
+      }
+      var boostsSpans = document.querySelectorAll('.js-gw-dur-boosts[data-dur="' + durInputs[i].value + '"]');
+      for (var b = 0; b < boostsSpans.length; b++) {
+        boostsSpans[b].textContent = record ? giveawayFill(matrix.getAttribute('data-tpl-boosts') || '', record) : '';
+      }
+      durInputs[i].disabled = !record;
+      var label = durInputs[i].closest('label');
+      if (label) {
+        label.classList.toggle('is-disabled', !record);
+      }
+      if (record) {
+        anyEnabled = true;
+      }
+    }
+    if (!anyEnabled) {
+      return;
+    }
+    var checked = document.querySelector('.js-gw-dur:checked');
+    if (!checked || checked.disabled) {
+      for (var j = 0; j < durInputs.length; j++) {
+        if (!durInputs[j].disabled) {
+          durInputs[j].checked = true;
+          break;
+        }
+      }
+    }
+    users = giveawayChecked('users');
+    var dur = giveawayChecked('dur');
+    var picked = giveawayFind(records, flow, dur, users);
+    var footer = document.querySelector('.js-gw-footer');
+    if (footer) {
+      footer.textContent = giveawayFill(matrix.getAttribute('data-tpl-footer') || '', picked);
+    }
+    if (picked) {
+      // Per-combination footer needs boosts from the picked record only.
+      if (footer) {
+        footer.textContent = giveawayFill(matrix.getAttribute('data-tpl-footer') || '', picked);
+      }
+      var cta = giveawayFill(matrix.getAttribute('data-tpl-cta') || '', picked);
+      ctaUpdate(cta || picked.ctaText, picked.url);
+    }
+  }
+
+  // ===== Peer picker (native request through the existing web methods) =====
 
   function pickerText(text, isError) {
     if (!picker) {
@@ -284,62 +571,116 @@ window.PremiumApp = (function() {
       picker.webappRequestId = result.webapp_req_id;
       picker.peerRequestId = result.request_id;
       picker.startedAt = Date.now();
+      hapticSelection();
       requestNativePeer();
     });
   }
 
-  function filterPlans(button) {
-    var group = button.parentNode;
-    var filters = group.querySelectorAll('.js-plan-filter');
-    for (var i = 0; i < filters.length; i++) {
-      filters[i].classList.toggle('is-active', filters[i] === button);
+  function fallbackToBot(flow, button) {
+    var app = webApp();
+    if (!app) {
+      return;
     }
-    var constraints = {};
-    var rows = document.querySelectorAll('.pm-filters');
-    for (var r = 0; r < rows.length; r++) {
-      var active = rows[r].querySelector('.js-plan-filter.is-active');
-      if (active) {
-        var field = active.getAttribute('data-filter-field');
-        var value = active.getAttribute('data-filter-value');
-        if (value) {
-          constraints[field] = value;
-        }
-      }
+    var username = window.Aj && Aj.state.botUsername ? Aj.state.botUsername : 'PremiumBot';
+    var baseUrl = 'https://t.me/' + username;
+    if (flow === 'gift') {
+      app.openTelegramLink(baseUrl + '?start=gift');
+      return;
     }
-    var plans = document.querySelectorAll('.pm-plan');
-    for (var j = 0; j < plans.length; j++) {
-      var show = true;
-      for (var fieldName in constraints) {
-        if (Object.prototype.hasOwnProperty.call(constraints, fieldName) &&
-            plans[j].getAttribute('data-' + fieldName) !== constraints[fieldName]) {
-          show = false;
+    var commands = {
+      stars_gift: '/stars',
+      premium_giveaway: '/giveaway',
+      stars_giveaway: '/stars_giveaway'
+    };
+    var command = commands[flow] || '/status';
+    var openBot = function() {
+      app.openTelegramLink(baseUrl);
+    };
+    if (app.isVersionAtLeast('6.2')) {
+      app.showPopup({
+        title: 'Continue in @' + username,
+        message: 'Send ' + command + ' to @' + username + ' to use this flow in the existing bot chat.',
+        buttons: [
+          {id: 'open', type: 'default', text: 'Open @' + username},
+          {id: 'cancel', type: 'cancel'}
+        ]
+      }, function(buttonId) {
+        if (buttonId === 'open') {
+          openBot();
         }
+      });
+    } else {
+      var container = button ? button.closest('.pm-picker') : null;
+      var legacy = container ? container.querySelector('.pm-picker-legacy') : null;
+      if (legacy) {
+        legacy.hidden = false;
+        var status = container.querySelector('.pm-picker-status');
+        if (status) {
+          status.textContent = 'Send ' + command + ' to @' + username + ' to use this flow in the existing bot chat.';
+        }
+        var link = document.createElement('a');
+        link.href = baseUrl;
+        link.className = 'cell cell--action is-tappable fx-press island';
+        link.innerHTML = '<span class="cell-main"><span class="cell-title">Open @' + username + '</span></span>';
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          openBot();
+        }, false);
+        legacy.appendChild(link);
+      } else {
+        openBot();
       }
-      plans[j].hidden = !show;
     }
   }
 
-  function mainButtonHandler() {
-    if (mainAction === 'home') {
-      Aj.location('/premiumbot');
+  // ===== Show-more packs =====
+
+  function showMorePacks(button) {
+    var extras = document.querySelectorAll('.js-pack-extra');
+    for (var i = 0; i < extras.length; i++) {
+      extras[i].hidden = false;
     }
+    button.hidden = true;
   }
 
-  function bind(selector, eventName, handler) {
-    var elements = document.querySelectorAll(selector);
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].addEventListener(eventName, handler, false);
-    }
+  // ===== Press effect =====
+
+  function setupPress() {
+    pressDelegate = function(event) {
+      var target = event.target && event.target.closest ? event.target.closest('.fx-press') : null;
+      if (!target) {
+        return;
+      }
+      if (event.type === 'pointerdown') {
+        target.classList.add('is-pressed');
+      } else {
+        target.classList.remove('is-pressed');
+      }
+    };
+    document.addEventListener('pointerdown', pressDelegate, true);
+    document.addEventListener('pointerup', pressDelegate, true);
+    document.addEventListener('pointercancel', pressDelegate, true);
+    document.addEventListener('pointerleave', pressDelegate, true);
   }
+
+  function teardownPress() {
+    if (!pressDelegate) {
+      return;
+    }
+    document.removeEventListener('pointerdown', pressDelegate, true);
+    document.removeEventListener('pointerup', pressDelegate, true);
+    document.removeEventListener('pointercancel', pressDelegate, true);
+    document.removeEventListener('pointerleave', pressDelegate, true);
+    pressDelegate = null;
+  }
+
+  // ===== Page lifecycle =====
 
   function cleanup() {
     stopPicker();
-    mainAction = false;
-    var app = webApp();
-    if (app && app.MainButton) {
-      app.MainButton.offClick(mainButtonHandler);
-      app.MainButton.hide();
-    }
+    hideMainButton();
+    unbindAll();
+    teardownPress();
     if (window.PremiumLottie) {
       window.PremiumLottie.destroy();
     }
@@ -347,13 +688,18 @@ window.PremiumApp = (function() {
 
   function init() {
     cleanup();
+    applyBridgeClasses();
+    setupPress();
     var app = webApp();
-    if (app) {
-      app.setHeaderColor('bg_color');
-      app.setBackgroundColor('bg_color');
+    if (app && app.onEvent) {
+      // themeChanged is user-triggered while the app stays open.
+      try {
+        app.onEvent('themeChanged', applyBridgeClasses);
+      } catch (error) {}
     }
     bind('.js-invoice', 'click', function() {
-      openInvoice(this.getAttribute('data-invoice-url'));
+      var flow = this.getAttribute('data-result-flow') || inferResultFlow();
+      openInvoice(this.getAttribute('data-invoice-url'), flow);
     });
     bind('.js-request-peer', 'click', function() {
       startPicker(this.getAttribute('data-peer-flow'), this.getAttribute('data-peer-chat-type'), this);
@@ -364,15 +710,26 @@ window.PremiumApp = (function() {
         appInstance.openTelegramLink(this.getAttribute('data-telegram-url'));
       }
     });
-    bind('.js-plan-filter', 'click', function() {
-      filterPlans(this);
+    bind('.js-plan-option', 'change', function() {
+      onPlanOptionChange(this);
     });
-    if (window.location.pathname.indexOf('/premiumbot/result/') === 0 && app && app.MainButton) {
-      mainAction = 'home';
-      app.MainButton.setParams({text: 'BACK TO PREMIUM', is_visible: true});
-      app.MainButton.onClick(mainButtonHandler);
+    bind('.js-gw-dur', 'change', function() {
+      giveawayUpdate();
+      hapticSelection();
+    });
+    bind('.js-gw-users', 'change', function() {
+      giveawayUpdate();
+      hapticSelection();
+    });
+    bind('.js-show-more', 'click', function() {
+      showMorePacks(this);
+    });
+    bind('[data-haptic="selection"]', 'click', hapticSelection);
+    if (!ctaInit()) {
+      resultButtonInit();
     }
-    var title = document.querySelector('.pm-title');
+    giveawayUpdate();
+    var title = document.querySelector('.hero-title, .screen-title');
     if (title) {
       title.focus();
     }
@@ -380,6 +737,27 @@ window.PremiumApp = (function() {
       window.PremiumLottie.mount(document);
     }
     Aj.onUnload(cleanup);
+  }
+
+  function inferResultFlow() {
+    var screen = document.querySelector('.screen[data-route]');
+    var route = screen ? screen.getAttribute('data-route') : '';
+    if (route === 'stars') {
+      return 'stars';
+    }
+    if (route === 'stars/gift') {
+      return 'stars_gift';
+    }
+    if (route === 'giveaway/premium') {
+      return 'premium_giveaway';
+    }
+    if (route === 'giveaway/stars') {
+      return 'stars_giveaway';
+    }
+    if (route === 'gift') {
+      return 'gift';
+    }
+    return 'premium';
   }
 
   return {
