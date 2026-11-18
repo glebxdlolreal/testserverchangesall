@@ -182,21 +182,6 @@ button.cell {
   margin-top: var(--space-16);
 }
 
-/* The in-page CTA fallback (clients without the native MainButton): the design's bar docks it above the safe area. */
-.cta-bar > .cta-button {
-  position: relative;
-  display: grid;
-}
-
-.cta-bar {
-  margin-top: var(--space-16);
-}
-
-/* The hidden CTA driving the native MainButton must never appear. */
-.js-cta[hidden] {
-  display: none;
-}
-
 /* Hero artwork: the server-rendered Lottie marks (the design's 3D canvases are client-side only).
    Telegram's white marks play over a rounded gradient disc, as they do in the clients. */
 .hero-media > .lottie,

@@ -179,19 +179,24 @@ window.PremiumApp = (function() {
     }
   }
 
+  function ctaLabel(button) {
+    return button.querySelector('.cta-label') || button;
+  }
+
   function ctaUpdate(text, url) {
     var button = ctaButton();
     if (!button) {
       return;
     }
     if (text) {
-      button.textContent = text;
+      ctaLabel(button).textContent = text;
     }
     if (url) {
       button.setAttribute('data-invoice-url', url);
     }
-    if (mainButtonMode) {
-      mainButtonSet(text || button.textContent);
+    button.setAttribute('aria-disabled', ctaCurrentUrl() ? 'false' : 'true');
+    if (mainButtonMode === 'cta') {
+      mainButtonSet(text || ctaLabel(button).textContent);
     }
   }
 
@@ -200,19 +205,9 @@ window.PremiumApp = (function() {
     if (!button) {
       return false;
     }
-    if (mainButtonAvailable()) {
-      mainButtonMode = 'cta';
-      mainButtonSet(button.textContent);
-      mainButtonHandler = ctaClick;
-      webApp().MainButton.onClick(mainButtonHandler);
-      document.documentElement.classList.add('has-main-button');
-    } else {
-      button.hidden = false;
-      var bar = document.createElement('div');
-      bar.className = 'cta-bar';
-      button.parentNode.insertBefore(bar, button);
-      bar.appendChild(button);
-    }
+    button.setAttribute('aria-disabled', ctaCurrentUrl() ? 'false' : 'true');
+    // The pill's glow breathes and its arrow knocks while the page is lit.
+    button.classList.add('is-lit');
     return true;
   }
 
@@ -241,7 +236,8 @@ window.PremiumApp = (function() {
     }
     button.disabled = !!busy;
     button.classList.toggle('is-loading', !!busy);
-    if (button.classList && button.classList.contains('cell')) {
+    button.classList.toggle('is-busy', !!busy);
+    if (button.classList && (button.classList.contains('cell') || button.classList.contains('pack-tile'))) {
       button.setAttribute('aria-busy', busy ? 'true' : 'false');
       var spinner = button.querySelector('.cell-busy');
       if (spinner) {
@@ -250,18 +246,6 @@ window.PremiumApp = (function() {
       var value = button.querySelector('.cell-value');
       if (value) {
         value.hidden = !!busy;
-      }
-    }
-    if (mainButtonMode === 'cta') {
-      var app = webApp();
-      if (app) {
-        if (busy) {
-          app.MainButton.showProgress(false);
-          app.MainButton.disable();
-        } else {
-          app.MainButton.hideProgress();
-          app.MainButton.enable();
-        }
       }
     }
   }
@@ -703,6 +687,9 @@ window.PremiumApp = (function() {
     if (window.Premium3D) {
       window.Premium3D.destroy();
     }
+    if (window.PremiumFx) {
+      window.PremiumFx.destroy();
+    }
   }
 
   function init() {
@@ -717,6 +704,9 @@ window.PremiumApp = (function() {
       } catch (error) {}
     }
     bind('.js-invoice', 'click', function() {
+      if (this.getAttribute('aria-disabled') === 'true' || this.getAttribute('aria-busy') === 'true') {
+        return;
+      }
       var flow = this.getAttribute('data-result-flow') || inferResultFlow();
       openInvoice(this.getAttribute('data-invoice-url'), flow);
     });
@@ -757,6 +747,12 @@ window.PremiumApp = (function() {
     }
     if (window.Premium3D) {
       window.Premium3D.mount(document);
+    }
+    if (window.PremiumFx) {
+      // After the 3D marks are laid out, the fields take their boxes.
+      requestAnimationFrame(function() {
+        window.PremiumFx.mount(document);
+      });
     }
     Aj.onUnload(cleanup);
   }
