@@ -48,6 +48,11 @@ window.PremiumApp = (function() {
     var dark = app.colorScheme === 'dark';
     root.classList.toggle('theme-dark', dark);
     root.classList.toggle('theme-light', !dark);
+    // The light field's dark variant: the accent adds light instead of a white bloom (fx.css .fx-stage--dark).
+    var stages = document.querySelectorAll('.fx-light__stage, .fx-stage');
+    for (var i = 0; i < stages.length; i++) {
+      stages[i].classList.toggle('fx-stage--dark', dark);
+    }
     var platform = app.platform || '';
     root.classList.remove('platform-ios', 'platform-android', 'platform-desktop');
     if (platform === 'ios') {
@@ -695,6 +700,9 @@ window.PremiumApp = (function() {
     if (window.PremiumLottie) {
       window.PremiumLottie.destroy();
     }
+    if (window.Premium3D) {
+      window.Premium3D.destroy();
+    }
   }
 
   function init() {
@@ -746,6 +754,9 @@ window.PremiumApp = (function() {
     }
     if (window.PremiumLottie) {
       window.PremiumLottie.mount(document);
+    }
+    if (window.Premium3D) {
+      window.Premium3D.mount(document);
     }
     Aj.onUnload(cleanup);
   }

@@ -78,6 +78,18 @@ button.cell {
   mix-blend-mode: normal;
 }
 
+/* The WebGL mark replaces the flat glyph when it has drawn. */
+.pm-mark-gl {
+  position: absolute;
+  inset: 6%;
+  width: 88%;
+  height: 88%;
+}
+
+.pm-mark.is-3d .pm-mark-glyph {
+  display: none;
+}
+
 /* Twinkling sparkles around the mark. */
 .pm-twinkle {
   position: absolute;
