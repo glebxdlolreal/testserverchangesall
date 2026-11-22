@@ -596,6 +596,12 @@ span.bt-search-tab {
   color: var(--text-primary);
 }
 
+.bt-select-query .select .search-item .select-list-item.vt3,
+.bt-select-query .select .selected-item.vt3 {
+  background-color: #887feb;
+  color: var(--text-primary);
+}
+
 .bt-select-query .select .search-item .select-list-item.team,
 .bt-select-query .select .selected-item.team {
   background-color: #e6a243;
@@ -848,7 +854,7 @@ a.bt-card-row:hover {
 
 }
 
-.bt-card-type.internal:before, .bt-card-title.internal:before, .bt-merge-card-title.internal:before, .bt-issue-title.internal:before, .select-list-item.internal:before, .selected-item.internal .label:before, .bt-card-type.private:before, .bt-card-title.private:before, .bt-merge-card-title.private:before, .bt-issue-title.private:before, .select-list-item.private:before, .selected-item.private .label:before {
+.bt-card-type.internal:before, .bt-card-title.internal:before, .bt-merge-card-title.internal:before, .bt-issue-title.internal:before, .select-list-item.internal:before, .selected-item.internal .label:before, .bt-card-type.private:before, .bt-card-title.private:before, .bt-merge-card-title.private:before, .bt-issue-title.private:before, .select-list-item.private:before, .selected-item.private .label:before, .bt-card-type.vt3:before, .bt-card-title.vt3:before, .bt-merge-card-title.vt3:before, .bt-issue-title.vt3:before, .select-list-item.vt3:before, .selected-item.vt3 .label:before {
   content: '';
   display: inline-block;
   width: 11px;
@@ -863,16 +869,20 @@ a.bt-card-row:hover {
   background-image: url("data:image/svg+xml,%3Csvg%20height%3D%2213%22%20viewBox%3D%220%200%2011%2013%22%20width%3D%2211%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20fill%3D%22%23238fe1%22%20height%3D%227%22%20rx%3D%221.5%22%20width%3D%2211%22%20y%3D%226%22%2F%3E%3Crect%20height%3D%229%22%20rx%3D%222.5%22%20stroke%3D%22%23238fe1%22%20stroke-width%3D%222%22%20width%3D%225%22%20x%3D%223%22%20y%3D%221%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
 }
 
-.bt-issue-title.internal:before, .bt-issue-title.private:before {
+.bt-card-type.vt3:before, .bt-card-title.vt3:before, .bt-merge-card-title.vt3:before, .bt-issue-title.vt3:before, .select-list-item.vt3:before {
+  background-image: url("data:image/svg+xml,%3Csvg%20height%3D%2213%22%20viewBox%3D%220%200%2011%2013%22%20width%3D%2211%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20fill%3D%22%238a5cf6%22%20height%3D%227%22%20rx%3D%221.5%22%20width%3D%2211%22%20y%3D%226%22%2F%3E%3Crect%20height%3D%229%22%20rx%3D%222.5%22%20stroke%3D%22%238a5cf6%22%20stroke-width%3D%222%22%20width%3D%225%22%20x%3D%223%22%20y%3D%221%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+
+.bt-issue-title.internal:before, .bt-issue-title.private:before, .bt-issue-title.vt3:before {
   width: 13px;
   height: 15px;
 }
 
-.select-list-item.internal:before, .select-list-item.private:before {
+.select-list-item.internal:before, .select-list-item.private:before, .select-list-item.vt3:before {
   margin-right: 6px;
 }
 
-.selected-item.internal .label:before, .selected-item.private .label:before {
+.selected-item.internal .label:before, .selected-item.private .label:before, .selected-item.vt3 .label:before {
   background-image: url("data:image/svg+xml,%3Csvg%20height%3D%2213%22%20viewBox%3D%220%200%2011%2013%22%20width%3D%2211%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20fill%3D%22%23fff%22%20height%3D%227%22%20rx%3D%221.5%22%20width%3D%2211%22%20y%3D%226%22%2F%3E%3Crect%20height%3D%229%22%20rx%3D%222.5%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222%22%20width%3D%225%22%20x%3D%223%22%20y%3D%221%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
   margin-right: 8px;
 }
@@ -1083,6 +1093,11 @@ a.bt-card-row:hover {
 .bt-card-type.private {
   color: #1a7e0e;
   background-color: #d7f4cc;
+}
+
+.bt-card-type.vt3 {
+  color: #813dc6;
+  background-color: #ede6fc;
 }
 
 .cd-issue-status-wrap {
@@ -1742,6 +1757,15 @@ a.bt-comment-reply-content:hover, a.bt-comment-reply-content:focus {
   fill: #54a344;
 }
 
+.bt-type-dd.vt3 {
+  color: #813dc6;
+  background-color: #ede6fc;
+}
+
+.bt-type-dd.vt3 svg.dd use {
+  fill: #9d7bea;
+}
+
 .bt-type-dd-tips {
   display: inline-block;
   padding: 6px 0 5px;
@@ -1770,7 +1794,7 @@ a.bt-comment-reply-content:hover, a.bt-comment-reply-content:focus {
   background-color: initial;
 }
 
-.bt-card-type.internal:before, .bt-card-type.private:before {
+.bt-card-type.internal:before, .bt-card-type.private:before, .bt-card-type.vt3:before {
   margin-right: 8px;
 }
 
@@ -2993,6 +3017,10 @@ body .cd-dialog-options.disabled input.radio:checked ~ .radio-label {
 .bt-merge-card-title.internal,
 .bt-merge-target-title.internal {
   color: #7fcfff;
+}
+.bt-merge-card-title.vt3,
+.bt-merge-target-title.vt3 {
+  color: #bea2ff;
 }
 .bt-merge-card-preview-text {
   margin-top: 4px;
