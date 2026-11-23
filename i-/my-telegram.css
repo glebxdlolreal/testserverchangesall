@@ -743,11 +743,9 @@ html.ios-chrome body { min-height: calc(100vh + 2px); }
    One grouped block: the country row on top (flag, name, chevron) opens the list; under a hairline the
    phone row holds the dial code (own input, as wide as its text), a short divider and the number.
    The list opens right under the country row and covers the phone row. */
-@property --phone-fill { syntax: '<color>'; inherits: true; initial-value: transparent; }
 .phone-group {
-  --phone-fill: var(--surface-2);
-  position: relative; background: var(--phone-fill); border: 1.5px solid transparent; border-radius: 12px;
-  transition: border-color .15s, --phone-fill .15s;
+  position: relative; background: var(--surface-2); border: 1.5px solid transparent; border-radius: 12px;
+  transition: border-color .15s, background .15s;
 }
 .phone-field .country-btn {
   position: relative; display: flex; align-items: center; gap: 10px;
@@ -765,7 +763,7 @@ html.ios-chrome body { min-height: calc(100vh + 2px); }
 .phone-field.no-country .country-btn .cname { color: var(--text-3); }
 .phone-field .country-btn .chev { position: absolute; right: 14px; top: 50%; width: 18px; height: 18px; margin-top: -9px; color: var(--text-2); transition: transform 220ms cubic-bezier(.2, 0, 0, 1); }
 .phone-row { position: relative; display: flex; align-items: center; height: 52px; padding: 0 14px; }
-.phone-row::before { content: ''; position: absolute; z-index: 3; pointer-events: none; left: 14px; right: 14px; top: 0; height: 1px; background: color-mix(in srgb, var(--text) 14%, transparent); transition: opacity 160ms ease-out; }
+.phone-row::before { content: ''; position: absolute; left: 14px; right: 14px; top: 0; height: 1px; background: color-mix(in srgb, var(--text) 14%, transparent); transition: opacity 160ms ease-out; }
 .phone-row input { box-sizing: border-box; border: 0; outline: 0; background: transparent; font: inherit; font-size: 15px; line-height: 52px; color: var(--text); padding: 0; height: 52px; }
 .phone-row input::placeholder { color: var(--text-3); }
 .phone-row input:focus::placeholder { color: transparent; }
@@ -774,10 +772,8 @@ html.ios-chrome body { min-height: calc(100vh + 2px); }
 .phone-num { position: relative; flex: 1; min-width: 0; height: 52px; }
 .phone-num > .ghost { display: block; }
 .phone-num > input { width: 100%; position: relative; }
-.phone-autofill-cover { position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; white-space: pre; background: var(--phone-fill); color: var(--text); font: inherit; font-size: 15px; line-height: 52px; }
-.phone-group:has(.phone-row input:focus) { border-color: var(--accent); --phone-fill: var(--surface); }
-.phone-field.err .phone-group, .phone-field.err .phone-group:has(.phone-row input:focus) { border-color: var(--danger); --phone-fill: var(--surface); box-shadow: none; }
-.phone-row input:-webkit-autofill, .phone-row input[chrome-autofilled] { -webkit-text-fill-color: var(--text); box-shadow: 0 0 0 100px var(--phone-fill) inset; }
+.phone-group:has(.phone-row input:focus) { border-color: var(--accent); background: var(--surface); }
+.phone-field.err .phone-group, .phone-field.err .phone-group:has(.phone-row input:focus) { border-color: var(--danger); background: var(--surface); box-shadow: none; }
 .phone-field.open .country-btn, .phone-field.open .country-btn:hover {
   background: color-mix(in srgb, var(--surface) 72%, transparent); border: 1px solid var(--win-edge); border-bottom-width: 0; border-radius: 12px 12px 0 0;
   -webkit-backdrop-filter: blur(24px) saturate(160%); backdrop-filter: blur(24px) saturate(160%);
@@ -1100,7 +1096,6 @@ body.signed-out .page { grid-template-columns: 1fr; max-width: 640px; padding-to
   textarea, select { font-size: 16px !important; }
   .field > input, .field > textarea { scroll-margin: 0; }
   .phone-group input { scroll-margin: 0; }
-  .phone-autofill-cover { font-size: 16px; }
   #app_edit_form .field .hint { opacity: 1 !important; transform: none !important; transition: none !important; }
   #app_edit_form .grid2 { row-gap: 36px; margin-bottom: 14px; }
 }

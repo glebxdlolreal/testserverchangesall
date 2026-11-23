@@ -744,10 +744,6 @@
     var search = $('#countrySearch', field);
     var input = $('#my_login_phone', field);
     var codeIn = $('#my_login_code', field);
-    input.type = 'tel';
-    codeIn.type = 'tel';
-    input.autocomplete = 'tel';
-    codeIn.autocomplete = 'tel';
     var flagEl = $('#cFlag', field);
     var nameEl = $('#cName', field);
     var current = codeIn.value;
@@ -1090,30 +1086,6 @@
 
     /* Writes the national number using the country mask. */
     var lastValue = '';
-    var autofillCover = null, autofillCoverTimer = null;
-    function clearAutofillCover() {
-      clearTimeout(autofillCoverTimer);
-      if (autofillCover) autofillCover.remove();
-      autofillCover = null;
-    }
-    input.addEventListener('beforeinput', function (event) {
-      // Safari may clear the old value without an input event before inserting autofill digits.
-      if (!event.isTrusted || event.inputType !== 'insertText' || !lastValue || input.value || autofillCover) return;
-      autofillCover = document.createElement('span');
-      autofillCover.className = 'phone-autofill-cover';
-      autofillCover.setAttribute('aria-hidden', 'true');
-      autofillCover.textContent = lastValue;
-      input.parentNode.appendChild(autofillCover);
-      autofillCoverTimer = setTimeout(clearAutofillCover, 150);
-    });
-    input.addEventListener('input', function () {
-      if (!autofillCover) return;
-      clearTimeout(autofillCoverTimer);
-      autofillCoverTimer = setTimeout(clearAutofillCover, 150);
-    });
-    input.addEventListener('change', function () {
-      if (autofillCover) requestAnimationFrame(clearAutofillCover);
-    });
     function format(raw, caretDigits, caretPos) {
       var max = maskDigits(phoneMask(maskC()));
       var digits = raw.replace(/\D/g, '');
@@ -1139,7 +1111,7 @@
       }
     }
 
-    input.addEventListener('input', function (e) {
+    input.addEventListener('input', function () {
       var raw = input.value;
       var caret = input.selectionStart == null ? raw.length : input.selectionStart;
       var plus = raw.indexOf('+');
@@ -1175,8 +1147,7 @@
           return;
         }
       }
-      var bulk = digits.length - lastValue.replace(/\D/g, '').length > 1;
-      if (digits.length > max && (bulk || e.inputType === 'insertReplacementText' || input.matches(':-webkit-autofill'))) {
+      if (digits.length > max && digits.length - lastValue.replace(/\D/g, '').length > 1) {
         // a whole number was pasted: own code without "+", "8 999..." (RU, KZ), trunk 0 -> national number
         var dialD = current.replace(/\D/g, '');
         var hit2 = digits.slice(0, 2) === '00' ? countryFor(digits.slice(2)) : null;
@@ -1191,18 +1162,6 @@
         else if (codeOk && (country[0] === 'RU' || country[0] === 'KZ') && digits.charAt(0) === '8' && digits.length === max + 1) nat = digits.slice(1);
         else if (digits.charAt(0) === '0' && digits.length === max + 1) nat = digits.slice(1);
         if (nat != null) { format(nat, nat.length); return; }
-        /* Autofill may omit the leading "+" while still including another country's calling code.
-           Bulk insertions only: an IME can report a single typed digit as insertReplacementText,
-           and the country's own digits must never re-parse as a foreign dial code. */
-        var filledCountry = bulk ? countryFor(digits) : null;
-        if (filledCountry) {
-          var filledNational = digits.slice(filledCountry.len);
-          if (filledNational.length >= filledCountry.c[4] && filledNational.length <= filledCountry.c[5]) {
-            setCountry(filledCountry.c);
-            format(filledNational, filledNational.length);
-            return;
-          }
-        }
       }
       var before = raw.slice(0, caret).replace(/\D/g, '').length;
       var cleanCaret = raw.slice(0, caret).replace(/[^\d ]/g, '').length;
@@ -1300,23 +1259,6 @@
       setTimeout(function () { if (!codeOk && document.activeElement !== codeIn) setUnknown(codeIn.value); }, 0);
     });
     codeIn.addEventListener('input', function (e) {
-      var raw = codeIn.value;
-      var digits = raw.replace(/\D/g, '');
-      // A complete autofilled number replaces the old number; it is not a typed calling code.
-      if (digits.length >= 7) {
-        var international = /^\s*\+/.test(raw) || digits.length > maskDigits(phoneMask(maskC()));
-        var hit = international ? countryFor(digits) : null;
-        var national = hit ? digits.slice(hit.len) : digits;
-        if (hit && national.length >= hit.c[4] && national.length <= hit.c[5]) setCountry(hit.c);
-        else if (international) { onCode(false); return; }
-        else codeIn.value = current;
-        lastValue = '';
-        format(national, national.length);
-        syncGhost();
-        // pasted, not autofilled: continue typing in the number (browser autofill must not steal focus)
-        if (e.inputType === 'insertFromPaste') { input.focus(); input.setSelectionRange(input.value.length, input.value.length); }
-        return;
-      }
       onCode(!!(e.inputType && e.inputType.indexOf('insert') === 0 && e.inputType !== 'insertFromPaste'));
     });
     codeIn.addEventListener('keydown', function (e) {

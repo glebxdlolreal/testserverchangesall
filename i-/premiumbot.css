@@ -1,542 +1,241 @@
-/* Premium Bot Mini App: theme-aware, responsive, no preprocessor. */
-:root {
-  --pm-accent: #8774e1;
-  --pm-accent-strong: #735bd1;
-  --pm-accent-soft: rgba(135, 116, 225, 0.12);
-  --pm-card: #ffffff;
-  --pm-page: var(--tg-theme-bg-color, #f4f4f5);
-  --pm-section: var(--tg-theme-section-bg-color, var(--pm-card));
-  --pm-text: var(--tg-theme-text-color, #18212b);
-  --pm-hint: var(--tg-theme-hint-color, #708090);
-  --pm-link: var(--tg-theme-link-color, #4e46b8);
-  --pm-border: var(--tg-theme-section-separator-color, rgba(20, 32, 48, 0.1));
-  --pm-danger: #e55353;
-  --pm-shadow: 0 8px 30px rgba(24, 20, 66, 0.08);
+/* Premium Bot Mini App: local additions on top of the design-system stylesheets
+   (premiumbot-tokens/base/components/fx/screens-*.css). No framework, no preprocessor. */
+
+/* The site chrome's base styles colour and underline links in every state, and ring them on any focus. Cells and
+   segments that are links keep the kit's ink there: a row's text colour, an action's accent, a destructive row's red.
+   Only a pointer's focus loses its ring: a keyboard's keeps the kit's, which a segment draws on its thumb
+   (components.css). */
+a.cell:is(:link, :visited, :hover, :active, :focus) {
+  color: var(--text);
+  text-decoration: none;
 }
 
-html, body {
-  background: var(--pm-page);
-  color: var(--pm-text);
+a.cell--action:is(:link, :visited, :hover, :active, :focus) {
+  color: var(--accent);
 }
 
-body {
-  margin: 0;
-  min-height: var(--tg-viewport-stable-height, 100vh);
-  -webkit-tap-highlight-color: transparent;
+a.cell--destructive:is(:link, :visited, :hover, :active, :focus) {
+  color: var(--destructive-ink);
 }
 
-.pm-app {
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 580px;
-  min-height: var(--tg-viewport-stable-height, 100vh);
-  margin: 0 auto;
-  padding: calc(14px + var(--tg-safe-area-inset-top, 0px)) 16px calc(30px + var(--tg-content-safe-area-inset-bottom, 0px));
-  color: var(--pm-text);
-}
-
-.pm-app *, .pm-app *::before, .pm-app *::after {
-  box-sizing: border-box;
-}
-
-.pm-hero {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 18px;
-  padding: 30px 24px 26px;
-  border-radius: 28px;
-  background:
-    radial-gradient(circle at 88% 2%, rgba(255, 255, 255, 0.3), transparent 34%),
-    linear-gradient(145deg, #a18cf1 0%, #8268d9 43%, #ac5db0 100%);
-  color: #ffffff;
-  text-align: center;
-  box-shadow: 0 15px 40px rgba(104, 76, 179, 0.2);
-}
-
-.pm-hero::after {
-  position: absolute;
-  right: -35px;
-  bottom: -70px;
-  width: 160px;
-  height: 160px;
-  border: 28px solid rgba(255, 255, 255, 0.08);
-  border-radius: 50%;
-  content: '';
-  pointer-events: none;
-}
-
-.pm-hero-art {
-  position: relative;
-  width: 120px;
-  height: 120px;
-  margin: 0 auto 8px;
-  animation: pm-hero-in 420ms cubic-bezier(.2,.8,.2,1) both;
-}
-
-.pm-svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: currentColor;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-}
-
-.pm-hero-art > .pm-svg {
-  width: 104px;
-  height: 104px;
-  margin: 8px auto;
-  color: #ffffff;
-  filter: drop-shadow(0 10px 18px rgba(42, 25, 94, 0.22));
-}
-
-.pm-lottie-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.pm-title {
-  position: relative;
-  margin: 4px 0 8px;
+a.segment:is(:link, :visited, :hover, :active, :focus) {
   color: inherit;
-  font-size: 30px;
-  font-weight: 750;
-  line-height: 1.18;
-  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+a.cell:focus:not(:focus-visible),
+a.segment:focus {
   outline: none;
 }
 
-.pm-subtitle {
-  position: relative;
-  max-width: 400px;
-  margin: 0 auto;
-  color: rgba(255, 255, 255, 0.88);
-  font-size: 15px;
-  line-height: 1.45;
-}
-
-.pm-subtitle a {
-  color: inherit;
-  text-decoration: underline;
-}
-
-.pm-content {
-  animation: pm-content-in 260ms ease-out both;
-}
-
-.pm-island, .pm-plans, .pm-features {
-  overflow: hidden;
-  margin: 12px 0;
-  border: 1px solid var(--pm-border);
-  border-radius: 20px;
-  background: var(--pm-section);
-  box-shadow: var(--pm-shadow);
-}
-
-.pm-cell {
-  display: flex;
-  align-items: center;
-  min-height: 66px;
-  padding: 12px 14px;
-  color: inherit;
-  text-decoration: none;
-  transition: background-color 140ms ease, transform 140ms ease;
-}
-
-.pm-cell:not(:last-child) {
-  border-bottom: 1px solid var(--pm-border);
-}
-
-.pm-cell:hover {
-  background: var(--pm-accent-soft);
-  text-decoration: none;
-}
-
-.pm-cell:active, .pm-plan:active, .pm-chip:active, .pm-primary:active, .pm-secondary:active {
-  transform: scale(0.975);
-}
-
-.pm-cell-icon {
-  flex: 0 0 auto;
-  width: 36px;
-  height: 36px;
-  margin-right: 12px;
-  padding: 7px;
-  border-radius: 11px;
-  background: var(--pm-accent-soft);
-}
-
-.pm-cell-copy {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  min-width: 0;
-}
-
-.pm-cell-title {
-  color: inherit;
-  font-size: 16px;
-  font-weight: 650;
-  line-height: 1.3;
-}
-
-.pm-cell-description {
-  margin-top: 3px;
-  color: var(--pm-hint);
-  font-size: 13px;
-  line-height: 1.35;
-}
-
-.pm-cell-chevron {
-  flex: 0 0 auto;
-  width: 18px;
-  height: 18px;
-  margin-left: 8px;
-  opacity: 0.45;
-}
-
-.pm-plans {
-  padding: 8px;
-}
-
-.pm-plan {
-  position: relative;
-  display: flex;
-  align-items: center;
+button.cell {
   width: 100%;
-  min-height: 68px;
-  margin: 0;
-  padding: 13px 14px;
-  border: 1px solid transparent;
-  border-radius: 14px;
-  background: transparent;
-  color: var(--pm-text);
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
-  transition: background-color 140ms ease, border-color 140ms ease, transform 140ms ease;
+  text-align: start;
 }
 
-.pm-plan:hover {
-  border-color: rgba(135, 116, 225, 0.35);
-  background: var(--pm-accent-soft);
-}
-
-.pm-plan:disabled {
-  cursor: wait;
-  opacity: 0.65;
-}
-
-.pm-plan-copy {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  min-width: 0;
-}
-
-.pm-plan-title {
-  font-size: 17px;
-  font-weight: 680;
-  line-height: 1.25;
-}
-
-.pm-plan-description {
-  margin-top: 3px;
-  color: var(--pm-hint);
-  font-size: 13px;
-}
-
-.pm-plan-price {
-  flex: 0 0 auto;
-  margin-left: 12px;
-  color: var(--pm-link);
-  font-size: 17px;
-  font-weight: 730;
-}
-
-.pm-plan.is-loading::after {
-  width: 16px;
-  height: 16px;
-  margin-left: 8px;
-  border: 2px solid var(--pm-border);
-  border-top-color: var(--pm-accent);
-  border-radius: 50%;
-  content: '';
-  animation: pm-spin 650ms linear infinite;
-}
-
-.pm-filters {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  margin: 12px 0 2px;
-  padding: 2px 2px 8px;
-  scrollbar-width: none;
-}
-
-.pm-filters::-webkit-scrollbar {
+/* The server prints these parts of a row even when they are empty, and an empty one still takes the gap beside it:
+   4 px off the centre of a plan's name, 12 px at a row's end. */
+.cell-subtitle:empty,
+.cell-trail:empty {
   display: none;
 }
 
-.pm-chip {
-  flex: 0 0 auto;
-  min-height: 44px;
-  padding: 9px 13px;
-  border: 1px solid var(--pm-border);
-  border-radius: 18px;
-  background: var(--pm-section);
-  color: var(--pm-hint);
-  font: inherit;
-  font-size: 13px;
-  cursor: pointer;
-  transition: transform 120ms ease, background-color 120ms ease;
+/* The plan's billing period under its price. */
+.plan-period {
+  color: var(--hint);
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
 }
 
-.pm-chip.is-active {
-  border-color: var(--pm-accent);
-  background: var(--pm-accent);
-  color: #ffffff;
+/* The hero mark's box, as large as its stage's mark (fx.css --fx-mark): 120 px, or 88 on a compact stage. */
+.pm-mark {
+  position: relative;
+  display: block;
+  width: var(--fx-mark, 120px);
+  height: var(--fx-mark, 120px);
+  margin: 0 auto var(--space-16);
 }
 
-.pm-feature {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  padding: 15px 16px;
-}
-
-.pm-feature:not(:last-child) {
-  border-bottom: 1px solid var(--pm-border);
-}
-
-.pm-feature-icon {
-  flex: 0 0 auto;
-  width: 30px;
-  height: 30px;
-  padding: 4px;
-  border-radius: 9px;
-  background: var(--pm-accent-soft);
-  color: var(--pm-accent-strong);
-}
-
-.pm-feature h2 {
-  margin: 0 0 4px;
-  color: inherit;
-  font-size: 16px;
-  font-weight: 650;
-}
-
-.pm-feature p, .pm-picker p, .pm-note {
-  margin: 0;
-  color: var(--pm-hint);
-  font-size: 14px;
-  line-height: 1.45;
-}
-
-.pm-picker {
-  padding: 18px 16px;
-  text-align: center;
-}
-
-.pm-picker .pm-primary, .pm-picker .pm-secondary {
-  width: 100%;
-  margin-top: 14px;
-}
-
-.pm-picker-status {
-  min-height: 20px;
-  margin-top: 12px;
-  color: var(--pm-hint);
-  font-size: 13px;
-}
-
-.pm-picker-status.is-error, .pm-message-error {
-  color: var(--pm-danger);
-}
-
-.pm-primary, .pm-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 46px;
-  padding: 11px 20px;
-  border: 0;
-  border-radius: 14px;
-  font: inherit;
-  font-weight: 680;
-  cursor: pointer;
-  transition: transform 120ms ease, opacity 120ms ease;
-}
-
-.pm-primary {
-  background: linear-gradient(135deg, var(--pm-accent), var(--pm-accent-strong));
-  color: #ffffff;
-  box-shadow: 0 7px 18px rgba(111, 84, 202, 0.2);
-}
-
-.pm-secondary {
-  border: 1px solid var(--pm-border);
-  background: var(--pm-section);
-  color: var(--pm-link);
-}
-
-.pm-link {
-  width: 100%;
-  text-decoration: none;
-}
-
-.pm-note {
-  margin-top: 12px;
-  text-align: center;
-}
-
-.pm-island > .pm-note, .pm-island > .pm-secondary {
-  display: flex;
-  width: calc(100% - 28px);
-  margin-right: 14px;
-  margin-left: 14px;
-}
-
-.pm-island > .pm-secondary {
-  margin-top: 14px;
-}
-
-.pm-island > .pm-note {
-  margin-bottom: 14px;
-}
-
-.pm-banner, .pm-empty {
-  margin: 12px 0;
-  padding: 14px 16px;
-  border: 1px solid rgba(135, 116, 225, 0.2);
-  border-radius: 16px;
-  background: var(--pm-accent-soft);
-  color: var(--pm-hint);
-  font-size: 14px;
-  line-height: 1.45;
-}
-
-.pm-message {
-  position: fixed;
-  z-index: 20;
-  right: 16px;
-  bottom: calc(16px + var(--tg-content-safe-area-inset-bottom, 0px));
-  left: 16px;
-  width: auto;
-  max-width: 520px;
-  margin: 0 auto;
-  padding: 13px 16px;
-  border-radius: 14px;
-  background: var(--tg-theme-section-bg-color, #242f3d);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
-  color: var(--pm-text);
-  font-size: 14px;
-  text-align: center;
-  animation: pm-content-in 180ms ease-out both;
-}
-
-.pm-sr-only {
+/* The flat glyph is the mark's fallback, Telegram's Premium glyph or the Star. It shows only under .is-flat, which
+   premiumbot-3d.js sets where the 3D mark cannot draw or is slow to, so a normal load never flashes it. */
+.pm-mark-glyph {
   position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
+  inset: 6%;
+  display: none;
+  background: var(--brand-gradient, linear-gradient(90deg, #6b93ff, #976fff, #e169a0));
+  -webkit-mask: url(../img/premiumbot/ui-premium.svg) center / contain no-repeat;
+  mask: url(../img/premiumbot/ui-premium.svg) center / contain no-repeat;
 }
 
-.pm-cell:focus-visible, .pm-plan:focus-visible, .pm-chip:focus-visible,
-.pm-primary:focus-visible, .pm-secondary:focus-visible {
-  outline: 3px solid rgba(135, 116, 225, 0.45);
-  outline-offset: 2px;
+.pm-mark--stars .pm-mark-glyph {
+  background: linear-gradient(180deg, #ffe071, #f5a623);
+  -webkit-mask-image: url(../img/premiumbot/ui-star.svg);
+  mask-image: url(../img/premiumbot/ui-star.svg);
 }
 
-.lang_rtl .pm-app {
-  direction: rtl;
+/* The golden star's soft halo: the 3D star's own silhouette added as light, so in dark only and only behind that
+   star, not the flat glyph, whose star is another shape. premiumbot-3d.js sets its box and turns it with the star. */
+.pm-mark-bloom {
+  position: absolute;
+  display: none;
+  background: url(../img/premiumbot/star-bloom.svg) center / 100% 100% no-repeat;
+  mix-blend-mode: plus-lighter;
+  pointer-events: none;
 }
 
-.lang_rtl .pm-cell-icon, .lang_rtl .pm-plan-price {
-  margin-right: 0;
-  margin-left: 12px;
+.theme-dark .pm-mark.is-3d .pm-mark-bloom {
+  display: block;
 }
 
-.lang_rtl .pm-cell-chevron {
-  margin-right: 8px;
-  margin-left: 0;
-  transform: scaleX(-1);
+/* The WebGL mark's canvas, which premiumbot-3d.js sizes and centres on the mark. Where the mark falls back the script
+   hides it, and the glyph shows in its place. */
+.pm-mark-gl {
+  position: absolute;
 }
 
-.lang_rtl .pm-plan {
-  text-align: right;
+.pm-mark.is-flat .pm-mark-glyph {
+  display: block;
 }
 
-[hidden] {
-  display: none !important;
+/* Twinkling sparkles around the flat glyph, shown with it alone: the 3D mark has the stage's own particles. */
+.pm-twinkle {
+  position: absolute;
+  display: none;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--twinkle-c), transparent 80%);
+  opacity: 0;
+  animation: pm-twinkle 3.1s ease-in-out infinite;
+  pointer-events: none;
 }
 
-@keyframes pm-spin {
-  to { transform: rotate(360deg); }
+.pm-mark.is-flat .pm-twinkle {
+  display: block;
 }
 
-@keyframes pm-hero-in {
-  from { opacity: 0; transform: translateY(10px) scale(0.92); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@keyframes pm-content-in {
-  from { opacity: 0; transform: translateY(7px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 520px) {
-  .pm-app {
-    padding-right: 12px;
-    padding-left: 12px;
+@keyframes pm-twinkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.55);
   }
-
-  .pm-hero {
-    padding: 24px 18px 22px;
-    border-radius: 24px;
-  }
-
-  .pm-title {
-    font-size: 27px;
-  }
-
-  .pm-cell {
-    min-height: 64px;
-  }
-
-  .pm-plan-price {
-    font-size: 16px;
-  }
-}
-
-@media (min-width: 700px) {
-  .pm-app {
-    padding-top: 24px;
+  45% {
+    opacity: 0.95;
+    transform: scale(1);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .pm-hero-art, .pm-content, .pm-message {
+  .pm-twinkle {
     animation: none;
+    opacity: 0.6;
   }
+}
 
-  .pm-cell, .pm-plan, .pm-chip, .pm-primary, .pm-secondary {
-    transition: none;
-  }
+/* Toasts: created by premiumbot.js inside .toast-region (base styles live in premiumbot-components.css). */
 
-  .pm-cell:active, .pm-plan:active, .pm-chip:active, .pm-primary:active, .pm-secondary:active {
-    transform: none;
+/* Peer picker status line under the picker cell. */
+.pm-picker-status {
+  display: block;
+  margin-top: var(--space-8);
+  color: var(--hint);
+  font-size: var(--fs-sub);
+  line-height: var(--lh-sub);
+}
+
+.pm-picker-status.is-error {
+  color: var(--destructive, var(--fb-destructive));
+}
+
+.pm-picker-status:empty {
+  display: none;
+}
+
+/* On the gift pages the footer under the choose row holds the status alone: it keeps no room while the status is
+   empty, and the status text starts where a footer's text does. */
+.commerce--gift .section-footer:has(> .pm-picker-status:empty) {
+  display: none;
+}
+
+.commerce--gift .pm-picker-status {
+  margin-top: 0;
+}
+
+/* Two choice cells in one row (Choose Channel / Choose Group). */
+/* One choice under the other: side by side a label of two words wraps in a phone's column. */
+.pm-choice-cells {
+  display: grid;
+  gap: var(--space-12);
+}
+
+/* Each choice is an island of its own: no row separator between them. */
+.pm-choice-cells .cell + .cell::before {
+  display: none;
+}
+
+/* Hidden giveaway option records; the client resolves selections against them. */
+.js-gw-matrix {
+  display: none;
+}
+
+/* Error screen actions: an island each, inside the page's gutters. Islands of their own have no row separator. */
+.pm-error-actions {
+  display: grid;
+  gap: var(--space-12);
+  margin: var(--space-16) var(--gutter) 0;
+}
+
+.pm-error-actions .cell + .cell::before {
+  display: none;
+}
+
+/* A purchase page shorter than the screen still docks its pay bar at the bottom: the block is a column as tall as
+   the viewport under the screen's 16 px top padding, and the bar takes the far end. */
+.subscription--paywall {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(var(--tg-viewport-stable-height, 100vh) - var(--tg-safe-area-inset-top, 0px) - var(--tg-content-safe-area-inset-top, 0px) - var(--space-16));
+}
+
+.subscription--paywall > .cta-bar {
+  margin-top: auto;
+}
+
+/* Results. Where the client has no native button, premiumbot.js ends a result with the page's own bar. The screen is
+   a column as tall as the viewport under its 16 px top padding, so the stage takes what that bar leaves and the page
+   does not scroll by the bar's height. */
+.result-screen {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(var(--tg-viewport-stable-height, 100vh) - var(--tg-safe-area-inset-top, 0px) - var(--tg-content-safe-area-inset-top, 0px) - var(--space-16));
+}
+
+@supports (min-height: round(down, 100vh, 4px)) {
+  .result-screen {
+    min-height: calc(round(down, var(--tg-viewport-stable-height, 100vh) - var(--tg-safe-area-inset-top, 0px) - var(--tg-content-safe-area-inset-top, 0px), 4px) - var(--space-16));
   }
+}
+
+.result-screen > .fx-stage {
+  flex: 1 0 auto;
+  min-height: 0;
+}
+
+/* Hero artwork: the server-rendered Lottie marks. Telegram's colour art plays as it is, with no disc behind it
+   (design §11.7), as large as the stage's mark (fx.css --fx-mark); the server sets no size on the element. */
+.hero-media > .lottie,
+.hero.fx-field > .lottie {
+  width: var(--fx-mark, 120px);
+  height: var(--fx-mark, 120px);
+  margin-inline: auto;
+}
+
+.hero-media > .lottie canvas,
+.lottie > canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* The lone winners row states facts the user must read: its value takes the readable grey, not the hint. */
+.pm-gw-fixed .cell-value {
+  color: var(--secondary-text);
 }
