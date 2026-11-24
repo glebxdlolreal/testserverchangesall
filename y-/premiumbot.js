@@ -81,13 +81,12 @@ window.PremiumApp = (function() {
     if (!app) {
       return;
     }
-    var dark = app.colorScheme === 'dark';
-    root.classList.toggle('theme-dark', dark);
-    root.classList.toggle('theme-light', !dark);
-    // The light field's dark variant: the accent adds light instead of a white bloom (fx.css .fx-stage--dark).
+    // Night only: the app paints its own palette, whatever scheme the client is in.
+    root.classList.add('theme-dark');
+    root.classList.remove('theme-light');
     var stages = document.querySelectorAll('.fx-light__stage, .fx-stage');
     for (var i = 0; i < stages.length; i++) {
-      stages[i].classList.toggle('fx-stage--dark', dark);
+      stages[i].classList.add('fx-stage--dark');
     }
     var platform = app.platform || '';
     root.classList.remove('platform-ios', 'platform-android', 'platform-desktop');
@@ -368,7 +367,6 @@ window.PremiumApp = (function() {
       app.MainButton.hide();
     }
     mainButtonHandler = null;
-    document.documentElement.classList.remove('has-main-button');
     if (resultBar && resultBar.parentNode) {
       resultBar.parentNode.removeChild(resultBar);
     }
@@ -422,7 +420,7 @@ window.PremiumApp = (function() {
       return false;
     }
     button.setAttribute('aria-disabled', ctaCurrentUrl() ? 'false' : 'true');
-    // The pill's glow breathes and its arrow knocks while the page is lit.
+    // The pill is lit while the page is.
     button.classList.add('is-lit');
     return true;
   }
@@ -438,29 +436,27 @@ window.PremiumApp = (function() {
     var done = function() {
       Aj.location('/premiumbot');
     };
+    // A result ends in the page's own bar and button, as every other screen does, so no screen ends in a button of
+    // another kind. A client's native button is put away.
     if (mainButtonAvailable()) {
-      mainButtonHandler = done;
-      webApp().MainButton.setParams({
-        text: label,
-        is_visible: true,
-        is_active: true,
-        // The screen's own tone, as its in-page buttons take it.
-        color: (result && cssColor(result, '--tone-solid')) || '#7356f6',
-        text_color: '#ffffff'
-      });
-      webApp().MainButton.onClick(done);
-      document.documentElement.classList.add('has-main-button');
-    } else if (result) {
-      // A client without the native button gets the same action as the page's own bar.
+      webApp().MainButton.hide();
+    }
+    if (result) {
       resultBar = document.createElement('div');
       resultBar.className = 'cta-bar';
       var button = document.createElement('button');
       button.type = 'button';
-      button.className = 'cta-button fx-press';
+      button.className = 'cta-button cta-button--premium fx-press';
+      var content = document.createElement('span');
+      content.className = 'cta-content';
+      var line = document.createElement('span');
+      line.className = 'cta-line';
       var face = document.createElement('span');
       face.className = 'cta-label';
       face.textContent = label;
-      button.appendChild(face);
+      line.appendChild(face);
+      content.appendChild(line);
+      button.appendChild(content);
       button.addEventListener('click', done, false);
       resultBar.appendChild(button);
       result.appendChild(resultBar);
@@ -548,6 +544,19 @@ window.PremiumApp = (function() {
     }
   }
 
+  // A button may name a second way for when its invoice gives no payment (data-fallback-url): a link the client opens,
+  // such as the bot's own flow. It is taken where the invoice cannot be opened and where the payment fails; a
+  // payment the user closes is his choice and leads nowhere.
+  function invoiceFallback(button) {
+    var app = webApp();
+    var link = button ? button.getAttribute('data-fallback-url') : '';
+    if (!app || !link) {
+      return false;
+    }
+    app.openTelegramLink(link);
+    return true;
+  }
+
   function openInvoice(url, resultFlow, button) {
     var app = webApp();
     if (!app || !url) {
@@ -599,14 +608,16 @@ window.PremiumApp = (function() {
           Aj.location('/premiumbot/result/pending/' + (resultFlow || 'premium'));
         } else if (status === 'failed') {
           hapticNotify('error');
-          if (!showBanner(scriptText('pay-failed'))) {
+          if (!invoiceFallback(current.button) && !showBanner(scriptText('pay-failed'))) {
             showMessage(scriptText('pay-failed'), false);
           }
         }
       });
     } catch (error) {
       releaseInvoice();
-      showMessage(scriptText('pay-open'), true);
+      if (!invoiceFallback(current.button)) {
+        showMessage(scriptText('pay-open'), true);
+      }
     }
   }
 
@@ -1255,6 +1266,300 @@ window.PremiumApp = (function() {
     }
   }
 
+  // ===== The giveaway's two prizes as one page =====
+  // The switch between Premium and Stars is a link to the other prize's page, and the server answers it with that
+  // page. It is shown as a change of this one. At the tap the switch's capsule slides to the tapped segment. When
+  // the page arrives, the star, which is the same object, turns into the other one (premiumbot-3d.js adopt), the
+  // title's colours and the words cross-fade where they stand, and the sheet's sections and the pay bar leave along
+  // the capsule's way while the new ones arrive from the side it went to. What leaves is a layer of copies taken at
+  // the tap (prizeGhost): it outlives the page's own block, which the loader replaces. What both prizes share plays
+  // no entrance again (fx.css html.pm-swap); the classes that say so stay for the life of the page that came this
+  // way, and a page that comes any other way drops them (init).
+
+  var prizeSwap = null;
+  var prizeSwapComing = false;
+  var PRIZE_SWAP_CLASSES = ['pm-swap', 'pm-swap-all'];
+  var PRIZE_SLIDE_MS = 380;
+  var PRIZE_OUT_MS = 180;
+  var PRIZE_IN_MS = 380;
+  var PRIZE_WAY_PX = 40;
+  var PRIZE_SLIDE_EASE = 'cubic-bezier(0.32, 0.72, 0, 1)';
+  var PRIZE_IN_EASE = 'cubic-bezier(0.2, 0.8, 0.2, 1)';
+
+  // A copy of `el` as it stands on the screen, in the layer of what is leaving. Its ancestors come with it as boxless
+  // wrappers, so every rule that styles it by where it lies still does, and it is placed by its own rect. The copy
+  // has no ids and its radios are out of their groups, so the page's own stay as they are.
+  function prizeGhost(layer, el) {
+    var rect = el ? el.getBoundingClientRect() : null;
+    if (!rect || !rect.width || !rect.height) {
+      return null;
+    }
+    var copy = el.cloneNode(true);
+    var named = copy.querySelectorAll('[id], [name]');
+    for (var i = 0; i < named.length; i++) {
+      named[i].removeAttribute('id');
+      named[i].removeAttribute('name');
+    }
+    copy.removeAttribute('id');
+    copy.style.cssText += '; position: absolute; left: ' + rect.left + 'px; top: ' + rect.top + 'px; width: ' + rect.width +
+      'px; height: ' + rect.height + 'px; margin: 0; box-sizing: border-box;';
+    var node = copy;
+    for (var parent = el.parentElement; parent && parent !== document.body; parent = parent.parentElement) {
+      var wrap = parent.cloneNode(false);
+      wrap.removeAttribute('id');
+      wrap.style.cssText = 'display: contents';
+      wrap.appendChild(node);
+      node = wrap;
+    }
+    layer.appendChild(node);
+    return copy;
+  }
+
+  // What a section says, to tell whether the two prizes show it alike.
+  function prizeSign(el) {
+    return el.textContent.replace(/\s+/g, ' ').trim();
+  }
+
+  function prizeSwapDrop() {
+    var swap = prizeSwap;
+    prizeSwap = null;
+    document.documentElement.classList.remove('pm-swap-on');
+    if (swap) {
+      clearTimeout(swap.timer);
+      // Only if the page never came: what was put out of sight under its copy is still the page's own.
+      for (var i = 0; i < swap.under.length; i++) {
+        if (swap.under[i].isConnected) {
+          swap.under[i].style.visibility = '';
+        }
+      }
+      // The sections that waited under their copies show as the copies go, in the same frame.
+      for (var k = 0; swap.kept && k < swap.kept.length; k++) {
+        swap.kept[k].style.opacity = '';
+      }
+      if (swap.layer.parentNode) {
+        swap.layer.parentNode.removeChild(swap.layer);
+      }
+    }
+  }
+
+  // The capsule slides from the chosen segment to the tapped one inside the switch's copy, changing from the fill of
+  // the prize it leaves to the other's. It is a window over the track: the track's labels all take the ink of a
+  // segment not chosen, and the capsule holds a second row of the same labels in the ink that stands on its fill,
+  // which moves against it and so stays where the track's row is. A label changes its ink where the capsule's edge
+  // passes over it. The whole run is two transforms and one opacity, which the browser keeps going while the page
+  // under it is replaced. Both are laid out where they end and moved back to where they start, so they come to rest
+  // with no transform, drawn as the page's own switch is, and at its size. `stars` says the page being left is the
+  // Stars one.
+  function prizeSlide(copy, bar, from, to, stars) {
+    var real = bar.querySelectorAll('.segment-face');
+    // The tap has pressed the segment a little small, and it is still on its way back: the capsule is measured from
+    // the segments at rest, the size the page's own switch will stand at, or it would grow as it comes to rest.
+    var held = bar.querySelectorAll('.segment');
+    var h;
+    for (h = 0; h < held.length; h++) {
+      held[h].classList.remove('is-pressed');
+      held[h].style.transition = 'none';
+    }
+    var box = bar.getBoundingClientRect();
+    var a = real[from].getBoundingClientRect();
+    var b = real[to].getBoundingClientRect();
+    for (h = 0; h < held.length; h++) {
+      held[h].style.transition = '';
+    }
+    var plain = getComputedStyle(real[to]).color;
+    var ink = getComputedStyle(document.documentElement).getPropertyValue(stars ? '--tone-solid-ink' : '--gold-ink').trim();
+    var row = copy.cloneNode(true);
+    row.className = 'segmented segment-thumb-row';
+    row.style.cssText = 'left: ' + (box.left - b.left) + 'px; top: ' + (box.top - b.top) + 'px; width: ' + box.width + 'px; height: ' + box.height + 'px;';
+    var faces = copy.querySelectorAll('.segment-face');
+    for (var i = 0; i < faces.length; i++) {
+      faces[i].style.color = plain;
+    }
+    var thumb = document.createElement('i');
+    thumb.className = 'segment-thumb segment-thumb--' + (stars ? 'stars' : 'premium');
+    thumb.style.cssText = 'left: ' + (b.left - box.left) + 'px; top: ' + (b.top - box.top) + 'px; width: ' + b.width + 'px; height: ' + b.height + 'px;';
+    if (ink) {
+      thumb.style.setProperty('--thumb-ink', ink);
+    }
+    var next = document.createElement('i');
+    next.className = 'segment-thumb--' + (stars ? 'premium' : 'stars');
+    thumb.appendChild(next);
+    thumb.appendChild(row);
+    copy.classList.add('is-sliding');
+    copy.appendChild(thumb);
+    var way = b.left - a.left;
+    var timing = {duration: PRIZE_SLIDE_MS, easing: PRIZE_SLIDE_EASE};
+    thumb.animate([{transform: 'translateX(' + -way + 'px)'}, {transform: 'translateX(0px)'}], timing);
+    row.animate([{transform: 'translateX(' + way + 'px)'}, {transform: 'translateX(0px)'}], timing);
+    next.animate([{opacity: 0}, {opacity: 1}], timing);
+  }
+
+  function onPrizeSwitch(event) {
+    var link = event.target && event.target.closest ? event.target.closest('.commerce--giveaway .segmented a.segment[href]') : null;
+    if (!link || event.defaultPrevented || event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+      return;
+    }
+    // The loader that follows links listens on the document too: this one page change is made here.
+    event.preventDefault();
+    event.stopPropagation();
+    if (link.classList.contains('is-active') || prizeSwap) {
+      return;
+    }
+    var url = link.getAttribute('href');
+    var root = document.documentElement;
+    var page = link.closest('.commerce--giveaway');
+    var bar = link.parentNode;
+    var segments = bar.querySelectorAll('.segment');
+    var from = -1;
+    var to = -1;
+    var i;
+    for (i = 0; i < segments.length; i++) {
+      if (segments[i] === link) {
+        to = i;
+      } else if (segments[i].classList.contains('is-active')) {
+        from = i;
+      }
+    }
+    for (i = 0; i < PRIZE_SWAP_CLASSES.length; i++) {
+      root.classList.remove(PRIZE_SWAP_CLASSES[i]);
+    }
+    root.classList.add('pm-swap');
+    prizeSwapComing = true;
+    var still = root.classList.contains('fx-reduce') ||
+      (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    if (still || from < 0 || !bar.animate) {
+      Aj.location(url);
+      return;
+    }
+    root.classList.add('pm-swap-all');
+    var layer = document.createElement('div');
+    layer.className = 'pm-ghost';
+    layer.setAttribute('aria-hidden', 'true');
+    var parts = [];
+    var leaving = page.querySelectorAll('.fx-sheet > .section');
+    for (i = 0; i < leaving.length; i++) {
+      parts.push({
+        copy: prizeGhost(layer, leaving[i]),
+        sign: prizeSign(leaving[i]),
+        top: leaving[i].getBoundingClientRect().top
+      });
+    }
+    var pay = page.querySelector('.cta-bar');
+    var payCopy = prizeGhost(layer, pay);
+    var heading = page.querySelector('.hero-title');
+    var caption = page.querySelector('.hero-subtitle');
+    var title = prizeGhost(layer, heading);
+    var words = prizeGhost(layer, caption);
+    var copy = prizeGhost(layer, bar);
+    document.body.appendChild(layer);
+    // What was copied goes out of sight under its copy until the page is replaced: a tile's glass drawn twice, one
+    // over the other, would show lighter for as long as the page takes to come.
+    var under = [];
+    var put = function(el, made) {
+      if (el && made) {
+        el.style.visibility = 'hidden';
+        under.push(el);
+      }
+    };
+    for (i = 0; i < leaving.length; i++) {
+      put(leaving[i], parts[i].copy);
+    }
+    put(pay, payCopy);
+    put(heading, title);
+    put(caption, words);
+    if (copy) {
+      // The page's own switch, this one and the next page's, stays out of sight under its copy.
+      root.classList.add('pm-swap-on');
+      prizeSlide(copy, bar, from, to, page.classList.contains('commerce--giveaway-stars'));
+    }
+    // The capsule goes towards the tapped segment, and the sheet's pieces go the other way.
+    prizeSwap = {
+      layer: layer,
+      under: under,
+      parts: parts,
+      pay: payCopy,
+      paySign: pay ? prizeSign(pay) : '',
+      title: title,
+      words: words,
+      way: to > from ? 1 : -1,
+      timer: setTimeout(prizeSwapDrop, 4000)
+    };
+    Aj.location(url);
+  }
+
+  // The page the switch asked for is in place: what was copied leaves and what came arrives. A section that both
+  // prizes show alike does neither: its copy stands for it until the copies are dropped, and if what changed above
+  // it left it higher or lower, the copy moves there in one piece.
+  function prizeSwapRun() {
+    var swap = prizeSwap;
+    if (!swap || swap.ran) {
+      return;
+    }
+    swap.ran = true;
+    clearTimeout(swap.timer);
+    var i;
+    var page = document.querySelector('.commerce--giveaway');
+    var fresh = page ? page.querySelectorAll('.fx-sheet > .section') : [];
+    var gone = [{opacity: 1, transform: 'translateX(0px)'}, {opacity: 0, transform: 'translateX(' + (-PRIZE_WAY_PX * swap.way) + 'px)'}];
+    var come = [{opacity: 0, transform: 'translateX(' + (PRIZE_WAY_PX * swap.way) + 'px)'}, {opacity: 1, transform: 'translateX(0px)'}];
+    var leave = {duration: PRIZE_OUT_MS, easing: 'cubic-bezier(0.4, 0, 1, 1)', fill: 'forwards'};
+    var kept = [];
+    for (i = 0; i < swap.parts.length; i++) {
+      var part = swap.parts[i];
+      var copy = part.copy;
+      if (fresh[i] && prizeSign(fresh[i]) === part.sign) {
+        kept[i] = true;
+        var lift = part.top - fresh[i].getBoundingClientRect().top;
+        if (copy && copy.parentNode) {
+          // The copy stays over the section until the copies are dropped, and the section waits under it all but
+          // unseen: icons a page has just brought can take the renderer a moment to fetch and draw, and a section
+          // shown at once would blink its chevrons and glyphs. It waits at a hundredth of its opacity and not
+          // hidden, so the renderer does fetch and draw them meanwhile. Where the section stands higher or lower
+          // than it did, the copy moves there.
+          fresh[i].style.opacity = '0.01';
+          swap.kept = swap.kept || [];
+          swap.kept.push(fresh[i]);
+          if (Math.abs(lift) > 0.5) {
+            copy.animate([{transform: 'translateY(0px)'}, {transform: 'translateY(' + (-lift) + 'px)'}], {duration: PRIZE_IN_MS, easing: PRIZE_SLIDE_EASE, fill: 'forwards'});
+          }
+        } else if (Math.abs(lift) > 0.5) {
+          fresh[i].animate([{transform: 'translateY(' + lift + 'px)'}, {transform: 'translateY(0px)'}], {duration: PRIZE_IN_MS, easing: PRIZE_SLIDE_EASE});
+        }
+      } else if (copy) {
+        copy.animate(gone, leave);
+      }
+    }
+    var step = 0;
+    for (i = 0; i < fresh.length; i++) {
+      if (!kept[i]) {
+        fresh[i].animate(come, {duration: PRIZE_IN_MS, delay: 110 + Math.min(step++, 3) * 50, easing: PRIZE_IN_EASE, fill: 'backwards'});
+      }
+    }
+    var pay = page ? page.querySelector('.cta-bar') : null;
+    if (pay && swap.pay && prizeSign(pay) === swap.paySign) {
+      swap.pay.parentNode.removeChild(swap.pay);
+    } else {
+      if (swap.pay) {
+        swap.pay.animate([{opacity: 1}, {opacity: 0}], leave);
+      }
+      if (pay) {
+        pay.animate([{opacity: 0}, {opacity: 1}], {duration: 240, delay: 160, easing: 'ease-out', fill: 'backwards'});
+      }
+    }
+    if (swap.title) {
+      swap.title.animate([{opacity: 1}, {opacity: 0}], {duration: 320, easing: 'ease-in-out', fill: 'forwards'});
+    }
+    if (swap.words) {
+      swap.words.animate([{opacity: 1}, {opacity: 0}], {duration: 160, easing: 'ease-out', fill: 'forwards'});
+    }
+    var words = page ? page.querySelector('.hero-subtitle') : null;
+    if (words) {
+      words.animate([{opacity: 0}, {opacity: 1}], {duration: 280, delay: 100, easing: 'ease-out', fill: 'backwards'});
+    }
+    // The copies are spent, and the switch's copy has come to rest as the page's own switch stands.
+    swap.timer = setTimeout(prizeSwapDrop, PRIZE_SLIDE_MS + 60);
+  }
+
   // ===== Page lifecycle =====
 
   function cleanup() {
@@ -1297,6 +1602,13 @@ window.PremiumApp = (function() {
     applyBridgeClasses();
     var app = webApp();
     var i;
+    if (prizeSwapComing) {
+      prizeSwapComing = false;
+    } else {
+      for (i = 0; i < PRIZE_SWAP_CLASSES.length; i++) {
+        document.documentElement.classList.remove(PRIZE_SWAP_CLASSES[i]);
+      }
+    }
     if (app && app.onEvent) {
       // themeChanged is user-triggered while the app stays open.
       try {
@@ -1309,6 +1621,7 @@ window.PremiumApp = (function() {
     }
     // Ahead of the tapped element's own handler: a button that turns busy on its tap is still felt.
     on(document, 'click', onTapHaptic, true);
+    on(document, 'click', onPrizeSwitch, true);
     on(document, 'click', onLinkClick);
     on(window, 'scroll', onPageScroll);
     on(window, 'resize', onResize);
@@ -1377,6 +1690,7 @@ window.PremiumApp = (function() {
       window.PremiumFx.mount(document);
     }
     Aj.onUnload(cleanup);
+    prizeSwapRun();
   }
 
   function inferResultFlow() {
