@@ -746,7 +746,17 @@ window.PremiumApp = (function() {
 
   // ===== Giveaway matrix (duration or amount, then winners -> option) =====
 
+  // The visible prize group when the page carries both prizes (3.8, one-page switch); the lone matrix otherwise.
+  function giveawayActive() {
+    var both = document.querySelector('[data-prize-both]');
+    return both ? both.querySelector('.gw-prize[data-prize="' + both.getAttribute('data-prize-both') + '"]') : null;
+  }
+
   function giveawayMatrix() {
+    var active = giveawayActive();
+    if (active) {
+      return active.querySelector('.js-gw-matrix');
+    }
     return document.querySelector('.js-gw-matrix');
   }
 
@@ -773,7 +783,8 @@ window.PremiumApp = (function() {
   }
 
   function giveawayChecked(name) {
-    var input = document.querySelector('.js-gw-' + name + ':checked');
+    var scope = giveawayActive() || document;
+    var input = scope.querySelector('.js-gw-' + name + ':checked');
     return input ? input.value : '';
   }
 
@@ -830,8 +841,7 @@ window.PremiumApp = (function() {
     return String(value).replace(/\B(?=(\d{3})+(?!\d))/g, group);
   }
 
-  function giveawayWrite(selector, text) {
-    var nodes = document.querySelectorAll(selector);
+  function giveawayWrite(nodes, text) {
     for (var i = 0; i < nodes.length; i++) {
       nodes[i].textContent = text;
     }
@@ -844,8 +854,9 @@ window.PremiumApp = (function() {
     }
     var flow = matrix.getAttribute('data-flow') || 'premium';
     var records = giveawayOptions();
-    var durInputs = document.querySelectorAll('.js-gw-dur');
-    var userInputs = document.querySelectorAll('.js-gw-users');
+    var scope = giveawayActive() || document;
+    var durInputs = scope.querySelectorAll('.js-gw-dur');
+    var userInputs = scope.querySelectorAll('.js-gw-users');
     var i;
     if (!giveawayChecked('dur') && durInputs.length) {
       durInputs[0].checked = true;
@@ -875,11 +886,11 @@ window.PremiumApp = (function() {
       // A row shows what choosing it gives: the current winners where it offers them, else its own.
       var rowOffered = giveawayUsersFor(records, flow, value);
       var record = rowOffered[giveawayUsersChoice(rowOffered, userInputs, users)];
-      giveawayWrite('.js-gw-dur-price[data-dur="' + value + '"]', record ? record.price : '');
-      giveawayWrite('.js-gw-dur-boosts[data-dur="' + value + '"]', record ? giveawayFill(matrix.getAttribute('data-tpl-boosts') || '', record) : '');
+      giveawayWrite(scope.querySelectorAll('.js-gw-dur-price[data-dur="' + value + '"]'), record ? record.price : '');
+      giveawayWrite(scope.querySelectorAll('.js-gw-dur-boosts[data-dur="' + value + '"]'), record ? giveawayFill(matrix.getAttribute('data-tpl-boosts') || '', record) : '');
     }
     var picked = offered[users];
-    var footer = document.querySelector('.js-gw-footer');
+    var footer = scope.querySelector('.js-gw-footer');
     if (footer) {
       var line = picked ? picked.footerText || giveawayFill(matrix.getAttribute('data-tpl-footer') || '', picked) : '';
       var each = picked ? matrix.getAttribute('data-tpl-each') : '';
@@ -1320,6 +1331,40 @@ window.PremiumApp = (function() {
     return el.textContent.replace(/\s+/g, ' ').trim();
   }
 
+  // The two prizes as one page, server-loaded together: a tap on the switch's segment flips what the page
+  // shows — group, mark, words, the stage's light — with no navigation at all.
+  function prizeLocalSwitch(link, both) {
+    var segments = link.parentNode.querySelectorAll('.segment');
+    var target = '';
+    for (var i = 0; i < segments.length; i++) {
+      var is_tap = segments[i] === link;
+      segments[i].classList.toggle('is-active', is_tap);
+      if (is_tap) {
+        target = segments[i].getAttribute('href').indexOf('stars') >= 0 ? 'stars' : 'premium';
+      }
+    }
+    if (!target) {
+      return;
+    }
+    both.setAttribute('data-prize-both', target);
+    var stage = document.querySelector('.fx-stage');
+    if (stage) {
+      stage.classList.toggle('fx-stage--boost', target === 'premium');
+      stage.classList.toggle('fx-stage--stars', target === 'stars');
+    }
+    var light_stage = document.querySelector('.fx-light__stage');
+    if (light_stage) {
+      light_stage.classList.toggle('fx-stage--boost', target === 'premium');
+      light_stage.classList.toggle('fx-stage--stars', target === 'stars');
+      light_stage.style.setProperty('--fx-accent', target === 'stars' ? '249 176 4' : '90 111 246');
+    }
+    if (window.Premium3D) {
+      window.Premium3D.mount(document);
+    }
+    giveawayUpdate();
+    hapticSelection();
+  }
+
   function prizeSwapDrop() {
     var swap = prizeSwap;
     prizeSwap = null;
@@ -1402,6 +1447,15 @@ window.PremiumApp = (function() {
     // The loader that follows links listens on the document too: this one page change is made here.
     event.preventDefault();
     event.stopPropagation();
+    // Both prizes came with the page: the switch is a local toggle, never a navigation.
+    var both = document.querySelector('.commerce--giveaway [data-prize-both]');
+    if (!both) {
+      both = document.querySelector('[data-prize-both]');
+    }
+    if (both && !link.classList.contains('is-active')) {
+      prizeLocalSwitch(link, both);
+      return;
+    }
     if (link.classList.contains('is-active') || prizeSwap) {
       return;
     }
