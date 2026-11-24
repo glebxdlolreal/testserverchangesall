@@ -1,0 +1,219 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  background: var(--page);
+}
+
+body {
+  margin: 0;
+  min-height: var(--tg-viewport-stable-height, 100vh);
+  background: var(--page);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  /* Proportional figures; tabular only where prices align in a column. */
+  font-variant-numeric: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  font: inherit;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: inherit;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+[tabindex='-1']:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* App frame: safe areas from the bridge. In fullscreen the top one is the status bar and the content one Telegram's
+   floating Close and menu under it, so content starts below both; under Telegram's header both are 0. */
+#app {
+  /* Its own stacking context, so the light field (fx.css .fx-env) lies over the page colour and under the screens. */
+  isolation: isolate;
+  min-height: var(--tg-viewport-stable-height, 100vh);
+  padding-top: calc(var(--tg-safe-area-inset-top, 0px) + var(--tg-content-safe-area-inset-top, 0px));
+  padding-left: var(--tg-safe-area-inset-left, 0px);
+  padding-right: var(--tg-safe-area-inset-right, 0px);
+}
+
+.screen {
+  max-width: var(--column);
+  margin: 0 auto;
+  padding: var(--space-16) 0 calc(var(--tg-safe-area-inset-bottom, 0px) + var(--tg-content-safe-area-inset-bottom, 0px) + var(--page-end, var(--space-16)) + var(--main-total-room, 0px));
+}
+
+/* The native MainButton cuts the page at its top edge; a page that scrolls fades into it over 24 px instead, as the
+   in-page bar and the total line do, its last pixel the page itself. A result fits above the button, and the total
+   over it fades on its own. */
+html.has-main-button #app::after {
+  content: '';
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 2;
+  height: var(--space-24);
+  background: linear-gradient(transparent, var(--page) calc(100% - 1px));
+  pointer-events: none;
+}
+
+/* A rule each: WebKit before 15.4 drops a selector list whole for a :has() in it, and the fade would cover the total. */
+html.has-main-button #app.has-main-total::after {
+  content: none;
+}
+
+html.has-main-button #app:has(.result-screen)::after {
+  content: none;
+}
+
+/* Where that fade shows, a page's last content rests on its top edge instead of 8 px under it; before WebKit 15.4 a
+   result's too, as the fade shows there. On the screens, not #app: a custom property that changes restyles and
+   repaints everything under it, the light field too; src/ui/shell.ts holds a page's end while it moves. */
+html.has-main-button #app:not(.has-main-total) .screen {
+  --page-end: var(--space-24);
+}
+
+html.has-main-button #app:has(.result-screen) .screen {
+  --page-end: initial;
+}
+
+/* The home indicator's inset (34 px on iOS) is off the grid; rounded up, every page ends on it. */
+@supports (padding: round(up, 1px, 4px)) {
+  .screen {
+    padding-bottom: round(up, calc(var(--tg-safe-area-inset-bottom, 0px) + var(--tg-content-safe-area-inset-bottom, 0px) + var(--page-end, var(--space-16)) + var(--main-total-room, 0px)), var(--space-4));
+  }
+}
+
+/* A page ends at its last content (design §11.3): the gap after its last section, or after its sheet's last one,
+   separates it from nothing and would only scroll the page on into empty room. Hidden boxes after it do not count, nor
+   a ghost fading out of the flow (src/fx/effects.ts lift); a section with anything shown after it, the in-page bar
+   included, keeps its gap. The content is the screen's last child, or the one before .main-total where the server
+   prints the pay total, the toasts and the live region after it inside .screen. */
+.screen > :is(:last-child, :has(+ .main-total)) > .section:not(:has(~ :not([hidden], .fx-ghost))),
+.screen > :is(:last-child, :has(+ .main-total)) > :not(:has(~ :not([hidden], .fx-ghost))) > .section:not(:has(~ :not([hidden], .fx-ghost))) {
+  margin-bottom: 0;
+}
+
+.screen-banner:empty {
+  display: none;
+}
+
+[dir='rtl'] {
+  --dir: -1;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+/* A screen on its way out stays where it was, fixed, while the document scrolls to the one coming in
+   (src/ui/shell.ts); `is-leaving` alone covers the wait for the arriving stage, before the move is chosen. */
+.screen.is-leaving,
+.screen.is-leaving-push,
+.screen.is-leaving-pop,
+.screen.is-leaving-fade {
+  position: fixed;
+  right: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+/* With motion allowed, fx.css slides pushes and pops as each client does; a replace, and every change under reduced
+   motion, crossfades the two screens over the light field. */
+.screen.is-entering-fade {
+  animation: fade-in var(--motion-fade) ease-out both;
+}
+
+.screen.is-leaving-fade {
+  animation: fade-out var(--motion-fade) ease-out both;
+}
+
+/* A screen waits, laid out but unseen, until its marks show their first frame (src/fx/stage.ts stagesReady). */
+.screen.is-waiting {
+  visibility: hidden;
+}
+
+/* Until the change has landed the arriving screen takes no tap either: a second tap where the first one was would act
+   on a page not yet shown (src/ui/shell.ts onTap). */
+.screen.is-waiting,
+.screen.is-entering-push,
+.screen.is-entering-pop,
+.screen.is-entering-fade {
+  pointer-events: none;
+}
+
+/* Titles take focus by script after navigation (for screen readers). They are not in the tab order, so no ring:
+   after a MainButton tap the browser has seen no pointer and would otherwise draw one. */
+[tabindex="-1"]:focus-visible {
+  outline: none;
+}
