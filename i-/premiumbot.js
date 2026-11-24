@@ -35,7 +35,6 @@ window.PremiumApp = (function() {
   var toastTimer = 0;
   var liveTimer = 0;
   var pressed = null;
-  var cardsObserver = null;
   var bound = [];
 
   function webApp() {
@@ -639,110 +638,7 @@ window.PremiumApp = (function() {
     }
   }
 
-  // ===== Gift cards: prices, savings and the Best Value tab stay inside their cards =====
-
-  // How far `child` runs past the sides of `card` less `inset`; 0 or less is inside.
-  function overhang(child, card, inset) {
-    var outer = card.getBoundingClientRect();
-    var inner = child.getBoundingClientRect();
-    return Math.max(outer.left + inset - inner.left, inner.right - outer.right + inset);
-  }
-
-  // The symbol and the amount in the price's own order; the whole price when it has no symbol to set apart.
-  function priceParts(price) {
-    var match = /^(\D*)(\d(?:.*\d)?)(\D*)$/.exec(price);
-    var before = match ? match[1].trim() : '';
-    var after = match ? match[3].trim() : '';
-    if (before && !after) {
-      return [before, match[2]];
-    }
-    if (after && !before) {
-      return [match[2], after];
-    }
-    return [price];
-  }
-
-  // On two lines the symbol takes a line of its own, so the amount never breaks.
-  function priceLines(pill, split) {
-    var price = pill.getAttribute('data-price');
-    if (price === null) {
-      price = pill.textContent;
-      pill.setAttribute('data-price', price);
-    }
-    var parts = split ? priceParts(price) : [price];
-    pill.textContent = parts.length === 2 ? '' : price;
-    for (var i = 0; parts.length === 2 && i < 2; i++) {
-      var line = document.createElement('span');
-      line.className = 'gift-card-price-line';
-      line.textContent = parts[i];
-      pill.appendChild(line);
-      if (!i) {
-        // Not drawn in the column; assistive tech still reads the price as one.
-        pill.appendChild(document.createTextNode(' '));
-      }
-    }
-  }
-
-  function fitGiftRow(row) {
-    var cards = row.querySelectorAll('.gift-card');
-    if (!cards.length || !cards[0].getBoundingClientRect().width) {
-      return;
-    }
-    var pills = [];
-    var i;
-    for (i = 0; i < cards.length; i++) {
-      var tab = cards[i].querySelector('.plan-tab');
-      var tabLabel = tab ? tab.querySelector('.plan-tab-label') : null;
-      if (tabLabel) {
-        // Measured with the label shown; a label that would overhang stays for assistive tech alone.
-        tabLabel.classList.remove('sr-only');
-        tabLabel.classList.toggle('sr-only', overhang(tab, cards[i], 0) > FIT_SLACK);
-      }
-      var saving = cards[i].querySelector('.gift-card-saving');
-      var amount = saving ? saving.querySelector('.value-amount') : null;
-      if (amount) {
-        saving.classList.remove('is-wide');
-        saving.classList.toggle('is-wide', overhang(amount, saving, 0) > FIT_SLACK);
-      }
-      var pill = cards[i].querySelector('.gift-card-price');
-      if (pill) {
-        pills.push([pill, cards[i]]);
-      }
-    }
-    // The whole row takes each step, so the pills stay even: narrower sides, smaller type, then two lines.
-    var split = row.classList.contains('price-lines');
-    for (var step = 0; step < PRICE_STEPS.length; step++) {
-      for (i = 1; i < PRICE_STEPS.length; i++) {
-        row.classList.toggle(PRICE_STEPS[i], i === step);
-      }
-      var fits = true;
-      for (i = 0; i < pills.length; i++) {
-        if ((step === PRICE_STEPS.length - 1) !== split) {
-          priceLines(pills[i][0], !split);
-        }
-      }
-      split = step === PRICE_STEPS.length - 1;
-      for (i = 0; i < pills.length; i++) {
-        // A price keeps 4 px inside its card's sides.
-        fits = fits && overhang(pills[i][0], pills[i][1], 4) <= FIT_SLACK;
-      }
-      if (fits) {
-        return;
-      }
-    }
-  }
-
-  function fitGiftCards() {
-    var rows = document.querySelectorAll('.gift-cards');
-    for (var i = 0; i < rows.length; i++) {
-      fitGiftRow(rows[i]);
-    }
-  }
-
-  function onResize() {
-    fitGiftCards();
-    ctaFit();
-  }
+  // Gift prices no longer need inside-card fitting: the plan cell layout holds them.
 
   // ===== Giveaway matrix (duration or amount, then winners -> option) =====
 
@@ -1347,6 +1243,16 @@ window.PremiumApp = (function() {
       return;
     }
     both.setAttribute('data-prize-both', target);
+    for (var i = 0; i < segments.length; i++) {
+      var is_tap2 = segments[i] === link;
+      if (is_tap2) {
+        segments[i].setAttribute('aria-current', 'true');
+      } else {
+        segments[i].removeAttribute('aria-current');
+      }
+    }
+    both.classList.toggle('commerce--giveaway-premium', target === 'premium');
+    both.classList.toggle('commerce--giveaway-stars', target === 'stars');
     var stage = document.querySelector('.fx-stage');
     if (stage) {
       stage.classList.toggle('fx-stage--boost', target === 'premium');
@@ -1360,6 +1266,9 @@ window.PremiumApp = (function() {
     }
     if (window.Premium3D) {
       window.Premium3D.mount(document);
+    }
+    if (window.PremiumFx) {
+      window.PremiumFx.mount(document);
     }
     giveawayUpdate();
     hapticSelection();
@@ -1448,10 +1357,7 @@ window.PremiumApp = (function() {
     event.preventDefault();
     event.stopPropagation();
     // Both prizes came with the page: the switch is a local toggle, never a navigation.
-    var both = document.querySelector('.commerce--giveaway [data-prize-both]');
-    if (!both) {
-      both = document.querySelector('[data-prize-both]');
-    }
+    var both = document.querySelector('[data-prize-both]');
     if (both && !link.classList.contains('is-active')) {
       prizeLocalSwitch(link, both);
       return;
@@ -1619,16 +1525,13 @@ window.PremiumApp = (function() {
   function cleanup() {
     var app = webApp();
     pageToken++;
+    prizeSwapDrop();
     stopPicker();
     giveUpInvoice();
     hideMainButton();
     unbindAll();
     clearMessage();
     releasePress();
-    if (cardsObserver) {
-      cardsObserver.disconnect();
-      cardsObserver = null;
-    }
     if (colorFrame) {
       cancelAnimationFrame(colorFrame);
       colorFrame = 0;
@@ -1678,7 +1581,7 @@ window.PremiumApp = (function() {
     on(document, 'click', onPrizeSwitch, true);
     on(document, 'click', onLinkClick);
     on(window, 'scroll', onPageScroll);
-    on(window, 'resize', onResize);
+    on(window, 'resize', ctaFit);
     on(window, 'pageshow', planSync);
     bind('.js-invoice', 'click', function() {
       if (this.getAttribute('aria-disabled') === 'true' || this.getAttribute('aria-busy') === 'true') {
@@ -1718,14 +1621,6 @@ window.PremiumApp = (function() {
     }
     planSync();
     giveawayUpdate();
-    fitGiftCards();
-    var rows = document.querySelectorAll('.gift-cards');
-    if (rows.length && window.ResizeObserver) {
-      cardsObserver = new ResizeObserver(fitGiftCards);
-      for (i = 0; i < rows.length; i++) {
-        cardsObserver.observe(rows[i]);
-      }
-    }
     localizeDates();
     // After a navigation the title takes the focus; the first page leaves it where the client put it.
     var title = document.querySelector('.hero-title, .screen-title');
@@ -1757,7 +1652,9 @@ window.PremiumApp = (function() {
       return 'stars_gift';
     }
     if (route === 'giveaway/premium') {
-      return 'premium_giveaway';
+      // The one-page giveaway's switch says which prize the payment celebrates.
+      var both = document.querySelector('[data-prize-both]');
+      return both && both.getAttribute('data-prize-both') === 'stars' ? 'stars_giveaway' : 'premium_giveaway';
     }
     if (route === 'giveaway/stars') {
       return 'stars_giveaway';
