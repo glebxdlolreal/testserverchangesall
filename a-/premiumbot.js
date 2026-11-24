@@ -4,157 +4,921 @@ window.PremiumApp = (function() {
 
   var POLL_INTERVAL = 1500;
   var POLL_TIMEOUT = 120000;
+  var INVOICE_TIMEOUT = 600000;
+  // How long a client other than Android may stay silent on a chat request before the bot is offered in the page.
+  var PICKER_QUIET = 4000;
+  var INVOICE_GRACE = 2000;
+  var PRICE_STEPS = ['', 'price-sides', 'price-type', 'price-lines'];
+  // Layout rounds to 1/64 px: an overhang below this is a fit.
+  var FIT_SLACK = 0.01;
+  // The page prints these on .screen as data-t-<name> in its own language; the English stands in until it does.
+  var TEXTS = {
+    'pay-failed': 'Payment didn’t go through. Try again or use another card.',
+    'pay-open': 'Couldn’t start the payment. Try again.',
+    'picker-failed': 'Couldn’t open the list. Try again.',
+    'bot-title': 'Continue in {bot}',
+    'bot-text': 'Send {command} to {bot} to use this flow in the existing bot chat.',
+    'bot-open': 'Open {bot}'
+  };
   var picker = null;
   var pickerSequence = 0;
-  var mainAction = false;
+  var silentPicker = false;
+  var invoice = null;
+  var unanswered = {};
+  var pageToken = 0;
+  var visits = 0;
+  var mainButtonHandler = null;
+  var resultBar = null;
+  var ctaCopy = null;
+  var pageColors = null;
+  var colorFrame = 0;
+  var toastTimer = 0;
+  var liveTimer = 0;
+  var pressed = null;
+  var cardsObserver = null;
+  var bound = [];
 
   function webApp() {
     return window.Telegram && window.Telegram.WebApp;
   }
 
-  function showMessage(text, isError) {
-    var element = document.getElementById('pm-message');
+  function on(element, eventName, handler, capture) {
     if (!element) {
       return;
     }
-    element.textContent = text;
-    element.className = isError ? 'pm-message pm-message-error' : 'pm-message';
-    element.hidden = false;
+    element.addEventListener(eventName, handler, !!capture);
+    bound.push([element, eventName, handler, !!capture]);
+  }
+
+  function bind(selector, eventName, handler) {
+    var elements = document.querySelectorAll(selector);
+    for (var i = 0; i < elements.length; i++) {
+      on(elements[i], eventName, handler);
+    }
+  }
+
+  function unbindAll() {
+    for (var i = 0; i < bound.length; i++) {
+      bound[i][0].removeEventListener(bound[i][1], bound[i][2], bound[i][3]);
+    }
+    bound = [];
+  }
+
+  function scriptText(name, values) {
+    var screen = document.querySelector('.screen');
+    var result = (screen && screen.getAttribute('data-t-' + name)) || TEXTS[name];
+    for (var key in values) {
+      result = result.split('{' + key + '}').join(values[key]);
+    }
+    return result;
+  }
+
+  // ===== Theme and platform classes on <html> =====
+
+  function applyBridgeClasses() {
+    var app = webApp();
+    var root = document.documentElement;
+    if (!app) {
+      return;
+    }
+    var dark = app.colorScheme === 'dark';
+    root.classList.toggle('theme-dark', dark);
+    root.classList.toggle('theme-light', !dark);
+    // The light field's dark variant: the accent adds light instead of a white bloom (fx.css .fx-stage--dark).
+    var stages = document.querySelectorAll('.fx-light__stage, .fx-stage');
+    for (var i = 0; i < stages.length; i++) {
+      stages[i].classList.toggle('fx-stage--dark', dark);
+    }
+    var platform = app.platform || '';
+    root.classList.remove('platform-ios', 'platform-android', 'platform-desktop');
+    if (platform === 'ios') {
+      root.classList.add('platform-ios');
+    } else if (platform === 'android' || platform === 'android_x') {
+      root.classList.add('platform-android');
+    } else if (platform) {
+      root.classList.add('platform-desktop');
+    }
+    matchPageColors();
+  }
+
+  // ===== Native header, background and bottom bar in the page's colours =====
+
+  function toHex(color) {
+    var parts = /^rgba?\(\s*([\d.]+)[\s,]+([\d.]+)[\s,]+([\d.]+)/.exec(color);
+    var scale = 1;
+    if (!parts) {
+      // WebKit computes a color-mix() to color(srgb r g b), each from 0 to 1.
+      parts = /^color\(srgb\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)/.exec(color);
+      scale = 255;
+    }
+    if (!parts) {
+      return '';
+    }
+    var hex = '#';
+    for (var i = 1; i <= 3; i++) {
+      var value = Math.max(0, Math.min(255, Math.round(parseFloat(parts[i]) * scale)));
+      hex += (value < 16 ? '0' : '') + value.toString(16);
+    }
+    return hex;
+  }
+
+  // The colour a custom property holds where `element` sits, as #rrggbb; '' where the engine computes it to nothing.
+  function cssColor(element, property) {
+    var probe = document.createElement('i');
+    probe.style.color = 'var(' + property + ')';
+    element.appendChild(probe);
+    var color = getComputedStyle(probe).color;
+    var inherited = getComputedStyle(element).color;
+    element.removeChild(probe);
+    return color === inherited ? '' : toHex(color);
+  }
+
+  function mixHex(from, to, amount) {
+    var hex = '#';
+    for (var i = 1; i < 7; i += 2) {
+      var start = parseInt(from.substr(i, 2), 16);
+      var value = Math.round(start + (parseInt(to.substr(i, 2), 16) - start) * amount);
+      hex += (value < 16 ? '0' : '') + value.toString(16);
+    }
+    return hex;
+  }
+
+  function matchPageColors() {
+    var app = webApp();
+    var screen = document.querySelector('.screen');
+    if (!app || !screen) {
+      return;
+    }
+    // A screen that opens on a stage starts in the stage's top colour and runs down to the page's.
+    var stage = document.querySelector('.fx-light__stage, .fx-stage');
+    var page = cssColor(stage || screen, '--page');
+    if (!page) {
+      return;
+    }
+    pageColors = {
+      page: page,
+      top: (stage && cssColor(stage, '--fx-top')) || page,
+      stage: stage,
+      header: ''
+    };
+    try {
+      app.setBackgroundColor(page);
+      if (app.setBottomBarColor && app.isVersionAtLeast('7.10')) {
+        app.setBottomBarColor(page);
+      }
+    } catch (error) {}
+    matchHeaderColor();
+  }
+
+  // The header keeps the colour of the row under it while the stage scrolls away.
+  function matchHeaderColor() {
+    var app = webApp();
+    colorFrame = 0;
+    if (!app || !pageColors || !app.setHeaderColor) {
+      return;
+    }
+    var height = pageColors.stage ? pageColors.stage.offsetHeight : 0;
+    var passed = height > 0 ? Math.max(0, Math.min(1, (window.pageYOffset || 0) / height)) : 1;
+    var color = mixHex(pageColors.top, pageColors.page, passed);
+    if (color === pageColors.header) {
+      return;
+    }
+    pageColors.header = color;
+    try {
+      // Before 6.9 the header takes a theme key only.
+      app.setHeaderColor(app.isVersionAtLeast('6.9') ? color : 'bg_color');
+    } catch (error) {}
+  }
+
+  function onPageScroll() {
+    if (!colorFrame) {
+      colorFrame = requestAnimationFrame(matchHeaderColor);
+    }
+  }
+
+  // ===== Toasts and the banner =====
+
+  function showMessage(message, isError) {
+    var region = document.querySelector('.toast-region');
     var live = document.getElementById('pm-live');
+    clearMessage();
+    if (region) {
+      var toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = message;
+      region.appendChild(toast);
+      toastTimer = setTimeout(function() {
+        toast.classList.add('is-leaving');
+        toastTimer = setTimeout(function() {
+          if (toast.parentNode) {
+            toast.parentNode.removeChild(toast);
+          }
+        }, 220);
+      }, 3400);
+    }
     if (live) {
-      live.textContent = text;
+      // A live region stays silent when its text does not change: it was cleared above and is set a beat later.
+      liveTimer = setTimeout(function() {
+        live.textContent = message;
+      }, 50);
+    }
+    if (isError) {
+      hapticNotify('error');
     }
   }
 
   function clearMessage() {
-    var element = document.getElementById('pm-message');
-    if (element) {
-      element.hidden = true;
-      element.textContent = '';
+    var region = document.querySelector('.toast-region');
+    var live = document.getElementById('pm-live');
+    clearTimeout(toastTimer);
+    clearTimeout(liveTimer);
+    if (region) {
+      while (region.firstChild) {
+        region.removeChild(region.firstChild);
+      }
+    }
+    if (live) {
+      live.textContent = '';
     }
   }
+
+  // Icons are masks whose address the page prints inline: another icon's address gives this one's.
+  function iconUrl(name) {
+    var sample = document.querySelector('.icon[data-icon][style*="--icon"]');
+    var value = sample ? sample.style.getPropertyValue('--icon') : '';
+    return value ? value.replace(/[^\/'"()]+\.svg/, name + '.svg') : 'url("/img/premiumbot/' + name + '.svg")';
+  }
+
+  // An error that stays until the next attempt. A banner never sits above a stage: it tops the sheet over the
+  // stage, or follows a stage that has no sheet. An empty message clears it.
+  function showBanner(message) {
+    var slot = document.querySelector('.screen-banner');
+    if (!slot) {
+      return false;
+    }
+    while (slot.firstChild) {
+      slot.removeChild(slot.firstChild);
+    }
+    if (!message) {
+      return true;
+    }
+    var stage = slot.parentNode.querySelector('.fx-stage');
+    var sheet = slot.parentNode.querySelector('.fx-stage ~ .fx-sheet');
+    if (sheet) {
+      sheet.insertBefore(slot, sheet.firstChild);
+    } else if (stage) {
+      stage.parentNode.insertBefore(slot, stage.nextSibling);
+    }
+    var banner = document.createElement('div');
+    banner.className = 'banner banner--error island';
+    banner.setAttribute('role', 'alert');
+    var mark = document.createElement('span');
+    mark.className = 'banner-mark';
+    var icon = document.createElement('span');
+    icon.className = 'icon banner-icon';
+    icon.setAttribute('data-icon', 'ui-warning');
+    icon.setAttribute('aria-hidden', 'true');
+    icon.style.setProperty('--icon', iconUrl('ui-warning'));
+    var body = document.createElement('span');
+    body.className = 'banner-body';
+    var line = document.createElement('span');
+    line.className = 'banner-text grid-snap';
+    line.textContent = message;
+    mark.appendChild(icon);
+    body.appendChild(line);
+    banner.appendChild(mark);
+    banner.appendChild(body);
+    slot.appendChild(banner);
+    // Into view: to the very top when it shows from there, so the stage stays in sight.
+    var box = banner.getBoundingClientRect();
+    var top = box.top + window.pageYOffset;
+    var target = top + box.height <= window.innerHeight ? 0 : Math.max(0, top - 16);
+    if (target === 0 ? window.pageYOffset > 0 : box.top < 0 || box.bottom > window.innerHeight) {
+      window.scrollTo({top: target, behavior: reducedMotion() ? 'auto' : 'smooth'});
+    }
+    return true;
+  }
+
+  // ===== Haptics =====
+
+  function haptic(method, value) {
+    var app = webApp();
+    if (app && app.HapticFeedback && app.isVersionAtLeast('6.1')) {
+      try {
+        app.HapticFeedback[method](value);
+      } catch (error) {}
+    }
+  }
+
+  function hapticSelection() {
+    haptic('selectionChanged');
+  }
+
+  function hapticNotify(type) {
+    haptic('notificationOccurred', type);
+  }
+
+  // Every tap is felt once: light for rows, buttons and links, medium for the pay button. A choice ticks when it
+  // changes, so its label is left to the change handlers.
+  function onTapHaptic(event) {
+    var target = event.target && event.target.closest ? event.target.closest('[data-haptic], button, a[href], .is-tappable') : null;
+    if (!target || target.tagName === 'LABEL' ||
+        target.getAttribute('aria-disabled') === 'true' || target.getAttribute('aria-busy') === 'true') {
+      return;
+    }
+    var kind = target.getAttribute('data-haptic') || (target.classList.contains('js-cta') ? 'medium' : 'light');
+    if (kind === 'selection') {
+      hapticSelection();
+    } else if (kind !== 'none') {
+      haptic('impactOccurred', kind);
+    }
+  }
+
+  // ===== Links that leave the app go through Telegram =====
+
+  function onLinkClick(event) {
+    var app = webApp();
+    var link = event.target && event.target.closest ? event.target.closest('a[href]') : null;
+    if (!app || !link || event.defaultPrevented || link.host === window.location.host || !/^https?:$/.test(link.protocol)) {
+      return;
+    }
+    try {
+      if (/^(t|telegram)\.me$/.test(link.hostname)) {
+        app.openTelegramLink(link.href);
+      } else {
+        app.openLink(link.href);
+      }
+      event.preventDefault();
+    } catch (error) {}
+  }
+
+  // ===== Native MainButton =====
+
+  function mainButtonAvailable() {
+    var app = webApp();
+    return !!(app && app.MainButton && app.isVersionAtLeast && app.isVersionAtLeast('6.0'));
+  }
+
+  function hideMainButton() {
+    var app = webApp();
+    if (app && app.MainButton) {
+      if (mainButtonHandler) {
+        app.MainButton.offClick(mainButtonHandler);
+      }
+      app.MainButton.hide();
+    }
+    mainButtonHandler = null;
+    document.documentElement.classList.remove('has-main-button');
+    if (resultBar && resultBar.parentNode) {
+      resultBar.parentNode.removeChild(resultBar);
+    }
+    resultBar = null;
+  }
+
+  function ctaButton() {
+    return document.getElementById('pm-cta');
+  }
+
+  function ctaCurrentUrl() {
+    var button = ctaButton();
+    return button ? button.getAttribute('data-invoice-url') : '';
+  }
+
+  function ctaLabel(button) {
+    return button.querySelector('.cta-label') || button;
+  }
+
+  // The label shows its whole text. One the button would cut gives way to the short text, where the page has one.
+  function ctaFit() {
+    var button = ctaButton();
+    if (!button || !ctaCopy) {
+      return;
+    }
+    var label = ctaLabel(button);
+    label.textContent = ctaCopy.text;
+    if (ctaCopy.short && label.scrollWidth > label.clientWidth) {
+      label.textContent = ctaCopy.short;
+    }
+  }
+
+  function ctaUpdate(text, url, shortText) {
+    var button = ctaButton();
+    if (!button) {
+      return;
+    }
+    if (text) {
+      ctaCopy = {text: text, short: shortText || ''};
+      ctaFit();
+    }
+    if (url) {
+      button.setAttribute('data-invoice-url', url);
+    }
+    button.setAttribute('aria-disabled', ctaCurrentUrl() ? 'false' : 'true');
+  }
+
+  function ctaInit() {
+    var button = ctaButton();
+    if (!button) {
+      return false;
+    }
+    button.setAttribute('aria-disabled', ctaCurrentUrl() ? 'false' : 'true');
+    // The pill's glow breathes and its arrow knocks while the page is lit.
+    button.classList.add('is-lit');
+    return true;
+  }
+
+  function resultButtonInit() {
+    // Playgrounds pin the fake result route here; production takes location.
+    var pathname = window.PMA_RESULT_PATH || window.location.pathname;
+    if (pathname.indexOf('/premiumbot/result/') !== 0) {
+      return;
+    }
+    var result = document.querySelector('.result-screen');
+    var label = (result && result.getAttribute('data-done-text')) || 'Done';
+    var done = function() {
+      Aj.location('/premiumbot');
+    };
+    if (mainButtonAvailable()) {
+      mainButtonHandler = done;
+      webApp().MainButton.setParams({
+        text: label,
+        is_visible: true,
+        is_active: true,
+        // The screen's own tone, as its in-page buttons take it.
+        color: (result && cssColor(result, '--tone-solid')) || '#7356f6',
+        text_color: '#ffffff'
+      });
+      webApp().MainButton.onClick(done);
+      document.documentElement.classList.add('has-main-button');
+    } else if (result) {
+      // A client without the native button gets the same action as the page's own bar.
+      resultBar = document.createElement('div');
+      resultBar.className = 'cta-bar';
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'cta-button fx-press';
+      var face = document.createElement('span');
+      face.className = 'cta-label';
+      face.textContent = label;
+      button.appendChild(face);
+      button.addEventListener('click', done, false);
+      resultBar.appendChild(button);
+      result.appendChild(resultBar);
+    }
+  }
+
+  // ===== Invoices =====
 
   function setButtonBusy(button, busy) {
     if (!button) {
       return;
     }
-    button.disabled = !!busy;
-    if (busy) {
-      button.classList.add('is-loading');
-    } else {
-      button.classList.remove('is-loading');
+    // Busy, not disabled: the button keeps its look and its focus, and assistive tech hears why it does not answer.
+    button.setAttribute('aria-busy', busy ? 'true' : 'false');
+    button.classList.toggle('is-busy', !!busy);
+    var trail = button.classList.contains('cell') ? button.querySelector('.cell-trail') : null;
+    if (!trail) {
+      return;
+    }
+    // In a row the spinner takes the place of what the row ends with.
+    var spinner = trail.querySelector('.cell-busy');
+    if (!spinner && busy) {
+      spinner = document.createElement('span');
+      spinner.className = 'cell-busy';
+      spinner.setAttribute('aria-hidden', 'true');
+      trail.appendChild(spinner);
+    }
+    if (spinner) {
+      spinner.hidden = !busy;
+    }
+    var rest = trail.querySelectorAll('.cell-value, .cell-chevron');
+    for (var i = 0; i < rest.length; i++) {
+      rest[i].hidden = !!busy;
     }
   }
 
-  function openInvoice(url) {
+  function invoiceButton(url) {
+    var buttons = document.querySelectorAll('.js-invoice');
+    for (var i = 0; i < buttons.length; i++) {
+      if (buttons[i].getAttribute('data-invoice-url') === url) {
+        return buttons[i];
+      }
+    }
+    return null;
+  }
+
+  function closingConfirmation(enabled) {
+    var app = webApp();
+    if (app && app.enableClosingConfirmation && app.isVersionAtLeast('6.2')) {
+      try {
+        if (enabled) {
+          app.enableClosingConfirmation();
+        } else {
+          app.disableClosingConfirmation();
+        }
+      } catch (error) {}
+    }
+  }
+
+  function releaseInvoice() {
+    if (!invoice) {
+      return;
+    }
+    clearTimeout(invoice.timer);
+    document.removeEventListener('pointerdown', noteInvoiceTap, true);
+    setButtonBusy(invoice.button, false);
+    closingConfirmation(false);
+    invoice = null;
+  }
+
+  // The client has not answered and still holds the invoice open: it would refuse to open the same one again, so
+  // the next try for it goes by its link.
+  function giveUpInvoice() {
+    if (invoice) {
+      unanswered[invoice.url] = true;
+      releaseInvoice();
+    }
+  }
+
+  // iOS sends no answer for an invoice it cannot load. Its checkout covers the page while it shows, so a tap on the
+  // page after the grace time means that no checkout is up.
+  function noteInvoiceTap() {
+    if (invoice && Date.now() - invoice.openedAt >= INVOICE_GRACE) {
+      giveUpInvoice();
+    }
+  }
+
+  function openInvoice(url, resultFlow, button) {
     var app = webApp();
     if (!app || !url) {
       return;
     }
-    if (!app.isVersionAtLeast('6.1')) {
+    if (!app.isVersionAtLeast('6.1') || unanswered[url]) {
       app.openTelegramLink(url);
       return;
     }
-    var buttons = document.querySelectorAll('.js-invoice');
-    var button = null;
-    for (var i = 0; i < buttons.length; i++) {
-      if (buttons[i].getAttribute('data-invoice-url') === url) {
-        button = buttons[i];
-        break;
+    if (invoice) {
+      if (invoice.url === url) {
+        return;
       }
+      giveUpInvoice();
     }
-    setButtonBusy(button, true);
+    var current = {
+      url: url,
+      button: button || invoiceButton(url),
+      openedAt: Date.now(),
+      page: pageToken,
+      timer: setTimeout(giveUpInvoice, INVOICE_TIMEOUT)
+    };
+    invoice = current;
+    setButtonBusy(current.button, true);
     clearMessage();
+    showBanner('');
+    closingConfirmation(true);
+    if (app.platform === 'ios') {
+      document.addEventListener('pointerdown', noteInvoiceTap, true);
+    }
     try {
       app.openInvoice(url, function(status) {
-        setButtonBusy(button, false);
+        delete unanswered[url];
+        if (invoice === current) {
+          releaseInvoice();
+        }
+        // The answer can come after the page that asked has gone.
+        if (current.page !== pageToken) {
+          return;
+        }
+        // A status this script does not know may hide a payment, as 'pending' does: only the server can tell.
+        if (status !== 'paid' && status !== 'failed' && status !== 'cancelled') {
+          status = 'pending';
+        }
         if (status === 'paid') {
-          Aj.location('/premiumbot/result/paid');
-          return;
+          hapticNotify('success');
+          Aj.location('/premiumbot/result/paid/' + (resultFlow || 'premium'));
+        } else if (status === 'pending') {
+          Aj.location('/premiumbot/result/pending/' + (resultFlow || 'premium'));
+        } else if (status === 'failed') {
+          hapticNotify('error');
+          if (!showBanner(scriptText('pay-failed'))) {
+            showMessage(scriptText('pay-failed'), false);
+          }
         }
-        if (status === 'pending') {
-          showMessage('Payment is pending. Your selection is kept; please check again shortly.', false);
-          return;
-        }
-        if (status === 'failed') {
-          showMessage('Payment failed. You can retry with the same option.', true);
-          return;
-        }
-        showMessage('Payment was cancelled. Your selection is unchanged.', false);
       });
     } catch (error) {
-      setButtonBusy(button, false);
-      showMessage('Unable to open this invoice. Please try again.', true);
+      releaseInvoice();
+      showMessage(scriptText('pay-open'), true);
     }
   }
 
-  function fallbackToBot(flow, button) {
-    var app = webApp();
-    if (!app) {
-      return;
+  // ===== Plan and gift-card selection (radio -> CTA) =====
+
+  function planApply(input) {
+    var url = input.getAttribute('data-invoice-url');
+    var text = input.getAttribute('data-cta-text');
+    if (url && text) {
+      ctaUpdate(text, url, input.getAttribute('data-cta-short'));
     }
-    var username = window.Aj && Aj.state.botUsername ? Aj.state.botUsername : 'PremiumBot';
-    var baseUrl = 'https://t.me/' + username;
-    if (flow === 'gift') {
-      app.openTelegramLink(baseUrl + '?start=gift');
-      return;
+  }
+
+  // A reload or a step back can restore another radio than the one the server checked.
+  function planSync() {
+    var input = document.querySelector('.js-plan-option:checked');
+    if (input) {
+      planApply(input);
     }
-    var commands = {
-      stars_gift: '/stars',
-      premium_giveaway: '/giveaway',
-      stars_giveaway: '/stars_giveaway'
-    };
-    var command = commands[flow] || '/status';
-    var openBot = function() {
-      app.openTelegramLink(baseUrl);
-    };
-    if (app.isVersionAtLeast('6.2')) {
-      app.showPopup({
-        title: 'Continue in @' + username,
-        message: 'Send ' + command + ' to @' + username + ' to use this flow in the existing bot chat.',
-        buttons: [
-          {id: 'open', type: 'default', text: 'Open @' + username},
-          {id: 'cancel', type: 'cancel'}
-        ]
-      }, function(buttonId) {
-        if (buttonId === 'open') {
-          openBot();
-        }
-      });
-    } else {
-      var container = button ? button.closest('.pm-picker') : null;
-      var status = container ? container.querySelector('.pm-picker-status') : null;
-      if (status) {
-        status.textContent = 'Send ' + command + ' to @' + username + ' to use this flow in the existing bot chat.';
-        status.appendChild(document.createElement('br'));
-        var link = document.createElement('a');
-        link.href = baseUrl;
-        link.className = 'pm-secondary pm-link';
-        link.textContent = 'Open @' + username;
-        link.addEventListener('click', function(event) {
-          event.preventDefault();
-          openBot();
-        }, false);
-        status.appendChild(link);
-      } else {
-        openBot();
+  }
+
+  // ===== Gift cards: prices, savings and the Best Value tab stay inside their cards =====
+
+  // How far `child` runs past the sides of `card` less `inset`; 0 or less is inside.
+  function overhang(child, card, inset) {
+    var outer = card.getBoundingClientRect();
+    var inner = child.getBoundingClientRect();
+    return Math.max(outer.left + inset - inner.left, inner.right - outer.right + inset);
+  }
+
+  // The symbol and the amount in the price's own order; the whole price when it has no symbol to set apart.
+  function priceParts(price) {
+    var match = /^(\D*)(\d(?:.*\d)?)(\D*)$/.exec(price);
+    var before = match ? match[1].trim() : '';
+    var after = match ? match[3].trim() : '';
+    if (before && !after) {
+      return [before, match[2]];
+    }
+    if (after && !before) {
+      return [match[2], after];
+    }
+    return [price];
+  }
+
+  // On two lines the symbol takes a line of its own, so the amount never breaks.
+  function priceLines(pill, split) {
+    var price = pill.getAttribute('data-price');
+    if (price === null) {
+      price = pill.textContent;
+      pill.setAttribute('data-price', price);
+    }
+    var parts = split ? priceParts(price) : [price];
+    pill.textContent = parts.length === 2 ? '' : price;
+    for (var i = 0; parts.length === 2 && i < 2; i++) {
+      var line = document.createElement('span');
+      line.className = 'gift-card-price-line';
+      line.textContent = parts[i];
+      pill.appendChild(line);
+      if (!i) {
+        // Not drawn in the column; assistive tech still reads the price as one.
+        pill.appendChild(document.createTextNode(' '));
       }
     }
   }
 
-  function pickerText(text, isError) {
-    if (!picker) {
+  function fitGiftRow(row) {
+    var cards = row.querySelectorAll('.gift-card');
+    if (!cards.length || !cards[0].getBoundingClientRect().width) {
       return;
     }
-    var container = picker.button ? picker.button.closest('.pm-picker') : null;
-    var status = container ? container.querySelector('.pm-picker-status') : null;
-    if (status) {
-      status.textContent = text;
-      status.classList.toggle('is-error', !!isError);
+    var pills = [];
+    var i;
+    for (i = 0; i < cards.length; i++) {
+      var tab = cards[i].querySelector('.plan-tab');
+      var tabLabel = tab ? tab.querySelector('.plan-tab-label') : null;
+      if (tabLabel) {
+        // Measured with the label shown; a label that would overhang stays for assistive tech alone.
+        tabLabel.classList.remove('sr-only');
+        tabLabel.classList.toggle('sr-only', overhang(tab, cards[i], 0) > FIT_SLACK);
+      }
+      var saving = cards[i].querySelector('.gift-card-saving');
+      var amount = saving ? saving.querySelector('.value-amount') : null;
+      if (amount) {
+        saving.classList.remove('is-wide');
+        saving.classList.toggle('is-wide', overhang(amount, saving, 0) > FIT_SLACK);
+      }
+      var pill = cards[i].querySelector('.gift-card-price');
+      if (pill) {
+        pills.push([pill, cards[i]]);
+      }
     }
-    if (isError) {
-      showMessage(text, true);
+    // The whole row takes each step, so the pills stay even: narrower sides, smaller type, then two lines.
+    var split = row.classList.contains('price-lines');
+    for (var step = 0; step < PRICE_STEPS.length; step++) {
+      for (i = 1; i < PRICE_STEPS.length; i++) {
+        row.classList.toggle(PRICE_STEPS[i], i === step);
+      }
+      var fits = true;
+      for (i = 0; i < pills.length; i++) {
+        if ((step === PRICE_STEPS.length - 1) !== split) {
+          priceLines(pills[i][0], !split);
+        }
+      }
+      split = step === PRICE_STEPS.length - 1;
+      for (i = 0; i < pills.length; i++) {
+        // A price keeps 4 px inside its card's sides.
+        fits = fits && overhang(pills[i][0], pills[i][1], 4) <= FIT_SLACK;
+      }
+      if (fits) {
+        return;
+      }
     }
+  }
+
+  function fitGiftCards() {
+    var rows = document.querySelectorAll('.gift-cards');
+    for (var i = 0; i < rows.length; i++) {
+      fitGiftRow(rows[i]);
+    }
+  }
+
+  function onResize() {
+    fitGiftCards();
+    ctaFit();
+  }
+
+  // ===== Giveaway matrix (duration or amount, then winners -> option) =====
+
+  function giveawayMatrix() {
+    return document.querySelector('.js-gw-matrix');
+  }
+
+  function giveawayOptions() {
+    var matrix = giveawayMatrix();
+    if (!matrix) {
+      return [];
+    }
+    var nodes = matrix.querySelectorAll('.js-gw-option');
+    var records = [];
+    for (var i = 0; i < nodes.length; i++) {
+      records.push({
+        months: nodes[i].getAttribute('data-months'),
+        stars: nodes[i].getAttribute('data-stars'),
+        users: nodes[i].getAttribute('data-users'),
+        boosts: nodes[i].getAttribute('data-boosts'),
+        price: nodes[i].getAttribute('data-price'),
+        ctaText: nodes[i].getAttribute('data-cta-text'),
+        footerText: nodes[i].getAttribute('data-footer-text'),
+        url: nodes[i].getAttribute('data-invoice-url')
+      });
+    }
+    return records;
+  }
+
+  function giveawayChecked(name) {
+    var input = document.querySelector('.js-gw-' + name + ':checked');
+    return input ? input.value : '';
+  }
+
+  // The records of one duration (Premium) or one amount (Stars), by winners count.
+  function giveawayUsersFor(records, flow, dur) {
+    var users = {};
+    for (var i = 0; i < records.length; i++) {
+      var durValue = flow === 'premium' ? records[i].months : records[i].stars;
+      if (durValue === dur) {
+        users[records[i].users] = records[i];
+      }
+    }
+    return users;
+  }
+
+  // The winners count a duration or an amount takes: the current one where it offers it, else the one the server
+  // checked, else its first.
+  function giveawayUsersChoice(offered, inputs, current) {
+    var choice = '';
+    for (var i = 0; i < inputs.length; i++) {
+      var value = inputs[i].value;
+      if (offered[value]) {
+        if (value === current) {
+          return value;
+        }
+        if (!choice || inputs[i].defaultChecked) {
+          choice = value;
+        }
+      }
+    }
+    return choice;
+  }
+
+  function giveawayFill(template, record) {
+    var text = template;
+    if (record) {
+      text = text.split('{users}').join(record.users)
+        .split('{boosts}').join(record.boosts)
+        .split('{price}').join(record.price)
+        .split('{stars}').join(record.stars);
+    }
+    return text;
+  }
+
+  // Thousands grouped the way the server grouped the amounts on the page: "1,000" or "1 000".
+  function giveawayNumber(value, inputs) {
+    var group = '';
+    for (var i = 0; i < inputs.length && !group; i++) {
+      var label = inputs[i].closest('label');
+      var title = label ? label.querySelector('.cell-title') : null;
+      var match = title ? /\d(\D)\d{3}(?!\d)/.exec(title.textContent) : null;
+      group = match ? match[1] : '';
+    }
+    return String(value).replace(/\B(?=(\d{3})+(?!\d))/g, group);
+  }
+
+  function giveawayWrite(selector, text) {
+    var nodes = document.querySelectorAll(selector);
+    for (var i = 0; i < nodes.length; i++) {
+      nodes[i].textContent = text;
+    }
+  }
+
+  function giveawayUpdate() {
+    var matrix = giveawayMatrix();
+    if (!matrix) {
+      return;
+    }
+    var flow = matrix.getAttribute('data-flow') || 'premium';
+    var records = giveawayOptions();
+    var durInputs = document.querySelectorAll('.js-gw-dur');
+    var userInputs = document.querySelectorAll('.js-gw-users');
+    var i;
+    if (!giveawayChecked('dur') && durInputs.length) {
+      durInputs[0].checked = true;
+    }
+    // The duration or the amount leads: winners are offered for it alone, so a winners tap never changes it.
+    var offered = giveawayUsersFor(records, flow, giveawayChecked('dur'));
+    var users = giveawayUsersChoice(offered, userInputs, giveawayChecked('users'));
+    var choices = 0;
+    for (i = 0; i < userInputs.length; i++) {
+      var has = !!offered[userInputs[i].value];
+      var chip = userInputs[i].closest('label');
+      if (chip) {
+        chip.hidden = !has;
+      }
+      userInputs[i].disabled = !has;
+      userInputs[i].checked = userInputs[i].value === users;
+      choices += has ? 1 : 0;
+    }
+    // One count is no choice: the island states it as a plain row in place of the chips.
+    var single = choices < 2;
+    var chipRow = userInputs.length ? userInputs[0].closest('.chips') : null;
+    if (chipRow) {
+      chipRow.style.display = single ? 'none' : '';
+    }
+    for (i = 0; i < durInputs.length; i++) {
+      var value = durInputs[i].value;
+      // A row shows what choosing it gives: the current winners where it offers them, else its own.
+      var rowOffered = giveawayUsersFor(records, flow, value);
+      var record = rowOffered[giveawayUsersChoice(rowOffered, userInputs, users)];
+      giveawayWrite('.js-gw-dur-price[data-dur="' + value + '"]', record ? record.price : '');
+      giveawayWrite('.js-gw-dur-boosts[data-dur="' + value + '"]', record ? giveawayFill(matrix.getAttribute('data-tpl-boosts') || '', record) : '');
+    }
+    var picked = offered[users];
+    var footer = document.querySelector('.js-gw-footer');
+    if (footer) {
+      var line = picked ? picked.footerText || giveawayFill(matrix.getAttribute('data-tpl-footer') || '', picked) : '';
+      var each = picked ? matrix.getAttribute('data-tpl-each') : '';
+      var share = each ? Math.floor(picked.stars / picked.users) : 0;
+      var shareText = share > 0 ? each.split('{stars}').join(giveawayNumber(share, durInputs)) : '';
+      giveawayFixedRow(chipRow ? chipRow.parentNode : null, single ? line : '', shareText);
+      footer.textContent = single ? '' : line + (shareText ? ' · ' + shareText : '');
+      footer.hidden = single;
+    }
+    if (picked) {
+      ctaUpdate(giveawayFill(matrix.getAttribute('data-tpl-cta') || '', picked) || picked.ctaText, picked.url);
+      return;
+    }
+    // No option for this pair: the button must not keep the last one's invoice.
+    var button = ctaButton();
+    if (button) {
+      button.setAttribute('data-invoice-url', '');
+      button.setAttribute('aria-disabled', 'true');
+    }
+  }
+
+  // The lone winners count as a row of facts: the count, and each winner's share when the prize is Stars.
+  function giveawayFixedRow(island, title, value) {
+    if (!island) {
+      return;
+    }
+    var row = island.querySelector('.pm-gw-fixed');
+    if (!title) {
+      if (row) {
+        island.removeChild(row);
+      }
+      return;
+    }
+    if (!row) {
+      row = document.createElement('div');
+      row.className = 'cell cell--value pm-gw-fixed';
+      row.innerHTML = '<span class="cell-main"><span class="cell-title"></span></span>'
+        + '<span class="cell-trail"><span class="cell-value"></span></span>';
+      island.appendChild(row);
+    }
+    row.querySelector('.cell-title').textContent = title;
+    row.querySelector('.cell-value').textContent = value;
+  }
+
+  // ===== Peer picker (native request through the existing web methods) =====
+
+  // Each step of a pick, the request, the native picker and the polling, gets this long.
+  function pickerWatch(handler) {
+    clearTimeout(picker.watch);
+    picker.watch = setTimeout(handler, POLL_TIMEOUT);
   }
 
   function stopPicker() {
@@ -162,61 +926,51 @@ window.PremiumApp = (function() {
       return;
     }
     picker.cancelled = true;
-    if (picker.timer) {
-      clearTimeout(picker.timer);
-    }
+    clearTimeout(picker.timer);
+    clearTimeout(picker.watch);
+    clearTimeout(picker.quiet);
     setButtonBusy(picker.button, false);
     picker = null;
   }
 
-  function finishPickerWithError(text) {
+  function failPicker() {
     if (!picker) {
       return;
     }
-    pickerText(text, true);
     stopPicker();
+    showMessage(scriptText('picker-failed'), true);
   }
 
-  function schedulePoll(delay) {
-    if (!picker || picker.cancelled) {
-      return;
+  function schedulePoll() {
+    if (picker && !picker.cancelled) {
+      picker.timer = setTimeout(pollPeer, POLL_INTERVAL);
     }
-    picker.timer = setTimeout(pollPeer, delay || POLL_INTERVAL);
   }
 
   function pollPeer() {
-    if (!picker || picker.cancelled || picker.inFlight) {
-      return;
-    }
-    if (Date.now() - picker.startedAt >= POLL_TIMEOUT) {
-      finishPickerWithError('Recipient selection timed out. Please try again.');
+    if (!picker || picker.cancelled) {
       return;
     }
     var current = picker;
-    picker.inFlight = true;
     Aj.apiRequest('getPeerRequest', {
       flow: current.flow,
-      webapp_req_id: current.requestId
+      request_id: current.peerRequestId
     }, function(result) {
       if (!picker || picker.serial !== current.serial || picker.cancelled) {
         return;
       }
-      picker.inFlight = false;
       if (result.error === 'PEER_REQUEST_EXPIRED') {
-        finishPickerWithError('Recipient selection expired. Please start again.');
+        failPicker();
         return;
       }
-      if (result.error) {
-        finishPickerWithError('Unable to read the selection. Please try again.');
-        return;
-      }
-      if (result.status === 'ready' && result.url) {
+      if (!result.error && result.status === 'ready' && result.url) {
         var url = result.url;
         stopPicker();
         Aj.location(url);
         return;
       }
-      schedulePoll(POLL_INTERVAL);
+      // Any other error may pass with the next check; the watch ends the wait.
+      schedulePoll();
     });
   }
 
@@ -225,22 +979,48 @@ window.PremiumApp = (function() {
       return;
     }
     var current = picker;
+    // A client that does not implement the request never answers it: the row is freed and the bot offered. An
+    // answer that still comes, after a long pick, is taken.
+    pickerWatch(function() {
+      silentPicker = true;
+      setButtonBusy(current.button, false);
+      fallbackToBot(current.flow, current.button);
+    });
+    if (webApp().platform !== 'android') {
+      // Only Android is known to answer. Elsewhere a picker may be open over the page by now, so nothing may open
+      // over it: after a short silence the bot is offered in the page, under the row.
+      current.quiet = setTimeout(function() {
+        if (picker !== current || current.cancelled) {
+          return;
+        }
+        if (offerBotInPage(current.flow, current.button)) {
+          silentPicker = true;
+          clearTimeout(current.watch);
+          setButtonBusy(current.button, false);
+        }
+      }, PICKER_QUIET);
+    }
     try {
-      webApp().requestChat(current.requestId, function(sent) {
+      webApp().requestChat(current.webappRequestId, function(sent) {
+        silentPicker = false;
+        clearTimeout(current.quiet);
+        withdrawBotInPage(current.button);
         if (!picker || picker.serial !== current.serial || picker.cancelled) {
           return;
         }
         if (!sent) {
-          pickerText('Selection was cancelled.', false);
+          // A dismissed picker is the user's own cancel: nothing to say.
           stopPicker();
           return;
         }
-        pickerText('Waiting for Telegram to share the selection…', false);
-        schedulePoll(POLL_INTERVAL);
+        setButtonBusy(current.button, true);
+        // The time to share the choice starts now, not when the picker opened.
+        pickerWatch(failPicker);
+        schedulePoll();
       });
     } catch (error) {
-      fallbackToBot(current.flow, current.button);
       stopPicker();
+      fallbackToBot(current.flow, current.button);
     }
   }
 
@@ -249,7 +1029,8 @@ window.PremiumApp = (function() {
     if (!app) {
       return;
     }
-    if (!app.isVersionAtLeast('9.6')) {
+    // A client that stayed silent on this page is not asked twice.
+    if (!app.isVersionAtLeast('9.6') || silentPicker) {
       fallbackToBot(flow, button);
       return;
     }
@@ -259,16 +1040,17 @@ window.PremiumApp = (function() {
       flow: flow,
       chatType: chatType || '',
       button: button,
-      requestId: '',
-      startedAt: Date.now(),
+      webappRequestId: '',
+      peerRequestId: 0,
       serial: ++pickerSequence,
-      timer: null,
-      inFlight: false,
+      timer: 0,
+      watch: 0,
+      quiet: 0,
       cancelled: false
     };
     var current = picker;
     setButtonBusy(button, true);
-    pickerText('Preparing the Telegram picker…', false);
+    pickerWatch(failPicker);
     Aj.apiRequest('requestPeer', {
       flow: flow,
       chat_type: current.chatType
@@ -276,85 +1058,272 @@ window.PremiumApp = (function() {
       if (!picker || picker.serial !== current.serial || picker.cancelled) {
         return;
       }
-      if (result.error || !result.webapp_req_id) {
-        finishPickerWithError('Unable to prepare the Telegram picker. Please try again.');
+      if (result.error || !result.webapp_req_id || !result.request_id) {
+        failPicker();
         return;
       }
-      picker.requestId = result.webapp_req_id;
-      picker.startedAt = Date.now();
+      picker.webappRequestId = result.webapp_req_id;
+      picker.peerRequestId = result.request_id;
       requestNativePeer();
     });
   }
 
-  function filterPlans(button) {
-    var group = button.parentNode;
-    var filters = group.querySelectorAll('.js-plan-filter');
-    for (var i = 0; i < filters.length; i++) {
-      filters[i].classList.toggle('is-active', filters[i] === button);
+  // Where the bot continues a flow: its start link for gifts, a command to send for the others.
+  function botTarget(flow) {
+    var username = window.Aj && Aj.state && Aj.state.botUsername ? Aj.state.botUsername : 'PremiumBot';
+    var commands = {
+      stars_gift: '/stars',
+      premium_giveaway: '/giveaway',
+      stars_giveaway: '/stars_giveaway'
+    };
+    var command = flow === 'gift' ? '' : commands[flow] || '/status';
+    return {
+      url: 'https://t.me/' + username + (command ? '' : '?start=gift'),
+      command: command,
+      values: {bot: '@' + username, command: command}
+    };
+  }
+
+  // The bot's flow as a line and a link under the row. False where the page has no place for it.
+  function offerBotInPage(flow, button) {
+    var app = webApp();
+    var container = button ? button.closest('.pm-picker') : null;
+    var legacy = container ? container.querySelector('.pm-picker-legacy') : null;
+    if (!app || !legacy) {
+      return false;
     }
-    var constraints = {};
-    var rows = document.querySelectorAll('.pm-filters');
-    for (var r = 0; r < rows.length; r++) {
-      var active = rows[r].querySelector('.js-plan-filter.is-active');
-      if (active) {
-        var field = active.getAttribute('data-filter-field');
-        var value = active.getAttribute('data-filter-value');
-        if (value) {
-          constraints[field] = value;
-        }
-      }
+    var target = botTarget(flow);
+    legacy.hidden = false;
+    var status = container.querySelector('.pm-picker-status');
+    if (status) {
+      status.textContent = target.command ? scriptText('bot-text', target.values) : '';
     }
-    var plans = document.querySelectorAll('.pm-plan');
-    for (var j = 0; j < plans.length; j++) {
-      var show = true;
-      for (var fieldName in constraints) {
-        if (Object.prototype.hasOwnProperty.call(constraints, fieldName) &&
-            plans[j].getAttribute('data-' + fieldName) !== constraints[fieldName]) {
-          show = false;
-        }
-      }
-      plans[j].hidden = !show;
+    // One link, however many taps.
+    if (legacy.firstChild) {
+      return true;
+    }
+    var link = document.createElement('a');
+    link.href = target.url;
+    link.className = 'cell cell--action is-tappable fx-press island';
+    var main = document.createElement('span');
+    main.className = 'cell-main';
+    var title = document.createElement('span');
+    title.className = 'cell-title';
+    title.textContent = scriptText('bot-open', target.values);
+    main.appendChild(title);
+    link.appendChild(main);
+    link.addEventListener('click', function(event) {
+      event.preventDefault();
+      app.openTelegramLink(target.url);
+    }, false);
+    legacy.appendChild(link);
+    return true;
+  }
+
+  function withdrawBotInPage(button) {
+    var container = button ? button.closest('.pm-picker') : null;
+    var legacy = container ? container.querySelector('.pm-picker-legacy') : null;
+    if (!legacy || legacy.hidden) {
+      return;
+    }
+    legacy.hidden = true;
+    var status = container.querySelector('.pm-picker-status');
+    if (status) {
+      status.textContent = '';
     }
   }
 
-  function mainButtonHandler() {
-    if (mainAction === 'home') {
-      Aj.location('/premiumbot');
+  function fallbackToBot(flow, button) {
+    var app = webApp();
+    if (!app) {
+      return;
+    }
+    var target = botTarget(flow);
+    var openBot = function() {
+      app.openTelegramLink(target.url);
+    };
+    if (!target.command) {
+      openBot();
+      return;
+    }
+    if (app.isVersionAtLeast('6.2')) {
+      try {
+        app.showPopup({
+          title: scriptText('bot-title', target.values),
+          message: scriptText('bot-text', target.values),
+          buttons: [
+            {id: 'open', type: 'default', text: scriptText('bot-open', target.values)},
+            {id: 'cancel', type: 'cancel'}
+          ]
+        }, function(buttonId) {
+          if (buttonId === 'open') {
+            openBot();
+          }
+        });
+      } catch (error) {
+        // A popup that is up already is the answer; one the client refuses leaves the bot itself.
+        if (error.message !== 'WebAppPopupOpened') {
+          openBot();
+        }
+      }
+      return;
+    }
+    if (!offerBotInPage(flow, button)) {
+      openBot();
     }
   }
 
-  function bind(selector, eventName, handler) {
-    var elements = document.querySelectorAll(selector);
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].addEventListener(eventName, handler, false);
+  // ===== Show-more packs =====
+
+  function reducedMotion() {
+    return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  }
+
+  // New content rises in a beat apart; its natural style is the final state.
+  function rise(element, index) {
+    if (!element.animate) {
+      return;
+    }
+    var calm = reducedMotion();
+    element.animate(calm ? [{opacity: 0}, {opacity: 1}] : [{opacity: 0, transform: 'translateY(8px)'}, {opacity: 1, transform: 'none'}], {
+      duration: calm ? 200 : 320,
+      delay: calm ? 0 : Math.min(index, 7) * 30,
+      easing: 'cubic-bezier(.2, .8, .2, 1)',
+      fill: 'backwards'
+    });
+  }
+
+  function showMorePacks(button) {
+    var extras = document.querySelectorAll('.js-pack-extra');
+    for (var i = 0; i < extras.length; i++) {
+      extras[i].hidden = false;
+      rise(extras[i], i);
+    }
+    button.setAttribute('aria-expanded', 'true');
+    button.hidden = true;
+    // The button goes, so the focus moves on to the first pack it revealed.
+    if (extras.length) {
+      extras[0].focus({preventScroll: true});
     }
   }
+
+  // ===== Press effect =====
+
+  function releasePress() {
+    if (pressed) {
+      pressed.classList.remove('is-pressed');
+      pressed = null;
+    }
+  }
+
+  function onPress(event) {
+    var type = event.type;
+    if (type === 'pointerdown' || type === 'keydown') {
+      var down = type === 'pointerdown' ? event.button === 0 : !event.repeat && (event.key === ' ' || event.key === 'Enter');
+      var target = down && event.target && event.target.closest ? event.target.closest('.fx-press') : null;
+      if (target && !target.disabled && target.getAttribute('aria-disabled') !== 'true') {
+        releasePress();
+        pressed = target;
+        target.classList.add('is-pressed');
+      }
+      return;
+    }
+    // The pointer leaving a child, or a child losing the focus, is not the pressed element letting go.
+    if ((type !== 'pointerleave' && type !== 'blur') || event.target === pressed) {
+      releasePress();
+    }
+  }
+
+  // ===== Dates: the server prints them in UTC, the device shows its own day =====
+
+  function localizeDates() {
+    var app = webApp();
+    var user = app && app.initDataUnsafe ? app.initDataUnsafe.user : null;
+    var lang = document.documentElement.lang || (user && user.language_code);
+    if (!lang || !window.Intl || !Intl.DateTimeFormat) {
+      return;
+    }
+    var nodes = document.querySelectorAll('time[datetime]');
+    for (var i = 0; i < nodes.length; i++) {
+      var date = new Date(nodes[i].getAttribute('datetime'));
+      if (!isNaN(date.getTime())) {
+        try {
+          // No-break spaces keep a date on one line.
+          nodes[i].textContent = new Intl.DateTimeFormat(lang, {day: 'numeric', month: 'long', year: 'numeric'}).format(date).replace(/ /g, ' ');
+        } catch (error) {}
+      }
+    }
+  }
+
+  // ===== Page lifecycle =====
 
   function cleanup() {
-    stopPicker();
-    mainAction = false;
     var app = webApp();
-    if (app && app.MainButton) {
-      app.MainButton.offClick(mainButtonHandler);
-      app.MainButton.hide();
+    pageToken++;
+    stopPicker();
+    giveUpInvoice();
+    hideMainButton();
+    unbindAll();
+    clearMessage();
+    releasePress();
+    if (cardsObserver) {
+      cardsObserver.disconnect();
+      cardsObserver = null;
+    }
+    if (colorFrame) {
+      cancelAnimationFrame(colorFrame);
+      colorFrame = 0;
+    }
+    ctaCopy = null;
+    pageColors = null;
+    if (app && app.offEvent) {
+      try {
+        app.offEvent('themeChanged', applyBridgeClasses);
+      } catch (error) {}
     }
     if (window.PremiumLottie) {
       window.PremiumLottie.destroy();
+    }
+    if (window.Premium3D) {
+      window.Premium3D.destroy();
+    }
+    if (window.PremiumFx) {
+      window.PremiumFx.destroy();
     }
   }
 
   function init() {
     cleanup();
+    applyBridgeClasses();
     var app = webApp();
-    if (app) {
-      app.setHeaderColor('bg_color');
-      app.setBackgroundColor('bg_color');
+    var i;
+    if (app && app.onEvent) {
+      // themeChanged is user-triggered while the app stays open.
+      try {
+        app.onEvent('themeChanged', applyBridgeClasses);
+      } catch (error) {}
     }
+    var pressEvents = ['pointerdown', 'pointerup', 'pointercancel', 'pointerleave', 'keydown', 'keyup', 'blur'];
+    for (i = 0; i < pressEvents.length; i++) {
+      on(document, pressEvents[i], onPress, true);
+    }
+    // Ahead of the tapped element's own handler: a button that turns busy on its tap is still felt.
+    on(document, 'click', onTapHaptic, true);
+    on(document, 'click', onLinkClick);
+    on(window, 'scroll', onPageScroll);
+    on(window, 'resize', onResize);
+    on(window, 'pageshow', planSync);
     bind('.js-invoice', 'click', function() {
-      openInvoice(this.getAttribute('data-invoice-url'));
+      if (this.getAttribute('aria-disabled') === 'true' || this.getAttribute('aria-busy') === 'true') {
+        return;
+      }
+      var flow = this.getAttribute('data-result-flow') || inferResultFlow();
+      openInvoice(this.getAttribute('data-invoice-url'), flow, this);
     });
     bind('.js-request-peer', 'click', function() {
-      startPicker(this.getAttribute('data-peer-flow'), this.getAttribute('data-peer-chat-type'), this);
+      if (this.getAttribute('aria-busy') !== 'true') {
+        startPicker(this.getAttribute('data-peer-flow'), this.getAttribute('data-peer-chat-type'), this);
+      }
     });
     bind('.js-telegram-link', 'click', function() {
       var appInstance = webApp();
@@ -362,23 +1331,77 @@ window.PremiumApp = (function() {
         appInstance.openTelegramLink(this.getAttribute('data-telegram-url'));
       }
     });
-    bind('.js-plan-filter', 'click', function() {
-      filterPlans(this);
+    bind('.js-plan-option', 'change', function() {
+      planApply(this);
+      hapticSelection();
     });
-    if (window.location.pathname.indexOf('/premiumbot/result/') === 0 && app && app.MainButton) {
-      mainAction = 'home';
-      app.MainButton.setParams({text: 'BACK TO PREMIUM', is_visible: true});
-      app.MainButton.onClick(mainButtonHandler);
+    bind('.js-gw-dur', 'change', function() {
+      giveawayUpdate();
+      hapticSelection();
+    });
+    bind('.js-gw-users', 'change', function() {
+      giveawayUpdate();
+      hapticSelection();
+    });
+    bind('.js-show-more', 'click', function() {
+      showMorePacks(this);
+    });
+    if (!ctaInit()) {
+      resultButtonInit();
     }
-    var title = document.querySelector('.pm-title');
-    if (title) {
-      title.focus();
+    planSync();
+    giveawayUpdate();
+    fitGiftCards();
+    var rows = document.querySelectorAll('.gift-cards');
+    if (rows.length && window.ResizeObserver) {
+      cardsObserver = new ResizeObserver(fitGiftCards);
+      for (i = 0; i < rows.length; i++) {
+        cardsObserver.observe(rows[i]);
+      }
+    }
+    localizeDates();
+    // After a navigation the title takes the focus; the first page leaves it where the client put it.
+    var title = document.querySelector('.hero-title, .screen-title');
+    visits++;
+    if (title && visits > 1) {
+      title.focus({preventScroll: true});
     }
     if (window.PremiumLottie) {
       window.PremiumLottie.mount(document);
     }
+    if (window.Premium3D) {
+      window.Premium3D.mount(document);
+    }
+    if (window.PremiumFx) {
+      // In the same task as the page, so the light and the fields are there for its first frame.
+      window.PremiumFx.mount(document);
+    }
     Aj.onUnload(cleanup);
   }
+
+  function inferResultFlow() {
+    var screen = document.querySelector('.screen[data-route]');
+    var route = screen ? screen.getAttribute('data-route') : '';
+    if (route === 'stars') {
+      return 'stars';
+    }
+    if (route === 'stars/gift') {
+      return 'stars_gift';
+    }
+    if (route === 'giveaway/premium') {
+      return 'premium_giveaway';
+    }
+    if (route === 'giveaway/stars') {
+      return 'stars_giveaway';
+    }
+    if (route === 'gift') {
+      return 'gift';
+    }
+    return 'premium';
+  }
+
+  // Theme and platform classes are wanted for the first paint, which can come before init.
+  applyBridgeClasses();
 
   return {
     init: init,
