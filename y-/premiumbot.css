@@ -942,3 +942,11 @@ html:not(.fx-reduce) .section--unlocked .perk-strip .icon-tile {
   overflow: hidden;
   clip-path: inset(50%);
 }
+
+/* The giveaway's two prizes as one page: the switch's runtime state hides the other prize. */
+[data-prize-both="premium"] .gw-prize[data-prize="stars"],
+[data-prize-both="premium"] .gw-prize-part--stars,
+[data-prize-both="stars"] .gw-prize[data-prize="premium"],
+[data-prize-both="stars"] .gw-prize-part--premium {
+  display: none;
+}
