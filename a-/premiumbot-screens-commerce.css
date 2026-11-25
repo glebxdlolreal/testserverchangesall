@@ -32,291 +32,94 @@
   z-index: 1;
 }
 
-/* Gift: once someone is chosen, the stage shows who gets it in place of the gift, in the mark's 96 px. The box hugs
-   the 64 px avatars, so the contact shadow (design §11.7) sits right under them. */
-.avatar-stack {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 64px;
-  margin: var(--space-16) 0 var(--space-32);
-}
-
-/* Each 64 px avatar overlaps the next by 16 px. The next one is cut out around it with a 2 px gap, so the stage
-   shows through whatever its colour: the hole is centred on the previous avatar, 16 px before this one's edge. */
-.avatar-stack > * + * {
-  margin-inline-start: calc(-1 * var(--space-16));
-  -webkit-mask-image: radial-gradient(circle at -16px 50%, transparent 34px, #000 34.5px);
-  mask-image: radial-gradient(circle at -16px 50%, transparent 34px, #000 34.5px);
-}
-
-[dir='rtl'] .avatar-stack > * + * {
-  -webkit-mask-image: radial-gradient(circle at 80px 50%, transparent 34px, #000 34.5px);
-  mask-image: radial-gradient(circle at 80px 50%, transparent 34px, #000 34.5px);
-}
-
-.avatar-stack-more {
-  display: inline-grid;
-  place-items: center;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: var(--section);
-  color: var(--text);
-  font-size: var(--fs-body);
-  font-weight: var(--fw-medium);
-}
-
-/* Gift durations (design §11.5): neutral cards side by side, 12 px apart, nothing inside but the words. The 16 px
-   under them hold the lower half of the chosen card's check, its ring included. */
-.gift-cards {
-  display: grid;
-  grid-auto-columns: minmax(0, 1fr);
-  grid-auto-flow: column;
-  gap: var(--space-12);
-  padding-bottom: var(--space-16);
-}
-
-/* Each card is an island (components.css) that takes the emphasis classes. The content is centred, so 12 px at the
-   sides is only clearance; it keeps "Save 1 198 ₽" on one line. 24 px on top keeps "12" 8 px clear of the ribbon's
-   band on the 106 px cards of a 375 pt screen; every card takes it, so the numerals line up. 24 px at the bottom keep
-   the last line 11 px clear of the check's ring. */
-.gift-card {
-  position: relative;
-  isolation: isolate;
+/* Gifting Premium: its two screens take the paywall's build, the hero on the paywall's rhythm over tiles and the
+   docked bar. The block is a column as tall as the viewport under the screen's 16 px top padding, and the bar takes
+   the far end of its sheet: the entry, which is shorter than the viewport, still docks its button. */
+.commerce--gift.tone-premium {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: var(--space-24) var(--space-12);
-  color: var(--text);
-  text-align: center;
-  cursor: pointer;
+  min-height: calc(var(--tg-viewport-stable-height, 100vh) - var(--tg-safe-area-inset-top, 0px) - var(--tg-content-safe-area-inset-top, 0px) - var(--space-16));
 }
 
-/* On the 88 px cards of a 320 pt screen the ribbon's band comes within 4 px of "12"; 8 px more on top keeps it 8 clear. */
-@supports (container-type: inline-size) {
-  .gift-cards {
-    container-type: inline-size;
-  }
-
-  @container (width < 300px) {
-    .gift-card {
-      padding-top: var(--space-32);
-    }
-  }
+.commerce--gift.tone-premium > .commerce-sheet {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
 }
 
-/* Before Safari 16 the screen stands in for the row, which is the screen less the gutters: 16 px a side, 20 on
-   desktop. */
-@supports not (container-type: inline-size) {
-  @media (max-width: 331.98px) {
-    .gift-card {
-      padding-top: var(--space-32);
-    }
-  }
-
-  @media (max-width: 339.98px) {
-    .platform-desktop .gift-card {
-      padding-top: var(--space-32);
-    }
-  }
+.commerce--gift.tone-premium .cta-bar {
+  margin-top: auto;
 }
 
-/* Selection draws no ring (design §11.8). The chosen card lifts a little (components.css .plan-fill), fills its
-   price pill with its tier's opaque fill, which no lift shows through, and hangs a check on its bottom edge: the 22 px
-   disc of Telegram's gift picker (GiftItemComponent.swift, select mode) in the tier's fill or the screen's
-   solid, centred on the edge and cut out of it by a 2 px ring in the page's colour. The top edge belongs to the Best
-   Value tab and the discount ribbon, so selection never meets them. The glyph fills the disc, so it draws 12 px wide,
-   as on the radios. */
-.gift-card-check {
-  position: absolute;
-  bottom: -11px;
-  left: calc(50% - 11px);
-  z-index: 2;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--tier-fill, var(--tone-solid));
-  box-shadow: 0 0 0 2px var(--page);
-  color: #fff;
+/* Nothing runs under the entry's bar, and a line over it would cut the screen's end off as a slab: it drops the pay
+   bar's hairline, as a state screen's bar does. */
+.commerce--gift.tone-premium .pm-picker > .cta-bar {
+  box-shadow: none;
+}
+
+/* The hero: the object's 120 px box 16 under the header, which the screen pads, 16 to the title, 8 to the words,
+   then 20 to the first tile or to the header over it, of which the sheet pads 8. */
+.commerce--gift.tone-premium .hero {
+  padding-top: 0;
+  padding-bottom: var(--space-12);
+}
+
+/* Apple's Title 1 is 28/34, which leaves all that follows 2 px off the grid: here it takes a 36 px line. */
+.platform-ios .commerce--gift.tone-premium .hero-title {
+  line-height: calc(36.005 / 28);
+}
+
+/* The entry's object is Telegram's gift art in the mark's box. The box shows nothing until the file has drawn: the
+   fallback glyph is for a box whose animation cannot play, which holds no canvas (premiumbot-lottie.js). */
+.commerce--gift.tone-premium .lottie:has(> canvas):not(.is-ready) > .lottie-fallback {
   visibility: hidden;
 }
 
-.gift-card-check .icon {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* The server prints the check empty: its glyph is drawn on the disc as a mask. */
-.gift-card-check:empty::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: currentColor;
-  -webkit-mask: url(../img/premiumbot/ui-check.svg) center / contain no-repeat;
-  mask: url(../img/premiumbot/ui-check.svg) center / contain no-repeat;
-}
-
-/* The chosen card is the one whose radio is checked; no script has to mark it (.is-selected). */
-.gift-card.is-selected .gift-card-check,
-.cell-input:checked ~ .gift-card-check {
-  visibility: visible;
-}
-
-/* The check springs in from nothing; with reduced motion it only appears. */
-@media (prefers-reduced-motion: no-preference) {
-  .gift-card-check {
-    transform: scale(0);
-    transition: transform 160ms ease-out, visibility 160ms;
-  }
-
-  .gift-card.is-selected .gift-card-check,
-  .cell-input:checked ~ .gift-card-check {
-    transform: none;
-    transition: transform 200ms var(--fx-spring), visibility 200ms;
-  }
-}
-
-.gift-card:has(.cell-input:focus-visible) {
-  outline: 2px solid var(--tone);
-  outline-offset: 2px;
-}
-
-/* The discount on Telegram's corner ribbon (GiftItemComponent.swift): Premium/GiftRibbon as drawn, 58 px and 2 px past
-   the top and end edges, its text 10 px semibold in white, turned 45° on the band's centre line 22 px from the
-   ribbon's corner. Telegram's gradient becomes the screen's solid on the neutral card, or the tier's fill. */
-.gift-card-ribbon {
-  position: absolute;
-  top: -2px;
-  inset-inline-end: -2px;
-  width: 58px;
-  height: 58px;
-  color: #fff;
-  font-size: 10px;
-  font-weight: var(--fw-strong);
-  line-height: 12px;
-  white-space: nowrap;
-  pointer-events: none;
-}
-
-.gift-card-ribbon::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  /* A quarter darker, so the 10 px white text keeps 4.5:1 on tier 1's #429bd5 too. */
-  background: linear-gradient(rgb(0 0 0 / 0.24), rgb(0 0 0 / 0.24)), var(--tier-fill, var(--tone-solid));
-  -webkit-mask: url(../img/premiumbot/gift-ribbon.svg) center / contain no-repeat;
-  mask: url(../img/premiumbot/gift-ribbon.svg) center / contain no-repeat;
-}
-
-.gift-card-ribbon-text {
-  position: absolute;
-  top: 22px;
-  left: 36px;
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-
-[dir='rtl'] .gift-card-ribbon::before {
-  transform: scaleX(-1);
-}
-
-[dir='rtl'] .gift-card-ribbon-text {
-  left: 22px;
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-.gift-card-count {
-  font-family: var(--font-rounded);
-  font-size: var(--fs-num-l);
-  font-weight: var(--fw-num);
-  line-height: var(--lh-num-l);
-}
-
-/* Kept inside the card: a word longer than the card breaks rather than run into the next card. */
-.gift-card-unit {
-  max-width: 100%;
+/* A duration is the paywall's plan tile (components.css). What it has and a plan has not is its saving in money,
+   shown: the caption under its name, on a caption's one line and in a caption's ink, as the tile's one hue belongs
+   to its pill and its price. */
+.commerce--gift.tone-premium .cell--plan .plan-saving {
   color: var(--secondary-text);
-  font-size: var(--fs-small);
+  font-weight: var(--fw-caption);
   line-height: var(--lh-small);
-  overflow-wrap: break-word;
-  overflow-wrap: anywhere;
-}
-
-/* Telegram's price pill: the ink on its 12% tint, filled under white on the chosen card; the tier's ink, tint and fill
-   in the graded arm, else the screen's. 28 px tall with 12 px sides, the 4 px grid's nearest to Telegram's 30 and 9.
-   One weight in both states, so nothing reflows. */
-.gift-card-price {
-  display: inline-flex;
-  align-items: center;
-  height: 28px;
-  margin-top: var(--space-12);
-  padding: 0 var(--space-12);
-  border-radius: 14px;
-  background: var(--tier-tint, var(--tone-tint));
-  color: var(--tier-ink, var(--tone-ink));
-  font-size: var(--fs-sub);
-  font-weight: var(--fw-strong);
   font-variant-numeric: tabular-nums;
-  line-height: var(--lh-sub);
   white-space: nowrap;
-  transition: background-color 160ms ease-out, color 160ms ease-out;
 }
 
-.gift-card.is-selected .gift-card-price,
-.cell-input:checked ~ .gift-card-price {
-  background: var(--tier-fill, var(--tone-solid));
-  color: #fff;
+/* The recipients follow the durations at 24 in place of a section's 32, and the last tile keeps the 12 px a whole
+   tile keeps clear of the bar: on a phone with a home indicator one recipient then fits the first screen with
+   nothing to scroll, its tile 14 clear of the bar, and a second one starts under the bar. */
+.commerce--gift.tone-premium .plans {
+  margin-bottom: var(--space-24);
 }
 
-/* A price that cannot keep 4 px inside its card's sides gives up, the whole row at once so the pills stay even
-   (gift-cards.ts keepPrices): its 12 px sides for 8; then its type for the 13/16 step of design §11.4 (12/16 on
-   Android and desktop); then its one line: the symbol and the amount on lines of their own, 16 px each, the pill 40 px
-   tall. */
-.gift-cards:is(.price-sides, .price-type, .price-lines) .gift-card-price {
-  padding: 0 var(--space-8);
+.commerce--gift.tone-premium .section:has(+ .cta-bar) {
+  margin-bottom: var(--space-12);
 }
 
-.gift-cards:is(.price-type, .price-lines) .gift-card-price {
-  font-size: var(--fs-caption);
-  line-height: var(--lh-caption);
+/* A recipient's tile is built as a row with an icon tile is: the avatar takes that tile's 32 px box, so the names
+   stand on the line the durations' names start on. */
+.commerce--gift.tone-premium .cell--peer {
+  --avatar-size: var(--tile-box);
 }
 
-.gift-cards.price-lines .gift-card-price {
-  flex-direction: column;
-  height: auto;
-  padding: var(--space-4) var(--space-8);
+/* At that size the initials are 13 px: semibold keeps them whole on the palette's light discs. */
+.commerce--gift.tone-premium .cell--peer .avatar {
+  font-weight: var(--fw-strong);
 }
 
-/* "Save 353.400 ₫" on one line where the card holds it; else the amount takes the next line, whole (amountValue). */
-.gift-card-saving {
-  max-width: 100%;
-  margin-top: var(--space-4);
-  font-size: var(--fs-small);
-  line-height: var(--lh-small);
-  overflow-wrap: break-word;
-  overflow-wrap: anywhere;
+/* Where the client's picker stays silent the script offers the bot in the sheet, under the row it could not serve
+   (premiumbot.js offerBotInPage): a tile of the row's build, 16 under it. */
+.commerce--gift.tone-premium .pm-picker-legacy {
+  margin: calc(-1 * var(--space-16)) var(--section-inset) var(--section-gap);
 }
 
-/* A Save line whose amount is wider than the card's content box, as LBP's 1,225,000 with its symbol is, runs out to
-   the pills' 4 px inset: the card's 12 px sides less 4, 8 px a side (gift-cards.ts keepPrices). */
-.gift-card-saving.is-wide {
-  max-width: calc(100% + 2 * var(--space-8));
-  margin-inline: calc(-1 * var(--space-8));
+.commerce--gift.tone-premium .pm-picker-legacy .cell {
+  min-height: 52px;
 }
 
-/* The Best Value tab's upper half needs room under the section header. */
-.gift-cards.has-best-value {
-  padding-top: var(--space-8);
-}
-
-/* On a narrow card the Best Value tab sits in the middle of the top edge, inside the card: one wider than its card
-   shows its sparkle alone (gift-cards.ts keepTab). */
-.gift-card .plan-tab {
-  inset-inline: 0;
-  width: max-content;
-  margin-inline: auto;
+.commerce--gift.tone-premium .pm-picker-legacy .cell-title {
+  font-weight: var(--fw-title);
 }
 
 /* Tile sections: the tiles are the islands, straight on the page; the section's body is no surface of its own. */
@@ -327,40 +130,113 @@
   box-shadow: none;
 }
 
-/* Nor a rim (fx.css): on its square box it would draw an outline round the tiles. */
-.section--tiles > .section-body.island::after {
-  content: none;
+/* The Stars screens take the paywall's hero: the golden star 16 px under the header, 16 to the title, 8 to the
+   words, then 20 to what follows, of which the sheet under the hero pads 8. Gold is their one hue. */
+.commerce.tone-stars .hero {
+  padding-top: 0;
+  padding-bottom: var(--space-12);
 }
 
-/* The list, the stars_layout control: one card per pack, the cluster in a 40 px lead, the
-   amount 17/20 medium, the price at the end. Show More starts under the labels. */
-.section--pack-rows :is(.cell.has-tile, .cell--action) {
-  --sep-inset: calc(var(--space-16) + var(--avatar) + var(--space-12));
+/* Apple's Title 1 is 28/34, which leaves all that follows 2 px off the grid: here it takes a 36 px line. */
+.platform-ios .commerce.tone-stars .hero-title {
+  line-height: calc(36.005 / 28);
 }
 
-.section--pack-rows .cell--action {
-  padding-inline-start: var(--sep-inset);
+/* The balance is the screen's value where another screen has its title: the figure in the title's size and weight,
+   in the values' gold and with the title's glow in that gold. Its star stands 4 px before it in a box one figure
+   size square, of which the star fills the height of a digit. */
+.commerce--stars .hero-title {
+  --title-gradient: none;
+  --title-glow: drop-shadow(0 0 10px rgba(255, 196, 61, 0.3));
+  color: var(--value-gold);
+  -webkit-text-fill-color: currentColor;
 }
 
-.section--pack-rows .cell-title {
-  font-weight: var(--fw-medium);
+.hero-title > .stars--big {
+  gap: var(--space-4);
+  font: inherit;
+  letter-spacing: inherit;
 }
 
-/* The popular pack's tab, on the first card, needs room under the section header. */
-.section--pack-rows.has-top-tab .section-body {
-  padding-top: var(--space-8);
+.hero-title > .stars--big .star-glyph {
+  width: 1em;
+  height: 1em;
 }
 
-/* Stars packs (design §11.5): two columns of island tiles, a small gold cluster, the amount, the price. */
+/* On Buy Stars the tile that leads to gifting is one more tile in the packs' stack, 16 px under their last row. */
+.commerce--stars .section--tiles:not(:last-child) {
+  margin-bottom: var(--space-16);
+}
+
+/* Gifting Stars: the block is a column as tall as the viewport under the screen's 16 px top padding, and the docked
+   bar takes the far end of its sheet, so the entry, which is shorter than the viewport, still docks its button. */
+.commerce--gift.tone-stars {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(var(--tg-viewport-stable-height, 100vh) - var(--tg-safe-area-inset-top, 0px) - var(--tg-content-safe-area-inset-top, 0px) - var(--space-16));
+}
+
+.commerce--gift.tone-stars > .commerce-sheet {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+
+.commerce--gift.tone-stars .cta-bar {
+  margin-top: auto;
+}
+
+/* The recipient's tile is built as a row with an icon tile is: the avatar takes that tile's 32 px box, so the name
+   stands on the line Choose Recipient stood on. */
+.commerce--gift.tone-stars .cell--peer {
+  --avatar-size: var(--tile-box);
+}
+
+/* The packs' header stands 36 px under the recipient's tile, a tile's 16 and a header's 20: on a phone the first
+   screen then ends after the third row of packs, and the fourth starts under it, not on its last line. */
+.commerce--gift.tone-stars .section--tiles + .section--tiles {
+  margin-top: var(--space-4);
+}
+
+/* Where the client's picker stays silent the page script offers the bot under the row: a line of words, then its
+   link, which stands 16 px under them as one more tile of the row's build, inside the gutters. */
+.commerce--gift.tone-stars .pm-picker-legacy {
+  margin: calc(-1 * var(--space-16)) var(--section-inset) var(--section-gap);
+}
+
+.commerce--gift.tone-stars .pm-picker-legacy .cell {
+  min-height: 52px;
+}
+
+.commerce--gift.tone-stars .pm-picker-legacy .cell-title {
+  font-weight: var(--fw-title);
+}
+
+/* Stars packs: two columns of tiles 12 px apart, each exactly as tall as its three lines with 12 px over and under
+   them, 88 in all: the gold cluster, the amount, and under it the price. The amount is the tile's value: how many
+   Stars, in the value's size and gold, and the word after the figure a caption. The price is a caption too, in the
+   readable grey: what a pack costs is read second. */
 .pack-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-12);
 }
 
-/* The popular pack's tab, in the first row, needs room under the section header. */
+/* The popular pack's pill, in the first row, needs room under the section header. */
 .pack-grid.has-top-tab {
   padding-top: var(--space-8);
+}
+
+/* A press answers by tone, as a plan tile's does on the paywall, and nothing scales: the tile takes its stronger
+   surface at once and gives it back softly. */
+:is(.pack-tile, .pack-more).fx-press {
+  transition: background-color 320ms var(--fx-out);
+}
+
+:is(.pack-tile, .pack-more).fx-press.is-pressed {
+  --fx-s: 1;
+  background-color: var(--press);
+  transition-duration: 80ms;
 }
 
 .pack-tile {
@@ -368,38 +244,81 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: var(--space-16);
+  padding: var(--space-12) var(--space-16);
   color: var(--text);
   text-align: start;
 }
 
-.pack-tile .star-cluster {
-  margin-bottom: var(--space-12);
-}
-
+/* The figure and its word sit on one baseline; a word with no room beside a long figure goes under it. */
 .pack-count {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: var(--space-4);
   max-width: 100%;
-  overflow-wrap: break-word;
-  overflow-wrap: anywhere;
-  font-size: var(--fs-body);
-  font-weight: var(--fw-medium);
-  line-height: var(--lh-body);
-}
-
-.pack-price {
-  color: var(--secondary-text);
-  font-size: var(--fs-sub);
-  line-height: var(--lh-sub);
+  color: var(--value-gold);
+  font-size: var(--fs-value);
+  font-weight: 700;
+  line-height: var(--lh-value);
+  letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
 }
 
+.pack-count > small {
+  color: var(--secondary-text);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-caption);
+  line-height: var(--lh-small);
+  letter-spacing: 0;
+}
+
+/* A price too long for its tile breaks onto a second line rather than run out of it. */
+.pack-price {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
+  color: var(--secondary-text);
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  font-variant-numeric: tabular-nums;
+}
+
+/* The popular pack is the recommendation, and gold says so, as on the plan tile that is recommended and chosen: the
+   white wash over the surface and the 1.5 px ring in place of the hairline, and the pill on the top edge, a full
+   pill tall, half of it over the edge, at the tile's end: the start holds the cluster, right under the edge. */
+.pack-tile.plan-emphasis--strong {
+  background-image: linear-gradient(var(--chosen-veil), var(--chosen-veil));
+  box-shadow: inset 0 0 0 1.5px var(--value-gold);
+}
+
+.pack-tile > .plan-tab {
+  top: calc(var(--fs-badge) * var(--lh-pill) / -2);
+  inset-inline: auto var(--space-12);
+  height: calc(var(--fs-badge) * var(--lh-pill));
+  background: var(--value-gold);
+  color: var(--gold-ink);
+}
+
+/* The row the pill stands over keeps 20 px to the row above it, so the pill clears that row by 8: both of its
+   tiles start 8 px lower. Without :has() a tile before the popular one keeps the grid's 12. */
+.pack-tile.plan-emphasis--strong,
+.pack-tile.plan-emphasis--strong:nth-child(odd) + .pack-tile {
+  margin-top: var(--space-8);
+}
+
+.pack-tile:nth-child(odd):has(+ .plan-emphasis--strong) {
+  margin-top: var(--space-8);
+}
+
+/* While a pack's invoice opens, the spinner stands on the price's line, in its place: 20 px on a 16 px line, so 2 px
+   past it above and below. */
 .pack-busy {
   position: absolute;
   inset-inline-start: var(--space-16);
-  bottom: var(--space-16);
+  bottom: calc(var(--space-12) - 2px);
   width: 20px;
   height: 20px;
-  color: var(--hint);
+  color: var(--secondary-text);
 }
 
 .pack-tile:not([aria-busy='true']) .pack-busy {
@@ -410,12 +329,15 @@
   visibility: hidden;
 }
 
+/* What opens the rest of the packs is a tile of its own across both columns, as tall as a one-line tile, its label
+   in the title weight and the blue of an action. */
 .pack-more {
   grid-column: 1 / -1;
-  min-height: var(--cell-min);
+  min-height: 52px;
   padding: 0 var(--space-16);
   color: var(--accent);
   font-size: var(--fs-body);
+  font-weight: var(--fw-title);
   line-height: var(--lh-body);
   text-align: center;
 }
@@ -425,43 +347,285 @@
   background-color: var(--hover-bg);
 }
 
-/* Giveaways: all the winners chips fit the row; a longer server list still scrolls sideways. */
-.commerce .chips {
+/* Giveaways. The switch between the prizes (.segmented, two links) and the winners count (.chips, radios) are one
+   control: a glass track 40 px tall with the tiles' hairline and the choices side by side in it, each a capsule 32 px
+   tall, 4 px inside the track. The chosen one is the pay button's capsule, its blues under the navy label, a layer
+   that fades in under the label; the others keep a white label on the glass. A choice is its whole column of the
+   track, 40 px under the finger. All the winners counts fit the row, and a longer server list scrolls sideways. A
+   switch with one segment is no choice and is not shown. */
+:is(.segmented, .chips) {
   display: grid;
   grid-auto-columns: minmax(44px, 1fr);
   grid-auto-flow: column;
-  gap: var(--space-4);
-  padding: var(--space-8);
+  padding-inline: var(--space-4);
+  border-radius: 20px;
+  background-color: var(--island-surface);
+  box-shadow: var(--island-shadow);
 }
 
-.commerce .chip {
+.segmented {
+  margin: 0 var(--gutter) var(--space-16);
+}
+
+.segmented:has(> .segment:only-child) {
+  display: none;
+}
+
+.chips {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.chips::-webkit-scrollbar {
+  display: none;
+}
+
+:is(.segment, .chip) {
+  position: relative;
   display: block;
+  padding-block: var(--space-4);
+  cursor: pointer;
 }
 
-.commerce .chip-face {
-  width: 100%;
-  min-width: 0;
-  padding: 0;
+:is(.segment-face, .chip-face) {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: 32px;
+  padding: 0 var(--space-12);
+  border-radius: 16px;
+  font-size: var(--fs-sub);
+  font-weight: var(--fw-strong);
+  line-height: var(--lh-sub);
+  font-variant-numeric: tabular-nums;
+  transition: color 160ms ease-out;
 }
 
-/* The chosen chip is the screen's tone under a veil: Telegram's own button blues carry white at 2.7:1 to 3.5:1, and
-   the chip's number is small. This much darker holds 4.5:1 or better on every client's theme. */
-.commerce .cell-input:checked + .chip-face {
-  background-image: linear-gradient(rgb(0 0 0 / 0.28), rgb(0 0 0 / 0.28));
+/* The pay button's fill and the light inside its top edge (screens-subscription.css .cta-button). */
+:is(.segment-face, .chip-face)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(rgba(108, 199, 255, 0.6), rgba(30, 124, 255, 0.6)) var(--tone-solid);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  opacity: 0;
+  transition: opacity 160ms ease-out;
 }
 
-
-/* The picker return has no flow yet, so its failure sits in the middle of the page; at a grid step where CSS can
-   round, as on the full-screen stages. */
-.commerce--picker .result {
-  justify-content: center;
-  min-height: calc(var(--tg-viewport-stable-height, 100vh) - 64px);
+/* A segment that is a link to its page has no input: it carries the state as .is-active and takes the focus itself. */
+.segment.is-active .segment-face,
+.cell-input:checked + :is(.segment-face, .chip-face) {
+  color: var(--tone-solid-ink);
 }
 
-@supports (padding-top: round(down, 100vh, 8px)) {
-  .commerce--picker .result {
-    justify-content: flex-start;
-    min-height: 0;
-    padding-top: max(var(--space-8), round(down, calc(var(--tg-viewport-stable-height, 100vh) / 2 - 176px), 8px));
+.segment.is-active .segment-face::before,
+.cell-input:checked + :is(.segment-face, .chip-face)::before {
+  opacity: 1;
+}
+
+/* On a giveaway the switch's capsule wears its prize: Premium's blue to violet, its star's own colours, under the
+   navy label, or the Stars' gold under the ink that stands on gold. The two fills are named once, since the capsule
+   that slides from one prize to the other changes from one fill to the other on its way (fx.css .segment-thumb). */
+.commerce--giveaway {
+  --prize-premium: linear-gradient(100deg, #55a5ff, #8a80ff 60%, #a767ff);
+  --prize-stars: linear-gradient(#ffd964, #f6a51d);
+}
+
+.commerce--giveaway-premium .segment.is-active .segment-face::before {
+  background: var(--prize-premium);
+}
+
+.commerce--giveaway-stars .segment.is-active .segment-face::before {
+  background: var(--prize-stars);
+}
+
+.commerce--giveaway-stars .segment.is-active .segment-face {
+  color: var(--gold-ink);
+}
+
+.segment:focus-visible .segment-face,
+.cell-input:focus-visible + :is(.segment-face, .chip-face) {
+  outline: 2px solid var(--tone-solid);
+  outline-offset: 2px;
+}
+
+.platform-desktop .segment:not(.is-active):hover .segment-face,
+.platform-desktop .chip:hover .cell-input:not(:checked) + .chip-face {
+  background-color: var(--pressed);
+}
+
+/* The giveaway screens wear the paywall's hero (premiumbot.css .home--paywall): the object 16 px under the header, 16
+   to the title on its 36 px line, 8 to the words, then 20 to the switch, of which the sheet pads 8. A header is a
+   caption on every platform, as written, on the line a tile's content starts on, 8 px over its tiles; a group stands
+   16 px under the switch or the tile before it, the step between tiles. */
+.commerce--giveaway .hero {
+  padding-top: 0;
+  padding-bottom: var(--space-12);
+}
+
+.platform-ios .commerce--giveaway .hero-title {
+  line-height: calc(36.005 / 28);
+}
+
+.commerce--giveaway .section {
+  margin-bottom: var(--space-16);
+}
+
+/* The chosen channel is a fact in a tile of its own, 60 px tall. Its avatar takes an icon tile's box, so its name
+   starts on the line the names of the tiles around it start on. */
+.commerce--giveaway .cell--peer {
+  --avatar-size: var(--tile-box);
+}
+
+/* An option is the paywall's plan tile. The page script writes its caption and its price: each keeps its line until
+   then, so a tile has its height and its baseline from the first frame. */
+.commerce--giveaway .plan-total {
+  min-height: calc(var(--fs-small) * var(--lh-small));
+}
+
+.commerce--giveaway .plan-rate:empty::before {
+  content: '\200b';
+}
+
+/* An option's value is what the host gives away, a duration or an amount of Stars. Its price is read second: a size
+   under the body in the caption grey, at the tile's end on the name's baseline. The pay button states the total. A
+   tile of one line is 48 tall, its line on the centre. */
+.commerce--giveaway .cell--plan {
+  min-height: 48px;
+  align-content: center;
+}
+
+.commerce--giveaway .plan-rate-line {
+  height: auto;
+}
+
+.commerce--giveaway .plan-rate {
+  color: var(--secondary-text);
+  font-size: var(--fs-sub);
+  font-weight: var(--fw-caption);
+  line-height: var(--lh-sub);
+  letter-spacing: 0;
+}
+
+/* Stars take gold, their one hue: a Stars option's amount, as on a pack's tile, its chosen ring and disc, as on a
+   recommended plan, and each winner's share in the row of facts under them. The amount is the figure in the
+   value's size with the word after it a caption. */
+.commerce--giveaway-stars .cell--plan {
+  --plan-hue: var(--value-gold);
+  --plan-disc: var(--disc-gold);
+  --plan-check: var(--gold-ink);
+}
+
+.commerce--giveaway-stars .cell--plan .cell-title {
+  align-items: baseline;
+  column-gap: var(--space-4);
+  color: var(--value-gold);
+  font-size: var(--fs-value);
+  font-weight: 700;
+  line-height: var(--lh-value);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.commerce--giveaway-stars .cell--plan .cell-title > small {
+  color: var(--secondary-text);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-caption);
+  line-height: var(--lh-small);
+  letter-spacing: 0;
+}
+
+.commerce--giveaway-stars .pm-gw-fixed .cell-value {
+  color: var(--value-gold);
+  font-weight: var(--fw-title);
+}
+
+/* The line under the winners track says what the choice gives: a fact to read, in the caption grey. For a lone count
+   the script hides it, and its box with it, and states the count as a row of facts, which it builds without the
+   island's class: a tile all the same. */
+.giveaway-boosts {
+  color: var(--secondary-text);
+}
+
+.commerce--giveaway .section-footer:has(> .js-gw-footer[hidden]) {
+  display: none;
+}
+
+.pm-gw-fixed {
+  border-radius: var(--island-radius);
+  background-color: var(--island-surface);
+  box-shadow: var(--island-shadow);
+}
+
+/* The entry's notes. The first, on who can host, is a caption under the tiles, and the section of tiles gives up its
+   foot to what follows it. Where the client's picker stays silent the script puts its line under that note, a message
+   to read and so in the caption grey, and its link comes next, one more tile. The second note says what follows the
+   payment and is the screen's floor: at the foot of the first screen, on the captions' own line from the left as
+   every note on this screen is, and ending where it ends under the pay button once a channel is chosen, 12 px over
+   the screen's end or on the safe area's line (screens-subscription.css .cta-legal). */
+.commerce--giveaway .section:has(+ .section > .section-footer:first-child) {
+  margin-bottom: 0;
+}
+
+.commerce--giveaway .pm-picker-status {
+  color: var(--secondary-text);
+}
+
+.commerce--giveaway .pm-picker-legacy {
+  margin: var(--space-16) var(--section-inset) 0;
+}
+
+.commerce--giveaway .pm-picker-legacy .cell {
+  min-height: 52px;
+}
+
+.commerce--giveaway .pm-picker-legacy .cell-title {
+  font-weight: var(--fw-title);
+}
+
+.commerce--giveaway .pm-picker > .section:has(> .section-footer:first-child) {
+  order: 1;
+  margin-top: auto;
+}
+
+.commerce--giveaway .pm-picker > .section > .section-footer:first-child {
+  line-height: var(--lh-small);
+}
+
+.screen:has(> .commerce--giveaway > .pm-picker) {
+  --page-end: max(0px, var(--space-12) - var(--tg-safe-area-inset-bottom, 0px) - var(--tg-content-safe-area-inset-bottom, 0px));
+}
+
+/* The block is a column as tall as the viewport less the screen's own paddings (base.css .screen): 16 px at the top
+   and its foot, which is none under a pay bar. So an options page shorter than the screen still docks its bar at the
+   bottom, and the entry's floor note stands at the foot of the screen. The sheet takes what the stage leaves. */
+.commerce--giveaway {
+  --gw-foot: calc(var(--tg-safe-area-inset-bottom, 0px) + var(--tg-content-safe-area-inset-bottom, 0px) + var(--page-end, var(--space-16)) + var(--main-total-room, 0px));
+  display: flex;
+  flex-direction: column;
+  min-height: calc(var(--tg-viewport-stable-height, 100vh) - var(--tg-safe-area-inset-top, 0px) - var(--tg-content-safe-area-inset-top, 0px) - var(--space-16) - var(--gw-foot));
+}
+
+@supports (padding: round(up, 1px, 4px)) {
+  .commerce--giveaway {
+    --gw-foot: round(up, calc(var(--tg-safe-area-inset-bottom, 0px) + var(--tg-content-safe-area-inset-bottom, 0px) + var(--page-end, var(--space-16)) + var(--main-total-room, 0px)), var(--space-4));
   }
 }
+
+.commerce--giveaway:has(> .commerce-sheet > .cta-bar) {
+  --gw-foot: 0px;
+}
+
+.commerce--giveaway > .commerce-sheet {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.commerce--giveaway .cta-bar {
+  margin-top: auto;
+}
+
