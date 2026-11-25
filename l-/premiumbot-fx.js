@@ -1,12 +1,11 @@
 /* Premium Bot Mini App fx runtime: Telegram's StarParticlesView particle field (src/fx/particles.ts, stage.ts), the
-   page's light field and fireflies (src/fx/field.ts, fireflies.ts), the shared breath, the neon aura and Best Value's
-   glint (src/fx/light.ts), iOS success confetti and the results burst (src/fx/confetti.ts, burst.ts),
-   ported to plain classic JavaScript, no build step. */
+   page's light field (src/fx/field.ts), iOS success confetti and the results burst (src/fx/confetti.ts, burst.ts),
+   the light on the best plan and the pay button's glint, the wall of what a payment unlocked,
+   in plain classic JavaScript, no build step. */
 window.PremiumFx = (function() {
   'use strict';
 
   var stages = [];
-  var auras = [];
   var raf = 0;
   var last = 0;
   var gate = null;
@@ -73,12 +72,22 @@ window.PremiumFx = (function() {
 
   // ===== Particle field (Telegram Android's StarParticlesView, iOS colours and intro burst) =====
 
+  // Premium: white with the 3D star's own blue and violet (premiumbot-3d.js GRADIENT.star). A particle takes any entry
+  // with equal chance, so the repeats are the mix: three in seven white, three blue, one violet. A paid Stars result
+  // has the golds with two whites in five among them.
   var FIELD_COLORS = {
     stars: ['#fdd219', '#f9b004', '#f09903'],
-    premium: ['#6a94ff', '#9472fd', '#e26bd3']
+    starsPaid: ['#fdd219', '#f9b004', '#f09903', '#ffffff', '#ffffff'],
+    premium: ['#ffffff', '#ffffff', '#ffffff', '#55a5ff', '#55a5ff', '#55a5ff', '#a767ff']
   };
   var SPRITE_SIZES = [4, 12, 10];
   var STRIDE = 8;
+  // The field gathers round the mark, in mark sizes from its centre: a particle is born within REACH, more often near
+  // the mark than far from it (GATHER), and has faded out by FAR, its longest drift further out, which is inside the
+  // edges of a 360 px screen around the 120 px mark.
+  var REACH = 1.2;
+  var FAR = 1.45;
+  var GATHER = 1.7;
   // A particle's drift in px a ms: StarParticlesView's 4 dp in 660 ms.
   var DRIFT = 4 / 660;
   var sprites = {};
@@ -188,20 +197,30 @@ window.PremiumFx = (function() {
     var inside = function(x, y) {
       return cx + x > -15 && cx + x < w + 15 && cy + y > -15 && cy + y < h + 15;
     };
+    // No other particle within 12 px either way: particles born side by side read as one smudge.
+    var apart = function(o, x, y) {
+      for (var j = 0; j < n * STRIDE; j += STRIDE) {
+        if (j !== o && Math.abs(p[j] - x) < 12 && Math.abs(p[j + 1] - y) < 12) {
+          return false;
+        }
+      }
+      return true;
+    };
     var spawn = function(o) {
       var x = 0;
       var y = 0;
-      // A clipped canvas loses spawns past its edge: a few tries keep the count on screen.
-      for (var tries = 0; tries < 4; tries++) {
+      // A clipped canvas loses spawns past its edge, and a crowded spot makes a clump: a few tries keep the count on
+      // screen and the field even.
+      for (var tries = 0; tries < 6; tries++) {
         var a = rand() * Math.PI * 2;
         var c = Math.cos(a);
         var s = Math.sin(a);
         // Nothing inside the mark's circle once y is squashed.
         var near = (0.55 * mark) / Math.hypot(c, 0.6 * s);
-        var r = near + rand() * Math.max(0, w / 2 - near);
+        var r = near + Math.pow(rand(), GATHER) * Math.max(0, Math.min(w / 2, REACH * mark) - near);
         x = r * c;
         y = 0.6 * r * s;
-        if (inside(x, y)) {
+        if (inside(x, y) && apart(o, x, y)) {
           break;
         }
       }
@@ -262,13 +281,20 @@ window.PremiumFx = (function() {
         return;
       }
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      var far = FAR * mark;
       for (var o = 0; o < n * STRIDE; o += STRIDE) {
         var x = cx + p[o];
         var y = cy + p[o + 1];
         var age = p[o + 4];
         var rest = p[o + 5] - age;
         var out = rest < 200 ? clamp(1 - rest / 150, 0, 1) : 0;
-        var alpha = p[o + 6] * (1 - out) * Math.min(1, y / 12, (h - y) / 12, x / 24, (w - x) / 24);
+        // Full at the mark's circle and gone at FAR, whichever way the particle lies. Distances are spawn()'s, with y
+        // unsquashed by 0.6, where the mark's circle is `edge` away in this particle's direction.
+        var d = Math.hypot(p[o], p[o + 1] / 0.6);
+        var edge = (0.55 * mark * d) / (Math.hypot(p[o], p[o + 1]) || 1);
+        var fade = clamp((far - d) / (far - edge), 0, 1);
+        // The top 12 px stay empty: under a header, a particle on the page's first rows reads as a speck on its edge.
+        var alpha = p[o + 6] * (1 - out) * fade * Math.min(1, (y - 12) / 12, (h - y) / 12, x / 24, (w - x) / 24);
         var image = images[p[o + 7]];
         if (!image) {
           continue;
@@ -366,7 +392,7 @@ window.PremiumFx = (function() {
   // Particles for this client: Telegram Android names its performance class in the user agent.
   function particleCount(density) {
     var m = /Telegram-Android\/\S+ \([^)]*; (LOW|AVERAGE|HIGH)\)/.exec(navigator.userAgent);
-    return Math.max(1, Math.round((m ? (m[1] === 'HIGH' ? 120 : m[1] === 'AVERAGE' ? 80 : 40) : 100) * density));
+    return Math.max(1, Math.round((m ? (m[1] === 'HIGH' ? 60 : m[1] === 'AVERAGE' ? 40 : 20) : 50) * density));
   }
 
   // ===== Stages (fx/stage.ts): a hero's particle field and, on a full-screen stage, its centred content =====
@@ -377,8 +403,8 @@ window.PremiumFx = (function() {
   var STILL_COUNT = 40;
   // What a stage centres by its box, not its contents: the mark and hero media.
   var MEDIA = '.pm-mark, .hero-media, .result-media';
-  // Telegram's own colour art for a moment floats in the field; a plain glyph gets none.
-  var HERO_ART = '[data-lottie-url*="premium-gift"], [data-lottie-url*="giveaway-results"]';
+  // Telegram's own colour art for a moment or a wait floats in the field; a plain glyph gets none.
+  var HERO_ART = '[data-lottie-url*="premium-gift"], [data-lottie-url*="giveaway-results"], [data-lottie-url*="/empty."]';
   // A page change ends one page's stages and mounts the next's in one task. A field waits this long for the next
   // stage to take it on, its canvas where it was, so its particles go on through the change; not taken, it goes.
   var FIELD_HOLD_MS = 2000;
@@ -412,21 +438,13 @@ window.PremiumFx = (function() {
       seen: typeof IntersectionObserver !== 'function',
       observers: []
     };
-    // A plain glyph, such as a pending payment's, gets neither field nor glow (fx.css .fx-stage--bare).
+    // A plain glyph, such as an error's sign, gets neither field nor glow (fx.css .fx-stage--bare).
     stage.classList.toggle('fx-stage--bare', !anchor);
-    // The stage's own breath is printed lit and starts with its page: on a clock that runs on, it starts over in its
-    // place.
-    if (breathHeld && stage.classList.contains('neon-lit')) {
-      stage.classList.remove('neon-lit');
-      stage.getBoundingClientRect();
-      stage.style.setProperty('--neon-delay', breathDelay(breathHeld));
-      stage.classList.add('neon-lit');
-    }
     if (anchor) {
       // The mark's own gradient: gold around the golden star, the Premium star's colours elsewhere.
       var golden = anchor.classList.contains('pm-mark--stars') || stage.classList.contains('fx-stage--stars');
       var density = stage.classList.contains('fx-stage--compact') ? COMPACT_DENSITY : 1;
-      var colors = golden ? FIELD_COLORS.stars : FIELD_COLORS.premium;
+      var colors = !golden ? FIELD_COLORS.premium : stage.classList.contains('fx-stage--result') ? FIELD_COLORS.starsPaid : FIELD_COLORS.stars;
       var count = particleCount(density);
       var taken = heldFields.shift();
       entry.field = taken || particleField(colors, count);
@@ -511,160 +529,17 @@ window.PremiumFx = (function() {
       var top = Math.max(0, cy - size);
       var dpr = Math.min(window.devicePixelRatio || 1, 2);
       entry.field.canvas.style.top = top + 'px';
-      entry.field.layout(stage.offsetWidth, Math.max(0, Math.min(stage.offsetHeight, cy + size) - top), cx, cy - top, size, dpr);
+      // Round a mark larger than the paywall's the field keeps the paywall's reach: by the mark's size it would run to
+      // the screen's edges and thin out to dust.
+      entry.field.layout(stage.offsetWidth, Math.max(0, Math.min(stage.offsetHeight, cy + size) - top), cx, cy - top, Math.min(size, 120), dpr);
       if (reducedMotion()) {
         entry.field.still(STILL_COUNT);
       }
     }
   }
 
-  // ===== Light (fx/light.ts): the sources breathe on one 8 s clock, lit only near the screen while the page is
-  // visible and Telegram has the app active. fx.css animates .neon-lit alone; --neon-delay puts a source in phase. =====
-
-  var BREATH_MS = 8000;
-  var sources = [];
-  var breathing = [];
-  var breathOrigin = 0;
-  // The time a page ended, until the next frame: a page change ends one page and mounts the next in one task, and the
-  // clock stands still for it, so the next page's lights come on as one where the last page's stood, not at the peak.
-  var breathHeld = 0;
-  var nearObserver = null;
-
-  // The animation delay that puts a source lit at `now` on the shared clock.
-  function breathDelay(now) {
-    return -Math.round((now - breathOrigin) % BREATH_MS) + 'ms';
-  }
-
-  function breathNow() {
-    return breathHeld || performance.now();
-  }
-
-  // Whether any source breathes, so the clock runs.
-  function breathes() {
-    breathing = breathing.filter(function(other) {
-      return other.isConnected && other.classList.contains('neon-lit');
-    });
-    return breathing.length > 0;
-  }
-
-  function setLit(source, on) {
-    var el = source.el;
-    var lit = on && appActive && document.visibilityState !== 'hidden' && !reducedMotion();
-    if (lit === el.classList.contains('neon-lit')) {
-      return;
-    }
-    if (lit) {
-      var now = breathNow();
-      // With none breathing, as at launch or back from the background, the clock starts at the peak, where every
-      // source's breath meets its still: lit on screen, nothing steps.
-      if (!breathes() && !breathHeld) {
-        breathOrigin = now;
-      }
-      el.style.setProperty('--neon-delay', breathDelay(now));
-      breathing.push(el);
-    }
-    el.classList.toggle('neon-lit', lit);
-    if (source.onLit) {
-      source.onLit(lit);
-    }
-  }
-
-  function lightSource(el, onLit) {
-    var source = { el: el, near: false, onLit: onLit || null };
-    sources.push(source);
-    if (nearObserver) {
-      nearObserver.observe(el);
-    }
-    return source;
-  }
-
-  function dropSource(source) {
-    var i = sources.indexOf(source);
-    if (i < 0) {
-      return;
-    }
-    sources.splice(i, 1);
-    if (nearObserver) {
-      nearObserver.unobserve(source.el);
-    }
-    setLit(source, false);
-  }
-
-  function refreshLight() {
-    for (var i = 0; i < sources.length; i++) {
-      setLit(sources[i], sources[i].near);
-    }
-  }
-
-  // A source laid out anew lights at once if `box` is within the observer's half screen: the observer reports only
-  // after the frame paints, which would show the still out of phase.
-  function lightNear(source, box) {
-    var w = window.innerWidth;
-    var h = window.innerHeight;
-    var b = box || source.el.getBoundingClientRect();
-    source.near = b.width > 0 && b.bottom >= -h / 2 && b.top <= h * 1.5 && b.right >= -w / 2 && b.left <= w * 1.5;
-    setLit(source, source.near);
-  }
-
-  function watchNear() {
-    if (typeof IntersectionObserver !== 'function') {
-      return null;
-    }
-    var report = function(entries) {
-      for (var i = 0; i < entries.length; i++) {
-        for (var j = 0; j < sources.length; j++) {
-          if (sources[j].el === entries[i].target) {
-            sources[j].near = !!entries[i].isIntersecting;
-            setLit(sources[j], sources[j].near);
-          }
-        }
-      }
-    };
-    // Half a screen ahead, so a source scrolled to is already in phase. The document as root keeps the margin inside
-    // an iframe; an engine that takes no document root keeps the implicit one.
-    try {
-      return new IntersectionObserver(report, { root: document, rootMargin: '50%' });
-    } catch (error) {
-      return new IntersectionObserver(report, { rootMargin: '50%' });
-    }
-  }
-
-  // The helper prints neon-lit on the page's light, whose breath so runs from the first paint: the shared clock
-  // starts there, and what is lit later joins it in phase. A light that does not breathe yet is lit as any other, and
-  // so is the light of a page that follows another, whose clock runs on.
-  function adoptBreath(el) {
-    var running = !breathHeld && typeof el.getAnimations === 'function' ? el.getAnimations({ subtree: true }) : [];
-    var time = document.timeline ? document.timeline.currentTime : null;
-    for (var i = 0; i < running.length; i++) {
-      if (running[i].animationName === 'neon-breath' && typeof running[i].startTime === 'number' && typeof time === 'number') {
-        breathOrigin = performance.now() - (time - running[i].startTime);
-        breathing.push(el);
-        return;
-      }
-    }
-    el.classList.remove('neon-lit');
-  }
-
-  // The pay button's glow, the third source: the pill beckons on its light, in its phase (fx.css keys the pill's
-  // motion on .is-lit and --cta-delay).
-  function mountCta(glow) {
-    var button = glow.closest('.cta-button');
-    lightSource(glow, function(lit) {
-      if (!button) {
-        return;
-      }
-      if (lit && button.classList.contains('is-lit')) {
-        // The app script lit the pill at its init: it starts over here, so its motion runs on the glow's clock.
-        button.classList.remove('is-lit');
-        button.getBoundingClientRect();
-      }
-      button.style.setProperty('--cta-delay', glow.style.getPropertyValue('--neon-delay') || '0s');
-      button.classList.toggle('is-lit', lit);
-    });
-  }
-
-  // ===== The light field (fx/field.ts, fx/fireflies.ts): one layer behind the page with its stages' light and its
-  // fireflies. The helper prints it with approximate geometry, which stands until this lays it out from the page. =====
+  // ===== The light field (fx/field.ts): one layer behind the page with its stages' light. The helper prints it with
+  // approximate geometry, which stands until this lays it out from the page. =====
 
   // The stage classes the light reads (fx.css); layout ones such as --fill stay with the stage.
   var STAGE_LIGHT = /^fx-stage--(dark|premium|stars|gift|boost|compact|bare|result)$/;
@@ -672,128 +547,7 @@ window.PremiumFx = (function() {
   var STAGE_ACCENTS = { premium: '92 72 255', stars: '249 176 4', gift: '92 72 255', boost: '90 111 246' };
   // fx.css: the first stage on a screen, whose light runs up under the safe areas.
   var FIRST_STAGE = '.screen > :first-child > .fx-stage:first-child, .screen > .fx-stage:first-child, .screen-banner:empty + * > .fx-stage:first-child, .screen-banner:empty + .fx-stage';
-  // fx.css .fx-fly: the scroll its keyframes span, so a px of scroll is the same travel at any page length.
-  var FLY_RANGE = 10000;
-  // Top to bottom: where each sits across the column (0 its left edge, 1 its right), its size and how it moves. The
-  // far ones are large and slow, the near ones small and quick.
-  var FLY_SLOTS = [
-    { x: 0, rx: 0.6, ry: 160, rate: 0.3, drift: 0.03, grow: 0 },
-    { x: 1, rx: 0.68, ry: 180, rate: 0.16, drift: 0, grow: 0.0001 },
-    { x: 0.06, rx: 0.5, ry: 140, rate: 0.55, drift: -0.02, grow: 0 },
-    { x: 0.95, rx: 0.56, ry: 150, rate: 0.42, drift: 0, grow: -0.00006 },
-    { x: 0, rx: 0.64, ry: 170, rate: 0.22, drift: 0.04, grow: 0.00008 },
-    { x: 1, rx: 0.52, ry: 140, rate: 0.6, drift: -0.03, grow: 0 }
-  ];
-  // How far the first and last places sit inside the part.
-  var FLY_MARGIN = 170;
-  // One per this much of page, 4 to 6.
-  var FLY_SPACING = 240;
-  // A shown run of fireflies giving way to a new one.
-  var FLIES_FADE_MS = 300;
   var light = null;
-  var flyFrame = 0;
-  var flyFollowing = false;
-
-  // The fireflies down a column from the first sheet's top to the page's end. Each passes its place at the middle of
-  // `viewport` as the page scrolls; `still` (reduced motion) rests each at its place.
-  function flyPlan(top, left, width, height, viewport, still) {
-    var range = Math.max(0, top + height - viewport);
-    var n = clamp(Math.round(height / FLY_SPACING), 4, 6);
-    var flies = [];
-    for (var k = 0; k < n; k++) {
-      var slot = FLY_SLOTS[k];
-      var place = height > 2 * FLY_MARGIN ? FLY_MARGIN + ((height - 2 * FLY_MARGIN) * k) / (n - 1) : height / 2;
-      // A short page holds smaller ones.
-      var ry = Math.min(slot.ry, place, height - place);
-      var lag = 1 - slot.rate;
-      // The scroll at which it is at its place: as near the middle of the screen as the box lets it travel.
-      var hi = Math.min(range, (place - ry) / lag);
-      var lo = Math.max(0, range - (height - ry - place) / lag);
-      var pivot = still ? 0 : clamp(lo > hi ? (lo + hi) / 2 : clamp(top + place - viewport / 2, lo, hi), 0, range);
-      flies.push({
-        x: Math.round(left + slot.x * width),
-        y: Math.round(place - lag * pivot),
-        rx: Math.round(slot.rx * width),
-        ry: Math.round(ry),
-        rate: slot.rate,
-        drift: slot.drift,
-        grow: slot.grow,
-        hue: Math.round((100 * k) / (n - 1))
-      });
-    }
-    return flies;
-  }
-
-  function round2(v) {
-    return Math.round(v * 100) / 100;
-  }
-
-  // Where a scroll of `scroll` px has moved a firefly from its rest: as fx.css's keyframes put it.
-  function flyTransform(f, scroll) {
-    return 'translate(' + round2(f.drift * scroll) + 'px, ' + round2((1 - f.rate) * scroll) + 'px) scale(' + Math.round((1 + f.grow * scroll) * 1e4) / 1e4 + ')';
-  }
-
-  // fx.css moves the fireflies on the scroll timeline where both of its features are there.
-  function scrollDriven() {
-    return typeof CSS !== 'undefined' && !!CSS.supports && CSS.supports('(animation-timeline: scroll()) and (animation-range: 0 1px)');
-  }
-
-  function writeFlies() {
-    flyFrame = 0;
-    if (!light || !light.part) {
-      return;
-    }
-    var els = light.part.children;
-    for (var i = 0; i < els.length && i < light.flies.length; i++) {
-      els[i].style.transform = flyTransform(light.flies[i], window.scrollY);
-    }
-  }
-
-  function onFlyScroll() {
-    if (!flyFrame) {
-      flyFrame = requestAnimationFrame(writeFlies);
-    }
-  }
-
-  // The fallback: the fireflies follow the scroll by a transform written in one frame after it, while their light is
-  // lit.
-  function followFlies(lit) {
-    var on = lit && !scrollDriven() && !reducedMotion();
-    if (on === flyFollowing) {
-      return;
-    }
-    flyFollowing = on;
-    if (on) {
-      window.addEventListener('scroll', onFlyScroll, { passive: true });
-      // Caught up in the next frame: the scroll may have moved while they were not following.
-      onFlyScroll();
-    } else {
-      window.removeEventListener('scroll', onFlyScroll);
-      cancelAnimationFrame(flyFrame);
-      flyFrame = 0;
-    }
-  }
-
-  function fillFlies(part, flies) {
-    while (part.firstChild) {
-      part.removeChild(part.firstChild);
-    }
-    for (var i = 0; i < flies.length; i++) {
-      var f = flies[i];
-      var el = document.createElement('div');
-      el.className = 'fx-fly';
-      var s = el.style;
-      s.left = f.x - f.rx + 'px';
-      s.top = f.y - f.ry + 'px';
-      s.width = 2 * f.rx + 'px';
-      s.height = 2 * f.ry + 'px';
-      s.setProperty('--fly-c', 'color-mix(in oklab, var(--fly-to) ' + f.hue + '%, var(--fly-from))');
-      s.setProperty('--fly-dx', round2(f.drift * FLY_RANGE) + 'px');
-      s.setProperty('--fly-dy', round2((1 - f.rate) * FLY_RANGE) + 'px');
-      s.setProperty('--fly-k', String(1 + f.grow * FLY_RANGE));
-      part.appendChild(el);
-    }
-  }
 
   // An element's layout box from the light's own origin.
   function lightBox(el, env) {
@@ -840,56 +594,6 @@ window.PremiumFx = (function() {
     }
   }
 
-  function placeFlies(l, run, top) {
-    var layer = l.layer;
-    if (!run) {
-      var stale = layer.querySelectorAll('.fx-light__flies');
-      for (var i = 0; i < stale.length; i++) {
-        layer.removeChild(stale[i]);
-      }
-      l.part = null;
-      l.flies = [];
-      l.fliesKey = '';
-      return;
-    }
-    var key = JSON.stringify(run.flies);
-    if (key !== l.fliesKey) {
-      var old = l.part;
-      // Fireflies whose run changes hand it over in a cross-fade, each run on a part of its own: the old run stays
-      // where it is until it is out, so none jumps to its new place.
-      var handOver = !!old && !!old.firstChild && typeof old.animate === 'function';
-      if (!old || handOver) {
-        l.part = layer.appendChild(document.createElement('div'));
-        l.part.className = 'fx-light__flies';
-      }
-      fillFlies(l.part, run.flies);
-      l.flies = run.flies;
-      l.fliesKey = key;
-      if (handOver) {
-        var ease = 'cubic-bezier(0.2, 0.6, 0.35, 1)';
-        l.part.animate([{ opacity: 0 }, { opacity: 1 }], { duration: FLIES_FADE_MS, easing: ease });
-        var out = old.animate([{ opacity: getComputedStyle(old).opacity }, { opacity: 0 }], { duration: FLIES_FADE_MS, easing: ease, fill: 'forwards' });
-        // Out, it goes at once: kept, its box would hold the document past the page's end.
-        out.onfinish = out.oncancel = function() {
-          if (old.parentNode) {
-            old.parentNode.removeChild(old);
-          }
-        };
-      }
-      // A page shown at a scroll: they start where it puts them, lit or not.
-      if (!scrollDriven() && !reducedMotion()) {
-        writeFlies();
-      }
-    }
-    var s = l.part.style;
-    s.left = '0px';
-    s.width = run.width + 'px';
-    s.height = run.height + 'px';
-    s.top = run.top - top + 'px';
-    s.removeProperty('right');
-    s.removeProperty('bottom');
-  }
-
   function layoutLight() {
     var l = light;
     if (!l || !l.page.isConnected) {
@@ -909,8 +613,8 @@ window.PremiumFx = (function() {
         bottom = Math.max(bottom, box.top + box.height);
       }
     }
-    // The fireflies run from the first sheet's top, where the stage's light ends, to the page's end, or to the
-    // screen's on a page shorter than it, across the whole width: the column's edges are where they sit.
+    // Under the stages the layer runs on from the first sheet's top to the page's end, or to the screen's on a page
+    // shorter than it.
     var sheets = l.page.querySelectorAll('.fx-sheet, .neon-field');
     var sheet = null;
     for (i = 0; i < sheets.length && !sheet; i++) {
@@ -923,7 +627,6 @@ window.PremiumFx = (function() {
       var page = lightBox(l.page, env);
       var view = document.documentElement;
       run = { top: sheet.top, height: Math.max(0, Math.max(page.top + page.height, env.offsetHeight) - sheet.top), width: view.clientWidth };
-      run.flies = flyPlan(sheet.top, sheet.left, sheet.width, run.height, view.clientHeight, reducedMotion());
       top = Math.min(top, run.top);
       bottom = Math.max(bottom, run.top + run.height);
     }
@@ -933,7 +636,6 @@ window.PremiumFx = (function() {
     s.height = bottom - top + 'px';
     s.removeProperty('bottom');
     placeStageLights(l.layer, boxes, top);
-    placeFlies(l, run, top);
   }
 
   function mountLight(root) {
@@ -943,15 +645,8 @@ window.PremiumFx = (function() {
     if (!layer || !page) {
       return;
     }
-    // One run of fireflies stands: a hand-over cut short by a new mount would leave two.
-    var parts = layer.querySelectorAll('.fx-light__flies');
-    for (var i = 0; i < parts.length - 1; i++) {
-      layer.removeChild(parts[i]);
-    }
-    light = { env: env, layer: layer, page: page, part: parts.length ? parts[parts.length - 1] : null, flies: [], fliesKey: '', observer: null };
+    light = { env: env, layer: layer, page: page, observer: null };
     layoutLight();
-    adoptBreath(layer);
-    lightSource(layer, followFlies);
     if (typeof ResizeObserver === 'function') {
       // The border box: a page's end moves with its padding too.
       light.observer = new ResizeObserver(layoutLight);
@@ -1166,6 +861,53 @@ window.PremiumFx = (function() {
     });
   }
 
+  // On a paid result the burst follows the mark's pop (fx.css, the state screens' entrance), which has all but landed
+  // by then.
+  var BURST_AFTER_MS = 160;
+  var burstTimer = 0;
+
+  // ===== A waiting state's animation runs again and again. The Lottie player plays a file once, and again on a tap of
+  // its box (premiumbot-lottie.js), and offers no other way in. So a box with data-lottie-loop, its file's length and
+  // rest in ms, gets that tap from here each time the period is over: a click that does not bubble, on a box marked
+  // data-haptic="none", so only the player answers it. The clock counts as the player's does, a tenth of a second a
+  // frame at most, so a page that stalled starts the next run only once this one has ended =====
+
+  var loops = [];
+  var loopRaf = 0;
+  var loopLast = 0;
+
+  function loopTick(now) {
+    loopRaf = requestAnimationFrame(loopTick);
+    var dt = loopLast ? Math.min(now - loopLast, 100) : 0;
+    loopLast = now;
+    for (var i = 0; i < loops.length; i++) {
+      var loop = loops[i];
+      // A run starts once the file has drawn; none starts while Telegram holds the app inactive.
+      if (!appActive || !loop.box.classList.contains('is-ready')) {
+        continue;
+      }
+      loop.age += dt;
+      if (loop.age >= loop.period) {
+        loop.age = 0;
+        loop.box.dispatchEvent(new Event('click'));
+      }
+    }
+  }
+
+  function mountLoops(root) {
+    var boxes = root.querySelectorAll('[data-lottie-loop]');
+    for (var i = 0; i < boxes.length; i++) {
+      var period = parseInt(boxes[i].getAttribute('data-lottie-loop'), 10);
+      if (period > 0) {
+        boxes[i].setAttribute('data-haptic', 'none');
+        loops.push({ box: boxes[i], period: period, age: 0 });
+      }
+    }
+    if (loops.length) {
+      loopRaf = requestAnimationFrame(loopTick);
+    }
+  }
+
   // ===== countUp (fx/effects.ts): a number eases up to its value, on the display's own ticks =====
 
   function countDuration(from, to) {
@@ -1239,21 +981,23 @@ window.PremiumFx = (function() {
     }
   }
 
-  // ===== The entrance (fx.css fx-stagger) runs in CSS from the first paint. Content never waits on an animation: in a
-  // page whose frames do not run, a hidden one, the entrance is given up, at once or when it has stalled this long =====
+  // ===== The entrance (fx.css fx-stagger, and the paywall's fx-in- keyframes) runs in CSS from the first paint. Content
+  // never waits on an animation: in a page whose frames do not run, a hidden one, the entrance is given up, at once or
+  // when it has stalled this long =====
 
-  var ENTRANCE_MAX_MS = 1500;
+  // Its last part, the recommended rate's cooling (fx.css fx-in-tint), ends 1680 ms in.
+  var ENTRANCE_MAX_MS = 2000;
   var entranceTimer = 0;
 
-  // The natural style is the final state, so cancelling a stalled entrance shows the content as it should be.
+  // The natural style is the final state, so cancelling a stalled entrance shows the content as it should be. The
+  // document lists every animation under way, those of a block's parts and of pseudo-elements among them.
   function endEntrance(root) {
-    var blocks = root.querySelectorAll('.fx-sheet > *');
-    for (var i = 0; i < blocks.length; i++) {
-      var running = typeof blocks[i].getAnimations === 'function' ? blocks[i].getAnimations() : [];
-      for (var j = 0; j < running.length; j++) {
-        if (running[j].animationName === 'fx-stagger' && running[j].playState !== 'finished') {
-          running[j].cancel();
-        }
+    var doc = root.ownerDocument || root;
+    var running = typeof doc.getAnimations === 'function' ? doc.getAnimations() : [];
+    for (var i = 0; i < running.length; i++) {
+      var name = running[i].animationName;
+      if (typeof name === 'string' && (name === 'fx-stagger' || name.indexOf('fx-in-') === 0) && running[i].playState !== 'finished') {
+        running[i].cancel();
       }
     }
   }
@@ -1265,6 +1009,959 @@ window.PremiumFx = (function() {
       entranceTimer = setTimeout(function() {
         endEntrance(root);
       }, ENTRANCE_MAX_MS);
+    }
+  }
+
+  // ===== The drum: a line that changes rolls. The line as it stood slides up and out of a window exactly one line
+  // tall while the new one comes up from below; the window never changes size, so nothing around it moves. Every line
+  // of the strip is moved, faded by how far out it is and cut where it passes the window's edge, on transform, opacity
+  // and clip-path alone, as Web Animations =====
+
+  var ROLL_MS = 320;
+  var ROLL_STILL_MS = 200;
+  // The window cuts above and below only: its sides lie wide of the line.
+  var ROLL_SIDE = '-8px';
+  var rolls = [];
+
+  // One line of the strip, u lines below the window, or above it when negative. Under reduced motion nothing moves and
+  // nothing is cut: the line leaving fades out over the first half and the one arriving fades in over the second.
+  function rollFrame(u, height, still) {
+    var out = Math.min(Math.abs(u), 1);
+    if (still) {
+      return {opacity: Math.max(0, 1 - 2 * out)};
+    }
+    var cut = out * height + 'px';
+    return {
+      transform: 'translateY(' + u * height + 'px)',
+      opacity: 1 - out,
+      clipPath: u < 0 ? 'inset(' + cut + ' ' + ROLL_SIDE + ' 0 ' + ROLL_SIDE + ')' : 'inset(0 ' + ROLL_SIDE + ' ' + cut + ' ' + ROLL_SIDE + ')'
+    };
+  }
+
+  // A line's keyframes on its way up from a to b lines below the window: its two ends and, between them, each place
+  // where its fade or its cut turns.
+  function rollFrames(a, b, height, still) {
+    var turns = still ? [0.5, 0, -0.5] : [1, 0, -1];
+    var frames = [rollFrame(a, height, still)];
+    frames[0].offset = 0;
+    for (var i = 0; i < turns.length; i++) {
+      if (turns[i] < a && turns[i] > b) {
+        var frame = rollFrame(turns[i], height, still);
+        frame.offset = (a - turns[i]) / (a - b);
+        frames.push(frame);
+      }
+    }
+    var last = rollFrame(b, height, still);
+    last.offset = 1;
+    frames.push(last);
+    return frames;
+  }
+
+  function rollProgress(animation) {
+    var progress = animation.effect.getComputedTiming().progress;
+    return progress === null ? 1 : progress;
+  }
+
+  function endRoll(state) {
+    var at = rolls.indexOf(state);
+    if (at < 0) {
+      return;
+    }
+    rolls.splice(at, 1);
+    clearTimeout(state.timer);
+    for (var i = 0; i < state.copies.length; i++) {
+      if (state.copies[i].parentNode) {
+        state.copies[i].parentNode.removeChild(state.copies[i]);
+      }
+    }
+    state.box.classList.toggle('fx-rolling', !!state.box.querySelector('.fx-drum-copy'));
+    for (var j = 0; j < state.all.length; j++) {
+      state.all[j].cancel();
+    }
+  }
+
+  // roll(line, change): `line` is an element one line tall that still shows the old content, and `change` writes the
+  // new content into it. A copy of the line as it stood is laid over its place, out of the flow, and rolls out as
+  // the line itself rolls in. A change that comes while the strip is still running adds a line to it: the strip runs
+  // on from where it is, at the pace it has, so no text is ever swapped in sight; called several times in one task,
+  // it builds a strip of that many lines and rolls through them all. `timing`, when given, is the strip's own
+  // {delay, duration} in ms in place of the drum's pace. Returns the time until the strip stops, in ms, 0 when the
+  // change was made at once. The line must hold no ids, and the box its copies are placed against, the nearest
+  // positioned or transformed one above it, must stay that box while the strip runs.
+  function roll(line, change, timing) {
+    var state = null;
+    for (var r = 0; r < rolls.length; r++) {
+      if (rolls[r].line === line) {
+        state = rolls[r];
+      }
+    }
+    if (typeof line.animate !== 'function' || document.visibilityState === 'hidden' || document.documentElement.classList.contains('fx-snap')) {
+      if (state) {
+        endRoll(state);
+      }
+      change();
+      return 0;
+    }
+    var still = reducedMotion();
+    var from = 0;
+    var pace = 0;
+    var copies = [];
+    if (state) {
+      // Where the strip stands, and how far it ran in the frame before, read off the animation this roll takes over.
+      var span = state.to - state.from;
+      var now = state.live.currentTime || 0;
+      var done = rollProgress(state.live);
+      var back = Math.min(now, 16);
+      state.live.currentTime = now - back;
+      pace = back ? (done - rollProgress(state.live)) * span / back : 0;
+      from = state.from + span * done;
+      copies = state.copies;
+      state.copies = [];
+      endRoll(state);
+      // A copy that has left the window is done.
+      while (copies.length && from >= 1) {
+        var gone = copies.shift();
+        gone.parentNode.removeChild(gone);
+        from -= 1;
+      }
+    }
+    var box = line.getBoundingClientRect();
+    var copy = line.cloneNode(true);
+    copy.classList.add('fx-drum-copy');
+    copy.setAttribute('aria-hidden', 'true');
+    copy.style.width = box.width + 'px';
+    line.parentNode.appendChild(copy);
+    var spots = [];
+    var i;
+    for (i = 0; i < copies.length; i++) {
+      spots.push(copies[i].getBoundingClientRect());
+    }
+    spots.push(box);
+    copies.push(copy);
+    change();
+    // The change may move the box the copies are placed in: each goes back to where it stood.
+    var moved = [];
+    for (i = 0; i < copies.length; i++) {
+      moved.push(copies[i].getBoundingClientRect());
+    }
+    for (i = 0; i < copies.length; i++) {
+      copies[i].style.left = (parseFloat(copies[i].style.left) || 0) + spots[i].left - moved[i].left + 'px';
+      copies[i].style.top = (parseFloat(copies[i].style.top) || 0) + spots[i].top - moved[i].top + 'px';
+    }
+    var to = copies.length;
+    // One line takes ROLL_MS, and every further line of the strip half as long again.
+    var duration = still ? ROLL_STILL_MS : timing ? timing.duration : ROLL_MS * (1 + to - from) / 2;
+    var delay = timing ? timing.delay : 0;
+    // From rest the strip eases at both ends. Taken over mid-flight it starts at the pace it had, so it never stalls,
+    // and still lands softly: the curve's first handle gives the slope at its start.
+    var slope = pace * duration / (to - from);
+    var handle = 0.65 - 0.175 * Math.min(slope, 2);
+    var run = {
+      delay: delay,
+      duration: duration,
+      easing: still ? 'linear' : 'cubic-bezier(' + handle.toFixed(3) + ', ' + Math.min(slope * handle, 1).toFixed(3) + ', 0.35, 1)',
+      fill: 'both'
+    };
+    // The box the strip rolls in is marked while it does (fx.css softens a rate's window by it).
+    var next = {line: line, box: line.parentNode, copies: copies, from: from, to: to, all: [], live: null, timer: 0};
+    next.box.classList.add('fx-rolling');
+    for (i = 0; i <= to; i++) {
+      next.all.push((i < to ? copies[i] : line).animate(rollFrames(i - from, i - to, box.height, still), run));
+    }
+    next.live = next.all[to];
+    next.live.onfinish = function() {
+      endRoll(next);
+    };
+    // Frames may never come; the line must be left as it should be.
+    next.timer = setTimeout(function() {
+      endRoll(next);
+    }, delay + duration + 100);
+    rolls.push(next);
+    return delay + duration;
+  }
+
+  // ===== The paywall's pay label rolls to its new text. The page script writes the label up to twice in one task as it
+  // fits it (premiumbot.js ctaFit); the observer hears of those writes together, once the task is over, so it only
+  // ever sees the text that settled =====
+
+  var labelWatch = null;
+
+  function mountLabel(root) {
+    var label = root.querySelector('.home--paywall .cta-button .cta-label');
+    if (!label || typeof MutationObserver !== 'function') {
+      return;
+    }
+    var shown = label.textContent;
+    labelWatch = new MutationObserver(function(records, observer) {
+      var text = label.textContent;
+      if (text === shown) {
+        return;
+      }
+      // The drum copies the line as it stood, so the text last shown goes back in for the copy.
+      label.textContent = shown;
+      shown = text;
+      roll(label.parentNode, function() {
+        label.textContent = text;
+      });
+      // The two writes just made are not news.
+      observer.takeRecords();
+    });
+    labelWatch.observe(label, {childList: true, characterData: true, subtree: true});
+  }
+
+  // ===== The light on the best plan and the path of attention (fx.css .fx-comet, .fx-band). The light: the star in
+  // the recommended plan's label flares and one stroke of neon goes once round the tile's ring, clockwise, out of the
+  // label and back into it (runComet). It runs as that tile's rate lands in the entrance, whenever the tile is chosen
+  // after another was, and every PATH_MS while it is the chosen one. On those beats the pay button of any screen
+  // answers on the same clock, whatever is chosen: a band of light
+  // sets off across it with the light on the ring, on the same easing, and is across as the light's point comes
+  // home. Every animation of a run is made in one task, so they keep one clock. Nothing runs while the page is hidden, the app is not active, motion is
+  // reduced or snap mode holds every screen still =====
+
+  var EASE_IN_OUT = 'cubic-bezier(0.65, 0, 0.35, 1)';
+  var PATH_MS = 5000;
+  // No beat this soon after a plan is chosen: the choice has its own motion.
+  var PATH_CLEAR_MS = 800;
+  var path = null;
+
+  function pathLayer(host, name) {
+    var layer = document.createElement('i');
+    layer.className = name;
+    layer.appendChild(document.createElement('i'));
+    host.appendChild(layer);
+    return layer;
+  }
+
+  function pathOpen() {
+    return appActive && document.visibilityState !== 'hidden' && !reducedMotion() && !document.documentElement.classList.contains('fx-snap');
+  }
+
+  function charging() {
+    for (var i = 0; i < path.live.length; i++) {
+      if (path.live[i].playState !== 'finished' && path.live[i].playState !== 'idle') {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function endCharge() {
+    for (var i = 0; i < path.live.length; i++) {
+      path.live[i].cancel();
+    }
+    path.live = [];
+    path.lights = [];
+  }
+
+  // An animation of the light on the tile, as apart from the button's band: the light alone goes out when the user
+  // moves to another plan.
+  function lit(animation) {
+    path.live.push(animation);
+    path.lights.push(animation);
+  }
+
+  // The light does not vanish between two frames: it dims where it is, on its way, over COMET_OUT_MS, and only
+  // then is its run dropped.
+  var COMET_OUT_MS = 280;
+
+  function onPathChange() {
+    if (!path || !path.tile || !path.lights.length || path.tile.querySelector('.cell-input:checked')) {
+      return;
+    }
+    var lights = path.lights;
+    var layer = path.comet;
+    path.lights = [];
+    var drop = function() {
+      for (var i = 0; i < lights.length; i++) {
+        lights[i].cancel();
+      }
+    };
+    if (!layer || typeof layer.animate !== 'function') {
+      drop();
+      return;
+    }
+    var fade = layer.animate([{opacity: getComputedStyle(layer).opacity}, {opacity: 0}], {duration: COMET_OUT_MS, easing: 'ease-out', fill: 'forwards'});
+    lights.push(fade);
+    path.live.push(fade);
+    fade.onfinish = drop;
+  }
+
+  // The light is one stroke of neon on the tile's ring: a bright point and, behind it on the same line, a tail made of
+  // strokes that all end at the point and are each shorter than the one before, so the tail thins out evenly from
+  // the point back with no step in it. The strokes are the dashes of one SVG path, drawn over the ring, and a soft
+  // shadow of their own gold is their glow.
+  var COMET_MS = 1500;
+  // The point is back at the star this far through the run; the tail follows it in over the rest.
+  var COMET_HOME = 0.86;
+  // The strokes' lengths in px, the longest first; the last is the point itself.
+  var COMET_TAIL = [200, 150, 110, 78, 52, 32, 16, 6, 0.5];
+  var SVG_NS = 'http://www.w3.org/2000/svg';
+
+  // The layer stands before the label in the tile, so the label covers it: the light leaves it and returns to it.
+  function cometLayer(tile) {
+    if (!document.createElementNS) {
+      return null;
+    }
+    var layer = document.createElementNS(SVG_NS, 'svg');
+    layer.setAttribute('class', 'fx-comet');
+    layer.setAttribute('aria-hidden', 'true');
+    for (var i = 0; i < COMET_TAIL.length; i++) {
+      layer.appendChild(document.createElementNS(SVG_NS, 'path'));
+    }
+    tile.insertBefore(layer, tile.querySelector('.plan-tab'));
+    return layer;
+  }
+
+  // One light goes once round the tile's ring, clockwise, out of the label's star and back into it, while the star
+  // flares. `box` is the tile's rect; the line it follows lies 1 px inside the tile's edge, on the ring. Each stroke
+  // grows out of the star until it has its length, runs with the point, and is drawn in behind it at the end.
+  function runComet(box, delay) {
+    var spark = path.spark;
+    var layer = path.comet;
+    var strokes = layer ? layer.childNodes : [];
+    if (strokes.length && typeof strokes[0].getTotalLength === 'function') {
+      var w = box.width;
+      var h = box.height;
+      var r = parseFloat(getComputedStyle(path.tile).borderTopLeftRadius) || 16;
+      var x0 = spark ? spark.getBoundingClientRect().left + spark.offsetWidth / 2 - box.left : r;
+      var a = r - 1;
+      var arc = ' A' + a + ' ' + a + ' 0 0 1 ';
+      var line = 'M' + x0 + ' 1 H' + (w - r) + arc + (w - 1) + ' ' + r + ' V' + (h - r) + arc + (w - r) + ' ' + (h - 1) +
+        ' H' + r + arc + '1 ' + (h - r) + ' V' + r + arc + r + ' 1 H' + x0;
+      strokes[0].setAttribute('d', line);
+      var lap = strokes[0].getTotalLength();
+      var gap = lap * 2;
+      for (var i = 0; i < strokes.length && lap > 0; i++) {
+        var tail = Math.min(COMET_TAIL[i], lap / 3);
+        strokes[i].setAttribute('d', line);
+        lit(strokes[i].animate(
+          [
+            {strokeDasharray: '0 ' + gap, strokeDashoffset: 0},
+            {strokeDasharray: tail + ' ' + gap, strokeDashoffset: 0, offset: (COMET_HOME * tail) / lap},
+            {strokeDasharray: tail + ' ' + gap, strokeDashoffset: tail - lap, offset: COMET_HOME},
+            {strokeDasharray: '0 ' + gap, strokeDashoffset: -lap}
+          ],
+          {delay: delay, duration: COMET_MS, easing: EASE_IN_OUT}
+        ));
+      }
+      lit(layer.animate(
+        [{opacity: 0}, {opacity: 1, offset: 0.05}, {opacity: 1, offset: 0.93}, {opacity: 0}],
+        {delay: delay, duration: COMET_MS}
+      ));
+    }
+    if (spark) {
+      var ink = getComputedStyle(spark).backgroundColor;
+      lit(spark.animate(
+        [{transform: 'scale(1)', backgroundColor: ink}, {transform: 'scale(1.8)', backgroundColor: '#fff', offset: 0.3}, {transform: 'scale(1)', backgroundColor: ink}],
+        {delay: delay, duration: 520, easing: 'ease-out'}
+      ));
+    }
+  }
+
+  // One run, `delay` ms from now. The light goes round the recommended plan's tile only while that plan is the chosen
+  // one (round a recommended pack always), and the tile is whole on screen above the pay bar: round a tile that is not chosen it would point at a
+  // choice the user has left. With `onward` the pay button answers on the same clock, whatever is chosen: its band
+  // from outside one end of the capsule to outside the other, the way the page reads, unless the button is inactive
+  // or busy. A call made while a run is on its way is dropped.
+  function charge(delay, onward) {
+    if (!path || !pathOpen() || charging()) {
+      return;
+    }
+    path.live = [];
+    path.lights = [];
+    if (path.tile && (path.always || path.tile.querySelector('.cell-input:checked'))) {
+      var tile = path.tile.getBoundingClientRect();
+      var floor = path.bar ? path.bar.getBoundingClientRect().top : window.innerHeight;
+      if (tile.top >= 0 && tile.bottom <= floor) {
+        runComet(tile, delay);
+      }
+    }
+    if (onward && path.band && path.button.getAttribute('aria-disabled') !== 'true' && !path.button.classList.contains('is-busy')) {
+      var width = path.button.offsetWidth;
+      var half = path.band.firstChild.offsetWidth / 2;
+      var back = getComputedStyle(path.button).direction === 'rtl';
+      var enter = 'translateX(' + ((back ? width + half : -half) - half) + 'px)';
+      var leave = 'translateX(' + ((back ? -half : width + half) - half) + 'px)';
+      // The band crosses the button on the light's own clock: the same run, the same easing over the whole of it,
+      // and across at the moment the light's point is home, so the two are at the same share of their ways at
+      // every moment. Outside the run the band's layer is at rest, out of sight.
+      path.live.push(
+        path.band.animate([{opacity: 1}, {opacity: 1}], {delay: delay, duration: COMET_MS}),
+        path.band.firstChild.animate(
+          [{transform: enter}, {transform: leave, offset: COMET_HOME}, {transform: leave}],
+          {delay: delay, duration: COMET_MS, easing: EASE_IN_OUT}
+        )
+      );
+    }
+    armPath();
+  }
+
+  // A beat of the path. It is passed over while something is pressed, a line is rolling or a plan has just been
+  // chosen.
+  function beat() {
+    armPath();
+    if (document.querySelector('.is-pressed') || rolls.length || performance.now() - path.changed < PATH_CLEAR_MS) {
+      return;
+    }
+    charge(0, true);
+  }
+
+  // The path's clock starts over: after every charge, and when the page may move again.
+  function armPath() {
+    clearTimeout(path.timer);
+    path.timer = pathOpen() ? setTimeout(beat, PATH_MS) : 0;
+  }
+
+  function refreshPath() {
+    if (!path) {
+      return;
+    }
+    if (!pathOpen()) {
+      endCharge();
+    }
+    armPath();
+  }
+
+  // Every screen with a pay button in its bar has the band; a screen whose plans have a recommended one has the
+  // light on that plan's tile too. A recommended pack of Stars is a button, not a choice: its light runs on every
+  // beat.
+  function mountPath(root) {
+    var plan = root.querySelector('.cell--plan.plan-emphasis--strong');
+    var tile = plan || root.querySelector('.pack-tile.plan-emphasis--strong:not([hidden])');
+    var button = root.querySelector('.cta-bar .cta-button:not(.cta-button--glass)');
+    var host = tile || button;
+    if (!host || typeof host.animate !== 'function') {
+      return;
+    }
+    path = {
+      tile: tile,
+      button: button,
+      bar: root.querySelector('.cta-bar'),
+      spark: tile ? tile.querySelector('.plan-tab-spark') : null,
+      comet: tile ? cometLayer(tile) : null,
+      band: button ? pathLayer(button, 'fx-band') : null,
+      always: !plan,
+      live: [],
+      lights: [],
+      timer: 0,
+      changed: 0
+    };
+    if (plan) {
+      document.addEventListener('change', onPathChange);
+    }
+    armPath();
+  }
+
+  function unmountPath() {
+    if (!path) {
+      return;
+    }
+    clearTimeout(path.timer);
+    endCharge();
+    document.removeEventListener('change', onPathChange);
+    var layers = [path.comet, path.band];
+    for (var i = 0; i < layers.length; i++) {
+      if (layers[i] && layers[i].parentNode) {
+        layers[i].parentNode.removeChild(layers[i]);
+      }
+    }
+    path = null;
+  }
+
+  // ===== Was and now (fx.css fx-in-roll): on a plan tile with a struck price the rate comes in showing that price and
+  // rolls down to its own through figures between the two. The sheet keeps the clock: it starts the rate's fade when
+  // the rate's turn comes, and the script, hearing that start, rolls the drum. A tap on the plans ends it all at
+  // once, so a plan is always chosen among final values =====
+
+  // The rate stands on the struck figure this long, fading in as the sheet fades it, before its strip moves.
+  var WAS_HOLD_MS = 80;
+  var WAS_ROLL_MS = 520;
+  var planGroups = [];
+
+  // The figure a rate starts from on its way down to `nowText`: the struck price. It rolls from that to its own in one
+  // step: figures between the two pass too fast to read and show only as cut halves.
+  function figuresBetween(wasText, nowText) {
+    return wasText === nowText ? [] : [wasText];
+  }
+
+  function writes(el, text) {
+    return function() {
+      el.textContent = text;
+    };
+  }
+
+  // The rate's turn has come. One strip is built of all its figures in this task, so it rolls through them in one
+  // run and stops on the rate's own. The recommended tile's charge is set to follow the landing.
+  function wasNow(rate) {
+    var was = rate.parentNode.querySelector('.plan-was');
+    var now = rate.textContent;
+    var figures = was ? figuresBetween(was.textContent, now) : [];
+    // A figure wider than the rate would reach over the struck price beside it. Such a one between the two is left
+    // out; when the struck figure itself is one, nothing rolls and the sheet's fade brings the rate in.
+    var room = rate.getBoundingClientRect().width + 0.5;
+    var strip = [];
+    for (var i = 0; i < figures.length; i++) {
+      rate.textContent = figures[i];
+      if (rate.getBoundingClientRect().width <= room) {
+        strip.push(figures[i]);
+      } else if (!i) {
+        break;
+      }
+    }
+    rate.textContent = now;
+    var landed = WAS_HOLD_MS;
+    if (strip.length) {
+      rate.textContent = strip[0];
+      for (i = 1; i <= strip.length; i++) {
+        landed = roll(rate, writes(rate, i < strip.length ? strip[i] : now), {delay: WAS_HOLD_MS, duration: WAS_ROLL_MS});
+      }
+      // The drum shows the line it rolls out from its first frame; here that line is new to the eye and fades in.
+      var first = rate.parentNode.querySelector('.fx-drum-copy');
+      if (first) {
+        first.animate([{opacity: 0}, {opacity: 1}], WAS_HOLD_MS);
+      }
+    }
+    if (path && path.tile && path.tile.contains(rate)) {
+      charge(landed, false);
+    }
+  }
+
+  function onPlanMotion(event) {
+    var el = event.target;
+    if (event.type === 'animationstart' && event.animationName === 'fx-in-roll') {
+      wasNow(el);
+    } else if (event.type === 'animationend' && event.animationName === 'fx-in-slide' && path && path.tile && el === path.tile && getComputedStyle(path.tile.querySelector('.plan-rate')).animationName.indexOf('fx-in-roll') < 0) {
+      // The sheet gives the recommended tile's rate no was and now: the tile has arrived with its rate in place, and
+      // the charge follows that.
+      charge(0, false);
+    }
+  }
+
+  // A tap on the plans: every rate stops on its own figure and each part still to come is there, at once. A colour
+  // still to settle is not cut to its end, which would be a jump: it starts settling now.
+  function endWasNow(event) {
+    var group = event.currentTarget;
+    for (var r = rolls.length - 1; r >= 0; r--) {
+      if (group.contains(rolls[r].line)) {
+        endRoll(rolls[r]);
+      }
+    }
+    var running = typeof document.getAnimations === 'function' ? document.getAnimations() : [];
+    for (var i = 0; i < running.length; i++) {
+      var name = running[i].animationName;
+      var el = running[i].effect && running[i].effect.target;
+      if (typeof name !== 'string' || name.indexOf('fx-in-') !== 0 || !el || !group.contains(el) || !el.matches('.plan-was, .plan-rate, .plan-unit')) {
+        continue;
+      }
+      if (name !== 'fx-in-tint') {
+        running[i].cancel();
+      } else if (running[i].currentTime < running[i].effect.getTiming().delay) {
+        running[i].currentTime = running[i].effect.getTiming().delay;
+      }
+    }
+    // A charge that waits for a landing has none to follow.
+    if (path && path.live.length && path.live[0].currentTime < path.live[0].effect.getTiming().delay) {
+      endCharge();
+    }
+  }
+
+  function onPlanChange(event) {
+    if (!path) {
+      return;
+    }
+    path.changed = performance.now();
+    if (event.target.checked && path.tile && path.tile.contains(event.target)) {
+      charge(0, false);
+    }
+  }
+
+  // ===== What the payment unlocked (premiumbot.css .section--unlocked): the three rows of feature icons as a wall
+  // that goes round. Each row becomes a strip of its own that holds its tiles twice over, so it can run on with no
+  // end: the script moves a strip by a transform and takes it back by one round of its tiles whenever it has gone
+  // that far, which shows nothing. The rows drift at paces of their own, the lowest the fastest, which reads as
+  // depth. A finger moves them sideways, each by its own share of the finger's way, and a let-go leaves them
+  // running the way they were thrown until that dies away into the drift. Tiles under a finger, or under a cursor,
+  // grow, the nearest the most, and none so far as to touch its neighbour. A tap on a tile names its feature in a
+  // cloud over it (cloudSay), and the rows hold still while the cloud is up: a touch anywhere puts the cloud away,
+  // the same tile tapped again leaves it away, and it goes by itself after CLOUD_MS. Nothing done on the icons
+  // presses the band or opens its link, which the line over them does. With motion reduced the rows stand until a
+  // finger moves them =====
+
+  var unlocked = null;
+  // A row's drift in px a second, the top row first, and its share of a finger's way.
+  var ROW_DRIFT = [-10, -16, -22];
+  var ROW_GAIN = [0.85, 1, 1.15];
+  // The rows come in running, at ROW_RUSH times their drift, ROW_BORN_MS into the page, as the sheets bring them
+  // up (fx.css fx-unlock-rows). A row's speed goes over to where it is headed in ROW_EASE_S.
+  var ROW_RUSH = 40;
+  var ROW_BORN_MS = 600;
+  var ROW_EASE_S = 0.7;
+  var ROW_TAP_PX = 8;
+  // The tile under the pointer grows by LENS_UP, one LENS_PX away not at all. With 16 px between tiles a quarter
+  // more of a 64 px tile is 8 px a side, and its neighbour grows by less than a third of that.
+  var LENS_PX = 120;
+  var LENS_UP = 0.25;
+  var LENS_EASE_S = 0.12;
+  var CLOUD_MS = 5000;
+  var CLOUD_OUT_MS = 160;
+  // The cloud's tip is 7 px tall and ends 2 px short of the tile; it keeps CLOUD_TIP from the cloud's corners, and
+  // the cloud CLOUD_EDGE from the section's sides, which are the screen's.
+  var CLOUD_GAP = 9;
+  var CLOUD_TIP = 18;
+  var CLOUD_EDGE = 8;
+
+  function cloudHush() {
+    var said = unlocked && unlocked.said;
+    if (!said) {
+      return;
+    }
+    unlocked.said = null;
+    clearTimeout(said.timer);
+    said.cloud.classList.remove('is-open');
+    setTimeout(function() {
+      if (said.cloud.parentNode) {
+        said.cloud.parentNode.removeChild(said.cloud);
+      }
+    }, CLOUD_OUT_MS);
+  }
+
+  // The cloud over a tapped tile: the feature's name and its line, which the tile carries (data-perk-title,
+  // data-perk-text). It stands over the tile, its tip on the tile's middle, and inside the section's width, clear
+  // of its sides; where the section has no room over the tile it stands under it.
+  function cloudSay(tile) {
+    var section = unlocked.strip.closest('.section');
+    var name = tile.getAttribute('data-perk-title');
+    var text = tile.getAttribute('data-perk-text');
+    if (!section || !name) {
+      return;
+    }
+    var cloud = document.createElement('div');
+    cloud.className = 'perk-bubble';
+    var head = document.createElement('span');
+    head.className = 'perk-bubble-title';
+    head.textContent = name;
+    cloud.appendChild(head);
+    if (text) {
+      var line = document.createElement('span');
+      line.className = 'perk-bubble-text';
+      line.textContent = text;
+      cloud.appendChild(line);
+    }
+    section.appendChild(cloud);
+    var box = section.getBoundingClientRect();
+    var at = tile.getBoundingClientRect();
+    var width = cloud.offsetWidth;
+    var middle = Math.max(CLOUD_TIP, Math.min(box.width - CLOUD_TIP, at.left + at.width / 2 - box.left));
+    var left = Math.max(CLOUD_EDGE, Math.min(box.width - width - CLOUD_EDGE, middle - width / 2));
+    var top = at.top - box.top - cloud.offsetHeight - CLOUD_GAP;
+    if (top < 0) {
+      top = at.bottom - box.top + CLOUD_GAP;
+      cloud.classList.add('perk-bubble--under');
+    }
+    cloud.style.left = left.toFixed(1) + 'px';
+    cloud.style.top = top.toFixed(1) + 'px';
+    cloud.style.setProperty('--tip', Math.max(CLOUD_TIP, Math.min(width - CLOUD_TIP, middle - left)).toFixed(1) + 'px');
+    // The closed look is laid out first, so the opening is a change the sheets can run.
+    void cloud.offsetWidth;
+    cloud.classList.add('is-open');
+    unlocked.said = {tile: tile, cloud: cloud, timer: setTimeout(cloudHush, CLOUD_MS)};
+  }
+
+  // A tile's size and step as laid out, and with them each row's round. A row keeps its place in its round.
+  function unlockedMeasure() {
+    var u = unlocked;
+    var size = u.rows[0].own[0].offsetWidth;
+    var gap = parseFloat(getComputedStyle(u.rows[0].el).columnGap) || 0;
+    u.size = size;
+    u.gap = gap;
+    u.step = size + gap;
+    u.pad = parseFloat(getComputedStyle(u.strip).paddingTop) || 0;
+    for (var r = 0; r < u.rows.length; r++) {
+      var row = u.rows[r];
+      var round = row.own.length * u.step;
+      if (row.round) {
+        row.x *= round / row.round;
+      }
+      row.round = round;
+      row.shown = null;
+    }
+  }
+
+  // Each tile's size by how near the pointer is. A pass with the lens gone puts every tile back.
+  function unlockedLens() {
+    var u = unlocked;
+    var lens = u.lens;
+    var box = u.strip.getBoundingClientRect();
+    var reach = LENS_PX * LENS_PX;
+    lens.shown = false;
+    for (var r = 0; r < u.rows.length; r++) {
+      var row = u.rows[r];
+      var dy = lens.y - (box.top + u.pad + r * u.step + u.size / 2);
+      for (var i = 0; i < row.tiles.length; i++) {
+        var dx = lens.x - (box.left + row.x + i * u.step + u.size / 2);
+        var near = 1 - (dx * dx + dy * dy) / reach;
+        var by = near > 0 ? Math.round((1 + LENS_UP * lens.k * near * near) * 200) / 200 : 1;
+        if (by !== row.by[i]) {
+          row.by[i] = by;
+          row.tiles[i].style.transform = by === 1 ? '' : 'scale(' + by + ')';
+        }
+        if (by !== 1) {
+          lens.shown = true;
+        }
+      }
+    }
+  }
+
+  function unlockedFrame(now) {
+    var u = unlocked;
+    if (!u) {
+      return;
+    }
+    u.raf = requestAnimationFrame(unlockedFrame);
+    var dt = u.last ? Math.min(now - u.last, 64) / 1000 : 0;
+    u.last = now;
+    var r;
+    if (u.born && now >= u.born) {
+      u.born = 0;
+      for (r = 0; r < u.rows.length; r++) {
+        u.rows[r].v = u.rows[r].drift * ROW_RUSH;
+      }
+    }
+    var stand = u.born || u.said || reducedMotion();
+    var ease = 1 - Math.exp(-dt / ROW_EASE_S);
+    for (r = 0; r < u.rows.length; r++) {
+      var row = u.rows[r];
+      if (!u.held) {
+        row.v += ((stand ? 0 : row.drift) - row.v) * ease;
+        row.x += row.v * dt;
+      }
+      // One round back or on is the same picture.
+      row.x %= row.round;
+      if (row.x > 0) {
+        row.x -= row.round;
+      }
+      var x = Math.round(row.x * 10) / 10;
+      if (x !== row.shown) {
+        row.shown = x;
+        row.el.style.transform = 'translate3d(' + x + 'px, 0, 0)';
+      }
+    }
+    var lens = u.lens;
+    lens.k += ((lens.on ? 1 : 0) - lens.k) * (1 - Math.exp(-dt / LENS_EASE_S));
+    if (!lens.on && lens.k < 0.004) {
+      lens.k = 0;
+    }
+    if (lens.k || lens.shown) {
+      unlockedLens();
+    }
+  }
+
+  function unlockedRun() {
+    var u = unlocked;
+    if (!u) {
+      return;
+    }
+    var on = appActive && document.visibilityState !== 'hidden';
+    if (on && !u.raf) {
+      u.last = 0;
+      u.raf = requestAnimationFrame(unlockedFrame);
+    } else if (!on && u.raf) {
+      cancelAnimationFrame(u.raf);
+      u.raf = 0;
+    }
+  }
+
+  function mountUnlocked(root) {
+    var strip = root.querySelector('.section--unlocked .perk-strip');
+    if (!strip || typeof requestAnimationFrame !== 'function') {
+      return;
+    }
+    var tiles = [].slice.call(strip.querySelectorAll('.icon-tile'));
+    if (!tiles.length) {
+      return;
+    }
+    var each = Math.ceil(tiles.length / ROW_DRIFT.length);
+    var size = tiles[0].offsetWidth;
+    var step = size + (parseFloat(getComputedStyle(strip).columnGap) || 0);
+    var width = strip.clientWidth;
+    // As many rounds of a row as cover the window wherever the row stands in its round.
+    var rounds = Math.ceil(width / (each * step)) + 1;
+    var rows = [];
+    for (var r = 0; r * each < tiles.length; r++) {
+      var el = document.createElement('span');
+      el.className = 'perk-row';
+      var own = tiles.slice(r * each, (r + 1) * each);
+      for (var n = 0; n < rounds; n++) {
+        for (var i = 0; i < own.length; i++) {
+          el.appendChild(n ? own[i].cloneNode(true) : own[i]);
+        }
+      }
+      strip.appendChild(el);
+      var all = [].slice.call(el.children);
+      var by = [];
+      for (var t = 0; t < all.length; t++) {
+        by.push(1);
+      }
+      rows.push({
+        el: el, own: own, tiles: all, by: by, round: 0, v: 0, shown: null,
+        // Where the sheets alone stand the row: on the window's middle, the second row half a step in.
+        x: (width - own.length * step) / 2 + (r === 1 ? step / 2 : 0),
+        drift: ROW_DRIFT[r % ROW_DRIFT.length], gain: ROW_GAIN[r % ROW_GAIN.length]
+      });
+    }
+    strip.classList.add('is-live');
+    unlocked = {
+      strip: strip, link: strip.closest('a') || strip, rows: rows, said: null, was: null,
+      held: null, dragged: 0, raf: 0, last: 0, lens: {x: 0, y: 0, k: 0, on: false, shown: false},
+      born: reducedMotion() ? 0 : performance.now() + ROW_BORN_MS
+    };
+    var u = unlocked;
+    unlockedMeasure();
+    // Any touch puts the cloud away. One on an icon also lifts the press the page script has just put on the band
+    // the icons lie in: it comes after that script's own handler, whichever was bound first.
+    u.touch = function(event) {
+      u.was = u.said ? u.said.tile : null;
+      cloudHush();
+      if (strip.contains(event.target)) {
+        var pressed = strip.closest('.is-pressed');
+        if (pressed) {
+          pressed.classList.remove('is-pressed');
+        }
+      }
+    };
+    // A finger stops the wall where it is.
+    u.down = function(event) {
+      if (u.held || event.button) {
+        return;
+      }
+      u.held = {id: event.pointerId, x: event.clientX, t: event.timeStamp};
+      u.dragged = 0;
+      for (var r = 0; r < u.rows.length; r++) {
+        u.rows[r].v = 0;
+      }
+      u.lens.x = event.clientX;
+      u.lens.y = event.clientY;
+      u.lens.on = true;
+    };
+    u.move = function(event) {
+      u.lens.x = event.clientX;
+      u.lens.y = event.clientY;
+      var held = u.held;
+      if (!held) {
+        // A cursor over the wall is a lens without a press.
+        u.lens.on = event.pointerType === 'mouse';
+        return;
+      }
+      if (event.pointerId !== held.id) {
+        return;
+      }
+      var dx = event.clientX - held.x;
+      var dt = Math.max(event.timeStamp - held.t, 1) / 1000;
+      u.dragged += Math.abs(dx);
+      for (var r = 0; r < u.rows.length; r++) {
+        var row = u.rows[r];
+        row.x += dx * row.gain;
+        // The speed of the throw: the last moves, smoothed.
+        row.v = row.v * 0.5 + (dx * row.gain / dt) * 0.5;
+      }
+      held.x = event.clientX;
+      held.t = event.timeStamp;
+    };
+    u.up = function(event) {
+      if (u.held && (event.type === 'pointerleave' || event.pointerId === u.held.id)) {
+        u.held = null;
+        if (reducedMotion()) {
+          for (var r = 0; r < u.rows.length; r++) {
+            u.rows[r].v = 0;
+          }
+        }
+      }
+      if (event.pointerType !== 'mouse' || event.type === 'pointerleave') {
+        u.lens.on = false;
+      }
+    };
+    // A tap on the tile whose cloud this touch has just put away leaves it away; a drag names nothing.
+    u.click = function(event) {
+      if (!strip.contains(event.target)) {
+        return;
+      }
+      event.preventDefault();
+      event.stopPropagation();
+      var tile = u.dragged > ROW_TAP_PX ? null : event.target.closest('.icon-tile');
+      if (tile && tile !== u.was) {
+        for (var r = 0; r < u.rows.length; r++) {
+          u.rows[r].v = 0;
+        }
+        cloudSay(tile);
+      }
+      u.was = null;
+    };
+    document.addEventListener('pointerdown', u.touch);
+    strip.addEventListener('pointerdown', u.down);
+    strip.addEventListener('pointermove', u.move);
+    strip.addEventListener('pointerup', u.up);
+    strip.addEventListener('pointercancel', u.up);
+    strip.addEventListener('pointerleave', u.up);
+    u.link.addEventListener('click', u.click, true);
+    unlockedRun();
+  }
+
+  function unmountUnlocked() {
+    var u = unlocked;
+    if (!u) {
+      return;
+    }
+    if (u.raf) {
+      cancelAnimationFrame(u.raf);
+    }
+    if (u.said) {
+      clearTimeout(u.said.timer);
+      if (u.said.cloud.parentNode) {
+        u.said.cloud.parentNode.removeChild(u.said.cloud);
+      }
+    }
+    document.removeEventListener('pointerdown', u.touch);
+    u.strip.removeEventListener('pointerdown', u.down);
+    u.strip.removeEventListener('pointermove', u.move);
+    u.strip.removeEventListener('pointerup', u.up);
+    u.strip.removeEventListener('pointercancel', u.up);
+    u.strip.removeEventListener('pointerleave', u.up);
+    u.link.removeEventListener('click', u.click, true);
+    // The tiles go back as the server printed them, and the copies go with their rows.
+    for (var r = 0; r < u.rows.length; r++) {
+      var row = u.rows[r];
+      for (var i = 0; i < row.own.length; i++) {
+        row.own[i].style.transform = '';
+        u.strip.appendChild(row.own[i]);
+      }
+      if (row.el.parentNode) {
+        row.el.parentNode.removeChild(row.el);
+      }
+    }
+    u.strip.classList.remove('is-live');
+    unlocked = null;
+  }
+
+  function mountPlans(root) {
+    var groups = root.querySelectorAll('.home--paywall .plans .section-body');
+    for (var i = 0; i < groups.length; i++) {
+      groups[i].addEventListener('animationstart', onPlanMotion);
+      groups[i].addEventListener('animationend', onPlanMotion);
+      groups[i].addEventListener('pointerdown', endWasNow);
+      groups[i].addEventListener('click', endWasNow);
+      groups[i].addEventListener('change', onPlanChange);
+      planGroups.push(groups[i]);
+    }
+  }
+
+  function unmountPlans() {
+    while (planGroups.length) {
+      var group = planGroups.pop();
+      group.removeEventListener('animationstart', onPlanMotion);
+      group.removeEventListener('animationend', onPlanMotion);
+      group.removeEventListener('pointerdown', endWasNow);
+      group.removeEventListener('click', endWasNow);
+      group.removeEventListener('change', onPlanChange);
     }
   }
 
@@ -1299,578 +1996,6 @@ window.PremiumFx = (function() {
         snapObserver.observe(nodes[n], { box: 'border-box' });
       }
     }
-  }
-
-  // ===== The neon aura around a screen's one primary card (Best Value plan, Popular pack; fx/light.ts neonAura).
-  // In a sheet its light moves into the sheet over the card's box, under the islands and text, so it shows in the
-  // gaps and never washes a neighbour; elsewhere it stays first in the card, on the card's own box and radius. =====
-
-  function mountAura(card) {
-    var light = document.createElement('span');
-    light.className = 'neon-aura__light';
-    light.setAttribute('aria-hidden', 'true');
-    var glow = document.createElement('span');
-    glow.className = 'neon-aura__glow';
-    light.appendChild(glow);
-    card.classList.add('neon-aura');
-    card.insertBefore(light, card.firstChild);
-    var entry = { card: card, light: light, sheet: null, laid: false, source: lightSource(light), observer: null, glint: null };
-    if (typeof ResizeObserver === 'function') {
-      entry.observer = new ResizeObserver(function() {
-        placeAura(entry);
-      });
-      entry.observer.observe(card);
-    }
-    placeAura(entry);
-    entry.glint = mountGlint(card);
-    auras.push(entry);
-    return entry;
-  }
-
-  // A light moving into the sheet takes on the entrance its card's block is playing (fx.css fx-stagger), so it never
-  // shows ahead of its card.
-  function followEntrance(light, card, sheet) {
-    var block = card;
-    while (block && block.parentNode !== sheet) {
-      block = block.parentNode;
-    }
-    var running = block && typeof block.getAnimations === 'function' ? block.getAnimations() : [];
-    for (var i = 0; i < running.length; i++) {
-      var effect = running[i].effect;
-      if (effect && effect.getKeyframes && effect.target === block && running[i].playState !== 'finished' && running[i].currentTime !== null) {
-        var copy = light.animate(effect.getKeyframes(), effect.getTiming());
-        // On the block's own start where it has one, so the two move as one from the light's first frame.
-        if (typeof running[i].startTime === 'number') {
-          copy.startTime = running[i].startTime;
-        } else {
-          copy.currentTime = running[i].currentTime;
-        }
-      }
-    }
-  }
-
-  function placeAura(entry) {
-    var card = entry.card;
-    var light = entry.light;
-    var sheet = card.isConnected ? card.closest('.fx-sheet') : null;
-    if (!sheet) {
-      return;
-    }
-    if (entry.sheet !== sheet) {
-      if (entry.observer) {
-        entry.observer.observe(sheet);
-      }
-      entry.sheet = sheet;
-    }
-    if (light.parentNode !== sheet) {
-      sheet.insertBefore(light, sheet.firstChild);
-      followEntrance(light, card, sheet);
-    }
-    light.hidden = !card.offsetWidth;
-    // Observers call back before the frame paints: a card laid out anew lights here, not a frame late.
-    if (!light.hidden && !entry.laid) {
-      lightNear(entry.source, card.getBoundingClientRect());
-    }
-    entry.laid = !light.hidden;
-    // The card's box and shape: the halos are its outer shadows (fx.css), spent within the gap around it.
-    var at = offsetIn(card, sheet);
-    var style = light.style;
-    style.left = at[0] + 'px';
-    style.top = at[1] + 'px';
-    style.width = card.offsetWidth + 'px';
-    style.height = card.offsetHeight + 'px';
-    // Best Value's colours run to the end of its ring, and out of the card the light needs the card's radius.
-    var cs = getComputedStyle(card);
-    style.setProperty('--glow-from', cs.getPropertyValue('--glow-from').trim());
-    style.setProperty('--glow-to', cs.getPropertyValue('--glow-to').trim());
-    style.setProperty('--aura-radius', cs.borderTopLeftRadius);
-  }
-
-  // ===== Best Value's glint (design.md §11.9): once a breath, at its peak, the tab's sparkle flares and one light
-  // leaves it, runs clockwise round the card's ring and comes back to be spent in it. Lit like any source. =====
-
-  // The glint within one breath. The sparkle's flare is over `flare` ms from the peak; at `start` the light leaves it
-  // and rounds the ring in `loop` ms, its pace easing from 1 + `ease` of the mean to 1 - `ease`. Along the ring the
-  // light rises over `front` px to its peak and decays behind it by e every `tail` of the ring's length, an afterglow,
-  // cut `reach` tails back; its core is white for `hot` px and down to `warm` of that from `head` px on, sooner where
-  // the corners are tight. A corner's light keeps `slack` px clear of its ends.
-  var GLINT = { flare: 650, start: 200, loop: 1800, ease: 0.3, front: 10, tail: 0.08, reach: 4.5, hot: 6, head: 36, warm: 0.4, slack: 2 };
-  // The run's keyframes stand a frame apart at 60 Hz, the same for every stretch of the ring, so that between any two
-  // all of them move as one.
-  var GLINT_STEP = 1000 / 60;
-  // The ring as the light meets it from the sparkle: a side by the way the light runs along it and the way across it
-  // from outside (CSS degrees), a corner by the quarter turn it starts at.
-  var GLINT_PARTS = [
-    { way: 90, across: 180 },
-    { turn: 0 },
-    { way: 180, across: 270 },
-    { turn: 1 },
-    { way: 270, across: 0 },
-    { turn: 2 },
-    { way: 0, across: 90 },
-    { turn: 3 },
-    { way: 90, across: 180 }
-  ];
-  // The sparkle swells as it flares; its flare is a soft light round it.
-  var GLINT_SPARK = [
-    { offset: 0, transform: 'scale(1)', easing: 'ease-out' },
-    { offset: 150 / BREATH_MS, transform: 'scale(1.4)', easing: 'ease-in-out' },
-    { offset: 500 / BREATH_MS, transform: 'scale(1)' },
-    { offset: 1, transform: 'scale(1)' }
-  ];
-  var GLINT_FLARE = [
-    { offset: 0, opacity: 0, transform: 'scale(0.4)', easing: 'ease-out' },
-    { offset: 150 / BREATH_MS, opacity: 1, transform: 'scale(1)', easing: 'ease-in' },
-    { offset: GLINT.flare / BREATH_MS, opacity: 0, transform: 'scale(1.2)' },
-    { offset: 1, opacity: 0, transform: 'scale(1.2)' }
-  ];
-
-  // The light's strength `u` px behind its peak, ahead of it below zero, its tail decaying by e every `tail` px.
-  function glintGlow(u, tail) {
-    if (u >= 0) {
-      return u < GLINT.reach * tail ? Math.exp(-u / tail) : 0;
-    }
-    var t = Math.min(1, -u / GLINT.front);
-    return Math.pow(1 - t * t, 2);
-  }
-
-  // The white of its core there, as a share of the head's: whole for GLINT.hot px, the tail's share from `head` px on.
-  function glintCore(u, head) {
-    var t = clamp((u - GLINT.hot) / (head - GLINT.hot), 0, 1);
-    return GLINT.warm + (1 - GLINT.warm) * Math.pow(1 - t * t, 2);
-  }
-
-  // `strength` along the light as the stops of a mask's gradient (components.css), from `far` px behind the peak to
-  // the front, `scale` units to a px. A stop stands every quarter of the front, every 4 px of the `head` and every
-  // fifth of the `tail` behind it, where the gradient's straight lines keep within 1 % of the curves.
-  function glintStops(far, head, tail, strength, scale, unit) {
-    var at = [];
-    var u;
-    for (u = 4; u > 0; u--) {
-      at.push((-GLINT.front * u) / 4);
-    }
-    for (u = 0; u < Math.min(head, far); u += 4) {
-      at.push(u);
-    }
-    for (u = head; u < far; u += tail / 5) {
-      at.push(u);
-    }
-    at.push(far);
-    return at.reverse().map(function(v) {
-      return 'rgba(0, 0, 0, ' + strength(v).toFixed(3) + ') ' + ((far - v) * scale).toFixed(2) + unit;
-    }).join(', ');
-  }
-
-  // The light's peak `ms` after its front left the sparkle, in px round a ring `length` long. Past the lap it keeps
-  // its last pace, while the sparkle takes the tail in.
-  function glintAt(ms, length) {
-    var x = ms / GLINT.loop;
-    var lap = x < 1 ? x + (GLINT.ease / Math.PI) * Math.sin(Math.PI * x) : 1 + (1 - GLINT.ease) * (x - 1);
-    return lap * length - GLINT.front;
-  }
-
-  // A side's run: how far the light's front is into it at each step, the side `length` px from `from` px round the
-  // ring and the light `beam` px long. Only the steps of its passage, with the one before the front comes in and the
-  // one after the tail's end is out, so it enters and leaves at the run's pace, not from a stand.
-  function glintSide(times, at, from, length, beam) {
-    var steps = [];
-    var into = function(i) {
-      return at[i] + GLINT.front - from;
-    };
-    for (var i = 0; i < at.length; i++) {
-      var comes = i + 1 === at.length || into(i + 1) > 0;
-      var left = i > 0 && into(i - 1) >= length + beam;
-      if (comes && !left) {
-        steps.push({ offset: (GLINT.start + times[i]) / BREATH_MS, into: into(i) });
-      }
-    }
-    return steps;
-  }
-
-  // The keyframes that move an element `dx`, `dy` for every px of a side's `steps`: out of sight before the side's
-  // start until the light comes, and `gone` px on, past its end, once it has left.
-  function glintMoves(steps, dx, dy, gone) {
-    var frame = function(offset, into) {
-      return { offset: offset, transform: 'translate(' + (dx * into).toFixed(2) + 'px, ' + (dy * into).toFixed(2) + 'px)' };
-    };
-    var frames = [frame(0, 0)];
-    for (var i = 0; i < steps.length; i++) {
-      frames.push(frame(steps[i].offset, steps[i].into));
-    }
-    frames.push(frame(1, gone));
-    return frames;
-  }
-
-  // A corner's keyframes, the corner `quarter` px long from `from` px round the ring. Its light is a conic gradient
-  // (components.css) that turns with the run, `deg` degrees to a px: the peak stands `peak` degrees round it and its
-  // last quarter is clear, so the corner is dark as the front comes. A gradient holds `far` px of the tail, less than
-  // the tail is long: there the turning stops, and what the corner shows fades as the tail does, by e every `tail` px,
-  // which for an afterglow is the same picture.
-  function glintTurn(times, at, from, quarter, turn, tail, deg, peak, far) {
-    var park = from - GLINT.front - GLINT.slack;
-    var hold = from + far - GLINT.slack;
-    var frame = function(ms, s, opacity) {
-      return {
-        offset: (GLINT.start + ms) / BREATH_MS,
-        transform: 'rotate(' + (turn * 90 + (clamp(s, park, hold) - from) * deg - peak).toFixed(3) + 'deg)',
-        opacity: Number(opacity.toFixed(4))
-      };
-    };
-    var frames = [frame(-GLINT.start, park, 0)];
-    for (var i = 0; i < at.length; i++) {
-      var s = at[i];
-      if (s <= park) {
-        // Lit a step before the front comes, while the corner still shows the gradient's clear quarter.
-        if (i + 1 < at.length && at[i + 1] > park) {
-          frames.push(frame(times[i], s, 1));
-        }
-        continue;
-      }
-      // The turning starts and stops between two steps: a keyframe at each moment keeps it on the run's pace.
-      for (var edge = 0; edge < 2; edge++) {
-        var to = edge ? hold : park;
-        if (i && at[i - 1] < to && s > to) {
-          frames.push(frame(times[i - 1] + ((to - at[i - 1]) / (s - at[i - 1])) * (times[i] - times[i - 1]), to, 1));
-        }
-      }
-      var gone = s - from - quarter >= GLINT.reach * tail;
-      frames.push(frame(times[i], s, gone ? 0 : Math.min(1, Math.exp((hold - s) / tail))));
-      if (gone) {
-        break;
-      }
-    }
-    frames.push(frame(BREATH_MS - GLINT.start, hold, 0));
-    return frames;
-  }
-
-  // `el`'s box in the px of `card`, itself `width` px wide: a press or an entrance scales or moves both, not one
-  // against the other.
-  function boxWithin(card, el, width) {
-    var c = card.getBoundingClientRect();
-    var e = el.getBoundingClientRect();
-    var k = c.width ? width / c.width : 1;
-    return { left: (e.left - c.left) * k, top: (e.top - c.top) * k, width: e.width * k, height: e.height * k };
-  }
-
-  function mountGlint(card) {
-    var tab = card.querySelector(':scope > .plan-tab');
-    var spark = tab && tab.querySelector('.plan-tab-spark');
-    var flare = tab && tab.querySelector('.plan-tab-flare');
-    if (!tab || !spark || !flare) {
-      return null;
-    }
-    var glint = document.createElement('span');
-    glint.className = 'plan-glint';
-    glint.setAttribute('aria-hidden', 'true');
-    var parts = [];
-    for (var k = 0; k < GLINT_PARTS.length; k++) {
-      var side = GLINT_PARTS[k].turn === undefined;
-      var part = document.createElement('span');
-      var beam = document.createElement('span');
-      var hue = null;
-      // The ring's end colour holds from its top right corner to its bottom right one.
-      part.className = 'plan-glint-part' + (side ? '' : ' is-turn') + (k > 0 && k < 4 ? ' is-end' : '');
-      beam.className = 'plan-glint-beam';
-      part.appendChild(beam);
-      if (side) {
-        part.style.setProperty('--glint-way', GLINT_PARTS[k].way + 'deg');
-        part.style.setProperty('--glint-across', GLINT_PARTS[k].across + 'deg');
-        if (GLINT_PARTS[k].way % 180) {
-          // Along the top and the bottom the ring's colours change under the light: they lie in it, moved against it.
-          hue = document.createElement('span');
-          hue.className = 'plan-glint-hue';
-          beam.appendChild(hue);
-        }
-      }
-      glint.appendChild(part);
-      parts.push({ part: part, beam: beam, hue: hue });
-    }
-    card.insertBefore(glint, tab);
-    // The light's way out of the tab: over the fill from the sparkle to the tab's end, where the ring's light takes
-    // over, so the run is seen to leave the tab.
-    var exit = document.createElement('span');
-    var ray = document.createElement('span');
-    exit.className = 'plan-tab-run';
-    exit.setAttribute('aria-hidden', 'true');
-    ray.className = 'plan-tab-ray';
-    exit.appendChild(ray);
-    tab.insertBefore(exit, tab.firstChild);
-    var running = [];
-    var lit = false;
-    // The card's and the tab's sizes the run is laid out for.
-    var laid = '';
-    var sizes = function() {
-      return card.offsetWidth + ' ' + card.offsetHeight + ' ' + tab.offsetWidth + ' ' + tab.offsetHeight;
-    };
-    var place = function(el, left, top, width, height) {
-      el.style.left = left.toFixed(2) + 'px';
-      el.style.top = top.toFixed(2) + 'px';
-      el.style.width = width.toFixed(2) + 'px';
-      el.style.height = height.toFixed(2) + 'px';
-    };
-    var stop = function() {
-      while (running.length) {
-        running.pop().cancel();
-      }
-    };
-    var start = function() {
-      stop();
-      if (!lit || !card.isConnected || !card.offsetWidth || typeof glint.animate !== 'function') {
-        return;
-      }
-      laid = sizes();
-      var cs = getComputedStyle(card);
-      var own = getComputedStyle(glint);
-      // The layer lies `out` px outside the card all round (components.css): its size gives the card's to the
-      // fraction of a px, whatever transform the card is under.
-      var out = -parseFloat(own.left) || 0;
-      var width = parseFloat(own.width) - 2 * out;
-      var height = parseFloat(own.height) - 2 * out;
-      var ring = parseFloat(cs.getPropertyValue('--best-ring')) || 2;
-      var radius = Math.min(parseFloat(cs.borderTopLeftRadius) || 0, width / 2, height / 2);
-      var band = out + ring;
-      var s = boxWithin(card, spark, width);
-      var t = boxWithin(card, tab, width);
-      // Where the sparkle pours its light into the top edge.
-      var from = clamp(s.left + s.width / 2, radius, width - radius);
-      // The ring's centre line turns a corner on a radius of `arc` px, `quarter` px of the ring.
-      var arc = Math.max(1, radius - ring / 2);
-      var quarter = (Math.PI * arc) / 2;
-      var lengths = [width - radius - from, quarter, height - 2 * radius, quarter, width - 2 * radius, quarter, height - 2 * radius, quarter, from - radius];
-      var length = 2 * (width + height - 4 * radius) + 4 * quarter;
-      var tail = GLINT.tail * length;
-      var reach = GLINT.reach * tail;
-      var light = reach + GLINT.front;
-      var deg = 180 / (Math.PI * arc);
-      var peak = 270 - (GLINT.front + 2 * GLINT.slack) * deg;
-      var far = peak / deg;
-      var style = glint.style;
-      style.setProperty('--glint-radius', radius + 'px');
-      style.setProperty('--glint-tab', (out + t.left).toFixed(2) + 'px ' + (out + t.top).toFixed(2) + 'px / ' + t.width.toFixed(2) + 'px ' + t.height.toFixed(2) + 'px');
-      style.setProperty('--glint-spark', (s.left + s.width / 2 - t.left).toFixed(2) + 'px');
-      // A corner stops turning with `far` px of the light behind the peak in it (glintTurn): the core's white has
-      // settled by then, on a tight corner sooner than GLINT.head.
-      var head = Math.max(GLINT.hot + 4, Math.min(GLINT.head, far - GLINT.slack - quarter));
-      var glow = function(u) {
-        return glintGlow(u, tail);
-      };
-      var core = function(u) {
-        return glintCore(u, head);
-      };
-      style.setProperty('--glint-run', glintStops(reach, head, tail, glow, 1, 'px'));
-      style.setProperty('--glint-run-core', glintStops(reach, head, tail, core, 1, 'px'));
-      style.setProperty('--glint-arc', glintStops(far, head, tail, glow, deg, 'deg'));
-      style.setProperty('--glint-arc-core', glintStops(far, head, tail, core, deg, 'deg'));
-      // The run ends as the tail's end reaches the sparkle.
-      var end = GLINT.loop * (1 + light / (length * (1 - GLINT.ease)));
-      var times = [];
-      var at = [];
-      for (var ms = 0; ms < end; ms += GLINT_STEP) {
-        times.push(ms);
-        at.push(glintAt(ms, length));
-      }
-      times.push(end);
-      at.push(glintAt(end, length));
-      var timing = { duration: BREATH_MS, iterations: Infinity, delay: parseFloat(breathDelay(breathNow())) };
-      var along = 0;
-      for (var i = 0; i < parts.length; i++) {
-        var def = GLINT_PARTS[i];
-        var item = parts[i];
-        if (def.turn === undefined) {
-          var flat = def.way % 180 !== 0;
-          var dx = flat ? (def.way === 90 ? 1 : -1) : 0;
-          var dy = flat ? 0 : (def.way === 180 ? 1 : -1);
-          // The side's stretch of the band, in the card's px, and its light, its own length before the side's start.
-          var x = flat ? (i ? radius : from) : (dy > 0 ? width - ring : -out);
-          var y = flat ? (dx > 0 ? -out : height - ring) : radius;
-          var before = dx + dy > 0 ? -light : lengths[i];
-          place(item.part, out + x, out + y, flat ? lengths[i] : band, flat ? band : lengths[i]);
-          place(item.beam, flat ? before : 0, flat ? 0 : before, flat ? light : band, flat ? band : light);
-          // The peak within the light: `front` px behind its front, on the ring's centre line.
-          var on = dx + dy > 0 ? light - GLINT.front : GLINT.front;
-          var mid = (dx > 0 || dy < 0 ? out : 0) + ring / 2;
-          item.part.style.setProperty('--glint-bloom', (flat ? on : mid).toFixed(2) + 'px ' + (flat ? mid : on).toFixed(2) + 'px');
-          var steps = glintSide(times, at, along, lengths[i], light);
-          running.push(item.beam.animate(glintMoves(steps, dx, dy, lengths[i] + light), timing));
-          if (item.hue) {
-            // The card's width of colours over the gap, where the card's left edge is.
-            place(item.hue, -x - before, dx > 0 ? 0 : ring, width, out);
-            running.push(item.hue.animate(glintMoves(steps, -dx, -dy, lengths[i] + light), timing));
-          }
-        } else {
-          // The corner's square of the band, and the gradient twice as large, centred where the corner turns.
-          var east = def.turn < 2;
-          var south = def.turn === 1 || def.turn === 2;
-          var size = radius + out;
-          place(item.part, east ? out + width - radius : 0, south ? out + height - radius : 0, size, size);
-          place(item.beam, east ? -size : 0, south ? -size : 0, 2 * size, 2 * size);
-          item.part.style.setProperty('--glint-bloom', (size + arc * Math.sin((peak * Math.PI) / 180)).toFixed(2) + 'px ' + (size - arc * Math.cos((peak * Math.PI) / 180)).toFixed(2) + 'px');
-          running.push(item.beam.animate(glintTurn(times, at, along, quarter, def.turn, tail, deg, peak, far), timing));
-        }
-        along += lengths[i];
-      }
-      // The tab's stretch starts where the ring's first one does and keeps its steps, so the two move as one.
-      var inTab = s.left + s.width / 2 - t.left;
-      exit.style.setProperty('--glint-spark', inTab.toFixed(2) + 'px');
-      exit.style.setProperty('--glint-run', glintStops(reach, head, tail, glow, 1, 'px'));
-      exit.style.setProperty('--glint-bloom', (light - GLINT.front).toFixed(2) + 'px 50%');
-      exit.style.setProperty('--glint-hue', t.left + t.width / 2 < width / 2 ? 'var(--glow-from)' : 'var(--glow-to)');
-      place(ray, inTab - light, 0, light, t.height);
-      running.push(ray.animate(glintMoves(glintSide(times, at, 0, t.width - inTab, light), 1, 0, t.width - inTab + light), timing));
-      running.push(spark.animate(GLINT_SPARK, timing), flare.animate(GLINT_FLARE, timing));
-    };
-    // A new size moves the ring, a new tab its reach: the run is laid out again where the shared clock stands.
-    var resize = null;
-    if (typeof ResizeObserver === 'function') {
-      resize = new ResizeObserver(function() {
-        if (running.length && sizes() !== laid) {
-          start();
-        }
-      });
-      resize.observe(card);
-      resize.observe(tab);
-    }
-    lightSource(glint, function(on) {
-      lit = on;
-      start();
-    });
-    return {
-      destroy: function() {
-        if (resize) {
-          resize.disconnect();
-        }
-        stop();
-        if (glint.parentNode) {
-          glint.parentNode.removeChild(glint);
-        }
-        if (exit.parentNode) {
-          exit.parentNode.removeChild(exit);
-        }
-      }
-    };
-  }
-
-  // ===== Snap-scrolling carousels with page dots, auto-advancing until touched (fx/carousel.ts) =====
-
-  var CAROUSEL_AUTO_MS = 4000;
-  var carousels = [];
-
-  function nearestIndex(items, track) {
-    var mid = track.getBoundingClientRect();
-    var center = mid.left + mid.width / 2;
-    var best = 0;
-    for (var i = 0; i < items.length; i++) {
-      var r = items[i].getBoundingClientRect();
-      var c = r.left + r.width / 2;
-      var rb = items[best].getBoundingClientRect();
-      if (Math.abs(c - center) < Math.abs(rb.left + rb.width / 2 - center)) {
-        best = i;
-      }
-    }
-    return best;
-  }
-
-  function mountCarousel(el) {
-    var track = el.querySelector('.fx-carousel__track');
-    var dots = el.querySelector('.fx-carousel__dots');
-    if (!track || !dots) {
-      return null;
-    }
-    var items = [];
-    for (var i = 0; i < track.children.length; i++) {
-      items.push(track.children[i]);
-    }
-    var index = -1;
-    var timer = null;
-    var frame = 0;
-    var visible = true;
-    var entry = { el: el, dead: false };
-    var mark = function(i) {
-      if (dots.children[index]) {
-        dots.children[index].classList.remove('is-on');
-      }
-      index = i;
-      if (dots.children[index]) {
-        dots.children[index].classList.add('is-on');
-      }
-    };
-    var current = function() {
-      return nearestIndex(items, track);
-    };
-    // scrollBy moves the same way in both reading directions; scrollLeft does not.
-    var go = function(i) {
-      var item = items[i];
-      if (!item) {
-        return;
-      }
-      var ir = item.getBoundingClientRect();
-      var tr = track.getBoundingClientRect();
-      track.scrollBy({ left: (ir.left + ir.width / 2) - (tr.left + tr.width / 2), behavior: reducedMotion() ? 'auto' : 'smooth' });
-    };
-    var schedule = function() {
-      if (entry.dead || reducedMotion() || items.length < 2) {
-        return;
-      }
-      timer = setTimeout(function() {
-        if (visible && document.visibilityState !== 'hidden') {
-          go((current() + 1) % items.length);
-        }
-        schedule();
-      }, CAROUSEL_AUTO_MS);
-    };
-    var stop = function() {
-      if (timer) {
-        clearTimeout(timer);
-        timer = null;
-      }
-    };
-    track.addEventListener('scroll', function() {
-      if (!frame) {
-        frame = requestAnimationFrame(function() {
-          frame = 0;
-          mark(current());
-        });
-      }
-    }, { passive: true });
-    for (var t = 0; t < 3; t++) {
-      el.addEventListener(['pointerdown', 'wheel', 'focusin'][t], function() {
-        stop();
-      }, { passive: true });
-    }
-    track.addEventListener('keydown', function(e) {
-      var forward = getComputedStyle(el).direction === 'rtl' ? 'ArrowLeft' : 'ArrowRight';
-      var back = forward === 'ArrowLeft' ? 'ArrowRight' : 'ArrowLeft';
-      var n = items.length;
-      var to = -1;
-      if (e.key === 'Home') {
-        to = 0;
-      } else if (e.key === 'End') {
-        to = n - 1;
-      } else if (e.key === forward) {
-        to = Math.min(n - 1, current() + 1);
-      } else if (e.key === back) {
-        to = Math.max(0, current() - 1);
-      }
-      if (to < 0) {
-        return;
-      }
-      stop();
-      e.preventDefault();
-      go(to);
-    });
-    var io = null;
-    if (typeof IntersectionObserver === 'function') {
-      io = new IntersectionObserver(function(entries) {
-        visible = !!entries[entries.length - 1].isIntersecting;
-      });
-      io.observe(el);
-    }
-    entry.stop = stop;
-    entry.io = io;
-    carousels.push(entry);
-    mark(0);
-    schedule();
-    return entry;
   }
 
   // ===== The shared frame loop =====
@@ -1917,7 +2042,8 @@ window.PremiumFx = (function() {
 
   // The page went to the background or came back, or Telegram minimised or restored the app.
   function refresh() {
-    refreshLight();
+    refreshPath();
+    unlockedRun();
     update();
   }
 
@@ -1946,8 +2072,8 @@ window.PremiumFx = (function() {
     syncMotion();
     var app = window.Telegram && window.Telegram.WebApp;
     appActive = !app || app.isActive !== false;
-    nearObserver = watchNear();
     mountEntrance(root);
+    mountLabel(root);
     // Before the rest, so the page is on its grid when anything is measured from it.
     mountSnaps(root);
     var found = root.querySelectorAll('.fx-stage');
@@ -1957,18 +2083,6 @@ window.PremiumFx = (function() {
     // A field no stage of this page took on has nowhere to go.
     dropFields();
     mountLight(root);
-    var glows = root.querySelectorAll('.cta-glow');
-    for (var g = 0; g < glows.length; g++) {
-      mountCta(glows[g]);
-    }
-    var cards = root.querySelectorAll('[data-aura]');
-    for (var j = 0; j < cards.length; j++) {
-      mountAura(cards[j]);
-    }
-    var carouselsFound = root.querySelectorAll('.fx-carousel');
-    for (var c = 0; c < carouselsFound.length; c++) {
-      mountCarousel(carouselsFound[c]);
-    }
     mountCounts(root);
     if (!resizeHandler) {
       resizeHandler = function() {
@@ -1976,8 +2090,8 @@ window.PremiumFx = (function() {
           layoutStage(stages[i]);
         }
         layoutLight();
-        for (var j = 0; j < auras.length; j++) {
-          placeAura(auras[j]);
+        if (unlocked) {
+          unlockedMeasure();
         }
       };
       window.addEventListener('resize', resizeHandler);
@@ -1987,20 +2101,20 @@ window.PremiumFx = (function() {
         app.onEvent('deactivated', onInactive);
       }
     }
+    mountPath(root);
+    mountPlans(root);
+    mountUnlocked(root);
     // A paid result: the field's stars burst from the mark and confetti falls over the screen.
     var celebrate = root.querySelector('.js-celebrate');
     if (celebrate) {
       var host = celebrate.closest('.result-screen') || celebrate.parentNode;
       if (host) {
         var golden = host.querySelector('.fx-stage--stars, .pm-mark--stars');
-        burst(host, golden ? FIELD_COLORS.stars : FIELD_COLORS.premium);
+        burstTimer = setTimeout(burst, BURST_AFTER_MS, host, golden ? FIELD_COLORS.starsPaid : FIELD_COLORS.premium);
         confetti(host);
       }
     }
-    // Every source near the screen lights in this frame: the observer reports only after it paints.
-    for (var s = 0; s < sources.length; s++) {
-      lightNear(sources[s]);
-    }
+    mountLoops(root);
     update();
     launched = true;
   }
@@ -2011,6 +2125,11 @@ window.PremiumFx = (function() {
       raf = 0;
       last = 0;
     }
+    clearTimeout(burstTimer);
+    cancelAnimationFrame(loopRaf);
+    loopRaf = 0;
+    loopLast = 0;
+    loops = [];
     var left = [];
     for (var i = 0; i < stages.length; i++) {
       var entry = stages[i];
@@ -2027,54 +2146,25 @@ window.PremiumFx = (function() {
       heldFields = left;
       heldTimer = setTimeout(dropFields, FIELD_HOLD_MS);
     }
-    if (!breathHeld && breathes()) {
-      breathHeld = performance.now();
-      // What was lit since starts with this frame: the clock moves on from here.
-      requestAnimationFrame(function(now) {
-        breathOrigin += now - breathHeld;
-        breathHeld = 0;
-      });
-    }
-    while (sources.length) {
-      dropSource(sources[0]);
-    }
-    if (nearObserver) {
-      nearObserver.disconnect();
-      nearObserver = null;
-    }
     if (light && light.observer) {
       light.observer.disconnect();
     }
     light = null;
     clearTimeout(entranceTimer);
+    if (labelWatch) {
+      labelWatch.disconnect();
+      labelWatch = null;
+    }
+    while (rolls.length) {
+      endRoll(rolls[0]);
+    }
+    unmountPlans();
+    unmountPath();
+    unmountUnlocked();
     if (snapObserver) {
       snapObserver.disconnect();
       snapObserver = null;
     }
-    for (var j = 0; j < auras.length; j++) {
-      var aura = auras[j];
-      if (aura.observer) {
-        aura.observer.disconnect();
-      }
-      if (aura.glint) {
-        aura.glint.destroy();
-      }
-      if (aura.light.parentNode) {
-        aura.light.parentNode.removeChild(aura.light);
-      }
-      aura.card.classList.remove('neon-aura');
-    }
-    auras = [];
-    for (var k = 0; k < carousels.length; k++) {
-      carousels[k].dead = true;
-      if (carousels[k].stop) {
-        carousels[k].stop();
-      }
-      if (carousels[k].io) {
-        carousels[k].io.disconnect();
-      }
-    }
-    carousels = [];
     if (resizeHandler) {
       window.removeEventListener('resize', resizeHandler);
       document.removeEventListener('visibilitychange', refresh);

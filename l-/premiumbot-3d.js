@@ -278,6 +278,13 @@ window.Premium3D = (function() {
       up: function(now) {
         startBack(now);
       },
+      // One whole turn about the upright axis, from where the mark stands to where it rests: a star that takes the
+      // other star's place changes its kind in this turn (adopt). `way` is 1 or -1.
+      turn: function(now, way) {
+        set = back = null;
+        idleAt = null;
+        play(now + 16, [['angleX', [m.angleX, 360 * way], 760, EASE_DEFAULT], ['angleY', [m.angleY, 0], 400, EASE_OUT]]);
+      },
       tap: function(now, fx, fy) {
         set = back = null;
         if (Math.abs(m.angleX) > 10) {
@@ -503,6 +510,19 @@ window.Premium3D = (function() {
     var lastY = 0;
 
     return {
+      // The star between its two kinds: the shader's own mix of the two stars and the colours of their gradients,
+      // `mix` of the way from `from` to `to`. At the end the icon is of the kind it has turned into.
+      tint: function(from, to, mix) {
+        var a = GRADIENT[from].split(' ');
+        var b = GRADIENT[to].split(' ');
+        gl.uniform1f(u('golden'), (from === 'golden' ? 1 - mix : 0) + (to === 'golden' ? mix : 0));
+        for (var i = 0; i < a.length; i++) {
+          gl.uniform3fv(u('gradientColor' + (i + 1)), parseHex(mixHex(a[i], b[i], mix)).map(function(v) { return v / 255; }));
+        }
+        if (mix >= 1) {
+          kind = to;
+        }
+      },
       setBackground: function(hex) {
         background = document.createElement('canvas');
         background.width = background.height = 50;
@@ -969,8 +989,31 @@ window.Premium3D = (function() {
       instance.spin = spin;
       instance.box.setAttribute('data-spin', String(spin));
     }
+    if (instance.tint) {
+      stepTint(instance, now);
+    }
     turnBloom(instance, f);
     instance.icon.draw(f, still);
+  }
+
+  // A star that took the other star's place turns into its own kind over TINT_MS, eased in and out: what it refracts,
+  // the two stars' mix in the shader and their gradients run together from one to the other. With motion reduced it
+  // is its own kind at once.
+  var TINT_MS = 520;
+
+  function stepTint(instance, now) {
+    var tint = instance.tint;
+    if (!tint.start) {
+      tint.start = now;
+    }
+    var t = prefersReducedMotion() ? 1 : Math.min(Math.max((now - tint.start) / TINT_MS, 0), 1);
+    var mix = t * t * (3 - 2 * t);
+    instance.icon.setBackground(mixHex(tint.behind, instance.behind, mix));
+    instance.icon.tint(tint.from, instance.kind, mix);
+    if (t >= 1) {
+      instance.tint = null;
+      instance.icon.setBackground(instance.behind);
+    }
   }
 
   function update(instance) {
@@ -1067,39 +1110,60 @@ window.Premium3D = (function() {
     }, PARK_MS);
   }
 
-  // The next page's slot takes a waiting mark of its kind as it stands: the same canvas, moved, so no frame is without
-  // the mark and its motion goes on.
+  // The next page's slot takes a waiting mark as it stands: the same canvas, moved, so no frame is without the mark
+  // and its motion goes on. Where no mark of the slot's kind waits, a waiting star of the other kind is taken: the
+  // two are one mesh under one shader, so it turns into the slot's kind where it stands (stepTint), and its own light
+  // on a dark page, the golden star's bloom, comes up with it.
   function adopt(box) {
     var kind = kindOf(box);
+    var found = -1;
     for (var i = 0; i < parked.length; i++) {
-      var instance = parked[i];
-      if (instance.kind !== kind) {
-        continue;
+      if (parked[i].kind === kind) {
+        found = i;
+        break;
       }
-      parked.splice(i, 1);
-      clearTimeout(instance.parking);
-      if (instance.gl.isContextLost()) {
-        release(instance);
-        return null;
+      if (found < 0) {
+        found = i;
       }
-      instance.box = box;
-      instance.bloom = bloomOf(box, kind);
-      instance.turned = '';
-      instance.seen = true;
-      box.appendChild(instance.canvas);
-      box.classList.add('is-3d');
-      instances.push(instance);
-      bindStage(instance);
-      layout(instance);
-      retheme(instance);
-      // Redrawn as it stood, into a buffer the new box may have resized. The frame after is one step on, however long
-      // the page change took.
-      frame(instance, instance.last);
-      update(instance);
-      instance.last = 0;
-      return instance;
     }
-    return null;
+    if (found < 0) {
+      return null;
+    }
+    var instance = parked[found];
+    parked.splice(found, 1);
+    clearTimeout(instance.parking);
+    if (instance.gl.isContextLost()) {
+      release(instance);
+      return null;
+    }
+    var turning = instance.kind !== kind;
+    if (turning) {
+      instance.tint = { from: instance.kind, behind: instance.behind, start: 0 };
+      instance.kind = kind;
+      instance.behind = behindColor(kind, instance.dark);
+    }
+    instance.box = box;
+    instance.bloom = bloomOf(box, kind);
+    if (turning && instance.bloom && instance.bloom.animate && !prefersReducedMotion()) {
+      instance.bloom.animate([{ opacity: 0, offset: 0 }], { duration: TINT_MS, easing: 'ease-in-out' });
+    }
+    if (turning) {
+      instance.motion.turn(instance.clockMs, kind === 'golden' ? 1 : -1);
+    }
+    instance.turned = '';
+    instance.seen = true;
+    box.appendChild(instance.canvas);
+    box.classList.add('is-3d');
+    instances.push(instance);
+    bindStage(instance);
+    layout(instance);
+    retheme(instance);
+    // Redrawn as it stood, into a buffer the new box may have resized. The frame after is one step on, however long
+    // the page change took.
+    frame(instance, instance.last);
+    update(instance);
+    instance.last = 0;
+    return instance;
   }
 
   var visibilityHandler = null;
