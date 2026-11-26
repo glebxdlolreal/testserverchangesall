@@ -9,6 +9,15 @@ html {
   text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   background: var(--page);
+  /* A classic scrollbar takes its width out of the page, 15 to 17 px on a desktop client, and only on a page long
+     enough to scroll: the star and the title would stand 8 px further left there than on a short page and step
+     sideways when one follows the other. The page scrolls without showing a bar, as it does on a phone. */
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }
 
 body {
@@ -24,6 +33,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  /* Nothing on a page is text to copy: a drag across it or a long press selects none of it. */
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+
+/* A field, should a page come to hold one, is still a field. */
+input,
+textarea,
+[contenteditable='true'] {
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 h1,
@@ -76,7 +98,10 @@ img {
   outline: none;
 }
 
-.sr-only {
+/* For screen readers only. A plan tile's saving in money is such a part with no class to say so: the tile shows it as
+   a struck price and a percent. */
+.sr-only,
+.plan-total > .plan-saving {
   position: absolute !important;
   width: 1px;
   height: 1px;
@@ -104,39 +129,6 @@ img {
   max-width: var(--column);
   margin: 0 auto;
   padding: var(--space-16) 0 calc(var(--tg-safe-area-inset-bottom, 0px) + var(--tg-content-safe-area-inset-bottom, 0px) + var(--page-end, var(--space-16)) + var(--main-total-room, 0px));
-}
-
-/* The native MainButton cuts the page at its top edge; a page that scrolls fades into it over 24 px instead, as the
-   in-page bar and the total line do, its last pixel the page itself. A result fits above the button, and the total
-   over it fades on its own. */
-html.has-main-button #app::after {
-  content: '';
-  position: fixed;
-  inset: auto 0 0;
-  z-index: 2;
-  height: var(--space-24);
-  background: linear-gradient(transparent, var(--page) calc(100% - 1px));
-  pointer-events: none;
-}
-
-/* A rule each: WebKit before 15.4 drops a selector list whole for a :has() in it, and the fade would cover the total. */
-html.has-main-button #app.has-main-total::after {
-  content: none;
-}
-
-html.has-main-button #app:has(.result-screen)::after {
-  content: none;
-}
-
-/* Where that fade shows, a page's last content rests on its top edge instead of 8 px under it; before WebKit 15.4 a
-   result's too, as the fade shows there. On the screens, not #app: a custom property that changes restyles and
-   repaints everything under it, the light field too; src/ui/shell.ts holds a page's end while it moves. */
-html.has-main-button #app:not(.has-main-total) .screen {
-  --page-end: var(--space-24);
-}
-
-html.has-main-button #app:has(.result-screen) .screen {
-  --page-end: initial;
 }
 
 /* The home indicator's inset (34 px on iOS) is off the grid; rounded up, every page ends on it. */
@@ -170,45 +162,12 @@ html.has-main-button #app:has(.result-screen) .screen {
   }
 }
 
-@keyframes fade-out {
-  to {
-    opacity: 0;
-  }
-}
-
 /* A screen on its way out stays where it was, fixed, while the document scrolls to the one coming in
    (src/ui/shell.ts); `is-leaving` alone covers the wait for the arriving stage, before the move is chosen. */
-.screen.is-leaving,
-.screen.is-leaving-push,
-.screen.is-leaving-pop,
-.screen.is-leaving-fade {
+.screen.is-leaving {
   position: fixed;
   right: 0;
   left: 0;
-  pointer-events: none;
-}
-
-/* With motion allowed, fx.css slides pushes and pops as each client does; a replace, and every change under reduced
-   motion, crossfades the two screens over the light field. */
-.screen.is-entering-fade {
-  animation: fade-in var(--motion-fade) ease-out both;
-}
-
-.screen.is-leaving-fade {
-  animation: fade-out var(--motion-fade) ease-out both;
-}
-
-/* A screen waits, laid out but unseen, until its marks show their first frame (src/fx/stage.ts stagesReady). */
-.screen.is-waiting {
-  visibility: hidden;
-}
-
-/* Until the change has landed the arriving screen takes no tap either: a second tap where the first one was would act
-   on a page not yet shown (src/ui/shell.ts onTap). */
-.screen.is-waiting,
-.screen.is-entering-push,
-.screen.is-entering-pop,
-.screen.is-entering-fade {
   pointer-events: none;
 }
 

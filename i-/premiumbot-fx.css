@@ -1,7 +1,13 @@
-/* Effects (design.md §10, §11): stage, the results' blocks on it, light, glow border, press, stagger, carousel, burst.
-   src/fx sets .fx-reduce on the root when motion is reduced; the still variants key on it. */
+/* Effects (design.md §10, §11): stage, the results' blocks on it, the light field, press, stagger, the pay
+   button's parts, burst. */
 :root {
   --fx-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* The paywall's three curves, each a plain bezier fitted to its function within 0.011: out is 1 - (1 - p)^4, for
+     what appears in place; in-out is the cubic, for what travels; soft is 1 - exp(-6p) cos(3.2p) (1 - p), a spring
+     for icons that passes its end by 0.4% and lands without a snap. */
+  --fx-out: cubic-bezier(0.25, 1, 0.5, 1);
+  --fx-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --fx-soft: cubic-bezier(0.17, 1.1, 0.25, 1);
 }
 
 @supports (transition-timing-function: linear(0, 1)) {
@@ -11,22 +17,13 @@
   }
 }
 
-/* Stage (design.md §11.2, §11.9): no surface of its own, the top of the one lit page. Its colour runs from the page's
-   top colour (--page-top, tokens.css), which the header also claims, down to the page, with the light over it.
-   src/fx/stage.ts sets --fx-accent, an "r g b" triplet, and --fx-cy, the hero's centre from the stage's top; --fx-mark
-   is the mark's size and --fx-scale the glow's against the 120 px mark. The stage's box keeps to the content box, as a
-   classic scrollbar takes its width out of 100vw; its colour and light span the viewport, so a window wider than the
-   column shows no side edge, and the body clips what passes the scrollbar. */
+/* Stage (design.md §11.2): no surface of its own, the top of the page. Its colour runs from the page's top colour
+   (--page-top, tokens.css), which the header also claims, down to the page. --fx-mark is the mark's size. The stage's
+   box keeps to the content box, as a classic scrollbar takes its width out of 100vw; its colour spans the viewport,
+   so a window wider than the column shows no side edge, and the body clips what passes the scrollbar. */
 :is(.fx-stage, .fx-light__stage) {
   --fx-top: var(--page-top);
   --fx-mark: 120px;
-  --fx-scale: 1;
-  --fx-cy: 84px;
-  /* How far the light runs up past the stage's box, and the hero's centre from the light's own top. */
-  --fx-lift: 0px;
-  --fx-y: calc(var(--fx-cy) + var(--fx-lift));
-  /* How far below the hero's centre the light reaches: never into the stage's last 8 px (design.md §11.9). */
-  --fx-reach: min(200px * var(--fx-scale), 100% - var(--fx-y) - 8px);
 }
 
 .fx-stage {
@@ -44,77 +41,9 @@
   pointer-events: none;
 }
 
-/* The light (design.md §11.9), the screen's first source and one field from the hero down: a
-   small accent core, in light themes over a white bloom, a wash of the tone across the top and two pools of the
-   tone's colours beside the lower half of the mark; on dark the accent adds light. Each part ends on its own 8 px above the stage's end,
-   which the sheet's open top shows, and the field eases in over the top 48 px, so the page's top row is --page-top
-   alone and meets the header in one colour. Eased falloffs, so no ring shows; one layer, so it breathes as one.
-   --fx-core and --fx-field are the layer lists, so dark restates the core alone. */
-:is(.fx-stage, .fx-light__stage)::after {
-  --fx-wash: color-mix(in srgb, rgb(var(--fx-accent)) var(--pool-top), var(--pool-base));
-  --fx-pool-from: color-mix(in srgb, var(--glow-from) var(--pool-a), var(--pool-base));
-  --fx-pool-to: color-mix(in srgb, var(--glow-to) var(--pool-a), var(--pool-base));
-  --fx-core:
-    radial-gradient(calc(100px * var(--fx-scale)) calc(85px * var(--fx-scale)) at 50% var(--fx-y), rgb(var(--fx-accent) / 0.28), rgb(var(--fx-accent) / 0)),
-    radial-gradient(calc(160px * var(--fx-scale)) calc(120px * var(--fx-scale)) at 50% var(--fx-y), rgb(255 255 255 / 0.95), rgb(255 255 255 / 0.5) 50%,
-      rgb(255 255 255 / 0));
-  --fx-field:
-    radial-gradient(calc(220px * var(--fx-scale)) calc(var(--fx-reach) - 48px * var(--fx-scale)) at calc(50% - 200px * var(--fx-scale)) calc(var(--fx-y) + 48px * var(--fx-scale)), var(--fx-pool-from),
-      color-mix(in srgb, var(--fx-pool-from) 92%, transparent) 20%, color-mix(in srgb, var(--fx-pool-from) 71%, transparent) 40%,
-      color-mix(in srgb, var(--fx-pool-from) 41%, transparent) 60%, color-mix(in srgb, var(--fx-pool-from) 13%, transparent) 80%, transparent),
-    radial-gradient(calc(220px * var(--fx-scale)) calc(var(--fx-reach) - 48px * var(--fx-scale)) at calc(50% + 200px * var(--fx-scale)) calc(var(--fx-y) + 48px * var(--fx-scale)), var(--fx-pool-to),
-      color-mix(in srgb, var(--fx-pool-to) 92%, transparent) 20%, color-mix(in srgb, var(--fx-pool-to) 71%, transparent) 40%,
-      color-mix(in srgb, var(--fx-pool-to) 41%, transparent) 60%, color-mix(in srgb, var(--fx-pool-to) 13%, transparent) 80%, transparent),
-    radial-gradient(calc(450px * var(--fx-scale)) var(--fx-reach) at 50% var(--fx-y), var(--fx-wash), color-mix(in srgb, var(--fx-wash) 92%, transparent) 20%,
-      color-mix(in srgb, var(--fx-wash) 71%, transparent) 40%, color-mix(in srgb, var(--fx-wash) 41%, transparent) 60%,
-      color-mix(in srgb, var(--fx-wash) 13%, transparent) 80%, transparent);
-  content: '';
-  position: absolute;
-  inset: calc(-1 * var(--fx-lift)) calc(50% - 50vw) 0;
-  background: var(--fx-core), var(--fx-field);
-  -webkit-mask: linear-gradient(transparent, rgb(0 0 0 / 0.16) 12px, rgb(0 0 0 / 0.5) 24px, rgb(0 0 0 / 0.84) 36px, #000 48px);
-  mask: linear-gradient(transparent, rgb(0 0 0 / 0.16) 12px, rgb(0 0 0 / 0.5) 24px, rgb(0 0 0 / 0.84) 36px, #000 48px);
-  pointer-events: none;
-}
-
-/* WebKit before 16.2 can mix neither the wash and the pools nor their falloff, and a field holding a mix would take
-   the core down with it: the core shines alone there. */
-@supports not (color: color-mix(in srgb, red, red)) {
-  :is(.fx-stage, .fx-light__stage)::after {
-    --fx-wash: transparent;
-    --fx-pool-from: transparent;
-    --fx-pool-to: transparent;
-    --fx-field: none;
-  }
-}
-
-/* On dark the accent adds light. The core falls off on (1 − t²)², sampled every 10 %, from 0.42 at the centre to none
-   with no slope left, so no disc or rim shows round the mark. */
-.fx-stage--dark::after {
-  --fx-core: radial-gradient(calc(150px * var(--fx-scale)) calc(120px * var(--fx-scale)) at 50% var(--fx-y),
-    rgb(var(--fx-accent) / 0.42), rgb(var(--fx-accent) / 0.412) 10%, rgb(var(--fx-accent) / 0.387) 20%, rgb(var(--fx-accent) / 0.348) 30%,
-    rgb(var(--fx-accent) / 0.296) 40%, rgb(var(--fx-accent) / 0.236) 50%, rgb(var(--fx-accent) / 0.172) 60%, rgb(var(--fx-accent) / 0.109) 70%,
-    rgb(var(--fx-accent) / 0.054) 80%, rgb(var(--fx-accent) / 0.015) 90%, rgb(var(--fx-accent) / 0));
-  mix-blend-mode: plus-lighter;
-}
-
-/* Dark Stars: the star sits in darkness, as on Telegram's own Stars screen, whose scene has no light behind it
-   (StarsPurchaseScreen.swift, PremiumStarComponent with no backgroundColor). Its light is a bloom of its own
-   silhouette (.fx-stage__bloom below), and the sparkles carry the rest. */
-.fx-stage--dark.fx-stage--stars::after {
-  background: none;
-}
-
-/* Status screens: the 88 px mark and a glow scaled with it; src/fx/stage.ts thins the
-   field to the mark's area. */
+/* Status screens: the 88 px mark; src/fx/stage.ts thins the field to the mark's area. */
 .fx-stage--compact {
   --fx-mark: 88px;
-  --fx-scale: 0.7333;
-}
-
-/* A failure's glyph gets no light. */
-.fx-stage--bare::after {
-  content: none;
 }
 
 /* A full-screen stage fills the viewport under the top safe areas #app pads for (base.css), so the page ends at the
@@ -125,43 +54,280 @@
   min-height: var(--fx-fill-height);
 }
 
-/* A full-screen stage (results, full-screen states) starts its block at 12 % of the viewport at least, 16 px at the
-   least, so what follows the hero has room under it; src/fx/stage.ts lowers a short one to sit a little above the
-   middle. Where CSS can round, the block and the stage's end sit on the grid. A result starts at 6 %, so its list ends
-   above the MainButton. */
+/* A state screen's stage (an error, a pending payment, a paid result) holds one group, which premiumbot.css stands on
+   the screen's optical centre. Its object is the screen's subject and a third larger than the paywall's mark; the
+   mark's canvas, its light and its field take their size from it. A tile is the last thing in the group and drops
+   its section gap, so the group ends with it. */
 .fx-stage--result {
-  --fx-fill-top: 0.06;
-}
-
-/* A short window, Telegram Desktop's 596 px or an iPhone mini's, cannot hold the prepaid giveaway 24 px above the
-   MainButton under the 120 px mark. Its result takes the 88 px mark of secondary screens,
-   capping the size a Lottie hero sets inline, and starts 24 px under the header, the stage's 16 and the hero's 8. */
-@media (max-height: 640px) {
-  .fx-stage--result {
-    --fx-fill-top: 0;
-    --fx-mark: 88px;
-    --fx-scale: 0.7333;
-  }
-
-  .fx-stage--result .hero-media > .lottie {
-    max-width: var(--fx-mark);
-    max-height: var(--fx-mark);
-  }
-}
-
-/* A result's last list ends the page 16 px above the MainButton (design §11.3): it drops its section gap and its block
-   its 24 px, and the block hangs 8 px into the stage's 24 px bottom padding, so a list that runs past the screen
-   scrolls no further, while src/fx/stage.ts still centres a short one over the full 24 px. The gap would count as room
-   there and lower a list that already overflows. */
-.fx-stage--result .stage-content--fill {
-  padding-bottom: 0;
-  margin-bottom: -8px;
+  --fx-mark: 160px;
 }
 
 .fx-stage--result .stage-content > .section:last-child {
   margin-bottom: 0;
 }
 
+/* The state screens' entrance, in the paywall's keyframes and curves, one thing after another: the object pops on the
+   soft spring, then the title rises, then the words, then a tile, whole. The docked bar is there from the first frame
+   and its capsules rise inside it. An animation that draws late fades into its box. Only the object scales; text
+   fades and slides. This rule is the whole entrance under reduced motion, which the root's fx-reduce class follows:
+   short fades. */
+.result-screen :is(.pm-mark, .hero-media, .hero-title, .hero-subtitle, .section, .cta-bar),
+.result-screen .lottie.is-ready > canvas {
+  animation: fx-in-fade 200ms ease-out backwards;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.fx-reduce) .result-screen :is(.pm-mark, .hero-media) {
+    animation:
+      fx-in-fade 140ms var(--fx-out) backwards,
+      fx-in-pop 360ms var(--fx-soft) backwards;
+  }
+
+  html:not(.fx-reduce) .result-screen .lottie.is-ready > canvas {
+    animation: fx-in-fade 140ms var(--fx-out) backwards;
+  }
+
+  html:not(.fx-reduce) .result-screen .hero-title {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 360ms var(--fx-out) 120ms backwards;
+  }
+
+  html:not(.fx-reduce) .result-screen .hero-subtitle {
+    --fx-in-y: 8px;
+    animation: fx-in-slide 360ms var(--fx-out) 200ms backwards;
+  }
+
+  html:not(.fx-reduce) .result-screen .section {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 320ms var(--fx-out) 320ms backwards;
+  }
+
+  html:not(.fx-reduce) .result-screen .cta-bar {
+    animation: fx-in-fade 240ms var(--fx-out) backwards;
+  }
+
+  html:not(.fx-reduce) .result-screen .cta-button {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 320ms var(--fx-out) backwards;
+  }
+
+  html:not(.fx-reduce) .result-screen .cta-button + .cta-button {
+    animation-delay: 60ms;
+  }
+
+  /* On the result of a Premium purchase the tiles come out of the star on their rings, which the script opens
+     (premiumbot-fx.js orbitMount). The way on, Done, comes when the rings stand: the page shows what was bought
+     first. */
+  html:not(.fx-reduce) .result-screen:has(.section--unlocked) :is(.cta-bar, .cta-button) {
+    animation-delay: 1100ms;
+  }
+
+  /* The cloud a tapped tile raises (premiumbot-fx.js cloudSay) grows out of its tip on the soft spring and goes back
+     into it faster. */
+  html:not(.fx-reduce) .perk-bubble {
+    transform: scale(0.8);
+    transform-origin: var(--tip, 50%) 100%;
+    transition:
+      opacity 140ms ease-out,
+      transform 140ms ease-in;
+  }
+
+  html:not(.fx-reduce) .perk-bubble--under {
+    transform-origin: var(--tip, 50%) 0;
+  }
+
+  html:not(.fx-reduce) .perk-bubble.is-open {
+    transform: none;
+    transition:
+      opacity 120ms ease-out,
+      transform 360ms var(--fx-soft);
+  }
+
+  /* The error stone's glint twinkles once in 4.8 s, the screen's only motion at rest: it swells by half and comes
+     back over 0.8 s on a quarter turn, which lays a four-point star on itself, so each run ends as it began. */
+  html:not(.fx-reduce) .result-screen .lottie--error::after {
+    animation: pm-glint 4800ms var(--fx-in-out) 1200ms infinite;
+  }
+}
+
+@keyframes pm-glint {
+  8% {
+    transform: rotate(45deg) scale(1.5);
+  }
+
+  16%,
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+/* A subscriber's home enters as the state screens do, and its tiles as the paywall's plans: the star pops on the soft
+   spring, the title rises, then the words, then the tiles from the top down, each whole, 70 ms apart. The docked bar
+   of the grace period is there from the first frame and its capsule rises inside it. --fx-n is a tile's place in
+   that order, counted by sections: the subscription, the purchases, then the features after four of them, or after
+   two where Stars are off. The first rule is the whole entrance under reduced motion: short fades. The tiles arrive
+   on their own, so their sections take no part, the sheet's stagger included. */
+.home--subscriber :is(.pm-mark, .hero-title, .hero-subtitle, .cta-bar, .fx-sheet .cell) {
+  animation: fx-in-fade 200ms ease-out backwards;
+}
+
+.home--subscriber .fx-sheet > .section {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.fx-reduce) .home--subscriber .pm-mark {
+    animation:
+      fx-in-fade 140ms var(--fx-out) backwards,
+      fx-in-pop 360ms var(--fx-soft) backwards;
+  }
+
+  html:not(.fx-reduce) .home--subscriber .hero-title {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 360ms var(--fx-out) 120ms backwards;
+  }
+
+  html:not(.fx-reduce) .home--subscriber .hero-subtitle {
+    --fx-in-y: 8px;
+    animation: fx-in-slide 360ms var(--fx-out) 200ms backwards;
+  }
+
+  html:not(.fx-reduce) .home--subscriber .fx-sheet .cell {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 320ms var(--fx-out) calc(320ms + var(--fx-n, 0) * 70ms) backwards;
+  }
+
+  .home--subscriber .fx-sheet > :nth-child(2) .cell {
+    --fx-n: 1;
+  }
+
+  .home--subscriber .fx-sheet > :nth-child(2) .cell:nth-child(2) {
+    --fx-n: 2;
+  }
+
+  .home--subscriber .fx-sheet > :nth-child(2) .cell:nth-child(3) {
+    --fx-n: 3;
+  }
+
+  .home--subscriber .fx-sheet > :nth-child(2) .cell:nth-child(n + 4) {
+    --fx-n: 4;
+  }
+
+  .home--subscriber .fx-sheet > :nth-child(n + 3) .cell {
+    --fx-n: 5;
+  }
+
+  .home--subscriber .fx-sheet > :nth-child(2):not(:has(.cell:nth-child(3))) ~ * .cell {
+    --fx-n: 3;
+  }
+
+  html:not(.fx-reduce) .home--subscriber .cta-bar {
+    animation: fx-in-fade 240ms var(--fx-out) backwards;
+  }
+
+  html:not(.fx-reduce) .home--subscriber .cta-button {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 400ms var(--fx-out) backwards;
+  }
+}
+
+/* The Stars screens' entrance, in the paywall's keyframes and curves, one thing after another: the star pops on the
+   soft spring, the title rises, then the words, then what the sheet holds from the top down, each tile whole and
+   70 ms after the one before: a header with what stands right under it, the pack rows two tiles at a time, a caption
+   after its tiles. A docked bar is there from the first frame and its capsule rises inside it. Only the star scales;
+   text fades and slides. This rule is the whole entrance under reduced motion, which the root's fx-reduce class
+   follows: short fades. */
+.commerce.tone-stars :is(.pm-mark, .hero-title, .hero-subtitle),
+.commerce.tone-stars .fx-sheet > :is(.section, .pm-picker-legacy, .cta-bar) {
+  animation: fx-in-fade 200ms ease-out backwards;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* A block's parts arrive on their own. */
+  html:not(.fx-reduce) .commerce.tone-stars .fx-sheet > .section {
+    animation: none;
+  }
+
+  html:not(.fx-reduce) .commerce.tone-stars .pm-mark {
+    animation:
+      fx-in-fade 140ms var(--fx-out) backwards,
+      fx-in-pop 360ms var(--fx-soft) backwards;
+  }
+
+  html:not(.fx-reduce) .commerce.tone-stars .hero-title {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 360ms var(--fx-out) 120ms backwards;
+  }
+
+  html:not(.fx-reduce) .commerce.tone-stars .hero-subtitle {
+    --fx-in-y: 8px;
+    animation: fx-in-slide 360ms var(--fx-out) 200ms backwards;
+  }
+
+  html:not(.fx-reduce) .commerce.tone-stars .cta-bar {
+    animation: fx-in-fade 240ms var(--fx-out) backwards;
+  }
+
+  html:not(.fx-reduce) .commerce.tone-stars .cta-button {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 320ms var(--fx-out) backwards;
+  }
+
+  /* The tile the page script shows where the client's picker stays silent arrives as a tile does, when it is shown. */
+  html:not(.fx-reduce) .commerce.tone-stars .pm-picker-legacy {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 320ms var(--fx-out) backwards;
+  }
+
+  /* --fx-t is a section's turn and --fx-row a part's place in it. The first section starts when the words are in;
+     the packs come one step after the recipient's tile, and what follows the packs after their fourth row. Packs
+     that wait behind Show More take no part: the page script brings them in. A caption that stays hidden until it
+     has something to say (the picker's status) shows at once. */
+  .commerce.tone-stars .fx-sheet > .section {
+    --fx-t: 320ms;
+  }
+
+  .commerce--gift.tone-stars .fx-sheet > .section ~ .section {
+    --fx-t: 390ms;
+  }
+
+  .commerce--stars .fx-sheet > .section ~ .section {
+    --fx-t: 600ms;
+  }
+
+  html:not(.fx-reduce) .commerce.tone-stars .fx-sheet > .section :is(.section-header, .cell, .pack-tile:not(.js-pack-extra), .pack-more, .section-footer:not(:has(> .pm-picker-status))) {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 320ms var(--fx-out) calc(var(--fx-t) + var(--fx-row, 0) * 70ms) backwards;
+  }
+
+  .commerce.tone-stars :is(.pack-tile:nth-child(n + 3), .section-footer) {
+    --fx-row: 1;
+  }
+
+  .commerce.tone-stars .pack-tile:nth-child(n + 5) {
+    --fx-row: 2;
+  }
+
+  .commerce.tone-stars .pack-tile:nth-child(n + 7) {
+    --fx-row: 3;
+  }
+
+  .commerce.tone-stars .pack-more {
+    --fx-row: 4;
+  }
+
+  .commerce.tone-stars .section-body:has(> .pack-grid) + .section-footer {
+    --fx-row: 4;
+  }
+
+  .commerce--stars .fx-sheet > .section:has(.pack-more) ~ .section {
+    --fx-t: 670ms;
+  }
+}
+
+/* A full-screen stage starts its block at 12 % of the viewport at least, 16 px at the least, so what follows the hero
+   has room under it; src/fx/stage.ts lowers a short one to sit a little above the middle. Where CSS can round, the
+   block and the stage's end sit on the grid. */
 .fx-stage--fill .fx-stage__content {
   justify-content: flex-start;
   padding-top: max(16px, calc(var(--tg-viewport-stable-height, 100vh) * var(--fx-fill-top)));
@@ -177,20 +343,7 @@
   }
 }
 
-/* A full-screen stage with its hero alone (a failure, a done state) centres it a little above the
-   middle, over 8 % of the viewport; src/fx/stage.ts sets the top padding. */
-.fx-stage--solo .fx-stage__content {
-  padding-top: 16px;
-  padding-bottom: max(24px, calc(var(--tg-viewport-stable-height, 100vh) * 0.08));
-}
-
-@supports (padding-bottom: round(down, 100vh, 4px)) {
-  .fx-stage--solo .fx-stage__content {
-    padding-bottom: max(24px, round(down, calc(var(--tg-viewport-stable-height, 100vh) * 0.08), 4px));
-  }
-}
-
-/* The particle field (src/fx/particles.ts): the stage's width, twice the mark tall, over the glow and under the hero.
+/* The particle field (src/fx/particles.ts): the stage's width, twice the mark tall, under the hero.
    src/fx/stage.ts sets its top and height. Its lower part fades out above the title, so no sparkle sits behind text. */
 .fx-stage__field {
   position: absolute;
@@ -211,110 +364,6 @@
   padding: 16px 0 24px;
 }
 
-/* The mark's box; the canvas around it is half as large again, as the icon fills two thirds of its view. */
-.fx-stage__hero {
-  position: relative;
-  flex: none;
-  width: var(--fx-mark);
-  height: var(--fx-mark);
-  margin: 8px auto;
-}
-
-:is(.hero, .result) > .fx-stage__hero {
-  margin: 0 0 16px;
-}
-
-.fx-stage__gl {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: calc(var(--fx-mark) * 1.5);
-  height: calc(var(--fx-mark) * 1.5);
-  transform: translate(-50%, -50%);
-  /* Horizontal drags spin the icon; vertical ones still scroll the page. */
-  touch-action: pan-y;
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* Dark Stars' light: a bloom of the golden star's own silhouette behind it, the Premium star blurred
-   twice in the particles' gold (star-bloom.svg, tools/star-part.ts starBloom), which src/fx/stage.ts turns with the 3D
-   star every frame. A transform only: the blur is painted once. Half the gold at the star's edge at most, spent about
-   20 px out, so the page beside the star stays black. Not with the flat glyph, whose star is another shape. */
-.fx-stage__bloom {
-  display: none;
-}
-
-.fx-stage--dark.fx-stage--stars:not(.fx-stage--flat) .fx-stage__bloom {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: block;
-  width: calc(var(--fx-mark) * 1.488);
-  height: calc(var(--fx-mark) * 1.488);
-  background: url(../img/premiumbot/star-bloom.svg) center / 100% 100% no-repeat;
-  transform: translate(-50%, -50%);
-  mix-blend-mode: plus-lighter;
-  pointer-events: none;
-  will-change: transform;
-}
-
-/* Without WebGL: Telegram's Premium glyph in the brand gradient, or the Star in gold. */
-.fx-stage--flat .fx-stage__gl {
-  display: none;
-}
-
-.fx-stage--flat .fx-stage__hero::before {
-  content: '';
-  position: absolute;
-  inset: 4%;
-  background: var(--brand-gradient);
-  -webkit-mask: url(../img/premiumbot/ui-premium.svg) center / contain no-repeat;
-  mask: url(../img/premiumbot/ui-premium.svg) center / contain no-repeat;
-}
-
-.fx-stage--flat.fx-stage--stars .fx-stage__hero::before {
-  background: var(--stars-gold);
-  -webkit-mask-image: url(../img/premiumbot/ui-star.svg);
-  mask-image: url(../img/premiumbot/ui-star.svg);
-}
-
-/* Gift: the recipients in the mark's place inside the field, as GiftAvatarComponent.swift:378-411 lays them out: one
-   avatar at 100 px, more at 60 px, each cut 2 px around the one before. Telegram steps them 30 apart (:397), which
-   halves an initial; 44 keeps it whole. */
-.fx-stage__hero--peer :is(.fx-stage__gl, .fx-stage__bloom),
-.fx-stage__hero--peer::before {
-  visibility: hidden;
-}
-
-/* In the status mark's place the slot grows to one recipient's 100 px avatar, so it keeps its 16 px to the title;
-   several, at 60 px, fit the 88 px slot. */
-.fx-stage--compact .fx-stage__hero--peer:has(> .avatar-stack > .avatar:only-child) {
-  --fx-mark: 100px;
-}
-
-.fx-stage__hero > .avatar-stack {
-  position: absolute;
-  inset: 0;
-  height: auto;
-  margin: 0;
-}
-
-.fx-stage__hero > .avatar-stack > * + * {
-  margin-inline-start: -16px;
-  -webkit-mask-image: radial-gradient(circle at -14px 50%, transparent 32px, #000 32.5px);
-  mask-image: radial-gradient(circle at -14px 50%, transparent 32px, #000 32.5px);
-}
-
-[dir='rtl'] .fx-stage__hero > .avatar-stack > * + * {
-  -webkit-mask-image: radial-gradient(circle at 74px 50%, transparent 32px, #000 32.5px);
-  mask-image: radial-gradient(circle at 74px 50%, transparent 32px, #000 32.5px);
-}
-
-.fx-stage__hero > .avatar-stack > .avatar-stack-more {
-  width: 60px;
-  height: 60px;
-}
-
 /* The stage's text follows the theme: these rules win over screen styles that set white text with two classes. */
 .fx-stage:not(.fx-stage--dark) {
   color: var(--text);
@@ -330,23 +379,15 @@
   color: var(--secondary-text);
 }
 
-/* First on a screen, the stage pulls up under the screen's top padding and fills the overscroll above it; its light
-   runs up past its box under the safe areas #app pads for (base.css), so in fullscreen the field starts on the page's
-   first row, under the status bar, while the boxes stay on the grid. Banners never sit above a stage
-   (src/ui/shell.ts), so only an empty banner slot may come before it. */
+/* First on a screen, the stage pulls up under the screen's top padding, and its top colour fills the overscroll above
+   it and the safe areas #app pads for (base.css), so in fullscreen the page's colour starts on its first row, under
+   the status bar, while the boxes stay on the grid. Banners never sit above a stage (src/ui/shell.ts), so only an
+   empty banner slot may come before it. */
 .screen > :first-child > .fx-stage:first-child,
 .screen > .fx-stage:first-child,
 .screen-banner:empty + * > .fx-stage:first-child,
 .screen-banner:empty + .fx-stage {
   margin-top: -16px;
-}
-
-.screen > :first-child > .fx-stage:first-child,
-.screen > .fx-stage:first-child,
-.screen-banner:empty + * > .fx-stage:first-child,
-.screen-banner:empty + .fx-stage,
-.fx-light__stage--first {
-  --fx-lift: calc(var(--tg-safe-area-inset-top, 0px) + var(--tg-content-safe-area-inset-top, 0px));
 }
 
 .screen > :first-child > .fx-stage:first-child::before,
@@ -358,14 +399,12 @@
   background: linear-gradient(var(--fx-top) 100vh, var(--page));
 }
 
-/* The light field (src/fx/field.ts, design.md §11.9): in the app the stages' colour and light and the page's fireflies
-   are one layer behind the pages, which move over it, so the stages paint none of their own. Each .fx-light is the
-   light of one page: its parts sit where the page's stages, sheets and aura card are, in its tone, over the page
-   colour, so one light fades in over another wholly. A fine static grain over it breaks the 8-bit steps of its long,
-   dark gradients: black and white noise at --light-grain-a, about one level either way, one device pixel at 2x, never
-   animated. Two tiles of coprime sizes, so it repeats nowhere on a screen. The server prints the layer before any
-   script runs, so the field has the first screen's height from the first paint; premiumbot-fx.js then gives the
-   layer and its parts their places from the page. */
+/* The light field (src/fx/field.ts) holds colour alone: in the app each page's colour, the page itself and the
+   gradient at the top of its stage, lies in this one layer behind the pages, which move over it, so the stages paint
+   none of their own and one page's colour fades in over another's wholly. The server prints the layer before any
+   script runs, so it has the first screen's height from the first paint; premiumbot-fx.js then gives the layer and
+   its parts their places from the page. The header follows the gradient by the height of the stage's part, so the
+   part keeps its box. */
 #app > .fx-env {
   position: absolute;
   inset: 0;
@@ -373,139 +412,71 @@
   pointer-events: none;
 }
 
-/* A page with no stage has no stage light, and one with no sheet no fireflies: what the server printed for them
-   stays out of the first paint, until the script removes it. */
-#app:not(:has(.fx-stage)) .fx-light__stage,
-#app:not(:has(.fx-sheet, .neon-field)) .fx-light__flies {
+/* A page with no stage has no stage colour: what the server printed for one stays out of the first paint, until the
+   script removes it. */
+#app:not(:has(.fx-stage)) .fx-light__stage {
   display: none;
-}
-
-/* A bare stage has no light. The server names the stage so and not its light's part, which stays dark in the first
-   paint, until the script names the part after its stage. */
-#app:has(.fx-stage--bare) .fx-light__stage::after {
-  content: none;
 }
 
 .fx-light {
   position: absolute;
   right: 0;
   left: 0;
-  isolation: isolate;
   background: var(--page);
 }
 
-:is(.fx-light__stage, .fx-light__flies) {
+.fx-light__stage {
   position: absolute;
 }
 
-.fx-light::after {
+/* The Premium star's own light by night: a still halo in the star's blue and violet (premiumbot-3d.js GRADIENT.star)
+   behind it, blue under the star and violet only towards its upper right. It hugs the star: most of it lies behind
+   the star and what shows is a rim of light that is spent a quarter of the star's width out, so the star stands
+   crisp on the page and not in a fog. A layer of its own, so it can be dimmed or lit apart from the page. The
+   colour is flat; the mask is the shape, top layer first: an eased fade over the first 24 px, so the page's top
+   row stays --fx-top alone and meets the header in one colour, and an eased falloff round the mark's centre
+   (--fx-cy, which the script sets).
+   The halo is short and steep on purpose. It used to reach a full star's width out as a haze a few levels over
+   the page, with a grain of noise in it against the steps a gradient that slow and that dark shows in eight bits.
+   The grain is drawn a CSS pixel to the texel, two or three device pixels, and any resampling of the page, a
+   scaled view or a screenshot, turned it into a lattice of dots: the haze read as dirt. A falloff of a level
+   every pixel or two shows no steps and needs no grain. */
+.fx-light__stage.fx-stage--premium.fx-stage--dark:not(.fx-stage--bare)::after {
+  --haze-x: calc(var(--fx-mark) * 0.74);
+  --haze-y: calc(var(--fx-mark) * 0.7);
+  --haze-at: var(--haze-x) var(--haze-y) at 50% var(--fx-cy);
+  --haze-shape:
+    linear-gradient(transparent, rgb(0 0 0 / 0.1) 6px, rgb(0 0 0 / 0.5) 12px, rgb(0 0 0 / 0.9) 18px, #000 24px),
+    radial-gradient(var(--haze-at), #000, rgb(0 0 0 / 0.94) 12%, rgb(0 0 0 / 0.78) 24%, rgb(0 0 0 / 0.57) 36%,
+      rgb(0 0 0 / 0.37) 48%, rgb(0 0 0 / 0.2) 60%, rgb(0 0 0 / 0.09) 72%, rgb(0 0 0 / 0.03) 84%, transparent);
   content: '';
   position: absolute;
-  inset: -100vh 0 0;
-  background:
-    url(../img/premiumbot/grain.png) 0 0 / 64px 64px,
-    url(../img/premiumbot/grain.png) 29px 13px / 61px 61px;
-  opacity: var(--light-grain-a);
-  image-rendering: pixelated;
+  inset: 0 0 auto;
+  height: calc(var(--fx-cy) + var(--haze-y));
+  background: linear-gradient(60deg, #55a5ff calc(50% - var(--fx-mark) * 0.4), #a767ff calc(50% + var(--fx-mark) * 2.2));
+  opacity: 0.34;
+  -webkit-mask-image: var(--haze-shape);
+  mask-image: var(--haze-shape);
+  -webkit-mask-composite: source-in, source-over;
+  mask-composite: intersect, add;
+  pointer-events: none;
 }
 
-.screens .fx-stage::before,
-.screens .fx-stage::after {
+.screens .fx-stage::before {
   content: none;
 }
 
-/* The fireflies (src/fx/fireflies.ts, design.md §11.9): the page's light under the islands. Each is the tone's colour
-   down the stage light's eased falloff, painted once; down the page its hue runs from --fly-from to --fly-to. Dark
-   Stars and giveaways add their light to the page (--fly-blend: plus-lighter), so it lights any bg_color; Premium's
-   rise to about the cells' luminance, and in light all lie a hair under the page's. Their part runs from
-   the first sheet's top to the page's end and clips them there, so they never add to the scroll, and its mask spends
-   whatever reaches its edges. Where the engine has scroll-driven animations they ride the document's scroll, each a
-   share of every px (FLY_RANGE); elsewhere fireflies.ts writes the same transform in a frame. A page out of the flow
-   holds them where its scroll left them (.is-held); reduced motion and snap mode keep them still. */
-.fx-light__flies {
-  overflow: hidden;
-  -webkit-mask: linear-gradient(transparent, #000 48px, #000 calc(100% - 96px), transparent);
-  mask: linear-gradient(transparent, #000 48px, #000 calc(100% - 96px), transparent);
-  mix-blend-mode: var(--fly-blend);
-}
-
-.fx-fly {
-  position: absolute;
-  background: radial-gradient(closest-side, var(--fly-c), color-mix(in srgb, var(--fly-c) 92%, transparent) 20%,
-    color-mix(in srgb, var(--fly-c) 71%, transparent) 40%, color-mix(in srgb, var(--fly-c) 41%, transparent) 60%,
-    color-mix(in srgb, var(--fly-c) 13%, transparent) 80%, transparent);
-  will-change: transform;
-}
-
-@supports (animation-timeline: scroll()) and (animation-range: 0 1px) {
-  .fx-fly {
-    animation: fx-fly 1ms linear both;
-    animation-timeline: scroll(root);
-    animation-range: 0 10000px;
-  }
-}
-
-.fx-light__flies.is-held > .fx-fly,
-.fx-reduce .fx-fly {
-  animation: none;
-}
-
-.fx-reduce .fx-fly {
-  will-change: auto;
-}
-
-@keyframes fx-fly {
-  from {
-    transform: translate(0, 0) scale(1);
-  }
-  to {
-    transform: translate(var(--fly-dx), var(--fly-dy)) scale(var(--fly-k));
-  }
+/* What used to light a page and is still in the markup the server prints stays out of sight: the light field's
+   fireflies, a tab's flare and the layers of the pay button's face. No script builds or moves any of them. */
+.fx-light__flies,
+.plan-tab-flare,
+.cta-face {
+  display: none;
 }
 
 /* A banner on a screen with a stage but no sheet sits right under the stage. */
 .fx-stage + .screen-banner {
   padding-top: 16px;
-}
-
-/* Results: 24 px under the hero's subtitle, what
-   the purchase did, in sections: Premium a row to all its features, a gift its recipients with what each got, a
-   giveaway its chat, winners and prize. Stars shows the new balance as the Stars screen does: the 48 px rounded
-   numeral, 8 px over "Your balance"; then, as for Stars sent and a Stars giveaway, what Stars do. */
-.result-balance {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: var(--section-gap);
-}
-
-/* What Stars do, as StarsIntroScreen.swift:126-190 lists it: Telegram's 30 px glyph in the accent where a feature row
-   has its tile, the title, the text at 15/20 in the hint colour. */
-.result-perk .cell-lead {
-  position: relative;
-  width: var(--tile-box);
-  height: var(--tile-box);
-  color: var(--tone-ink);
-}
-
-.result-perk .cell-lead .icon {
-  position: absolute;
-  inset: calc((var(--tile-box) - var(--tile)) / 2);
-  width: auto;
-  height: auto;
-}
-
-.result-perk .cell-subtitle {
-  color: var(--secondary-text);
-  font-size: var(--fs-sub);
-  line-height: var(--lh-sub);
-}
-
-.result-balance-label {
-  margin-top: var(--space-8);
-  color: var(--secondary-text);
-  font-size: var(--fs-sub);
-  line-height: var(--lh-sub);
 }
 
 /* A name in a result's text that links takes the link's ink a step towards the text: the stage's light behind it is
@@ -517,18 +488,6 @@
   text-decoration-thickness: 1px;
   text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
   text-underline-offset: 3px;
-}
-
-/* A failure's glyph on its disc (src/ui/components/result.ts errorLayout). */
-.result-media--error {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  color: var(--destructive);
-  background: color-mix(in srgb, var(--destructive) 12%, transparent);
 }
 
 /* The content after a stage rises over it, and over the stage's field and content layers. It paints no page of its
@@ -588,6 +547,700 @@
   }
 }
 
+/* The entrance of the two screens for gifting Premium, in the paywall's keyframes and curves, one thing after another
+   down the page: the docked bar from the first frame, its capsule rising inside it; the object, which pops on the
+   soft spring, an animation that draws late fading into its box; the title; the words; then the tiles from the top
+   down, each whole, 70 ms after the one above it. A header comes with the tile under it and the durations' caption
+   after the last of them; where a screen has durations, the recipients follow them. Only the object scales; text
+   fades and slides. This rule is the whole entrance under reduced motion, which the root's fx-reduce class follows:
+   short fades. */
+.commerce--gift.tone-premium :is(.pm-mark, .hero-media, .hero-title, .hero-subtitle, .section, .pm-picker-legacy, .cta-bar),
+.commerce--gift.tone-premium .lottie.is-ready > canvas {
+  animation: fx-in-fade 200ms ease-out backwards;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.fx-reduce) .commerce--gift.tone-premium :is(.pm-mark, .hero-media) {
+    animation:
+      fx-in-fade 140ms var(--fx-out) backwards,
+      fx-in-pop 360ms var(--fx-soft) backwards;
+  }
+
+  html:not(.fx-reduce) .commerce--gift.tone-premium .lottie.is-ready > canvas {
+    animation: fx-in-fade 140ms var(--fx-out) backwards;
+  }
+
+  html:not(.fx-reduce) .commerce--gift.tone-premium .hero-title {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 360ms var(--fx-out) 120ms backwards;
+  }
+
+  html:not(.fx-reduce) .commerce--gift.tone-premium .hero-subtitle {
+    --fx-in-y: 8px;
+    animation: fx-in-slide 360ms var(--fx-out) 200ms backwards;
+  }
+
+  html:not(.fx-reduce) .commerce--gift.tone-premium .cta-bar {
+    animation: fx-in-fade 240ms var(--fx-out) backwards;
+  }
+
+  html:not(.fx-reduce) .commerce--gift.tone-premium .cta-button {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 320ms var(--fx-out) backwards;
+  }
+
+  /* A section's parts arrive on their own, counted from --fx-t. */
+  html:not(.fx-reduce) .commerce--gift.tone-premium .section {
+    --fx-t: 320ms;
+    animation: none;
+  }
+
+  html:not(.fx-reduce) .commerce--gift.tone-premium .plans ~ .section {
+    --fx-t: 600ms;
+  }
+
+  html:not(.fx-reduce) .commerce--gift.tone-premium :is(.section-header, .section-body > .cell, .plans > .section-footer) {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 320ms var(--fx-out) var(--fx-t) backwards;
+  }
+
+  html:not(.fx-reduce) .commerce--gift.tone-premium .section-body > .cell:nth-child(2) {
+    animation-delay: calc(var(--fx-t) + 70ms);
+  }
+
+  html:not(.fx-reduce) .commerce--gift.tone-premium .section-body > .cell:nth-child(n + 3) {
+    animation-delay: calc(var(--fx-t) + 140ms);
+  }
+
+  html:not(.fx-reduce) .commerce--gift.tone-premium .plans > .section-footer {
+    --fx-in-y: 6px;
+    animation-delay: calc(var(--fx-t) + 210ms);
+  }
+
+  /* The tile the script shows where the client's picker stays silent arrives as a tile does, when it is shown. */
+  html:not(.fx-reduce) .commerce--gift.tone-premium .pm-picker-legacy {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 320ms var(--fx-out) backwards;
+  }
+}
+
+/* The plans page of an account without Premium had no entrance of its own: under the loader's cross-fade it came as a
+   picture that faded in whole, and with that fade gone every word of it was there in one frame. It comes as its
+   family does: the title rises, then the plans from the top down, each whole, 70 ms apart, then the note; a docked
+   bar that the page before had stays, and one that is new fades in with its capsule rising. Under reduced motion,
+   short fades. */
+.subscription--paywall :is(.screen-title, .section, .cta-bar) {
+  animation: fx-in-fade 200ms ease-out backwards;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.fx-reduce) .subscription--paywall > .screen-title {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 360ms var(--fx-out) backwards;
+  }
+
+  html:not(.fx-reduce) .subscription--paywall .section {
+    animation: none;
+  }
+
+  html:not(.fx-reduce) .subscription--paywall .cell--plan {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 320ms var(--fx-out) calc(80ms + var(--fx-i, 0) * 70ms) backwards;
+  }
+
+  html:not(.fx-reduce) .subscription--paywall .cell--plan:nth-child(2) {
+    --fx-i: 1;
+  }
+
+  html:not(.fx-reduce) .subscription--paywall .cell--plan:nth-child(n + 3) {
+    --fx-i: 2;
+  }
+
+  html:not(.fx-reduce) .subscription--paywall .section-footer {
+    --fx-in-y: 6px;
+    animation: fx-in-slide 260ms var(--fx-out) 290ms backwards;
+  }
+
+  html:not(.fx-reduce) .subscription--paywall .cta-bar {
+    animation: fx-in-fade 240ms var(--fx-out) backwards;
+  }
+
+  html:not(.fx-reduce) .subscription--paywall .cta-button {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 320ms var(--fx-out) backwards;
+  }
+}
+
+/* The entrance of a subscriber's plan screens (the plan's facts, alone or under an upgrade offer), in the paywall's
+   keyframes and curves, one thing after another: the star pops on the soft spring, then the title rises, then the
+   words, then the tiles from the top down, each whole, 70 ms apart, a caption after its tile. With no hero the title
+   leads. The docked bar is there before any row it could cover and its capsule rises inside it. Only the star
+   scales; text fades and slides. --fx-t is the first tile's time, --fx-i a block's place after it, and --fx-n the
+   number of blocks over the facts: an offer and its note, or two offers and the note.
+   This rule is the whole entrance under reduced motion, which the root's fx-reduce class follows: short fades. */
+.subscription:not(.subscription--paywall) :is(.pm-mark, .hero-title, .hero-subtitle, .screen-title, .section, .cta-bar) {
+  animation: fx-in-fade 200ms ease-out backwards;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.fx-reduce) :is(.subscription--upgrade, .subscription--plan) .pm-mark {
+    animation:
+      fx-in-fade 140ms var(--fx-out) backwards,
+      fx-in-pop 360ms var(--fx-soft) backwards;
+  }
+
+  html:not(.fx-reduce) :is(.subscription--upgrade, .subscription--plan) .hero-title {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 360ms var(--fx-out) 120ms backwards;
+  }
+
+  html:not(.fx-reduce) :is(.subscription--upgrade, .subscription--plan) .hero-subtitle {
+    --fx-in-y: 8px;
+    animation: fx-in-slide 360ms var(--fx-out) 200ms backwards;
+  }
+
+  html:not(.fx-reduce) .subscription:not(.subscription--paywall) > .screen-title {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 360ms var(--fx-out) backwards;
+  }
+
+  html:not(.fx-reduce) .subscription--upgrade .cta-bar {
+    animation: fx-in-fade 240ms var(--fx-out) backwards;
+  }
+
+  html:not(.fx-reduce) .subscription--upgrade .cta-button {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 320ms var(--fx-out) backwards;
+  }
+
+  /* A section's tiles and its caption arrive on their own; the facts' island is one tile. */
+  html:not(.fx-reduce) .subscription:not(.subscription--paywall) .section:not(.sub-facts) {
+    animation: none;
+  }
+
+  html:not(.fx-reduce) .subscription:not(.subscription--paywall) :is(.cell--plan, .sub-facts, .section--tiles .cell) {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 320ms var(--fx-out) calc(var(--fx-t, 80ms) + var(--fx-i, 0) * 70ms) backwards;
+  }
+
+  html:not(.fx-reduce) .subscription:not(.subscription--paywall) .section-footer {
+    --fx-in-y: 6px;
+    animation: fx-in-slide 260ms var(--fx-out) calc(var(--fx-t, 80ms) + var(--fx-i, 0) * 70ms) backwards;
+  }
+
+  .subscription--upgrade {
+    --fx-t: 320ms;
+    --fx-n: 2;
+  }
+
+  .subscription--plan {
+    --fx-t: 320ms;
+  }
+
+  .subscription--upgrade:has(.cell--plan:nth-child(2)) {
+    --fx-n: 3;
+  }
+
+  .subscription--upgrade .cell--plan:nth-child(2) {
+    --fx-i: 1;
+  }
+
+  .subscription--upgrade .plans > .section-footer {
+    --fx-i: calc(var(--fx-n) - 1);
+  }
+
+  .sub-facts {
+    --fx-i: var(--fx-n, 0);
+  }
+
+  .subscription .section--tiles .cell {
+    --fx-i: calc(var(--fx-n, 0) + 1);
+  }
+
+  .subscription .section--tiles .cell:nth-child(n + 2) {
+    --fx-i: calc(var(--fx-n, 0) + 2);
+  }
+
+  .subscription .section--tiles > .section-footer {
+    --fx-i: calc(var(--fx-n, 0) + 3);
+  }
+}
+
+/* The paywall's entrance, one thing after another down the page: the pay bar and the title, the subtitle, each plan
+   tile, the footer, the features tile, the actions. All of it runs from the first paint on keyframes that fill
+   backwards, so a part is held out of sight by its first keyframe until its turn and its natural style is the end:
+   nothing waits on script. What arrives eases out (--fx-out), a colour that settles eases at both ends
+   (--fx-in-out), and only icons scale, on the soft spring (--fx-soft); text fades and slides. The plan tiles start
+   70 ms apart, and what lies under them waits for the last of them; only the was and now of a tile with a struck
+   price runs on past it.
+   This rule is the whole entrance under reduced motion, which the root's fx-reduce class follows: blocks fade in. */
+.home--paywall :is(.hero-title, .hero-subtitle, .cta-bar),
+.home--paywall .fx-sheet > .section {
+  animation: fx-in-fade 200ms ease-out backwards;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* A block's parts arrive on their own. */
+  html:not(.fx-reduce) .home--paywall .fx-sheet > .section {
+    animation: none;
+  }
+
+  /* The bar is there before any row it could cover, and it does not travel: its button rises inside it. */
+  html:not(.fx-reduce) .home--paywall .cta-bar {
+    animation: fx-in-fade 240ms var(--fx-out) backwards;
+  }
+
+  html:not(.fx-reduce) .home--paywall .cta-button {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 400ms var(--fx-out) backwards;
+  }
+
+  html:not(.fx-reduce) .home--paywall .hero-title {
+    --fx-in-y: 10px;
+    animation: fx-in-slide 420ms var(--fx-out) backwards;
+  }
+
+  html:not(.fx-reduce) .home--paywall .hero-subtitle {
+    --fx-in-y: 8px;
+    animation: fx-in-slide 420ms var(--fx-out) 40ms backwards;
+  }
+
+  /* A plan tile grows out of its disc. It fades in as a stub that holds only the disc, which pops; the tile unrolls
+     from that stub to its end under a clip that keeps the round corners. The name comes out of the disc's side once
+     the tile's end has passed it with room to spare, so the end never cuts a letter; then the amount, then the value
+     block, and, once the clip is gone, the pill it would have cut; the chosen state comes last. --fx-t is the tile's
+     start, which its parts count from. The clip rounds only the end that moves; at the tile's still end it lies a
+     pixel outside, square, so that end's own corners are drawn the same under the clip and without it. Its shapes
+     are mirrored where the writing runs the other way. */
+  html:not(.fx-reduce) .home--paywall .cell--plan {
+    --fx-t: 80ms;
+    --fx-stub: calc(2 * var(--space-16) + 28px);
+    --fx-open-from: inset(0 calc(100% - var(--fx-stub)) 0 -1px round 0 var(--island-radius) var(--island-radius) 0);
+    --fx-open-to: inset(0 0 0 -1px round 0 var(--island-radius) var(--island-radius) 0);
+    --fx-cap-clip: inset(1px 0 1px calc(100% - var(--island-radius)));
+    animation:
+      fx-in-fade 120ms var(--fx-out) var(--fx-t) backwards,
+      fx-in-open 280ms var(--fx-in-out) calc(var(--fx-t) + 60ms) backwards;
+  }
+
+  /* The tiles come as one wave, 70 ms apart, each whole: its name, its amount and its price a month, which on every
+     tile is the plain monthly price at first. Then the discount lands on all of them at one moment, --fx-drop on
+     the sheet's clock, 200 ms after the last tile has opened: the struck price steps out beside each rate, the
+     rates roll down to their own together, the pills come onto the edges and the recommended tile takes its
+     choice. A tile's parts used to come one at a time for more than a second, tile after tile 200 ms apart, so each
+     price rolled at a time of its own, long after its tile had arrived. */
+  html:not(.fx-reduce) .home--paywall .cell--plan:nth-child(2) {
+    --fx-t: 150ms;
+  }
+
+  html:not(.fx-reduce) .home--paywall .cell--plan:nth-child(n + 3) {
+    --fx-t: 220ms;
+  }
+
+  html[dir='rtl']:not(.fx-reduce) .home--paywall .cell--plan {
+    --fx-open-from: inset(0 -1px 0 calc(100% - var(--fx-stub)) round var(--island-radius) 0 0 var(--island-radius));
+    --fx-open-to: inset(0 -1px 0 0 round var(--island-radius) 0 0 var(--island-radius));
+    --fx-cap-clip: inset(1px calc(100% - var(--island-radius)) 1px 0);
+  }
+
+  html:not(.fx-reduce) .home--paywall .cell--plan .cell-check {
+    animation: fx-in-pop 320ms var(--fx-soft) var(--fx-t) backwards;
+  }
+
+  /* The tile's hairline is its own inset shadow, so the edge the clip moves would have none. This is that end of the
+     hairline, travelling with the clip; its top and bottom rows are cut, where the tile's own lines run, and it is
+     gone as the real end comes out from under the clip, so the line is never drawn twice. */
+  html:not(.fx-reduce) .home--paywall .cell--plan > .cell-main::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--island-radius);
+    box-shadow: var(--island-shadow);
+    clip-path: var(--fx-cap-clip);
+    opacity: 0;
+    pointer-events: none;
+    animation: fx-in-cap 280ms var(--fx-in-out) calc(var(--fx-t) + 60ms) backwards;
+  }
+
+  html:not(.fx-reduce) .home--paywall .plan-title {
+    --fx-in-x: calc(-6px * var(--dir, 1));
+    --fx-in-y: 0px;
+    animation: fx-in-slide 180ms var(--fx-out) calc(var(--fx-t) + 190ms) backwards;
+  }
+
+  html:not(.fx-reduce) .home--paywall .plan-total {
+    --fx-in-y: 4px;
+    animation: fx-in-slide 180ms var(--fx-out) calc(var(--fx-t) + 240ms) backwards;
+  }
+
+  html:not(.fx-reduce) .home--paywall .plan-month {
+    --fx-in-y: 8px;
+    animation: fx-in-slide 220ms var(--fx-out) calc(var(--fx-t) + 290ms) backwards;
+  }
+
+  /* The moment the discount lands, the same on every tile: the last tile is open at 560 ms. In ms, which the script
+     reads (premiumbot-fx.js dropHold). */
+  html:not(.fx-reduce) .home--paywall .cell--plan {
+    --fx-drop: 760ms;
+  }
+
+  /* A pill unrolls onto its edge from its start end, as its tile did. It used to fade in on the curve things arrive
+     on, which is four fifths done in two frames: on a screen the pill was simply there. */
+  html:not(.fx-reduce) .home--paywall .plan-tab {
+    --fx-open-from: inset(0 100% 0 0 round var(--badge-radius));
+    --fx-open-to: inset(0 0 0 0 round var(--badge-radius));
+    animation: fx-in-open 300ms var(--fx-in-out) var(--fx-drop) backwards;
+  }
+
+  html[dir='rtl']:not(.fx-reduce) .home--paywall .plan-tab {
+    --fx-open-from: inset(0 0 0 100% round var(--badge-radius));
+  }
+
+  /* The chosen state arrives with the discount, drawn and not switched on: the ring runs along the tile's edges
+     from its start end, the wash comes up under it, the disc pops, the check after it. They are held on the layer's
+     two parts and on the scale property, not on the opacity and transform that a choice transitions, and on every
+     tile, so a tap during the entrance moves the choice and nothing blinks. */
+  html:not(.fx-reduce) .home--paywall .plan-fill::before {
+    animation: fx-in-fade 320ms ease-out var(--fx-drop) backwards;
+  }
+
+  html:not(.fx-reduce) .home--paywall .plan-fill::after {
+    --fx-open-from: inset(0 100% 0 0);
+    --fx-open-to: inset(0 0 0 0);
+    animation: fx-in-open 380ms var(--fx-in-out) var(--fx-drop) backwards;
+  }
+
+  html[dir='rtl']:not(.fx-reduce) .home--paywall .plan-fill::after {
+    --fx-open-from: inset(0 0 0 100%);
+  }
+
+  html:not(.fx-reduce) .home--paywall .cell--plan .cell-check::before {
+    animation: fx-in-grow 360ms var(--fx-soft) var(--fx-drop) backwards;
+  }
+
+  html:not(.fx-reduce) .home--paywall .cell--plan .cell-check .icon {
+    animation: fx-in-grow 360ms var(--fx-soft) calc(var(--fx-drop) + 60ms) backwards;
+  }
+
+  /* Was and now, on a tile with a struck price. The rate comes in with its tile's price side and shows the struck
+     figure, the plain monthly price (premiumbot-fx.js puts it there when fx-in-roll starts and holds it until
+     --fx-drop). At the drop that figure is struck where it stands and then goes to the struck price's place, drawn
+     down to its size and its grey (premiumbot-fx.js wasGhost), while the rate's own figure rolls in where it
+     stood, white until it has landed; then the recommended tile's cools to its gold. The struck price itself is
+     shown as the figure arrives, over the last 60 ms of its way: 120 ms after the drop it sets off and 380 ms
+     later it is there, the script's WAS_MOVE_AFTER_MS, WAS_MOVE_MS and WAS_SWAP_MS. The rate's fade is linear: it
+     is five frames long, and eased it would be a step. A tile on one line has no struck price (components.css
+     .plan-lines--one) and none of this. A copy the drum makes of the rate is not the rate and takes no part in
+     this. */
+  html:not(.fx-reduce) .home--paywall .cell--plan:not(.plan-lines--one) .plan-was {
+    animation: fx-in-fade 60ms linear calc(var(--fx-drop) + 440ms) backwards;
+  }
+
+  html:not(.fx-reduce) .home--paywall .cell--plan:not(.plan-lines--one) .plan-rate:not(.fx-drum-copy) {
+    animation: fx-in-roll 80ms linear calc(var(--fx-t) + 290ms) backwards;
+  }
+
+  html:not(.fx-reduce) .home--paywall .plan-emphasis--strong:not(.plan-lines--one) .plan-rate:not(.fx-drum-copy) {
+    animation:
+      fx-in-roll 80ms linear calc(var(--fx-t) + 290ms) backwards,
+      fx-in-tint 480ms var(--fx-in-out) calc(var(--fx-drop) + 520ms) backwards;
+  }
+
+  /* From here on: after the last plan tile, which is in by 540 ms. */
+  html:not(.fx-reduce) .home--paywall .section-footer {
+    --fx-in-y: 6px;
+    animation: fx-in-slide 260ms var(--fx-out) 560ms backwards;
+  }
+
+  /* The features tile, then the seven tiles its drum shows, from the middle place outward, 40 ms apart (--fx-i is a
+     place's distance from the middle). Each pops where it stands: fx-in-perk keeps its place and halves its scale. */
+  html:not(.fx-reduce) .home--paywall .fx-sheet > .section:not(.plans):not(.section--actions) {
+    --fx-t: 600ms;
+    --fx-in-y: 12px;
+    animation: fx-in-slide 320ms var(--fx-out) var(--fx-t) backwards;
+  }
+
+  /* The action tiles in reading order, each with its icon tile. */
+  html:not(.fx-reduce) .home--paywall .section--actions .cell {
+    --fx-t: 640ms;
+    --fx-in-y: 12px;
+    animation: fx-in-slide 300ms var(--fx-out) var(--fx-t) backwards;
+  }
+
+  html:not(.fx-reduce) .home--paywall .section--actions .cell:nth-child(2) {
+    --fx-t: 680ms;
+  }
+
+  html:not(.fx-reduce) .home--paywall .section--actions .cell:nth-child(3) {
+    --fx-t: 720ms;
+  }
+
+  html:not(.fx-reduce) .home--paywall .section--actions .cell:nth-child(n + 4) {
+    --fx-t: 760ms;
+  }
+
+  html:not(.fx-reduce) .home--paywall .section--actions .icon-tile {
+    --fx-pop: calc(var(--fx-t) + 60ms);
+  }
+
+  html:not(.fx-reduce) .home--paywall .section--actions .icon-tile {
+    animation:
+      fx-in-fade 140ms var(--fx-out) var(--fx-pop) backwards,
+      fx-in-pop 280ms var(--fx-soft) var(--fx-pop) backwards;
+  }
+
+}
+
+/* The giveaway screens' entrance, in the paywall's keyframes and curves, one thing after another: the object pops on
+   the soft spring, the title rises, then the words, then the sheet from the top down, 70 ms apart, each piece whole:
+   the switch, a header with its first tile, the tiles after it, a note. The docked bar is there from the first frame
+   and its capsule rises inside it. Only the object scales; text and tiles fade and slide. The winners block arrives
+   by its body: the script may put a row of facts in the track's place at any time, and a row built then must play no
+   entrance of its own. This rule is the whole entrance under reduced motion: short fades. */
+.commerce--giveaway :is(.pm-mark, .hero-title, .hero-subtitle),
+.commerce--giveaway .fx-sheet > :is(.segmented, .section, .cta-bar),
+.commerce--giveaway .fx-sheet > .gw-prize > .section {
+  animation: fx-in-fade 200ms ease-out backwards;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.fx-reduce) .commerce--giveaway .fx-sheet > .section,
+  html:not(.fx-reduce) .commerce--giveaway .fx-sheet > .gw-prize > .section {
+    animation: none;
+  }
+
+  html:not(.fx-reduce) .commerce--giveaway .pm-mark {
+    animation:
+      fx-in-fade 140ms var(--fx-out) backwards,
+      fx-in-pop 360ms var(--fx-soft) backwards;
+  }
+
+  html:not(.fx-reduce) .commerce--giveaway .hero-title {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 360ms var(--fx-out) 120ms backwards;
+  }
+
+  html:not(.fx-reduce) .commerce--giveaway .hero-subtitle {
+    --fx-in-y: 8px;
+    animation: fx-in-slide 360ms var(--fx-out) 200ms backwards;
+  }
+
+  html:not(.fx-reduce) .commerce--giveaway .cta-bar {
+    animation: fx-in-fade 240ms var(--fx-out) backwards;
+  }
+
+  html:not(.fx-reduce) .commerce--giveaway .cta-button {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 400ms var(--fx-out) backwards;
+  }
+
+  /* The sheet's pieces: --fx-t is a section's turn and --fx-i a piece's place in it. The switch comes first, at 280;
+     a note follows the two tiles its section may hold. */
+  html:not(.fx-reduce) .commerce--giveaway .fx-sheet > .segmented,
+  html:not(.fx-reduce) .commerce--giveaway .fx-sheet > .section > :is(.section-header, .section-footer),
+  html:not(.fx-reduce) .commerce--giveaway .fx-sheet > .section:nth-of-type(-n + 2) .cell,
+  html:not(.fx-reduce) .commerce--giveaway .fx-sheet > .section:nth-of-type(n + 3) > .section-body {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 320ms var(--fx-out) calc(var(--fx-t, 280ms) + var(--fx-i, 0) * 70ms) backwards;
+  }
+
+  .commerce--giveaway .fx-sheet > .section {
+    --fx-t: 350ms;
+  }
+
+  .commerce--giveaway .fx-sheet > .section:nth-of-type(2) {
+    --fx-t: 420ms;
+  }
+
+  .commerce--giveaway .fx-sheet > .section:nth-of-type(n + 3) {
+    --fx-t: 630ms;
+  }
+
+  /* A page that holds both prizes keeps each prize's sections in a group of its own (.gw-prize), after the sheet's
+     first section: the group's first is the sheet's second, its tiles one by one, and those after it come by their
+     bodies. */
+  html:not(.fx-reduce) .commerce--giveaway .fx-sheet > .gw-prize > .section > :is(.section-header, .section-footer),
+  html:not(.fx-reduce) .commerce--giveaway .fx-sheet > .gw-prize > .section:nth-of-type(1) .cell,
+  html:not(.fx-reduce) .commerce--giveaway .fx-sheet > .gw-prize > .section:nth-of-type(n + 2) > .section-body {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 320ms var(--fx-out) calc(var(--fx-t, 280ms) + var(--fx-i, 0) * 70ms) backwards;
+  }
+
+  .commerce--giveaway .fx-sheet > .gw-prize > .section {
+    --fx-t: 420ms;
+  }
+
+  .commerce--giveaway .fx-sheet > .gw-prize > .section:nth-of-type(n + 2) {
+    --fx-t: 630ms;
+  }
+
+  .commerce--giveaway .section:nth-of-type(n + 3) > .section-footer,
+  .commerce--giveaway .fx-sheet > .gw-prize > .section:nth-of-type(n + 2) > .section-footer,
+  .commerce--giveaway .section .cell:nth-child(2) {
+    --fx-i: 1;
+  }
+
+  .commerce--giveaway .section:nth-of-type(-n + 2) > .section-footer,
+  .commerce--giveaway .section .cell:nth-child(3) {
+    --fx-i: 2;
+  }
+
+  .commerce--giveaway .section .cell:nth-child(n + 4) {
+    --fx-i: 3;
+  }
+}
+
+/* The giveaway's two prizes as one page (premiumbot.js onPrizeSwitch). A page that came by the switch plays no
+   entrance on what both prizes share, the object, the title, the words and the switch: they stand where they stood,
+   and the star turns into the other one in place. The sheet under them plays none either where the script moves
+   its pieces itself (pm-swap-all). Only these elements' own entrances are set aside, which is all they animate. */
+html.pm-swap .commerce--giveaway :is(.pm-mark, .hero-title, .hero-subtitle),
+html.pm-swap .commerce--giveaway .fx-sheet > .segmented {
+  animation: none !important;
+}
+
+html.pm-swap-all .commerce--giveaway .fx-sheet :is(.section, .cta-bar),
+html.pm-swap-all .commerce--giveaway .fx-sheet .section > :is(.section-header, .section-footer, .section-body),
+html.pm-swap-all .commerce--giveaway .fx-sheet .section .cell,
+html.pm-swap-all .commerce--giveaway .cta-button {
+  animation: none !important;
+}
+
+/* What leaves in that change is a layer of copies over the page, taken at the tap and placed by their rects: each
+   copy brings its ancestors as boxless wrappers, so it is styled as it was. Nothing in the layer plays an animation
+   of its own or takes a pointer; the script moves the copies. */
+.pm-ghost {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.pm-ghost *,
+.pm-ghost *::before,
+.pm-ghost *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* The switch's capsule on its way (premiumbot.js prizeSlide): a box of its prize's fill over the track, which the
+   script slides from one segment to the other while the segments' own fill is put out. It leaves in the fill of the
+   prize it leaves and arrives in the other's: the second fill is a layer inside it that comes up as it goes
+   (screens-commerce.css --prize-premium, --prize-stars). Over the fills it holds a row of the switch's labels in the
+   ink that stands on them, with no track and no fill of its own, moved against the capsule so that it lies on the
+   track's own row: the capsule shows the labels under it in its ink. The page's own switch stays out of sight under
+   the copy for as long as the copy is there, so one capsule shows and not two. */
+html.pm-swap-on .commerce--giveaway .segmented:not(.pm-ghost *) {
+  visibility: hidden;
+}
+
+.pm-ghost .segmented.is-sliding .segment-face::before {
+  opacity: 0;
+}
+
+.segment-thumb {
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  /* The box is an i element: its labels stand upright as the track's do. */
+  font-style: normal;
+}
+
+.segment-thumb > i {
+  position: absolute;
+  inset: 0;
+}
+
+.segment-thumb--premium {
+  background: var(--prize-premium);
+}
+
+.segment-thumb--stars {
+  background: var(--prize-stars);
+}
+
+.segment-thumb > .segment-thumb-row {
+  position: absolute;
+  box-sizing: border-box;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.segment-thumb .segment-face {
+  color: var(--thumb-ink, var(--tone-solid-ink)) !important;
+}
+
+.segment-thumb .segment-face::before {
+  opacity: 0 !important;
+}
+
+@keyframes fx-in-cap {
+  from {
+    opacity: 1;
+    transform: translateX(calc((var(--fx-stub) - 100%) * var(--dir, 1)));
+  }
+  94% {
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.333, 0.667, 0.667, 1);
+  }
+  to {
+    opacity: 0;
+    transform: none;
+  }
+}
+
+@keyframes fx-in-grow {
+  from {
+    scale: 0;
+  }
+}
+
+@keyframes fx-in-open {
+  from {
+    clip-path: var(--fx-open-from);
+  }
+  to {
+    clip-path: var(--fx-open-to);
+  }
+}
+
+@keyframes fx-in-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fx-in-slide {
+  from {
+    opacity: 0;
+    transform: translate(var(--fx-in-x, 0px), var(--fx-in-y, 8px));
+  }
+}
+
+@keyframes fx-in-pop {
+  from {
+    transform: scale(0.5);
+  }
+}
+
+/* fx-in-fade under a name of its own, which the script listens for: where the rate's turn comes, its drum rolls. */
+@keyframes fx-in-roll {
+  from {
+    opacity: 0;
+  }
+}
+
+/* A figure comes in white and settles into its own colour: the recommended rate cools once it has landed. */
+@keyframes fx-in-tint {
+  from {
+    color: var(--text);
+  }
+}
+
 .fx-burst {
   position: absolute;
   inset: 0;
@@ -611,8 +1264,7 @@
 }
 
 /* Press and lift share one transform so they compose: tiles and cards go to 0.97 in 120 ms and back in 240 ms,
-   without overshoot. Rows only highlight (components.css .is-tappable). The lift has a name of its own: an element on
-   a first stage would inherit the stage's --fx-lift, the safe areas. */
+   without overshoot. Rows only highlight (components.css .is-tappable). */
 .fx-press {
   transform: translate(0, var(--fx-press-lift, 0px)) scale(var(--fx-s, 1));
   transition:
@@ -630,98 +1282,170 @@
   --fx-s: 1;
 }
 
-/* The custom CTA is Telegram's Premium button (PremiumIntroScreen.swift:3919-3960): a 52 px pill, the label 17/20
-   600 white, the amount its second line at 11/16 500, pressed at 80 %. Its skin takes the stops of :3920-3925,
-   darkened in OKLab so white text keeps 4.5:1, drifting over 2.4 × its width, 4.5 s each way (ButtonComponent.swift
-   :1097-1200); over it runs the shimmer of Telegram's purchase buttons (ButtonComponent.swift:1204-1258,
-   ShimmerEffect.swift:143-160): a 70 px band of white at 0.5 and a 1.5 px ring in overlay, crossing in 410 ms. The
-   glow below is its one light: no shadow, no rim. While lit and pressable it beckons once a breath on the light clock
-   (src/fx/light.ts), in one beat with Best Value's glint: it swells from the breath's peak, as the sparkle flares, and
-   its shine sets off 200 ms on, as the light leaves the sparkle, with two knocks of the arrow (below), instead of the
-   native sweep every 4 s. Only transforms and opacity move; unlit, under reduced motion and in snap mode it rests,
-   with no band. */
-.cta-button.cta-button--premium {
-  flex-direction: column;
-  min-height: 52px;
-  border-radius: 26px;
-  background: transparent;
-  box-shadow: none;
-  /* The grey of the inactive pill stays until the skin has faded back in over it. */
-  transition:
-    opacity 240ms ease-out,
-    transform 240ms ease-out,
-    color 200ms ease-out,
-    background-color 0s 200ms;
-}
-
-.cta-button.cta-button--premium[aria-disabled='true'] {
-  transition-delay: 0s;
-}
-
-.cta-face,
-.cta-skin,
-.cta-ring {
+/* On the paywall a press answers by tone and nothing scales: a veil over a tile's glass, a shade over the pay button's
+   fill, in fast and out softly, on opacity alone. The veil ends on the colour a pressed tile takes on other screens
+   (--pressed over the surface). That change of colour is set aside here: a tile's pressed state reads --press, which
+   holds its resting surface, and the button keeps its resting fill. */
+.home--paywall :is(.cell, .cta-button).fx-press::after {
+  content: '';
   position: absolute;
   inset: 0;
+  z-index: -1;
   border-radius: inherit;
+  background: var(--pressed);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 320ms var(--fx-out);
+}
+
+.home--paywall .cta-button.fx-press::after {
+  background: rgb(0 0 0 / 0.13);
+}
+
+.home--paywall :is(.cell, .cta-button).fx-press.is-pressed::after {
+  opacity: 1;
+  transition-duration: 80ms;
+}
+
+.home--paywall .cell.island.fx-press {
+  --press: var(--island-surface);
+}
+
+.home--paywall .cta-button.cta-button--premium.is-pressed:not([aria-disabled='true']) {
+  background-color: var(--tone-solid);
+}
+
+/* Choosing a plan on the paywall: the wash and ring of the tile left fade out as the chosen tile's fade in; the chosen
+   disc pops from its centre on the soft spring, its check after it; the disc left fades where it stands and gives up
+   its scale only once it is out of sight. Under reduced motion all of it is a short fade. */
+.home--paywall .cell--plan .cell-check::before {
+  opacity: 0;
+}
+
+.home--paywall .plan-fill {
+  transition: opacity 160ms ease-out;
+}
+
+.home--paywall .cell--plan .cell-check::before,
+.home--paywall .cell--plan .cell-check .icon {
+  transition:
+    opacity 160ms ease-out,
+    transform 0s linear 160ms;
+}
+
+.home--paywall .cell--plan .cell-input:checked + .cell-check::before,
+.home--paywall .cell--plan .cell-input:checked + .cell-check .icon {
+  transition: opacity 160ms ease-out;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.fx-reduce) .home--paywall .plan-fill {
+    transition: opacity 240ms var(--fx-out);
+  }
+
+  html:not(.fx-reduce) .home--paywall .cell--plan .cell-check::before,
+  html:not(.fx-reduce) .home--paywall .cell--plan .cell-check .icon {
+    transition:
+      opacity 200ms var(--fx-out),
+      transform 0s linear 200ms;
+  }
+
+  html:not(.fx-reduce) .home--paywall .cell--plan .cell-input:checked + .cell-check::before {
+    transition:
+      transform 360ms var(--fx-soft),
+      opacity 80ms linear;
+  }
+
+  html:not(.fx-reduce) .home--paywall .cell--plan .cell-input:checked + .cell-check .icon {
+    transition:
+      transform 360ms var(--fx-soft) 40ms,
+      opacity 120ms linear 40ms;
+  }
+}
+
+/* The charge and the path of attention (premiumbot-fx.js). The charge is a streak of gold light that runs along the
+   recommended plan tile's edge, over a faint sheen that crosses the tile's face; the path ends in a soft band of
+   white light crossing the pay button. Each is a layer the script adds, under its host's content and over its
+   surface, holding one band of light that the script moves by transform while the layer's opacity lights and spends
+   it. The edge layer shows through a mask that is its border box less its content box, so only the tile's rim
+   takes the light; the sheen is cut to the tile's round edge and the button's band to the capsule. The streak's
+   core is white, since on the chosen tile it runs along a ring that is gold already, and the sheen is the pale of
+   that core, which stays clean over the tile's glass where the gold would muddy it. */
+/* The light that goes round the recommended tile's ring (premiumbot-fx.js runComet): an SVG over the tile, its paths
+   the dashes of one line on the ring, drawn by the script. The strokes are the ring's gold, each a third lit, so
+   where more of them lie over each other, towards the point, the stroke is brighter; the shorter ones are paler,
+   and the point is almost white and wider. The glow is the strokes' own shadow. At rest no dash is drawn. */
+.fx-comet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: none;
+  stroke: #ffc43d;
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-dasharray: 0 9999;
+  stroke-opacity: 0.3;
+  opacity: 0;
+  pointer-events: none;
+  filter: drop-shadow(0 0 2px #ffe9a8) drop-shadow(0 0 7px rgb(255 196 61 / 0.9));
+}
+
+.fx-comet > :nth-child(n + 5) {
+  stroke: #ffe9a8;
+}
+
+.fx-comet > :last-child {
+  stroke: #fffdf2;
+  stroke-width: 3.5px;
+  stroke-opacity: 1;
+}
+
+.fx-band {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
   pointer-events: none;
 }
 
-.cta-skin {
+/* The layer fills the pay button and takes its round ends from it. */
+.fx-band {
   overflow: hidden;
-  transition: opacity 200ms ease-out;
+  border-radius: inherit;
 }
 
-.cta-skin::before {
-  content: '';
+.fx-band > i {
   position: absolute;
-  inset: 0 auto 0 0;
-  width: 240%;
-  background: linear-gradient(90deg, #0070f7, #4c70d9, #7562e7, #be46aa);
-  transform: translateX(-20.83%);
+  top: 0;
+  bottom: 0;
+  left: 0;
 }
 
-.cta-skin::after,
-.cta-ring::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgb(255 255 255 / 0), rgb(255 255 255 / 0.5), rgb(255 255 255 / 0)) 0 0 / 70px 100% no-repeat;
-  transform: translateX(-70px);
+.fx-band > i {
+  width: 90px;
+  background: linear-gradient(90deg, rgb(255 255 255 / 0), rgb(255 255 255 / 0.29) 50%, rgb(255 255 255 / 0));
 }
 
-.cta-skin::after {
-  mix-blend-mode: overlay;
+/* On the gold button the band is a glint: a narrow slanted streak of white, twice as strong as the band on blue,
+   which the gold needs to show it at all. It crosses with the light on the tile's ring, on the same clock
+   (premiumbot-fx.js charge). */
+:is(.home--paywall, .subscription--paywall, .subscription--upgrade, .commerce--gift):has(.plan-emphasis--strong .cell-input:checked) .cta-button--premium:not([aria-disabled='true']) .fx-band > i {
+  width: 100px;
+  background: linear-gradient(105deg, rgb(255 255 255 / 0) 32%, rgb(255 255 255 / 0.6) 50%, rgb(255 255 255 / 0) 68%);
 }
 
-/* The ring blends as a whole; its band inside is plain white, at 0.5 rather than Telegram's 0.75, which over the band
-   lights the rounded end as a hard white stroke. */
-.cta-ring {
-  border: 1.5px solid transparent;
-  mix-blend-mode: overlay;
-  -webkit-mask:
-    linear-gradient(#000 0 0) padding-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask:
-    linear-gradient(#000 0 0) padding-box exclude,
-    linear-gradient(#000 0 0);
-}
-
-.cta-ring::before {
-  inset: -1.5px;
-  background-image: linear-gradient(90deg, rgb(255 255 255 / 0), rgb(255 255 255 / 0.5), rgb(255 255 255 / 0));
-}
-
-/* 1 px and a device pixel, as UIScreenPixel adds it. */
-@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 3dppx) {
-  .cta-ring {
-    border-width: 1.333px;
-  }
-
-  .cta-ring::before {
-    inset: -1.333px;
-  }
+/* The pay button's parts (src/ui/components/cta.ts): the label on one line, the amount its second line at
+   11/16 500. Pressed, the fill darkens in place at once and eases back on release; an inactive button fades to the
+   grey fill. */
+.cta-button.cta-button--premium {
+  flex-direction: column;
+  transition:
+    transform 240ms ease-out,
+    color 200ms ease-out,
+    background-color 200ms ease-out;
 }
 
 .cta-button--premium > .cta-content {
@@ -735,13 +1459,6 @@
 }
 
 /* The label being replaced, over the new one while it leaves (cta.ts). */
-.cta-button--premium > .cta-content--old {
-  position: absolute;
-  inset: 0 var(--space-24);
-  justify-content: center;
-  pointer-events: none;
-}
-
 .cta-line {
   display: flex;
   align-items: center;
@@ -753,464 +1470,152 @@
   min-width: 0;
 }
 
-/* A right arrow drawn to the label's weight: a 2 px stroke at 17/600. */
-.cta-arrow {
-  flex: none;
-  width: 16px;
-  height: 16px;
-  background: currentColor;
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 8h11M9 3.5 13.5 8 9 12.5' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 16px 16px no-repeat;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 8h11M9 3.5 13.5 8 9 12.5' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 16px 16px no-repeat;
-}
-
-.cta-button.is-lit:not([aria-disabled='true']) .cta-face {
-  animation: fx-cta-swell 8s var(--cta-delay, 0s) infinite;
-}
-
-/* The bloom: the glow once more, a size larger, shown only as the pill swells. */
-.cta-glow::after {
-  --cta-bloom-a: 48%;
-  content: '';
+/* A line the drum rolls out (premiumbot-fx.js roll): a copy of the line as it stood, laid over its place and out of
+   the flow, so nothing around it moves. The script gives it the line's width and moves it from this corner to where
+   the line stood; no limit of the box it lies in, which the new line may have narrowed, squeezes it. After the
+   line's own rules, which it has to outrank. */
+.fx-drum-copy {
   position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  box-shadow:
-    -8px 10px 32px -12px color-mix(in srgb, var(--glow-from) var(--cta-bloom-a), transparent),
-    8px 10px 32px -12px color-mix(in srgb, var(--glow-to) var(--cta-bloom-a), transparent);
-  opacity: 0;
+  top: 0;
+  left: 0;
+  max-width: none;
+  margin: 0;
+  pointer-events: none;
 }
 
-/* Coloured light on a dark page reads weaker: the bloom burns at the tone's full colour there. */
-:root.theme-dark .cta-glow::after {
-  --cta-bloom-a: 100%;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not(.theme-light) .cta-glow::after {
-    --cta-bloom-a: 100%;
+/* The words of the recommended plan's label are drawn with their ink as a picture: the ink all along and, in it, one
+   band of light, 32 px across, which stands 40 px before the words and which the script runs through them as the
+   light on the ring passes under (premiumbot-fx.js runComet), so the words catch the light after the label's star
+   does. The picture is 2000 px wide with the band in its middle, so it covers the words wherever the band
+   stands. Only the glyphs' fill is taken off: the colour stays the ink, which the divider and the star are drawn
+   in. Where colours are forced the words are plain. */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .cell--plan.plan-emphasis--strong > .plan-tab > :is(.plan-tab-label, .badge) {
+    background: linear-gradient(90deg, var(--gold-ink) calc(50% - 16px), #fff 50%, var(--gold-ink) calc(50% + 16px)) -1040px 0 / 2000px 100% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 
-/* WebKit before 16.2 cannot mix the colours' strength into the shadows: they burn at full colour and a filter dims
-   them, so the bloom's opacity is left to its animation. */
-@supports not (color: color-mix(in srgb, red, red)) {
-  .cta-glow::after {
-    box-shadow:
-      -8px 10px 32px -12px var(--glow-from),
-      8px 10px 32px -12px var(--glow-to);
-    filter: opacity(var(--cta-bloom-a));
+@media (forced-colors: active) {
+  .cell--plan.plan-emphasis--strong > .plan-tab > :is(.plan-tab-label, .badge) {
+    background: none;
+    -webkit-text-fill-color: currentcolor;
   }
 }
 
-.cta-button.is-lit:not([aria-disabled='true']) .cta-glow::after {
-  animation: fx-cta-bloom 8s var(--cta-delay, 0s) infinite;
+/* The struck price on its way (premiumbot-fx.js wasGhost): the figure the rate first showed, whose type the script
+   takes to the struck price's as it goes, and on it the struck price's bar, the same as that price's own
+   (components.css .plan-was::after): 2 px thick through the figure's middle, 2 px past it at both sides, tilted
+   about its own middle. The script draws it from its start end. */
+.fx-was-ghost {
+  will-change: transform;
 }
 
-.cta-button.is-lit .cta-skin::before {
-  animation: fx-cta-drift 4.5s ease-in-out infinite alternate;
+.fx-was-bar {
+  position: absolute;
+  inset-inline: -2px;
+  top: calc(50% - 1px);
+  height: 2px;
+  border-radius: 1px;
+  background: var(--strike);
+  transform: rotate(-8deg);
+  pointer-events: none;
 }
 
-.cta-button.is-lit .cta-skin::after,
-.cta-button.is-lit .cta-ring::before {
-  animation: fx-cta-shine 8s var(--cta-delay, 0s) infinite;
+/* The figures a rate rolls through are white: only the rate itself takes its tile's colour, once it has landed. */
+.home--paywall .plan-rate.fx-drum-copy {
+  color: var(--text);
 }
 
-.cta-button.is-lit:not([aria-disabled='true']) .cta-arrow {
-  animation: fx-cta-knock 8s var(--cta-delay, 0s) infinite;
+/* A rate's line is the box its drum's copies are placed against, whatever moves above it. The price side slides in
+   as the drum is set, and a block that slides is such a box only while it does: the copy of the figure would jump
+   out of its window the moment the slide ended. */
+.home--paywall .plan-rate-line {
+  position: relative;
+}
+
+/* While a rate rolls (the drum marks the box it rolls in), its window fades out at its top and bottom edges, so a
+   figure passing an edge dissolves into it and is not sliced. The fades lie clear of the figures at rest, so the
+   window shows them the same with the mask and without. */
+.home--paywall .plan-rate-line.fx-rolling {
+  -webkit-mask-image: linear-gradient(transparent, #000 14%, #000 88%, transparent);
+  mask-image: linear-gradient(transparent, #000 14%, #000 88%, transparent);
+}
+
+/* The pay button's label stands alone: the arrow that followed it is gone. A page that still prints the arrow's span
+   shows nothing in its place and keeps the label centred. */
+.cta-arrow {
+  display: none;
 }
 
 .cta-button.cta-button--premium.is-pressed {
   --fx-s: 1;
-  opacity: 0.8;
   transition-duration: 0s;
 }
 
+.cta-button.cta-button--premium.is-pressed:not([aria-disabled='true']) {
+  background-color: var(--tone-solid-press);
+}
+
 .cta-button--premium > .cta-spinner {
-  inset: 14px auto auto calc(50% - 12px);
+  inset: 13px auto auto calc(50% - 12px);
   margin: 0;
 }
 
-.cta-button--premium .cta-total {
-  margin: 0;
-  /* White, not Telegram's 70 %: on stops held to 4.5:1 for white, 70 % reads 3.1:1. */
-  color: #fff;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
+/* The features screen's entrance, in the paywall's keyframes and curves: the bar and the title at once, then the
+   tiles from the top down, each whole, 70 ms apart: the limits, then the features. The features past the sixth,
+   which a tall phone's first screen ends on, come with it: none waits out of sight, and none shows before a tile
+   above it. This rule is the whole entrance under reduced motion, which the root's fx-reduce class follows: short
+   fades. */
+.features :is(.screen-title, .section--limits, .cell--feature, .cta-bar) {
+  animation: fx-in-fade 200ms ease-out backwards;
 }
 
-.cta-button--premium[aria-disabled='true'] .cta-skin {
-  opacity: 0;
-}
-
-.cta-button--premium[aria-disabled='true'] .cta-total {
-  color: inherit;
-}
-
-/* Reduced motion switched on while the pill is lit; one class more than any rule above that moves it, so it wins
-   wherever it stands. */
-.fx-reduce .cta-button.cta-button--premium.is-lit .cta-face,
-.fx-reduce .cta-button.cta-button--premium.is-lit .cta-glow::after,
-.fx-reduce .cta-button.cta-button--premium.is-lit .cta-skin::before,
-.fx-reduce .cta-button.cta-button--premium.is-lit .cta-skin::after,
-.fx-reduce .cta-button.cta-button--premium.is-lit .cta-ring::before,
-.fx-reduce .cta-button.cta-button--premium.is-lit .cta-arrow {
-  animation: none;
-}
-
-/* The swell: up in 450 ms, easing into its top as the shine crosses the middle, then down in 870 ms. */
-@keyframes fx-cta-swell {
-  0% {
-    transform: none;
-    animation-timing-function: cubic-bezier(0.3, 0, 0.2, 1);
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.fx-reduce) .features .cta-bar {
+    animation: fx-in-fade 240ms var(--fx-out) backwards;
   }
-  5.625% {
-    transform: scale(1.03);
-    animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
+
+  html:not(.fx-reduce) .features .cta-button {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 400ms var(--fx-out) backwards;
   }
-  16.5%,
-  100% {
-    transform: none;
+
+  html:not(.fx-reduce) .features .screen-title {
+    --fx-in-y: 10px;
+    animation: fx-in-slide 420ms var(--fx-out) backwards;
   }
-}
 
-/* The bloom rises with the swell and lingers a little after it. */
-@keyframes fx-cta-bloom {
-  0% {
-    opacity: 0;
-    animation-timing-function: cubic-bezier(0.3, 0, 0.2, 1);
+  html:not(.fx-reduce) .features :is(.section--limits, .cell--feature) {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 320ms var(--fx-out) var(--fx-t, 80ms) backwards;
   }
-  6.5% {
-    opacity: 1;
-    animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
+
+  .features .cell--feature {
+    --fx-t: 150ms;
   }
-  24.5%,
-  100% {
-    opacity: 0;
+
+  .features .cell--feature:nth-child(2) {
+    --fx-t: 220ms;
   }
-}
 
-@keyframes fx-cta-drift {
-  from {
-    transform: translateX(-20.83%);
+  .features .cell--feature:nth-child(3) {
+    --fx-t: 290ms;
   }
-  to {
-    transform: translateX(-55.83%);
+
+  .features .cell--feature:nth-child(4) {
+    --fx-t: 360ms;
   }
-}
 
-/* One sweep from 200 ms after the peak, as Best Value's light leaves its sparkle (premiumbot-fx.js GLINT.start), 410 ms:
-   of ShimmerEffect.swift's ease-out over 9 widths, the stretch that crosses the button is all but linear. */
-@keyframes fx-cta-shine {
-  0%,
-  2.5% {
-    transform: translateX(-70px);
-    animation-timing-function: cubic-bezier(0.32, 0.33, 0.65, 0.67);
+  .features .cell--feature:nth-child(5) {
+    --fx-t: 430ms;
   }
-  7.625%,
-  100% {
-    transform: translateX(100%);
+
+  .features .cell--feature:nth-child(n + 6) {
+    --fx-t: 500ms;
   }
-}
-
-/* Two knocks as the band reaches the arrow: into the edge ever faster, back ever slower, the second a little softer. */
-@keyframes fx-cta-knock {
-  0%,
-  5.625% {
-    transform: none;
-    animation-timing-function: cubic-bezier(0.5, 0, 1, 1);
-  }
-  7% {
-    transform: translateX(5px);
-    animation-timing-function: cubic-bezier(0, 0, 0.5, 1);
-  }
-  8.625% {
-    transform: none;
-    animation-timing-function: cubic-bezier(0.5, 0, 1, 1);
-  }
-  9.875% {
-    transform: translateX(4px);
-    animation-timing-function: cubic-bezier(0, 0, 0.4, 1);
-  }
-  12.375%,
-  100% {
-    transform: none;
-  }
-}
-
-/* Light (design.md §11.9). One light runs through a screen: the hero mark is its source, Best Value the second, the
-   in-page CTA the third, and the eye follows them in that order. Every glow is a box-shadow or a gradient painted
-   once; the sources breathe on one 8 s clock by the opacity of those layers alone, which the compositor animates.
-   src/fx/light.ts sets .neon-lit on a source near the screen while the page is visible and Telegram has the app
-   active, with --neon-delay, which puts it in phase; lit while none breathes, it starts the clock at the peak.
-   Unlit, under reduced motion and in snap mode, each keeps its still: the glow at the peak of its breath, so a breath
-   starts from it with no step. --glow-from and --glow-to are the tone's (tokens.css). */
-
-/* The aura (.neon-aura, src/fx/light.ts neonAura), for a screen's one primary card: a glow outside its rounded edge,
-   --glow-from on the start side and --glow-to on the end, which trade places every 8 s while the whole breathes. Each
-   halo is a tight glow on the contour over a wider one pulled in by its spread, so the light is spent within the 8 px
-   gap above and below. It lies on the page under every island and text and goes with its card: neonAura puts it in
-   the sheet over the card's box, or first in the card. The light takes the card's entrance and its inner glow layer
-   breathes, so neither animation replaces the other. Outer shadows only, so the ring stays crisp. */
-.neon-aura {
-  --island-shadow: var(--neon-contact);
-  position: relative;
-}
-
-.neon-aura__light,
-.neon-aura__glow,
-.neon-aura__glow::before,
-.neon-aura__glow::after {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-}
-
-.neon-aura__light {
-  z-index: -1;
-}
-
-/* Out of the card, the light takes the card's radius (neonAura passes it). */
-.fx-sheet > .neon-aura__light {
-  inset: auto;
-  border-radius: var(--aura-radius);
-}
-
-/* The still: the halos where the breath's peak finds them, halfway through their tide (src/fx/light.ts TIDE), so a
-   breath meets it. */
-.neon-aura__glow::before,
-.neon-aura__glow::after {
-  content: '';
-  opacity: 0.65;
-}
-
-.neon-aura__glow::before {
-  box-shadow:
-    calc(-1 * var(--neon-lean)) 0 var(--neon-blur) var(--neon-spread) color-mix(in srgb, var(--glow-from) var(--neon-a), transparent),
-    0 0 calc(var(--neon-blur) / 2) color-mix(in srgb, var(--glow-from) var(--neon-core), transparent);
-}
-
-.neon-aura__glow::after {
-  box-shadow:
-    var(--neon-lean) 0 var(--neon-blur) var(--neon-spread) color-mix(in srgb, var(--glow-to) var(--neon-a), transparent),
-    0 0 calc(var(--neon-blur) / 2) color-mix(in srgb, var(--glow-to) var(--neon-core), transparent);
-}
-
-/* Best Value's light is its ring's gradient. */
-.plan-emphasis--strong {
-  --glow-to: var(--best-glow-to);
-}
-
-/* The aura's breath on its glow and its halos' tide (src/fx/light.ts BREATH, TIDE), lit like every source: with the
-   stage's light, 1 at the peak to 0.7 at the low, 4 s each way, eased. The halos trade places a quarter breath behind
-   it and half a breath apart, so their sum holds; at the peak each stands at its still, 0.65. --neon-delay, which
-   premiumbot-fx.js sets on the light, puts all three on the shared clock. */
-.neon-aura__light.neon-lit > .neon-aura__glow {
-  animation: pm-aura-breath 4s ease-in-out var(--neon-delay, 0s) infinite alternate;
-}
-
-.neon-aura__light.neon-lit > .neon-aura__glow::before {
-  animation: pm-aura-tide 4s ease-in-out calc(var(--neon-delay, 0s) - 2s) infinite alternate;
-}
-
-.neon-aura__light.neon-lit > .neon-aura__glow::after {
-  animation: pm-aura-tide 4s ease-in-out calc(var(--neon-delay, 0s) - 6s) infinite alternate;
-}
-
-@keyframes pm-aura-breath {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.7;
-  }
-}
-
-@keyframes pm-aura-tide {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.3;
-  }
-}
-
-.fx-reduce .neon-aura__glow,
-.fx-reduce .neon-aura__glow::before,
-.fx-reduce .neon-aura__glow::after {
-  animation: none;
-}
-
-/* The static glow (.neon-glow), for secondary islands: the aura's two halos at their core strength, without motion. */
-.neon-glow {
-  box-shadow:
-    var(--neon-contact),
-    calc(-1 * var(--neon-lean)) 0 var(--neon-blur) calc(var(--neon-spread) - 4px) color-mix(in srgb, var(--glow-from) var(--neon-core), transparent),
-    var(--neon-lean) 0 var(--neon-blur) calc(var(--neon-spread) - 4px) color-mix(in srgb, var(--glow-to) var(--neon-core), transparent);
-}
-
-/* Islands catch no light: the fill sets a cell apart, and the one lit edge is Best Value's ring. Where a black cell
-   is about the page's own colour, Android and desktop dark, a hairline draws its contour (.neon-rim for any other
-   surface): --rim-line, one colour all round, masked out
-   of a full layer between the border box and the padding box, so it takes no room and turns with the corners.
-   Everywhere else it is clear. */
-:is(.island, .neon-rim) {
-  position: relative;
-}
-
-:is(.island, .neon-rim):not(.plan-emphasis--strong)::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  padding: 1px;
-  border-radius: inherit;
-  background: var(--rim-line);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
-  pointer-events: none;
-}
-
-/* The CTA's glow (src/ui/components/cta.ts), the third source: the pill's light on the page, the tone's two colours a
-   little under it, each leaning to its end, both of one size, so the light is even on both sides. Pulled in by its
-   spread, it starts inside the pill's edge and is spent about 20 px below it: no rim hugs the pill and no band shows.
-   The glow breathes by its own opacity (below); its
-   ::before fades it with an inactive pill. It lies in the pill's face, over the bar's grain. */
-.cta-glow {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-}
-
-.cta-glow::before {
-  --cta-glow-a: 48%;
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  box-shadow:
-    -8px 8px 24px -12px color-mix(in srgb, var(--glow-from) var(--cta-glow-a), transparent),
-    8px 8px 24px -12px color-mix(in srgb, var(--glow-to) var(--cta-glow-a), transparent);
-  transition: opacity 200ms ease-out;
-}
-
-:root.theme-dark .cta-glow::before {
-  --cta-glow-a: 64%;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not(.theme-light) .cta-glow::before {
-    --cta-glow-a: 64%;
-  }
-}
-
-/* Before 16.2, as the bloom: full colour under a filter, so the glow's opacity is left to an inactive pill's fade. */
-@supports not (color: color-mix(in srgb, red, red)) {
-  .cta-glow::before {
-    box-shadow:
-      -8px 8px 24px -12px var(--glow-from),
-      8px 8px 24px -12px var(--glow-to);
-    filter: opacity(var(--cta-glow-a));
-  }
-}
-
-.cta-button--premium[aria-disabled='true'] .cta-glow::before {
-  opacity: 0;
-}
-
-/* The bar covers the field, so it carries the field's grain itself, under the pill and its glow, wherever its page
-   does (screens-subscription.css .cta-bar::before): the same eased rise, as a mask. */
-.cta-bar::after {
-  content: '';
-  position: absolute;
-  inset: calc(-1 * var(--space-24)) 0 0;
-  z-index: -1;
-  background:
-    url(../img/premiumbot/grain.png) 0 0 / 64px 64px,
-    url(../img/premiumbot/grain.png) 29px 13px / 61px 61px;
-  opacity: var(--light-grain-a);
-  image-rendering: pixelated;
-  -webkit-mask: linear-gradient(#0000, #00000008 5px, #0000001f 10px, #00000043 15px, #00000070 20px, #000000a0 25px, #000000ce 30px, #000000f1 35px, #000 40px);
-  mask: linear-gradient(#0000, #00000008 5px, #0000001f 10px, #00000043 15px, #00000070 20px, #000000a0 25px, #000000ce 30px, #000000f1 35px, #000 40px);
-  pointer-events: none;
-}
-
-/* The breath, shared: 4 s each way from the peak. The aura breathes the same on its glow, by Web Animations started on
-   the clock's origin, its halos trading places a quarter breath behind (src/fx/light.ts BREATH, TIDE), so a light shown
-   again stands in phase from its first frame, where a CSS animation would start over. */
-.cta-glow.neon-lit,
-.fx-stage.neon-lit::after,
-.fx-light.neon-lit > .fx-light__stage::after {
-  animation: neon-breath 4s ease-in-out var(--neon-delay, 0s) infinite alternate;
-}
-
-.fx-reduce .neon-lit,
-.fx-reduce .neon-lit::after {
-  animation: none;
-}
-
-@keyframes neon-breath {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.7;
-  }
-}
-
-/* Carousel */
-.fx-carousel__track {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
-  scroll-padding-inline: var(--gutter, 16px);
-  padding: 4px var(--gutter, 16px) 8px;
-  scrollbar-width: none;
-}
-
-.fx-carousel__track::-webkit-scrollbar {
-  display: none;
-}
-
-.fx-carousel__track:focus-visible {
-  outline: 2px solid var(--tg-theme-link-color, #2481cc);
-  outline-offset: -2px;
-  border-radius: 16px;
-}
-
-:where(.fx-carousel__track) > * {
-  flex: 0 0 auto;
-  width: min(82%, 340px);
-  scroll-snap-align: center;
-  scroll-snap-stop: always;
-}
-
-.fx-carousel__dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  padding: 4px 0;
-  color: var(--tg-theme-hint-color, #999);
-}
-
-.fx-carousel__dots > i {
-  width: 8px;
-  height: 8px;
-  border-radius: 4px;
-  background: currentColor;
-  opacity: 0.3;
-  transition:
-    width 300ms ease-out,
-    opacity 300ms ease-out;
-}
-
-.fx-carousel__dots > .is-on {
-  width: 24px;
-  opacity: 0.9;
 }
 
 /* Push and pop as each platform navigates, over the light field, which stays where it is
@@ -1231,169 +1636,7 @@
     --fx-push-ease: cubic-bezier(0.33, 1, 0.68, 1);
   }
 
-  .screen.is-entering-push,
-  .screen.is-leaving-pop {
-    z-index: 1;
-    box-shadow: calc(-3px * var(--dir, 1)) 0 12px rgb(0 0 0 / 0.04);
-  }
-
-  .screen.is-entering-push {
-    position: relative;
-    animation: fx-slide-in var(--fx-push) var(--fx-push-ease) both;
-  }
-
-  .screen.is-leaving-pop {
-    animation: fx-slide-out var(--fx-push) var(--fx-push-ease) both;
-  }
-
-  /* Its box, and with it the dim, reaches up under the safe areas #app pads for (base.css), where the light field runs
-     on, so in fullscreen the dim has no top edge; the padding keeps the content where it was. */
-  .screen.is-leaving-push,
-  .screen.is-entering-pop {
-    --fx-under: calc(var(--tg-safe-area-inset-top, 0px) + var(--tg-content-safe-area-inset-top, 0px));
-    overflow: hidden;
-    margin-top: calc(-1 * var(--fx-under));
-    padding-top: calc(var(--space-16) + var(--fx-under));
-  }
-
-  .screen.is-leaving-push {
-    animation: fx-tuck var(--fx-push) var(--fx-push-ease) both;
-  }
-
-  .screen.is-entering-pop {
-    position: relative;
-    animation: fx-untuck var(--fx-push) var(--fx-push-ease) both;
-  }
-
-  .screen.is-leaving-push > * {
-    animation: fx-recede var(--fx-push) var(--fx-push-ease) both;
-  }
-
-  .screen.is-entering-pop > * {
-    animation: fx-emerge var(--fx-push) var(--fx-push-ease) both;
-  }
-
-  .screen.is-leaving-push::after,
-  .screen.is-entering-pop::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: #000;
-    pointer-events: none;
-    animation: fx-dim var(--fx-push) var(--fx-push-ease) both;
-  }
-
-  .screen.is-entering-pop::after {
-    animation-name: fx-undim;
-  }
-
-  html.platform-android .screen.is-entering-push {
-    animation-name: fx-rise-in;
-  }
-
-  html.platform-android .screen.is-leaving-pop {
-    animation-name: fx-rise-out;
-  }
-
-  html.platform-android .screen.is-leaving-push,
-  html.platform-android .screen.is-entering-pop {
-    animation-name: fx-hold;
-  }
-
-  html.platform-android .screen.is-leaving-push > * {
-    animation-name: fade-out;
-  }
-
-  html.platform-android .screen.is-entering-pop > * {
-    animation-name: fade-in;
-  }
-
-  html.platform-android .screen.is-entering-push,
-  html.platform-android .screen.is-leaving-pop {
-    box-shadow: none;
-  }
-
-  html.platform-android .screen.is-leaving-push::after,
-  html.platform-android .screen.is-entering-pop::after {
-    content: none;
-  }
-}
-
-@keyframes fx-tuck {
-  to {
-    transform: translateX(calc(-100% * var(--dir, 1)));
-  }
-}
-
-@keyframes fx-untuck {
-  from {
-    transform: translateX(calc(-100% * var(--dir, 1)));
-  }
-}
-
-/* Inside fx-tuck's box, which travels the full width: the content recedes 30 %. */
-@keyframes fx-recede {
-  to {
-    transform: translateX(calc(70% * var(--dir, 1)));
-  }
-}
-
-@keyframes fx-emerge {
-  from {
-    transform: translateX(calc(70% * var(--dir, 1)));
-  }
-}
-
-@keyframes fx-dim {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 0.1;
-  }
-}
-
-@keyframes fx-undim {
-  from {
-    opacity: 0.1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes fx-slide-in {
-  from {
-    transform: translateX(calc(100% * var(--dir, 1)));
-  }
-}
-
-@keyframes fx-slide-out {
-  to {
-    transform: translateX(calc(100% * var(--dir, 1)));
-  }
-}
-
-@keyframes fx-rise-in {
-  from {
-    opacity: 0;
-    transform: translateX(calc(48px * var(--dir, 1)));
-  }
-}
-
-@keyframes fx-rise-out {
-  to {
-    opacity: 0;
-    transform: translateX(calc(48px * var(--dir, 1)));
-  }
-}
-
-/* The screen under an Android transition stays put; the animation only ends with the other screen's. */
-@keyframes fx-hold {
-  to {
-    transform: none;
-  }
-}
+                            }
 
 /* Snap mode (src/core/snap.ts): every screen in its final state at once, for screenshots. */
 .fx-snap *,
