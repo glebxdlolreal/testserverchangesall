@@ -120,6 +120,27 @@ window.PremiumLottie = (function() {
     return enginePromise;
   }
 
+  // A sticker's file as the bytes the engine takes, asked for once in the life of the script. A page may ask ahead
+  // of the page that shows the sticker (preload), and a second visit asks nothing.
+  var files = {};
+
+  function loadFile(url) {
+    if (!files[url]) {
+      files[url] = fetch(url).then(function(response) {
+        if (!response.ok) {
+          throw new Error('Lottie download failed');
+        }
+        return response.json();
+      }).then(function(json) {
+        return new TextEncoder().encode(JSON.stringify(json));
+      }).catch(function(error) {
+        delete files[url];
+        throw error;
+      });
+    }
+    return files[url];
+  }
+
   function supported(root) {
     if (!root || !window.fetch || !window.WebAssembly || !window.TextEncoder || !window.ImageData) {
       return false;
@@ -244,11 +265,40 @@ window.PremiumLottie = (function() {
     player.frameRequest = requestAnimationFrame(tick);
   }
 
+  // Ahead of the page that shows them: the engine, and the files this page names in data-lottie-preload, addresses
+  // apart by spaces, on any element. Asked for once the page has settled, so they take nothing from its own start.
+  // A page that names none asks for nothing, and a failure here costs nothing: the page that shows the sticker asks
+  // again.
+  function preload(root) {
+    var urls = [];
+    var nodes = root.querySelectorAll('[data-lottie-preload]');
+    for (var i = 0; i < nodes.length; i++) {
+      urls = urls.concat(nodes[i].getAttribute('data-lottie-preload').split(/\s+/));
+    }
+    if (!urls.length) {
+      return;
+    }
+    var run = function() {
+      loadEngine().catch(function() {});
+      for (var j = 0; j < urls.length; j++) {
+        if (urls[j]) {
+          loadFile(urls[j]).catch(function() {});
+        }
+      }
+    };
+    if (typeof window.requestIdleCallback === 'function') {
+      window.requestIdleCallback(run, { timeout: 1500 });
+    } else {
+      setTimeout(run, 400);
+    }
+  }
+
   function mount(root) {
     destroy();
     if (!supported(root)) {
       return false;
     }
+    preload(root);
     var targets = root.querySelectorAll('[data-lottie-url]');
     for (var i = 0; i < targets.length; i++) {
       (function(target) {
@@ -274,21 +324,12 @@ window.PremiumLottie = (function() {
         player.canvas.className = 'js-lottie-canvas';
         target.appendChild(player.canvas);
         players.push(player);
-        Promise.all([
-          loadEngine(),
-          fetch(player.url).then(function(response) {
-            if (!response.ok) {
-              throw new Error('Lottie download failed');
-            }
-            return response.json();
-          })
-        ]).then(function(values) {
+        Promise.all([loadEngine(), loadFile(player.url)]).then(function(values) {
           if (player.cancelled) {
             return;
           }
           player.engine = values[0];
-          var bytes = new TextEncoder().encode(JSON.stringify(values[1]));
-          player.handle = player.engine.create(bytes);
+          player.handle = player.engine.create(values[1]);
           player.info = player.engine.info(player.handle);
           play(player);
           // A tap plays it again.

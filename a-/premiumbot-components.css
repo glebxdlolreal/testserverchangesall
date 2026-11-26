@@ -91,15 +91,22 @@
 /* A section's label is a caption over its tiles, the same on every screen and platform: the readable grey, the
    caption's size and weight, in sentence case. A client's grouped-list header, in capitals or in the accent, belongs
    to a settings list. */
+/* A section's name and its note start on the tiles' own left edge and end on their right one: one line down the
+   page for the tiles and for the words between them. Set 16 px in, as a list's are, they stood on a line of their
+   own, between the tiles' edge and the icons 12 px inside it. */
 .section-header {
   display: flex;
   align-items: baseline;
   gap: var(--space-8);
-  padding: 0 var(--space-16) var(--space-8);
+  padding: 0 0 var(--space-8);
   color: var(--secondary-text);
   font-size: var(--fs-small);
   font-weight: var(--fw-caption);
   line-height: var(--lh-small);
+  /* A section's name is a label over its tiles, in capitals a step apart, so it does not read as one more line of
+     the page's words. */
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 /* A header that cannot hold its line takes a second one, 16 px down, the trailing count on its first baseline. */
@@ -117,6 +124,7 @@
   overflow-wrap: anywhere;
   text-align: end;
   text-transform: none;
+  letter-spacing: 0;
 }
 
 .section-body {
@@ -155,7 +163,7 @@
 }
 
 .section-footer {
-  padding: var(--space-8) var(--space-16) 0;
+  padding: var(--space-8) 0 0;
   color: var(--secondary-text);
   font-size: var(--fs-small);
   line-height: var(--lh-small-wrap);
@@ -559,8 +567,8 @@
   --plan-rate: var(--text);
 }
 
-/* Plan tiles stand 20 apart: the pill on a tile's top edge stands 14 px over the edge and 10 inside it, so it
-   clears the tile above by 6 and the name under it by 8. */
+/* Plan tiles stand 20 apart: the pill on a tile's top edge stands 12 px over the edge and 12 inside it, so it
+   clears the tile above by 8 and is nearer its own tile's name than the tile above. */
 .plans .section-body {
   gap: calc(var(--space-16) + var(--space-4));
 }
@@ -806,12 +814,13 @@
   pointer-events: none;
 }
 
-/* On a plan tile the tab is a pill a full pill tall on the top edge, its start on the line the names start on, after
-   the disc: 2 px more of it stands over the edge than inside, which keeps it clear of the name, and the tile's end
-   holds the price alone. Opaque, so it covers the chosen ring under it. Best Value's is gold under the gold's ink
-   and also holds the percent saved, after a thin divider; a discount alone is the green pill with its percent. */
+/* On a plan tile the tab is a pill a full pill tall on the middle of the top edge, so the edge runs through the
+   middle of its words, where the minus of a percent is; its start is on the line the names start on, after the
+   disc, and the tile's end holds the price alone. Opaque, so it covers the chosen ring under it. Best Value's is
+   gold under the gold's ink and also holds the percent saved, after a thin divider; a discount alone is the blue
+   pill with its percent. Both are flat: one solid colour, no light on the edge. */
 .cell--plan > .plan-tab {
-  top: calc(var(--fs-badge) * var(--lh-pill) / -2 - 2px);
+  top: calc(var(--fs-badge) * var(--lh-pill) / -2);
   inset-inline: calc(2 * var(--space-16) + 28px) auto;
   height: calc(var(--fs-badge) * var(--lh-pill));
   background: var(--value-gold);
@@ -839,6 +848,21 @@
   height: 12px;
   background: currentColor;
   opacity: 0.3;
+}
+
+/* The label stands in the pill's middle by its capitals, where the engine can cut the line down to them: by the
+   line's own box a face with a tall ascent, Segoe or Roboto, sets it a pixel low. */
+@supports (text-box: trim-both cap alphabetic) {
+  .plan-tab-label,
+  .plan-tab > .badge {
+    text-box: trim-both cap alphabetic;
+  }
+
+  /* A word mostly of small letters, "Popular", looks low when its one capital is in the middle: half a pixel up
+     sets the middle between the capital's and the small letters'. */
+  .plan-tab-label {
+    margin-top: -1px;
+  }
 }
 
 /* The 10 px glyph in a box 12 px tall, centred in the 16 px line, so the box keeps to the 4 px grid. */

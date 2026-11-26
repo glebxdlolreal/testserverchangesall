@@ -1,5 +1,6 @@
 /* Premium Bot Mini App: plain classic JavaScript, no build step. */
-window.PremiumApp = (function() {
+/* The site's loader may run this file again in a document that already has it: the first run stays. */
+window.PremiumApp = window.PremiumApp || (function() {
   'use strict';
 
   var POLL_INTERVAL = 1500;
@@ -192,6 +193,7 @@ window.PremiumApp = (function() {
     if (!colorFrame) {
       colorFrame = requestAnimationFrame(matchHeaderColor);
     }
+    piecesSoon();
   }
 
   // ===== Toasts and the banner =====
@@ -433,7 +435,7 @@ window.PremiumApp = (function() {
     var result = document.querySelector('.result-screen');
     var label = (result && result.getAttribute('data-done-text')) || 'Done';
     var done = function() {
-      Aj.location('/premiumbot');
+      openPage('/premiumbot');
     };
     // A result ends in the page's own bar and button, as every other screen does, so no screen ends in a button of
     // another kind. A client's native button is put away.
@@ -602,9 +604,9 @@ window.PremiumApp = (function() {
         }
         if (status === 'paid') {
           hapticNotify('success');
-          Aj.location('/premiumbot/result/paid/' + (resultFlow || 'premium'));
+          openPage('/premiumbot/result/paid/' + (resultFlow || 'premium'));
         } else if (status === 'pending') {
-          Aj.location('/premiumbot/result/pending/' + (resultFlow || 'premium'));
+          openPage('/premiumbot/result/pending/' + (resultFlow || 'premium'));
         } else if (status === 'failed') {
           hapticNotify('error');
           if (!invoiceFallback(current.button) && !showBanner(scriptText('pay-failed'))) {
@@ -884,7 +886,7 @@ window.PremiumApp = (function() {
       if (!result.error && result.status === 'ready' && result.url) {
         var url = result.url;
         stopPicker();
-        Aj.location(url);
+        openPage(url);
         return;
       }
       // Any other error may pass with the next check; the watch ends the wait.
@@ -1274,23 +1276,53 @@ window.PremiumApp = (function() {
     hapticSelection();
   }
 
+  // The sheet's sections on show, in order. With both prizes on one page a prize's own sections lie in its group,
+  // and the other prize's are out of sight.
+  function prizeSections(page) {
+    var all = page ? page.querySelectorAll('.fx-sheet > .section, .fx-sheet > .gw-prize > .section') : [];
+    var shown = [];
+    for (var i = 0; i < all.length; i++) {
+      if (all[i].getClientRects().length) {
+        shown.push(all[i]);
+      }
+    }
+    return shown;
+  }
+
+  // The first of the page's elements by `selector` that is on show.
+  function prizeShown(page, selector) {
+    var all = page ? page.querySelectorAll(selector) : [];
+    for (var i = 0; i < all.length; i++) {
+      if (all[i].getClientRects().length) {
+        return all[i];
+      }
+    }
+    return null;
+  }
+
+  // What was put out of sight under its copy shows again where it is still the page's own.
+  function prizeUncover(swap) {
+    for (var i = 0; i < swap.under.length; i++) {
+      if (swap.under[i].isConnected) {
+        swap.under[i].style.visibility = '';
+      }
+    }
+    swap.under = [];
+  }
+
   function prizeSwapDrop() {
     var swap = prizeSwap;
     prizeSwap = null;
+    prizeSwapComing = false;
     document.documentElement.classList.remove('pm-swap-on');
     if (swap) {
       clearTimeout(swap.timer);
-      // Only if the page never came: what was put out of sight under its copy is still the page's own.
-      for (var i = 0; i < swap.under.length; i++) {
-        if (swap.under[i].isConnected) {
-          swap.under[i].style.visibility = '';
-        }
-      }
+      prizeUncover(swap);
       // The sections that waited under their copies show as the copies go, in the same frame.
       for (var k = 0; swap.kept && k < swap.kept.length; k++) {
         swap.kept[k].style.opacity = '';
       }
-      if (swap.layer.parentNode) {
+      if (swap.layer && swap.layer.parentNode) {
         swap.layer.parentNode.removeChild(swap.layer);
       }
     }
@@ -1356,15 +1388,12 @@ window.PremiumApp = (function() {
     // The loader that follows links listens on the document too: this one page change is made here.
     event.preventDefault();
     event.stopPropagation();
-    // Both prizes came with the page: the switch is a local toggle, never a navigation.
-    var both = document.querySelector('[data-prize-both]');
-    if (both && !link.classList.contains('is-active')) {
-      prizeLocalSwitch(link, both);
-      return;
-    }
     if (link.classList.contains('is-active') || prizeSwap) {
       return;
     }
+    // With both prizes on the page the switch changes what the page shows. With one, it asks for the other's page.
+    // Either way the change is shown the same.
+    var both = document.querySelector('[data-prize-both]');
     var url = link.getAttribute('href');
     var root = document.documentElement;
     var page = link.closest('.commerce--giveaway');
@@ -1384,11 +1413,15 @@ window.PremiumApp = (function() {
       root.classList.remove(PRIZE_SWAP_CLASSES[i]);
     }
     root.classList.add('pm-swap');
-    prizeSwapComing = true;
     var still = root.classList.contains('fx-reduce') ||
       (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
     if (still || from < 0 || !bar.animate) {
-      Aj.location(url);
+      if (both) {
+        prizeLocalSwitch(link, both);
+      } else {
+        prizeSwapComing = true;
+        openPage(url);
+      }
       return;
     }
     root.classList.add('pm-swap-all');
@@ -1396,7 +1429,7 @@ window.PremiumApp = (function() {
     layer.className = 'pm-ghost';
     layer.setAttribute('aria-hidden', 'true');
     var parts = [];
-    var leaving = page.querySelectorAll('.fx-sheet > .section');
+    var leaving = prizeSections(page);
     for (i = 0; i < leaving.length; i++) {
       parts.push({
         copy: prizeGhost(layer, leaving[i]),
@@ -1407,12 +1440,12 @@ window.PremiumApp = (function() {
     var pay = page.querySelector('.cta-bar');
     var payCopy = prizeGhost(layer, pay);
     var heading = page.querySelector('.hero-title');
-    var caption = page.querySelector('.hero-subtitle');
+    var caption = prizeShown(page, '.hero-subtitle');
     var title = prizeGhost(layer, heading);
     var words = prizeGhost(layer, caption);
     var copy = prizeGhost(layer, bar);
     document.body.appendChild(layer);
-    // What was copied goes out of sight under its copy until the page is replaced: a tile's glass drawn twice, one
+    // What was copied goes out of sight under its copy until the page has changed: a tile's glass drawn twice, one
     // over the other, would show lighter for as long as the page takes to come.
     var under = [];
     var put = function(el, made) {
@@ -1442,27 +1475,38 @@ window.PremiumApp = (function() {
       title: title,
       words: words,
       way: to > from ? 1 : -1,
+      // The switch's copy is sliding: the page's own switch stays out of sight under it (.pm-swap-on).
+      on: !!copy,
       timer: setTimeout(prizeSwapDrop, 4000)
     };
-    Aj.location(url);
+    if (both) {
+      prizeLocalSwitch(link, both);
+      prizeSwapRun();
+    } else {
+      prizeSwapComing = true;
+      openPage(url);
+    }
   }
 
-  // The page the switch asked for is in place: what was copied leaves and what came arrives. A section that both
-  // prizes show alike does neither: its copy stands for it until the copies are dropped, and if what changed above
-  // it left it higher or lower, the copy moves there in one piece.
+  // The other prize is in place, as a page that came or as this page's other group: what was copied leaves and what
+  // came arrives. A section that both prizes show alike does neither: its copy stands for it until the copies are
+  // dropped, and if what changed above it left it higher or lower, the copy moves there in one piece. Where the
+  // browser loaded the page as a new document there are no copies, and what came arrives alone.
   function prizeSwapRun() {
     var swap = prizeSwap;
     if (!swap || swap.ran) {
       return;
     }
     swap.ran = true;
+    prizeSwapComing = false;
     clearTimeout(swap.timer);
+    prizeUncover(swap);
     var i;
     var page = document.querySelector('.commerce--giveaway');
-    var fresh = page ? page.querySelectorAll('.fx-sheet > .section') : [];
+    var fresh = prizeSections(page);
     var gone = [{opacity: 1, transform: 'translateX(0px)'}, {opacity: 0, transform: 'translateX(' + (-PRIZE_WAY_PX * swap.way) + 'px)'}];
     var come = [{opacity: 0, transform: 'translateX(' + (PRIZE_WAY_PX * swap.way) + 'px)'}, {opacity: 1, transform: 'translateX(0px)'}];
-    var leave = {duration: PRIZE_OUT_MS, easing: 'cubic-bezier(0.4, 0, 1, 1)', fill: 'forwards'};
+    var out = {duration: PRIZE_OUT_MS, easing: 'cubic-bezier(0.4, 0, 1, 1)', fill: 'forwards'};
     var kept = [];
     for (i = 0; i < swap.parts.length; i++) {
       var part = swap.parts[i];
@@ -1486,7 +1530,7 @@ window.PremiumApp = (function() {
           fresh[i].animate([{transform: 'translateY(' + lift + 'px)'}, {transform: 'translateY(0px)'}], {duration: PRIZE_IN_MS, easing: PRIZE_SLIDE_EASE});
         }
       } else if (copy) {
-        copy.animate(gone, leave);
+        copy.animate(gone, out);
       }
     }
     var step = 0;
@@ -1496,28 +1540,704 @@ window.PremiumApp = (function() {
       }
     }
     var pay = page ? page.querySelector('.cta-bar') : null;
-    if (pay && swap.pay && prizeSign(pay) === swap.paySign) {
-      swap.pay.parentNode.removeChild(swap.pay);
-    } else {
-      if (swap.pay) {
-        swap.pay.animate([{opacity: 1}, {opacity: 0}], leave);
+    if (pay && prizeSign(pay) === swap.paySign) {
+      if (swap.pay && swap.pay.parentNode) {
+        swap.pay.parentNode.removeChild(swap.pay);
       }
-      if (pay) {
-        pay.animate([{opacity: 0}, {opacity: 1}], {duration: 240, delay: 160, easing: 'ease-out', fill: 'backwards'});
-      }
+    } else if (swap.pay) {
+      // The bar is docked over the page: its copy fades off the bar that came, which stands whole under it, so the
+      // page never shows through the two.
+      swap.pay.animate([{opacity: 1}, {opacity: 0}], {duration: 240, easing: 'ease-in-out', fill: 'forwards'});
     }
     if (swap.title) {
       swap.title.animate([{opacity: 1}, {opacity: 0}], {duration: 320, easing: 'ease-in-out', fill: 'forwards'});
+      // The title that came stands under the copy of the one that left: the same words in the other prize's
+      // colours. Whole under a whole copy, the two would show their glow twice from one frame to the next, a flash
+      // of the title's light. So it comes up under the copy while the copy still covers it.
+      var heading = page ? page.querySelector('.hero-title') : null;
+      if (heading && heading.animate) {
+        heading.animate([{opacity: 0}, {opacity: 1}], {duration: 200, easing: 'ease-out', fill: 'backwards'});
+      }
     }
     if (swap.words) {
       swap.words.animate([{opacity: 1}, {opacity: 0}], {duration: 160, easing: 'ease-out', fill: 'forwards'});
     }
-    var words = page ? page.querySelector('.hero-subtitle') : null;
-    if (words) {
+    var words = prizeShown(page, '.hero-subtitle');
+    if (words && words.animate) {
       words.animate([{opacity: 0}, {opacity: 1}], {duration: 280, delay: 100, easing: 'ease-out', fill: 'backwards'});
     }
     // The copies are spent, and the switch's copy has come to rest as the page's own switch stands.
     swap.timer = setTimeout(prizeSwapDrop, PRIZE_SLIDE_MS + 60);
+  }
+
+  // ===== From one page to the next =====
+  // How a page is replaced is the site's business and differs by deployment. Its loader may swap the page's block
+  // inside this document and run init again, with a call to what onUnload was given or without one, early or late.
+  // It may run these files again. Or the browser may load the next page as a new document. The app holds in all of
+  // them:
+  // - Nothing on show is taken down when a page is left (pageLeave). What draws goes on until the next page's init,
+  //   which ends the old page's and starts its own in one task, so a mark or a field both pages hold passes from one
+  //   to the other with no frame between them.
+  // - Where no page of this app follows, a watch ends what the page left running once it is out of the document.
+  // - Where the document is unloaded, the page leaves the next one word of it (navLeave): the time, and a prize
+  //   switch under way. A page that comes within a moment of that goes on from it: its mark and its field play no
+  //   entrance. The mark's slot is never empty meanwhile: the sheets show the mark's picture there from the first
+  //   paint.
+
+  // No view transition around a page change. The site's loader wraps one around every page change where its flag
+  // is set, and the site's script sets the flag for every web app (main-aj.js loadPage, webapp-common.js
+  // TWebApp.init). This app must not have one: when a view transition ends, a quarter of a second into the page,
+  // every animation still running starts over on screen, which screen recordings showed frame by frame as a star
+  // that travels its way twice, a title gone for a frame and a bar whose entrance plays again. The page needs no
+  // cross-fade of its own. The loader reads the flag when a page has come, so it is taken down wherever this
+  // script gets a word in before that: as a page starts and a task later, at every tap, before a page it opens
+  // itself, and with the page's watch. A transition that starts all the same is over with its first frame
+  // (premiumbot.css ::view-transition-group).
+  function loaderPlain() {
+    if (window.Aj && window.Aj.viewTransition) {
+      window.Aj.viewTransition = false;
+    }
+  }
+
+  function openPage(url) {
+    loaderPlain();
+    if (window.Aj && typeof window.Aj.location === 'function') {
+      window.Aj.location(url);
+    } else {
+      window.location.href = url;
+    }
+  }
+
+  // The page on show has a docked bar: the next page's bar goes on from it.
+  var barKept = false;
+  var NAV_KEY = 'pm-nav';
+  // A page that takes longer than this to come is a new start, not a continuation.
+  var NAV_FRESH_MS = 10000;
+  var pageWatchTimer = 0;
+
+  function navLeave() {
+    try {
+      piecesNote();
+      var left = { t: Date.now(), swap: null, bar: barKept, pieces: Object.keys(pieceSigns.set) };
+      if (prizeSwap && prizeSwapComing) {
+        left.swap = { way: prizeSwap.way, paySign: prizeSwap.paySign, parts: [] };
+        for (var i = 0; i < prizeSwap.parts.length; i++) {
+          left.swap.parts.push({ sign: prizeSwap.parts[i].sign, top: prizeSwap.parts[i].top });
+        }
+      }
+      window.sessionStorage.setItem(NAV_KEY, JSON.stringify(left));
+    } catch (error) {}
+  }
+
+  // Read once, by the document that follows, and only while fresh. A client that keeps no session storage gives
+  // nothing, and the page starts as on a launch.
+  function navArrive() {
+    try {
+      var raw = window.sessionStorage.getItem(NAV_KEY);
+      if (!raw) {
+        return null;
+      }
+      window.sessionStorage.removeItem(NAV_KEY);
+      var left = JSON.parse(raw);
+      return left && Date.now() - left.t < NAV_FRESH_MS ? left : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  // ===== What both pages show alike stays =====
+  // A page's pieces come in with entrances of their own (premiumbot-fx.css). A piece the page before showed too,
+  // the same words in the same place, is one piece to the eye, and an entrance would take it away and bring it
+  // back: under the loader's cross-fade the old picture of it fades out over a new one that is not there yet. So a
+  // page notes what it shows when it is left, and the page that follows ends, before its first frame, every
+  // entrance on a piece it finds there again. Nothing is named: the rule holds for any piece on any pair of pages.
+  // The note is taken when the loader says the page is left, at a tap on what leads on, as the document is
+  // unloaded, and a moment after anything that may have moved the pieces, so a loader that gives no word of leaving
+  // finds it in step with the page too.
+  var pieceSigns = null;
+  var pieceTimer = 0;
+
+  // A piece's laid-out place in the viewport. No entrance's shift is in it, and none of a press's.
+  function pieceBox(el) {
+    var x = 0;
+    var y = 0;
+    var last = el;
+    for (var node = el; node; node = node.offsetParent) {
+      x += node.offsetLeft + (node === el ? 0 : node.clientLeft);
+      y += node.offsetTop + (node === el ? 0 : node.clientTop);
+      last = node;
+    }
+    // A chain that does not end at the page's own root ends at something fixed to the viewport.
+    if (last === document.body || last === document.documentElement) {
+      x -= window.pageXOffset;
+      y -= window.pageYOffset;
+    }
+    return x + ',' + y + ',' + el.offsetWidth + ',' + el.offsetHeight;
+  }
+
+  // What a piece is to the eye, as a short number: its kind, its words and its place. Nothing for a piece without
+  // words or without a box.
+  function pieceSign(el) {
+    var text = el.offsetWidth ? (el.textContent || '').replace(/\s+/g, ' ').trim() : '';
+    if (!text) {
+      return '';
+    }
+    var line = el.tagName + '|' + (el.classList[0] || '') + '|' + text.slice(0, 80) + '|' + text.length + '|' + pieceBox(el);
+    var hash = 2166136261;
+    for (var i = 0; i < line.length; i++) {
+      hash = Math.imul(hash ^ line.charCodeAt(i), 16777619);
+    }
+    return String(hash >>> 0);
+  }
+
+  function piecesNote() {
+    heroNote();
+    var all = document.querySelectorAll('.screen *');
+    var set = {};
+    for (var i = 0; i < all.length; i++) {
+      var sign = typeof all[i].offsetWidth === 'number' ? pieceSign(all[i]) : '';
+      if (sign) {
+        set[sign] = 1;
+      }
+    }
+    // Good for as long as its page stands; a note handed to a new document is good for a moment (navArrive).
+    pieceSigns = { screen: document.querySelector('.screen'), until: Infinity, set: set };
+  }
+
+  function piecesSoon() {
+    clearTimeout(pieceTimer);
+    pieceTimer = setTimeout(piecesNote, 200);
+  }
+
+  // An entrance is an animation the sheets start and that ends. It is ended on a piece that is as the page before
+  // showed it, on all that lies in such a piece, and on every block such a piece lies in: a block that came in as
+  // a whole would take the piece with it.
+  // ===== A page shows itself once =====
+  // The first time a page comes in a launch it plays its entrance: the plans are drawn one after another, a price
+  // rolls to its figure. That is a showing, and a thing is shown once. A page the user has been on already and
+  // comes back to, the home page after a look at the giveaway, is not shown again: its entrances are ended before
+  // its first frame, and what it holds comes as one, in a short fade. What it shares with the page before stays as
+  // it is. A result is new every time it comes.
+  var seenPages = {};
+  var arrival = null;
+
+  function pageArrival() {
+    var screen = document.querySelector('.screen');
+    if (!arrival || arrival.screen !== screen) {
+      // A page is told by its address's path, its route and its step, choosing or paying. Not by the address's
+      // query: a launch's carries what the client adds to it, and the same page has none of that later.
+      var key = !screen ? '' : window.location.pathname + '|' + (screen.getAttribute('data-route') || '') + '|' +
+        (screen.querySelector('.pm-picker') ? 'pick' : '') + (screen.querySelector('.js-invoice') ? 'pay' : '');
+      var result = !!(screen && screen.querySelector('.result-screen'));
+      arrival = { screen: screen, again: !result && !!seenPages[key], kept: null, calmed: false };
+      seenPages[key] = 1;
+    }
+    return arrival;
+  }
+
+  function piecesKeep() {
+    var here = pageArrival();
+    var left = pieceSigns;
+    var screen = here.screen;
+    // A note of this very page is no page before: it waits for the page that follows.
+    if (left && left.screen === screen) {
+      return;
+    }
+    pieceSigns = null;
+    if (!screen || typeof document.getAnimations !== 'function' || typeof WeakMap !== 'function') {
+      return;
+    }
+    if (left && Date.now() > left.until) {
+      left = null;
+    }
+    if (!left && !here.again) {
+      return;
+    }
+    var SAME = 1;
+    var HOLDS = 2;
+    var kept = new WeakMap();
+    var all = left ? screen.querySelectorAll('*') : [];
+    var any = false;
+    var i;
+    var node;
+    for (i = 0; i < all.length; i++) {
+      var sign = typeof all[i].offsetWidth === 'number' ? pieceSign(all[i]) : '';
+      if (sign && left.set[sign]) {
+        any = true;
+        kept.set(all[i], SAME);
+        for (node = all[i].parentNode; node && node !== screen && !kept.has(node); node = node.parentNode) {
+          kept.set(node, HOLDS);
+        }
+      }
+    }
+    here.kept = kept;
+    if (!any && !here.again) {
+      return;
+    }
+    var runs = document.getAnimations();
+    var entering = [];
+    var el;
+    var timing;
+    for (i = 0; i < runs.length; i++) {
+      el = runs[i].animationName && runs[i].effect ? runs[i].effect.target : null;
+      timing = el && runs[i].effect.getComputedTiming ? runs[i].effect.getComputedTiming() : null;
+      entering.push(timing && timing.iterations !== Infinity && screen.contains(el) ? el : null);
+    }
+    for (i = 0; i < runs.length; i++) {
+      el = entering[i];
+      if (!el) {
+        continue;
+      }
+      var run = runs[i];
+      var hit = here.again || kept.has(el);
+      for (node = el.parentNode; !hit && node && node !== screen; node = node.parentNode) {
+        hit = kept.get(node) === SAME;
+      }
+      if (!hit) {
+        continue;
+      }
+      // A block that only holds a kept piece gives its entrance up, and what else it holds would be there whole in
+      // one frame. So its entrance goes to each of those in its place: the kept piece stands, the rest comes in as
+      // the block would have brought it.
+      if (!here.again && kept.get(el) === HOLDS && !run.effect.pseudoElement) {
+        piecesHandDown(el, run.effect.getKeyframes(), run.effect.getTiming(), kept, entering, 0);
+      }
+      run.cancel();
+    }
+  }
+
+  function piecesHandDown(el, frames, timing, kept, entering, depth) {
+    for (var i = 0; i < el.children.length; i++) {
+      var child = el.children[i];
+      var state = kept.get(child);
+      if (state === 1 || child.classList.contains('is-kept')) {
+        continue;
+      }
+      if (state === 2) {
+        if (depth < 6) {
+          piecesHandDown(child, frames, timing, kept, entering, depth + 1);
+        }
+        continue;
+      }
+      // A piece with an entrance of its own comes by that.
+      if (entering.indexOf(child) < 0 && child.animate && child.getClientRects().length) {
+        var plain = [];
+        for (var k = 0; k < frames.length; k++) {
+          var frame = {};
+          for (var name in frames[k]) {
+            if (name !== 'computedOffset' && name !== 'composite') {
+              frame[name] = frames[k][name];
+            }
+          }
+          plain.push(frame);
+        }
+        child.animate(plain, timing);
+      }
+    }
+  }
+
+  // The page that came back, once its marks are mounted: every block of words that is not kept from the page before,
+  // and holds nothing that is, comes up in one short fade. A block that holds a kept thing is taken apart, so the
+  // kept thing stands while the rest of the block comes up round it. What draws by itself, a canvas or a layer of
+  // light, has no words and is left as it stands. A docked bar is taken apart too: it is the cover over the rows
+  // that lie under it, and a cover that fades shows them through itself and through its button, so the bar stands
+  // from the first frame and its button comes up on it. A page the prize switch brought is not faded here at all:
+  // the switch brings its pieces in itself, and a block must never carry two fades at once. The sheets resolve
+  // two as the later one, but on a screen the renderer plays the first until the second's delay is over and then
+  // starts the second from nothing: the block comes up, drops out and comes up again. For the same reason a block
+  // that something else already animates is left to it.
+  var CALM_MS = 180;
+
+  function calmArrive() {
+    var here = arrival;
+    if (!here || !here.again || here.calmed || !here.screen) {
+      return;
+    }
+    here.calmed = true;
+    if (prizeSwap || prizeSwapComing || reducedMotion() || document.documentElement.classList.contains('fx-reduce')) {
+      return;
+    }
+    var kept = here.kept;
+    var walk = function(el, depth) {
+      if (el.classList.contains('is-kept') || (kept && kept.get(el) === 1) || el.getAttribute('aria-hidden') === 'true') {
+        return;
+      }
+      if (depth < 7 && ((kept && kept.get(el) === 2) || el.classList.contains('cta-bar') || el.querySelector('.is-kept, canvas'))) {
+        for (var i = 0; i < el.children.length; i++) {
+          walk(el.children[i], depth + 1);
+        }
+        return;
+      }
+      if (el.animate && el.getClientRects().length && (el.textContent || '').trim() && !(el.getAnimations && el.getAnimations().length)) {
+        el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: CALM_MS, easing: 'ease-out' });
+      }
+    };
+    walk(here.screen, 0);
+  }
+
+  // The launch's show (premiumbot.css fx-mark-rise). The sheets hold the sheet back until the mark has passed it,
+  // with one delayed fade of the whole sheet. By then the entrances of what the sheet holds would be over, played
+  // out of sight: the plans would be there, drawn, and never seen being drawn. So each of those entrances is set
+  // back by the sheet's own delay and starts as the sheet shows.
+  function launchHold() {
+    if (typeof document.getAnimations !== 'function') {
+      return 0;
+    }
+    var runs = document.getAnimations();
+    var held = [];
+    var i;
+    var el;
+    var timing;
+    for (i = 0; i < runs.length; i++) {
+      el = runs[i].effect ? runs[i].effect.target : null;
+      timing = el && runs[i].animationName === 'fx-in-fade' && el.classList.contains('fx-sheet') ? runs[i].effect.getComputedTiming() : null;
+      if (timing && timing.delay >= 300) {
+        held.push({ sheet: el, hold: timing.delay });
+      }
+    }
+    for (i = 0; i < runs.length && held.length; i++) {
+      el = runs[i].animationName && runs[i].effect ? runs[i].effect.target : null;
+      timing = el && runs[i].effect.getComputedTiming ? runs[i].effect.getComputedTiming() : null;
+      if (!timing || timing.iterations === Infinity) {
+        continue;
+      }
+      for (var h = 0; h < held.length; h++) {
+        if (held[h].sheet !== el && held[h].sheet.contains(el)) {
+          runs[i].currentTime = (runs[i].currentTime || 0) - held[h].hold;
+          break;
+        }
+      }
+    }
+    return held.length ? held[0].hold : 0;
+  }
+
+  // ===== One page's object turns into the next page's =====
+  // A screen opens on one object, the star or a sticker. Where two screens that follow one another hold different
+  // objects in the same place, the gift's sticker after the star, the first turns to its edge and the second comes
+  // from its own, as one thing turned over: no object goes out while another pops up. Two stars are one star
+  // already (premiumbot-3d.js adopt). The way back turns the other way.
+  var heroLeft = null;
+  var HERO_OUT_MS = 200;
+  var HERO_IN_MS = 340;
+  var HERO_EDGE = 84;
+
+  function heroOf() {
+    var all = document.querySelectorAll('.screen .pm-mark[data-icon3d], .screen .hero-media');
+    for (var i = 0; i < all.length; i++) {
+      if (all[i].getClientRects().length) {
+        return all[i];
+      }
+    }
+    return null;
+  }
+
+  // An object's laid-out place: its middle and its width. An entrance under way does not move it.
+  function heroBox(el) {
+    var box = pieceBox(el).split(',');
+    return { x: Number(box[0]) + Number(box[2]) / 2, y: Number(box[1]) + Number(box[3]) / 2, w: Number(box[2]) };
+  }
+
+  // With the page's pieces: the page's object, where it stands, and a picture of a sticker as it is drawn now, which
+  // is what turns away once the page has gone.
+  function heroNote() {
+    var el = heroOf();
+    heroLeft = null;
+    if (!el) {
+      return;
+    }
+    var star = el.hasAttribute('data-icon3d');
+    var box = heroBox(el);
+    var drawn = star ? null : el.querySelector('canvas');
+    var picture = null;
+    var at = null;
+    if (drawn && drawn.width && drawn.height) {
+      try {
+        picture = document.createElement('canvas');
+        picture.width = drawn.width;
+        picture.height = drawn.height;
+        picture.getContext('2d').drawImage(drawn, 0, 0);
+        at = drawn.getBoundingClientRect();
+      } catch (error) {
+        picture = null;
+      }
+    }
+    heroLeft = { screen: document.querySelector('.screen'), star: star, x: box.x, y: box.y, w: box.w, picture: picture, at: at };
+  }
+
+  function heroGhost(left, way) {
+    var holder = document.createElement('div');
+    holder.setAttribute('aria-hidden', 'true');
+    holder.style.cssText = 'position: fixed; z-index: 3; pointer-events: none; left: ' + left.at.left.toFixed(1) + 'px; top: ' +
+      left.at.top.toFixed(1) + 'px; width: ' + left.at.width + 'px; height: ' + left.at.height + 'px;';
+    left.picture.style.cssText = 'display: block; width: 100%; height: 100%;';
+    holder.appendChild(left.picture);
+    document.body.appendChild(holder);
+    // A flat picture on its edge is nothing at all: it stops just short of it, and stays one frame more, over the
+    // other object's first.
+    var gone = holder.animate([
+      { transform: 'perspective(480px) rotateY(0deg) scale(1)' },
+      { transform: 'perspective(480px) rotateY(' + (-HERO_EDGE * way) + 'deg) scale(0.9)' }
+    ], { duration: HERO_OUT_MS, endDelay: 16, easing: 'cubic-bezier(0.42, 0, 1, 1)', fill: 'forwards' });
+    gone.onfinish = gone.oncancel = function() {
+      if (holder.parentNode) {
+        holder.parentNode.removeChild(holder);
+      }
+    };
+  }
+
+  // After the page's marks are mounted: a star that has no slot on this page is still at hand for a moment.
+  function heroTurn() {
+    var left = heroLeft;
+    var screen = document.querySelector('.screen');
+    if (!left || left.screen === screen) {
+      return;
+    }
+    heroLeft = null;
+    var el = heroOf();
+    if (!el || !el.animate || reducedMotion() || document.documentElement.classList.contains('fx-reduce')) {
+      return;
+    }
+    var star = el.hasAttribute('data-icon3d');
+    var box = heroBox(el);
+    // Only where one object takes the other's very place, and that place was whole on screen.
+    if (star === left.star || Math.abs(box.x - left.x) > 2 || Math.abs(box.y - left.y) > 2 || Math.abs(box.w - left.w) > 2 ||
+        left.y - left.w / 2 < 0 || left.y + left.w / 2 > window.innerHeight) {
+      return;
+    }
+    var way = star ? -1 : 1;
+    if (left.star) {
+      if (!(window.Premium3D && window.Premium3D.leave && window.Premium3D.leave(way))) {
+        return;
+      }
+    } else if (left.picture) {
+      heroGhost(left, way);
+    }
+    // The object that came plays no entrance of its own (.is-kept). It is out of sight until the other has reached
+    // its edge, and comes from its own edge in that frame: neither fades, so no frame is without an object.
+    var wait = HERO_OUT_MS;
+    var timing = { duration: HERO_IN_MS, delay: wait, easing: 'cubic-bezier(0, 0, 0.58, 1)', fill: 'backwards' };
+    el.classList.add('is-kept');
+    el.animate([{ opacity: 0 }, { opacity: 0 }], { duration: wait });
+    if (star) {
+      if (window.Premium3D && window.Premium3D.arrive) {
+        window.Premium3D.arrive(el, way, wait);
+      }
+      el.animate([{ transform: 'scale(0.9)' }, { transform: 'none' }], timing);
+    } else {
+      el.animate([
+        { transform: 'perspective(480px) rotateY(' + (HERO_EDGE * way) + 'deg) scale(0.9)' },
+        { transform: 'perspective(480px) rotateY(0deg) scale(1)' }
+      ], timing);
+    }
+  }
+
+  // A tap on something that leads on: the page is noted now. Any other tap may have moved a piece.
+  function onPieceTap(event) {
+    loaderPlain();
+    if (event.target && event.target.closest && event.target.closest('a[href], .js-back, .segment')) {
+      piecesNote();
+    } else {
+      piecesSoon();
+    }
+  }
+
+  // The loader says the page is about to be replaced. What waits on the client is let go, and each mark's place
+  // and the page's pieces are noted for the page that follows; the rest stays as it is.
+  function pageLeave() {
+    piecesNote();
+    pageToken++;
+    stopPicker();
+    giveUpInvoice();
+    releasePress();
+    if (window.Premium3D && window.Premium3D.note) {
+      window.Premium3D.note();
+    }
+  }
+
+  var pageSeen = null;
+  var pageObserver = null;
+
+  // A loader may replace the page in one task and run init in a later one, after its own work. The mark and the
+  // fields go over to the page that came as soon as it is in the document, before the frame that first shows it;
+  // the init that follows finds them there. A loader that runs init with the replacement gets here after it and
+  // has nothing left to do.
+  function pageCarry() {
+    var screen = document.querySelector('.screen');
+    if (!screen || screen === pageSeen) {
+      return;
+    }
+    pageSeen = screen;
+    // The loader has written the root's classes anew by now (main-aj.js onResult). They are put back before the
+    // page's first frame, as init would: without them the page is laid out as on another platform and plays a
+    // launch's entrances until init comes.
+    var root = document.documentElement;
+    applyBridgeClasses();
+    if (visits > 0) {
+      root.classList.add('pm-launched');
+    }
+    if (prizeSwapComing) {
+      root.classList.add('pm-swap');
+      if (prizeSwap) {
+        root.classList.add('pm-swap-all');
+        if (prizeSwap.on) {
+          root.classList.add('pm-swap-on');
+        }
+      }
+    }
+    piecesKeep();
+    if (window.Premium3D) {
+      window.Premium3D.mount(document);
+    }
+    if (window.PremiumFx && window.PremiumFx.carry) {
+      window.PremiumFx.carry(document);
+    }
+    heroTurn();
+    calmArrive();
+    pageWatch();
+  }
+
+  // Watches the page's place in the document: each block the page lies in, up to the body, for a change of its
+  // children. Where no page of this app follows and nothing calls init, what the page left running is ended once
+  // the page has been out of the document for two looks, a second apart.
+  // ===== A link to a place in the app =====
+  // A link to the app may name a place in it, https://t.me/<bot>?startapp=<name>, and the client hands the name to
+  // the page as the launch's start parameter. A server that knows the name opens the place at once. Where the home
+  // page comes instead, the script goes on to the place from it, once in a launch, so the client's Back leads
+  // home; until the place is there the home page shows its mark alone (premiumbot.css .pm-linking). A letter's
+  // case does not count and - is read as _. A name that is not in the list opens the home page as it is.
+  var LINK_ROUTES = {
+    home: 'home',
+    plans: 'subscription',
+    premium: 'subscription',
+    subscription: 'subscription',
+    upgrade: 'subscription',
+    gift: 'gift',
+    gift_premium: 'gift',
+    stars: 'stars',
+    gift_stars: 'stars/gift',
+    stars_gift: 'stars/gift',
+    giveaway: 'giveaway/premium',
+    giveaway_premium: 'giveaway/premium',
+    giveaway_stars: 'giveaway/stars',
+    // Places on the home page itself: what Premium includes, opened, and a lapsed subscription's renewal, which its
+    // own home page docks. With nothing lapsed, renew leads to the plans.
+    features: 'home',
+    renew: 'home',
+    grace: 'home'
+  };
+  var LINK_KEY = 'pm-link';
+  var LINK_WAIT_MS = 4000;
+  var linkTimer = 0;
+
+  function linkName() {
+    var app = webApp();
+    var name = app && app.initDataUnsafe ? app.initDataUnsafe.start_param : '';
+    if (!name) {
+      try {
+        name = new URLSearchParams(window.location.search).get('tgWebAppStartParam');
+      } catch (error) {}
+    }
+    name = String(name || '').toLowerCase().replace(/-/g, '_');
+    return LINK_ROUTES[name] ? name : '';
+  }
+
+  // A launch is told from the next by its time: a name acts once in a launch, whatever documents the launch loads.
+  function linkLaunch(name) {
+    var app = webApp();
+    return name + ':' + ((app && app.initDataUnsafe && app.initDataUnsafe.auth_date) || '');
+  }
+
+  // Where the launch's link leads from the page that came: a route to open, or '' where the page is the place.
+  // Only the home page is left for it: a server that opened another page has chosen.
+  function linkRoute(name) {
+    var screen = document.querySelector('.screen[data-route]');
+    var here = screen ? screen.getAttribute('data-route') : '';
+    var route = LINK_ROUTES[name];
+    if ((name === 'renew' || name === 'grace') && !document.querySelector('.home--grace')) {
+      route = 'subscription';
+    }
+    return here === 'home' && route !== 'home' ? route : '';
+  }
+
+  function linkWaiting() {
+    var name = linkName();
+    if (!name) {
+      return '';
+    }
+    try {
+      if (window.sessionStorage.getItem(LINK_KEY) === linkLaunch(name)) {
+        return '';
+      }
+    } catch (error) {}
+    return name;
+  }
+
+  function linkShow() {
+    clearTimeout(linkTimer);
+    linkTimer = 0;
+    document.documentElement.classList.remove('pm-linking');
+  }
+
+  function linkGo(name) {
+    try {
+      window.sessionStorage.setItem(LINK_KEY, linkLaunch(name));
+    } catch (error) {}
+    var route = linkRoute(name);
+    if (route) {
+      // The page that comes takes the class off with the root's other classes; a page that never comes gives the
+      // home page back.
+      document.documentElement.classList.add('pm-linking');
+      linkTimer = setTimeout(linkShow, LINK_WAIT_MS);
+      openPage('/premiumbot/' + route);
+      return;
+    }
+    linkShow();
+    if (name === 'features' && window.PremiumFx && window.PremiumFx.openPerks) {
+      // Once the page has come up, so the tile is seen to open.
+      linkTimer = setTimeout(window.PremiumFx.openPerks, 900);
+    }
+  }
+
+  // The site's own script takes a sideways swipe anywhere on a phone's page for Back, and where there is no page
+  // to go back to it closes the app (webapp-common.js initBackSwipe). A touch that starts on something that moves
+  // sideways itself, the wall of features or a row of chips, is that thing's own: it does not reach the site's
+  // listeners, which sit on the document after this one.
+  var touchOwn = false;
+
+  function onTouchGuard(event) {
+    if (event.type === 'touchstart') {
+      touchOwn = !!(event.target && event.target.closest && event.target.closest('.perk-strip.is-live, .chips'));
+    }
+    if (touchOwn) {
+      event.stopPropagation();
+    }
+    if (event.type === 'touchend' || event.type === 'touchcancel') {
+      touchOwn = false;
+    }
+  }
+
+  function pageWatch() {
+    var screen = document.querySelector('.screen');
+    var gone = 0;
+    pageSeen = screen;
+    clearInterval(pageWatchTimer);
+    if (pageObserver) {
+      pageObserver.disconnect();
+      pageObserver = null;
+    }
+    if (screen && typeof MutationObserver === 'function') {
+      pageObserver = new MutationObserver(pageCarry);
+      for (var node = screen.parentNode; node && node !== document.documentElement; node = node.parentNode) {
+        pageObserver.observe(node, { childList: true });
+      }
+    }
+    pageWatchTimer = setInterval(function() {
+      loaderPlain();
+      gone = screen && screen.isConnected ? 0 : gone + 1;
+      if (gone > 1) {
+        cleanup();
+      }
+    }, 1000);
   }
 
   // ===== Page lifecycle =====
@@ -1525,7 +2245,17 @@ window.PremiumApp = (function() {
   function cleanup() {
     var app = webApp();
     pageToken++;
-    prizeSwapDrop();
+    clearInterval(pageWatchTimer);
+    pageWatchTimer = 0;
+    clearTimeout(pieceTimer);
+    if (pageObserver) {
+      pageObserver.disconnect();
+      pageObserver = null;
+    }
+    // A prize switch that waits for its page outlives the page it was tapped on.
+    if (!prizeSwapComing) {
+      prizeSwapDrop();
+    }
     stopPicker();
     giveUpInvoice();
     hideMainButton();
@@ -1556,16 +2286,53 @@ window.PremiumApp = (function() {
 
   function init() {
     cleanup();
+    loaderPlain();
     applyBridgeClasses();
     var app = webApp();
     var i;
+    // What the page before left, where the browser unloaded its document: used once.
+    var from = navArrived;
+    navArrived = null;
+    // Only the first page of a launch brings its mark up from the loading screen's (premiumbot.css fx-mark-rise).
+    if (visits > 0 || from) {
+      document.documentElement.classList.add('pm-launched');
+    }
+    // A docked bar that follows a docked bar is one bar to the eye: it stands from the page's first frame, where
+    // an entrance of its own would blink it (premiumbot.css .cta-bar.is-kept). A result's bar is built further
+    // down and comes in its own time.
+    if (barKept || (from && from.bar)) {
+      var bars = document.querySelectorAll('.cta-bar');
+      for (i = 0; i < bars.length; i++) {
+        bars[i].classList.add('is-kept');
+      }
+    }
+    // A link's place, once in a launch, from the launch's first page.
+    var link = visits > 0 ? '' : linkWaiting();
+    if (visits > 0) {
+      linkShow();
+    }
+    if (from && from.swap && !prizeSwap) {
+      prizeSwap = { layer: null, under: [], parts: from.swap.parts || [], pay: null, paySign: from.swap.paySign, title: null, words: null, way: from.swap.way, timer: 0 };
+    }
     if (prizeSwapComing) {
       prizeSwapComing = false;
+      // The site's loader writes the root's classes anew with every page (main-aj.js onResult): the switch's are
+      // put back before the page's first frame.
+      document.documentElement.classList.add('pm-swap');
+      if (prizeSwap) {
+        document.documentElement.classList.add('pm-swap-all');
+        if (prizeSwap.on) {
+          document.documentElement.classList.add('pm-swap-on');
+        }
+      }
     } else {
       for (i = 0; i < PRIZE_SWAP_CLASSES.length; i++) {
         document.documentElement.classList.remove(PRIZE_SWAP_CLASSES[i]);
       }
     }
+    // With the root's classes as the page will have them, so the entrances in play are the page's own.
+    piecesKeep();
+    var held = visits === 0 && !from ? launchHold() : 0;
     if (app && app.onEvent) {
       // themeChanged is user-triggered while the app stays open.
       try {
@@ -1578,11 +2345,18 @@ window.PremiumApp = (function() {
     }
     // Ahead of the tapped element's own handler: a button that turns busy on its tap is still felt.
     on(document, 'click', onTapHaptic, true);
+    on(document, 'click', onPieceTap, true);
     on(document, 'click', onPrizeSwitch, true);
     on(document, 'click', onLinkClick);
     on(window, 'scroll', onPageScroll);
     on(window, 'resize', ctaFit);
+    on(window, 'resize', piecesSoon);
     on(window, 'pageshow', planSync);
+    on(window, 'pagehide', navLeave);
+    var touchEvents = ['touchstart', 'touchmove', 'touchend', 'touchcancel'];
+    for (i = 0; i < touchEvents.length; i++) {
+      on(document, touchEvents[i], onTouchGuard, true);
+    }
     bind('.js-invoice', 'click', function() {
       if (this.getAttribute('aria-disabled') === 'true' || this.getAttribute('aria-busy') === 'true') {
         return;
@@ -1632,14 +2406,40 @@ window.PremiumApp = (function() {
       window.PremiumLottie.mount(document);
     }
     if (window.Premium3D) {
-      window.Premium3D.mount(document);
+      window.Premium3D.mount(document, !!from);
     }
     if (window.PremiumFx) {
       // In the same task as the page, so the light and the fields are there for its first frame.
-      window.PremiumFx.mount(document);
+      window.PremiumFx.mount(document, !!from);
+      if (held && window.PremiumFx.late) {
+        window.PremiumFx.late(held);
+      }
     }
-    Aj.onUnload(cleanup);
+    heroTurn();
+    calmArrive();
+    if (window.Aj && typeof window.Aj.onUnload === 'function') {
+      window.Aj.onUnload(pageLeave);
+    }
+    pageWatch();
     prizeSwapRun();
+    piecesSoon();
+    // The site's own script paints the client's header and background in its own colours once, from the page's
+    // script (webapp-common.js initOnce). Where that runs after this, the page's colours are put back a task later.
+    var token = pageToken;
+    setTimeout(function() {
+      loaderPlain();
+      if (token === pageToken) {
+        matchPageColors();
+      }
+    }, 0);
+    var docked = document.querySelectorAll('.cta-bar');
+    barKept = false;
+    for (i = 0; i < docked.length; i++) {
+      barKept = barKept || docked[i].getClientRects().length > 0;
+    }
+    if (link) {
+      linkGo(link);
+    }
   }
 
   function inferResultFlow() {
@@ -1667,6 +2467,27 @@ window.PremiumApp = (function() {
 
   // Theme and platform classes are wanted for the first paint, which can come before init.
   applyBridgeClasses();
+
+  // So is a link's place: the home page that the script is about to leave for it shows its mark alone.
+  if (linkWaiting() && linkRoute(linkWaiting())) {
+    document.documentElement.classList.add('pm-linking');
+  }
+
+  // So is what a prize switch on the page before set aside, where this document is that switch's other page.
+  var navArrived = navArrive();
+  if (navArrived) {
+    document.documentElement.classList.add('pm-launched');
+  }
+  if (navArrived && navArrived.swap) {
+    document.documentElement.classList.add('pm-swap', 'pm-swap-all');
+    prizeSwapComing = true;
+  }
+  if (navArrived && navArrived.pieces && navArrived.pieces.length) {
+    pieceSigns = { screen: null, until: navArrived.t + NAV_FRESH_MS, set: {} };
+    for (var piece = 0; piece < navArrived.pieces.length; piece++) {
+      pieceSigns.set[navArrived.pieces[piece]] = 1;
+    }
+  }
 
   return {
     init: init,
