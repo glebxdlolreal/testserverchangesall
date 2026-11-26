@@ -118,10 +118,13 @@
   /* The accent by its jobs on a screen: a fill and text, the text over --tone-tint. */
   --tone: var(--accent-fill);
   --tone-ink: var(--accent);
-  /* Pills are solid, each under a dark ink of its own hue at 7:1 or better: a discount's green, and the Best Value tab
-     in the value blue, where white would read 2.6:1; on a plan tile that tab is gold under --gold-ink. */
-  --pill-fill: #34c759;
-  --pill-ink: #06210e;
+  /* Pills are solid, each under a dark ink of its own hue at 7:1 or better: a discount's blue, a step lighter than
+     the ring a chosen plan takes, and the Best Value tab in the value blue, where white would read 2.6:1; on a plan
+     tile that tab is gold under --gold-ink. A discount was green once: the one green on the plans, a third hue
+     beside the gold of the recommended plan and the blue of a choice. In blue the two labels rank, gold over blue,
+     and a chosen plan has its ring, its disc and its label in one hue. */
+  --pill-fill: #4da3ff;
+  --pill-ink: #021127;
   --best-fill: #4da3ff;
   --best-on-fill: #021127;
 

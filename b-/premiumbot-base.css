@@ -9,6 +9,15 @@ html {
   text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   background: var(--page);
+  /* A classic scrollbar takes its width out of the page, 15 to 17 px on a desktop client, and only on a page long
+     enough to scroll: the star and the title would stand 8 px further left there than on a short page and step
+     sideways when one follows the other. The page scrolls without showing a bar, as it does on a phone. */
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }
 
 body {
@@ -24,6 +33,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  /* Nothing on a page is text to copy: a drag across it or a long press selects none of it. */
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+
+/* A field, should a page come to hold one, is still a field. */
+input,
+textarea,
+[contenteditable='true'] {
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 h1,
