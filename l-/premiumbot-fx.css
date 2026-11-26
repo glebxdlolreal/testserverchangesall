@@ -115,23 +115,11 @@
     animation-delay: 60ms;
   }
 
-  /* What the payment unlocked. Its band bursts open after the title has landed: it comes up from a small capsule at
-     its middle and opens out to the screen's edges, on the soft spring, a ring of the tile's own blue going out
-     from its edge as it does. The rows of icons come up in it a moment later, a little small at first, and the
-     script sends them running in from one side as they do (premiumbot-fx.js mountUnlocked). */
-  html:not(.fx-reduce) .result-screen .section--unlocked {
-    animation: none;
-  }
-
-  html:not(.fx-reduce) .result-screen .section--unlocked .cell {
-    animation:
-      fx-in-fade 120ms var(--fx-out) 420ms backwards,
-      fx-unlock-open 620ms var(--fx-soft) 420ms backwards,
-      fx-unlock-ring 700ms var(--fx-out) 560ms backwards;
-  }
-
-  html:not(.fx-reduce) .result-screen .section--unlocked .perk-strip {
-    animation: fx-unlock-rows 520ms var(--fx-soft) 600ms backwards;
+  /* On the result of a Premium purchase the tiles come out of the star on their rings, which the script opens
+     (premiumbot-fx.js orbitMount). The way on, Done, comes when the rings stand: the page shows what was bought
+     first. */
+  html:not(.fx-reduce) .result-screen:has(.section--unlocked) :is(.cta-bar, .cta-button) {
+    animation-delay: 1100ms;
   }
 
   /* The cloud a tapped tile raises (premiumbot-fx.js cloudSay) grows out of its tip on the soft spring and goes back
@@ -441,39 +429,36 @@
   position: absolute;
 }
 
-/* The Premium star's own light by night: a still haze in the star's blue and violet (premiumbot-3d.js GRADIENT.star)
-   behind it, blue under the star and violet only towards its upper right. It hugs the star: mostly spent at the star's
-   tips and gone half a star's width out, so the star stands crisp on the page and not in a fog. A layer of its own,
-   shown at a quarter strength, so it can be dimmed or lit apart from the page. The colour is flat; the mask is the shape,
-   top layer first: an eased fade over the first 24 px, so the page's top row stays --fx-top alone and meets the
-   header in one colour; an eased falloff that leaves no ring, round a point a little above the mark's centre
-   (--fx-cy, which the script sets), as the fade takes from its upper part and it would look sunk; and under it a
-   noise of about one level, grain.png cut to the haze's own ellipse, which breaks the 8-bit steps a gradient this
-   dark would show. The last layer's operator is spelled out, as the prefixed property draws that layer with it. */
+/* The Premium star's own light by night: a still halo in the star's blue and violet (premiumbot-3d.js GRADIENT.star)
+   behind it, blue under the star and violet only towards its upper right. It hugs the star: most of it lies behind
+   the star and what shows is a rim of light that is spent a quarter of the star's width out, so the star stands
+   crisp on the page and not in a fog. A layer of its own, so it can be dimmed or lit apart from the page. The
+   colour is flat; the mask is the shape, top layer first: an eased fade over the first 24 px, so the page's top
+   row stays --fx-top alone and meets the header in one colour, and an eased falloff round the mark's centre
+   (--fx-cy, which the script sets).
+   The halo is short and steep on purpose. It used to reach a full star's width out as a haze a few levels over
+   the page, with a grain of noise in it against the steps a gradient that slow and that dark shows in eight bits.
+   The grain is drawn a CSS pixel to the texel, two or three device pixels, and any resampling of the page, a
+   scaled view or a screenshot, turned it into a lattice of dots: the haze read as dirt. A falloff of a level
+   every pixel or two shows no steps and needs no grain. */
 .fx-light__stage.fx-stage--premium.fx-stage--dark:not(.fx-stage--bare)::after {
-  --haze-x: var(--fx-mark);
-  --haze-y: calc(var(--fx-mark) * 0.9);
-  --haze-cy: calc(var(--fx-cy) - var(--fx-mark) * 0.05);
-  --haze-at: var(--haze-x) var(--haze-y) at 50% var(--haze-cy);
+  --haze-x: calc(var(--fx-mark) * 0.74);
+  --haze-y: calc(var(--fx-mark) * 0.7);
+  --haze-at: var(--haze-x) var(--haze-y) at 50% var(--fx-cy);
   --haze-shape:
     linear-gradient(transparent, rgb(0 0 0 / 0.1) 6px, rgb(0 0 0 / 0.5) 12px, rgb(0 0 0 / 0.9) 18px, #000 24px),
-    radial-gradient(var(--haze-at), rgb(0 0 0 / 0.78), rgb(0 0 0 / 0.742) 10%, rgb(0 0 0 / 0.638) 20%, rgb(0 0 0 / 0.495) 30%,
-      rgb(0 0 0 / 0.348) 40%, rgb(0 0 0 / 0.22) 50%, rgb(0 0 0 / 0.125) 60%, rgb(0 0 0 / 0.062) 70%, rgb(0 0 0 / 0.027) 80%,
-      rgb(0 0 0 / 0.008) 90%, transparent),
-    url(../img/premiumbot/grain.png),
-    radial-gradient(var(--haze-at), rgb(0 0 0 / 0.012) 70%, transparent);
+    radial-gradient(var(--haze-at), #000, rgb(0 0 0 / 0.94) 12%, rgb(0 0 0 / 0.78) 24%, rgb(0 0 0 / 0.57) 36%,
+      rgb(0 0 0 / 0.37) 48%, rgb(0 0 0 / 0.2) 60%, rgb(0 0 0 / 0.09) 72%, rgb(0 0 0 / 0.03) 84%, transparent);
   content: '';
   position: absolute;
   inset: 0 0 auto;
-  height: calc(var(--haze-cy) + var(--haze-y));
+  height: calc(var(--fx-cy) + var(--haze-y));
   background: linear-gradient(60deg, #55a5ff calc(50% - var(--fx-mark) * 0.4), #a767ff calc(50% + var(--fx-mark) * 2.2));
-  opacity: 0.25;
+  opacity: 0.34;
   -webkit-mask-image: var(--haze-shape);
   mask-image: var(--haze-shape);
-  -webkit-mask-size: auto, auto, 64px 64px, auto;
-  mask-size: auto, auto, 64px 64px, auto;
-  -webkit-mask-composite: source-in, source-over, source-in, source-over;
-  mask-composite: intersect, add, intersect, add;
+  -webkit-mask-composite: source-in, source-over;
+  mask-composite: intersect, add;
   pointer-events: none;
 }
 
@@ -639,6 +624,53 @@
   }
 }
 
+/* The plans page of an account without Premium had no entrance of its own: under the loader's cross-fade it came as a
+   picture that faded in whole, and with that fade gone every word of it was there in one frame. It comes as its
+   family does: the title rises, then the plans from the top down, each whole, 70 ms apart, then the note; a docked
+   bar that the page before had stays, and one that is new fades in with its capsule rising. Under reduced motion,
+   short fades. */
+.subscription--paywall :is(.screen-title, .section, .cta-bar) {
+  animation: fx-in-fade 200ms ease-out backwards;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.fx-reduce) .subscription--paywall > .screen-title {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 360ms var(--fx-out) backwards;
+  }
+
+  html:not(.fx-reduce) .subscription--paywall .section {
+    animation: none;
+  }
+
+  html:not(.fx-reduce) .subscription--paywall .cell--plan {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 320ms var(--fx-out) calc(80ms + var(--fx-i, 0) * 70ms) backwards;
+  }
+
+  html:not(.fx-reduce) .subscription--paywall .cell--plan:nth-child(2) {
+    --fx-i: 1;
+  }
+
+  html:not(.fx-reduce) .subscription--paywall .cell--plan:nth-child(n + 3) {
+    --fx-i: 2;
+  }
+
+  html:not(.fx-reduce) .subscription--paywall .section-footer {
+    --fx-in-y: 6px;
+    animation: fx-in-slide 260ms var(--fx-out) 290ms backwards;
+  }
+
+  html:not(.fx-reduce) .subscription--paywall .cta-bar {
+    animation: fx-in-fade 240ms var(--fx-out) backwards;
+  }
+
+  html:not(.fx-reduce) .subscription--paywall .cta-button {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 320ms var(--fx-out) backwards;
+  }
+}
+
 /* The entrance of a subscriber's plan screens (the plan's facts, alone or under an upgrade offer), in the paywall's
    keyframes and curves, one thing after another: the star pops on the soft spring, then the title rises, then the
    words, then the tiles from the top down, each whole, 70 ms apart, a caption after its tile. With no hero the title
@@ -791,12 +823,18 @@
       fx-in-open 280ms var(--fx-in-out) calc(var(--fx-t) + 60ms) backwards;
   }
 
+  /* The tiles come as one wave, 70 ms apart, each whole: its name, its amount and its price a month, which on every
+     tile is the plain monthly price at first. Then the discount lands on all of them at one moment, --fx-drop on
+     the sheet's clock, 200 ms after the last tile has opened: the struck price steps out beside each rate, the
+     rates roll down to their own together, the pills come onto the edges and the recommended tile takes its
+     choice. A tile's parts used to come one at a time for more than a second, tile after tile 200 ms apart, so each
+     price rolled at a time of its own, long after its tile had arrived. */
   html:not(.fx-reduce) .home--paywall .cell--plan:nth-child(2) {
-    --fx-t: 170ms;
+    --fx-t: 150ms;
   }
 
   html:not(.fx-reduce) .home--paywall .cell--plan:nth-child(n + 3) {
-    --fx-t: 260ms;
+    --fx-t: 220ms;
   }
 
   html[dir='rtl']:not(.fx-reduce) .home--paywall .cell--plan {
@@ -840,70 +878,72 @@
     animation: fx-in-slide 220ms var(--fx-out) calc(var(--fx-t) + 290ms) backwards;
   }
 
-  html:not(.fx-reduce) .home--paywall .plan-tab {
-    animation: fx-in-fade 180ms var(--fx-out) calc(var(--fx-t) + 350ms) backwards;
+  /* The moment the discount lands, the same on every tile: the last tile is open at 560 ms. In ms, which the script
+     reads (premiumbot-fx.js dropHold). */
+  html:not(.fx-reduce) .home--paywall .cell--plan {
+    --fx-drop: 760ms;
   }
 
-  /* The chosen state arrives as a choice does: wash and ring fade in, the disc pops, the check after it. They are held
-     on the layer's two parts and on the scale property, not on the opacity and transform that a choice transitions,
-     and on every tile, so a tap during the entrance moves the choice and nothing blinks. */
-  html:not(.fx-reduce) .home--paywall .plan-fill::before,
+  /* A pill unrolls onto its edge from its start end, as its tile did. It used to fade in on the curve things arrive
+     on, which is four fifths done in two frames: on a screen the pill was simply there. */
+  html:not(.fx-reduce) .home--paywall .plan-tab {
+    --fx-open-from: inset(0 100% 0 0 round var(--badge-radius));
+    --fx-open-to: inset(0 0 0 0 round var(--badge-radius));
+    animation: fx-in-open 300ms var(--fx-in-out) var(--fx-drop) backwards;
+  }
+
+  html[dir='rtl']:not(.fx-reduce) .home--paywall .plan-tab {
+    --fx-open-from: inset(0 0 0 100% round var(--badge-radius));
+  }
+
+  /* The chosen state arrives with the discount, drawn and not switched on: the ring runs along the tile's edges
+     from its start end, the wash comes up under it, the disc pops, the check after it. They are held on the layer's
+     two parts and on the scale property, not on the opacity and transform that a choice transitions, and on every
+     tile, so a tap during the entrance moves the choice and nothing blinks. */
+  html:not(.fx-reduce) .home--paywall .plan-fill::before {
+    animation: fx-in-fade 320ms ease-out var(--fx-drop) backwards;
+  }
+
   html:not(.fx-reduce) .home--paywall .plan-fill::after {
-    animation: fx-in-fade 240ms var(--fx-out) calc(var(--fx-t) + 400ms) backwards;
+    --fx-open-from: inset(0 100% 0 0);
+    --fx-open-to: inset(0 0 0 0);
+    animation: fx-in-open 380ms var(--fx-in-out) var(--fx-drop) backwards;
+  }
+
+  html[dir='rtl']:not(.fx-reduce) .home--paywall .plan-fill::after {
+    --fx-open-from: inset(0 0 0 100%);
   }
 
   html:not(.fx-reduce) .home--paywall .cell--plan .cell-check::before {
-    animation: fx-in-grow 360ms var(--fx-soft) calc(var(--fx-t) + 400ms) backwards;
+    animation: fx-in-grow 360ms var(--fx-soft) var(--fx-drop) backwards;
   }
 
   html:not(.fx-reduce) .home--paywall .cell--plan .cell-check .icon {
-    animation: fx-in-grow 360ms var(--fx-soft) calc(var(--fx-t) + 460ms) backwards;
+    animation: fx-in-grow 360ms var(--fx-soft) calc(var(--fx-drop) + 60ms) backwards;
   }
 
-  /* The prices' sequence on a tile counts from --fx-w: the moment its tile has opened. */
-  html:not(.fx-reduce) .home--paywall .cell--plan {
-    --fx-w: 420ms;
-  }
-
-  html:not(.fx-reduce) .home--paywall .cell--plan:nth-child(2) {
-    --fx-w: 620ms;
-  }
-
-  html:not(.fx-reduce) .home--paywall .cell--plan:nth-child(n + 3) {
-    --fx-w: 820ms;
-  }
-
-  /* Was and now, on a tile with a struck price: the parts of the price side come one at a time once the tile is in,
-     counted from --fx-w, the tiles 200 ms apart. The struck price rises in white and unstruck; its bar draws across
-     it from the start side while the price dims to its grey; the rate fades in showing the struck figure and rolls
-     down to its own (premiumbot-fx.js rolls the drum when fx-in-roll starts), white until it has landed, and then
-     the recommended tile's cools to its gold; the caption fades in as the rate comes to rest. The rate's fade is
-     linear: it is five frames long, and eased it would be a step. A tile on one line has no struck price
-     (components.css .plan-lines--one) and none of this: its rate arrives with it. A copy the drum makes of the rate
-     is not the rate and takes no part in this. */
+  /* Was and now, on a tile with a struck price. The rate comes in with its tile's price side and shows the struck
+     figure, the plain monthly price (premiumbot-fx.js puts it there when fx-in-roll starts and holds it until
+     --fx-drop). At the drop that figure is struck where it stands and then goes to the struck price's place, drawn
+     down to its size and its grey (premiumbot-fx.js wasGhost), while the rate's own figure rolls in where it
+     stood, white until it has landed; then the recommended tile's cools to its gold. The struck price itself is
+     shown as the figure arrives, over the last 60 ms of its way: 120 ms after the drop it sets off and 380 ms
+     later it is there, the script's WAS_MOVE_AFTER_MS, WAS_MOVE_MS and WAS_SWAP_MS. The rate's fade is linear: it
+     is five frames long, and eased it would be a step. A tile on one line has no struck price (components.css
+     .plan-lines--one) and none of this. A copy the drum makes of the rate is not the rate and takes no part in
+     this. */
   html:not(.fx-reduce) .home--paywall .cell--plan:not(.plan-lines--one) .plan-was {
-    --fx-in-y: 4px;
-    animation:
-      fx-in-slide 180ms var(--fx-out) var(--fx-w) backwards,
-      fx-in-tint 280ms var(--fx-in-out) calc(var(--fx-w) + 110ms) backwards;
-  }
-
-  html:not(.fx-reduce) .home--paywall .cell--plan:not(.plan-lines--one) .plan-was::after {
-    animation: fx-in-strike 300ms var(--fx-out) calc(var(--fx-w) + 90ms) backwards;
+    animation: fx-in-fade 60ms linear calc(var(--fx-drop) + 440ms) backwards;
   }
 
   html:not(.fx-reduce) .home--paywall .cell--plan:not(.plan-lines--one) .plan-rate:not(.fx-drum-copy) {
-    animation: fx-in-roll 80ms linear calc(var(--fx-w) + 220ms) backwards;
+    animation: fx-in-roll 80ms linear calc(var(--fx-t) + 290ms) backwards;
   }
 
   html:not(.fx-reduce) .home--paywall .plan-emphasis--strong:not(.plan-lines--one) .plan-rate:not(.fx-drum-copy) {
     animation:
-      fx-in-roll 80ms linear calc(var(--fx-w) + 220ms) backwards,
-      fx-in-tint 480ms var(--fx-in-out) calc(var(--fx-w) + 780ms) backwards;
-  }
-
-  html:not(.fx-reduce) .home--paywall .cell--plan:not(.plan-lines--one) .plan-unit {
-    animation: fx-in-fade 180ms var(--fx-out) calc(var(--fx-w) + 640ms) backwards;
+      fx-in-roll 80ms linear calc(var(--fx-t) + 290ms) backwards,
+      fx-in-tint 480ms var(--fx-in-out) calc(var(--fx-drop) + 520ms) backwards;
   }
 
   /* From here on: after the last plan tile, which is in by 540 ms. */
@@ -958,12 +998,14 @@
    by its body: the script may put a row of facts in the track's place at any time, and a row built then must play no
    entrance of its own. This rule is the whole entrance under reduced motion: short fades. */
 .commerce--giveaway :is(.pm-mark, .hero-title, .hero-subtitle),
-.commerce--giveaway .fx-sheet > :is(.segmented, .section, .cta-bar) {
+.commerce--giveaway .fx-sheet > :is(.segmented, .section, .cta-bar),
+.commerce--giveaway .fx-sheet > .gw-prize > .section {
   animation: fx-in-fade 200ms ease-out backwards;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  html:not(.fx-reduce) .commerce--giveaway .fx-sheet > .section {
+  html:not(.fx-reduce) .commerce--giveaway .fx-sheet > .section,
+  html:not(.fx-reduce) .commerce--giveaway .fx-sheet > .gw-prize > .section {
     animation: none;
   }
 
@@ -1014,7 +1056,26 @@
     --fx-t: 630ms;
   }
 
+  /* A page that holds both prizes keeps each prize's sections in a group of its own (.gw-prize), after the sheet's
+     first section: the group's first is the sheet's second, its tiles one by one, and those after it come by their
+     bodies. */
+  html:not(.fx-reduce) .commerce--giveaway .fx-sheet > .gw-prize > .section > :is(.section-header, .section-footer),
+  html:not(.fx-reduce) .commerce--giveaway .fx-sheet > .gw-prize > .section:nth-of-type(1) .cell,
+  html:not(.fx-reduce) .commerce--giveaway .fx-sheet > .gw-prize > .section:nth-of-type(n + 2) > .section-body {
+    --fx-in-y: 12px;
+    animation: fx-in-slide 320ms var(--fx-out) calc(var(--fx-t, 280ms) + var(--fx-i, 0) * 70ms) backwards;
+  }
+
+  .commerce--giveaway .fx-sheet > .gw-prize > .section {
+    --fx-t: 420ms;
+  }
+
+  .commerce--giveaway .fx-sheet > .gw-prize > .section:nth-of-type(n + 2) {
+    --fx-t: 630ms;
+  }
+
   .commerce--giveaway .section:nth-of-type(n + 3) > .section-footer,
+  .commerce--giveaway .fx-sheet > .gw-prize > .section:nth-of-type(n + 2) > .section-footer,
   .commerce--giveaway .section .cell:nth-child(2) {
     --fx-i: 1;
   }
@@ -1038,9 +1099,9 @@ html.pm-swap .commerce--giveaway .fx-sheet > .segmented {
   animation: none !important;
 }
 
-html.pm-swap-all .commerce--giveaway .fx-sheet > :is(.section, .cta-bar),
-html.pm-swap-all .commerce--giveaway .fx-sheet > .section > :is(.section-header, .section-footer, .section-body),
-html.pm-swap-all .commerce--giveaway .fx-sheet > .section .cell,
+html.pm-swap-all .commerce--giveaway .fx-sheet :is(.section, .cta-bar),
+html.pm-swap-all .commerce--giveaway .fx-sheet .section > :is(.section-header, .section-footer, .section-body),
+html.pm-swap-all .commerce--giveaway .fx-sheet .section .cell,
 html.pm-swap-all .commerce--giveaway .cta-button {
   animation: none !important;
 }
@@ -1117,37 +1178,6 @@ html.pm-swap-on .commerce--giveaway .segmented:not(.pm-ghost *) {
   opacity: 0 !important;
 }
 
-@keyframes fx-unlock-open {
-  from {
-    clip-path: inset(44% 30% 44% 30% round 16px);
-    transform: scale(0.8);
-  }
-  to {
-    clip-path: inset(0 round 0px);
-    transform: none;
-  }
-}
-
-@keyframes fx-unlock-ring {
-  from {
-    box-shadow: var(--island-shadow), 0 0 0 0 rgb(120 150 255 / 0.55);
-  }
-  to {
-    box-shadow: var(--island-shadow), 0 0 0 26px rgb(120 150 255 / 0);
-  }
-}
-
-@keyframes fx-unlock-rows {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
 @keyframes fx-in-cap {
   from {
     opacity: 1;
@@ -1204,19 +1234,7 @@ html.pm-swap-on .commerce--giveaway .segmented:not(.pm-ghost *) {
   }
 }
 
-/* The struck price's bar grows from its start end along its own tilt (components.css .plan-was::after). Both ends
-   list the same functions, so the scale alone runs: against the resting transform the engine would fall back to
-   matrices, and a scale of 0 has none to work with. */
-@keyframes fx-in-strike {
-  from {
-    transform: rotate(-8deg) translateX(calc(-50% * var(--dir, 1))) scaleX(0) translateX(calc(50% * var(--dir, 1)));
-  }
-  to {
-    transform: rotate(-8deg) translateX(calc(-50% * var(--dir, 1))) scaleX(1) translateX(calc(50% * var(--dir, 1)));
-  }
-}
-
-/* A figure comes in white and settles into its own colour: the struck price dims, the recommended rate cools. */
+/* A figure comes in white and settles into its own colour: the recommended rate cools once it has landed. */
 @keyframes fx-in-tint {
   from {
     color: var(--text);
@@ -1465,9 +1483,57 @@ html.pm-swap-on .commerce--giveaway .segmented:not(.pm-ghost *) {
   pointer-events: none;
 }
 
+/* The words of the recommended plan's label are drawn with their ink as a picture: the ink all along and, in it, one
+   band of light, 32 px across, which stands 40 px before the words and which the script runs through them as the
+   light on the ring passes under (premiumbot-fx.js runComet), so the words catch the light after the label's star
+   does. The picture is 2000 px wide with the band in its middle, so it covers the words wherever the band
+   stands. Only the glyphs' fill is taken off: the colour stays the ink, which the divider and the star are drawn
+   in. Where colours are forced the words are plain. */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .cell--plan.plan-emphasis--strong > .plan-tab > :is(.plan-tab-label, .badge) {
+    background: linear-gradient(90deg, var(--gold-ink) calc(50% - 16px), #fff 50%, var(--gold-ink) calc(50% + 16px)) -1040px 0 / 2000px 100% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@media (forced-colors: active) {
+  .cell--plan.plan-emphasis--strong > .plan-tab > :is(.plan-tab-label, .badge) {
+    background: none;
+    -webkit-text-fill-color: currentcolor;
+  }
+}
+
+/* The struck price on its way (premiumbot-fx.js wasGhost): the figure the rate first showed, whose type the script
+   takes to the struck price's as it goes, and on it the struck price's bar, the same as that price's own
+   (components.css .plan-was::after): 2 px thick through the figure's middle, 2 px past it at both sides, tilted
+   about its own middle. The script draws it from its start end. */
+.fx-was-ghost {
+  will-change: transform;
+}
+
+.fx-was-bar {
+  position: absolute;
+  inset-inline: -2px;
+  top: calc(50% - 1px);
+  height: 2px;
+  border-radius: 1px;
+  background: var(--strike);
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
 /* The figures a rate rolls through are white: only the rate itself takes its tile's colour, once it has landed. */
 .home--paywall .plan-rate.fx-drum-copy {
   color: var(--text);
+}
+
+/* A rate's line is the box its drum's copies are placed against, whatever moves above it. The price side slides in
+   as the drum is set, and a block that slides is such a box only while it does: the copy of the figure would jump
+   out of its window the moment the slide ended. */
+.home--paywall .plan-rate-line {
+  position: relative;
 }
 
 /* While a rate rolls (the drum marks the box it rolls in), its window fades out at its top and bottom edges, so a

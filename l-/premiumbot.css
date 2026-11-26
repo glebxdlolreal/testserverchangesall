@@ -79,14 +79,94 @@ button.cell {
   pointer-events: none;
 }
 
-.theme-dark .pm-mark.is-3d .pm-mark-bloom {
+/* It stands from the page's first paint, before the script has placed it: centred on the mark at the script's own
+   size. The app paints one night palette, so no theme class is asked for. */
+.pm-mark:not(.is-flat) .pm-mark-bloom {
   display: block;
+  top: 50%;
+  left: 50%;
+  width: 148.8%;
+  height: 148.8%;
+  transform: translate(-50%, -50%);
 }
 
 /* The WebGL mark's canvas, which premiumbot-3d.js sizes and centres on the mark. Where the mark falls back the script
    hides it, and the glyph shows in its place. */
 .pm-mark-gl {
   position: absolute;
+}
+
+/* The mark's picture, as the 3D mark stands at rest, in the canvas's box, half as large again as the slot. It is
+   there from the page's first paint, before any script has run, and gives way to the mark in the frame that first
+   draws it (premiumbot-3d.js sets .is-3d), which stands just so. So the slot is never empty: not on a launch, where
+   the page's first frame goes on from the client's loading screen, and not on a page the browser loads as a new
+   document. */
+.pm-mark[data-icon3d]::after {
+  content: '';
+  position: absolute;
+  inset: -25%;
+  background: url(../img/premiumbot/mark-star.png) center / contain no-repeat;
+  pointer-events: none;
+}
+
+.pm-mark[data-icon3d='golden']::after {
+  background-image: url(../img/premiumbot/mark-golden.png);
+}
+
+.pm-mark:is(.is-3d, .is-flat)::after {
+  content: none;
+}
+
+/* A mark kept from the page before is on this page from its first frame: its slot plays no entrance, and the script
+   moves it from where it stood (premiumbot-3d.js glide). */
+.pm-mark.is-kept {
+  animation: none !important;
+}
+
+/* A sticker that takes a star's place comes from its edge as the star turns to its own (premiumbot.js heroTurn), in
+   place of the screen's entrance. */
+.hero-media.is-kept,
+.hero-media.is-kept .lottie > canvas {
+  animation: none !important;
+}
+
+/* A button that takes a payment leads with the screen's own star, still, in the label's ink: Premium's star, or
+   the Star where Stars are what is given away. It is the first thing in the label's line, so it rolls with the
+   label when the label changes, and the label gives it room where the line is full (premiumbot.js ctaFit). A button
+   that only leads on, to choosing a recipient or back, has none. */
+.cta-button.js-invoice .cta-line::before {
+  content: '';
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-inline-end: 2px;
+  background: currentColor;
+  -webkit-mask: url(../img/premiumbot/ui-premium.svg) center / contain no-repeat;
+  mask: url(../img/premiumbot/ui-premium.svg) center / contain no-repeat;
+}
+
+:is(.tone-stars, .commerce--giveaway-stars) .cta-button.js-invoice .cta-line::before {
+  -webkit-mask-image: url(../img/premiumbot/ui-star.svg);
+  mask-image: url(../img/premiumbot/ui-star.svg);
+}
+
+/* No view transition around a page change. The site's loader wraps one around every page change where its flag is
+   set (main-aj.js loadPage, Aj.viewTransition). When such a transition ends, a quarter of a second into the page,
+   every animation still running starts over on screen: the star goes back to where its way began and travels it
+   twice, a title that was coming in is gone for a frame, the bar's entrance plays again. That was measured frame by
+   frame on screen recordings of three page changes. The page needs no cross-fade of its own: what both pages show
+   alike stays, the star is one canvas, the rest comes in by itself. The script takes the loader's flag down
+   (premiumbot.js loaderPlain), and a transition that starts all the same has nothing to animate, so it is over
+   with its first frame, when nothing has moved yet. */
+::view-transition-group(root),
+::view-transition-image-pair(root),
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
+::view-transition-old(root) {
+  display: none;
 }
 
 .pm-mark.is-flat .pm-mark-glyph {
@@ -239,21 +319,31 @@ button.cell {
 
 /* The group stands a set way under the screen's top, 104 px, a little above the middle of a phone's screen, and not on
    the middle of the viewport: the client's Done button comes up a moment after the page and takes its height from
-   the viewport, and a group centred in the viewport jumps up by half of that as it does. With the tile of what the
-   payment unlocked under the title, the group starts 32 px under the top and its mark is the paywall's size, so the
-   whole of it stands above the button on a phone. */
+   the viewport, and a group centred in the viewport jumps up by half of that as it does. The result of a Premium
+   purchase sets its own place for the group, lower (the hero below). */
 .result-screen .fx-stage__content {
   justify-content: flex-start;
   padding-top: var(--result-top, 104px);
   padding-bottom: var(--space-16);
 }
 
+/* The hero of a Premium purchase's result: the star and the title stand in the screen's middle with every feature's
+   tile going round them (.orbit below). The middle is counted from the screen's width, which does not change when
+   the client's Done button comes up: the star starts 212 px under the top on a phone 393 wide, where the group's
+   middle is at about 45% of what the button leaves and all three rings stand whole over it and under it. The
+   screen is the box the tiles' layer is placed in, and the star is the purchase screen's size. A gift's result
+   and a giveaway's keep the state screens' own layout. */
 .result-screen:has(.section--unlocked) {
-  --result-top: var(--space-32);
+  position: relative;
+  --result-top: clamp(140px, 54vw, 230px);
 }
 
 .result-screen .fx-stage--result:has(.section--unlocked) {
   --fx-mark: 120px;
+}
+
+.result-screen:has(.section--unlocked) .pm-mark {
+  margin-bottom: var(--space-16);
 }
 
 .result-screen .hero {
@@ -320,8 +410,8 @@ a.cta-button.cta-button--glass:is(:link, :visited, :hover, :active, :focus) {
    octagonal table, with light along its upper edge and a soft light inside, and on its lit edge the one hard glint,
    a four-point star in a bloom that the stone and the table each paint their part of; it twinkles now and then
    (fx.css). The stone paints nothing outside its edge, where the sign's sparks end too, but it lifts the page behind
-   it in its own red, as the Premium star's haze does in blue: an ellipse spent a little past the object's box, over
-   a grain of about one level against banding. The sign takes three fifths of the table and is cut into it, dark
+   it in its own red, as the Premium star's halo does in blue: an ellipse spent a little past the object's box,
+   with no grain in it, which shows as dots wherever the page is resampled. The sign takes three fifths of the table and is cut into it, dark
    along its upper edges and lit along its lower; the fallback glyph is white as well, at the sign's size. */
 .result-screen .hero-media > .lottie--error {
   --fallback-bg: #fff;
@@ -335,8 +425,7 @@ a.cta-button.cta-button--glass:is(:link, :visited, :hover, :active, :focus) {
 }
 
 .result-screen .hero-media:has(> .lottie--error)::before {
-  --cast: radial-gradient(closest-side, #000, rgb(0 0 0 / 0.82) 20%, rgb(0 0 0 / 0.5) 45%, rgb(0 0 0 / 0.2) 70%, rgb(0 0 0 / 0.05) 88%, transparent),
-    url(../img/premiumbot/grain.png), radial-gradient(closest-side, rgb(0 0 0 / 0.012) 70%, transparent);
+  --cast: radial-gradient(closest-side, #000, rgb(0 0 0 / 0.82) 20%, rgb(0 0 0 / 0.5) 45%, rgb(0 0 0 / 0.2) 70%, rgb(0 0 0 / 0.05) 88%, transparent);
   content: '';
   position: absolute;
   inset: -40px -96px;
@@ -345,10 +434,6 @@ a.cta-button.cta-button--glass:is(:link, :visited, :hover, :active, :focus) {
   opacity: 0.3;
   -webkit-mask-image: var(--cast);
   mask-image: var(--cast);
-  -webkit-mask-size: auto, 64px 64px, auto;
-  mask-size: auto, 64px 64px, auto;
-  -webkit-mask-composite: source-over, source-in, source-over;
-  mask-composite: add, intersect, add;
   pointer-events: none;
 }
 
@@ -408,12 +493,13 @@ a.cta-button.cta-button--glass:is(:link, :visited, :hover, :active, :focus) {
   color: var(--secondary-text);
 }
 
-/* The paywall's hero on the 4 px grid: the star 24 under the header, 16 to the title, as in every hero, 8 to the
-   subtitle, then 36 to the first plan, of which the pill that stands 14 px above that plan's top edge leaves 22
-   clear. The screen pads 16 of the 24, so the hero's own head is 8; of the 36 the sheet under the hero pads 8 and
-   the plans keep 16 for the pill (components.css), so the hero's foot is 12. */
+/* The paywall's hero on the 4 px grid: the star 16 under the header and 16 to the title, as in every hero, so the
+   star stands in one place on every screen and does not move when one screen follows another; 8 to the subtitle,
+   then 36 to the first plan, of which the pill that stands 14 px above that plan's top edge leaves 22 clear. The
+   screen pads the 16, so the hero has no head of its own; of the 36 the sheet under the hero pads 8 and the plans
+   keep 16 for the pill (components.css), so the hero's foot is 12. */
 .home--paywall {
-  --hero-head: 8px;
+  --hero-head: 0px;
   --hero-mark-gap: 16px;
   --hero-foot: 12px;
 }
@@ -462,6 +548,12 @@ a.cta-button.cta-button--glass:is(:link, :visited, :hover, :active, :focus) {
   mask-size: calc(20px * 28 / 21.9);
 }
 
+/* The tile under the error mark is the error's red, whatever colour the page gives the tile: the page prints
+   Premium's own there, and a warning in Premium's colours reads as one more feature. */
+.home--grace .section--tiles .icon-tile:has(> .icon[data-icon='ui-warning']) {
+  background: var(--destructive) padding-box;
+}
+
 /* A subscriber's home that has one thing to do ends in a docked bar: in the grace period the button that keeps
    Premium, on a monthly plan the button to the upgrade. A page shorter than the screen still ends on it: the block
    is a column as tall as the viewport under the screen's 16 px top padding, and the bar takes its far end. */
@@ -476,12 +568,15 @@ a.cta-button.cta-button--glass:is(:link, :visited, :hover, :active, :focus) {
 }
 
 /* In the grace period the subscription's tile is lit in its mark's red: a red hairline in place of the tile's own,
-   and a soft red light round it that is spent within the 12 px to the next tile. */
+   a close light round it and a wide soft one beyond that, which reaches past the 16 px to the next tiles and lies
+   under them, and a trace of the same red inside the tile's edge. */
 .home--grace .section--tiles .cell {
   box-shadow:
-    inset 0 0 0 1px rgb(235 85 69 / 0.6),
-    0 0 0 1px rgb(235 85 69 / 0.16),
-    0 0 14px rgb(235 85 69 / 0.36);
+    inset 0 0 0 1px rgb(235 85 69 / 0.7),
+    inset 0 0 20px rgb(235 85 69 / 0.1),
+    0 0 0 1px rgb(235 85 69 / 0.2),
+    0 0 20px rgb(235 85 69 / 0.46),
+    0 0 56px rgb(235 85 69 / 0.26);
 }
 
 /* The recovery's label is a long one. The capsule keeps 16 px at its sides here in place of 24, so the label stands
@@ -547,6 +642,8 @@ a.cta-button.cta-button--glass:is(:link, :visited, :hover, :active, :focus) {
    how much lies behind it before it is opened. The tile and the purchases under it are one block
    of buttons, a tile's 12 px apart. */
 .section--perks {
+  /* The cloud over a tapped icon is placed in the section (premiumbot-fx.js cloudSay). */
+  position: relative;
   margin-bottom: var(--space-12);
 }
 
@@ -574,6 +671,60 @@ a.cta-button.cta-button--glass:is(:link, :visited, :hover, :active, :focus) {
   margin-block: -2px;
   color: var(--secondary-text);
   opacity: 1;
+  transition: rotate 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* A tap opens the tile where it stands and opens no page (premiumbot-fx.js perksSet): the tile grows, its second
+   line becomes a wall of three rows of 48 px tiles 12 apart, from one side of the tile to the other, and the
+   chevron points down. A tap on the first line closes it. The line and the wall are one box that only grows: both
+   run out through the tile's padding and start at one top edge, so the line's icons become the wall's top row
+   and come back to be the line (perksOpen, perksClose). The rows stand 12 px under that edge and 8 over the foot,
+   which a tile made larger needs. */
+.section--perks.is-open {
+  --perk-tile: 48px;
+  --perk-gap: 12px;
+}
+
+/* The line's icons keep the tile's padding and dim out inside it. The ends go from the line's dimming to the
+   wall's in the time and on the curve of the script's own moves (PERKS_MS, PERKS_EASE), and back from the moment a
+   closing starts. The two lengths are set and run on the section and the strip inherits them: in WebKit a
+   transition of a registered property holds back every other animated property of its element, and the strip's
+   height is one the script animates. */
+.section--perks {
+  --perk-dim-from: var(--space-16);
+  --perk-dim-to: 72px;
+  transition:
+    --perk-dim-from 420ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    --perk-dim-to 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.section--perks.is-open:not(.is-closing) {
+  --perk-dim-from: 0px;
+  --perk-dim-to: 24px;
+}
+
+/* With motion reduced the tile opens and closes at once, and so do its ends. */
+html.fx-reduce .section--perks {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section--perks {
+    transition: none;
+  }
+}
+
+.section--perks .perk-strip {
+  margin-inline: calc(-1 * var(--space-16));
+  --perk-lead: var(--space-16);
+}
+
+.section--perks .cell[aria-expanded='true'] .cell-chevron {
+  rotate: 90deg;
+}
+
+[dir='rtl'] .section--perks .cell[aria-expanded='true'] .cell-chevron {
+  rotate: -90deg;
 }
 
 /* What Premium includes, as a row of every feature's icon tile in its own colour that runs through the tile's
@@ -581,13 +732,29 @@ a.cta-button.cta-button--glass:is(:link, :visited, :hover, :active, :focus) {
    round at 18 px a second, and a tile's place in the row (--i) sets where on the loop it starts. The row never
    stops and never steps, and it dims out at both ends of the line, so a tile comes and goes unseen. With motion
    reduced the row stands still from the first feature on. */
+/* Where a row's ends are dimmed out and where they are whole, as lengths the sheets can run from the line's pair
+   to the wall's. A browser without @property changes them at once. */
+@property --perk-dim-from {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 0px;
+}
+
+@property --perk-dim-to {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 56px;
+}
+
 .perk-strip {
   position: relative;
   grid-column: 1 / -1;
   height: 28px;
   overflow: hidden;
-  -webkit-mask: linear-gradient(to right, #0000, #000 56px, #000 calc(100% - 56px), #0000);
-  mask: linear-gradient(to right, #0000, #000 56px, #000 calc(100% - 56px), #0000);
+  -webkit-mask: linear-gradient(to right, #0000 var(--perk-dim-from, 0px), #000 var(--perk-dim-to, 56px),
+    #000 calc(100% - var(--perk-dim-to, 56px)), #0000 calc(100% - var(--perk-dim-from, 0px)));
+  mask: linear-gradient(to right, #0000 var(--perk-dim-from, 0px), #000 var(--perk-dim-to, 56px),
+    #000 calc(100% - var(--perk-dim-to, 56px)), #0000 calc(100% - var(--perk-dim-from, 0px)));
 }
 
 /* The kit's icon tile at 24 px, its face the whole box, with a quarter-height radius. */
@@ -597,13 +764,15 @@ a.cta-button.cta-button--glass:is(:link, :visited, :hover, :active, :focus) {
   --tile-radius: 6px;
   position: absolute;
   top: 2px;
-  left: 0;
+  left: var(--perk-lead, 0px);
   transform: translateX(calc(var(--i, 0) * 36px));
 }
 
+/* --perk-shift takes the whole row on along its loop. The script sets it where a closing wall hands its top row
+   back to the line (premiumbot-fx.js perksClose). */
 html:not(.fx-reduce) .perk-strip > .icon-tile {
   animation: perk-run 54s linear infinite;
-  animation-delay: calc(var(--i, 0) * 2s - 52s);
+  animation-delay: calc(var(--i, 0) * 2s - 52s - var(--perk-shift, 0s));
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -625,6 +794,13 @@ html:not(.fx-reduce) .perk-strip > .icon-tile {
 /* At this size the kit's 14% sheen does not show the face lighter at its top: twice as much does. */
 .perk-strip > .icon-tile::before {
   background: linear-gradient(rgb(255 255 255 / 0.28), rgb(255 255 255 / 0));
+}
+
+/* A wall that opens out of the line shows the line's sheen at half, which is the kit's 14%, so the script takes
+   one to the other with the tile's size and nothing changes at either end (perksMoves). */
+.section--perks .perk-row > .icon-tile::before {
+  background: linear-gradient(rgb(255 255 255 / 0.28), rgb(255 255 255 / 0));
+  opacity: 0.5;
 }
 
 .perk-strip > :nth-child(1) {
@@ -735,36 +911,17 @@ html:not(.fx-reduce) .perk-strip > .icon-tile {
   --i: 26;
 }
 
-/* On the paid result what the payment unlocked is a band across the whole screen under the title, from edge to edge,
-   a line over it and a line under it and no ends. In it every feature's icon tile, 64 px, stands in three rows of
-   nine, 16 px apart, the middle row half a step in. The rows are wider than the screen and run off both its edges,
-   where they dim out, so the tiles are large and the wall of them has no end to be seen. The sheets alone show the
-   middle of the three rows, still. premiumbot-fx.js makes them a wall that goes round: it puts each row in a
-   strip of its own with a second copy of its tiles (.is-live, .perk-row), lets the rows drift at paces of their
-   own, follow a finger sideways and go on from where it lets go, and makes the tiles under a finger or a cursor
-   larger. A tile is smaller only where the viewport is too short for the three rows to stand above the screen's
-   end. The band is as tall as that: 16, the name's 20, 16, the rows, 20, which is 296 px on a phone. */
-.section--unlocked {
-  position: relative;
-  margin-inline: 0;
-  /* All that stands over and under the three rows: the group above them, the band's own padding and name, the page's
-     end and the docked bar with the screen's bottom inset. */
-  --perk-rest: calc(420px + max(16px, 8px + var(--tg-safe-area-inset-bottom, 0px) + var(--tg-content-safe-area-inset-bottom, 0px)));
-  --perk-tile: min(64px, (var(--tg-viewport-stable-height, 100vh) - var(--perk-rest)) / 3);
-  --perk-gap: 16px;
-}
-
 /* A tap on one of those tiles names its feature in a small cloud over it (premiumbot-fx.js cloudSay): the name in the
    strong weight and its line of text a caption under it, both on the cloud's middle, each broken into lines of
-   like length where the renderer can. The cloud is no narrower than 176 px, so a short line is not a pill, and no
-   wider than 280. It stands on the page's colour under a tile's glass, so the tiles do not show through, with a
+   like length where the renderer can. The cloud is no wider than 280 px, and the script draws it in to the width
+   its words need (cloudSay). It stands on the page's colour under a tile's glass, so the tiles do not show through, with a
    tip that points at the tile. It takes no pointer: the next tap anywhere puts it away. */
 .perk-bubble {
   position: absolute;
   z-index: 2;
   box-sizing: border-box;
   width: max-content;
-  min-width: 176px;
+  min-width: 64px;
   max-width: min(280px, 100% - 2 * var(--gutter));
   padding: var(--space-12) var(--space-16);
   border-radius: 16px;
@@ -815,34 +972,88 @@ html:not(.fx-reduce) .perk-strip > .icon-tile {
   text-wrap: balance;
 }
 
-.section--unlocked .cell {
-  /* A band's surface: the tile's glass with its hairline over and under it only. The entrance's ring reads it. */
-  --island-shadow: inset 0 1px 0 var(--island-line), inset 0 -1px 0 var(--island-line);
-  row-gap: var(--space-16);
-  padding: var(--space-16) var(--gutter) calc(var(--space-16) + var(--space-4));
-  border-radius: 0;
+/* A result shows no section of features. On the result of a Premium purchase it only holds the tiles until the
+   script takes them into the layer that covers the screen (premiumbot-fx.js orbitMount). On a gift's result the
+   tile "What's Included" is not shown either: the gift is sent, and what it holds is the recipient's to open. */
+.result-screen .section--perks {
+  display: none;
 }
 
-/* The rows' window is the band's whole width, out through the tile's own padding, and 10 px taller than the rows at
-   either end, which a tile made larger needs. A finger moves the rows sideways and still scrolls the page up and
+/* The tiles' layer: the script lays it over the whole screen and moves each tile by a transform, on three rings
+   round the star and the words. A tile's size is its ring's (--orbit-size). The layer itself takes no pointer, so
+   the link under the title is reached through it; a tile does, and a finger on one turns the rings sideways while
+   the page still moves up and down. The cloud a tapped tile raises stands in the layer too. */
+.orbit {
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  /* A tile leaving at the top or coming to a docked bar dissolves: the script names the bar's top (--orbit-end). */
+  -webkit-mask-image: linear-gradient(transparent, #000 24px, #000 calc(var(--orbit-end, 100%) - 28px), transparent var(--orbit-end, 100%));
+  mask-image: linear-gradient(transparent, #000 24px, #000 calc(var(--orbit-end, 100%) - 28px), transparent var(--orbit-end, 100%));
+}
+
+.orbit > .icon-tile {
+  --tile-box: var(--orbit-size, 52px);
+  --tile: var(--orbit-size, 52px);
+  --tile-radius: calc(var(--orbit-size, 52px) / 4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  pointer-events: auto;
+  touch-action: pan-y;
+  will-change: transform;
+  /* A tile stands over the ground by its size: the nearer and larger, the longer and softer its shadow, which
+     falls on the tiles of the ring behind it where they pass. */
+  box-shadow: 0 calc(var(--orbit-size, 52px) / 6) calc(var(--orbit-size, 52px) / 2.8) rgb(0 0 0 / 0.4);
+}
+
+/* A farther tile is told by its face, which goes part of the way to the page's colour (--orbit-lit, the script's),
+   and by its sign keeping most of its white (--orbit-ink): the sign reads on a far tile as well as on a near one.
+   An engine that cannot mix colours shows every tile in its own colour. */
+@supports (background: color-mix(in srgb, red 50%, blue)) {
+  .orbit > .icon-tile {
+    background: color-mix(in srgb, var(--tile-color, var(--accent-fill)) calc(var(--orbit-lit, 1) * 100%), var(--page)) padding-box;
+  }
+}
+
+.orbit > .icon-tile > .icon {
+  opacity: var(--orbit-ink, 1);
+}
+
+/* A tile brought forward for its cloud takes its own colour, and gives it up as it goes back, in the time its
+   size takes. The cloud lies over every tile, the one brought forward too. */
+.orbit > .icon-tile {
+  transition: background-color 180ms ease-out;
+}
+
+.orbit > .icon-tile > .icon {
+  transition: opacity 180ms ease-out;
+}
+
+.orbit > .perk-bubble {
+  z-index: 1000;
+}
+
+/* The rows' window is the open tile's whole width, out through its own padding, with 12 px over the rows and 8
+   under them, which a tile made larger needs. A finger moves the rows sideways and still scrolls the page up and
    down. */
-.section--unlocked .perk-strip {
+.section--perks.is-open .perk-strip {
   display: grid;
   grid-template-columns: repeat(9, var(--perk-tile));
   gap: var(--perk-gap);
   justify-content: center;
   width: auto;
   height: auto;
-  margin: -10px calc(-1 * var(--gutter));
-  padding-block: 10px;
+  margin: 0 calc(-1 * var(--space-16));
+  padding-block: var(--space-12) var(--space-8);
   overflow: hidden;
-  -webkit-mask: linear-gradient(to right, #0000, #000 24px, #000 calc(100% - 24px), #0000);
-  mask: linear-gradient(to right, #0000, #000 24px, #000 calc(100% - 24px), #0000);
   touch-action: pan-y;
 }
 
-.section--unlocked .perk-strip > .icon-tile,
-.section--unlocked .perk-row > .icon-tile {
+.section--perks.is-open .perk-strip > .icon-tile,
+.section--perks.is-open .perk-row > .icon-tile {
   --tile-box: var(--perk-tile);
   --tile: var(--perk-tile);
   --tile-radius: calc(var(--perk-tile) / 4);
@@ -853,32 +1064,35 @@ html:not(.fx-reduce) .perk-strip > .icon-tile {
   transform: none;
 }
 
-.section--unlocked .perk-strip > .icon-tile:nth-child(n + 10):nth-child(-n + 18) {
+.section--perks.is-open .perk-strip > .icon-tile:nth-child(n + 10):nth-child(-n + 18) {
   left: calc((var(--perk-tile) + var(--perk-gap)) / 2);
 }
 
-html:not(.fx-reduce) .section--unlocked .perk-strip .icon-tile {
+html:not(.fx-reduce) .section--perks.is-open .perk-strip .icon-tile {
   animation: none;
 }
 
 /* With the script each row is a strip of its own, which the script moves; a tile is a layer of its own, so one made
    larger costs nothing but its own redraw. */
-.section--unlocked .perk-strip.is-live {
+.section--perks.is-open .perk-strip.is-live {
   display: block;
 }
 
-.section--unlocked .perk-row {
+/* A row lies over the rows under it (the script sets z-index), so what comes out of the line comes from behind
+   it. */
+.section--perks.is-open .perk-row {
+  position: relative;
   display: flex;
   gap: var(--perk-gap);
   width: max-content;
   will-change: transform;
 }
 
-.section--unlocked .perk-row + .perk-row {
+.section--perks.is-open .perk-row + .perk-row {
   margin-top: var(--perk-gap);
 }
 
-.section--unlocked .perk-row > .icon-tile {
+.section--perks.is-open .perk-row > .icon-tile {
   flex: none;
   will-change: transform;
 }
@@ -949,4 +1163,106 @@ html:not(.fx-reduce) .section--unlocked .perk-strip .icon-tile {
 [data-prize-both="stars"] .gw-prize[data-prize="premium"],
 [data-prize-both="stars"] .gw-prize-part--premium {
   display: none;
+}
+
+/* A row that is its own island is a tile, and its icon is seen against the tile's corner: 16 px in from the start
+   and 11 or 12 down read as a slip. The start inset takes the top one: 12 where the tile pads 12, and 10 in a row
+   of one line, 52 px tall, where the 32 px box is centred. A row inside a shared island keeps the list's 16, and
+   so does a tile that starts with text or a radio. */
+.cell.island:is(.has-tile, .has-avatar),
+.pack-tile.island {
+  padding-inline-start: var(--space-12);
+  --sep-inset: calc(var(--space-12) + var(--tile-box) + var(--space-12));
+}
+
+.section--tiles .cell.island.has-tile:not(:has(> .cell-main > .cell-subtitle:not(:empty))) {
+  padding-inline-start: calc((52px - var(--tile-box)) / 2);
+}
+
+/* The paywall's small tiles hold the icon out of the flow, 12 in as it is 12 down, and the label after it. */
+.section--actions .cell.island.has-tile {
+  padding-inline-start: var(--sep-inset);
+}
+
+.section--actions .cell.island.has-tile > .cell-lead {
+  inset-inline-start: var(--space-12);
+}
+
+/* Back, as a screen's own button, only where a screen is a dead end: it shows what there is to see and offers
+   nothing to do, as a plan with nothing to upgrade to. Such a screen ends in a docked bar with one button of the
+   pay button's build that leads where the client's own Back button leads, as a result ends in Done, which leads
+   home. Every other screen has its own next step and keeps the client's Back alone. The block is a column as tall
+   as the viewport under the screen's 16 px top padding, so the bar takes the screen's foot; nothing runs under the
+   bar, so it has no hairline. */
+.subscription--plan:has(> .cta-bar) {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(var(--tg-viewport-stable-height, 100vh) - var(--tg-safe-area-inset-top, 0px) - var(--tg-content-safe-area-inset-top, 0px) - var(--space-16));
+}
+
+.subscription--plan > .cta-bar {
+  margin-top: auto;
+  box-shadow: none;
+}
+
+/* A docked bar that follows a docked bar is one bar to the eye (premiumbot.js init): it stands from the page's first
+   frame, button and all. An entrance of its own would blink it, the more so under the cross-fade the site's loader
+   changes pages in. Only its words change. */
+.cta-bar.is-kept,
+.cta-bar.is-kept .cta-button {
+  animation: none !important;
+}
+
+/* A link named a place in the app and the home page came first (premiumbot.js linkGo): until the place is there the
+   home page shows its mark alone, so its own things do not come up only to go. */
+html.pm-linking :is(.hero-title, .hero-subtitle, .fx-sheet, .cta-bar) {
+  visibility: hidden;
+}
+
+/* The launch. Telegram's loading screen shows the app's icon in the middle of the screen on the page's colour, both
+   set in @BotFather: 78 pt on a phone, a shade lighter than the ground (Telegram iOS WebAppController, Android
+   BotWebViewContainer). When the page is ready the client fades that screen out and the page in, over a fifth of a
+   second or a little more. The page's first frame goes on from it. The mark stands where the icon stood and as
+   large, the star 70 px across where it is 118 in its slot, and holds there while the two screens cross; then it
+   rises to its slot and grows to its size, slowly at first and slowly at the end, and it is the live mark by the
+   time it lands. The title and the words come when it has passed their lines, and the sheet under them a moment
+   before that. The sheets do all of it from the first paint, so it waits for no script. It is the first page's
+   alone: the script marks every later page (premiumbot.js sets .pm-launched on the root) and every mark it keeps
+   from the page before (.is-kept), and those take their screens' own entrances. The middle is told as nearly as
+   the sheets can: half the viewport, less the 45 px by which a phone's loading icon stands over the web view's
+   middle, less the slot's 76 px from the top. A result's mark stands in the middle already and takes no part. */
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.fx-reduce):not(.pm-launched) :is(.home, .subscription, .commerce) .fx-stage .pm-mark[data-icon3d]:not(.is-kept) {
+    animation: fx-mark-rise 960ms linear backwards;
+  }
+
+  html:not(.fx-reduce):not(.pm-launched) :is(.home, .subscription, .commerce) .fx-stage:has(.pm-mark[data-icon3d]) .hero-title {
+    animation-delay: 640ms;
+  }
+
+  html:not(.fx-reduce):not(.pm-launched) :is(.home, .subscription, .commerce) .fx-stage:has(.pm-mark[data-icon3d]) .hero-subtitle {
+    animation-delay: 720ms;
+  }
+
+  html:not(.fx-reduce):not(.pm-launched) :is(.home, .subscription, .commerce):has(.fx-stage .pm-mark[data-icon3d]) > .fx-sheet {
+    animation: fx-in-fade 280ms ease-out 560ms backwards;
+  }
+
+  /* A bar docked outside the sheet comes with the sheet. Ahead of it, alone under the rising mark, it was the one
+     thing on the page that stood there before its turn. */
+  html:not(.fx-reduce):not(.pm-launched) :is(.home, .subscription, .commerce):has(.fx-stage .pm-mark[data-icon3d]) > .cta-bar {
+    animation: fx-in-fade 240ms ease-out 560ms backwards;
+  }
+
+  html:not(.fx-reduce):not(.pm-launched) :is(.home, .subscription, .commerce):has(.fx-stage .pm-mark[data-icon3d]) > .cta-bar .cta-button {
+    animation-delay: 560ms;
+  }
+}
+
+@keyframes fx-mark-rise {
+  0%,
+  26% {
+    transform: translateY(calc(50vh - 121px)) scale(0.6);
+    animation-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  }
 }

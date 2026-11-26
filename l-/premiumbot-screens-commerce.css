@@ -299,22 +299,25 @@
   color: var(--gold-ink);
 }
 
-/* The row the pill stands over keeps 20 px to the row above it, so the pill clears that row by 8: both of its
-   tiles start 8 px lower. Without :has() a tile before the popular one keeps the grid's 12. */
-.pack-tile.plan-emphasis--strong,
-.pack-tile.plan-emphasis--strong:nth-child(odd) + .pack-tile {
-  margin-top: var(--space-8);
+/* The pill stands 12 px over its tile's top edge and clears the row above by 8, so that row is 20 px away. Every
+   row of a grid that holds the popular pack keeps that step, the plan tiles' own: a wider step over the one row
+   read as a slip. An engine without :has() widens the one row, as before. */
+.pack-grid:has(> .plan-emphasis--strong) {
+  row-gap: calc(var(--space-16) + var(--space-4));
 }
 
-.pack-tile:nth-child(odd):has(+ .plan-emphasis--strong) {
-  margin-top: var(--space-8);
+@supports not selector(:has(*)) {
+  .pack-tile.plan-emphasis--strong,
+  .pack-tile.plan-emphasis--strong:nth-child(odd) + .pack-tile {
+    margin-top: var(--space-8);
+  }
 }
 
 /* While a pack's invoice opens, the spinner stands on the price's line, in its place: 20 px on a 16 px line, so 2 px
    past it above and below. */
 .pack-busy {
   position: absolute;
-  inset-inline-start: var(--space-16);
+  inset-inline-start: var(--space-12);
   bottom: calc(var(--space-12) - 2px);
   width: 20px;
   height: 20px;
@@ -563,9 +566,8 @@
 /* The entry's notes. The first, on who can host, is a caption under the tiles, and the section of tiles gives up its
    foot to what follows it. Where the client's picker stays silent the script puts its line under that note, a message
    to read and so in the caption grey, and its link comes next, one more tile. The second note says what follows the
-   payment and is the screen's floor: at the foot of the first screen, on the captions' own line from the left as
-   every note on this screen is, and ending where it ends under the pay button once a channel is chosen, 12 px over
-   the screen's end or on the safe area's line (screens-subscription.css .cta-legal). */
+   payment. It stands right under the first, a second paragraph of the same caption, 8 px down: set at the foot of
+   the screen it left the two notes a screen's height apart with nothing between them. */
 .commerce--giveaway .section:has(+ .section > .section-footer:first-child) {
   margin-bottom: 0;
 }
@@ -586,22 +588,9 @@
   font-weight: var(--fw-title);
 }
 
-.commerce--giveaway .pm-picker > .section:has(> .section-footer:first-child) {
-  order: 1;
-  margin-top: auto;
-}
-
-.commerce--giveaway .pm-picker > .section > .section-footer:first-child {
-  line-height: var(--lh-small);
-}
-
-.screen:has(> .commerce--giveaway > .pm-picker) {
-  --page-end: max(0px, var(--space-12) - var(--tg-safe-area-inset-bottom, 0px) - var(--tg-content-safe-area-inset-bottom, 0px));
-}
-
 /* The block is a column as tall as the viewport less the screen's own paddings (base.css .screen): 16 px at the top
    and its foot, which is none under a pay bar. So an options page shorter than the screen still docks its bar at the
-   bottom, and the entry's floor note stands at the foot of the screen. The sheet takes what the stage leaves. */
+   bottom. The sheet takes what the stage leaves. */
 .commerce--giveaway {
   --gw-foot: calc(var(--tg-safe-area-inset-bottom, 0px) + var(--tg-content-safe-area-inset-bottom, 0px) + var(--page-end, var(--space-16)) + var(--main-total-room, 0px));
   display: flex;
