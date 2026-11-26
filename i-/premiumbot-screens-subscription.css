@@ -1,14 +1,15 @@
 /* Screens for Premium itself (home, features, subscription, upgrade, resume, stop, result, settings, support): the
    layout of design §11 around the fx.css effects. Screen roots carry their tone, so every accent comes from tokens.css. */
 
-/* Sheet geometry. fx.css owns it (src/fx/index.ts: the stage pulls up under the screen's top padding, its colour
+/* Sheet geometry. fx.css owns it (src/fx/index.ts: the stage pulls up under the screen's top padding, its light
    under the safe areas, and .fx-sheet rises over it); this zero-specificity rule only holds the layout until it does. */
 :where(.sheet) {
   position: relative;
   margin-top: -24px;
 }
 
-.stage-content {
+.stage-content,
+.stage-notice {
   position: relative;
   width: 100%;
   max-width: var(--column);
@@ -25,6 +26,11 @@
   padding-bottom: var(--space-24);
 }
 
+/* A notice leads the stage, above the mark. */
+.stage-notice {
+  order: -1;
+}
+
 /* A full-screen block's title springs in: a finished result's. The pending page has no --fill block. */
 @media (prefers-reduced-motion: no-preference) {
   .stage-content--fill .hero-title {
@@ -39,131 +45,256 @@
   }
 }
 
-/* The features screen: the title, one tile of limits, every feature in a tile of its own, and the bar that leads to
-   the plans. The title is the screen's one coloured text, cut and lit as a hero's (components.css .hero-title), on
-   the tiles' start edge and 24 px over the first of them. Its box is its lines alone, so the gradient runs from the
-   glyphs' top to their foot as it does in a hero. */
-.features .screen-title {
-  margin: 0 var(--gutter) var(--space-24);
-  padding: 0;
-  font-size: var(--fs-hero);
-  line-height: var(--lh-hero);
-  letter-spacing: -0.02em;
-  text-wrap: balance;
+/* Feature showcase, the paywall_features carousel arm on the features screen (design §11.5): neutral cards, the glyph
+   in the accent, under the screen title. */
+.showcase {
+  margin-bottom: var(--section-gap);
 }
 
-/* Apple's Title 1 is 28/34, which leaves all that follows 2 px off the grid: here it takes a 36 px line. */
-.platform-ios .features .screen-title {
-  line-height: calc(36.005 / 28);
+/* The track clips what overflows it: room for the islands' shadows, given back by its margins. */
+.showcase .fx-carousel__track {
+  margin-block: -20px -40px;
+  padding-block: var(--space-24) var(--space-48);
 }
 
-@supports ((-webkit-background-clip: text) or (background-clip: text)) {
-  .features .screen-title {
-    background: var(--title-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: var(--title-glow);
-  }
-}
-
-/* The limits tile, the one place on the screen where numbers add to the words: a row a limit, its name, and at the
-   row's end what it was and what Premium makes it, 8 px apart on one baseline, the new values ending on one line.
-   It stands a section's 32 px over the list of features, a block of its own. A row is its value's 28 px line with
-   8 px over and under it, 44 px, a list row's own height, and the tile keeps 4 px more over the first row and under
-   the last: the rows stand close enough to read as one table. No line parts them: the values' column and the rows'
-   step hold the table, and ruled it would read as a list of settings. A name too long for its side takes a second
-   line. */
-.limits-row {
+.showcase-card {
   display: flex;
-  align-items: baseline;
-  gap: var(--space-12);
-  padding: var(--space-8) var(--space-16);
+  flex-direction: column;
+  overflow: hidden;
 }
 
+/* 160 px, or taller where the limits art's labels take second lines. */
+.showcase-art {
+  display: grid;
+  place-items: center;
+  min-height: 160px;
+}
+
+.showcase-glyph {
+  width: 64px;
+  height: 64px;
+  color: var(--tone);
+}
+
+/* Doubled Limits: one split bar per limit, Free in the neutral fill, Premium in the accent; values from
+   AppState.limits. */
+.showcase-art--limits {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-8);
+  padding: var(--space-16);
+  place-items: stretch;
+}
+
+.limits-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-12);
+  color: var(--secondary-text);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+}
+
+.limits-key::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-inline-end: var(--space-4);
+  border-radius: 50%;
+  background: var(--fill);
+}
+
+.limits-key--premium::before {
+  background: var(--tone);
+}
+
+/* The label's lines are as tall as the bars, so a label on two lines keeps the bars on its first line and the grid. */
+.limits-row {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  align-items: start;
+  gap: var(--space-8);
+}
+
+/* A label longer than its column takes a second line. */
 .limits-label {
-  flex: 1;
   min-width: 0;
-  font-weight: var(--fw-title);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-pill);
   overflow-wrap: break-word;
   overflow-wrap: anywhere;
 }
 
-/* A feature's tile (components.css .section--tiles): its icon tile at 40 px, the face the whole box with a
-   quarter-height radius, 16 px from the tile's start, 12 from its top and from the text; then the name, and its text
-   under it. The tile is as tall as that text. */
-.cell--feature {
-  --tile-box: 40px;
-  --tile: 40px;
-  --tile-radius: 10px;
-  gap: var(--space-12);
-  padding: var(--space-12) var(--space-16);
-}
-
-/* A plan's facts share one island, 12 px over and under and 16 at its sides: a fact a line, 12 px apart with no rule between them,
-   its label a caption at the line's start and its value white at the line's end, both on the value's baseline; the
-   words after an amount stay a caption, as "a month" does on a plan tile. On the plan's own screen the facts are the
-   content, and a value takes the value type. Under an offer they are context: a value keeps the body size, and the
-   plan's name heads them as the island's first line, 24 px over the facts. */
-.sub-facts {
-  padding: var(--space-12) var(--space-16);
-}
-
-.sub-facts > .section-header {
-  padding: 0 0 var(--space-24);
-  color: var(--text);
-  font-size: var(--fs-body);
-  font-weight: var(--fw-title);
-  line-height: var(--lh-body);
-  text-transform: none;
-}
-
-.sub-facts > .section-body {
+.limits-bars {
   display: grid;
-  gap: var(--space-12);
+  grid-template-columns: var(--share, 50%) 1fr;
+  overflow: hidden;
+  border-radius: var(--badge-radius);
 }
 
-.sub-facts .cell {
-  align-items: baseline;
-  min-height: 0;
-  padding: 0;
+.limits-bar {
+  min-width: 0;
+  padding: 0 var(--space-8);
+  font-size: var(--fs-badge);
+  font-weight: var(--fw-badge);
+  line-height: var(--lh-pill);
+  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
+  text-align: end;
 }
 
-.sub-facts .cell + .cell::before {
-  display: none;
+.limits-bar--free {
+  background: var(--fill);
+  color: var(--text);
 }
 
-.sub-facts :is(.cell-title, .cell-trail) {
+.limits-bar--premium {
+  background: var(--tone-solid);
+  color: #fff;
+  /* A veil over the violet, so the bar's 12 px white figure holds 7:1. */
+  background-image: linear-gradient(rgb(0 0 0 / 0.22), rgb(0 0 0 / 0.22));
+}
+
+.showcase-title {
+  padding: 0 var(--space-16);
+  font-weight: var(--fw-medium);
+}
+
+.showcase-text {
+  padding: 0 var(--space-16) var(--space-16);
   color: var(--secondary-text);
   font-size: var(--fs-small);
-  font-weight: var(--fw-caption);
-  line-height: var(--lh-small);
+  line-height: var(--lh-small-wrap);
+  text-wrap: pretty;
 }
 
-.sub-facts .value-amount {
+/* The paywall and Stars subtitles read in one voice: --text throughout, bold spans at 600 in the same colour. Status
+   subtitles elsewhere keep --hint. Written after fx.css, at its specificity. The server's Gift Stars root is the gift
+   root in the Stars tone. */
+.fx-stage:not(.fx-stage--dark) .hero-subtitle b {
+  color: inherit;
+}
+
+:is(.home--paywall, .commerce--stars, .commerce--stars-gift) .fx-stage .hero-subtitle,
+.commerce--gift.tone-stars .fx-stage .hero-subtitle {
   color: var(--text);
-  font-size: var(--fs-value);
-  font-weight: 700;
-  line-height: var(--lh-value);
-  letter-spacing: -0.02em;
 }
 
-.subscription--upgrade .sub-facts .value-amount {
-  font-size: var(--fs-body);
-  font-weight: var(--fw-strong);
-  line-height: var(--lh-body);
-  letter-spacing: 0;
+/* The upgrade offer on the subscriber home, the resume screen and the details (design §8.2, §8.3, §8.5):
+   the upgrade screen's plan cards in one button. A button shrinks to fit, so it takes the cards' width. */
+.upgrade-offer {
+  display: block;
+  width: calc(100% - 2 * var(--gutter));
 }
 
-/* A plan is managed in the bot, and the screen says so in one line with the bot's name as a link: 8 px under the
-   facts on a plan with an upgrade on offer, and under the hero's words on a plan with none, centred as they are. */
-.sub-facts + .sub-manage {
-  margin-top: calc(-1 * var(--section-gap));
+/* Its one chevron follows the header's text, in its colour and at its cap height, so the header reads as a link. */
+.upgrade-offer .section-header {
+  align-items: center;
+  gap: var(--space-4);
 }
 
-.subscription--plan .sub-manage .section-footer {
-  padding-top: 0;
-  text-align: center;
+.upgrade-offer .section-header-text {
+  flex: 0 1 auto;
+}
+
+.upgrade-offer .section-header .cell-chevron {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  color: inherit;
+  opacity: 1;
+}
+
+/* The header's 8 px and 8 more put a first card's top edge 16 px under the header, as on Gift Premium
+   (screens-commerce.css), so its Best Value tab clears the header text by 8. */
+.upgrade-offer .section-body > :first-child:has(> .plan-tab) {
+  margin-top: var(--space-8);
+}
+
+/* Pressed, the cards darken together, as one island does (components.css .is-tappable). */
+.platform-ios .upgrade-offer .island {
+  transition: background-color 0.45s ease-out;
+}
+
+.platform-ios .upgrade-offer:active .island {
+  background-color: var(--press);
+  transition: none;
+}
+
+.platform-android .upgrade-offer .island {
+  transition: background-color 0.15s ease-out;
+}
+
+.platform-android .upgrade-offer:active .island {
+  background-color: var(--press);
+}
+
+.platform-desktop .upgrade-offer:hover .island {
+  background-color: var(--hover-bg);
+}
+
+/* Before WebKit 16.2 the press is the grey as a veil over the cards' surface (components.css .island). */
+@supports not (color: color-mix(in srgb, red, red)) {
+  :is(.platform-ios, .platform-android) .upgrade-offer:active .island {
+    background-image: linear-gradient(var(--pressed), var(--pressed));
+  }
+
+  .platform-desktop .upgrade-offer:hover .island {
+    background-image: linear-gradient(var(--hover), var(--hover));
+  }
+}
+
+/* Settings: the external-link glyph as a row's value, as tall as the glyph, not its text line. */
+.settings .cell-value {
+  display: inline-flex;
+  align-items: center;
+  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* "Turn Off Auto-Renewal" sits 40 px below the last section; the margins collapse into one. */
+.section.sub-quiet {
+  margin-top: 40px;
+}
+
+/* Stop flow: the field under the chosen reason, with its "Optional" hint. */
+.stop-details {
+  position: relative;
+}
+
+/* Under the reason's text, as the radio rows' separators are. */
+.stop-details::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  inset-inline: 52px 0;
+  height: 0.5px;
+  background: var(--separator);
+}
+
+/* Under the reason's text: the cell's 16 px, the 24 px check and the 12 px gap. */
+.stop-details .field {
+  padding-block: 0;
+  padding-inline-start: 52px;
+}
+
+/* An inset box, so the four empty lines read as one field and the hint under it as its caption. */
+.stop-details .field textarea {
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--space-12);
+  background: var(--fill);
+}
+
+/* The field's caption, in the reasons' column and 8 px under the field, as a footer under its island. */
+.stop-details-hint {
+  display: block;
+  padding: var(--space-8) var(--space-16) var(--space-12) 52px;
+  color: var(--secondary-text);
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
 }
 
 /* Results and the resume success: the stage fills the screen (design §11), nothing scrolls under it. A rule each:
@@ -176,15 +307,13 @@
   padding-bottom: 0;
 }
 
-/* In-page call to action (paywall_cta = custom; src/ui/components/cta.ts): the pay button in a bar that sticks to the
-   page bottom over the safe area. The bar brings its own bottom room, so the screen drops its padding. */
+/* In-page call to action (paywall_cta = custom; src/ui/components/cta.ts): Telegram's Premium pill (fx.css) in a bar
+   that sticks to the page bottom over the safe area, 48 px on the grid, with the screen's third light under it
+   (design §11.9). The bar brings its own bottom room, so the screen drops its padding. */
 .screen:has(.cta-bar:not([hidden])) {
   padding-bottom: 0;
 }
 
-/* The bar is the page's colour, solid, under a hairline inside its top edge: content ends at that line and no row
-   rests half faded behind the button. Under the button the gap is the one at its sides, or 8 px over the safe area
-   where that is more. */
 .cta-bar {
   position: sticky;
   bottom: 0;
@@ -194,11 +323,41 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  --cta-bottom: max(var(--cta-floor, var(--gutter)), var(--cta-over, var(--space-8)) + var(--tg-safe-area-inset-bottom, 0px) + var(--tg-content-safe-area-inset-bottom, 0px));
-  padding: var(--cta-head, var(--space-16)) var(--gutter) var(--cta-bottom);
-  background: var(--page);
-  box-shadow: inset 0 1px 0 var(--island-line);
+  --cta-bottom: calc(var(--space-8) + var(--tg-safe-area-inset-bottom, 0px) + var(--tg-content-safe-area-inset-bottom, 0px));
+  padding: var(--space-16) var(--gutter) var(--cta-bottom);
   transform: translateY(calc(-1 * var(--cta-keyboard, 0px)));
+}
+
+/* Content fades out above the pill instead of ending at an edge: the bar's page rises from 24 px above the bar to the
+   pill's top on 1 − (1 − u²)², eased at both ends, so neither end shows a line where the light field meets it; under
+   the pill and its glow it is the page. */
+.cta-bar::before {
+  content: '';
+  position: absolute;
+  inset: calc(-1 * var(--space-24)) 0 0;
+  z-index: -2;
+  background: linear-gradient(
+    color-mix(in srgb, var(--page) 0%, transparent),
+    color-mix(in srgb, var(--page) 3.1%, transparent) 5px,
+    color-mix(in srgb, var(--page) 12.1%, transparent) 10px,
+    color-mix(in srgb, var(--page) 26.2%, transparent) 15px,
+    color-mix(in srgb, var(--page) 43.8%, transparent) 20px,
+    color-mix(in srgb, var(--page) 62.9%, transparent) 25px,
+    color-mix(in srgb, var(--page) 80.9%, transparent) 30px,
+    color-mix(in srgb, var(--page) 94.5%, transparent) 35px,
+    var(--page) 40px
+  );
+  pointer-events: none;
+}
+
+/* WebKit before 16.2 cannot mix the page into the stops: the page itself rises on the grain's mask instead (fx.css
+   .cta-bar::after), the same ramp. */
+@supports not (color: color-mix(in srgb, red, red)) {
+  .cta-bar::before {
+    background: var(--page);
+    -webkit-mask: linear-gradient(#0000, #00000008 5px, #0000001f 10px, #00000043 15px, #00000070 20px, #000000a0 25px, #000000ce 30px, #000000f1 35px, #000 40px);
+    mask: linear-gradient(#0000, #00000008 5px, #0000001f 10px, #00000043 15px, #00000070 20px, #000000a0 25px, #000000ce 30px, #000000f1 35px, #000 40px);
+  }
 }
 
 @supports (padding: round(up, 1px, 4px)) {
@@ -211,26 +370,11 @@
   display: none;
 }
 
-/* The legal line of a purchase stands in the bar, under the button, not among the tiles: a caption centred 8 px under
-   the button, its top padding. The bar is as tall as its rows, so a line more makes it taller. Such a bar keeps 12 px
-   over the button and 12 px under the text, or the safe area where that is more: a caption may end on the safe
-   area's line, where a button keeps 8 px over it. Without :has() the bar keeps the gutter and those 8 px. */
-.cta-legal {
-  color: var(--hint);
-  line-height: var(--lh-small);
-  text-align: center;
+/* Over the keyboard the home indicator is covered, so its inset goes. */
+.cta-bar.has-keyboard {
+  padding-bottom: 8px;
 }
 
-.cta-bar:has(> .cta-legal) {
-  --cta-floor: var(--space-12);
-  --cta-head: var(--space-12);
-  --cta-over: 0px;
-}
-
-/* The pay button: a capsule 52 px tall in the hero title's blues, #5db8ff at the top to #2e8bff at the bottom, under
-   a deep navy label that holds 4.5:1 or better over its whole height, and a 1 px highlight inside the top edge. The
-   two blues are written as stops at 60% over the button's mid tone (--tone-solid), with which they add up to those
-   values: so a press or the inactive state still changes the one colour under the light. */
 .cta-button {
   position: relative;
   display: flex;
@@ -238,18 +382,17 @@
   justify-content: center;
   width: 100%;
   max-width: calc(var(--column) - 2 * var(--gutter));
-  min-height: 52px;
+  min-height: 48px;
   margin: 0 auto;
   padding: 0 var(--space-24);
   border: 0;
-  border-radius: 26px;
-  background: linear-gradient(rgba(108, 199, 255, 0.6), rgba(30, 124, 255, 0.6)) var(--tone-solid);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
-  color: var(--tone-solid-ink);
+  border-radius: 24px;
+  background: var(--tone-solid);
+  box-shadow: var(--surface-shadow);
+  color: #fff;
   font: inherit;
   font-size: var(--fs-body);
-  /* Bold on every platform, also where the platform's own emphasis is lighter: the button is the page's one call. */
-  font-weight: 700;
+  font-weight: var(--fw-strong);
   line-height: var(--lh-body);
   cursor: pointer;
 }
@@ -274,8 +417,8 @@
   width: 24px;
   height: 24px;
   margin: auto;
-  border: 2px solid rgba(1, 11, 28, 0.35);
-  border-top-color: var(--tone-solid-ink);
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
   border-radius: 50%;
   opacity: 0;
   transition: opacity 200ms ease-out;
@@ -294,12 +437,6 @@
   animation: spin 0.8s linear infinite;
 }
 
-/* The premium button places its 24 px spinner from the top (fx.css): 14 px down centres it in the 52. */
-.cta-button--premium > .cta-spinner {
-  top: 14px;
-}
-
-/* The amount line on the button takes the label's ink: fx.css sets it white, which the fill no longer holds. */
 .cta-button[aria-disabled='true'] {
   background: var(--fill);
   box-shadow: none;
@@ -307,49 +444,12 @@
   cursor: default;
 }
 
-/* While the recommended plan is the chosen one, the pay button is that plan's gold and glows: the gold of the plan's
-   ring, pill and rate, so the choice and the button read as one. The gold is a layer over the blue fill and under
-   the label, so the two cross-fade when the choice changes; the glow is that layer's shadow, and it is spent
-   within 14 px of the button on every side: under the button a bar keeps 16 px on a phone with no home indicator,
-   and a glow that reached further would be cut off by the screen's edge. The label
-   and the spinner take the ink that stands on gold, 8:1 or better over the layer's whole height. Without :has() the
-   button stays blue. */
-.cta-button--premium::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  background: linear-gradient(#ffd964, #f6a51d);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    0 0 0 1px rgba(255, 214, 110, 0.4),
-    0 0 12px rgba(255, 190, 56, 0.65),
-    0 3px 14px -3px rgba(255, 166, 26, 0.7);
-  opacity: 0;
-  transition: opacity 240ms ease-out;
-  pointer-events: none;
-}
-
-:is(.home--paywall, .subscription--paywall, .subscription--upgrade, .commerce--gift):has(.plan-emphasis--strong .cell-input:checked) .cta-button--premium:not([aria-disabled='true']) {
-  --tone-solid-ink: var(--gold-ink);
-  outline-color: var(--value-gold);
-}
-
-:is(.home--paywall, .subscription--paywall, .subscription--upgrade, .commerce--gift):has(.plan-emphasis--strong .cell-input:checked) .cta-button--premium:not([aria-disabled='true'])::before {
-  opacity: 1;
-}
-
-/* Pressed, the gold darkens in place as the blue does. The home paywall has its own shade over the button. */
-:is(.subscription, .commerce--gift) .cta-button--premium.is-pressed::before {
-  filter: brightness(0.9);
-}
-
 /* cta_copy (docs/product/experiments.md): when a short label leaves the price out of the button, the exact amount sits
    right above it: pinned over the MainButton by the shell (src/ui/shell.ts), with room kept at the page end, or on the
    in-page bar over the pill. A footnote, centred 8 px above the button. It names the price, so it takes the secondary
    text (tokens.css). */
-.main-total {
+.main-total,
+.cta-total {
   display: block;
   color: var(--secondary-text);
   font-size: var(--fs-small);
@@ -357,8 +457,8 @@
   text-align: center;
 }
 
-/* Content scrolling under the line fades out over 24 px, so it never crowds the amount. The page end keeps 48 px for
-   it, so the last content stops above the fade. */
+/* Content scrolling under the line fades out over 24 px, as above the in-page bar, so it never crowds the amount. The
+   page end keeps 48 px for it, so the last content stops above the fade. */
 .main-total {
   position: fixed;
   inset-inline: 0;
@@ -369,3 +469,131 @@
   pointer-events: none;
 }
 
+.has-main-total .screen {
+  --main-total-room: var(--space-48);
+}
+
+.cta-total {
+  margin-bottom: var(--space-8);
+}
+
+/* ===== The purchase call to action (screens-subscription.css .cta-bar): the sticky bar docking the pill
+   above the safe area; its gradient shield eases the content out under it. ===== */
+.screen:has(.cta-bar:not([hidden])) {
+  padding-bottom: 0;
+}
+
+.cta-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  --cta-bottom: calc(var(--space-8) + var(--tg-safe-area-inset-bottom, 0px) + var(--tg-content-safe-area-inset-bottom, 0px));
+  padding: var(--space-16) var(--gutter) var(--cta-bottom);
+}
+
+.cta-bar::before {
+  content: '';
+  position: absolute;
+  inset: calc(-1 * var(--space-24)) 0 0;
+  z-index: -2;
+  background: linear-gradient(
+    color-mix(in srgb, var(--page) 0%, transparent),
+    color-mix(in srgb, var(--page) 3.1%, transparent) 5px,
+    color-mix(in srgb, var(--page) 12.1%, transparent) 10px,
+    color-mix(in srgb, var(--page) 26.2%, transparent) 15px,
+    color-mix(in srgb, var(--page) 43.8%, transparent) 20px,
+    color-mix(in srgb, var(--page) 62.9%, transparent) 25px,
+    color-mix(in srgb, var(--page) 80.9%, transparent) 30px,
+    color-mix(in srgb, var(--page) 94.5%, transparent) 35px,
+    var(--page) 40px
+  );
+  pointer-events: none;
+}
+
+@supports not (color: color-mix(in srgb, red, red)) {
+  .cta-bar::before {
+    background: var(--page);
+    -webkit-mask: linear-gradient(#0000, #00000008 5px, #0000001f 10px, #00000043 15px, #00000070 20px, #000000a0 25px, #000000ce 30px, #000000f1 35px, #000 40px);
+    mask: linear-gradient(#0000, #00000008 5px, #0000001f 10px, #00000043 15px, #00000070 20px, #000000a0 25px, #000000ce 30px, #000000f1 35px, #000 40px);
+  }
+}
+
+@supports (padding: round(up, 1px, 4px)) {
+  .cta-bar {
+    padding-bottom: round(up, var(--cta-bottom), var(--space-4));
+  }
+}
+
+.cta-bar[hidden] {
+  display: none;
+}
+
+.cta-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: calc(var(--column) - 2 * var(--gutter));
+  min-height: 48px;
+  margin: 0 auto;
+  padding: 0 var(--space-24);
+  border: 0;
+  border-radius: 24px;
+  background: var(--tone-solid);
+  box-shadow: var(--surface-shadow);
+  color: #fff;
+  font: inherit;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-strong);
+  line-height: var(--lh-body);
+  cursor: pointer;
+}
+
+.cta-button:focus-visible {
+  outline: 2px solid var(--tone-solid);
+  outline-offset: 4px;
+}
+
+.cta-label {
+  overflow-x: hidden;
+  overflow-x: clip;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cta-spinner {
+  position: absolute;
+  inset: 0;
+  width: 24px;
+  height: 24px;
+  margin: auto;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.cta-button.is-busy {
+  cursor: progress;
+}
+
+.cta-button.is-busy .cta-content {
+  opacity: 0;
+}
+
+.cta-button.is-busy .cta-spinner {
+  opacity: 1;
+  animation: spin 0.8s linear infinite;
+}
+
+.cta-button[aria-disabled='true'] {
+  background: var(--fill);
+  box-shadow: none;
+  color: var(--hint);
+  cursor: default;
+}
