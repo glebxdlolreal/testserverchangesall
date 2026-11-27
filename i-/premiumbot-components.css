@@ -64,23 +64,15 @@
   height: var(--snap, 0px);
 }
 
-/* Islands (design §11.7): every section and card is a tile straight on the page, with no plate, group background or
-   tinted box behind it: one surface and one hairline inside its edge, its only contour. Colour by background-color,
-   so a chosen option's wash layers over it. Pressed or hovered, a tile takes its stronger surface in place; a row
-   inside one lies on the tile already and takes only the veil that ends on the same colour. Positioned, so a tile
-   can host the parts laid over it (.plan-fill, .plan-tab). */
+/* Islands (design §11.7): every section and card is a raised surface straight on the page, with no plate, group
+   background or tinted box behind it. Colour by background-color, so emphasis washes layer over it as images. Pressed
+   or hovered, an island darkens in place instead of turning see-through. */
 .island {
-  --press: var(--island-press);
-  --hover-bg: var(--island-hover);
-  position: relative;
+  --press: color-mix(in srgb, var(--island-surface), rgb(127 127 127) 20%);
+  --hover-bg: color-mix(in srgb, var(--island-surface), rgb(127 127 127) 10%);
   border-radius: var(--island-radius);
   background-color: var(--island-surface);
   box-shadow: var(--island-shadow);
-}
-
-.island .is-tappable {
-  --press: var(--pressed);
-  --hover-bg: var(--hover);
 }
 
 /* Section */
@@ -88,25 +80,19 @@
   margin: 0 var(--section-inset) var(--section-gap);
 }
 
-/* A section's label is a caption over its tiles, the same on every screen and platform: the readable grey, the
-   caption's size and weight, in sentence case. A client's grouped-list header, in capitals or in the accent, belongs
-   to a settings list. */
-/* A section's name and its note start on the tiles' own left edge and end on their right one: one line down the
-   page for the tiles and for the words between them. Set 16 px in, as a list's are, they stood on a line of their
-   own, between the tiles' edge and the icons 12 px inside it. */
 .section-header {
   display: flex;
   align-items: baseline;
   gap: var(--space-8);
-  padding: 0 0 var(--space-8);
-  color: var(--secondary-text);
-  font-size: var(--fs-small);
-  font-weight: var(--fw-caption);
-  line-height: var(--lh-small);
-  /* A section's name is a label over its tiles, in capitals a step apart, so it does not read as one more line of
-     the page's words. */
+  padding: 0 var(--space-16) var(--space-8);
+  color: var(--section-header);
+  font-size: var(--fs-section-header);
+  font-weight: var(--fw-section-header);
+  line-height: var(--lh-section-header);
+}
+
+.platform-ios .section-header {
   text-transform: uppercase;
-  letter-spacing: 0.04em;
 }
 
 /* A header that cannot hold its line takes a second one, 16 px down, the trailing count on its first baseline. */
@@ -124,7 +110,6 @@
   overflow-wrap: anywhere;
   text-align: end;
   text-transform: none;
-  letter-spacing: 0;
 }
 
 .section-body {
@@ -136,34 +121,8 @@
   display: none;
 }
 
-/* A section whose rows are tiles of their own (section--tiles, with island on each row): 12 px apart, where the kit's
-   rows share one island and a hairline. A row is 52 px tall on one line or as tall as its two lines, its name in the
-   title weight, as a plan tile's, and its chevron in the caption colour whole: the one sign that the tile opens. */
-.section--tiles > .section-body {
-  display: grid;
-  gap: var(--space-12);
-  overflow: visible;
-}
-
-.section--tiles .cell {
-  min-height: 52px;
-}
-
-.section--tiles .cell + .cell::before {
-  display: none;
-}
-
-.section--tiles .cell-title {
-  font-weight: var(--fw-title);
-}
-
-.section--tiles .cell-chevron {
-  color: var(--secondary-text);
-  opacity: 1;
-}
-
 .section-footer {
-  padding: var(--space-8) 0 0;
+  padding: var(--space-8) var(--space-16) 0;
   color: var(--secondary-text);
   font-size: var(--fs-small);
   line-height: var(--lh-small-wrap);
@@ -174,8 +133,12 @@
   color: var(--link);
 }
 
-/* Cards: each row its own tile, 12 px apart; inset on every platform, with 10 px over and under its content and 16
-   at its sides, so a tile of two lines is 64 tall and a tile of one 48. */
+.platform-android .section-header,
+.platform-desktop .section-header {
+  color: var(--accent);
+}
+
+/* Cards: each row its own island, 8 px apart, inset on every platform. */
 .section--cards {
   margin-inline: var(--gutter);
 }
@@ -183,12 +146,17 @@
 .section--cards .section-body {
   display: flex;
   flex-direction: column;
-  gap: var(--space-12);
+  gap: var(--space-8);
   overflow: visible;
 }
 
 .section--cards .section-body > .cell {
-  padding: calc(var(--space-8) + 2px) var(--space-16);
+  padding: var(--space-12) var(--space-16);
+}
+
+/* A tab on a card below another needs 12 px of gap for its upper half. */
+.section--cards .section-body > .plan-emphasis--strong:not(:first-child) {
+  margin-top: var(--space-4);
 }
 
 .section--cards .cell + .cell::before {
@@ -209,7 +177,8 @@
   --sep-inset: var(--space-16);
 }
 
-.cell + .cell::before {
+.cell + .cell::before,
+.cell + .cell-group::before {
   content: '';
   position: absolute;
   top: 0;
@@ -277,7 +246,6 @@
 .cell-subtitle {
   color: var(--secondary-text);
   font-size: var(--fs-small);
-  font-weight: var(--fw-caption);
   line-height: var(--lh-small);
   overflow-wrap: break-word;
   overflow-wrap: anywhere;
@@ -286,6 +254,10 @@
 
 .cell-subtitle--wrap {
   line-height: var(--lh-small-wrap);
+}
+
+.cell-subtitle.is-invalid {
+  color: var(--destructive-ink);
 }
 
 .cell-trail {
@@ -336,9 +308,17 @@
   white-space: nowrap;
 }
 
+/* In a row the words beside an amount move as one run, which breaks a word only where one cannot fit; in a centred
+   badge they stay plain text, centred as text. */
+.cell-value .value-run {
+  display: inline-block;
+  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
 /* Where a word must break (a German compound in a row, a card or a header), it breaks at a hyphen the pack's language
    allows (main.ts sets <html lang>) before it breaks anywhere. English interface copy keeps whole words, as Apple's. */
-:root:not(:lang(en)) :is(.cell-title, .cell-subtitle, .cell-value, .section-header, .gift-card-unit, .gift-card-saving, .pack-count, .limits-row) {
+:root:not(:lang(en)) :is(.cell-title, .cell-subtitle, .cell-value, .section-header, .gift-card-unit, .gift-card-saving, .pack-count, .limits-row, .limits-legend) {
   -webkit-hyphens: auto;
   hyphens: auto;
 }
@@ -383,6 +363,10 @@
   width: var(--avatar);
 }
 
+.cell--destructive {
+  color: var(--destructive-ink);
+}
+
 .cell--quiet {
   justify-content: center;
   text-align: center;
@@ -398,8 +382,23 @@
 }
 
 .cell[aria-disabled='true'] .cell-main,
-.cell:disabled .cell-main {
+.cell:disabled .cell-main,
+.cell.is-disabled .cell-main {
   opacity: 0.45;
+}
+
+/* A plan that cannot be bought dims its name and its radio; the line under it that says why stays as readable as
+   any. The name greys to the secondary text, which holds 4.5:1, rather than fading at the cells' 0.45, which does not. */
+.cell--plan.is-disabled .cell-main {
+  opacity: 1;
+}
+
+.cell--plan.is-disabled .cell-title {
+  color: var(--secondary-text);
+}
+
+.cell--plan.is-disabled .cell-check {
+  opacity: 0.3;
 }
 
 /* Pressed states (design §3): iOS flashes and fades on release, Android on press, desktop hovers. */
@@ -428,6 +427,23 @@
   background-color: var(--hover-bg, var(--hover));
 }
 
+/* WebKit before 16.2 has no color-mix(): there a pressed or hovered island keeps its surface and darkens under the
+   grey the mix takes in, as a veil, which paints the same colour. */
+@supports not (color: color-mix(in srgb, red, red)) {
+  .island {
+    --press: var(--island-surface);
+    --hover-bg: var(--island-surface);
+  }
+
+  :is(.platform-ios, .platform-android) :is(.island.is-tappable, .island .is-tappable):active:not([aria-disabled='true']):not(:disabled):not(.is-disabled) {
+    background-image: linear-gradient(var(--pressed), var(--pressed));
+  }
+
+  .platform-desktop :is(.island.is-tappable, .island .is-tappable):hover:not([aria-disabled='true']):not(:disabled):not(.is-disabled) {
+    background-image: linear-gradient(var(--hover), var(--hover));
+  }
+}
+
 .cell:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: -2px;
@@ -449,8 +465,9 @@
   flex: none;
   width: 24px;
   height: 24px;
-  border: var(--check-ring) solid var(--check-line);
+  border: var(--check-ring) solid var(--hint);
   border-radius: 50%;
+  opacity: 0.7;
   --check: var(--accent-fill);
   --check-ring: 1.5px;
 }
@@ -467,6 +484,7 @@
 .cell-input:checked + .cell-check {
   border-color: var(--check);
   background: var(--check);
+  opacity: 1;
 }
 
 .cell-input:checked + .cell-check .icon {
@@ -486,6 +504,7 @@
 
 .platform-android .cell-check {
   --check-ring: 2px;
+  opacity: 1;
 }
 
 .platform-android .cell-input:checked + .cell-check {
@@ -497,42 +516,33 @@
   opacity: 0;
 }
 
-/* A plan's lead is a designed disc, 28 px, the same on every platform, not the client's radio. At rest: a hollow
-   ring, 1.5 px with nothing inside, bright enough to read as an empty choice. Chosen: a disc in the tile's hue, lit
-   from above, springs out of the centre, the check after it; the ring stays under it, so the radio's own fill and
-   Android's dot are set aside. Transform and opacity alone, so the compositor runs it. The 4 px after the disc put
-   a plan's name on the text line of a row with an icon tile. */
-.cell--plan .cell-check,
-.cell--plan .cell-input:checked + .cell-check {
-  border: 0;
-  background: none;
-  box-shadow: inset 0 0 0 1.5px var(--disc-ring);
-}
-
-.cell--plan .cell-check {
-  width: 28px;
-  height: 28px;
-  margin-inline-end: var(--space-4);
-  transform: none;
-}
-
+/* A plan's radio pops when chosen: its disc, on Android the dot inside its ring,
+   springs out of the centre, the glyph after it. Transform and opacity alone, so the compositor runs it; the light
+   it stands on shows through Android's gap (.plan-fill). */
 .cell--plan .cell-check::before {
   content: '';
   position: absolute;
-  inset: 0;
+  inset: calc(-1 * var(--check-ring));
   border-radius: 50%;
-  background: var(--plan-disc);
+  background: var(--check);
   transform: scale(0);
 }
 
+.platform-android .cell--plan .cell-check::before {
+  inset: 4px;
+}
+
+.cell--plan .cell-input:checked + .cell-check {
+  background: transparent;
+  box-shadow: none;
+}
+
 .cell--plan .cell-check .icon {
-  color: var(--plan-check);
   transform: scale(0.4);
 }
 
 .cell--plan .cell-input:checked + .cell-check::before,
 .cell--plan .cell-input:checked + .cell-check .icon {
-  opacity: 1;
   transform: none;
 }
 
@@ -548,41 +558,22 @@
   }
 }
 
-/* Plan tiles (design §11.5), one build each: 44 px of content with 10 px over and under it, one thing a line. The disc,
-   then the name over the amount charged; at the end what a buyer compares, the price per month, large, with the
-   monthly plan's price struck out before it, over its caption. Both columns are a value line over a caption line, so
-   the captions share a baseline, and a name alone stands on the centre. What recommends a plan or prices its
-   discount is not inside: it is the pill on the tile's top edge (.plan-tab). One hue a tile, shared by its value
-   and its chosen state: gold on the recommended plan (below); on the others the value is white and the choice blue.
-   Isolated, so the chosen layer lies on the tile's own surface, under its content. */
+/* Plan rows (design §11.5): as tall as a body line over a small one, 64 px (68 on Android, whose small line is
+   20 px), with a saving or without. Left, on the row's centre: the radio and the plan name 17/20 regular with its
+   pill, no per-month line; only a plan that cannot be bought says so under it. Right: the billed price 17/20 bold
+   with the saving under it. Chosen: the plan lights round its radio and the radio pops; nothing moves. The only
+   outline on screen is Best Value's. Isolated, so its light lies on its own surface, under its content. */
 .cell--plan {
   isolation: isolate;
-  /* A price too long to stand beside the name, in a currency of many figures, goes under it, at the tile's end: the
-     tile grows by that line and nothing overlaps or is cut. */
-  flex-wrap: wrap;
-  row-gap: var(--space-4);
-  --plan-hue: var(--accent-fill);
-  --plan-disc: var(--disc-blue);
-  --plan-check: var(--button-text);
-  --plan-rate: var(--text);
+  min-height: calc(2 * var(--space-12) + var(--fs-body) * var(--lh-body) + var(--space-4) + var(--fs-small) * var(--lh-small));
 }
 
-/* Plan tiles stand 20 apart: the pill on a tile's top edge stands 12 px over the edge and 12 inside it, so it
-   clears the tile above by 8 and is nearer its own tile's name than the tile above. */
-.plans .section-body {
-  gap: calc(var(--space-16) + var(--space-4));
-}
-
-/* A pill on the first plan tile stands in the room over the plans. They start 16 px lower for it, so the pill keeps
-   clear of the title or the caption over it by what a first tile with no pill keeps, 20 px or a little more.
-   Without :has() the plans keep their place and the pill stands closer to the words over it. */
-.plans .section-body:has(> .cell--plan:first-child > .plan-tab) {
-  padding-top: var(--space-16);
-}
-
-/* The chosen option's tile: a white wash over the whole surface, with no hue in it, and, inside its edge, a 1.5 px
-   ring, which covers the tile's hairline: blue, or a plan tile's own hue. Both lie in one layer that fades in and
-   out in 200 ms on opacity alone; an option not chosen keeps its plain tile. */
+/* The chosen option's island lifts a little towards the screen's accent, one hue whatever its tier: one even tint
+   over the whole surface and a faint line of the same colour on its inner edge, which a Best Value ring covers. It
+   fades in and out in 200 ms on opacity alone; an option not chosen keeps its plain island, so a Best Value not
+   chosen never reads as chosen. Its pills lie on the plain island (Discount badge, screens-commerce.css), so no ink
+   depends on the lift. The tint and the edge are the accent at an opacity rather than a color-mix(), which WebKit
+   before 16.2 lacks. */
 .plan-fill,
 .plan-fill::before,
 .plan-fill::after {
@@ -603,11 +594,13 @@
 }
 
 .plan-fill::before {
-  background: var(--chosen-veil);
+  background: var(--tone-ink);
+  opacity: var(--chosen-a);
 }
 
 .plan-fill::after {
-  box-shadow: inset 0 0 0 1.5px var(--plan-hue, var(--accent-fill));
+  box-shadow: inset 0 0 0 1px var(--tone-ink);
+  opacity: var(--chosen-edge);
 }
 
 .cell-input:checked ~ .plan-fill {
@@ -620,181 +613,100 @@
   }
 }
 
-/* The left column keeps its width and the right one takes the rest, its block at the end. So a row too narrow for
-   both figures drops the struck one (.plan-rate-line), and only a value that still cannot fit squeezes the name. */
 .cell--plan .cell-main {
-  flex: 0 1 auto;
-}
-
-.cell--plan .cell-trail {
-  flex: 1 1 0%;
-  justify-content: flex-end;
-  max-width: none;
-}
-
-/* The name's line is as tall as the value's, the name on its centre. */
-.cell--plan .cell-title {
-  display: flex;
-  align-items: center;
-  min-height: calc(var(--fs-value) * var(--lh-value));
-  font-weight: var(--fw-title);
-}
-
-/* Under the name, a caption line: the amount charged. The saving in money stays in it for screen readers only
-   (base.css): the struck price and the pill's percent say it to the eye. */
-.plan-total {
-  display: flex;
-  color: var(--secondary-text);
-  font-size: var(--fs-small);
-  font-weight: var(--fw-caption);
-  line-height: var(--lh-small);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-
-/* The value block. Its hidden line keeps the price per month whole for screen readers; the shown one sets the
-   figures on a line and the caption under it. */
-.cell--plan .cell-trail .cell-subtitle {
-  display: block;
-}
-
-.plan-month {
-  display: block;
-  white-space: nowrap;
-}
-
-/* The figures' line is exactly one value line tall and laid from its end: the value first, the struck price before
-   it. Where the row cannot hold both, the struck price wraps to a second line, which the height cuts off, so it
-   drops out and nothing overlaps. */
-.plan-rate-line {
-  display: flex;
-  flex-flow: row-reverse wrap;
-  align-items: baseline;
-  column-gap: var(--space-8);
-  height: calc(var(--fs-value) * var(--lh-value));
-  overflow: hidden;
-}
-
-/* The price per month is the row's value (design §11.4): large and tabular, in the tile's hue or white. Bold on
-   every platform, also where the platform's title weight is lighter: it is what a buyer reads first. */
-.plan-rate {
-  color: var(--plan-rate);
-  font-size: var(--fs-value);
-  font-weight: 700;
-  line-height: var(--lh-value);
-  letter-spacing: -0.02em;
-  /* A price never breaks, whatever spaces its currency sets in it. */
-  white-space: nowrap;
-}
-
-/* The monthly plan's price, struck out by a bar of its own and not by the type: 2 px with round ends, tilted, 2 px
-   longer than the figure on both sides, which the padding makes room for inside the line. A size under the body on
-   the value's baseline: it reads at a glance and stays plainly second to the value. */
-.plan-was {
-  position: relative;
-  order: 1;
-  padding-inline: 2px;
-  color: var(--struck);
-  font-size: var(--fs-sub);
-  font-weight: var(--fw-medium);
-  line-height: var(--lh-sub);
-  text-decoration: none;
-}
-
-.plan-was::after {
-  content: '';
-  position: absolute;
-  inset-inline: 0;
-  top: calc(50% - 1px);
-  height: 2px;
-  border-radius: 1px;
-  background: var(--strike);
-  transform: rotate(-8deg);
-}
-
-/* A plan with no discount has no amount line, no struck price and no pill, so its tile is one line and as tall as
-   that line: the name, and at the end the value, both on the value's baseline, the disc on the centre. The value
-   stands in the other tiles' value column, so its caption is not shown: the plan's own name already says it. The
-   server marks that tile (plan-lines--one). */
-.cell--plan.plan-lines--one {
-  align-items: baseline;
-}
-
-.plan-lines--one .cell-check {
-  align-self: center;
-}
-
-.cell--plan.plan-lines--one .cell-title {
-  min-height: 0;
-}
-
-.plan-lines--one .plan-month {
-  display: flex;
-  align-items: baseline;
-}
-
-.plan-lines--one .plan-unit {
-  display: none;
-}
-
-/* The card the server prints until it prints the tile above: the amount charged is the value, at the end over the
-   saving, and the percent is a green pill after the name. */
-.plan-amounts {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
   gap: var(--space-4);
 }
 
-.plan-amounts .plan-price {
+.plan-title {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.cell--plan .cell-check {
+  --check: var(--tone);
+}
+
+/* The right column spans the row and centres the price with its saving as a pair, or a lone price. */
+.cell--plan .cell-trail {
+  align-self: stretch;
+  align-items: stretch;
   color: var(--text);
-  font-size: var(--fs-value);
-  font-weight: var(--fw-title);
-  line-height: var(--lh-value);
-  letter-spacing: -0.02em;
 }
 
-.plan-title > .badge {
-  display: inline-block;
-  margin-inline-start: var(--space-8);
-  padding: 0 var(--space-8);
-  border-radius: var(--badge-radius);
-  background: var(--pill-fill);
-  color: var(--pill-ink);
-  font-size: var(--fs-badge);
-  font-weight: var(--fw-badge);
-  line-height: var(--lh-pill);
-  white-space: nowrap;
+.plan-amounts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: var(--space-4);
+  height: 100%;
 }
 
-/* Plan emphasis (design §11.5, experiment plan_emphasis). Strong, Best Value, is the recommendation, and gold says
-   so: on a plan tile the pill on its edge, the value and, when chosen, the ring and the disc, whose check
-   takes the ink that reads on gold. Unchosen it keeps the plain hairline. Any other position: relative card that
-   sets its colour with background-color can take the class (gift durations, packs) and carries the tab alone. The
-   tier classes beside it (plan-tier--N) colour nothing. */
+/* Plan emphasis (design §11.5, experiment plan_emphasis). Strong, Best Value, carries the ring in the bright gradient
+   and the tab, nothing more; soft keeps only the tinted pill every row has. Any
+   position: relative card that sets its colour with background-color can take the class (gift durations, packs). */
 .plan-emphasis--strong {
   isolation: isolate;
 }
 
-.cell--plan.plan-emphasis--strong {
-  --plan-hue: var(--value-gold);
-  --plan-disc: var(--disc-gold);
-  --plan-check: var(--gold-ink);
-  --plan-rate: var(--value-gold);
+/* The ring, selected or not: masked out of a full layer, so it takes no room. The tab stacks over it; the aura
+   (fx.css .neon-aura) glows outside it. */
+.plan-emphasis--strong::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: var(--best-ring);
+  border-radius: inherit;
+  background: var(--best-border);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  pointer-events: none;
 }
 
-/* The saving is the price's caption, in green. */
+/* The tier ladder (design §11.5, plan_emphasis graded): each rung gives its option an ink, a tint and a fill. A plan
+   row colours its discount pill alone, tiers 1 and 2 the ink on its tint, tier 3 the fill under white; the radio keeps
+   the screen's tone, the names and prices stay neutral. Gift cards take the rest (screens-commerce.css). */
+.plan-tier--1 {
+  --tier-ink: var(--tier-1-ink);
+  --tier-press-ink: var(--tier-1-press-ink);
+  --tier-tint: var(--tier-1-tint);
+  --tier-fill: var(--tier-1);
+}
+
+.plan-tier--2 {
+  --tier-ink: var(--tier-2-ink);
+  --tier-tint: var(--tier-2-tint);
+  --tier-fill: var(--tier-2);
+}
+
+.plan-tier--3 {
+  --tier-ink: var(--tier-3-ink);
+  --tier-tint: var(--tier-3-tint);
+  --tier-fill: var(--tier-3);
+}
+
+.plan-tier--3 .badge {
+  background: var(--tier-fill);
+  color: #fff;
+}
+
+/* Green on every tier, so the saving never reads as the discount. */
 .plan-saving {
   color: var(--saving-ink);
   font-size: var(--fs-small);
   font-weight: var(--fw-medium);
-  line-height: var(--lh-small-wrap);
+  line-height: var(--lh-small);
 }
 
-/* Best Value tab: a sparkle and the label in a solid pill, 12/16, centred on the card's top edge at its end side; the
-   line's height holds with the sparkle alone too (gift cards). The sparkle is drawn here, not in the translated
-   label. Placed absolutely, so the card's content does not move; any position: relative card with its own stacking
-   context can host it. */
+/* Best Value tab: a sparkle and the label on the deep gradient, 12/16, centred on the card's top edge at its end
+   side; the line's height holds with the sparkle alone too (gift cards). The sparkle is drawn here, not in the
+   translated label. Placed absolutely, so the card's content does not move; any position: relative card with its own
+   stacking context can host it. The tab makes none of its own, so the glint and the sparkle's flare light its fill
+   and pass under the sparkle and the label (design.md §11.9): the fill at 1, the light at 2, the sparkle and the
+   label at 3, all over the ring. */
 .plan-tab {
   position: absolute;
   top: calc(var(--fs-tab) * var(--lh-tab) / -2);
@@ -805,7 +717,6 @@
   height: calc(var(--fs-tab) * var(--lh-tab));
   padding: 0 var(--space-8);
   border-radius: var(--badge-radius);
-  background: var(--best-fill);
   color: var(--best-on-fill);
   font-size: var(--fs-tab);
   font-weight: var(--fw-tab);
@@ -814,65 +725,359 @@
   pointer-events: none;
 }
 
-/* On a plan tile the tab is a pill a full pill tall on the middle of the top edge, so the edge runs through the
-   middle of its words, where the minus of a percent is; its start is on the line the names start on, after the
-   disc, and the tile's end holds the price alone. Opaque, so it covers the chosen ring under it. Best Value's is
-   gold under the gold's ink and also holds the percent saved, after a thin divider; a discount alone is the blue
-   pill with its percent. Both are flat: one solid colour, no light on the edge. */
-.cell--plan > .plan-tab {
-  top: calc(var(--fs-badge) * var(--lh-pill) / -2);
-  inset-inline: calc(2 * var(--space-16) + 28px) auto;
-  height: calc(var(--fs-badge) * var(--lh-pill));
-  background: var(--value-gold);
-  color: var(--gold-ink);
-}
-
-.cell--plan > .plan-tab--save {
-  background: var(--pill-fill);
-  color: var(--pill-ink);
-}
-
-/* The divider: 8 px after the label and 8 px before the percent, 12 px tall in the ink at 30%. */
-.plan-tab-label + .badge {
-  position: relative;
-  margin-inline-start: var(--space-4);
-  padding-inline-start: calc(var(--space-8) + 1px);
-}
-
-.plan-tab-label + .badge::before {
+.plan-tab::before {
   content: '';
   position: absolute;
-  inset-inline-start: 0;
-  top: calc(50% - 6px);
-  width: 1px;
-  height: 12px;
-  background: currentColor;
-  opacity: 0.3;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: var(--best-fill);
 }
 
-/* The label stands in the pill's middle by its capitals, where the engine can cut the line down to them: by the
-   line's own box a face with a tall ascent, Segoe or Roboto, sets it a pixel low. */
-@supports (text-box: trim-both cap alphabetic) {
-  .plan-tab-label,
-  .plan-tab > .badge {
-    text-box: trim-both cap alphabetic;
-  }
-
-  /* A word mostly of small letters, "Popular", looks low when its one capital is in the middle: half a pixel up
-     sets the middle between the capital's and the small letters'. */
-  .plan-tab-label {
-    margin-top: -1px;
-  }
+.plan-tab-label {
+  z-index: 3;
 }
 
 /* The 10 px glyph in a box 12 px tall, centred in the 16 px line, so the box keeps to the 4 px grid. */
 .plan-tab-spark {
+  z-index: 3;
   flex: none;
   width: 10px;
   height: 12px;
   background: currentColor;
   -webkit-mask: url(../img/premiumbot/ui-sparkle.svg) center / 10px 10px no-repeat;
   mask: url(../img/premiumbot/ui-sparkle.svg) center / 10px 10px no-repeat;
+}
+
+/* The sparkle's flare (src/fx/light.ts bestValueGlint): the tone's light round it, white at its heart, over the fill
+   and under the sparkle and the label, on the (1 − t²)² falloff. Still and clear until a breath's peak lights it. */
+.plan-tab-flare {
+  position: absolute;
+  top: calc(50% - 12px);
+  inset-inline-start: calc(var(--space-8) + 5px - 12px);
+  z-index: 2;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, #fff 90%, var(--glow-from)),
+    color-mix(in srgb, #fff 45%, var(--glow-from)) 30%,
+    color-mix(in srgb, var(--glow-from) 41%, transparent) 60%,
+    color-mix(in srgb, var(--glow-from) 13%, transparent) 80%,
+    transparent
+  );
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Best Value's glint (premiumbot-fx.js mountGlint, design.md §11.9): one light out of the sparkle, clockwise round the
+   card's ring and back into it. Its layer covers the ring and the 8 px gap outside it in nine stretches, the sides
+   and the corners from the sparkle on, so the light turns with the corners, never crosses the card's content and is
+   spent before the next card; over the ring and the tab's fill, under the sparkle it leaves from and the label.
+   Across the band the light is whole over the ring and falls to nothing over the gap on the (1 − t²)² falloff
+   (--glint-haze from the gap's outer edge in, --glint-haze-turn from a corner's centre out, its inner edge softened
+   within the ring's own width); its white core keeps to the ring and 3 px of the gap.
+   The layer's mask is clear but for the tab's box, which the script measures: there the light keeps a quarter of its
+   strength, so the white label holds 3:1 over the lit fill, and none at the sparkle's centre, which it leaves and
+   enters softly. */
+.plan-glint {
+  --glint-out: var(--space-8);
+  --glint-haze:
+    #0000, #00000021 calc(var(--glint-out) * 0.2), #00000069 calc(var(--glint-out) * 0.4),
+    #000000b5 calc(var(--glint-out) * 0.6), #000000eb calc(var(--glint-out) * 0.8), #000 var(--glint-out);
+  --glint-haze-turn:
+    #0000 calc(var(--glint-radius) - var(--best-ring)), #000 calc(var(--glint-radius) - var(--best-ring) + 1px),
+    #000 var(--glint-radius), #000000eb calc(var(--glint-radius) + var(--glint-out) * 0.2),
+    #000000b5 calc(var(--glint-radius) + var(--glint-out) * 0.4), #00000069 calc(var(--glint-radius) + var(--glint-out) * 0.6),
+    #00000021 calc(var(--glint-radius) + var(--glint-out) * 0.8), #0000 calc(var(--glint-radius) + var(--glint-out));
+  --glint-core: #0000 calc(var(--glint-out) - 3px), #000 var(--glint-out);
+  --glint-core-turn:
+    #0000 calc(var(--glint-radius) - var(--best-ring)), #000 calc(var(--glint-radius) - var(--best-ring) + 1px),
+    #000 var(--glint-radius), #0000 calc(var(--glint-radius) + 3px);
+  position: absolute;
+  inset: calc(-1 * var(--glint-out));
+  z-index: 2;
+  -webkit-mask:
+    linear-gradient(
+        90deg,
+        #0000,
+        #000000bf 6px,
+        #000000bf calc(var(--glint-spark) - 6px),
+        #000 var(--glint-spark),
+        #000000bf calc(var(--glint-spark) + 6px),
+        #000000bf calc(100% - 6px),
+        #0000
+      )
+      var(--glint-tab) no-repeat,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(
+        90deg,
+        #0000,
+        #000000bf 6px,
+        #000000bf calc(var(--glint-spark) - 6px),
+        #000 var(--glint-spark),
+        #000000bf calc(var(--glint-spark) + 6px),
+        #000000bf calc(100% - 6px),
+        #0000
+      )
+      var(--glint-tab) no-repeat exclude,
+    linear-gradient(#000 0 0);
+  pointer-events: none;
+}
+
+/* A stretch of the band: the script sizes it and moves its light through it. */
+.plan-glint-part {
+  position: absolute;
+  overflow: hidden;
+}
+
+/* A side's light, as long as the light is: its strength along its way is the script's (--glint-run: the front, the
+   peak, the long afterglow). The ring's colour lies over the gap alone, so on the ring the white lights the ring's own
+   colours. Unlit it stands its own length before the side's start, out of sight. */
+.plan-glint-beam {
+  --glint-hue: var(--glow-from);
+  position: absolute;
+  -webkit-mask: linear-gradient(var(--glint-way), var(--glint-run)), linear-gradient(var(--glint-across), var(--glint-haze));
+  -webkit-mask-composite: source-in, source-over;
+  mask: linear-gradient(var(--glint-way), var(--glint-run)) intersect, linear-gradient(var(--glint-across), var(--glint-haze));
+}
+
+.plan-glint-part.is-end > .plan-glint-beam {
+  --glint-hue: var(--glow-to);
+}
+
+/* Down the left and the right the ring keeps one colour. */
+.plan-glint-beam:empty {
+  background: linear-gradient(var(--glint-across), var(--glint-hue) var(--glint-out), #0000 var(--glint-out));
+}
+
+/* Along the top and the bottom it changes under the light: the colours lie in the light as wide as the card, and the
+   script moves them against it, so they stay with the ring. */
+.plan-glint-hue {
+  position: absolute;
+  background: linear-gradient(90deg, var(--glow-from) var(--glint-radius), var(--glow-to) calc(100% - var(--glint-radius)));
+}
+
+/* The head: a round white bloom on the light's peak, where the script puts it (--glint-bloom), over the colours. */
+.plan-glint-beam::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgb(255 255 255 / var(--glint-white));
+  -webkit-mask: radial-gradient(circle 9px at var(--glint-bloom), #000, #000000eb 20%, #000000b5 40%, #00000069 60%, #00000021 80%, #0000);
+  mask: radial-gradient(circle 9px at var(--glint-bloom), #000, #000000eb 20%, #000000b5 40%, #00000069 60%, #00000021 80%, #0000);
+}
+
+/* The core: the head's white (tokens.css --glint-white), thinning down the tail as the script draws it. */
+.plan-glint-beam::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgb(255 255 255 / var(--glint-white));
+  -webkit-mask: linear-gradient(var(--glint-way), var(--glint-run-core)), linear-gradient(var(--glint-across), var(--glint-core));
+  -webkit-mask-composite: source-in, source-over;
+  mask: linear-gradient(var(--glint-way), var(--glint-run-core)) intersect, linear-gradient(var(--glint-across), var(--glint-core));
+}
+
+/* A corner's light: the same strengths along a conic gradient, which the script turns about the corner's centre, and
+   across the band on circles round that centre. Clear until the script lights it. */
+.plan-glint-part.is-turn > .plan-glint-beam {
+  background: radial-gradient(circle, #0000 calc(var(--glint-radius) - 0.5px), var(--glint-hue) calc(var(--glint-radius) + 0.5px));
+  opacity: 0;
+  -webkit-mask: conic-gradient(var(--glint-arc)), radial-gradient(circle, var(--glint-haze-turn));
+  -webkit-mask-composite: source-in, source-over;
+  mask: conic-gradient(var(--glint-arc)) intersect, radial-gradient(circle, var(--glint-haze-turn));
+}
+
+.plan-glint-part.is-turn > .plan-glint-beam::after {
+  -webkit-mask: conic-gradient(var(--glint-arc-core)), radial-gradient(circle, var(--glint-core-turn));
+  -webkit-mask-composite: source-in, source-over;
+  mask: conic-gradient(var(--glint-arc-core)) intersect, radial-gradient(circle, var(--glint-core-turn));
+}
+
+/* The glint's way out of the tab (premiumbot-fx.js mountGlint): the same light the tab's height, over its fill from the
+   sparkle to its end, where the ring's light takes over, so the run is seen to leave the tab. Under the flare, the
+   sparkle and the label; clear left of the sparkle's centre, which it leaves softly, and down to --glint-tab-end of
+   itself at the tab's end (tokens.css). The script sizes and moves it. */
+.plan-tab-run {
+  --glint-hue: var(--glow-to);
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: inherit;
+  -webkit-mask: linear-gradient(90deg, #0000 var(--glint-spark), #000 calc(var(--glint-spark) + 6px), #000 calc(100% - 20px), rgb(0 0 0 / var(--glint-tab-end)));
+  mask: linear-gradient(90deg, #0000 var(--glint-spark), #000 calc(var(--glint-spark) + 6px), #000 calc(100% - 20px), rgb(0 0 0 / var(--glint-tab-end)));
+  pointer-events: none;
+}
+
+.plan-tab-ray,
+.plan-tab-ray::before,
+.plan-tab-ray::after {
+  position: absolute;
+}
+
+.plan-tab-ray::before,
+.plan-tab-ray::after {
+  content: '';
+  inset: 0;
+}
+
+/* Its colour at half strength, so the label stays readable in the afterglow. */
+.plan-tab-ray::before {
+  background: var(--glint-hue);
+  -webkit-mask: linear-gradient(90deg, var(--glint-run)), linear-gradient(#00000080, #00000080);
+  -webkit-mask-composite: source-in, source-over;
+  mask: linear-gradient(90deg, var(--glint-run)) intersect, linear-gradient(#00000080, #00000080);
+}
+
+.plan-tab-ray::after {
+  background: rgb(255 255 255 / var(--glint-tab-white));
+  -webkit-mask: radial-gradient(circle 9px at var(--glint-bloom), #000, #000000eb 20%, #000000b5 40%, #00000069 60%, #00000021 80%, #0000);
+  mask: radial-gradient(circle 9px at var(--glint-bloom), #000, #000000eb 20%, #000000b5 40%, #00000069 60%, #00000021 80%, #0000);
+}
+
+/* Before WebKit 16.2 the flare cannot mix its light: it takes its hue whole under an alpha mask on the same falloff,
+   a white heart over it. The glint mixes no colours, so it paints the same there. */
+@supports not (color: color-mix(in srgb, red, red)) {
+  .plan-tab-flare {
+    background: radial-gradient(closest-side, rgb(255 255 255 / 0.9), rgb(255 255 255 / 0) 60%) var(--glow-from);
+    -webkit-mask: radial-gradient(closest-side, #000 30%, #00000069 60%, #00000021 80%, #0000);
+    mask: radial-gradient(closest-side, #000 30%, #00000069 60%, #00000021 80%, #0000);
+  }
+}
+
+/* The billed price leads the right column: bold at the body size, in the text colour (design §11.4). */
+.plan-price {
+  color: var(--text);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-strong);
+  line-height: var(--lh-body);
+  font-variant-numeric: tabular-nums;
+}
+
+.price-regular {
+  color: var(--secondary-text);
+  text-decoration: line-through;
+}
+
+/* Discount badge: the screen's ink on its 12% tint (design §11.1), or its tier's, rounded numerals
+   (PremiumOptionComponent.swift). The 20 px line is the pill's height; 8 px sides keep the 4 px grid where Telegram
+   has 6. */
+.badge {
+  display: inline-block;
+  padding: 0 var(--space-8);
+  border-radius: var(--badge-radius);
+  background: var(--tier-tint, var(--tone-tint));
+  color: var(--tier-ink, var(--tone-ink));
+  font-family: var(--font-badge);
+  font-size: var(--fs-badge);
+  font-weight: var(--fw-badge);
+  line-height: var(--lh-pill);
+  white-space: nowrap;
+}
+
+/* On a plan the tint lies on the plain island, opaque, so a chosen option's lift (.plan-fill) leaves the pill and its
+   4.5:1 ink as they are; tier 3's pill is its own opaque fill already. Pressed or hovered, the pill takes its row's
+   surface as the row does, at the row's pace, and an ink a step further from it that keeps 4.5:1 there; the upgrade
+   offer presses its cards as one (screens-subscription.css). */
+.cell--plan:not(.plan-tier--3) .badge {
+  background-color: var(--island-surface);
+  background-image: linear-gradient(var(--tier-tint, var(--tone-tint)), var(--tier-tint, var(--tone-tint)));
+}
+
+.platform-ios .cell--plan:not(.plan-tier--3) .badge {
+  transition: background-color 0.45s ease-out, color 0.45s ease-out;
+}
+
+.platform-ios :is(.is-tappable:active:not([aria-disabled='true']):not(:disabled):not(.is-disabled), .upgrade-offer:active) :is(.cell--plan:not(.plan-tier--3) .badge) {
+  background-color: var(--press, var(--pressed));
+  color: var(--tier-press-ink, var(--violet-press-ink));
+  transition: none;
+}
+
+.platform-android .cell--plan:not(.plan-tier--3) .badge {
+  transition: background-color 0.15s ease-out, color 0.15s ease-out;
+}
+
+.platform-android :is(.is-tappable:active:not([aria-disabled='true']):not(:disabled):not(.is-disabled), .upgrade-offer:active) :is(.cell--plan:not(.plan-tier--3) .badge) {
+  background-color: var(--press, var(--pressed));
+  color: var(--tier-press-ink, var(--violet-press-ink));
+}
+
+.platform-desktop :is(.is-tappable:hover:not([aria-disabled='true']):not(:disabled):not(.is-disabled), .upgrade-offer:hover) :is(.cell--plan:not(.plan-tier--3) .badge) {
+  background-color: var(--hover-bg, var(--hover));
+  color: var(--tier-press-ink, var(--violet-press-ink));
+}
+
+/* Before 16.2 the row darkens under a veil (above), so its pill takes the same veil under its tint. */
+@supports not (color: color-mix(in srgb, red, red)) {
+  :is(.platform-ios, .platform-android) :is(.is-tappable:active:not([aria-disabled='true']):not(:disabled):not(.is-disabled), .upgrade-offer:active) :is(.cell--plan:not(.plan-tier--3) .badge) {
+    background-image: linear-gradient(var(--tier-tint, var(--tone-tint)), var(--tier-tint, var(--tone-tint))), linear-gradient(var(--pressed), var(--pressed));
+  }
+
+  .platform-desktop :is(.is-tappable:hover:not([aria-disabled='true']):not(:disabled):not(.is-disabled), .upgrade-offer:hover) :is(.cell--plan:not(.plan-tier--3) .badge) {
+    background-image: linear-gradient(var(--tier-tint, var(--tone-tint)), var(--tier-tint, var(--tone-tint))), linear-gradient(var(--hover), var(--hover));
+  }
+}
+
+/* On an offer (src/ui/screens/subscription-ui.ts offerShimmer: the upgrade screen and the upgrade offers), Best
+   Value's discount shimmers: once a breath a soft band of light, a raised cosine that peaks at 25 % white, sweeps
+   through the pill in 2 s centred on the breath's low (src/fx/light.ts), half a breath from the peak where the ring's
+   own light is brightest. Only the band's transform moves; the pill clips it, under the white numerals. Unlit, under
+   reduced motion and in snap mode, the band waits outside the pill. */
+.offer-shimmer .plan-tier--3 .badge {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.offer-shimmer .plan-tier--3 .badge::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgb(255 255 255 / 0),
+    rgb(255 255 255 / 0.037) 12.5%,
+    rgb(255 255 255 / 0.125) 25%,
+    rgb(255 255 255 / 0.213) 37.5%,
+    rgb(255 255 255 / 0.25) 50%,
+    rgb(255 255 255 / 0.213) 62.5%,
+    rgb(255 255 255 / 0.125) 75%,
+    rgb(255 255 255 / 0.037) 87.5%,
+    rgb(255 255 255 / 0)
+  );
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+.offer-shimmer.neon-lit .plan-tier--3 .badge::after {
+  animation: badge-shimmer 8s linear var(--neon-delay, 0s) infinite;
+}
+
+/* Motion reduced while lit: still at once, before the light catches up. */
+.fx-reduce .offer-shimmer .plan-tier--3 .badge::after {
+  animation: none;
+}
+
+@keyframes badge-shimmer {
+  0%,
+  37.5% {
+    transform: translateX(-100%);
+    animation-timing-function: ease-in-out;
+  }
+
+  62.5%,
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 /* Hero */
@@ -884,7 +1089,8 @@
   text-align: center;
 }
 
-/* Hero rhythm (design §11.3): 24 px under the header with the screen's 16, the mark, 16, title, 8, subtitle, 32. */
+/* Hero rhythm (design §11.3): 24 px under the header with the screen's 16, the mark, 16, title, 8, subtitle, 32.
+   The stage behind paints the only glow. */
 .hero-media {
   position: relative;
   margin-bottom: var(--space-16);
@@ -895,20 +1101,7 @@
   font-size: var(--fs-hero);
   font-weight: var(--fw-title);
   line-height: var(--lh-hero);
-  letter-spacing: -0.02em;
   text-wrap: balance;
-}
-
-/* The title is a screen's one coloured text: its star's gradient cut to its glyphs, with a soft glow of the same
-   colours. Where the cut is missing it keeps its plain colour. */
-@supports ((-webkit-background-clip: text) or (background-clip: text)) {
-  .hero-title {
-    background: var(--title-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: var(--title-glow);
-  }
 }
 
 .hero-subtitle {
@@ -916,7 +1109,6 @@
   margin-top: var(--space-8);
   color: var(--secondary-text);
   font-size: var(--fs-sub);
-  font-weight: var(--fw-caption);
   line-height: var(--lh-sub);
   text-wrap: balance;
 }
@@ -925,9 +1117,8 @@
   display: none;
 }
 
-/* Emphasis inside subtitles is semibold in the text colour, over the caption grey of the rest. */
+/* Emphasis inside subtitles is semibold in the subtitle's own colour (PremiumIntroScreen.swift markdown). */
 :is(.hero-subtitle, .result-text) b {
-  color: var(--text);
   font-weight: var(--fw-strong);
 }
 
@@ -972,88 +1163,81 @@
   display: none;
 }
 
-/* Banner: a glass tile, 16 px of padding all round, with white words centred on an icon tile. The icon tile carries
-   the banner's one hue, the strike's red for an error, and is built as .icon-tile is: the colour, the sheen over it,
-   the rim, a white glyph on the 30 px face. Its words are the tile's own point in 15/20; under a title they step down
-   to the secondary ink (src/ui/components/banner.ts splitLead). */
+.lottie-celebrate {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Banner: the glyph in the radio cells' column and as large as their radio, 22 px on iOS and
+   desktop (a 24 px box at 0.9167) and 24 px on Android, centred on the first line; an error's title, its point, in red
+   over the rest in the secondary ink (src/ui/components/banner.ts splitLead). */
 .banner {
-  --banner-hue: var(--accent-fill);
+  --banner-line: calc(var(--fs-small) * var(--lh-small-wrap));
+  --radio: 22px;
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-12);
   margin: 0 var(--gutter) var(--space-16);
-  padding: var(--space-16);
+  padding: var(--space-12) var(--space-16);
+  padding-inline-start: calc(var(--space-16) + 24px + var(--space-12));
   color: var(--text);
-  font-size: var(--fs-sub);
-  font-weight: var(--fw-medium);
-  line-height: var(--lh-sub);
+  font-size: var(--fs-small);
+  line-height: var(--lh-small-wrap);
   text-align: start;
 }
 
-.banner--warning {
-  --banner-hue: var(--warning);
+.platform-android .banner {
+  --radio: 24px;
 }
 
-.banner--error {
-  --banner-hue: var(--strike);
+.banner--titled {
+  --banner-line: calc(var(--fs-sub) * var(--lh-sub));
 }
 
 button.banner {
   width: calc(100% - 2 * var(--gutter));
 }
 
+/* The glyph's box is the first line, so a one-line banner is as tall as its line; the glyph overflows it. */
 .banner-mark {
-  position: relative;
-  flex: none;
-  width: var(--tile-box);
-  height: var(--tile-box);
-  border: calc((var(--tile-box) - var(--tile)) / 2) solid transparent;
-  border-radius: calc(var(--tile-radius) + (var(--tile-box) - var(--tile)) / 2);
-  background: var(--banner-hue) padding-box;
-  isolation: isolate;
-}
-
-.banner-mark::before,
-.banner-mark::after {
-  content: '';
   position: absolute;
-  inset: 0;
-  border-radius: var(--tile-radius);
-  pointer-events: none;
+  top: var(--space-12);
+  inset-inline-start: var(--space-16);
+  width: 24px;
+  height: var(--banner-line);
 }
 
-.banner-mark::before {
-  background: linear-gradient(rgb(255 255 255 / 0.14), rgb(255 255 255 / 0));
-  mix-blend-mode: plus-lighter;
-}
-
-.banner-mark::after {
-  background: url(../img/premiumbot/tile-backdrop.png) center / 100% 100% no-repeat;
-  mix-blend-mode: overlay;
-}
-
-/* The glyph's box is the tile's face, so its mask is centred on the tile. Its ring is 20 px across: ui-warning's
-   spans 21.9 of its 28 units, ui-info's 21.33 of 30. */
 .banner-icon {
   position: absolute;
-  z-index: 1;
-  inset: 0;
-  width: auto;
-  height: auto;
-  color: #fff;
-  -webkit-mask-size: 20px;
-  mask-size: 20px;
+  top: calc(50% - 14px);
+  inset-inline-start: -2px;
+  width: 28px;
+  height: 28px;
+  color: var(--accent);
+  -webkit-mask-size: var(--radio);
+  mask-size: var(--radio);
 }
 
+/* The rings: ui-warning's spans 21.9 of its 28 units, ui-info's 21.33 of 30. */
 .banner-icon[data-icon='ui-warning'] {
-  -webkit-mask-size: calc(20px * 28 / 21.9);
-  mask-size: calc(20px * 28 / 21.9);
+  -webkit-mask-size: calc(var(--radio) * 28 / 21.9);
+  mask-size: calc(var(--radio) * 28 / 21.9);
 }
 
 .banner-icon[data-icon='ui-info'] {
-  -webkit-mask-size: calc(20px * 30 / 21.33);
-  mask-size: calc(20px * 30 / 21.33);
+  -webkit-mask-size: calc(var(--radio) * 30 / 21.33);
+  mask-size: calc(var(--radio) * 30 / 21.33);
+}
+
+.banner--warning .banner-icon {
+  color: var(--warning);
+}
+
+.banner--error .banner-icon {
+  color: var(--destructive);
 }
 
 .banner-body {
@@ -1064,8 +1248,14 @@ button.banner {
 }
 
 .banner-title {
+  font-size: var(--fs-sub);
   font-weight: var(--fw-strong);
+  line-height: var(--lh-sub);
   text-wrap: pretty;
+}
+
+.banner--error .banner-title {
+  color: var(--destructive-ink);
 }
 
 .banner-text {
@@ -1073,13 +1263,14 @@ button.banner {
 }
 
 .banner--titled .banner-text {
-  font-size: var(--fs-small);
-  line-height: var(--lh-small-wrap);
+  color: var(--secondary-text);
 }
 
-.banner--titled .banner-text {
-  color: var(--secondary-text);
-  font-weight: var(--fw-caption);
+.banner-action {
+  flex: none;
+  min-height: 20px;
+  color: var(--accent);
+  font-weight: var(--fw-medium);
 }
 
 /* Avatars: photo or initials on the Telegram peer palette (AvatarNode.swift gradientColors). */
@@ -1104,6 +1295,141 @@ button.banner {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.cell-remove {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-inline-end: calc(-1 * var(--space-12));
+  color: var(--hint);
+}
+
+/* Chips: one choice of numbers; scrolls sideways on narrow screens. */
+.chips {
+  display: flex;
+  gap: var(--space-8);
+  padding: var(--space-8) var(--space-16);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.chips::-webkit-scrollbar {
+  display: none;
+}
+
+.chip {
+  position: relative;
+  display: inline-block;
+  flex: none;
+  padding-block: var(--space-4);
+  cursor: pointer;
+}
+
+.chip-face {
+  display: inline-grid;
+  place-items: center;
+  min-width: 48px;
+  height: 36px;
+  padding: 0 var(--space-16);
+  border-radius: 18px;
+  background: var(--fill);
+  font-weight: var(--fw-medium);
+  transition: background-color 0.15s ease-out, color 0.15s ease-out;
+}
+
+/* Selected: the tone's solid under white, as the chosen gift's price pill; selection draws no ring (design §11.8). */
+.cell-input:checked + .chip-face {
+  background: var(--tone-solid);
+  color: #fff;
+}
+
+.cell-input:focus-visible + .chip-face {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.platform-desktop .chip:hover .cell-input:not(:checked) + .chip-face {
+  background: var(--pressed);
+}
+
+/* Segmented control: two segments, full width, Telegram's SegmentedControlNode.swift: 32 px with a radius of 9, each
+   segment half of it, the thumb 2 px inside its segment with a radius of 8, labels 14 regular and semibold when
+   chosen. The thumb is a layer under the label, so the 2 px takes no padding and every box stays on the 4 px grid. */
+.segmented {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 var(--gutter) var(--section-gap);
+  border-radius: 9px;
+  background: var(--fill);
+}
+
+.segment {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.segment-face {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: 32px;
+  padding: 0 var(--space-12);
+  font-size: var(--fs-segment);
+  font-weight: 400;
+  line-height: var(--lh-segment);
+}
+
+.segment-face::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  z-index: -1;
+  border-radius: 8px;
+  transition: background-color 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+/* A segment that is a link to its page has no input: it carries the state as .is-active and takes the focus itself. */
+.cell-input:checked + .segment-face,
+.segment.is-active .segment-face {
+  font-weight: var(--fw-strong);
+}
+
+.cell-input:checked + .segment-face::before,
+.segment.is-active .segment-face::before {
+  background: var(--thumb);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+.cell-input:focus-visible + .segment-face::before,
+.segment:focus-visible .segment-face::before {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.platform-android .segmented {
+  border-radius: 20px;
+}
+
+.platform-android .segment-face::before {
+  border-radius: 16px;
+}
+
+/* The tone's ink falls to 3.5:1 on its tint over the track (giveaways, Android light): a step more of the
+   text keeps 4.5:1. */
+.platform-android .cell-input:checked + .segment-face,
+.platform-android .segment.is-active .segment-face {
+  color: color-mix(in srgb, var(--tone-ink) 70%, var(--text));
+}
+
+.platform-android .cell-input:checked + .segment-face::before,
+.platform-android .segment.is-active .segment-face::before {
+  background: var(--tone-tint);
+  box-shadow: none;
 }
 
 /* Text area: auto-growing, four lines minimum. */
@@ -1131,6 +1457,19 @@ button.banner {
   opacity: 1;
 }
 
+.field-counter {
+  display: block;
+  margin-top: var(--space-4);
+  color: var(--secondary-text);
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  text-align: end;
+}
+
+.field-counter.is-over {
+  color: var(--destructive-ink);
+}
+
 /* Underline and outline are drawn as inset shadows: they take no room and focus moves nothing. */
 .platform-android .field textarea {
   padding-bottom: var(--space-8);
@@ -1151,6 +1490,110 @@ button.banner {
   box-shadow: inset 0 0 0 1px var(--accent);
 }
 
+/* Skeletons breathe at 1.2 s, no sweep (design §11.5); static under reduced motion. */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--skeleton);
+  animation: skeleton-breathe 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes skeleton-breathe {
+  to {
+    opacity: 0.6;
+  }
+}
+
+/* A 12 px bar centred in a 20 px line, so a skeleton row is as tall as the row it stands for. */
+.skeleton-line {
+  height: 12px;
+  margin-block: var(--space-4);
+  border-radius: 6px;
+}
+
+.skeleton-circle {
+  border-radius: 50%;
+}
+
+.skeleton-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-8) var(--gutter) var(--space-32);
+}
+
+.skeleton-hero .skeleton-circle {
+  margin-bottom: var(--space-16);
+}
+
+.skeleton-hero .skeleton-title {
+  margin-block: var(--space-4);
+}
+
+.skeleton-hero .skeleton-line {
+  margin-top: var(--space-12);
+}
+
+.skeleton-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  min-height: var(--cell-min);
+  padding: var(--space-12) var(--space-16);
+}
+
+/* As a .cell: one line with its tile is as tall as one without. */
+.skeleton-cell--tile {
+  padding-block: var(--space-4);
+}
+
+.skeleton-tile {
+  flex: none;
+  width: var(--tile-box);
+  height: var(--tile-box);
+  border-radius: var(--tile-radius);
+}
+
+/* The home's sketch takes each line the paywall home lands with (src/ui/components/skeleton.ts homeSkeleton), so the
+   first load shows no jump. The stage's 120 px mark, its title's line, then the subtitle 8 px under it:
+   two lines in iOS's 15 px, where the copy wraps, one in Android's 14 and desktop's 13. */
+.skeleton-hero--stage .skeleton-title {
+  height: calc(var(--fs-hero) * var(--lh-hero) - 8px);
+}
+
+.skeleton-hero--stage .skeleton-line + .skeleton-line {
+  margin-top: var(--space-4);
+}
+
+:root:not(.platform-ios) .skeleton-hero--stage .skeleton-line + .skeleton-line {
+  height: 0;
+  margin: 0;
+}
+
+/* A plan card is as tall as a plan row (.cell--plan), its one line on the centre; the terms under the cards keep the
+   footer's. */
+.skeleton-screen--home .section--cards .skeleton-cell {
+  min-height: calc(2 * var(--space-12) + var(--fs-body) * var(--lh-body) + var(--space-4) + var(--fs-small) * var(--lh-small));
+}
+
+.skeleton-screen--home .section-footer .skeleton-line {
+  margin-block: calc((var(--fs-small) * var(--lh-small-wrap) - 12px) / 2);
+}
+
+/* The features row is as tall as its 24 px chevron with 12 px around it. */
+.skeleton-screen--home > .section:last-child .skeleton-cell {
+  min-height: calc(24px + 2 * var(--space-12));
+}
+
+/* Snap mode (src/core/snap.ts) shoots hidden pages, where a running animation may never paint. */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+  }
+}
+
+.fx-snap .skeleton,
 .fx-snap .cell-busy {
   animation: none;
 }
@@ -1172,7 +1615,7 @@ button.banner {
   padding: var(--space-12) var(--space-16);
   border-radius: var(--card-radius);
   background: var(--toast);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 4px 24px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.24);
   color: #fff;
   font-size: var(--fs-sub);
   line-height: var(--lh-sub);
@@ -1215,6 +1658,38 @@ button.banner {
   margin-bottom: var(--space-16);
 }
 
+.result-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-title);
+  line-height: var(--lh-hero);
+  text-wrap: balance;
+}
+
+.result-text {
+  max-width: 34em;
+  color: var(--secondary-text);
+  margin-top: var(--space-8);
+  font-size: var(--fs-sub);
+  line-height: var(--lh-sub);
+  text-wrap: balance;
+}
+
+.result-text:empty {
+  display: none;
+}
+
+/* Rows bleed out of the padding so their sections take the screen's own side insets. */
+.result-rows {
+  align-self: stretch;
+  margin: var(--space-32) calc(-1 * var(--gutter)) 0;
+  text-align: start;
+}
+
+.result-rows .section {
+  margin-bottom: 0;
+}
+
 /* Stars */
 /* Inline amounts sit on the 20 px line: a 20 px glyph, top-aligned so the line box does not grow. The glyphs are
    Telegram's shaded stars (Premium/Stars/StarSmall and StarLarge, in colour), not a tinted mask. */
@@ -1232,12 +1707,6 @@ button.banner {
   background: url(../img/premiumbot/star-small.svg) center / contain no-repeat;
   -webkit-mask: none;
   mask: none;
-}
-
-/* An amount of Stars as a row's value takes the gold of its icon: one hue a row. */
-.cell-value > .stars {
-  color: var(--value-gold);
-  font-weight: var(--fw-title);
 }
 
 /* The balance: rounded numerals (StarsBalanceComponent.swift, 48 rounded semibold). */
@@ -1308,3 +1777,19 @@ button.banner {
   background: url(../img/premiumbot/star-part.svg) 0 0 / 100% 100% no-repeat;
 }
 
+/* Open in Telegram, outside the client: no native buttons there. */
+.link-button {
+  display: inline-grid;
+  place-items: center;
+  min-height: 48px;
+  margin-top: var(--space-24);
+  padding: 0 var(--space-24);
+  border-radius: 12px;
+  background: var(--button);
+  color: var(--button-text);
+  font-weight: var(--fw-strong);
+}
+
+.theme-dark .toast {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 4px 24px rgba(0, 0, 0, 0.24);
+}

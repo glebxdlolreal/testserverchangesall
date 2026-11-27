@@ -1407,7 +1407,6 @@ var Assets = {
       $(document).on('submit.curPage', '.js-put-to-auction-form', Assets.ePutToAuctionSubmit);
       $(document).on('click.curPage', '.js-cancel-auction-btn', Assets.eCancelAuction);
       $(document).on('click.curPage', '.js-sell-username-btn', Assets.eSellUsername);
-      $(document).on('click.curPage', '.js-change-price-btn', Assets.eChangePrice);
       $(document).on('submit.curPage', '.js-sell-username-form', Assets.eSellUsernameSubmit);
       state.$assignPopup = $('.js-assign-popup');
       state.$assignForm = $('.js-assign-form');
@@ -1780,7 +1779,6 @@ var Assets = {
           Aj.state.$sellUsernameForm.reset();
           Aj.state.$sellUsernameForm.field('username').value(username);
           Aj.state.$sellUsernameForm.data('item_title', item_title);
-          Aj.state.$sellUsernameForm.data('change_price', false);
         },
         onOpenComplete: function() {
           Aj.state.$sellUsernameForm.field('sell_value').value(def_bid).trigger('input').focusAndSelect();
@@ -1807,45 +1805,17 @@ var Assets = {
       doSellUsername();
     }
   },
-  eChangePrice: function(e) {
-    e.stopImmediatePropagation();
-    e.preventDefault();
-    $(this).closeDropdown();
-    var $actions = $(this).closest('.js-actions');
-    var username = $actions.attr('data-username');
-    var item_title = $actions.attr('data-item-title');
-    var item_thumb = $actions.attr('data-item-thumb');
-    var def_bid  = $actions.attr('data-def-bid');
-    $('.js-username', Aj.state.$sellUsernamePopup).html(item_title);
-    $('.js-item-thumb', Aj.state.$sellUsernamePopup).attr('src', '').redraw().attr('src', item_thumb);
-    openPopup(Aj.state.$sellUsernamePopup, {
-      onOpen: function() {
-        Aj.state.$sellUsernameForm.reset();
-        Aj.state.$sellUsernameForm.field('username').value(username);
-        Aj.state.$sellUsernameForm.data('item_title', item_title);
-        Aj.state.$sellUsernameForm.data('change_price', true);
-      },
-      onOpenComplete: function() {
-        Aj.state.$sellUsernameForm.field('sell_value').value(def_bid).trigger('input').focusAndSelect();
-      }
-    });
-  },
   eSellUsernameSubmit: function(e) {
     e.preventDefault();
     var $form = $(this);
     var username = $form.field('username').value();
     var item_title = Aj.state.$sellUsernameForm.data('item_title');
     var sell_amount = Main.amountFieldValue($form, 'sell_value');
-    var change_price = !!Aj.state.$sellUsernameForm.data('change_price');
     closePopup(Aj.state.$sellUsernamePopup);
     Wallet.sendTransaction({
       request: {
-        method: change_price ? 'getChangePriceLink' : 'getStartAuctionLink',
-        params: change_price ? {
-          type: Aj.state.type,
-          username: username,
-          amount: sell_amount
-        } : {
+        method: 'getStartAuctionLink',
+        params: {
           type: Aj.state.type,
           username: username,
           min_amount: sell_amount,

@@ -1,91 +1,210 @@
-/* Design tokens. The app paints its own page in one palette, the night one, whatever scheme the client is in: no
-   colour here follows the client's theme (--tg-theme-bg-color and the other --tg-theme-* values are not read), and
-   the theme class the page script sets changes nothing. Every text pair
-   is measured: 4.5:1 or better at rest, pressed, hovered and chosen, 7:1 for a pill's small label on its fill. */
+/* Design tokens: docs/product/design.md §2–3 and §11. Theme values come from the bridge as --tg-theme-*;
+   the --fb-* fallbacks apply outside Telegram and before the bridge has run. */
 
 :root {
-  /* Telegram's night blues under white type. The page runs from --page-top under the header, down the first stage, to
-     --page. The page script hands both to the client as its header and background colours, so they stay plain hex. */
-  --page: #0a101c;
-  --page-top: #101a2c;
-  /* A tile is white glass at 6% with a hairline at 11% inside its edge, so depth comes from tone and the line, never
-     from a shadow. Then the surface pressed and hovered, and the veils a row inside one takes over it, which end on
-     the same colours. --section is the glass over the page as one opaque colour, for a part that must cover what lies
-     under it. */
-  --island-surface: rgba(255, 255, 255, 0.06);
-  --island-line: rgba(255, 255, 255, 0.11);
-  --island-press: rgba(255, 255, 255, 0.1);
-  --island-hover: rgba(255, 255, 255, 0.08);
-  --pressed: rgba(255, 255, 255, 0.045);
-  --hover: rgba(255, 255, 255, 0.02);
-  --section: #191e2a;
-  --separator: rgba(255, 255, 255, 0.08);
-  --fill: rgba(255, 255, 255, 0.06);
+  --fb-page: #efeff4;
+  --fb-section: #ffffff;
+  --fb-text: #000000;
+  --fb-hint: #8e8e93;
+  --fb-link: #007aff;
+  --fb-button: #007aff;
+  --fb-button-text: #ffffff;
+  --fb-destructive: #ff3b30;
+  --fb-separator: rgba(60, 60, 67, 0.29);
+  /* Islands stay raised but crisp (design §11.7): a contact line and one short shadow pulled in under the island, so
+     12 px gaps stay the page colour. */
+  --island-shadow: 0 1px 2px rgb(0 0 0 / 0.05), 0 6px 14px -8px rgb(0 0 0 / 0.12);
+  --contact-shadow: rgba(0, 0, 0, 0.3);
+  /* Accent text on the section colour and on its 12% tint, tuned for 4.5:1. */
+  --violet-ink: #6a4cf0;
+  /* The tier ladder's inks on their 12% tints (design §11.5). A pill's label is 12 to 13 px, so these hold 7:1, not
+     the 4.5:1 of running text; tier 2 takes a deeper step of the violet for the same reason. */
+  --tier-1-ink: #07518a;
+  --violet-pill-ink: #4c37ad;
+  --tier-3-ink: #812378;
+  /* A plan's pill pressed or hovered takes its row's darker surface (components.css): these inks keep 7:1 there. */
+  --violet-press-ink: #3c2991;
+  --tier-1-press-ink: #064a7c;
+  /* The saving line in Apple's accessible systemGreen, the same under every Telegram theme; in light a step darker
+     than its #248a3d (4.40:1 on white), the lightest that holds 4.5:1 on every light island in every state, chosen,
+     hovered and pressed together included. */
+  --saving-ink: #1a6e2f;
+  /* The lift of a chosen option's island (components.css .plan-fill):
+     the screen's accent ink at the opacity --chosen-a over the whole island and --chosen-edge on its inner edge; every
+     text on it holds 4.5:1. */
+  --chosen-a: 0.08;
+  --chosen-edge: 0.24;
+  /* Best Value's glint (src/fx/light.ts bestValueGlint): how white its head burns and how strong its light is. On a
+     light page white reads as a break in the ring, so the light keeps to the ring's own colours; on the tab's fill
+     its head keeps its white through the label and half of it at the tab's end, short of washing the end out. */
+  --glint-white: 0%;
+  --glint-tab-white: 70%;
+  --glint-tab-end: 0.5;
+  --glint-a: 95%;
+  --skeleton: rgba(118, 118, 128, 0.2);
+  /* Light (design.md §11.9). Light theme: the sources in saturated colour over a white bloom, no grey haze. The
+     page's fireflies are pastels a hair under the page's luminance (iOS #efeff4): they colour the gaps and set the
+     white islands off more, never lifting the page towards them, and Premium's violet ink keeps 4.5:1 on them under
+     the grain's darkest pixel. Premium's run from indigo at the page's top to magenta at its end, with as
+     much colour as sRGB holds at that luminance. */
+  --neon-blur: 14px;
+  --neon-spread: -6px;
+  --neon-lean: 8px;
+  --neon-a: 100%;
+  --neon-core: 70%;
+  --neon-contact: 0 1px 2px rgb(0 0 0 / 0.05);
+  --rim-line: transparent;
+  --pool-base: rgb(255 255 255 / 0.95);
+  --pool-top: 24%;
+  --pool-a: 24%;
+  --fly-from: #ebeeff;
+  --fly-to: #ffe8f9;
+  --fly-blend: normal;
+  --page-top-a: 8%;
+  --page-top-base: #fff;
+  /* The light field's grain (fx.css .fx-light::after): black and white noise this strong moves a pixel about one 8-bit
+     level, which breaks a gradient's steps and reads as none. Light pages step less and carry the thinnest text over
+     the field (a footer link keeps 4.5:1 on its darkest grain), so they take less. */
+  --light-grain-a: 0.006;
+  color-scheme: light;
+}
+
+:root.theme-dark {
+  --fb-page: #000000;
+  --fb-section: #1c1c1d;
+  --fb-text: #ffffff;
+  --fb-hint: #98989e;
+  --fb-link: #3e88f7;
+  --fb-button: #3e88f7;
+  --fb-destructive: #eb5545;
+  --fb-separator: rgba(84, 84, 88, 0.65);
+  --fill: rgba(118, 118, 128, 0.24);
   --thumb: rgba(255, 255, 255, 0.2);
   --toast: rgba(58, 58, 60, 0.96);
+  /* Dark islands: a deep drop shadow and no top highlight, so no cell catches a glint. */
+  --island-shadow: 0 10px 24px -8px rgb(0 0 0 / 0.55);
+  --contact-shadow: rgba(0, 0, 0, 0.5);
+  --violet-ink: #a593ff;
+  --tier-1-ink: #8fd9fa;
+  --violet-pill-ink: #cdc4ff;
+  --tier-3-ink: #f7bdf0;
+  --violet-press-ink: #d6ceff;
+  --tier-1-press-ink: #a3dffb;
+  /* Tiers 1 and 2 at 20%: at 12% their pills would read as one slate on dark islands. */
+  --tier-1-tint: rgba(66, 155, 213, 0.2);
+  --tier-2-tint: rgba(115, 86, 246, 0.2);
+  --saving-ink: #30d158;
+  --chosen-a: 0.1;
+  --chosen-edge: 0.28;
+  --glint-white: 85%;
+  --glint-tab-white: 85%;
+  --glint-tab-end: 1;
+  --glint-a: 100%;
   --skeleton: rgba(235, 235, 245, 0.12);
-  --text: #ffffff;
-  /* Captions, then the quiet text of footers: --hint holds 4.5:1 on the page and on a tile at rest, not on one pressed
-     or chosen. Marks take it at 60%. An old price is a step lighter, so it holds 4.5:1 on a tile in every state; the
-     bar that strikes it out is the one red of a view. */
-  --secondary-text: #c9d3e0;
-  --hint: #7e8aa0;
-  --struck: #8f9bb1;
-  --strike: #ff453a;
-  /* Colour is rationed to icons, the title, one value a row and pills, and each hue has one job: blue is choice and
-     action, gold the recommendation, green a saving. Blue as text, on the page and on a tile in every state, and the
-     tint that lies under it. */
-  --accent: #4da3ff;
-  --tone-tint: rgba(77, 163, 255, 0.16);
-  --saving-ink: #34c759;
-  /* Gold: a recommended row's value and the pill on its edge, and its tile's ring when chosen. What stands
-     on gold, a label or a glyph, takes --gold-ink: white reads 1.6:1 to 2.4:1 there. */
-  --value-gold: #ffc43d;
-  --gold-ink: #231600;
-  /* An option's disc: a hollow ring until chosen, 3.9:1 or better on a tile at rest and pressed, so it reads as an
-     empty choice and not as a control switched off; then a disc lit from above, blue, or the recommended row's
-     gold. */
-  --disc-ring: rgba(255, 255, 255, 0.45);
-  --disc-blue: linear-gradient(#4da3ff, #2e8bff);
-  --disc-gold: linear-gradient(#fec80f, #f0931a);
-  /* A chosen option's tile takes a faint wash under its ring, white on every tile: a hue in it muddies the glass.
-     An unchosen radio's ring, 3:1 or better on a tile at rest. */
-  --chosen-veil: rgba(255, 255, 255, 0.045);
-  --check-line: rgba(255, 255, 255, 0.3);
-  --destructive: #eb5545;
-  /* Red text: the destructive colour a step towards the text. Glyphs and fills keep --destructive. */
-  --destructive-ink: #f1887d;
-  /* A title is cut from its screen's star: the star's blue and violet, running the way its light does, from the lit
-     upper left to the violet of its far arm. The glow behind it is the two colours' mix. */
-  --title-gradient: linear-gradient(100deg, #6cc0ff, #55a5ff 30%, #8a80ff 68%, #a767ff);
-  --title-glow: drop-shadow(0 0 10px rgba(110, 130, 255, 0.42));
+  /* Dark (design.md §11.9): black cells on Premium's indigo night. The islands are the section colour 62%
+     over bg_color, a neutral near-black (#1b1b1d on iOS) that no tone tints; the page is the tone at 18% over
+     bg_color, and the fireflies rise to about the islands' luminance, so a cell reads as black glass on coloured light
+     and its hue sets it apart. Over a lighter bg_color (Android, desktop) they lie under the page, so the violet ink
+     keeps its contrast on them. Stars and giveaways keep bg_color itself (below). */
+  --page: color-mix(in srgb, #22208f 18%, var(--tg-theme-bg-color, #000000));
+  --island-surface: color-mix(in srgb, var(--tg-theme-section-bg-color, #2c2c2e) 62%, var(--tg-theme-bg-color, #000000));
+  --neon-blur: 14px;
+  --neon-spread: -6px;
+  --neon-lean: 10px;
+  --neon-a: 100%;
+  --neon-core: 70%;
+  /* An aura card keeps a contact line only: a deep drop shadow would darken the glow under it. */
+  --neon-contact: 0 1px 2px rgb(0 0 0 / 0.3);
+  --pool-base: transparent;
+  --pool-top: 30%;
+  --pool-a: 26%;
+  --fly-from: #0d0b4a;
+  --fly-to: #2c0a42;
+  --page-top-a: 22%;
+  --page-top-base: var(--page);
+  --light-grain-a: 0.01;
   color-scheme: dark;
 }
 
-/* On a Stars screen the star is gold, and so is the title cut from it. A giveaway of Stars has that star too. */
-.tone-stars,
-.commerce--giveaway-stars {
-  --title-gradient: linear-gradient(100deg, #ffe58a, #fec846 36%, #f0971b);
-  --title-glow: drop-shadow(0 0 10px rgba(255, 196, 61, 0.3));
+@media (prefers-color-scheme: dark) {
+  :root:not(.theme-light) {
+    --fb-page: #000000;
+    --fb-section: #1c1c1d;
+    --fb-text: #ffffff;
+    --fb-hint: #98989e;
+    --fb-link: #3e88f7;
+    --fb-button: #3e88f7;
+    --fb-destructive: #eb5545;
+    --fb-separator: rgba(84, 84, 88, 0.65);
+    --fill: rgba(118, 118, 128, 0.24);
+    --thumb: rgba(255, 255, 255, 0.2);
+    --toast: rgba(58, 58, 60, 0.96);
+    --island-shadow: 0 10px 24px -8px rgb(0 0 0 / 0.55);
+    --contact-shadow: rgba(0, 0, 0, 0.5);
+    --violet-ink: #a593ff;
+    --tier-1-ink: #8fd9fa;
+    --violet-pill-ink: #cdc4ff;
+    --tier-3-ink: #f7bdf0;
+    --violet-press-ink: #d6ceff;
+    --tier-1-press-ink: #a3dffb;
+    --tier-1-tint: rgba(66, 155, 213, 0.2);
+    --tier-2-tint: rgba(115, 86, 246, 0.2);
+    --saving-ink: #30d158;
+    --chosen-a: 0.1;
+    --chosen-edge: 0.28;
+    --glint-white: 85%;
+    --glint-tab-white: 85%;
+    --glint-tab-end: 1;
+    --glint-a: 100%;
+    --skeleton: rgba(235, 235, 245, 0.12);
+    --page: color-mix(in srgb, #22208f 18%, var(--tg-theme-bg-color, #000000));
+    --island-surface: color-mix(in srgb, var(--tg-theme-section-bg-color, #2c2c2e) 62%, var(--tg-theme-bg-color, #000000));
+    --neon-blur: 14px;
+    --neon-spread: -6px;
+    --neon-lean: 10px;
+    --neon-a: 100%;
+    --neon-core: 70%;
+    --neon-contact: 0 1px 2px rgb(0 0 0 / 0.3);
+    --pool-base: transparent;
+    --pool-top: 30%;
+    --pool-a: 26%;
+    --fly-from: #0d0b4a;
+    --fly-to: #2c0a42;
+    --page-top-a: 22%;
+    --page-top-base: var(--page);
+    --light-grain-a: 0.01;
+    color-scheme: dark;
+  }
 }
 
 :root {
-  --link: var(--accent);
-  /* Blue as a fill: under a white glyph, a radio's disc, and as a chosen tile's ring. The pay button runs through the
-     title's blues, and --tone-solid is their mid tone: the one colour under the button's light, and the one the
-     client's MainButton takes. It is too light for white, which reads 2.7:1 on it: a label on it takes
-     --tone-solid-ink, 4.5:1 or better over the button's whole height at rest and pressed. A fill that stands under
-     white figures takes --tone-deep, 4.7:1. */
-  --accent-fill: #2e8bff;
-  --tone-solid: #46a2ff;
-  --tone-solid-press: #1e7ad7;
-  --tone-solid-ink: #010b1c;
-  --tone-deep: #1a6fe8;
-  --button: var(--tone-deep);
-  --button-text: #ffffff;
-  /* Section headers are secondary text. */
+  --page: var(--tg-theme-secondary-bg-color, var(--fb-page));
+  --section: var(--tg-theme-section-bg-color, var(--tg-theme-bg-color, var(--fb-section)));
+  --text: var(--tg-theme-text-color, var(--fb-text));
+  --hint: var(--tg-theme-hint-color, var(--fb-hint));
+  --subtitle: var(--tg-theme-subtitle-text-color, var(--hint));
+  /* Text a user must read in the secondary grey: --hint and --subtitle fall under 4.5:1 on some Telegram themes, and
+     the text at 62% over the page is the lightest mix that passes them all; 70% keeps a margin over the
+     light behind the hero. Placeholders and marks keep --hint. */
+  --secondary-text: color-mix(in srgb, var(--text) 70%, var(--page));
+  --link: var(--tg-theme-link-color, var(--fb-link));
+  --accent: var(--tg-theme-accent-text-color, var(--link));
+  --button: var(--tg-theme-button-color, var(--fb-button));
+  --button-text: var(--tg-theme-button-text-color, var(--fb-button-text));
+  --destructive: var(--tg-theme-destructive-text-color, var(--fb-destructive));
+  /* Red text: the theme's destructive colour a step towards the text, as iOS's #ff3b30 is 3.6:1 on white and its
+     dark #eb5545 3.9:1 on a dark island. Glyphs and fills keep --destructive. */
+  --destructive-ink: color-mix(in srgb, var(--destructive) 70%, var(--text));
+  /* Section headers are secondary text: iOS's #6d6d72 is 4.49:1 on #efeff4. */
   --section-header: var(--secondary-text);
+  --separator: var(--tg-theme-section-separator-color, var(--fb-separator));
 
+  /* Neutral overlays that read on light and dark sections alike. */
+  --pressed: rgba(127, 127, 127, 0.2);
+  --hover: rgba(127, 127, 127, 0.1);
+  --fill: rgba(118, 118, 128, 0.12);
+  --thumb: #ffffff;
+  --toast: rgba(30, 30, 32, 0.92);
   --success: #34c759;
   --warning: #ff9500;
 
@@ -100,33 +219,61 @@
   --space-48: 48px;
   --space-64: 64px;
 
-  /* The hero gradient, PremiumUI/Sources/IncreaseLimitHeaderItem.swift: the flat mark's glyph is drawn in it. */
+  /* The hero gradient, PremiumUI/Sources/IncreaseLimitHeaderItem.swift. The hero mark and its glow use it; tier 3 of
+     the ladder below is the one other place gradients live (design §11.5). */
   --brand-1: #6b93ff;
   --brand-2: #976fff;
   --brand-3: #e46ace;
   --brand-gradient: linear-gradient(90deg, var(--brand-1), var(--brand-2), var(--brand-3));
-  /* The two colours the flat mark's twinkles run between. */
+  /* Premium's light (design.md §11.9): one family from indigo to magenta, in both themes. Best Value's ring
+     is its bright form and its tab the deep one, every stop of which carries its 12 px white label at 7:1 or better. */
   --premium-from: #5c48ff;
   --premium-to: #e03fc6;
+  --premium-ring: linear-gradient(90deg, #5d5cff, #8f4dff, #e64fc8);
+  --premium-tab: linear-gradient(90deg, #3f34cc, #6436ca, #923083);
 
-  /* One accent on every screen, blue; gold stays in the Stars art and in a recommended row. Stars gold:
-     TelegramUI/Components/Stars/StarsPurchaseScreen/Sources/StarsPurchaseScreen.swift line 805. Blue-violet is ramp
-     20, behind the boost and giveaway animations' stand-ins. */
+  /* One accent hue per screen (design §11.1): violet on Premium, gold on Stars, the theme's accent on giveaways; on
+     Stars the gold stays in the art and the controls take the theme. Badges are the ink
+     on its 12% tint. Stars gold: TelegramUI/Components/Stars/StarsPurchaseScreen/Sources/StarsPurchaseScreen.swift
+     line 805. Blue-violet is ramp 20, the violet's blue neighbour, behind the boost and giveaway animations'
+     stand-ins. */
+  --violet: #7356f6;
+  --violet-tint: rgba(115, 86, 246, 0.12);
   --stars-gold: #f9b004;
   --gold-tint: rgba(249, 176, 4, 0.12);
   --blue-violet: #5b79ff;
-  /* The accent by its jobs on a screen: a fill and text, the text over --tone-tint. */
-  --tone: var(--accent-fill);
-  --tone-ink: var(--accent);
-  /* Pills are solid, each under a dark ink of its own hue at 7:1 or better: a discount's blue, a step lighter than
-     the ring a chosen plan takes, and the Best Value tab in the value blue, where white would read 2.6:1; on a plan
-     tile that tab is gold under --gold-ink. A discount was green once: the one green on the plans, a third hue
-     beside the gold of the recommended plan and the blue of a choice. In blue the two labels rank, gold over blue,
-     and a chosen plan has its ring, its disc and its label in one hue. */
-  --pill-fill: #4da3ff;
-  --pill-ink: #021127;
-  --best-fill: #4da3ff;
-  --best-on-fill: #021127;
+  /* The tier ladder of plan_emphasis graded (design §11.5): Best Value is tier 3, the other options step down from it
+     by saving along Telegram's Premium spectrum (the --ramp-* tiles below). Tier 1 is its blue (ramp 23), tier 2 the
+     violet, tier 3 its magentas (ramps 11 to 9), in light and dark. The deep gradient's blue, ramp 22 and Telegram's
+     Premium gift ribbon (#747bf6 → #e367d8) read as the violet at a glance on a small pill. */
+  --tier-1: #429bd5;
+  --tier-1-tint: rgba(66, 155, 213, 0.12);
+  --tier-2: var(--violet);
+  --tier-2-ink: var(--violet-pill-ink, var(--violet-ink));
+  --tier-2-tint: var(--violet-tint);
+  /* Deep enough for the pill's small white label to hold 7:1 on every stop. */
+  --tier-3: linear-gradient(90deg, #823895, #8f3371);
+  --tier-3-tint: linear-gradient(90deg, rgb(171 74 196 / 0.12), rgb(188 67 149 / 0.12));
+  --tone: var(--violet);
+  --tone-ink: var(--violet-ink);
+  --tone-tint: var(--violet-tint);
+  /* The MainButton's fill under white text at 4.5:1. */
+  --tone-solid: var(--violet);
+  /* Fills that carry a white glyph (radio checks): the theme accent, or the tone on a toned screen. */
+  --accent-fill: var(--accent);
+  /* Best Value's ring and tab carry two gradients and no more: the 2 px ring in the bright
+     one and the tab in the deep one under --best-on-fill. Per tone below. Its tier 3 fills are the magenta one. */
+  --best-border: var(--premium-ring);
+  --best-ring: 2px;
+  --best-fill: var(--premium-tab);
+  --best-on-fill: #fff;
+  /* The light's two colours (design.md §11.9), the tone's by default; Best Value's runs to the end of its ring's. */
+  --glow-from: var(--premium-from);
+  --glow-to: var(--premium-to);
+  --best-glow-to: #e64fc8;
+  /* The page's top colour, lit by the tone, where a screen opens on its stage: the header takes it (src/fx/stage.ts),
+     and in fullscreen it runs up under the status bar. A screen without a stage starts on --page. */
+  --page-top: color-mix(in srgb, var(--glow-from) var(--page-top-a), var(--page-top-base));
 
   /* Icon tiles in Telegram's own colour per function, diagonal from the bottom left (PresentationResourcesSettings
      .swift: premium, stars, premiumGift, support, faq, security). Native tiles are outside the one-accent rule. */
@@ -165,12 +312,13 @@
   --ramp-25: #3eb26d;
   --ramp-26: #3dbd4a;
 
-  /* Shape and layout (design §11.3). Islands (§11.7): every section and card is a tile of one build, radius 16 with a
-     hairline inside its edge and no shadow. */
+  /* Shape and layout (design §11.3). Islands (§11.7): every section and card is a raised surface, radius 20 on iOS
+     and 16 elsewhere, on the section colour one step lighter than the page. */
   --column: 560px;
   --gutter: 16px;
-  --island-radius: 16px;
-  --island-shadow: inset 0 0 0 1px var(--island-line);
+  --island-radius: 20px;
+  --island-surface: var(--section);
+  --surface-shadow: var(--island-shadow);
   --section-radius: var(--island-radius);
   --card-radius: var(--island-radius);
   --section-gap: var(--space-32);
@@ -179,12 +327,12 @@
   --tile: 30px;
   --tile-box: 32px;
   --tile-radius: 8px;
-  --badge-radius: 12px;
+  --badge-radius: 6px;
   --avatar: 40px;
 
-  /* Type, iOS, on a 17 px root. Each line height is the target px over the font px, so it scales with the root size;
+  /* Type, iOS, on a 17 px root. Each line height is the target px over the font px, so it scales with Dynamic Type;
      the extra 0.005 px keeps layout's 1/64 px rounding from dropping a line below its target. Lines sit on the 4 px
-     grid, at 13 px and below on 2 px steps; the hero title takes Apple's Title 1, 28/34. System fonts only: SF Pro picks its Text or Display cut by size,
+     grid, at 13 px and below on 2 px steps. System fonts only: SF Pro picks its Text or Display cut by size,
      ui-rounded is SF Pro Rounded. Tracking stays the system's own. */
   --font: -apple-system, system-ui, sans-serif;
   --font-display: var(--font);
@@ -192,12 +340,11 @@
   --fw-title: 700;
   --fw-strong: 600;
   --fw-medium: 500;
-  --fw-caption: var(--fw-medium);
-  --fw-tab: var(--fw-title);
-  --fw-badge: var(--fw-title);
+  --fw-tab: var(--fw-strong);
+  --fw-badge: var(--fw-strong);
   --fw-num: var(--fw-strong);
   --fs-hero: calc(28rem / 17);
-  --lh-hero: calc(34.005 / 28);
+  --lh-hero: calc(32.005 / 28);
   --fs-title: calc(22rem / 17);
   --lh-title: calc(28.005 / 22);
   --fs-body: 1rem;
@@ -213,12 +360,12 @@
   /* Captions in artwork (the limits chart). */
   --fs-caption: calc(13rem / 17);
   --lh-caption: calc(16.005 / 13);
-  /* Pills: 12 px on a 20 px line, which is the pill's height. A tab on a card's edge: 12/16, on a plan tile's edge a
-     full pill tall. */
+  /* Pills (badges): rounded numerals on a 20 px line, which is the pill's height. The Best Value tab: 12/16. */
   --fs-badge: calc(13rem / 17);
-  --lh-pill: calc(24.005 / 13);
-  --fs-tab: calc(13rem / 17);
-  --lh-tab: calc(16.005 / 13);
+  --lh-pill: calc(20.005 / 13);
+  --font-badge: var(--font-rounded);
+  --fs-tab: calc(12rem / 17);
+  --lh-tab: calc(16.005 / 12);
   /* Segmented control labels, SegmentedControlNode.swift: 14 px, centred in their 28 px thumb. */
   --fs-segment: calc(14rem / 17);
   --lh-segment: calc(18.005 / 14);
@@ -227,15 +374,163 @@
   --lh-big: calc(56.005 / 48);
   --fs-num-l: calc(28rem / 17);
   --lh-num-l: calc(32.005 / 28);
-  /* A row's value: a plan's price per month. 20 px in a line of 28 on every platform: a tile of 64 holds it with
-     air round it, where a larger figure crowds the tile. */
-  --fs-value: calc(20rem / 17);
-  --lh-value: calc(28.005 / 20);
   --fs-section-header: var(--fs-small);
   --lh-section-header: var(--lh-small);
   --fw-section-header: 400;
   --cell-min: calc(44rem / 17);
   --motion-fade: 120ms;
+}
+
+.tone-premium {
+  --tone: var(--violet);
+  --tone-ink: var(--violet-ink);
+  --tone-tint: var(--violet-tint);
+  --tone-solid: var(--violet);
+  --best-border: var(--premium-ring);
+  --best-fill: var(--premium-tab);
+  --best-on-fill: #fff;
+  --glow-from: var(--premium-from);
+  --glow-to: var(--premium-to);
+  --best-glow-to: #e64fc8;
+}
+
+.tone-stars {
+  --tone: var(--stars-gold);
+  /* Gold lives in the art, the clusters and the Popular ring; text and controls take the theme, as Telegram's Stars
+     screens do (StarsBalanceComponent.swift fills its buttons with the theme accent). */
+  /* The theme's accent a step towards the text: Telegram's own accents fall to 2.9:1 (Android #1c93e3) and 3.5:1
+     (iOS #0088ff) as text. */
+  --tone-ink: color-mix(in srgb, var(--tg-theme-accent-text-color, var(--tg-theme-link-color, var(--fb-link))) 70%, var(--text));
+  --tone-tint: color-mix(in srgb, var(--tone-ink) 12%, transparent);
+  --tone-solid: var(--button);
+  /* The popular pack: a 1.5 px gold ring and the gold tab under deep ink. */
+  --best-border: linear-gradient(90deg, #fec846, #ec920a);
+  --best-ring: 1.5px;
+  --best-fill: linear-gradient(90deg, #fec846, #ec920a);
+  --best-on-fill: #2e1d00;
+  --glow-from: #fec846;
+  --glow-to: #ec920a;
+  --best-glow-to: #ec920a;
+  /* Gold reads as cream in light: beside the mark it pools as cream. */
+  --pool-a: 12%;
+}
+
+.tone-giveaway {
+  /* The Stars rule: row text, glyphs, radios, checks and the CTA take the theme, the hero art keeps its own hue
+     (fx palette). CTAs in the theme's button colour. */
+  --tone: var(--tone-ink);
+  /* The theme's accent a step towards the text: Telegram's own accents fall to 2.9:1 (Android #1c93e3) and 3.5:1
+     (iOS #0088ff) as text. */
+  --tone-ink: color-mix(in srgb, var(--tg-theme-accent-text-color, var(--tg-theme-link-color, var(--fb-link))) 70%, var(--text));
+  --tone-tint: color-mix(in srgb, var(--tone-ink) 12%, transparent);
+  --tone-solid: var(--button);
+  /* The blue half of the hero gradient and of its deep form, no magenta. */
+  --best-border: linear-gradient(90deg, #6b93ff, #976fff);
+  --best-fill: linear-gradient(90deg, #4466ee, #7356f6);
+  --best-on-fill: #fff;
+  --glow-from: #6b93ff;
+  --glow-to: #976fff;
+  --best-glow-to: #976fff;
+}
+
+/* A toned screen has one accent hue: links, actions and checks take it too. Its page top takes its light. */
+.tone-premium,
+.tone-stars,
+.tone-giveaway {
+  --accent: var(--tone-ink);
+  --link: var(--tone-ink);
+  --accent-fill: var(--tone);
+  --page-top: color-mix(in srgb, var(--glow-from) var(--page-top-a), var(--page-top-base));
+}
+
+.tone-stars,
+.tone-giveaway {
+  --accent-fill: var(--button);
+}
+
+/* Stars and giveaways light the page by their sources in both themes: no wash over the stage and an unlit top. A
+   faint wide gold turns brown on dark, so the gold of the stage stays in the hero, the rims and the Popular aura. */
+.tone-stars,
+.tone-giveaway {
+  --pool-top: 0%;
+  --page-top-a: 0%;
+}
+
+/* Their fireflies carry the tone's own light down the page: Stars gold to amber, giveaways blue to violet.
+   In light they are pastels a hair under the page; in dark, light added to bg_color, about the islands' luminance on
+   black, so on any host they light the page. */
+.tone-stars {
+  --fly-from: #ffedc8;
+  --fly-to: #ffecd9;
+}
+
+.tone-giveaway {
+  --fly-from: #e8efff;
+  --fly-to: #efedff;
+}
+
+:root.theme-dark .tone-stars {
+  --fly-from: #251a00;
+  --fly-to: #2b1700;
+  --fly-blend: plus-lighter;
+}
+
+:root.theme-dark .tone-giveaway {
+  --fly-from: #05104c;
+  --fly-to: #21094a;
+  --fly-blend: plus-lighter;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.theme-light) .tone-stars {
+    --fly-from: #251a00;
+    --fly-to: #2b1700;
+    --fly-blend: plus-lighter;
+  }
+
+  :root:not(.theme-light) .tone-giveaway {
+    --fly-from: #05104c;
+    --fly-to: #21094a;
+    --fly-blend: plus-lighter;
+  }
+}
+
+/* Dark pages per tone: Premium's indigo night, and for Stars and giveaways bg_color itself, true black on iOS. Each
+   page's light paints its own page, so a change of tone fades one into the other; the root takes the shown screen's,
+   so the body under the field and the bar follow it, from the moment the other one starts to leave. The shell copies
+   each screen's tone onto its wrapper (data-tone, src/ui/shell.ts): WebKit re-matches a :root:has() only when what
+   changes is the last compound of its argument, so .screen:not(.is-leaving) > .tone-stars would keep the root black
+   until the leaving page is removed. The page that goes carries is-going, which a Back mid-change moves to the
+   other, so the root follows the screen that stays from the turn on. The :has() rules stand alone: a client without
+   it drops only them. */
+:root.theme-dark .tone-premium {
+  --page: color-mix(in srgb, #22208f 18%, var(--tg-theme-bg-color, #000000));
+  --page-top-base: var(--page);
+}
+
+:root.theme-dark :is(.tone-stars, .tone-giveaway) {
+  --page: var(--tg-theme-bg-color, #000000);
+  --page-top-base: var(--page);
+}
+
+:root.theme-dark:has(.screen:not(.is-going, [hidden]):is([data-tone='stars'], [data-tone='giveaway'])) {
+  --page: var(--tg-theme-bg-color, #000000);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.theme-light) .tone-premium {
+    --page: color-mix(in srgb, #22208f 18%, var(--tg-theme-bg-color, #000000));
+    --page-top-base: var(--page);
+  }
+
+  :root:not(.theme-light) :is(.tone-stars, .tone-giveaway) {
+    --page: var(--tg-theme-bg-color, #000000);
+    --page-top-base: var(--page);
+  }
+
+  :root:not(.theme-light):has(.screen:not(.is-going, [hidden]):is([data-tone='stars'], [data-tone='giveaway'])) {
+    --page: var(--tg-theme-bg-color, #000000);
+  }
 }
 
 /* Android and desktop colour section headers with the client's accent, Telegram blue: a toned screen gives them its
@@ -244,11 +539,16 @@ html:not(.platform-ios) :is(.tone-premium, .tone-stars, .tone-giveaway) {
   --section-header: var(--tone-ink);
 }
 
-/* Root size per platform: rem follows the platform's body size. On iOS it is 17 px and does not follow the system
-   text size: tiles, pills and gaps are set in px, and a type that scaled without them would stand out of proportion
-   with them. */
+/* Root size per platform: rem follows the platform's body size, and on iOS Dynamic Type. Only touch devices take
+   the system body size: WebKit on a Mac answers 13 px, which would shrink the iOS frame in the dev host. */
 html {
   font-size: 17px;
+}
+
+@media (any-pointer: coarse) {
+  html.platform-ios {
+    font: -apple-system-body;
+  }
 }
 
 html.platform-android {
@@ -257,16 +557,12 @@ html.platform-android {
   --font-display: var(--font);
   /* No rounded system face: numerals stay Roboto, proportional. */
   --font-rounded: var(--font);
+  --island-radius: 16px;
   /* Roboto has 400, 500 and 700, so 600 would render bold; Telegram's one emphasis weight is Medium
      (AndroidUtilities.java bold()). The type ramp on a 16 px body. */
   --fw-title: 500;
   --fw-strong: 500;
   --fw-medium: 500;
-  --fw-caption: 400;
-  /* A pill on a tile's edge is small dark type on a fill: in Medium it reads thin, so it is bold here as on every
-     platform, like the pay button's label. */
-  --fw-tab: 700;
-  --fw-badge: 700;
   /* Telegram's 22 dp hero title (PremiumPreviewFragment.java), on a 28 px line. */
   --fs-hero: calc(22rem / 16);
   --lh-hero: calc(28.005 / 22);
@@ -281,17 +577,14 @@ html.platform-android {
   --lh-small-wrap: calc(20.005 / 14);
   --fs-caption: calc(12rem / 16);
   --lh-caption: calc(16.005 / 12);
-  --fs-badge: calc(13rem / 16);
-  --lh-pill: calc(24.005 / 13);
-  --fs-tab: calc(13rem / 16);
+  --fs-badge: calc(12rem / 16);
+  --lh-pill: calc(20.005 / 12);
+  --fs-tab: calc(12rem / 16);
   --fs-segment: calc(14rem / 16);
   --fs-big: calc(32rem / 16);
   --lh-big: calc(40.005 / 32);
   --fs-num-l: calc(24rem / 16);
   --lh-num-l: calc(32.005 / 24);
-  /* A value keeps under the 22 px hero title. */
-  --fs-value: calc(20rem / 16);
-  --lh-value: calc(28.005 / 20);
   --fs-section-header: calc(15rem / 16);
   --lh-section-header: calc(20.005 / 15);
   --fw-section-header: 500;
@@ -308,9 +601,9 @@ html.platform-desktop {
   --fw-title: 600;
   --fw-strong: 600;
   --fw-medium: 600;
-  --fw-caption: 400;
   --gutter: 20px;
   --section-inset: 20px;
+  --island-radius: 16px;
   --fs-hero: calc(24rem / 14);
   --lh-hero: calc(32.005 / 24);
   --fs-title: calc(20rem / 14);
@@ -324,19 +617,114 @@ html.platform-desktop {
   --lh-small-wrap: calc(16.005 / 12);
   --fs-caption: calc(12rem / 14);
   --lh-caption: calc(16.005 / 12);
-  --fs-badge: calc(13rem / 14);
-  --lh-pill: calc(24.005 / 13);
-  --fs-tab: calc(13rem / 14);
+  --fs-badge: calc(12rem / 14);
+  --lh-pill: calc(20.005 / 12);
+  --fs-tab: calc(12rem / 14);
   --fs-segment: var(--fs-sub);
   --lh-segment: calc(18.005 / 13);
   --fs-big: calc(40rem / 14);
   --lh-big: calc(48.005 / 40);
   --fs-num-l: calc(24rem / 14);
   --lh-num-l: calc(32.005 / 24);
-  --fs-value: calc(20rem / 14);
-  --lh-value: calc(28.005 / 20);
   --fs-section-header: calc(13rem / 14);
   --lh-section-header: calc(16.005 / 13);
   --fw-section-header: 600;
   --cell-min: calc(40rem / 14);
+}
+
+/* Telegram Desktop dark: all violet text takes a lighter ink, tier 2's and the pills' included, and red text a step
+   more of the text colour, so both hold 4.5:1 on its black cells and on a pill's tint. Desktop's section colour is
+   its bg_color, so a black cell there is the page's own colour and its hairline draws it. */
+html.platform-desktop.theme-dark {
+  --violet-ink: #b4a6ff;
+  --destructive-ink: color-mix(in srgb, var(--destructive) 55%, var(--text));
+}
+
+@media (prefers-color-scheme: dark) {
+  html.platform-desktop:not(.theme-light) {
+    --violet-ink: #b4a6ff;
+    --destructive-ink: color-mix(in srgb, var(--destructive) 55%, var(--text));
+  }
+}
+
+/* Android's and desktop's dark section colour is no lighter than bg_color, so a black cell there is about the page's
+   own colour. One even hairline draws its contour, as strong as a white island's edge on Telegram's iOS page
+   (1.15:1, 5.4 ΔL*). */
+html:is(.platform-android, .platform-desktop).theme-dark {
+  --rim-line: rgb(255 255 255 / 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:is(.platform-android, .platform-desktop):not(.theme-light) {
+    --rim-line: rgb(255 255 255 / 0.08);
+  }
+}
+
+/* WebKit before 16.2 (iOS 15.0 to 16.1) has no color-mix(): a token holding one computes to nothing there, so the
+   dark page would turn transparent, white under white text. The theme's own colours stand in for the surfaces. Its
+   hint, accent and destructive read 2.8 to 4.0:1 as text, so each text ink is one colour per scheme, the normal path's
+   iOS ink or a step nearer the text: 4.5:1 or better on every client's page and island, hovered, pressed, chosen and
+   both, and on its 12% tint over the island. */
+@supports not (color: color-mix(in srgb, red, red)) {
+  :root {
+    --secondary-text: #484849;
+    --destructive-ink: #b32922;
+    --page-top: var(--page-top-base);
+  }
+
+  .tone-premium,
+  .tone-stars,
+  .tone-giveaway {
+    --page-top: var(--page-top-base);
+  }
+
+  .tone-stars,
+  .tone-giveaway {
+    --tone-ink: #005eb0;
+    --tone-tint: rgba(0, 94, 176, 0.12);
+  }
+
+  :root.theme-dark {
+    --page: var(--tg-theme-bg-color, #000000);
+    --island-surface: var(--tg-theme-section-bg-color, #2c2c2e);
+    --secondary-text: #bababa;
+    --destructive-ink: #f5a69d;
+  }
+
+  :root.theme-dark .tone-premium {
+    --page: var(--tg-theme-bg-color, #000000);
+  }
+
+  :root.theme-dark .tone-stars,
+  :root.theme-dark .tone-giveaway {
+    --tone-ink: #92bcfa;
+    --tone-tint: rgba(146, 188, 250, 0.12);
+  }
+
+  html.platform-desktop.theme-dark {
+    --destructive-ink: #f5a69d;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not(.theme-light) {
+      --page: var(--tg-theme-bg-color, #000000);
+      --island-surface: var(--tg-theme-section-bg-color, #2c2c2e);
+      --secondary-text: #bababa;
+      --destructive-ink: #f5a69d;
+    }
+
+    :root:not(.theme-light) .tone-premium {
+      --page: var(--tg-theme-bg-color, #000000);
+    }
+
+    :root:not(.theme-light) .tone-stars,
+    :root:not(.theme-light) .tone-giveaway {
+      --tone-ink: #92bcfa;
+      --tone-tint: rgba(146, 188, 250, 0.12);
+    }
+
+    html.platform-desktop:not(.theme-light) {
+      --destructive-ink: #f5a69d;
+    }
+  }
 }

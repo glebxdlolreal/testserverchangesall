@@ -1,9 +1,7 @@
 /* Premium Bot Mini App 3D mark: Telegram's GLIcon/Icon3D (org/telegram/ui/Components/Premium/GLIcon)
    ported to plain WebGL 1, vanilla JavaScript, no build step.
    Source of geometry, textures and shaders: static/telegram/resources/premiumbot/3d/ (unchecked, as upstream). */
-/* The site's loader may run this file again in a document that already has it: the first run stays, with the marks
-   it holds, so a page change keeps them. */
-window.Premium3D = window.Premium3D || (function() {
+window.Premium3D = (function() {
   'use strict';
 
   // Deployments and standalone playgrounds may override the root before this script runs.
@@ -13,6 +11,7 @@ window.Premium3D = window.Premium3D || (function() {
   var parked = [];
   // Both stars are drawn from the same files.
   var assetCache = null;
+  var assetsLoaded = false;
 
   // ===== Small math and color helpers (from fx/motion.ts and fx/palette.ts) =====
 
@@ -76,7 +75,6 @@ window.Premium3D = window.Premium3D || (function() {
   var EASE_OUT_QUINT = cubicBezier(0.23, 1, 0.32, 1);
   var EASE_DEFAULT = cubicBezier(0.25, 0.1, 0.25, 1);
   var EASE_OUT = cubicBezier(0, 0, 0.58, 1);
-  var EASE_IN = cubicBezier(0.42, 0, 1, 1);
   var overshoot = function(t) {
     return (t - 1) * (t - 1) * (3 * t - 1) + 1;
   };
@@ -280,33 +278,6 @@ window.Premium3D = window.Premium3D || (function() {
       up: function(now) {
         startBack(now);
       },
-      // One whole turn about the upright axis, from where the mark stands to where it rests: a star that takes the
-      // other star's place changes its kind in this turn (adopt). `way` is 1 or -1.
-      turn: function(now, way) {
-        set = back = null;
-        idleAt = null;
-        play(now + 16, [['angleX', [m.angleX, 360 * way], 760, EASE_DEFAULT], ['angleY', [m.angleY, 0], 400, EASE_OUT]]);
-      },
-      // A quarter turn about the upright axis to the mark's edge, gathering speed, and from the other edge back to
-      // rest: the mark gives its place to another object, or takes one's (leave, arrive). `way` is 1 or -1, and
-      // `wait` holds the mark on its edge until the other object has reached its own.
-      // The mark stays on its edge once it is there, with no turn back and no idle to follow.
-      away: function(now, way, ms) {
-        back = null;
-        idleAt = null;
-        set = {
-          start: now + 16,
-          tracks: [['angleX', [m.angleX, m.angleX + 90 * way], ms, EASE_IN], ['angleY', [m.angleY, 0], ms, EASE_OUT]],
-          done: null
-        };
-      },
-      come: function(now, way, ms, wait) {
-        set = back = null;
-        idleAt = null;
-        m.angleX = -90 * way;
-        m.angleY = 0;
-        play(now + 16, [['angleX', [-90 * way, 0], ms, EASE_OUT, wait]]);
-      },
       tap: function(now, fx, fy) {
         set = back = null;
         if (Math.abs(m.angleX) > 10) {
@@ -398,6 +369,7 @@ window.Premium3D = window.Premium3D || (function() {
         starTexture(),
         getImage('flecks.png')
       ]).then(function(values) {
+        assetsLoaded = true;
         return { mesh: values[0], vertex: values[1], fragment: values[2], texture: values[3], flecks: values[4] };
       });
       assetCache.catch(function() {
@@ -531,19 +503,6 @@ window.Premium3D = window.Premium3D || (function() {
     var lastY = 0;
 
     return {
-      // The star between its two kinds: the shader's own mix of the two stars and the colours of their gradients,
-      // `mix` of the way from `from` to `to`. At the end the icon is of the kind it has turned into.
-      tint: function(from, to, mix) {
-        var a = GRADIENT[from].split(' ');
-        var b = GRADIENT[to].split(' ');
-        gl.uniform1f(u('golden'), (from === 'golden' ? 1 - mix : 0) + (to === 'golden' ? mix : 0));
-        for (var i = 0; i < a.length; i++) {
-          gl.uniform3fv(u('gradientColor' + (i + 1)), parseHex(mixHex(a[i], b[i], mix)).map(function(v) { return v / 255; }));
-        }
-        if (mix >= 1) {
-          kind = to;
-        }
-      },
       setBackground: function(hex) {
         background = document.createElement('canvas');
         background.width = background.height = 50;
@@ -625,6 +584,8 @@ window.Premium3D = window.Premium3D || (function() {
 
   // ===== Stage instances =====
 
+  // A mark that has not drawn, or has lost its context, for this long shows the flat glyph until it draws.
+  var FLAT_AFTER_MS = 1000;
   // One live list: every frame asks it, and destroy() can only take the listener off the list that has it.
   var motionQuery = typeof matchMedia === 'function' ? matchMedia('(prefers-reduced-motion: reduce)') : null;
   // Telegram's own flag, apart from the page's visibility: a minimised Mini App stays "visible".
@@ -655,17 +616,19 @@ window.Premium3D = window.Premium3D || (function() {
     return document.documentElement.classList.contains('theme-dark');
   }
 
-  // The page's own ground as #rrggbb (premiumbot-tokens.css --page). The app paints one night palette whatever the
-  // client's theme is, so the star takes this and never a colour of Telegram's theme: a light client's white would
-  // show through the glass.
-  function pageHex() {
-    var value = getComputedStyle(document.documentElement).getPropertyValue('--page').trim();
-    return parseHex(value) ? value : '#0a101c';
+  // A colour of Telegram's theme, which it hands over as #rrggbb in a --tg-theme-* variable.
+  function themeHex(name, fallback) {
+    var value = getComputedStyle(document.documentElement).getPropertyValue('--tg-theme-' + name).trim();
+    return parseHex(value) ? value : fallback;
   }
 
   // What the glass star refracts: the centre of the stage's glow (fx/stage.ts behind).
-  function behindColor(kind) {
-    return mixHex(pageHex(), ACCENT[kind] || ACCENT.star, 0.58);
+  function behindColor(kind, dark) {
+    var accent = ACCENT[kind] || ACCENT.star;
+    if (dark) {
+      return mixHex(themeHex('bg-color', '#000000'), accent, 0.58);
+    }
+    return mixHex(mixHex(themeHex('secondary-bg-color', '#ffffff'), '#ffffff', 0.95), accent, 0.28);
   }
 
   // Centres `el` on the mark, at `percent` of the mark's size.
@@ -697,16 +660,24 @@ window.Premium3D = window.Premium3D || (function() {
     }
   }
 
-  // The slot is never empty. Until the mark is drawn it shows the mark's picture at rest, which the sheets put there
-  // from the page's first paint (premiumbot.css .pm-mark::after); the mark, drawn whole in its first frame, takes
-  // the picture's place under .is-3d. A mark that cannot be drawn at all gives the slot to the flat glyph
-  // (.pm-mark.is-flat).
+  // Without its 3D mark the slot shows the flat glyph (premiumbot.css .pm-mark.is-flat).
   function setFlat(instance, flat) {
+    clearTimeout(instance.waiting);
     instance.box.classList.toggle('is-flat', flat);
     if (flat) {
       instance.box.classList.remove('is-3d');
     }
     instance.canvas.style.visibility = flat ? 'hidden' : '';
+  }
+
+  // The slot must not stay empty: the glyph stands in for a mark that is slow to draw, and leaves when it does.
+  function awaitDraw(instance) {
+    clearTimeout(instance.waiting);
+    instance.waiting = setTimeout(function() {
+      if (!instance.icon && !instance.dead) {
+        setFlat(instance, true);
+      }
+    }, FLAT_AFTER_MS);
   }
 
   function kindOf(box) {
@@ -724,47 +695,8 @@ window.Premium3D = window.Premium3D || (function() {
     return bloom;
   }
 
-  // Where a mark's slot stands in the viewport: its centre and its width.
-  function keepRect(instance) {
-    if (instance.box.isConnected) {
-      var r = instance.box.getBoundingClientRect();
-      if (r.width) {
-        instance.rect = { x: r.left + r.width / 2, y: r.top + r.height / 2, w: r.width };
-      }
-    }
-  }
-
-  // A mark kept from the page before goes from where it stood to where this page holds it in one move, slot and
-  // all, so the eye keeps hold of it. Its slot plays no entrance of its own (premiumbot.css .pm-mark.is-kept). It
-  // moves only from where it was seen whole: a mark the page had scrolled out of the screen, in part or all,
-  // would come flying in from outside it, so that one is simply in its slot.
-  var GLIDE_MS = 420;
-
-  function glide(box, from) {
-    box.classList.add('is-kept');
-    if (!from || !from.w || !box.animate || prefersReducedMotion()) {
-      return;
-    }
-    if (from.y - from.w / 2 < 0 || from.y + from.w / 2 > window.innerHeight) {
-      return;
-    }
-    var r = box.getBoundingClientRect();
-    if (!r.width) {
-      return;
-    }
-    var dx = from.x - (r.left + r.width / 2);
-    var dy = from.y - (r.top + r.height / 2);
-    var scale = from.w / r.width;
-    if (Math.abs(dx) < 1 && Math.abs(dy) < 1 && Math.abs(scale - 1) < 0.02) {
-      return;
-    }
-    box.animate([
-      { transform: 'translate(' + dx.toFixed(1) + 'px, ' + dy.toFixed(1) + 'px) scale(' + scale.toFixed(3) + ')' },
-      { transform: 'none' }
-    ], { duration: GLIDE_MS, easing: 'cubic-bezier(0.32, 0.72, 0, 1)' });
-  }
-
-  function spawn(box) {
+  // `taking` says the page before had a mark on screen until this one took its place.
+  function spawn(box, taking) {
     var kind = kindOf(box);
     var canvas = document.createElement('canvas');
     canvas.className = 'pm-mark-gl';
@@ -782,11 +714,10 @@ window.Premium3D = window.Premium3D || (function() {
       gl: null,
       icon: null,
       failed: false,
-      // The mark's picture stands in the slot until the mark is drawn, so the mark comes whole, not through a fade.
-      instant: true,
+      // A mark that takes another's place is there in the page's first frame. Any other fades in, as does one whose
+      // files are still on their way.
+      instant: !!taking && assetsLoaded,
       motion: iconMotion(kind, 0),
-      rect: null,
-      beat: 0,
       gate: frameGate(),
       last: 0,
       raf: 0,
@@ -800,8 +731,9 @@ window.Premium3D = window.Premium3D || (function() {
       unit: 0,
       turned: '',
       dark: dark,
-      behind: behindColor(kind),
+      behind: behindColor(kind, dark),
       seen: typeof IntersectionObserver !== 'function',
+      waiting: 0,
       tilt: { x: 0, y: 0 },
       target: { x: 0, y: 0 },
       press: null,
@@ -824,6 +756,7 @@ window.Premium3D = window.Premium3D || (function() {
         setFlat(instance, true);
       }
     });
+    awaitDraw(instance);
     bindStage(instance);
     layout(instance);
     return instance;
@@ -900,13 +833,16 @@ window.Premium3D = window.Premium3D || (function() {
         instance.target.y = 0;
       }
     };
-    // The canvas of a lost context is blank: the slot goes back to the mark's picture until a context returns.
+    // An engine that takes a context back for good sends no webglcontextrestored: the slot would stay empty, so the
+    // glyph stands in until a context returns.
     instance.onContextLost = function(e) {
       e.preventDefault();
       instance.icon = null;
       instance.ready = false;
       update(instance);
-      instance.box.classList.remove('is-3d');
+      if (!instance.failed) {
+        awaitDraw(instance);
+      }
     };
     instance.onContextRestored = function() {
       tryDraw(instance);
@@ -1033,31 +969,8 @@ window.Premium3D = window.Premium3D || (function() {
       instance.spin = spin;
       instance.box.setAttribute('data-spin', String(spin));
     }
-    if (instance.tint) {
-      stepTint(instance, now);
-    }
     turnBloom(instance, f);
     instance.icon.draw(f, still);
-  }
-
-  // A star that took the other star's place turns into its own kind over TINT_MS, eased in and out: what it refracts,
-  // the two stars' mix in the shader and their gradients run together from one to the other. With motion reduced it
-  // is its own kind at once.
-  var TINT_MS = 520;
-
-  function stepTint(instance, now) {
-    var tint = instance.tint;
-    if (!tint.start) {
-      tint.start = now;
-    }
-    var t = prefersReducedMotion() ? 1 : Math.min(Math.max((now - tint.start) / TINT_MS, 0), 1);
-    var mix = t * t * (3 - 2 * t);
-    instance.icon.setBackground(mixHex(tint.behind, instance.behind, mix));
-    instance.icon.tint(tint.from, instance.kind, mix);
-    if (t >= 1) {
-      instance.tint = null;
-      instance.icon.setBackground(instance.behind);
-    }
   }
 
   function update(instance) {
@@ -1068,9 +981,6 @@ window.Premium3D = window.Premium3D || (function() {
         instance.raf = requestAnimationFrame(loop);
         if (instance.gate(now)) {
           frame(instance, now);
-          if (++instance.beat % 12 === 0) {
-            keepRect(instance);
-          }
         }
       };
       instance.raf = requestAnimationFrame(loop);
@@ -1090,7 +1000,7 @@ window.Premium3D = window.Premium3D || (function() {
   // The theme changed: the star refracts the new page, and a frame outside the loop shows it.
   function retheme(instance) {
     var dark = isDark();
-    var behind = behindColor(instance.kind);
+    var behind = behindColor(instance.kind, dark);
     if (dark === instance.dark && behind === instance.behind) {
       return;
     }
@@ -1111,10 +1021,11 @@ window.Premium3D = window.Premium3D || (function() {
     }
   }
 
-  // A page change destroys and mounts in one task: the page script ends a page's marks only as the next page starts
-  // (premiumbot.js init), however early the site's loader said the page was left. A mark that has drawn waits this
-  // long for a slot in the page that follows, with its canvas, context and motion, and is freed when none takes it.
+  // A page change destroys and mounts in one task. A mark that has drawn waits this long for a slot of its kind in the
+  // next page, with its canvas, context and motion, and is freed when no page takes it.
   var PARK_MS = 2000;
+  // Set by a destroy() that took a drawn mark off its page, for the mount() that follows: that one is a page change.
+  var changing = false;
 
   function release(instance) {
     instance.dead = true;
@@ -1134,6 +1045,7 @@ window.Premium3D = window.Premium3D || (function() {
       cancelAnimationFrame(instance.raf);
       instance.raf = 0;
     }
+    clearTimeout(instance.waiting);
     // A finger still down will send this canvas no release: it lets go as a cancelled pointer does.
     if (instance.press) {
       instance.onPointerUp({ type: 'pointercancel', pointerId: instance.press.pointerId });
@@ -1146,139 +1058,48 @@ window.Premium3D = window.Premium3D || (function() {
     }
     instance.spin = 0;
     instance.target.x = instance.target.y = 0;
-    // When it left its page: a slot that takes it in the same task has it straight from the page before.
-    instance.handed = performance.now();
+    changing = true;
     parked.push(instance);
     instance.parking = setTimeout(function() {
       parked.splice(parked.indexOf(instance), 1);
+      changing = false;
       release(instance);
     }, PARK_MS);
   }
 
-  // The next page's slot takes a waiting mark as it stands: the same canvas, moved, so no frame is without the mark
-  // and its motion goes on. Where no mark of the slot's kind waits, a waiting star of the other kind is taken: the
-  // two are one mesh under one shader, so it turns into the slot's kind where it stands (stepTint), and its own light
-  // on a dark page, the golden star's bloom, comes up with it.
+  // The next page's slot takes a waiting mark of its kind as it stands: the same canvas, moved, so no frame is without
+  // the mark and its motion goes on.
   function adopt(box) {
     var kind = kindOf(box);
-    var found = -1;
     for (var i = 0; i < parked.length; i++) {
-      if (parked[i].kind === kind) {
-        found = i;
-        break;
+      var instance = parked[i];
+      if (instance.kind !== kind) {
+        continue;
       }
-      if (found < 0) {
-        found = i;
+      parked.splice(i, 1);
+      clearTimeout(instance.parking);
+      if (instance.gl.isContextLost()) {
+        release(instance);
+        return null;
       }
+      instance.box = box;
+      instance.bloom = bloomOf(box, kind);
+      instance.turned = '';
+      instance.seen = true;
+      box.appendChild(instance.canvas);
+      box.classList.add('is-3d');
+      instances.push(instance);
+      bindStage(instance);
+      layout(instance);
+      retheme(instance);
+      // Redrawn as it stood, into a buffer the new box may have resized. The frame after is one step on, however long
+      // the page change took.
+      frame(instance, instance.last);
+      update(instance);
+      instance.last = 0;
+      return instance;
     }
-    if (found < 0) {
-      return null;
-    }
-    var instance = parked[found];
-    parked.splice(found, 1);
-    clearTimeout(instance.parking);
-    if (instance.gl.isContextLost()) {
-      release(instance);
-      return null;
-    }
-    var turning = instance.kind !== kind;
-    if (turning) {
-      instance.tint = { from: instance.kind, behind: instance.behind, start: 0 };
-      instance.kind = kind;
-      instance.behind = behindColor(kind);
-    }
-    instance.box = box;
-    instance.bloom = bloomOf(box, kind);
-    if (turning && instance.bloom && instance.bloom.animate && !prefersReducedMotion()) {
-      instance.bloom.animate([{ opacity: 0, offset: 0 }], { duration: TINT_MS, easing: 'ease-in-out' });
-    }
-    if (turning) {
-      instance.motion.turn(instance.clockMs, kind === 'golden' ? 1 : -1);
-    }
-    instance.turned = '';
-    instance.seen = true;
-    box.appendChild(instance.canvas);
-    box.classList.add('is-3d');
-    instances.push(instance);
-    bindStage(instance);
-    // Kept from the page before, the mark stands from the first frame and moves from where it stood. One that
-    // waited through a page with no mark comes as a mark does on any page, by the screen's own entrance.
-    if (performance.now() - instance.handed < 100) {
-      glide(box, instance.rect);
-    }
-    instance.rect = null;
-    layout(instance);
-    retheme(instance);
-    // Redrawn as it stood, into a buffer the new box may have resized. The frame after is one step on, however long
-    // the page change took.
-    frame(instance, instance.last);
-    update(instance);
-    instance.last = 0;
-    return instance;
-  }
-
-  // The mark gives its place to another object of the page that follows, the gift's sticker where a gift is the
-  // page's matter (premiumbot.js heroTurn). The mark that has just left its page stays on screen where it stood, on
-  // the document itself, turns to its edge and is gone, and the other object comes from its own edge. The other
-  // way round the mark comes from its edge into its slot (arrive). Neither fades: on its edge an object is a line,
-  // and one line takes the other's place, so no frame is without an object.
-  var LEAVE_MS = 200;
-  var ARRIVE_MS = 340;
-
-  function leave(way) {
-    var instance = null;
-    for (var i = 0; i < parked.length; i++) {
-      if (performance.now() - parked[i].handed < 100 && parked[i].rect) {
-        instance = parked[i];
-        break;
-      }
-    }
-    if (!instance || !instance.canvas.animate || prefersReducedMotion()) {
-      return false;
-    }
-    parked.splice(parked.indexOf(instance), 1);
-    clearTimeout(instance.parking);
-    var at = instance.rect;
-    var holder = document.createElement('div');
-    holder.setAttribute('aria-hidden', 'true');
-    holder.style.cssText = 'position: fixed; z-index: 3; pointer-events: none; left: ' + (at.x - at.w / 2).toFixed(1) + 'px; top: ' +
-      (at.y - at.w / 2).toFixed(1) + 'px; width: ' + at.w + 'px; height: ' + at.w + 'px;';
-    holder.appendChild(instance.canvas);
-    document.body.appendChild(holder);
-    instance.box = holder;
-    instance.bloom = null;
-    instance.rect = null;
-    instance.last = 0;
-    instance.motion.away(instance.clockMs, way, LEAVE_MS);
-    holder.animate([{ transform: 'none' }, { transform: 'scale(0.9)' }], { duration: LEAVE_MS, easing: 'cubic-bezier(0.42, 0, 1, 1)', fill: 'forwards' });
-    // On its edge the mark stays one frame more, over the other object's first: no frame is without an object.
-    // The end is told by the mark's own clock, which a frame held up by the page's arrival does not run ahead of.
-    var end = instance.clockMs + 16 + LEAVE_MS + 16;
-    var step = function(now) {
-      if (instance.clockMs < end && !instance.gl.isContextLost()) {
-        frame(instance, now);
-        requestAnimationFrame(step);
-        return;
-      }
-      release(instance);
-      if (holder.parentNode) {
-        holder.parentNode.removeChild(holder);
-      }
-    };
-    requestAnimationFrame(step);
-    return true;
-  }
-
-  function arrive(box, way, wait) {
-    for (var i = 0; i < instances.length; i++) {
-      if (instances[i].box === box) {
-        if (!prefersReducedMotion()) {
-          instances[i].motion.come(instances[i].clockMs, way, ARRIVE_MS, wait);
-        }
-        return true;
-      }
-    }
-    return false;
+    return null;
   }
 
   var visibilityHandler = null;
@@ -1289,31 +1110,17 @@ window.Premium3D = window.Premium3D || (function() {
   var activatedHandler = null;
   var deactivatedHandler = null;
 
-  // The loader says the page is about to be replaced: where each mark stands is noted while it still stands there.
-  function note() {
-    for (var i = 0; i < instances.length; i++) {
-      keepRect(instances[i]);
-    }
-  }
-
-  // `continued` says the page goes on from one in a document the browser has unloaded (premiumbot.js init): its mark
-  // is the same mark to the eye, so its slot plays no entrance.
-  function mount(root, continued) {
+  function mount(root) {
     destroy();
+    var taking = changing;
+    changing = false;
     var app = webApp();
     // A mount while Telegram has the app in the background hears no event until `activated`.
     active = !app || app.isActive !== false;
     var boxes = root.querySelectorAll('[data-icon3d]');
     for (var i = 0; i < boxes.length; i++) {
-      // A slot the page keeps out of sight, the other prize's on a giveaway, takes no mark.
-      if (!boxes[i].getClientRects().length) {
-        continue;
-      }
       if (!adopt(boxes[i])) {
-        spawn(boxes[i]);
-        if (continued) {
-          boxes[i].classList.add('is-kept');
-        }
+        spawn(boxes[i], taking);
       }
     }
     if (!instances.length) {
@@ -1408,9 +1215,6 @@ window.Premium3D = window.Premium3D || (function() {
 
   return {
     mount: mount,
-    destroy: destroy,
-    note: note,
-    leave: leave,
-    arrive: arrive
+    destroy: destroy
   };
 })();
